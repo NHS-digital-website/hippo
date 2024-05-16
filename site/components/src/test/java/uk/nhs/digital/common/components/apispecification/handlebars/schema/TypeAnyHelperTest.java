@@ -2,10 +2,11 @@ package uk.nhs.digital.common.components.apispecification.handlebars.schema;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
@@ -13,9 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.jknack.handlebars.Options;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub;
@@ -29,8 +28,6 @@ public class TypeAnyHelperTest {
 
     private static final String EMPTY_STRING = "";
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
     @Mock private Options.Buffer buffer;
 
     private JsonNodeFactory jsonFactory = new JsonNodeFactory(true);
@@ -40,8 +37,7 @@ public class TypeAnyHelperTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
-
+        openMocks(this);
         options = OptionsStub.with(buffer);
     }
 
@@ -139,7 +135,7 @@ public class TypeAnyHelperTest {
     public void rendersEmptyString_forModelOfIgnoredType() throws IOException {
 
         // given
-        final String typeToIgnoreName = "java.util.Map";
+        final String typeToIgnoreName = "java.util.HashMap";
         //noinspection rawtypes
         final Map modelOfIgnoredType = new HashMap();
 
@@ -157,21 +153,19 @@ public class TypeAnyHelperTest {
         );
     }
 
-    @Test
+    @Test(expected = SchemaRenderingException.class)
     public void throwsException_onAnyFailure() throws IOException {
 
         // given
         final RuntimeException expectedCause = new RuntimeException();
         given(buffer.append(any())).willThrow(expectedCause);
 
-        expectedException.expect(SchemaRenderingException.class);
-        expectedException.expectMessage("Failed to render value of type 'any' for: model");
-        expectedException.expectCause(sameInstance(expectedCause));
-
         final String irrelevantModel = "model";
 
         // when
         helper.apply(irrelevantModel, options);
+
+        fail("Failed to render value of type 'any' for: model");
 
         // then
         // expectations in 'given' are satisfied

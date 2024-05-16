@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.List;
 
@@ -35,5 +36,10 @@ public class GraphicBlock extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:items")
     public List<?> getItems() {
         return getChildBeansByName("website:items");
+    }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getImage();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
     }
 }

@@ -43,7 +43,7 @@ public interface HeroComponentInfo {
         defaultValue = "left",
         displayName = "Alignment of text"
         )
-    @DropDownList({"left", "right"})
+    @DropDownList({"left", "right", "NDRS ImageTextBanner"})
     String getTextAlignment();
 
     @Parameter(

@@ -94,7 +94,7 @@ public class CodegenParameterExampleHtmlRenderer {
                             );
 
                         example.getValue().ifPresent(value -> examplesHtml
-                            .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">")
+                            .append("<p class=\"nhsd-t-body\"><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">")
                             .append(escapeHtml4(value))
                             .append("</span></p>\n")
                         );
@@ -102,13 +102,13 @@ public class CodegenParameterExampleHtmlRenderer {
                         return examplesHtml;
                     })
                     .reduce(StringBuilder::append)
-                    .get()
+                    .orElseThrow(() -> new IllegalArgumentException("complexExamplesFromParamSchema is empty. There are no ParamExamples to render."))
             ).toString();
     }
 
     private String htmlFrom(final String simpleExampleValue) {
         return MessageFormat.format(
-            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">{0}</span>",
+            "Example: <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">{0}</span>",
             escapeHtml4(simpleExampleValue)
         );
     }

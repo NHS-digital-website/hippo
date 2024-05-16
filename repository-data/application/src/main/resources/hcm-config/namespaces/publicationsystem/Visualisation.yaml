@@ -1,0 +1,152 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/publicationsystem/Visualisation:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /type:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Icon
+            caption: Visualisation Type
+            field: visualisationtype
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Title
+            field: title
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /dataFile:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Data (Excel xlsx file)
+            field: dataFile
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /icontype:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Square,Person,Wine Glass
+            caption: Icon Type
+            field: icontype
+            hint: Not applicable to all chart types
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /colour:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Light,Dark,Coloured
+            caption: Visualisation Colour
+            field: colour
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /colour:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:colour
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /dataFile:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:dataFile
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:resource
+            hipposysedit:validators:
+            - required
+            - publicationsystem-charts-datafile
+            jcr:primaryType: hipposysedit:field
+          /icontype:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:icontype
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /visualisationtype:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:type
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /publicationsystem:dataFile:
+            hippo:filename: publicationsystem:resource
+            hippo:text:
+              resource: /namespaces/publicationsystem/visualisation/prototypes/prototype/dataFile/text.bin
+              type: binary
+            jcr:data:
+              resource: data.bin
+              type: binary
+            jcr:encoding: UTF-8
+            jcr:lastModified: 2008-03-26T11:03:00Z
+            jcr:mimeType: application/vnd.hippo.blank
+            jcr:primaryType: publicationsystem:resource
+          jcr:primaryType: publicationsystem:Visualisation
+          publicationsystem:colour: Light
+          publicationsystem:title: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

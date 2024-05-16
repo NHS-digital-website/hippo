@@ -1,0 +1,67 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/our-work:
+      /main:
+        /banner:
+          hst:referencecomponent: our-work/our-work-hub/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: our-work/our-work-hub/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: ndrs-hub-page
+        jcr:primaryType: hst:component
+      /ncardrs-partnerships:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncardrs-partnerships/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncardrs-partnerships/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncardrs-work-programme:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncardrs-work-programme/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncardrs-work-programme/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncras-partnerships:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncras-partnerships/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncras-partnerships/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      /ncras-work-programme:
+        /main:
+          /banner:
+            hst:referencecomponent: our-work/ncras-work-programme/banner
+            jcr:primaryType: hst:containercomponentreference
+          /main:
+            hst:referencecomponent: our-work/ncras-work-programme/main
+            jcr:primaryType: hst:containercomponentreference
+          hst:componentclassname: uk.nhs.digital.ps.components.DatasetComponent
+          hst:template: ndrs-hub-page
+          jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/basepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

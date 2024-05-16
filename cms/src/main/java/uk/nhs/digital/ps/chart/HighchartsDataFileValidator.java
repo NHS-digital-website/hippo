@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Optional;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
@@ -25,7 +25,7 @@ public class HighchartsDataFileValidator implements Validator<NodeDecorator> {
         try {
             final Node configNode = context.getParentNode();
             final HighchartsJcrNodeReader jcrNodeReader = HippoServiceRegistry.getService(HighchartsJcrNodeReader.class);
-            final AbstractHighchartsParameters parameters = jcrNodeReader.readParameters(configNode);
+            final AbstractVisualisationParameters parameters = jcrNodeReader.readParameters(configNode);
 
             if (isChartConfigInvalid(parameters)) {
                 return Optional.of(context.createViolation());
@@ -37,7 +37,7 @@ public class HighchartsDataFileValidator implements Validator<NodeDecorator> {
         return Optional.empty();
     }
 
-    private boolean isChartConfigInvalid(final AbstractHighchartsParameters parameters) {
+    private boolean isChartConfigInvalid(final AbstractVisualisationParameters parameters) {
 
         if (parameters.noInputFileContent()) {
             return true;

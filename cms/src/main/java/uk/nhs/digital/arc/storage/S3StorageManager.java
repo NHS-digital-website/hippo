@@ -1,12 +1,17 @@
 package uk.nhs.digital.arc.storage;
 
 import org.onehippo.cms7.services.HippoServiceRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.arc.util.FilePathData;
 import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Supplier;
+import javax.ws.rs.core.MediaType;
 
 /**
  * The S3 implementation of the {@link ArcStorageManager} interface used for
@@ -17,7 +22,9 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class S3StorageManager implements ArcStorageManager {
 
-    private PooledS3Connector s3Connector;
+    private static final Logger LOGGER = LoggerFactory.getLogger(S3StorageManager.class);
+
+    protected PooledS3Connector s3Connector;
 
     public S3StorageManager() {
     }
@@ -54,7 +61,7 @@ public class S3StorageManager implements ArcStorageManager {
     }
 
     private boolean isFileS3AndExists(FilePathData filePathData) {
-        if (filePathData.isS3Protocol()) {
+        if (filePathData.isS3Protocol() && filePathData.getFilePathNoBucket().length() > 0) {
             return getS3Connector().doesObjectExist(filePathData.getS3Bucketname(), filePathData.getFilePathNoBucket());
         }
 
@@ -73,6 +80,26 @@ public class S3StorageManager implements ArcStorageManager {
     public InputStream getFileInputStream(FilePathData filePathData) {
         ArcFileData fileMetaData = getFileMetaData(filePathData);
         return fileMetaData.getDelegateStream();
+    }
+
+    @Override
+    public void writeOutcomeFile(String docbase, String location, String text) {
+        FilePathData sourceFilePathData = new FilePathData(docbase, location);
+
+        if (sourceFilePathData.isS3Protocol()) {
+            String sourceBucketName = sourceFilePathData.getS3Bucketname();
+            String noBucketSourceFilePath = sourceFilePathData.getFilePathNoBucket();
+
+            try {
+                if (!getS3Connector().doesObjectExist(sourceBucketName, noBucketSourceFilePath)) {
+                    Supplier<InputStream> inputStream = () -> new ByteArrayInputStream(text.getBytes());
+                    getS3Connector().uploadOutcome(inputStream, sourceFilePathData.getS3Bucketname(), noBucketSourceFilePath, MediaType.TEXT_PLAIN);
+                }
+            } catch (Exception e) {
+                LOGGER.error("Unable to write an outcome file for Automatic report creation. "
+                    + "Base bucket/folder was {} and filename requested was '{}'", docbase, location);
+            }
+        }
     }
 
     private ArcFileData getS3Object(FilePathData filePathData) {

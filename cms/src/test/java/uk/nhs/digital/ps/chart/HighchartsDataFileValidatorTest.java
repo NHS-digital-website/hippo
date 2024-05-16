@@ -2,20 +2,19 @@ package uk.nhs.digital.ps.chart;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.repository.impl.NodeDecorator;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Optional;
 import javax.jcr.Node;
@@ -28,7 +27,7 @@ public class HighchartsDataFileValidatorTest {
     @Mock
     private HighchartsJcrNodeReader highchartsJcrNodeReader;
     @Mock
-    private AbstractHighchartsParameters highchartsParameters;
+    private AbstractVisualisationParameters highchartsParameters;
 
     @Mock
     private ValidationContext validationContextMock;
@@ -39,16 +38,13 @@ public class HighchartsDataFileValidatorTest {
     @Mock
     private Violation violation;
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     private HighchartsDataFileValidator highchartsDataFileValidator;
 
     private NodeDecorator nodeDecorator;
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
 
         HippoServiceRegistry.register(highchartsInputParser, HighchartsInputParser.class);
         HippoServiceRegistry.register(highchartsJcrNodeReader, HighchartsJcrNodeReader.class);

@@ -25,20 +25,13 @@
                 <span class="css-loader"></span>
             </div>
             <span class="attachment">
-                <a data-uipath="ps.publication.chart-section.data-file"
-                   title="${linkText}"
-                   download="${slugify(section.title)}.csv"
+                <a data-uipath="ps.publication.chart-section.data-file" title="${linkText}" download="${slugify(section.title)}.csv"
                    <#if (chartData.data)??>
                        href="data:text/plain;base64,${chartData.filterData}"
                    <#else>
                        href="${section.url}" target="_blank"
                    </#if>
-                   onClick="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${slugify(section.title)}'
-                           );"
-                   onKeyUp="logGoogleAnalyticsEvent(
-                           'Download chart data','Publication','${slugify(section.title)}'
-                           );">${linkText}</a>
+                  >${linkText}</a>
             </span>
         </figure>
     </div>

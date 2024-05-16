@@ -1,7 +1,7 @@
 package uk.nhs.digital.common.components.apispecification.commonmark;
 
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.commonmark.ext.gfm.tables.TableBlock;
 import org.commonmark.node.Code;
@@ -22,7 +22,7 @@ public class CodeAttributeProviderTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CodeAttributeProviderTest {
         codeAttributeProvider.setAttributes(nodeCode, "tagName is ignored", attributes);
 
         // then
-        then(attributes).should().put("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
+        then(attributes).should().put("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break");
         then(attributes).shouldHaveNoMoreInteractions();
     }
 
@@ -49,6 +49,6 @@ public class CodeAttributeProviderTest {
         codeAttributeProvider.setAttributes(nodeOtherThanCode, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveZeroInteractions();
+        then(attributes).shouldHaveNoMoreInteractions();
     }
 }

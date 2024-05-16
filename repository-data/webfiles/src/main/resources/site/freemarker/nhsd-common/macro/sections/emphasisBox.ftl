@@ -1,5 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro emphasisBox section>
     <#if section?is_string >
       <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
@@ -8,7 +11,7 @@
     </#if>
 
     <#if section.heading?has_content && slug??>
-        <#assign ariaAttribute = 'aria-label' />
+        <#assign ariaAttribute = 'aria-labelledby' />
         <#assign ariaValue = slugify(slug) />
     <#else>
         <#assign ariaAttribute = 'aria-label' />
@@ -34,7 +37,7 @@
         <#assign borderColour = 'grey' />
     </#if>
 
-    <div class="nhsd-m-emphasis-box nhsd-m-emphasis-box--${slugify(section.emphasisType)} nhsd-!t-margin-bottom-6" ${ariaAttribute}="${ariaValue}">
+    <section class="nhsd-m-emphasis-box nhsd-m-emphasis-box--${slugify(section.emphasisType)} nhsd-!t-margin-bottom-6" ${ariaAttribute}="${ariaValue}">
         <div class="nhsd-a-box nhsd-a-box--border-${borderColour}">
 
             <#if section.image??>
@@ -43,7 +46,11 @@
                         <picture class="nhsd-a-image__picture">
                             <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
                             <#if iconImage?ends_with("svg")>
-                                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" alt="${section.heading}" style="object-fit:fill" />
+                                <#if section.heading?? && section.heading?has_content>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" alt="${section.heading}" style="object-fit:fill" />
+                                <#else>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(section.svgXmlFromRepository, "231f20"))}" alt="" style="object-fit:fill" />
+                                </#if>
                             <#else>
                                 <img src="${iconImage}" alt="${section.heading}" style="object-fit:contain" />
                             </#if>
@@ -55,7 +62,7 @@
             <div class="nhsd-m-emphasis-box__content-box">
 
                 <#if section.heading?has_content && slug??>
-                    <p class="nhsd-t-heading-s nhsd-t-word-break" role="heading" id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</p>
+                    <p class="nhsd-t-heading-s nhsd-t-word-break" id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</p>
                 </#if>
 
                 <#if section.body?? && section.body.content?has_content>
@@ -68,5 +75,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 </#macro>

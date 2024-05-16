@@ -2,11 +2,14 @@ package uk.nhs.digital.apispecs.jobs;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.powermock.api.mockito.PowerMockito.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
@@ -16,7 +19,9 @@ import static uk.nhs.digital.test.util.TestFileUtils.contentOfFileFromClasspath;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.testing.mock.jcr.MockJcr;
+import org.apache.sling.testing.mock.jcr.MockQueryResult;
 import org.hippoecm.repository.api.Document;
 import org.junit.Before;
 import org.junit.Rule;
@@ -38,17 +43,21 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.mock.env.MockEnvironment;
 import uk.nhs.digital.JcrDocumentUtils;
 import uk.nhs.digital.JcrNodeUtils;
+import uk.nhs.digital.JcrRowUtils;
+import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.test.util.JcrTestUtils;
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromApigeeJob.class, ApplicationSecrets.class})
+@PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromApigeeJob.class, ApplicationSecrets.class, JcrRowUtils.class})
 @PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
@@ -156,6 +165,12 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(System.getenv(PARAM_APIGEE_OAUTH_PASSWORD)).willReturn(OAUTH_PASSWORD);
         given(System.getenv(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN)).willReturn(OAUTH_BASIC_AUTH_TOKEN);
         given(System.getenv(PARAM_APIGEE_OAUTH_OTPKEY)).willReturn(OAUTH_OTP_KEY);
+
+        // This config is required to create the proxygenApi bean in custom-resource-resolvers
+        given(System.getenv("proxygenMachineUser.key")).willReturn("privateKey");
+        given(System.getenv("DEVZONE_PROXYGEN_OAUTH_CLIENT_ID")).willReturn("clientId");
+        given(System.getenv("devzone.proxygen.oauth.aud.url")).willReturn("audUrl");
+        given(System.getenv("devzone.proxygen.oauth.kid")).willReturn("test-1");
     }
 
     private void crispApiConfiguredForOAuth2() {
@@ -222,6 +237,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     private Node existingSpecHandleNode() {
         return getRelativeNode(
             repositoryRootNode, "/content/documents/corporate-website/api-specifications-location-a/api-spec-a");
+    }
+
+    private Node existingSpecDraftVariantNode() {
+        return getRelativeNode(
+            repositoryRootNode, "/content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a");
     }
 
     private Node existingSpecImportMetadataNode() {
@@ -302,15 +322,16 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     private void cmsContainsSpecDocMatchingUpdatedSpecInApigee() throws Exception {
-
         initJcrRepoFromYaml(session, testDataFileLocation("specification-documents-in-cms.yml"));
 
         repositoryRootNode = getRootNode(session);
 
+        setJcrQueryResultForInitialSyncDataForAllApiSpecifications();
+
         final Node specDocHandleNode = existingSpecHandleNode();
         MockJcr.setQueryResult(
             session,
-            "/jcr:root/content/documents/corporate-website//element(*, website:apispecification)/..[@jcr:primaryType='hippo:handle']",
+            "/jcr:root/content/documents/corporate-website//element(*, website:apispecification)/..[@jcr:primaryType='hippo:handle' and @jcr:uuid='api-spec-a-handle-node-id']",
             Query.XPATH,
             singletonList(specDocHandleNode)
         );
@@ -322,6 +343,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         );
 
         // Low-level JCR-related components mocked where it was prohibitively hard to avoid:
+        stubJcrQuerySelectorNameCalls();
 
         final DocumentManager documentManager = mock(DocumentManager.class);
 
@@ -351,12 +373,73 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         return TEST_DATA_FILES_DIR + fileName;
     }
 
+    private void setJcrQueryResultForInitialSyncDataForAllApiSpecifications() {
+        // MockJcr.setQueryResult(...) does not support setting column names in the
+        // result that is required for findInitialSyncDataForAllApiSpecification(),
+        // hence the need for a more manual approach for this query
+
+        final Node specDocDraftVariantNode = existingSpecDraftVariantNode();
+
+        final List<String> initialSyncDataColumnNames = asList(
+            "website:specification_id", "hippo:paths");
+
+        final AtomicReference<String> actualQuery = new AtomicReference<>();
+
+        MockJcr.addQueryResultHandler(session, query -> {
+            final String expectedStatement =
+                "/jcr:root/content/documents/corporate-website//element(*, website:apispecification)[hippostd:state = 'draft']/(@website:specification_id union @hippo:paths)";
+            actualQuery.set(query.getStatement());   // intercept actual query
+            if (expectedStatement.equals(actualQuery.get())) {
+                return new MockQueryResult(singletonList(specDocDraftVariantNode), initialSyncDataColumnNames);
+            } else {
+                return null;
+            }
+        });
+    }
+
+    private void stubJcrQuerySelectorNameCalls() throws Exception {
+        // As the MockQueryResult object does not support the getSelectorNames()
+        // method and the result nodes do not seem to have a selector name concept,
+        // we must stub out anything that requires the selector name within the
+        // findInitialSyncDataForAllApiSpecification() method
+
+        ApiSpecificationDocumentJcrRepository apiSpecJcrRepository = spy(new ApiSpecificationDocumentJcrRepository(session));
+        doReturn("selectorName").when(apiSpecJcrRepository).getDefaultNodeSelectorName(any());
+        whenNew(ApiSpecificationDocumentJcrRepository.class).withAnyArguments().thenReturn(apiSpecJcrRepository);
+
+        mockStatic(JcrRowUtils.class);
+        given(JcrRowUtils.streamOf(any())).willCallRealMethod();
+        given(JcrRowUtils.getMultipleStringValueQuietly(any(), any(), any()))
+            .willReturn(asList("api-spec-current-node-id", "api-spec-a-handle-node-id"));
+    }
+
     // Invoked from the test-specific crisp-spring-context-properties-support.xml
+    // For some reason this can't be extracted to be used by multiple test files.
+    // If the namespace changes it can't find any system properties or env vars.
     public static class DummyApplicationSecrets {
 
         public String getValue(final String propertyName) {
-            return Optional.ofNullable(System.getProperty(propertyName))
+            String val = Optional.ofNullable(System.getProperty(propertyName))
                 .orElse(System.getenv(propertyName));
+
+            System.out.println("printf: " + propertyName + " " + val);
+
+            return val;
+        }
+
+        public String getValueChained(final String propertyName) {
+            String value = getValue(propertyName);
+
+            if (StringUtils.isNotBlank(value)) {
+                String valueIndirect = getValueChained(value);
+                return valueIndirect;
+            } else {
+                return propertyName;
+            }
+        }
+
+        public String getFromFile(final String propertyName) {
+            return getValue(propertyName);
         }
     }
 }

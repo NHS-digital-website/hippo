@@ -5,6 +5,7 @@ import static java.math.BigDecimal.ZERO;
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
@@ -62,8 +63,6 @@ public class SchemaHelperTest {
     // times the test files need to be updated whilst not invalidating their
     // value as a reference content.
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
     private static final TestDataCache cache = TestDataCache.create();
 
     private static final String PROPERTY_PLACEHOLDER_X_OF = "xOfPropertyPlaceholder";
@@ -119,7 +118,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Property '" + propertyName + "' is rendered for falsy value '" + propertyValue + "'.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString(propertyName + ": <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">" + propertyValue + "</span>")
+            containsString(propertyName + ": <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">" + propertyValue + "</span>")
         );
     }
 
@@ -233,7 +232,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive maximum is rendered as exclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(exclusive)</span>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">(exclusive)</span>")
         );
     }
 
@@ -251,7 +250,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive maximum is rendered as inclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(inclusive)</span>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">(inclusive)</span>")
         );
     }
 
@@ -287,7 +286,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive minimum is rendered as exclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(exclusive)</span>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">(exclusive)</span>")
         );
     }
 
@@ -305,7 +304,7 @@ public class SchemaHelperTest {
         // then
         assertThat("Exclusive minimum is rendered as inclusive.",
             ignoringWhiteSpacesIn(actualSchemaHtml),
-            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">(inclusive)</span>")
+            containsString("<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">(inclusive)</span>")
         );
     }
 
@@ -477,8 +476,8 @@ public class SchemaHelperTest {
 
         final String expectedRendering = format(
             "<div>Allowed values:"
-                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>,"
-                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">%s</span>,"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">%s</span>"
                 + "</div>",
             firstRenderedValue,
             secondRenderedValue
@@ -548,36 +547,36 @@ public class SchemaHelperTest {
 
             // strings
             {"string",                          "string",   null,           "\"[string-a]&<string-b>\"",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">[string-a]&amp;&lt;string-b&gt;</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">[string-a]&amp;&lt;string-b&gt;</span>"},
 
             // integers
             {"32bit integer",                   "integer",  "int32",        "-11",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-11</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">-11</span>"},
 
             {"64bit integer",                   "integer",  "int64",        "-12",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-12</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">-12</span>"},
 
             // floats
             {"float number",                    "number",   "float",        "-1.42",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-1.42</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">-1.42</span>"},
 
             {"double number",                   "number",   "double",       "-1.43",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">-1.43</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">-1.43</span>"},
 
             // booleans
             {"boolean",                         "boolean",  null,           "true",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">true</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">true</span>"},
 
             // dates
             {"date string",                     "string",   "date",         "\"2020-02-29\"",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">2020-02-29</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">2020-02-29</span>"},
 
             {"date-time string",                "string",   "date-time",    "\"2020-02-29T23:59:59Z\"",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">2020-02-29T23:59:59Z</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">2020-02-29T23:59:59Z</span>"},
 
             // arrays
             {"array",                           "array",    null,           "[-1.42, 0, \"string-value\"]",
-                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">[-1.42,0,&quot;string-value&quot;]</span>"},
+                "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">[-1.42,0,&quot;string-value&quot;]</span>"},
 
             {"array of JSON objects",           "array",    null,           "[{\n  \"a\": \"aa\"\n}, {\n  \"b\": \"bb\"\n}]",
                 "<pre><code>[ {\n  &quot;a&quot; : &quot;aa&quot;\n}, {\n  &quot;b&quot; : &quot;bb&quot;\n} ]</code></pre>"},
@@ -612,7 +611,7 @@ public class SchemaHelperTest {
         );
     }
 
-    @Test
+    @Test(expected = SchemaRenderingException.class)
     public void throwsExceptionOnSchemaRenderingFailure() {
 
         // given
@@ -620,16 +619,13 @@ public class SchemaHelperTest {
 
         given(markdownHelper.apply(any(), any())).willThrow(new RuntimeException());
 
-        expectedException.expectMessage("Failed to render schema.");
-        expectedException.expect(SchemaRenderingException.class);
-        expectedException.expectCause(instanceOf(HandlebarsException.class));
-
         // when
         schemaHelper.apply(schemaObject, null);
 
         // then
 
         // expectations set up in 'given' are satisfied
+        fail("Failed to render schema.");
     }
 
     @DataProvider

@@ -1,0 +1,13 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/sign-up:
+      /main:
+        /form:
+          hst:referencecomponent: sign-up/form
+          jcr:primaryType: hst:containercomponentreference
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:template: sign-up
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

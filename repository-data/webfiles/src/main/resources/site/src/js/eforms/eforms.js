@@ -399,7 +399,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     /* Show success message and hide everything else*/
     function showSuccessMessage() {
         $successMessage.removeClass('visually-hidden');
-
+        $successMessage.removeClass('nhsd-t-sr-only');
         $form.remove();
     }
 
@@ -542,7 +542,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             const dateformat = field.dataset.eformsDateformat;
 
             $(`input[class*="date"][name=${formName}]`).datepicker({
-                format:`${dateformat}`
+                dateFormat:`${dateformat}`
                     .replace(/d+/g,'dd')
                     .replace(/M+/g,'mm')
                     .replace(/y+/g,'yy'),

@@ -20,11 +20,11 @@
                             <#assign numberedListCount++ />
                             <#assign numberedLinkTitle = numberedListCount + ". " + link.title>
                             <li class="nhsd-m-sticky-navigation__item nhsd-m-sticky-navigation__item--nested" data-nav-content="${slugify(link.title)}">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${numberedLinkTitle}</a>
+                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link section-nav-event" onclick="dataLayer.push({'event':'left_nav','leftNavLink':'${numberedLinkTitle}'});">${numberedLinkTitle}</a>
                             </li>
                         <#else>
                             <li class="nhsd-m-sticky-navigation__item" data-nav-content="${slugify(link.title)}">
-                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link">${link.title}</a>
+                                <a href="${link.url}" aria-label="${label}" title="${label}" class="nhsd-a-link section-nav-event" onclick="dataLayer.push({'event':'left_nav','leftNavLink':'${link.title}'});">${link.title}</a>
                             </li>
                         </#if>
                     </#list>

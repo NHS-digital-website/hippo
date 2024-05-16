@@ -10,10 +10,11 @@
 <#include "macro/personitem.ftl">
 <#include "macro/contentPixel.ftl">
 <#include "macro/heroes/hero.ftl">
+<#include "macro/shareSection.ftl">
+<#include "macro/socialMediaBar.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
 
 <#assign hasAuthors = document.authors?? && document.authors?has_content />
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
@@ -35,7 +36,27 @@
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
-	<#-- Use UTF-8 charset for URL escaping from now: -->
+
+    <#if document?? && document.seosummary?? && document.seosummary?has_content>
+        <#noautoesc>
+            <!-- strip HTML tags -->
+            <#assign tempSEOSummary =  document.seosummary.content?replace('<[^>]+>','','r') />
+            <#if tempSEOSummary?has_content>
+                <#assign pageSEOSummary = tempSEOSummary />
+            </#if>
+        </#noautoesc>
+    </#if>
+    <meta itemprop="copyrightHolder" content="NHS England Digital">
+    <meta itemprop="description" content="${pageSEOSummary}">
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
+    <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="NHS England Digital">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-england-logo-social.jpg' fullyQualified=true />" />
+        </span>
+    </div>
+
+    <#-- Use UTF-8 charset for URL escaping from now: -->
     <#setting url_escaping_charset="UTF-8">
 
     <#--  Facebook  -->
@@ -64,18 +85,25 @@
     <#assign youTubeUrl = "http://www.youtube.com/watch?v=${currentUrl?url}"/>
     <#assign youTubeIconPath = "/images/icon/rebrand-youtube.svg" />
 
+    <#assign props = {
+        "bar": document.socialMediaBar,
+        "twitterHashtag": (document.twitterHashtag)!"",
+        "title": document.title,
+        "shortsummary": document.shortsummary
+    } />
+
     <#assign metaData = [] />
     <#if hasAuthors>
         <#assign authorValue>
-            <div class="nhsd-!t-margin-bottom-1">
+            <div class="nhsd-!t-margin-bottom-1" itemprop="creator" itemscope itemtype="https://schema.org/Person">
                 <#list document.authors as author>
                     <@hst.link hippobean=author var="authorLink" />
                     <div>
                         <a class="nhsd-a-link"
                            href="${authorLink}"
                            onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
-                        >
-                            ${author.title}
+                        itemprop="url">
+                            <span itemprop="name">${author.title}</span>
                         </a>
                         <#if author.roles??>
                             <#if author.roles.primaryroles?has_content>, ${author.roles.firstprimaryrole}</#if><#if author.roles.primaryroleorg?has_content>, ${author.roles.primaryroleorg}</#if>
@@ -101,16 +129,19 @@
         <@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="dateOfPublication" />
         <#assign metaData += [{
             "title": "Date",
-            "value": dateOfPublication
+            "value": dateOfPublication,
+            "schemaOrgTag": "datePublished"
         }] />
     </#if>
     <#if hasTopics>
+
         <#assign topics>
             <#list document.topics as tag>${tag}<#sep>, </#list>
         </#assign>
         <#assign metaData += [{
             "title": "Topic${(document.topics?size gt 1)?then('s','')}",
-            "value": topics
+            "value": topics,
+            "schemaOrgTag": "keywords"
         }] />
     </#if>
     <#if hasBlogCategories>
@@ -123,7 +154,6 @@
         }] />
     </#if>
 
-    <@hst.link hippobean=document.leadImage.pageHeaderHeroModule2x fullyQualified=true var="bannerImage" />
     <#assign heroOptions = {
         "introTags": ["Blog"],
         "title": document.title,
@@ -137,16 +167,63 @@
         <#assign heroOptions += {
             "image": {
                 "src": bannerImage,
-                "alt": document.leadImageAltText
+                "alt": document.leadImageAltText,
+                "schemaOrgTag": "image"
             }
         }/>
     </#if>
+
+    <!-- Hero Buttons start -->
+    <#assign heroButtons = [] />
+
+    <#if document.primaryCtaButton.items?size gt 0>
+        <#if document.primaryCtaButton.items[0].linkType == "internal">
+            <@hst.link hippobean=document.primaryCtaButton.items[0].link var="link" />
+            <#assign heroButtons += [{
+                "src": "${link}",
+                "text": "${document.primaryCtaButton.items[0].title}"
+            }]/>
+        <#elseif document.primaryCtaButton.items[0].linkType == "external">
+            <#assign heroButtons += [{
+                "src": "${document.primaryCtaButton.items[0].link}",
+                "text": "${document.primaryCtaButton.items[0].title}",
+                "srText": "${document.primaryCtaButton.items[0].shortsummary}"
+            }]/>
+        </#if>
+    </#if>
+
+    <#if document.secondaryCtaButton.items?size gt 0>
+        <#if document.secondaryCtaButton.items[0].linkType == "internal">
+            <@hst.link hippobean=document.secondaryCtaButton.items[0].link var="link" />
+            <#assign heroButtons += [{
+                "classes": "nhsd-a-button--outline",
+                "src": "${link}",
+                "text": "${document.secondaryCtaButton.items[0].title}"
+            }]/>
+        <#elseif document.secondaryCtaButton.items[0].linkType == "external">
+            <#assign heroButtons += [{
+                "classes": "nhsd-a-button--outline",
+                "src": "${document.secondaryCtaButton.items[0].link}",
+                "text": "${document.secondaryCtaButton.items[0].title}",
+                "srText": "${document.secondaryCtaButton.items[0].shortsummary}"
+            }]/>
+        </#if>
+    </#if>
+
+    <#assign heroOptions += {
+        "buttons": heroButtons
+    }/>
+    <!-- Hero Buttons end -->
+
+
 
     <#assign heroType = "default" />
     <#if document.headertype?has_content && document.headertype == "Image header" && document.leadImage?has_content>
         <#assign heroType = "backgroundImage" />
     </#if>
     <@hero heroOptions heroType/>
+
+    <@socialMediaBar props />
 
     <div itemprop="articleBody">
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
@@ -161,11 +238,10 @@
                 <#if hasLeadImage && hasCubeHeader>
                     <div class="nhsd-m-card nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--border-grey">
-                            <div class="nhsd-m-card__image_container">
+                            <div class="nhsd-m-card__image_container" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                 <figure class="nhsd-a-image nhsd-a-image--round-top-corners">
                                     <picture class="nhsd-a-image__picture ">
                                         <@hst.link hippobean=document.leadImage.newsPostImageLarge2x fullyQualified=true var="leadImageLarge2x" />
-                                        <meta itemprop="url" content="${leadImage}">
                                         <img src="${leadImageLarge2x}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
                                     </picture>
                                 </figure>
@@ -214,10 +290,11 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-xl">Related subjects</p>
+                        <p class="nhsd-t-heading-xl" >Related subjects</p>
                         <#list document.relatedSubjects as item>
                             <@hst.link hippobean=item var="relatedSubjectLink"/>
-                            <div class="nhsd-!t-margin-bottom-1" itemprop="isBasedOn" itemscope itemtype="http://schema.org/Product">
+                            <div class="nhsd-!t-margin-bottom-1" itemprop="about" itemscope itemtype="http://schema.org/CreativeWork">
+                                <meta itemprop="name" content="${item.title}"/>
                                 <a itemprop="url"
                                    class="nhsd-a-link"
                                    href="${relatedSubjectLink}"
@@ -240,7 +317,6 @@
                 </div>
 
                 <#if hasAuthors>
-                    <hr class="nhsd-a-horizontal-rule" />
                     <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
                     <div class="nhsd-o-gallery">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
@@ -271,12 +347,10 @@
                                                             <div class="nhsd-m-card__content-box">
                                                                 <h1 class="nhsd-t-heading-s">${author.title}</h1>
                                                                 <span class="nhsd-m-card__date">
-                                                                    <#if author.roles?has_content >
+                                                                    <#if author.roles.firstprimaryrole?has_content >
                                                                         ${author.roles.firstprimaryrole}, ${author.roles.primaryroleorg}
                                                                     </#if>
                                                                 </span>
-                                                                <#assign profbiography><@hst.html hippohtml=author.biographies.profbiography contentRewriter=brContentRewriter/></#assign>
-                                                                ${profbiography}
                                                                 <div class="nhsd-m-card__button-box">
                                                                     <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
@@ -297,7 +371,7 @@
                     </div>
                 </#if>
 
-                <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
+                <div class="grid-wrapper grid-wrapper--article">
                     <div class="grid-row">
                         <@latestblogs document.latestBlogs></@latestblogs>
                     </div>

@@ -28,7 +28,7 @@
                 <div class="search-results-heading__details">
                     <div class="search-results-heading__subcopy">
                         <div data-uipath="ps.search-results.description">
-                            <span data-uipath="ps.search-results.count">${pageable.total}</span> result<#if pageable.total gt 1>s</#if><#if query?has_content> containing '<strong>${query}</strong>',</#if> sorted by <strong>${sort}</strong>.
+                            <span data-uipath="ps.search-results.count">${totalResults}</span> result<#if pageable.total gt 1>s</#if><#if query?has_content> containing '<strong>${query}</strong>',</#if> sorted by <strong>${sort}</strong>.
                         </div>
                     </div>
                     <div class="search-results-heading__sort">

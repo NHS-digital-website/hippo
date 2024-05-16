@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:security:
+      hipposys:passwordmaxagedays: 365.0

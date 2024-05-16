@@ -1,18 +1,23 @@
 package uk.nhs.digital.ps.workflow.highcharts;
 
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_CHART;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_MAP;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_VISUALISATION;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
 
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.*;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.util.Iterator;
-import javax.jcr.*;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 
 public class HighchartsInputConversionTask extends AbstractDocumentTask {
 
@@ -37,6 +42,8 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
 
         processNodes(NODE_TYPE_MAP);
 
+        processNodes(NODE_TYPE_VISUALISATION);
+
         return null;
     }
 
@@ -47,9 +54,9 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
 
             final Node chartConfigNode = nodes.next();
 
-            final AbstractHighchartsParameters chartConfig = nodeReader.readParameters(chartConfigNode);
+            final AbstractVisualisationParameters chartConfig = nodeReader.readParameters(chartConfigNode);
 
-            final AbstractHighchartsModel chart = parseChartInput(chartConfig);
+            final AbstractVisualisationModel chart = parseChartInput(chartConfig);
 
             final String chartConfigJson = toJson(chart);
 
@@ -65,7 +72,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         return variant;
     }
 
-    private AbstractHighchartsModel parseChartInput(final AbstractHighchartsParameters chartConfig) throws RepositoryException {
+    private AbstractVisualisationModel parseChartInput(final AbstractVisualisationParameters chartConfig) throws RepositoryException {
         try {
             return parser.parse(chartConfig);
         } catch (final Exception ex) {
@@ -73,7 +80,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         }
     }
 
-    private String toJson(final AbstractHighchartsModel chart) throws RepositoryException {
+    private String toJson(final AbstractVisualisationModel chart) throws RepositoryException {
         try {
             return jsonSerialiser.toJson(chart);
         } catch (Exception ex) {

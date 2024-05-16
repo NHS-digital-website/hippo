@@ -47,6 +47,7 @@ definitions:
           - website:video
           - website:policypage
           - website:corporatepolicy
+          - website:recentupdates
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -89,6 +90,7 @@ definitions:
           - hst:pages/video
           - hst:pages/policy-page
           - hst:pages/corporatepolicy
+          - hst:pages/recent-updates
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         /root:
@@ -138,6 +140,7 @@ definitions:
         - website:video
         - website:policypage
         - website:corporatepolicy
+        - website:recentupdates
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -180,6 +183,7 @@ definitions:
         - hst:pages/video
         - hst:pages/policy-page
         - hst:pages/corporatepolicy
+        - hst:pages/recent-updates
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -289,6 +293,41 @@ definitions:
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         /publications:
+          /Category:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Category/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Geographical Coverage:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Geographical Coverage/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Geographical Granularity:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Geographical Granularity/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Information Type:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Information Type/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
+          /Year:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/seriesfeedhub
+              hst:relativecontentpath: faceted-series-feed/Year/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
           /_any_:
             /_index_:
               hst:componentconfigurationid: hst:pages/404
@@ -330,7 +369,8 @@ definitions:
             hst:refId: publicationpages
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationid: hst:pages/seriesfeedhub
+          hst:relativecontentpath: faceted-series-feed
           jcr:primaryType: hst:sitemapitem
         /supplementary-information:
           /_any_:
@@ -366,11 +406,13 @@ definitions:
             - website:general
             - website:componentlist
             - website:apispecification
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
             - hst:pages/general
             - hst:pages/componentlist
             - hst:pages/apispecification
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
@@ -416,14 +458,6 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: forms
-        jcr:primaryType: hst:sitemapitem
-      /icon-library:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/icon-library-item
-          hst:relativecontentpath: icon-library-item
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/icon-library
-        hst:relativecontentpath: icon-library
         jcr:primaryType: hst:sitemapitem
       /news:
         /events:
@@ -506,6 +540,33 @@ definitions:
         hst:relativecontentpath: facet
         jcr:primaryType: hst:sitemapitem
       /services:
+        /service-catalogue:
+          /_any_:
+            /_index_:
+              hst:cacheable: true
+              hst:componentconfigurationmappingnames:
+              - website:service
+              hst:componentconfigurationmappingvalues:
+              - hst:pages/service
+              hst:relativecontentpath: ${parent}/content
+              jcr:primaryType: hst:sitemapitem
+            hst:cacheable: true
+            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationmappingnames:
+            - website:service
+            - website:recentupdates
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/service
+            - hst:pages/recent-updates
+            hst:relativecontentpath: ${parent}/${1}
+            jcr:primaryType: hst:sitemapitem
+          /_index_:
+            hst:componentconfigurationid: hst:pages/service-catalogue
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:cacheable: false
+          hst:relativecontentpath: services-catalogue
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
         hst:relativecontentpath: nhsd-services-hub
         jcr:primaryType: hst:sitemapitem

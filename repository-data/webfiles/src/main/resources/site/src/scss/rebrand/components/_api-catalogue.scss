@@ -13,12 +13,47 @@
     content: "";
   }
 
+  & .checkmark.selected::after {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 5px;
+    height: 10px;
+    margin: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: solid #3f525f;
+    border-width: 0 2px 2px 0;
+  }
+
   & .nhsd-a-checkbox {
     position: relative;
 
     & .nhsd-a-checkbox__label {
         position: relative;
         z-index: 0;
+
+        &:not(.nhsd-api-catalogue__filter-unavailable) {
+            & input[type="checkbox"] {
+                cursor: pointer;
+            }
+        }
+    }
+
+    & .nhsd-api-catalogue__filter-unavailable {
+        color: #768692;
+        cursor: not-allowed;
+
+        & input[type="checkbox"] {
+
+            box-shadow: 0 0 0 2px #e8edee;
+
+            &:hover::before {
+              display: none;
+            }
+        }
     }
 
     & input[type="checkbox"] {
@@ -37,7 +72,7 @@
 
     &:checked {
       ~ .nhsd-m-filter-menu-section__menu-button svg {
-        transform: rotate(180deg);
+        rotate: 180deg;
       }
     }
 
@@ -115,8 +150,53 @@
   }
 }
 
-.nhsd-a-tag {
-    white-space: nowrap;
+.section-label-description {
+    position: absolute;
+    width: 9rem;
+    top: 1.1rem;
+    display: none;
+    margin-left: 2.8rem;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    padding: 8px;
+    cursor: text;
+    z-index: 1;
+}
+
+.section-label-description p {
+    display: none;
+    color: grey;
+    font-size: small;
+}
+
+.section-label-container {
+    position: relative;
+}
+
+.filter-category-label__described:hover ~ .section-label-description {
+    display: block;
+}
+
+.filter-category-label__described:hover ~ .section-label-description p {
+    display: inline;
+}
+
+.section-label-description:hover {
+    display: block;
+}
+
+.section-label-description:hover > p {
+    display: inline;
+}
+
+.filter-label__described:hover ~ .section-label-description {
+    display: block;
+}
+
+.filter-label__described:hover ~ .section-label-description p {
+    display: inline;
 }
 
 .filter-entries-edge {
@@ -149,4 +229,9 @@
 .filter-child-container {
     margin-left: 1em;
     position: relative;
+}
+
+.filter-tag-yellow-highlight {
+    color: #3f525f;
+    background: #f6e24b;
 }

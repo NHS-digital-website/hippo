@@ -2,7 +2,7 @@ package uk.nhs.digital.common.contentrewriters;
 
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -33,7 +33,7 @@ public class BrandRefreshContentRewriterTest {
 
     @Before
     public void setUp() throws ObjectBeanManagerException {
-        initMocks(this);
+        openMocks(this);
 
         given(requestContext.getContentBeansTool()).willReturn(contentBeansTool);
         given(requestContext.getContentBean()).willReturn(hippoBean);
@@ -145,8 +145,8 @@ public class BrandRefreshContentRewriterTest {
         BrandRefreshContentRewriter rewriter = new BrandRefreshContentRewriter();
 
         String html = "<h1>Some code</h1><code class=\"codeinline\">this is some code></code><p>some code again></p><code class=\"codeinline\">some code again</code>";
-        String expectedHtml = "<h1>Some code</h1><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">this is some code></code>"
-                            + "<p>some code again></p><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">some code again</code>";
+        String expectedHtml = "<h1>Some code</h1><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">this is some code></code>"
+                            + "<p>some code again></p><span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">some code again</code>";
 
         String result = rewriter.rewrite(html, node, requestContext, targetMount);
 
@@ -154,11 +154,11 @@ public class BrandRefreshContentRewriterTest {
         Elements paragraphs = document.select("code");
 
         Document expectedDocument = Jsoup.parse(expectedHtml);
-        Elements expectedParagraphs = expectedDocument.select("span.nhsd-a-text-highlight nhsd-a-text-highlight--code");
+        Elements expectedParagraphs = expectedDocument.select("span.nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break");
 
         for (int i = 0; i < paragraphs.size(); i++) {
             assertEquals(expectedParagraphs.get(i).tagName(), paragraphs.get(i).tagName()); //span
-            assertEquals(expectedParagraphs.get(i).attr("class"), paragraphs.get(i).attr(("class"))); //nhsd-a-text-highlight nhsd-a-text-highlight--code
+            assertEquals(expectedParagraphs.get(i).attr("class"), paragraphs.get(i).attr(("class"))); //nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break
             assertEquals(expectedParagraphs.get(i).text(), paragraphs.get(i).text()); //text
         }
     }

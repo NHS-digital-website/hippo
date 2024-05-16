@@ -1,16 +1,24 @@
 package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.container.*;
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.manager.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.core.component.*;
-import org.hippoecm.hst.core.request.*;
-import org.slf4j.*;
-import uk.nhs.digital.website.beans.*;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.manager.ObjectConverter;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoCompound;
+import org.hippoecm.hst.content.beans.standard.HippoDocumentBean;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.website.beans.Assetlink;
+import uk.nhs.digital.website.beans.Externallink;
+import uk.nhs.digital.website.beans.Internallink;
 
-import java.util.*;
-import javax.jcr.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import javax.jcr.RepositoryException;
 
 public class DocumentChildComponent extends ContentRewriterComponent {
 

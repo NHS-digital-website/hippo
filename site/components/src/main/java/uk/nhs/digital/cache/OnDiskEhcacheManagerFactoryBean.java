@@ -50,7 +50,7 @@ public class OnDiskEhcacheManagerFactoryBean implements FactoryBean<CacheManager
     }
 
     @Override public Class<?> getObjectType() {
-        return (cacheManager == null ? CacheManager.class : cacheManager.getClass());
+        return cacheManager == null ? CacheManager.class : cacheManager.getClass();
     }
 
     @Override public boolean isSingleton() {

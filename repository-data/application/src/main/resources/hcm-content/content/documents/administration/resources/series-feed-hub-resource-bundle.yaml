@@ -1,0 +1,75 @@
+---
+/content/documents/administration/resources/series-feed-hub-resource-bundle:
+  /series-feed-hub-resource-bundle[1]:
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2022-11-08T13:57:20.608Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.seriesfeed
+    resourcebundle:keys:
+    - headers.page-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Publication Series
+    - Filter by type
+  /series-feed-hub-resource-bundle[2]:
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2022-11-08T13:57:20.625Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.seriesfeed
+    resourcebundle:keys:
+    - headers.page-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Publication Series
+    - Filter by type
+  /series-feed-hub-resource-bundle[3]:
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2022-11-08T13:57:20.608Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-11-08T13:57:23.620Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.seriesfeed
+    resourcebundle:keys:
+    - headers.page-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Publication Series
+    - Filter by type
+  hippo:name: Series Feed Hub Resource Bundle
+  hippo:versionHistory: d2a84339-7499-4d5e-a9c9-9e3ea234690e
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

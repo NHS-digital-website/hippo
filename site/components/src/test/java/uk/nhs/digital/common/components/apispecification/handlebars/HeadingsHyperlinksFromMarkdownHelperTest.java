@@ -8,9 +8,8 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.Mockito.*;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub.TEMPLATE_CONTENT_FROM_MAIN_BLOCK;
 import static uk.nhs.digital.test.util.ExceptionTestUtils.wrapCheckedException;
 
@@ -19,10 +18,8 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.function.ThrowingRunnable;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.common.components.apispecification.handlebars.HeadingsHyperlinksFromMarkdownHelper.HeadingModel;
@@ -34,15 +31,14 @@ import java.util.stream.IntStream;
 @SuppressWarnings("StringConcatenationInsideStringBufferAppend")
 public class HeadingsHyperlinksFromMarkdownHelperTest {
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
-    @Mock Options.Buffer buffer;
+    @Mock
+    Options.Buffer buffer;
 
     private HeadingsHyperlinksFromMarkdownHelper helper = HeadingsHyperlinksFromMarkdownHelper.INSTANCE;
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test
@@ -170,7 +166,7 @@ public class HeadingsHyperlinksFromMarkdownHelperTest {
         final Options.Buffer actualBuffer = helper.apply(markdownWithNoEligibleHeadings, options);
 
         // then
-        verifyZeroInteractions(buffer);
+        verifyNoInteractions(buffer);
 
         assertThat("Invokes main template block with details of extracted headers.",
             options.actualMainBlockTemplateParameters(),

@@ -1,0 +1,84 @@
+---
+/content/documents/corporate-website/website-acceptance-tests/updates/critical-update:
+  /critical-update[1]:
+    /website:content:
+      hippostd:content: <p>A critical update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:55:04.404Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 1bce20fd-d3c0-4b66-8668-30f9b9b6ec13
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: critical
+    website:title: Critical update
+  /critical-update[2]:
+    /website:content:
+      hippostd:content: <p>A critical update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:54:56.999Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 1bce20fd-d3c0-4b66-8668-30f9b9b6ec13
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: critical
+    website:title: Critical update
+  /critical-update[3]:
+    /website:content:
+      hippostd:content: <p>A critical update about this document</p>
+      jcr:primaryType: hippostd:html
+    /website:relateddocument[1]:
+      hippo:docbase: f7edbc4a-1e27-438a-b366-28c4e532a80f
+      jcr:primaryType: hippo:mirror
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2022-10-17T16:51:07.339Z
+    hippostdpubwf:lastModificationDate: 2022-10-17T16:55:04.404Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2022-10-17T16:55:06.564Z
+    hippotranslation:id: 1bce20fd-d3c0-4b66-8668-30f9b9b6ec13
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:update
+    website:expirydate: 0001-01-01T12:00:00Z
+    website:severity: critical
+    website:title: Critical update
+  hippo:name: Critical update
+  hippo:versionHistory: 732155ea-3808-46b8-b675-d9e1e80e1fa6
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -1,57 +1,53 @@
 ---
 /content/documents/administration/robots:
   /robots[1]:
-    /robotstxt:section:
-      jcr:primaryType: robotstxt:section
-      robotstxt:disallow:
-      - ''
-      robotstxt:useragent: '*'
     hippo:availability:
     - preview
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
-    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:31.450Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T11:43:59.077Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: robotstxt:robotstxt
     robotstxt:disallowfacnav: false
+    robotstxt:sitemap:
+    - https://digital.nhs.uk/sitemap-combined.xml
   /robots[2]:
-    /robotstxt:section:
-      jcr:primaryType: robotstxt:section
-      robotstxt:disallow:
-      - ''
-      robotstxt:useragent: '*'
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
-    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:12.071Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T11:43:05.368Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: robotstxt:robotstxt
     robotstxt:disallowfacnav: false
+    robotstxt:sitemap:
+    - https://digital.nhs.uk/sitemap-combined.xml
   /robots[3]:
-    /robotstxt:section:
-      jcr:primaryType: robotstxt:section
-      robotstxt:disallow:
-      - ''
-      robotstxt:useragent: '*'
     hippo:availability:
     - live
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
-    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:31.450Z
+    hippostdpubwf:lastModificationDate: 2022-05-18T11:43:59.077Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-29T13:07:34.145Z
+    hippostdpubwf:publicationDate: 2022-05-18T11:44:01.155Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: robotstxt:robotstxt
     robotstxt:disallowfacnav: false
+    robotstxt:sitemap:
+    - https://digital.nhs.uk/sitemap-combined.xml
+  hippo:versionHistory: 5dbf4d75-7ab8-4231-af87-ee9c7db21052
   jcr:mixinTypes:
+  - hippo:versionInfo
   - mix:referenceable
   jcr:primaryType: hippo:handle

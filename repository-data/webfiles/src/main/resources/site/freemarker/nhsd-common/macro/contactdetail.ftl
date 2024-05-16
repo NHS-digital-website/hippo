@@ -3,7 +3,7 @@
 <#include "../../include/imports.ftl">
 
 <#macro contactdetail contactdetails='' idsuffix='' name='' email='' phone='' title="Contact details" schemaOrg="">
-  <#if contactdetails='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
+  <#if contactdetails=='' || (contactdetails?has_content && (contactdetails.emailaddress?has_content || contactdetails.phonenumber?has_content)) >
 
     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" ${schemaOrg?has_content?then('itemscope itemtype="https://schema.org/'+schemaOrg+'"', '')?no_esc}>
       <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
@@ -58,7 +58,7 @@
             <#assign twitterlink = "https://twitter.com/" + twitterhandle />
 
             <p class="nhsd-t-body nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-0">Twitter handle:
-              <a class="nhsd-a-link nhsd-t-word-break" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click',document.class.name,'${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${twitterhandle}">@${twitterhandle}
+              <a class="nhsd-a-link nhsd-t-word-break" href="${twitterlink}" title="${twitterhandle}">@${twitterhandle}
                 <span class="nhsd-t-sr-only"></span>
               </a>
             </p>

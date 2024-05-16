@@ -4,7 +4,7 @@
 <@metaTags />
 
 <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" async></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
     <!-- Generic meta tags -->
     <@hst.headContributions categoryIncludes="intranetMeta" xhtml=true/>
 
-    <#assign toolkitVersion = 'v0.130.0' />
+    <#assign toolkitVersion = 'v0.153.0' />
 
     <#-- Preload fonts to improve performance -->
     <link href="https://design-system.digital.nhs.uk/" rel="preconnect" crossorigin>

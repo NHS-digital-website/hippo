@@ -353,6 +353,9 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summaryimage:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []

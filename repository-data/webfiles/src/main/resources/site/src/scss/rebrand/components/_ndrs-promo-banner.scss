@@ -1,0 +1,107 @@
+/* Key message promo banner */
+.promo-banner {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      .promo-banner__columns {
+        background-color: #f0f4f5 !important;
+      }
+    }
+  }
+
+  .promo-banner__columns {
+    width: 100%;
+    background-color: #f0f4f5 !important;
+
+    .promo-banner__column {
+      display: inline-block;
+      position: relative;
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+
+    .promo-banner__column + .promo-banner__column {
+      .promo-banner__contents {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .promo-banner__graphics {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    top: 0;
+    left: 0;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .promo-banner__contents {
+    color: #353535 !important;
+  }
+}
+
+.promo-banner-lightup {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      .promo-banner__columns-lightup {
+        background-color: #000000;
+      }
+    }
+  }
+
+  .promo-banner__title-lightup {
+  }
+
+  .promo-banner__columns-lightup {
+    width: 100%;
+    background-color: #000000;
+
+    .promo-banner__column-lightup-left {
+      display: inline-block;
+      position: relative;
+      float: left;
+      width: 25%;
+      height: 100%;
+    }
+
+    .promo-banner__column-lightup-right {
+      display: inline-block;
+      position: relative;
+      float: left;
+      width: 75%;
+      height: 100%;
+    }
+
+    .promo-banner__column-lightup + .promo-banner__column-lightup-left,
+    .promo-banner__column-lightup + .promo-banner__column-lightup-right {
+      .promo-banner__contents {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .promo-banner__graphics-lightup {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    top: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .promo-banner__contents-lightup {
+    color: red;
+  }
+}

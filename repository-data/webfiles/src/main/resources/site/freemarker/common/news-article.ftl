@@ -78,13 +78,13 @@
 
 <article class="article article--news" itemscope itemtype="http://schema.org/NewsArticle">
     <meta itemprop="mainEntityOfPage" content="${document.title}">
-    <meta itemprop="author" content="NHS Digital">
-    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="author" content="NHS England Digital">
+    <meta itemprop="copyrightHolder" content="NHS England Digital">
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
     <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="NHS Digital">
+        <meta itemprop="name" content="NHS England Digital">
         <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-england-logo-social.jpg' fullyQualified=true />" />
         </span>
     </div>
 
@@ -183,11 +183,7 @@
                         <#setting url_escaping_charset="UTF-8">
 
                         <div class="blog-social-icon like-first-child">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer.php?u=${currentUrl?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Facebook','http://www.facebook.com/sharer.php?u=${currentUrl?url}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
-                            >
+                            <a target="_blank" href="http://www.facebook.com/sharer.php?u=${currentUrl?url}">
                                 <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Share on Facebook" class="blog-social-icon__img" />
                             </a>
                         </div>
@@ -203,21 +199,13 @@
                                     </#if>
                                 </#list>
                             </#if>
-                            <a target="_blank"
-                               href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - Twitter','https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
-                            >
+                            <a target="_blank" href="https://twitter.com/intent/tweet?via=nhsdigital&url=${currentUrl?url}&text=${document.title?url}&hashtags=${hashtags?url}">
                                 <img src="<@hst.webfile path="/images/icon/Twitter.svg"/>" alt="Share on Twitter" class="blog-social-icon__img" />
                             </a>
                         </div>
 
                         <div class="blog-social-icon like-first-child">
-                            <a target="_blank"
-                               href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}"
-                               onClick="logGoogleAnalyticsEvent('Link click','Social media - LinkedIn','http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}');"
-                               onKeyUp="return vjsu.onKeyUp(event)"
-                            >
+                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}">
                                 <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Share on LinkedIn" class="blog-social-icon__img" />
                             </a>
                         </div>

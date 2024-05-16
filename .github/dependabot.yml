@@ -8,6 +8,7 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    open-pull-requests-limit: 0
 
   # Maintain dependencies for the root POM
   - package-ecosystem: "maven"
@@ -18,7 +19,7 @@ updates:
       prefix: "[DW-000] "
     ignore:
       - dependency-name: "spring-*"
-    open-pull-requests-limit: 25
+    open-pull-requests-limit: 0
 
   # Maintain dependencies for the JS/CSS build and packager
   - package-ecosystem: "npm"
@@ -27,4 +28,4 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
-    open-pull-requests-limit: 25
+    open-pull-requests-limit: 0

@@ -5,7 +5,7 @@
 <#function isAnyNotPersonDoctype articles>
     <#list articles as article>
         <#if article.class.name != "uk.nhs.digital.website.beans.Person">
-            <#return true /> 
+            <#return true />
         </#if>
     </#list>
     <#return false />
@@ -14,7 +14,7 @@
 <#macro relatedarticles articles articleType showDates=true idsuffix='id' title='Related documents' showSummary=false>
     <#if articles?has_content && isAnyNotPersonDoctype(articles) >
         <div id="related-articles-${slugify(idsuffix)}">
-            <p class="nhsd-t-heading-xl">${title}</p> 
+            <p class="nhsd-t-heading-xl">${title}</p>
 
             <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--links">
                 <#list articles as article>
@@ -22,7 +22,7 @@
                         <#-- do NOT display Person doctypes as related documents-->
                         <li>
                             <@hst.link hippobean=article var="link"/>
-                            <a class="nhsd-a-link" href="${link}" onClick="logGoogleAnalyticsEvent('Link click','${articleType}','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${article.title}">${article.title}</a>
+                            <a class="nhsd-a-link" href="${link}" title="${article.title}">${article.title}</a>
                             <#if showDates>
                                 <#assign dateandtime = "" />
 

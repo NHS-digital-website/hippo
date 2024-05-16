@@ -10,6 +10,12 @@
 <#include "app-layout-head.ftl">
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GJCR9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
 
 <#-- 'Page header' (banner with NHSD logo) above the 'document header' -->
@@ -126,6 +132,18 @@
         .local-header__title {
             white-space: nowrap;
         }
+
+        /* Meet contrast accessibility guidelines */
+        .swagger-ui .opblock .opblock-summary-method,
+        .swagger-ui .btn.execute{
+            color: #000;
+        }
+
+        .swagger-ui .copy-to-clipboard,
+        .swagger-ui .download-contents
+        {
+            background: #4c6272;
+        }
     </style>
 </#if>
 
@@ -183,6 +201,7 @@
 
                                 dom_id: '#content',
                                 deepLinking: true,
+                                "syntaxHighlight.theme": "tomorrow-night",
 
                                 presets: [
                                     SwaggerUIBundle.presets.apis,

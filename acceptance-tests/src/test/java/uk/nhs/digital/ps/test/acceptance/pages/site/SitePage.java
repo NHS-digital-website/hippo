@@ -68,6 +68,14 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.xpath("//*[@title='" + title + "']"));
     }
 
+    public WebElement findElementWithLabel(String label) {
+        return helper.findElement(By.xpath("//*[@aria-label='" + label + "']"));
+    }
+
+    public WebElement findElementWithTitleAndClass(String label, String cssClass) {
+        return helper.findElement(By.xpath("//*[@title='" + label + "' and contains(@class, '" + cssClass + "')]"));
+    }
+
     public WebElement findOptionalElementWithTitle(String title) {
         return helper.findOptionalElement(By.xpath("//*[@title='" + title + "']"));
     }
@@ -162,6 +170,10 @@ public class SitePage extends AbstractSitePage {
         }
     }
 
+    public WebElement findById(String id) {
+        return helper.findElement(By.id(id));
+    }
+
     private void waitForCookiebotDialogToBeGone() {
         helper.waitUntilTrue(() -> findCookiebotDialog() == null);
     }
@@ -173,4 +185,10 @@ public class SitePage extends AbstractSitePage {
     public boolean isWideMode() {
         return helper.findOptionalElement(By.cssSelector("article > div.nhsd-t-grid > div > div.nhsd-t-col-12")) != null;
     }
+
+    public WebElement findElementWithID(String id) {
+        return helper.findElement(By.id(id));
+    }
+
+
 }

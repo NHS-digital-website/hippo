@@ -19,25 +19,25 @@
                     </tr>
                     <tr>
                         <td>Optical Headquarters</td>
-                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/eopthq.zip" onclick="logGoogleAnalyticsEvent('Download attachment','General','Miscellaneous => https://files.digital.nhs.uk/assets/ods/current/eopthq.zip');" onkeyup="return vjsu.onKeyUp(event)">eopthq</a></td>
+                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/eopthq.zip">eopthq</a></td>
                         <td>30 November 2018</td>
                         <td>Quarterly</td>
                     </tr>
                     <tr>
                         <td>Optical sites</td>
-                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip" onclick="logGoogleAnalyticsEvent('Download attachment','General','Miscellaneous => https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip');" onkeyup="return vjsu.onKeyUp(event)">eoptsite</a></td>
+                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip">eoptsite</a></td>
                         <td>30 November 2018</td>
                         <td>Quarterly</td>
                     </tr>
                     <tr>
                         <td>General Dental Practices</td>
-                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip" onclick="logGoogleAnalyticsEvent('Download attachment','General','Miscellaneous => https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip');" onkeyup="return vjsu.onKeyUp(event)">egdpprac</a></td>
+                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip">egdpprac</a></td>
                         <td>30 November 2018</td>
                         <td>Quarterly</td>
                     </tr>
                     <tr>
                         <td>General Dental Practitioners</td>
-                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdp.zip" onclick="logGoogleAnalyticsEvent('Download attachment','General','Miscellaneous => https://files.digital.nhs.uk/assets/ods/current/egdp.zip');" onkeyup="return vjsu.onKeyUp(event)">egdp</a></td>
+                        <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdp.zip">egdp</a></td>
                         <td>25 Nov 2016</td>
                         <td>Quarterly</td>
                     </tr>

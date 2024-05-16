@@ -54,6 +54,10 @@ p, dt, dd, hr
     width: 100% !important;
 }
 
+.nhsd-m-breadcrumbs {
+    overflow: auto;
+}
+
 // Don't page break on these components
 .nhsd-a-image, .nhsd-a-box, .nhsd-m-card {
     display: block !important;

@@ -18,7 +18,7 @@
                 <span class="nhsd-a-summary-list__text">
                 <#assign qualnameDisplay = qual.qualname />
                 <#if qual.quallink?has_content>
-                  <a href="${qual.quallink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.quallink.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${qualnameDisplay}">${qualnameDisplay}</a>
+                  <a href="${qual.quallink.link}" class="nhsd-a-link" title="${qualnameDisplay}">${qualnameDisplay}</a>
                 <#else>
                   ${qualnameDisplay}
                 </#if>
@@ -31,7 +31,7 @@
                   <dd>
                     <span class="nhsd-a-summary-list__text">
                     <#if qual.qualawardingbodylink?has_content>
-                      <a href="${qual.qualawardingbodylink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${qual.qualawardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
+                      <a href="${qual.qualawardingbodylink.link}" class="nhsd-a-link" title="${qual.qualawardingbody}">${qual.qualawardingbody}</a>
                     <#else>
                       ${qual.qualawardingbody}
                     </#if>

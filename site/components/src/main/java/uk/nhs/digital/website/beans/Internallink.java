@@ -18,4 +18,26 @@ public class Internallink extends HippoCompound {
     public HippoBean getLink() {
         return getLinkedBean("website:link", HippoBean.class);
     }
+
+    public String getTitle() {
+        return getLink().getDisplayName();
+    }
+
+    @HippoEssentialsGenerated(internalName = "jcr:uuid")
+    public String getId() {
+        return getLink().getSingleProperty("jcr:uuid");
+    }
+
+    public boolean getIsPublished() {
+        HippoBean link = getLink();
+        try {
+            javax.jcr.Node linkNode = link.getNode();
+            if (linkNode.hasProperty("hippostd:state") && "published".equals(linkNode.getProperty("hippostd:state").getString())) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
 }

@@ -6,6 +6,7 @@
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 <'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
+<'eforms'='http://www.onehippo.org/jcr/eforms/nt/1.0'>
 
 [website:ImageModule] > hippo:compound, hippostd:relaxed
   orderable
@@ -14,10 +15,10 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
-[website:financial] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+[website:Odsimport] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
-[website:video] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
+[website:RecentUpdates] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:VideoSection] > hippo:compound, hippostd:relaxed
@@ -26,10 +27,10 @@
 [website:aboutapi] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:address] > hippo:compound, hippostd:relaxed
+[website:acknowledgementsection] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+[website:address] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
@@ -77,7 +78,13 @@
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:calltoactionrich] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:casestudy] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:categories] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
@@ -101,12 +108,25 @@
 [website:contactdetailextended] > website:contactdetail
   orderable
 
+[website:copy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:corporateWebsiteImageset] > hippogallery:imageset, hippogallery:relaxed
+
+[website:corporatepolicy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:ctaButtonSimplified] > hippo:compound, hippostd:relaxed
+  orderable
 
 [website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:customdatefield] > eforms:textfield
+
 [website:customizedAssetSet] > hippogallery:exampleAssetSet, hippogallery:relaxed
+
+[website:custompostcodefield] > eforms:textfield
 
 [website:cyberacknowledgement] > hippo:compound, hippostd:relaxed
   orderable
@@ -156,6 +176,9 @@
 [website:event] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:eventSchema] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:expander] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -169,6 +192,9 @@
   orderable
 
 [website:feedhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:financial] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
@@ -214,6 +240,9 @@
   orderable
 
 [website:highchartseries] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:highlightsection] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:homepagesections] > hippo:compound, hippostd:relaxed
@@ -321,6 +350,9 @@
 [website:platformversion] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:policypage] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:postnominal] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -336,6 +368,12 @@
 [website:projectupdate] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:property] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:propertytable] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -345,10 +383,22 @@
 [website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:pubstylepolicypage] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:pubstylesection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:qualification] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:quote] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:quotehero] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:recentupdates] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:releaseinfo] > hippo:compound, hippostd:relaxed
@@ -387,6 +437,9 @@
 [website:section] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:seoSummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:service] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -394,6 +447,9 @@
   orderable
 
 [website:signup] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:socialMediaBar] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:socialmedia] > hippo:compound, hippostd:relaxed
@@ -435,6 +491,9 @@
 [website:tableauLookup] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:taxonomymapping] > common:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
 [website:team] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -465,6 +524,9 @@
 [website:userNeedandcontactdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:video] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -477,44 +539,3 @@
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:taxonomymapping] > common:basedocument, hippostd:relaxed, hippotranslation:translated
-  orderable
-
-[website:property] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:propertytable] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:copy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:pubstylesection] > hippo:compound, hippostd:relaxed
-   orderable
-
-[website:highlightsection] > hippo:compound, hippostd:relaxed
-   orderable
-
-[website:corporatepolicy] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-   orderable
-
-[website:acknowledgementsection] > hippo:compound, hippostd:relaxed
-   orderable
-
-[website:policypage] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:pubstylepolicypage] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:Odsimport] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:quotehero] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:calltoactionrich] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:seoSummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable

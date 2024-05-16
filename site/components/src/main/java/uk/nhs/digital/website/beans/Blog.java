@@ -57,4 +57,19 @@ public class Blog extends CaseStudyAndBlogBase implements IntranetSearchResult {
     public String getDocType() {
         return "Blog";
     }
+
+    @HippoEssentialsGenerated(internalName = "website:socialMediaBar")
+    public SocialMediaBar getSocialMediaBar() {
+        return getBean("website:socialMediaBar", SocialMediaBar.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:primaryCtaButton")
+    public CtaButtonSimplified getPrimaryCtaButton() {
+        return getBean("website:primaryCtaButton", CtaButtonSimplified.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:secondaryCtaButton")
+    public CtaButtonSimplified getSecondaryCtaButton() {
+        return getBean("website:secondaryCtaButton", CtaButtonSimplified.class);
+    }
 }

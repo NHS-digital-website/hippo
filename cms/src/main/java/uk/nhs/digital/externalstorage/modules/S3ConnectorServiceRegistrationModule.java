@@ -2,7 +2,7 @@ package uk.nhs.digital.externalstorage.modules;
 
 import static java.lang.System.getProperty;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModuleParams.*;
+import static uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModuleParams.extractParameters;
 
 import com.amazonaws.auth.*;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -12,7 +12,6 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 import org.onehippo.repository.modules.ProvidesService;
-
 import org.slf4j.Logger;
 import uk.nhs.digital.externalstorage.s3.*;
 
@@ -154,6 +153,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
                     );
                 }
             } catch (final InterruptedException ie) {
+                Thread.currentThread().interrupt();
                 throw new RuntimeException("Interrupted when shutting down S3 " + s3Operation + "executor service.",
                     ie);
             }

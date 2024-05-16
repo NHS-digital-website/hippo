@@ -18,7 +18,7 @@
                               <span class="nhsd-a-summary-list__text">
                               <#assign awardnameDisplay = personaward.awardname />
                               <#if personaward.awardlink?has_content>
-                                <a href="${personaward.awardlink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${personaward.awardlink.link}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="award">${awardnameDisplay}</span></a>
+                                <a href="${personaward.awardlink.link}" class="nhsd-a-link"><span itemprop="award">${awardnameDisplay}</span></a>
                               <#else>
                                 ${awardnameDisplay}
                               </#if>
@@ -32,7 +32,7 @@
                               <dd>
                                 <span class="nhsd-a-summary-list__text">
                                 <#if personaward.awardingbodylink?has_content>
-                                  <a href="${personaward.awardingbodylink.link}" class="nhsd-a-link" onClick="logGoogleAnalyticsEvent('Link click','Person','${personaward.awardingbodylink.link}');" onKeyUp="return vjsu.onKeyUp(event)">${personaward.awardingbody}</a>
+                                  <a href="${personaward.awardingbodylink.link}" class="nhsd-a-link">${personaward.awardingbody}</a>
                                 <#else>
                                   <span class="hsd-!t-margin-0 nhsd-!t-margin-top-4">${personaward.awardingbody}</span>
                                 </#if>

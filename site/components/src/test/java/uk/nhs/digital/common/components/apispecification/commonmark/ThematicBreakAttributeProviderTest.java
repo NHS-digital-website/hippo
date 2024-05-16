@@ -1,7 +1,7 @@
 package uk.nhs.digital.common.components.apispecification.commonmark;
 
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.commonmark.ext.gfm.tables.TableBlock;
 import org.commonmark.node.Node;
@@ -22,7 +22,7 @@ public class ThematicBreakAttributeProviderTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test
@@ -49,6 +49,6 @@ public class ThematicBreakAttributeProviderTest {
         thematicBreakAttributeProvider.setAttributes(nodeOtherThanThematicBreak, "tagName is ignored", attributes);
 
         // then
-        then(attributes).shouldHaveZeroInteractions();
+        then(attributes).shouldHaveNoInteractions();
     }
 }

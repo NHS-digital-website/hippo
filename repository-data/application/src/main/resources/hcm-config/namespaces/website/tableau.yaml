@@ -63,7 +63,8 @@ definitions:
           /device:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: default,desktop,tablet,phone
+              selectable.options: default,desktop,tablet,phone,responsive - desktop/mobile,responsive
+                - desktop/tablet/mobile
             caption: Device Layout
             field: device
             jcr:primaryType: frontend:plugin

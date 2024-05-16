@@ -9,7 +9,7 @@
 <#include "../macro/metaTags.ftl">
 <#include "../macro/component/lastModified.ftl">
 <#include "../macro/latestblogs.ftl">
-<#include "../macro/component/calloutBox.ftl">
+<#include "../macro/updateSection.ftl">
 <#include "../macro/contentPixel.ftl">
 <#import "../app-layout-head.ftl" as alh>
 <#include "../macro/heroes/hero.ftl">
@@ -55,22 +55,7 @@
     </#if>
 
     <@hero getHeroOptions(document) heroType />
-
     <div class="nhsd-t-grid nhsd-!t-margin-top-8">
-        <#if document.updates?has_content>
-            <div class="nhsd-t-row">
-                <div class="nhsd-t-col-12">
-                    <#assign item = {} />
-                    <#list document.updates as update>
-                        <#assign item += update />
-                        <#assign item += {"calloutType":"update", "index":update?index} />
-                        <@calloutBox item document.class.name />
-                    </#list>
-                </div>
-            </div>
-        </#if>
-
-
         <div class="nhsd-t-row">
             <#if navStatus == "withNav" && renderNav>
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
@@ -91,6 +76,10 @@
             </#if>
 
             <div class="${(navStatus == "withNav" || navStatus == "withoutNav")?then("nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-1", "nhsd-t-col-12")}">
+                <#if document.updates?has_content>
+                    <@updateSection document.updates />
+                </#if>
+
                 <#if document.priorityActions?has_content>
                     <div class="nhsd-o-card-list">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
@@ -127,7 +116,6 @@
                                                                 </svg>
                                                             </span>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </a>

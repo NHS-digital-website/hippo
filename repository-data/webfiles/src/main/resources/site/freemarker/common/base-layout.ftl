@@ -7,10 +7,23 @@
 
 <html lang="en">
   <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto" async></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" async></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76954916-2"></script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({
+                  'gtm.start':
+                      new Date().getTime(), event: 'gtm.js'
+              });
+              var f = d.getElementsByTagName(s)[0],
+                  j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+              j.async = true;
+              j.src =
+                  'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+              f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
+      <!-- End Google Tag Manager -->
 
     <title>NHS Digital Website</title>
 
@@ -28,6 +41,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<@hst.webfile path="icons/favicon-16x16.png"/>">
   </head>
   <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GJCR9"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <@skipLink />
     <div class="beta-banner">
         <div class="beta-banner__inner">

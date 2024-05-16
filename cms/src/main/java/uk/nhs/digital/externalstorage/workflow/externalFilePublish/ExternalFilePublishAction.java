@@ -1,6 +1,5 @@
 package uk.nhs.digital.externalstorage.workflow.externalFilePublish;
 
-
 import static uk.nhs.digital.ps.PublicationSystemConstants.LONDON_ZONE_ID;
 
 import org.apache.commons.scxml2.SCXMLExpressionException;

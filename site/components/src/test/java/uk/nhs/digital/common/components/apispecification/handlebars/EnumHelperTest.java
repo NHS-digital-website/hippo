@@ -29,8 +29,8 @@ public class EnumHelperTest {
     ) {
         // given
         final String expectedRendering = format(
-            "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>,"
-                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code\">%s</span>",
+            "<span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">%s</span>,"
+                + " <span class=\"nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break\">%s</span>",
             firstRenderedValue,
             secondRenderedValue
         );

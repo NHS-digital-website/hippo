@@ -16,8 +16,12 @@ definitions:
           - website:video
           - website:componentlist
           - intranet:task
+          - website:signup
+          - website:publishedwork
+          - website:publishedworkchapter
+          - website:visualhub
           hst:componentconfigurationmappingvalues:
-          - hst:pages/general
+          - hst:pages/article-hub
           - hst:pages/event
           - hst:pages/location
           - hst:pages/blog
@@ -27,6 +31,10 @@ definitions:
           - hst:pages/video
           - hst:pages/componentlist
           - hst:pages/task
+          - hst:pages/sign-up
+          - hst:pages/publishedwork
+          - hst:pages/publishedworkchapter
+          - hst:pages/visualhub
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -41,8 +49,12 @@ definitions:
         - website:video
         - website:componentlist
         - intranet:task
+        - website:signup
+        - website:publishedwork
+        - website:publishedworkchapter
+        - website:visualhub
         hst:componentconfigurationmappingvalues:
-        - hst:pages/general
+        - hst:pages/article-hub
         - hst:pages/event
         - hst:pages/location
         - hst:pages/blog
@@ -52,10 +64,144 @@ definitions:
         - hst:pages/video
         - hst:pages/componentlist
         - hst:pages/task
+        - hst:pages/sign-up
+        - hst:pages/publishedwork
+        - hst:pages/publishedworkchapter
+        - hst:pages/visualhub
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
+      /about:
+        hst:componentconfigurationid: hst:pages/ndrs-about-us-hub
+        hst:relativecontentpath: about
+        jcr:primaryType: hst:sitemapitem
+      /assessibility:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: assessibility
+        jcr:primaryType: hst:sitemapitem
+      /contact:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:componentconfigurationmappingnames:
+        - website:contact
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/contact
+        hst:relativecontentpath: /contact
+        jcr:primaryType: hst:sitemapitem
+      /data:
+        /data-outputs:
+          /ncardrs-data-outputs:
+            hst:componentconfigurationid: hst:pages/data/data-outputs/ncardrs-data-outputs
+            hst:refId: ncardrs-data-outputs
+            hst:relativecontentpath: ncardrs-data-outputs
+            jcr:primaryType: hst:sitemapitem
+          /ncras-data-outputs:
+            hst:componentconfigurationid: hst:pages/data/data-outputs/ncras-data-outputs
+            hst:refId: ncras-data-outputs
+            hst:relativecontentpath: ncras-data-outputs
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/data/data-outputs
+          hst:refId: data-outputs
+          hst:relativecontentpath: data-outputs
+          jcr:primaryType: hst:sitemapitem
+        /data-sets:
+          /ncardrs-data-sets:
+            hst:componentconfigurationid: hst:pages/data/data-sets/ncardrs-data-sets
+            hst:refId: ncardrs-data-sets
+            hst:relativecontentpath: ncardrs-data-sets
+            jcr:primaryType: hst:sitemapitem
+          /ncras-data-sets:
+            hst:componentconfigurationid: hst:pages/data/data-sets/ncras-data-sets
+            hst:refId: ncras-data-sets
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/data/data-sets
+          hst:refId: data-sets
+          hst:relativecontentpath: data-sets
+          jcr:primaryType: hst:sitemapitem
+        /data-stories:
+          hst:componentconfigurationid: hst:pages/data/data-stories
+          hst:refId: data-stories
+          hst:relativecontentpath: /data/data-stories/content
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/data
+        hst:refId: data
+        hst:relativecontentpath: data
+        jcr:primaryType: hst:sitemapitem
+      /forms:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/form-mail
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:hub
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/hub
+          hst:relativecontentpath: ${parent}/forms
+          jcr:primaryType: hst:sitemapitem
+        /email-subscription:
+          hst:componentconfigurationid: hst:pages/form-api
+          hst:relativecontentpath: ${parent}/email-subscription
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: forms
+        jcr:primaryType: hst:sitemapitem
+      /news:
+        /events:
+          hst:componentconfigurationid: hst:pages/latestevents
+          hst:refId: eventsfeed
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/ndrs-news-hub
+        hst:relativecontentpath: news
+        jcr:primaryType: hst:sitemapitem
+      /our-work:
+        /ncardrs-partnerships:
+          hst:componentconfigurationid: hst:pages/our-work/ncardrs-partnerships
+          hst:refId: ncardrs-partnerships
+          jcr:primaryType: hst:sitemapitem
+        /ncardrs-work-programme:
+          hst:componentconfigurationid: hst:pages/our-work/ncardrs-work-programme
+          hst:refId: ncardrs-work-programme
+          jcr:primaryType: hst:sitemapitem
+        /ncras-partnerships:
+          hst:componentconfigurationid: hst:pages/our-work/ncras-partnerships
+          hst:refId: ncras-partnerships
+          jcr:primaryType: hst:sitemapitem
+        /ncras-work-programme:
+          hst:componentconfigurationid: hst:pages/our-work/ncras-work-programme
+          hst:refId: ncras-work-programme
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/our-work
+        hst:refId: ourwork
+        hst:relativecontentpath: our-work
+        jcr:primaryType: hst:sitemapitem
+      /patients:
+        hst:componentconfigurationid: hst:pages/patients
+        hst:refId: patients
+        hst:relativecontentpath: patients
+        jcr:primaryType: hst:sitemapitem
+      /privacy:
+        hst:componentconfigurationid: hst:pages/article-hub
+        hst:relativecontentpath: privacy
+        jcr:primaryType: hst:sitemapitem
       /root:
-        hst:componentconfigurationid: hst:pages/home
+        hst:componentconfigurationid: hst:pages/homepage
         hst:refId: root
+        jcr:primaryType: hst:sitemapitem
+      /search:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/search
+          hst:relativecontentpath: facet/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/search
+        hst:refId: search
+        hst:relativecontentpath: facet
+        jcr:primaryType: hst:sitemapitem
+      /terms:
+        hst:componentconfigurationid: hst:pages/terms
+        hst:relativecontentpath: terms
+        jcr:primaryType: hst:sitemapitem
+      /working-for-us:
+        hst:componentconfigurationid: hst:pages/working-for-us
+        hst:relativecontentpath: working-for-us
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap

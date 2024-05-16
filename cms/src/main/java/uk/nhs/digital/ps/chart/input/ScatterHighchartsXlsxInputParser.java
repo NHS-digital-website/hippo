@@ -1,20 +1,24 @@
 package uk.nhs.digital.ps.chart.input;
 
-import static uk.nhs.digital.ps.chart.ChartType.FUNNEL_PLOT;
-import static uk.nhs.digital.ps.chart.ChartType.SCATTER_PLOT;
+import static uk.nhs.digital.ps.chart.enums.ChartType.FUNNEL_PLOT;
+import static uk.nhs.digital.ps.chart.enums.ChartType.SCATTER_PLOT;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.model.*;
+import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.model.HighchartsModel;
+import uk.nhs.digital.ps.chart.model.Point;
+import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.model.Tooltip;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Optional;
 import javax.jcr.RepositoryException;
 
 public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInputParser {
@@ -27,7 +31,7 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
         super(SCATTER_PLOT, FUNNEL_PLOT);
     }
 
-    protected HighchartsModel parseXlsxChart(final AbstractHighchartsParameters parameters
+    protected HighchartsModel parseXlsxChart(final AbstractVisualisationParameters parameters
     ) throws IOException, RepositoryException {
 
         final ChartType chartType = parameters.getChartType();
@@ -45,8 +49,7 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
         chartData.getSeries().put(0, series);
 
         // If Funnel plot selected and file has more than 1 sheet (funnel definition)
-        // get the funnel plot data on sheet 2 which should comprise
-        // of control limits (lower and upper) for the funnel lines
+        // get the funnel plot data on sheet 2 which should comprise control limits (lower and upper) for the funnel lines
         if (chartType.equals(FUNNEL_PLOT)) {
 
             series = getControlLimitSeries(workbook, 1, chartData);
@@ -85,7 +88,10 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
             Cell x = row.getCell(1);
             Cell y = row.getCell(2);
 
-            series.add(new Point(pointName, getDoubleValue(x), getDoubleValue(y)));
+            Optional<Double> xValue = getDoubleValue(x);
+            Optional<Double> yValue = getDoubleValue(y);
+
+            series.add(new Point(pointName, xValue.isPresent() ? xValue.get() : null, yValue.isPresent() ? yValue.get() : null));
         });
 
         return series;
@@ -111,8 +117,11 @@ public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInpu
 
             Cell x = row.getCell(0);
             Cell y = row.getCell(yCellNum);
+            Optional<Double> xValue = getDoubleValue(x);
+            Optional<Double> yValue = getDoubleValue(y);
 
-            controlLimitSeries.add(new Point("", getDoubleValue(x), getDoubleValue(y)));
+            controlLimitSeries.add(new Point("",
+                xValue.isPresent() ? xValue.get() : null, yValue.isPresent() ? yValue.get() : null));
         });
 
         return controlLimitSeries;

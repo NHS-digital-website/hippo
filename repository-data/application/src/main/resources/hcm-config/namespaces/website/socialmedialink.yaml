@@ -74,6 +74,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /isForFooter:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Is this for the footer social media?
+            field: isForFooter
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -86,6 +95,14 @@ definitions:
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /isForFooter:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:isForFooter
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
           /linkicon:
             hipposysedit:mandatory: false
@@ -148,76 +165,6 @@ definitions:
           - hipposysedit:remodel
           - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
-        /hipposysedit:nodetype[2]:
-          /dynamicdropdown:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:icon
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /linkicon:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:linkicon
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators:
-            - optional
-            jcr:primaryType: hipposysedit:field
-          /linkname:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:linkname
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /nhsdigitalurl:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:nhsdigitalurl
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            - valid-url
-            jcr:primaryType: hipposysedit:field
-          /notes:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:notes
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
-          /sitemainurl:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:sitemainurl
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - valid-url
-            jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          - hippostd:taggable
-          - hippotaxonomy:classifiable
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -244,37 +191,7 @@ definitions:
           - mix:referenceable
           jcr:primaryType: website:socialmedialink
           website:icon: ''
-          website:linkname: ''
-          website:nhsdigitalurl: ''
-          website:notes: ''
-          website:sitemainurl: ''
-        /hipposysedit:prototype[2]:
-          /website:linkicon:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          common:searchRank: 3
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - hippostd:publishableSummary
-          - hippostd:relaxed
-          - hippostd:taggable
-          - hippostdpubwf:document
-          - hippotaxonomy:classifiable
-          - hippotranslation:translated
-          - mix:referenceable
-          jcr:primaryType: nt:unstructured
-          website:icon: ''
+          website:isForFooter: false
           website:linkname: ''
           website:nhsdigitalurl: ''
           website:notes: ''

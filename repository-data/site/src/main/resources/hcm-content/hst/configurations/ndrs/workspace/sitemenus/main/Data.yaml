@@ -1,0 +1,34 @@
+---
+/hst:hst/hst:configurations/ndrs/hst:workspace/hst:sitemenus/main/Data:
+  .meta:order-before: About
+  /Data Outputs:
+    /NCARDRS Data Outputs:
+      hst:referencesitemapitem: ncardrs-data-outputs
+      hst:repobased: false
+      jcr:primaryType: hst:sitemenuitem
+    /NCRAS ncras Data Outputs:
+      hst:referencesitemapitem: ncras-data-outputs
+      hst:repobased: false
+      jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: data-outputs
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  /Data Sets:
+    /NCARDRS Data Sets:
+      hst:referencesitemapitem: ncardrs-data-sets
+      hst:repobased: false
+      jcr:primaryType: hst:sitemenuitem
+    /NCRAS Data Sets:
+      hst:referencesitemapitem: ncras-data-sets
+      hst:repobased: false
+      jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: data-sets
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  /Data Stories:
+    hst:referencesitemapitem: data-stories
+    hst:repobased: false
+    jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: data
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

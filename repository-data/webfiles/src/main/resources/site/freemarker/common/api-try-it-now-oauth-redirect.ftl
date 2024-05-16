@@ -25,7 +25,12 @@ automatically and displayes an informative message instead (with basic styling).
 <#include "app-layout-head.ftl">
 
 <body onload="run()">
-
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GJCR9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
     <#-- 'Page header' (banner with NHSD logo) above the 'document header' -->
     <header class="site-header site-header--with-search" id="header">
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">

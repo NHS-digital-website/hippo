@@ -17,7 +17,7 @@ Please make sure your commit message:\n\
   * First line (subject) starts with uppercase\n\
   * Subject is no longer then 60 characters\n\
   * Subject does not end with '.'\n\
-  * Additional commit message needs to be separated from sobject with single empty line.\n\
+  * Additional commit message needs to be separated from subject with single empty line.\n\
   * Each body line is no longer then 72 characters\n\
 \n\
 COMMIT ERROR: %s. Please check above message\n"

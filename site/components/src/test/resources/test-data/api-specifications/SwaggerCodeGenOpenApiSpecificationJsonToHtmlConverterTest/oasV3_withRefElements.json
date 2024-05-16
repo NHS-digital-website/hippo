@@ -1,0 +1,122 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v0.0.1",
+        "title": "Minimal test specification",
+        "description": "Specification with unresolved $ref elements"
+    },
+    "servers": [],
+    "paths": {
+        "/path/{param}": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/Param"
+                }
+            ],
+            "get": {
+                "operationId": "get-operation",
+                "summary": "Get operation",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "headers": {
+                            "Header": {
+                                "$ref": "#/components/headers/Header"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "example": {
+                                        "$ref": "#/components/examples/Example"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/Schema"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post-operation",
+                "summary": "Post operation",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/requestBody"
+                },
+                "responses": {}
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "Param": {
+                "name": "param",
+                "in": "path",
+                "description": "This is a path parameter within a $ref element",
+                "schema": {
+                    "type": "string",
+                    "example": "parameterExample"
+                }
+            }
+        },
+        "headers": {
+            "Header": {
+                "schema": {
+                    "type": "string",
+                    "example": "9000000009"
+                },
+                "description": "This is a header within a $ref element"
+            }
+        },
+        "examples": {
+            "Example": {
+                "value": {
+                    "Example": "This is an example within a $ref element"
+                }
+            }
+        },
+        "schemas": {
+            "Schema": {
+                "properties": {
+                    "object1": {
+                        "$ref": "#/components/schemas/object1"
+                    },
+                    "object2": {
+                        "description": "This is a schema object within a $ref element",
+                        "type": "string",
+                        "example": "testString"
+                    }
+                },
+                "type": "object"
+            },
+            "object1": {
+                "description": "This is a schema object within a nested $ref element",
+                "properties": {
+                    "date": {
+                        "description": "Date",
+                        "example": "2022-11-01T00:00:00+00:00",
+                        "format": "date/time",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "requestBodies": {
+            "requestBody": {
+                "description": "Request body example",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "description": "This is a request body within a $ref element",
+                            "type": "string",
+                            "example": "testString"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

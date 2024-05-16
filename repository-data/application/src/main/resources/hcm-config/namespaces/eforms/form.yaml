@@ -7,6 +7,8 @@ definitions:
       plugin.class: com.onehippo.cms7.eforms.cms.extensions.AfterProcessPlugin
       wicket.id: ${cluster.id}.extensions.item
       wicket.model: ${wicket.model}
+    /hippo:namespaces/eforms/form/editor:templates/_default_/form:
+      dateformat: dd/MM/yyyy
     /hippo:namespaces/eforms/form/editor:templates/_default_/introductionform:
       .meta:order-before: afterprocessform
       jcr:primaryType: frontend:plugin

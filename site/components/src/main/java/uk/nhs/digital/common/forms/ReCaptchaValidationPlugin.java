@@ -15,7 +15,6 @@ import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import uk.nhs.digital.toolbox.secrets.ApplicationSecrets;
 
 import java.util.HashMap;

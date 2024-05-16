@@ -8,15 +8,19 @@
             <div class="nhsd-m-card__content_container">
               <div class="nhsd-m-card__content-box">
                	<span class="nhsd-t-heading-s nhsd-!t-margin-0">${author.title}</span>
-               	<span class="nhsd-!t-col-black nhsd-!t-margin-bottom-2">${author.roles.primaryrole}</span>
-                <ul class="nhsd-t-body-s">
-                	<#if author.roles.contactdetails?has_content && author.roles.contactdetails.phonenumber?has_content>
-						<li>${author.roles.contactdetails.phonenumber}</li>
-					</#if>
-					<#if author.roles.contactdetails?has_content && author.roles.contactdetails.emailaddress?has_content>
-						<li>${author.roles.contactdetails.emailaddress}</li>
-					</#if>
-                </ul>
+                <#if author.roles?has_content && author.roles.primaryrole?has_content>
+               	    <span class="nhsd-!t-col-black nhsd-!t-margin-bottom-2">${author.roles.primaryrole}</span>
+               	</#if>
+                <#if author.roles?has_content>
+                    <ul class="nhsd-t-body-s">
+                        <#if author.roles.contactdetails?has_content && author.roles.contactdetails.phonenumber?has_content>
+                            <li>${author.roles.contactdetails.phonenumber}</li>
+                        </#if>
+                        <#if author.roles.contactdetails?has_content && author.roles.contactdetails.emailaddress?has_content>
+                            <li>${author.roles.contactdetails.emailaddress}</li>
+                        </#if>
+                    </ul>
+                </#if>
               </div>
               <div class="nhsd-m-card__button-box">
                 <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">

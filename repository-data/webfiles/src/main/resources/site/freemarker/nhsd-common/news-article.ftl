@@ -3,7 +3,6 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.News" -->
 <#include "../include/imports.ftl">
-<#include "macro/metaTags.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/editorsnotes.ftl">
@@ -16,7 +15,8 @@
 <#include "macro/latestblogs.ftl">
 <#include "macro/shareSection.ftl">
 
-<#-- Add meta tags -->
+<#-- Add meta tagging -->
+<#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.news"/>
@@ -85,13 +85,13 @@
 
 <article itemscope itemtype="http://schema.org/NewsArticle">
     <meta itemprop="mainEntityOfPage" content="${document.title}">
-    <meta itemprop="author" content="NHS Digital">
-    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="author" content="NHS England Digital">
+    <meta itemprop="copyrightHolder" content="NHS England Digital">
     <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
     <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="NHS Digital">
+        <meta itemprop="name" content="NHS England Digital">
         <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-england-logo-social.jpg' fullyQualified=true />" />
         </span>
     </div>
 
@@ -100,27 +100,29 @@
     <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6">
         <div class="nhsd-t-row">
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
-
                 <#if document.creditBanner?has_content>
                     <div class="nhsd-m-emphasis-box nhsd-!t-margin-bottom-6" role="alert">
                         <div class="nhsd-a-box nhsd-a-box--border-blue">
                             <div class="nhsd-m-emphasis-box__content-box">
-                                <p class="nhsd-t-body-s nhsd-t-word-break">${creditbanner[document.creditBanner]}</p>
+                                <#if document.creditBanner?contains("nhs-england")>
+                                <p class="nhsd-t-body-s nhsd-t-word-break" style="margin-bottom: 0">${creditbanner[document.creditBanner]}</p>
+                                <#else>
+                                <p class="nhsd-t-body-s nhsd-t-word-break" style="margin-bottom: 0">${creditbannerlegacy[document.creditBanner]}</p>
+                                </#if>
                             </div>
                         </div>
                     </div>
                 </#if>
-
                 <#if hasLeadImage>
                     <div class="nhsd-t-col-12">
                         <div class="nhsd-o-gallery__card-container">
                             <div class="nhsd-m-card">
-                                <div class="nhsd-a-box nhsd-a-box--border-grey">
+                                <div class="nhsd-a-box">
                                     <figure class="nhsd-a-image nhsd-a-image--round-top-corners" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                         <@hst.link hippobean=document.leadimagesection.leadImage.newsPostImage2x fullyQualified=true var="leadImage" />
                                         <meta itemprop="url" content="${leadImage}" />
                                         <picture class="nhsd-a-image__picture ">
-                                            <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>">
+                                            <img style="object-fit:contain" itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>">
                                         </picture>
                                     </figure>
                                     <#if hasLeadImageCaption>
@@ -155,9 +157,11 @@
                     <p class="nhsd-t-heading-xl">Related pages</p>
                     <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-2">
                         <div class="nhsd-t-row">
-                            <div class="nhsd-t-col nhsd-!t-margin-bottom-4">
+                            <div class="nhsd-t-col">
                                 <#list document.relateddocuments as child>
-                                    <@downloadBlockInternal child.class.name child child.title child.shortsummary />
+                                    <div class="nhsd-!t-margin-bottom-4">
+                                        <@downloadBlockInternal child.class.name child child.title child.shortsummary />
+                                    </div>
                                 </#list>
                             </div>
                         </div>
@@ -250,10 +254,14 @@
                 </#if>
 
 
-                <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
-                <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
-                <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
-                <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+                <#assign rendername="" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
+                <#assign renderemail="" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
+                <#assign renderphone="" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
+                <#if document.mediacontact?has_content>
+                    <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
+                </#if>
+
+                <hr class="nhsd-a-horizontal-rule" />
 
                 <#if hasLatestNews>
                     <@latestblogs document.latestNews 'News' 'news-' + idsuffix 'Latest news' false />

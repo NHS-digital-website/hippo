@@ -1,0 +1,21 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/sign-up/form/form:
+      hst:componentclassname: uk.nhs.digital.common.forms.CustomAutoDetectFormComponent
+      hst:iconpath: resources/addon/eforms/images/icons/form.svg
+      hst:label: Enterprise Form
+      hst:parameternames:
+      - eforms-from-email
+      - eforms-from-name
+      - eforms-mailsession
+      - eforms-use-freemarker
+      hst:parametervalues:
+      - hippo.nhsdigital@nhs.net
+      - NHS Mail
+      - mail/NHSMail
+      - 'true'
+      hst:resourcetemplate: eforms.validation.default
+      hst:template: eforms.default
+      hst:xtype: HST.Item
+      jcr:primaryType: hst:containeritemcomponent

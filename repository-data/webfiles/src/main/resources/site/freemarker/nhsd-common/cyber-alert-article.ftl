@@ -129,8 +129,6 @@
                                 Report a cyber attack: call
                                 <a class="nhsd-a-link"
                                    href="tel:004403003035222"
-                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','tel:004403003035222');"
-                                   onKeyUp="return vjsu.onKeyUp(event)"
                                    title="Contact us by telephone"
                                 >
                                     0300 303 5222
@@ -139,8 +137,6 @@
                                 or email
                                 <a class="nhsd-a-link"
                                    href="mailto:${emailLabel}"
-                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','mailto:${emailLabel}');"
-                                   onKeyUp="return vjsu.onKeyUp(event)"
                                    title="${emailTitleLabel}"
                                 >
                                     ${emailLabel}
@@ -201,72 +197,69 @@
                         <p class="nhsd-t-heading-xl">${affectedPlatformsHeader}</p>
                         <p class="nhsd-t-body">The following platforms are known to be affected:</p>
 
-                        <div class="nhsd-o-card-list">
-                            <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                                <div class="nhsd-t-row nhsd-o-card-list__items nhsd-!t-margin-bottom-0">
-                                    <#list document.threatAffects as item>
-                                        <#if item.platformAffected??>
-
-                                            <#if platformAffectedWithDoc = false>
-                                                <#assign platformAffectedWithDoc = true />
-                                            </#if>
-
-                                            <div class="nhsd-t-col-12 nhsd-!t-padding-left-0 nhsd-!t-padding-right-0">
-                                                <div class="nhsd-m-card">
-                                                    <#if item.platformAffected.url??>
-                                                    <a class="nhsd-a-box-link"
-                                                       href="${item.platformAffected.url}"
-                                                       onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                                       aria-label="${item.platformAffected.title}"
-                                                    >
-                                                    </#if>
-                                                        <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                            <div class="nhsd-m-card__content_container">
-                                                                <div class="nhsd-m-card__content-box">
-
-                                                                    <span class="nhsd-m-card__date nhsd-!t-margin-bottom-0">
-                                                                        <#if item.versionsAffected?? && item.versionsAffected?size gt 0>
-                                                                            Versions:
-                                                                            <#list item.versionsAffected as version>
-                                                                                ${version}<#sep>,
-                                                                            </#list>
-                                                                        </#if>
-                                                                    </span>
-
-                                                                    <p class="nhsd-t-heading-s">
-                                                                        ${item.platformAffected.title}
-                                                                    </p>
-
-                                                                    <@hst.html hippohtml=item.platformText contentRewriter=brContentRewriter/>
-                                                                </div>
-
-                                                                <#if item.platformAffected.url??>
-                                                                    <div class="nhsd-m-card__button-box">
-                                                                        <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                                <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                            </svg>
-                                                                        </span>
-                                                                    </div>
-                                                                <#else>
-                                                                    <div style="padding-bottom: 1.111rem"></div>
-                                                                </#if>
-                                                            </div>
-                                                        </div>
-                                                    <#if item.platformAffected.url??>
-                                                    </a>
-                                                    </#if>
-                                                </div>
-                                            </div>
-                                        <#else>
-                                            <@hst.html hippohtml=item.platformText var="platformText" />
-                                            <#if platformText?has_content>
-                                                <#assign platformTextList = platformTextList + [item.platformText] />
-                                            </#if>
+                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                            <div class="nhsd-t-row nhsd-!t-margin-bottom-0">
+                                <#list document.threatAffects as item>
+                                    <#if item.platformAffected??>
+                                        <#if platformAffectedWithDoc = false>
+                                            <#assign platformAffectedWithDoc = true />
                                         </#if>
-                                    </#list>
-                                </div>
+
+                                        <div class="nhsd-t-col-12 nhsd-!t-padding-left-0 nhsd-!t-padding-right-0 nhsd-!t-margin-bottom-6">
+                                            <div class="nhsd-m-card">
+                                                <#if item.platformAffected.url??>
+                                                <a class="nhsd-a-box-link"
+                                                   href="${item.platformAffected.url}"
+                                                   onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
+                                                   onKeyUp="return vjsu.onKeyUp(event)"
+                                                   aria-label="${item.platformAffected.title}"
+                                                >
+                                                </#if>
+                                                    <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
+                                                        <div class="nhsd-m-card__content_container">
+                                                            <div class="nhsd-m-card__content-box">
+
+                                                                <span class="nhsd-m-card__date nhsd-!t-margin-bottom-0">
+                                                                    <#if item.versionsAffected?? && item.versionsAffected?size gt 0>
+                                                                        Versions:
+                                                                        <#list item.versionsAffected as version>
+                                                                            ${version}<#sep>,
+                                                                        </#list>
+                                                                    </#if>
+                                                                </span>
+
+                                                                <p class="nhsd-t-heading-s">
+                                                                    ${item.platformAffected.title}
+                                                                </p>
+
+                                                                <@hst.html hippohtml=item.platformText contentRewriter=brContentRewriter/>
+                                                            </div>
+
+                                                            <#if item.platformAffected.url??>
+                                                                <div class="nhsd-m-card__button-box">
+                                                                    <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                            <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            <#else>
+                                                                <div style="padding-bottom: 1.111rem"></div>
+                                                            </#if>
+                                                        </div>
+                                                    </div>
+                                                <#if item.platformAffected.url??>
+                                                </a>
+                                                </#if>
+                                            </div>
+                                        </div>
+                                    <#else>
+                                        <@hst.html hippohtml=item.platformText var="platformText" />
+                                        <#if platformText?has_content>
+                                            <#assign platformTextList = platformTextList + [item.platformText] />
+                                        </#if>
+                                    </#if>
+                                </#list>
                             </div>
                         </div>
                     </div>
@@ -375,7 +368,12 @@
                                     <#list document.remediationSteps as item>
                                         <tr>
                                             <td><#if item.type??><span class="nhsd-t-body">${item.type}</span></#if></td>
-                                            <td><@hst.html hippohtml=item.step contentRewriter=brContentRewriter/><br /><#if item.link??><a class="nhsd-a-link" href="${item.link}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item.link}');" onKeyUp="return vjsu.onKeyUp(event)">${item.link}</a></#if></td>
+                                            <td>
+                                                <@hst.html hippohtml=item.step contentRewriter=brContentRewriter/><br />
+                                                <#if item.link??>
+                                                    <a class="nhsd-a-link" href="${item.link}">${item.link}</a>
+                                                </#if>
+                                            </td>
                                         </tr>
                                     </#list>
                                 </tbody>
@@ -416,11 +414,7 @@
 
                     <div id="${slugify(ncscLinkHeader)}">
                         <p class="nhsd-t-heading-xl">${ncscLinkHeader}</p>
-                        <a class="nhsd-a-link"
-                           href="${document.ncscLink}"
-                           onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');"
-                           onKeyUp="return vjsu.onKeyUp(event)"
-                        >
+                        <a class="nhsd-a-link" href="${document.ncscLink}">
                             ${document.ncscLink}
                         </a>
                     </div>
@@ -444,11 +438,7 @@
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.sourceOfThreatUpdates as item>
                                 <li>
-                                    <a class="nhsd-a-link"
-                                       href="${item}"
-                                       onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');"
-                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                    >
+                                    <a class="nhsd-a-link" href="${item}">
                                         ${item}
                                     </a>
                                 </li>
@@ -505,47 +495,40 @@
                     <div id="${slugify(cveHeader)}">
                         <p class="nhsd-t-heading-xl">${cveHeader}</p>
 
-                        <div class="nhsd-o-card-list">
-                            <div class="nhsd-t-grid nhsd-!t-no-gutters">
-                                <div class="nhsd-t-row nhsd-o-card-list__items">
-                                    <#list document.cveIdentifiers as item>
-                                        <div class="nhsd-t-col-12 nhsd-!t-padding-left-0 nhsd-!t-padding-right-0">
-                                            <div class="nhsd-m-card">
-                                                <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
-                                                   href="${cveUrl + item.cveIdentifier}"
-                                                   onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${cveUrl + item.cveIdentifier}');"
-                                                   onKeyUp="return vjsu.onKeyUp(event"
-                                                   aria-label="${item.cveIdentifier}"
-                                                >
-                                                    <div class="nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey">
-                                                        <div class="nhsd-m-card__content_container">
-                                                            <div class="nhsd-m-card__content-box">
+                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
+                            <div class="nhsd-t-row">
+                                <#list document.cveIdentifiers as item>
+                                    <div class="nhsd-t-col-12 nhsd-!t-padding-left-0 nhsd-!t-padding-right-0 nhsd-!t-margin-bottom-6">
+                                        <div class="nhsd-m-card">
+                                            <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange" href="${cveUrl + item.cveIdentifier}" aria-label="${item.cveIdentifier}">
+                                                <div class="nhsd-a-box nhsd-a-box--bg-white nhsd-a-box--border-grey">
+                                                    <div class="nhsd-m-card__content_container">
+                                                        <div class="nhsd-m-card__content-box">
 
-                                                                <#if item.cveStatus?? && item.cveStatus != "Not Known">
-                                                                    <div class="nhsd-m-card__tag-list">
-                                                                        <span class="nhsd-a-tag nhsd-a-tag--bg-dark-grey">Status</span>
-                                                                        <span class="nhsd-a-tag nhsd-a-tag--bg-${cveStatusColour(item.cveStatus)}">${item.cveStatus}</span>
-                                                                    </div>
-                                                                </#if>
+                                                            <#if item.cveStatus?? && item.cveStatus != "Not Known">
+                                                                <div class="nhsd-m-card__tag-list">
+                                                                    <span class="nhsd-a-tag nhsd-a-tag--bg-dark-grey">Status</span>
+                                                                    <span class="nhsd-a-tag nhsd-a-tag--bg-${cveStatusColour(item.cveStatus)}">${item.cveStatus}</span>
+                                                                </div>
+                                                            </#if>
 
-                                                                <p class="nhsd-t-heading-s">${item.cveIdentifier}</p>
-                                                                <@hst.html hippohtml=item.cveText contentRewriter=brContentRewriter/>
-                                                            </div>
+                                                            <p class="nhsd-t-heading-s">${item.cveIdentifier}</p>
+                                                            <@hst.html hippohtml=item.cveText contentRewriter=brContentRewriter/>
+                                                        </div>
 
-                                                            <div class="nhsd-m-card__button-box">
-                                                                <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                        <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
+                                                        <div class="nhsd-m-card__button-box">
+                                                            <span class="nhsd-a-icon nhsd-a-arrow nhsd-a-icon--size-s nhsd-a-icon--col-black">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                </svg>
+                                                            </span>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </#list>
-                                </div>
+                                    </div>
+                                </#list>
                             </div>
                         </div>
                     </div>
@@ -571,39 +554,37 @@
                     <div id="${slugify(acknowledgementHeader)}">
                         <p class="nhsd-t-heading-xl">${acknowledgementHeader}</p>
 
-                        <div class="nhsd-o-card-list">
-                            <div class="nhsd-t-grid nhsd-t-grid--nested">
-                                <div class="nhsd-t-row nhsd-o-card-list__items nhsd-t-row--centred">
-                                    <#list document.cyberAcknowledgements as item>
-                                        <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6">
-                                            <div class="nhsd-m-card">
-                                                <a class="nhsd-a-box-link"
-                                                   href="${item.linkAddress}"
-                                                   onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
-                                                   onKeyUp="return vjsu.onKeyUp(event)"
-                                                   aria-label="${item.linkAddress}"
-                                                >
-                                                    <div class="nhsd-a-box nhsd-a-box--bg-<#if item?is_odd_item>dark-grey<#else>blue</#if>">
-                                                        <div class="nhsd-m-card__content_container">
-                                                            <div class="nhsd-m-card__content-box">
-                                                                <span class="nhsd-m-card__date nhsd-t-word-break">Response by: <@fmt.formatDate value=item.responseDatetime.time?date type="date" pattern="d MMM yyyy HH:mm:ss" timeZone="${getTimeZone()}" /></span>
-                                                                <p class="nhsd-t-heading-s nhsd-t-word-break">${item.linkAddress}</p>
-                                                            </div>
+                        <div class="nhsd-t-grid nhsd-t-grid--nested">
+                            <div class="nhsd-t-row nhsd-t-row--centred">
+                                <#list document.cyberAcknowledgements as item>
+                                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-6 nhsd-!t-margin-bottom-6">
+                                        <div class="nhsd-m-card nhsd-m-card--full-height">
+                                            <a class="nhsd-a-box-link"
+                                               href="${item.linkAddress}"
+                                               onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
+                                               onKeyUp="return vjsu.onKeyUp(event)"
+                                               aria-label="${item.linkAddress}"
+                                            >
+                                                <div class="nhsd-a-box nhsd-a-box--bg-<#if item?is_odd_item>dark-grey<#else>blue</#if>">
+                                                    <div class="nhsd-m-card__content_container">
+                                                        <div class="nhsd-m-card__content-box">
+                                                            <span class="nhsd-m-card__date nhsd-t-word-break">Response by: <@fmt.formatDate value=item.responseDatetime.time?date type="date" pattern="d MMM yyyy HH:mm:ss" timeZone="${getTimeZone()}" /></span>
+                                                            <p class="nhsd-t-heading-s nhsd-t-word-break">${item.linkAddress}</p>
+                                                        </div>
 
-                                                            <div class="nhsd-m-card__button-box">
-                                                                <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
-                                                                        <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
+                                                        <div class="nhsd-m-card__button-box">
+                                                            <span class="nhsd-a-icon nhsd-a-icon--size-s nhsd-a-icon--col-white nhsd-a-arrow">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16"  width="100%" height="100%">
+                                                                    <path d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                                                                </svg>
+                                                            </span>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </#list>
-                                </div>
+                                    </div>
+                                </#list>
                             </div>
                         </div>
                     </div>

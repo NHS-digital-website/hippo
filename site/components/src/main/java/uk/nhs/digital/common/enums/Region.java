@@ -35,6 +35,25 @@ public enum Region {
         return cmsValues;
     }
 
+    /**
+     * Converts selected geographic coverage values:
+     * If Great Britain - England, Wales, Scotland are returned
+     * If United Kingdom - England, Wales, Scotland and Northern Ireland are returned
+     * If British Isles - England, Wales, Scotland and Northern Ireland, and Republic of Ireland are returned
+     * Any other value is just returned
+     */
+    public static String[] convertGeographicCoverageToValues(final String[] regionValue) {
+        if (regionValue.length > 0) {
+            for (Region region : Region.values()) {
+                if (region.regionName.matches(regionValue[0])) {
+                    return region.geographicCoverageValues.toArray(new String[0]);
+                }
+            }
+        }
+
+        return  regionValue;
+    }
+
     private boolean matches(String[] cmsValues) {
         if (cmsValues == null) {
             return false;

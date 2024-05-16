@@ -14,7 +14,6 @@ import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
 
 import java.util.*;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 

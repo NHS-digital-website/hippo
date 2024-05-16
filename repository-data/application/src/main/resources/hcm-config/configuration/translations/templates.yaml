@@ -21,6 +21,8 @@ definitions:
       new-platform-folder: new folder
       new-project-update-document: new update document
       new-project-update-folder: new folder
+      new-recentupdates-document: new recentupdates document
+      new-recentupdates-folder: new recentupdates folder
       new-socialmedialink-document: new socialmedialink document
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
@@ -64,6 +66,11 @@ definitions:
       /nationalindicatorlibrary:nilanding:
         /en:
           jcr:name: NI landing
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:Visualisation:
+        /en:
+          jcr:name: Visualisation
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:accessiblelink:
@@ -298,9 +305,14 @@ definitions:
           jcr:name: Policy
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:ctaButtonSimplified:
+        /en:
+          jcr:name: CTA Button (Simplified Version)
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
-          jcr:name: CTA
+          jcr:name: CTA Button
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:customizedAssetSet:
@@ -713,6 +725,11 @@ definitions:
           jcr:name: Quote hero
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:recentupdates:
+        /en:
+          jcr:name: Recent updates
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:releaseinfo:
         /en:
           jcr:name: Release info
@@ -786,6 +803,11 @@ definitions:
       /website:signup:
         /en:
           jcr:name: Sign up page
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:socialMediaBar:
+        /en:
+          jcr:name: Social media bar
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:socialmedia:

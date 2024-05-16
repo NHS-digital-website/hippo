@@ -9,10 +9,10 @@ import static org.mockito.ArgumentMatchers.refEq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
-import static uk.nhs.digital.ps.chart.ChartType.AREA_MAP;
-import static uk.nhs.digital.ps.chart.MapSource.BRITISH_ISLES_COUNTIES;
+import static uk.nhs.digital.ps.chart.enums.ChartType.AREA_MAP;
+import static uk.nhs.digital.ps.chart.enums.MapSource.BRITISH_ISLES_COUNTIES;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
@@ -22,11 +22,13 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.chart.*;
+import uk.nhs.digital.ps.chart.enums.ChartType;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.HighmapsModel;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
 
 import java.util.List;
 import java.util.UUID;
@@ -62,7 +64,7 @@ public class HighchartsInputConversionTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         workflowSession = MockJcr.newSession();
 
@@ -113,8 +115,8 @@ public class HighchartsInputConversionTaskTest {
         highchartsInputConversionTask.doExecute();
 
         // then
-        then(highchartsInputParser).shouldHaveZeroInteractions();
-        then(jsonSerialiser).shouldHaveZeroInteractions();
+        then(highchartsInputParser).shouldHaveNoInteractions();
+        then(jsonSerialiser).shouldHaveNoInteractions();
     }
 
     @Test

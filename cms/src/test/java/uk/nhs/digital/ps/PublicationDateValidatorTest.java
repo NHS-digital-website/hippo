@@ -3,7 +3,7 @@ package uk.nhs.digital.ps;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 import org.onehippo.repository.mock.MockNode;
+import uk.nhs.digital.ps.validators.PublicationDateValidator;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -32,7 +33,7 @@ public class PublicationDateValidatorTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test

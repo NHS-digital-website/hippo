@@ -49,6 +49,9 @@ definitions:
       - style
       - title
       - width
+      - src
+      - allow
+      - frameborder
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/pre:
       .meta:delete: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/s:

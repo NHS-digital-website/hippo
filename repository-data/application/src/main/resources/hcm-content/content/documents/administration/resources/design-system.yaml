@@ -6,18 +6,21 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: robert.gaskin1
     hippostdpubwf:creationDate: 2021-06-02T16:49:54.351Z
-    hippostdpubwf:lastModificationDate: 2021-06-02T16:50:49.691Z
-    hippostdpubwf:lastModifiedBy: robert.gaskin1
+    hippostdpubwf:lastModificationDate: 2023-11-10T12:03:21.010Z
+    hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - ''
+    - ''
     resourcebundle:id: design-system
     resourcebundle:keys:
     - design-system.url
+    - design-system.version
     resourcebundle:messages:
     - https://dbs1dgg3cdf4v.cloudfront.net
+    - latest
   /design-system-url[2]:
     hippo:availability:
     - preview
@@ -25,19 +28,22 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: robert.gaskin1
     hippostdpubwf:creationDate: 2021-06-02T16:49:54.351Z
-    hippostdpubwf:lastModificationDate: 2021-06-02T16:50:49.151Z
-    hippostdpubwf:lastModifiedBy: robert.gaskin1
+    hippostdpubwf:lastModificationDate: 2023-11-10T12:03:20.876Z
+    hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - ''
+    - ''
     resourcebundle:id: design-system
     resourcebundle:keys:
     - design-system.url
+    - design-system.version
     resourcebundle:messages:
     - https://dbs1dgg3cdf4v.cloudfront.net
+    - latest
   /design-system-url[3]:
     hippo:availability:
     - live
@@ -45,21 +51,24 @@
     hippostd:state: published
     hippostdpubwf:createdBy: robert.gaskin1
     hippostdpubwf:creationDate: 2021-06-02T16:49:54.351Z
-    hippostdpubwf:lastModificationDate: 2021-06-02T16:50:49.151Z
-    hippostdpubwf:lastModifiedBy: robert.gaskin1
-    hippostdpubwf:publicationDate: 2021-06-02T16:50:59.195Z
+    hippostdpubwf:lastModificationDate: 2023-11-10T12:03:20.876Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2023-11-10T12:03:34.032Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - ''
+    - ''
     resourcebundle:id: design-system
     resourcebundle:keys:
     - design-system.url
+    - design-system.version
     resourcebundle:messages:
     - https://dbs1dgg3cdf4v.cloudfront.net
+    - latest
   hippo:name: Design System URL
-  hippo:versionHistory: c6ea0d2a-aa76-4480-aa2b-0b3bb892d149
+  hippo:versionHistory: 71de326f-ae98-4ff2-9b00-5da8f35321be
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo

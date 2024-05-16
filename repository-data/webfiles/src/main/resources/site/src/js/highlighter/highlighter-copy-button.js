@@ -8,7 +8,7 @@ function activateCodeBlock(element) {
     } else {
         codeBlock.addEventListener('click', function (event) {
             const btn = event.target;
-            const codeBlockText = codeBlock.querySelector('pre').innerText;
+            const codeBlockText = codeBlock.parentElement.parentElement.querySelector('pre').innerText;
             navigator.clipboard.writeText(codeBlockText).then(function() {
                 btn.classList.add("button-code-block-done");
                 setTimeout(function() {

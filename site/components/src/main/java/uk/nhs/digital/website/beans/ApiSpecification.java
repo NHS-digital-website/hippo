@@ -7,8 +7,12 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 @HippoEssentialsGenerated(internalName = "website:apispecification", allowModifications = false)
 public class ApiSpecification extends CommonFieldsBean {
 
-    public String getSpecificationid() {
+    public String getSpecificationId() {
         return getSingleProperty("website:specification_id");
+    }
+
+    public Boolean getEnableRapiDoc() {
+        return getSingleProperty("website:enable_rapidoc");
     }
 
     public String getHtml() {

@@ -6,7 +6,7 @@ import static uk.nhs.digital.ps.PublicationSystemConstants.INDEX_FILE_NAME;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.workflow.AbstractExternalFileTask;
-import uk.nhs.digital.ps.PublicationSystemConstants;
+import uk.nhs.digital.externalstorage.workflow.externalFileIsPublished.ExternalFileIsPublishedCheck;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -17,7 +17,7 @@ public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
     protected void processResourceNodes(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
-        if (isPublication(variantNode)) {
+        if (ExternalFileIsPublishedCheck.isPublication(variantNode)) {
             // if un-publishing publication we need to also un-publish its dataset resources.
             unpublishPublicationResources(s3Connector, resourceNodes);
         } else {
@@ -53,11 +53,5 @@ public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
                 s3Connector.unpublishResource(externalResource);
             }
         }
-    }
-
-
-    private boolean isPublication(Node variantNode) throws RepositoryException {
-        return variantNode.isNodeType(PublicationSystemConstants.NODE_TYPE_PUBLICATION)
-            || variantNode.isNodeType(PublicationSystemConstants.NODE_TYPE_LEGACY_PUBLICATION);
     }
 }

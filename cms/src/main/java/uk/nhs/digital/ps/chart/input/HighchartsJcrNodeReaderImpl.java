@@ -2,23 +2,39 @@ package uk.nhs.digital.ps.chart.input;
 
 import static org.hippoecm.repository.util.JcrUtils.getBinaryProperty;
 import static org.hippoecm.repository.util.JcrUtils.getStringProperty;
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_CHART;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_DATA_FILE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_MAP;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_VISUALISATION;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_MAP_SOURCE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_TYPE_ICON;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_VISUALISATION_COLOUR;
 
 import org.apache.jackrabbit.JcrConstants;
-import uk.nhs.digital.ps.chart.*;
+import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
+import uk.nhs.digital.ps.chart.parameters.HighchartsParameters;
+import uk.nhs.digital.ps.chart.parameters.HighmapsParameters;
+import uk.nhs.digital.ps.chart.parameters.VisualisationParameters;
 
 import javax.jcr.Binary;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class HighchartsJcrNodeReaderImpl implements HighchartsJcrNodeReader {
 
     @Override
-    public AbstractHighchartsParameters readParameters(Node node) throws RepositoryException {
+    public AbstractVisualisationParameters readParameters(Node node) throws RepositoryException {
         String nodeType = node.getPrimaryNodeType().getName();
         switch (nodeType) {
             case NODE_TYPE_CHART:
                 return getChartParameters(node);
+            case NODE_TYPE_VISUALISATION:
+                return getVisualisationParameters(node);
             case NODE_TYPE_MAP:
                 return getMapParameters(node);
             default:
@@ -38,6 +54,21 @@ public class HighchartsJcrNodeReaderImpl implements HighchartsJcrNodeReader {
         final String yTitle = getStringProperty(chartConfigNode, PROPERTY_CHART_YTITLE, null);
 
         return new HighchartsParameters(chartType, title, yTitle, inputFile);
+    }
+
+    private VisualisationParameters getVisualisationParameters(final Node visualisationConfigNode) throws RepositoryException {
+        final Node dataFileNode = visualisationConfigNode.getNode(NODE_TYPE_DATA_FILE);
+
+        // required fields
+        final Binary inputFile = getBinaryProperty(dataFileNode, JcrConstants.JCR_DATA, null);
+        final String chartType = getStringProperty(visualisationConfigNode, PROPERTY_CHART_TYPE, null);
+        final String title = getStringProperty(visualisationConfigNode, PROPERTY_CHART_TITLE, null);
+
+        // optional field
+        final String colourOption = getStringProperty(visualisationConfigNode, PROPERTY_VISUALISATION_COLOUR, null);
+        final String iconType = getStringProperty(visualisationConfigNode, PROPERTY_TYPE_ICON, null);
+
+        return new VisualisationParameters(chartType, title, colourOption, inputFile, iconType);
     }
 
     private HighmapsParameters getMapParameters(final Node mapConfigNode) throws RepositoryException {

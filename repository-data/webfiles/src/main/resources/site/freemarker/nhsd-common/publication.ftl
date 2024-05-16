@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 
 <#include "../include/imports.ftl">
-<#include "./macro/metaTags.ftl">
 <#include "./macro/component/lastModified.ftl">
 <#include "./macro/heroes/hero.ftl">
 <#include "./macro/publicationsystem/structured-text.ftl">
@@ -25,7 +24,8 @@
 
 <#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
 
-<#-- Add meta tags -->
+<#-- Add meta tagging -->
+<#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
@@ -135,11 +135,16 @@
                     <#list index as i>
                         <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
                     </#list>
-                    <@stickyNavSections getStickySectionNavLinks({
+                    <#assign links = getStickySectionNavLinks({
                         "document": document,
                         "sections": links,
                         "keepBundles": ["publicationsystem.change","publicationsystem.survey","publicationsystem.interactive","publicationsystem.labels","publicationsystem.headers"]
                     })/>
+                    <#if publication.relatedLinks?has_content>
+                        <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
+                        <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
+                    </#if>
+                    <@stickyNavSections links />
                 </div>
                 <div class="nhsd-t-col-xs-12 nhsd-t-off-s-1 nhsd-t-col-s-8 js-publication-body" data-uipath="ps.publication.body">
                     <#if document.publication??>
@@ -287,8 +292,7 @@
                                         <@hst.link hippobean=dataset.selfLinkBean var="dataSetLink">
                                             <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
                                         </@hst.link>
-                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}"
-                                                                 onClick="logGoogleAnalyticsEvent('Link click','Data set',${dataSetLink});">${dataset.title}</a></span>
+                                        <span itemprop="name"><a class="nhsd-a-link" itemprop="url" href="${dataSetLink}">${dataset.title}</a></span>
                                         <#list dataset.summary.elements as element>
                                             <meta itemprop="description" content="${element}"/>
                                         </#list>
@@ -395,10 +399,7 @@
                             <h2 class="nhsd-t-heading-m">${relatedLinksHeader}</h2>
                             <ul data-uipath="ps.publication.related-links" class="nhsd-t-list nhsd-t-list--bullet">
                                 <#list publication.relatedLinks as link>
-                                    <li><a href="${link.linkUrl}"
-                                       onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');"
-                                       onKeyUp="return vjsu.onKeyUp(event)"
-                                       title="${link.linkText}">${link.linkText}</a></li>
+                                    <li><a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a></li>
                                 </#list>
                             </ul>
                         </div>
@@ -435,11 +436,14 @@
                                 <@hst.link hippobean=page.linkedBean var="relatedSubjectLink"/>
                                 <#assign isActive = document.getCanonicalUUID() == page.linkedBean.getCanonicalUUID()/>
                                 <li ${isActive?then('class=nhsd-m-publication-chapter-navigation--active', '')} itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean>
-                                                <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
-                                                </@hst.link>"
+                                    <span itemprop="name">
+                                        <@hst.link hippobean=page.linkedBean var="chapterLink">
+                                            <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                        </@hst.link>
+                                        <a itemprop="url" href="${chapterLink}" class="nhsd-a-link"
                                                 onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
-                                                ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
+                                                ${isActive?then('', 'data-print-article')}>${page.title}</a>
+                                    </span>
                                 </li>
                             </#list>
                         </ol>

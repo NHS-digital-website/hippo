@@ -57,6 +57,9 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
         final ParseOptions parseOptions = new ParseOptions();
         parseOptions.setResolve(true);
 
+        // Do not enable this until circular refs no longer cause infinite recursion.
+        //parseOptions.setResolveFully(true);
+
         final SwaggerParseResult swaggerParseResult = new OpenAPIV3Parser()
             .readContents(openApiSpecificationJson, null, parseOptions);
 
@@ -109,7 +112,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
     private String templateFolderPath() {
 
         final URL templatesDirectoryUrl = templatesDir == null
-            ? getClass().getClassLoader().getResource(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH)
+            ? Thread.currentThread().getContextClassLoader().getResource(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH)
             : templatesDir;
 
         return requireNonNull(templatesDirectoryUrl, "Classpath resource not found: " + TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH).getPath();

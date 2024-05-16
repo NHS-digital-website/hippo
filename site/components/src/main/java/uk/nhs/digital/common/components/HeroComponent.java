@@ -9,6 +9,8 @@ import uk.nhs.digital.common.components.info.HeroComponentInfo;
 import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
 
+import javax.servlet.http.HttpServletRequest;
+
 @ParametersInfo(type = HeroComponentInfo.class)
 public class HeroComponent extends CommonComponent {
     private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
@@ -35,5 +37,17 @@ public class HeroComponent extends CommonComponent {
         request.setAttribute("displayColourBar", colourBar);
         request.setAttribute("stripTagsContentRewriter", stripTagsContentRewriter);
         request.setAttribute("brContentRewriter", brContentRewriter);
+
+        HttpServletRequest servletRequest = request.getRequestContext().getServletRequest();
+
+        if (servletRequest.getAttribute("pageTitle") == null) {
+            if (document != null) {
+                String title = document.getSingleProperty("website:title");
+                servletRequest.setAttribute("pageTitle", title);
+            } else {
+                // This should only happen in the CMS Channel Manager when no document is selected
+                servletRequest.setAttribute("pageTitle", "Not set");
+            }
+        }
     }
 }

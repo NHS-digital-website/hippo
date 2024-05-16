@@ -258,6 +258,7 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            - optional
             jcr:primaryType: hipposysedit:field
           /notesforeditors:
             hipposysedit:multiple: false
@@ -399,13 +400,19 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 9790809a-4f34-4ad5-ad31-bd8cd0b85819
+          jcr:uuid: 544ce78e-a610-4dde-8cb7-8832f6759f81
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
         jcr:uuid: a7f2ae1c-21aa-49f9-a716-4fae613b4aed
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:backstory:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchRank: 4
           common:searchable: true
           hippostd:holder: holder
@@ -420,7 +427,7 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:news
-          jcr:uuid: 89286e73-8944-4083-a906-b2fffc7440de
+          jcr:uuid: 7cb3f8b5-c404-4c8e-887f-4186c69cde44
           website:creditbanner: ''
           website:display: false
           website:prioritynews: false

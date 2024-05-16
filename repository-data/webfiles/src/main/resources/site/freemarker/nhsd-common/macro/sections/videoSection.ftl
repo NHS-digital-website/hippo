@@ -41,7 +41,7 @@
 
         </div></div></div>
         <@hero heroOptions heroType/>
-        <div class="nhsd-t-grid"><div class="nhsd-t-row"><div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+        <div class="nhsd-t-grid"><div class="nhsd-t-row"><div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 nhsd-t-off-s-2 nhsd-t-coll-m-8 nhs-t-off-m-2 nhsd-t-col-l-8 nhsd-t-off-l-2 nhsd-t-col-xl-6 nhsd-t-off-xl-3">
     <#else>
         <#assign fullWidth = (document.docType == "Feature" || document.docType == "Blog") && section.type == "Full width"/>
         <#if fullWidth>
@@ -53,7 +53,7 @@
                 "&playlist=${section.playlist}" +
                 "&${mute}=${section.behaviour?then('1','0')}"/>
 
-        <div class="nhsd-t-ratio-16x9">
+        <div class="nhsd-t-ratio-16x9 nhsd-!t-margin-bottom-6">
             <figure>
                 <iframe src="${section.videoUrl}&autoplay=${section.behaviour?then('1','0')}&loop=${section.loop?then('1','0')}&${mute}=${section.behaviour?then('1','0')}&rel=0"
                     title="${document.title}"

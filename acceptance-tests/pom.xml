@@ -16,32 +16,21 @@
     <name>NHS Digital Website Acceptance Tests</name>
     <description>Automated Acceptance Tests for NHS Digital Website</description>
 
-    <properties>
-        <cucumber.version>1.2.5</cucumber.version>
-        <spring.version>5.1.15.RELEASE</spring.version>
-        <selenium.version>3.141.59</selenium.version>
-        <!--
-        Consult https://chromedriver.chromium.org/downloads
-        to find the right ChromeDriver version to use with the current browser version,
-        -->
-        <chromedriver.version>100.0.4896.60</chromedriver.version>
-    </properties>
-
     <dependencies>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
@@ -71,6 +60,12 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
             <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.22.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -184,7 +179,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>${maven-surefire.version}</version>
                 <configuration>
                     <skipTests>true</skipTests>
                 </configuration>
@@ -193,6 +188,115 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>playwright-install</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <!-- Use the latest released version:
+                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+                        <version>${maven-frontend.version}</version>
+                        <configuration>
+                            <workingDirectory>${website.basedir}/acceptance-tests/src/test/node</workingDirectory>
+                            <environmentVariables>
+                                <NODE_ENV>${NODE_ENV}</NODE_ENV>
+                            </environmentVariables>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>v14.17.3</nodeVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm install</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npx playwright install-deps</id>
+                                <goals>
+                                    <goal>npx</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>playwright install-deps</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>playwright-test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <!-- Use the latest released version:
+                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+                        <version>${maven-frontend.version}</version>
+                        <configuration>
+                            <workingDirectory>${website.basedir}/acceptance-tests/src/test/node</workingDirectory>
+                            <environmentVariables>
+                                <NODE_ENV>${NODE_ENV}</NODE_ENV>
+                            </environmentVariables>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>v14.17.3</nodeVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm install</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm test</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <phase>integration-test</phase>
+                                <configuration>
+                                    <arguments>test</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>acceptance-test</id>
             <activation>
@@ -204,7 +308,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.2</version>
+                        <version>${maven-failsafe.version}</version>
                         <configuration>
                             <includes>
                                 <include>**/AcceptanceTest.java</include>
@@ -237,7 +341,7 @@
                          -->
                         <groupId>com.github.webdriverextensions</groupId>
                         <artifactId>webdriverextensions-maven-plugin</artifactId>
-                        <version>3.2.0</version>
+                        <version>${webdriverextensions-maven.version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -252,14 +356,14 @@
                                     <platform>linux</platform>
                                     <bit>64</bit>
                                     <version>${chromedriver.version}</version>
-                                    <url>http://chromedriver.storage.googleapis.com/${chromedriver.version}/chromedriver_linux64.zip</url>
+                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/linux64/chromedriver-linux64.zip</url>
                                 </driver>
                                 <driver>
                                     <name>chromedriver</name>
                                     <platform>mac</platform>
                                     <bit>64</bit>
                                     <version>${chromedriver.version}</version>
-                                    <url>http://chromedriver.storage.googleapis.com/${chromedriver.version}/chromedriver_mac64.zip</url>
+                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/mac-x64/chromedriver-mac-x64.zip</url>
                                 </driver>
                             </drivers>
                         </configuration>
@@ -415,7 +519,7 @@
                                 <properties>
                                     <cargo.jvmargs>
                                         -Xmx1024m
-                                        -Duser.timezone=Etc/UTC
+                                        -Duser.timezone=Europe/London
                                         -Dfile.encoding=UTF-8
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
@@ -472,7 +576,8 @@
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
                                     <!-- Apigee API specifications sync schedule properties -->
                                     <devzone.apispec.sync.schedule-delay-duration>${devzone.apispec.sync.schedule-delay-duration}</devzone.apispec.sync.schedule-delay-duration>
-                                    <devzone.apispec.sync.daily-cron-expression>${devzone.apispec.sync.daily-cron-expression}</devzone.apispec.sync.daily-cron-expression>
+                                    <devzone.apispec.sync.apigee.daily-cron-expression>${devzone.apispec.sync.apigee.daily-cron-expression}</devzone.apispec.sync.apigee.daily-cron-expression>
+                                    <devzone.apispec.sync.proxygen.daily-cron-expression>${devzone.apispec.sync.proxygen.daily-cron-expression}</devzone.apispec.sync.proxygen.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
                                 </systemProperties>
 

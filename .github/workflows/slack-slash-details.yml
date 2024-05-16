@@ -1,0 +1,121 @@
+name: Slack Command for ODv2 that lists the details of all environments
+
+on:
+  repository_dispatch:
+    types:
+      - slack-command-to-list-odv2-details
+
+jobs:
+
+  integrity:
+    name: Slack Integrity Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+
+      #
+      # Validate that the origin is from Slack
+      # See: https://api.slack.com/authentication/verifying-requests-from-slack
+      #
+      - name: Validate Origin
+        uses: actions/github-script@v7
+        env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+        with:
+          script: |
+            if(!`${process.env.AGENT}`.startsWith("Slackbot")){
+                core.setFailed("User agent mismatch.")
+            } else {
+                const base = `v0:${process.env.TIMESTAMP}:${process.env.BODY}`
+                const hash = require('crypto').createHmac('sha256', `${process.env.SIGNING_SECRET}`).update(base).digest("hex")
+                if(`${process.env.SIGNATURE}` !== `v0=${hash}`) {
+                  core.setFailed("The origin integrity check failed.")
+                }
+            }
+
+  list_environments:
+    name: Ask API for details of environments
+    needs:
+      - integrity
+    runs-on: ubuntu-latest
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Get API access token and verify it.
+      - name: Get BR Cloud Token
+        id: jwt_token
+        uses: ./.github/actions/br-cloud-token
+        with:
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
+
+      # Distributions Details
+      - name: Request Environment Details
+        id: distributions
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
+          echo "distributions=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
+      - name: Write Distributions Details to File
+        run: |
+          echo "${{ steps.distributions.outputs.distributions }}" | jq . > distributions.json
+      - name: Save Distributions Details
+        uses: actions/upload-artifact@v4
+        with:
+          path: distributions.json
+
+
+      # Environment Details
+      - name: Request Environment Details
+        id: environments
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/environments)
+          echo "environments=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
+      - name: Write Environment Details to File
+        run: |
+          echo "${{ steps.environments.outputs.environments }}" | jq . > environments.json
+      - name: Save Environment Details
+        uses: actions/upload-artifact@v4
+        with:
+          path: environments.json
+
+      # Request Application Configuration Files Details
+      - name: Request Application Configuration Files Details
+        id: files
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
+          echo "details=${response//'"'/'\"'}" >> $GITHUB_OUTPUT
+      - name: Write Application Configuration to File
+        run: |
+          echo "${{ steps.files.outputs.details }}" | jq . > application-configuration-files.json
+      - name: Save Application Configuration Details
+        uses: actions/upload-artifact@v4
+        with:
+          path: application-configuration-files.json
+
+
+      - name: Slack message
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.CHANNEL_ID }}
+          TITLE: ":green_book: Environment Details"
+          MESSAGE: |
+            The details will be attached to the GitHub Actions run :point_down: in a few seconds.

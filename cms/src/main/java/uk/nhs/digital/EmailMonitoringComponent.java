@@ -24,7 +24,7 @@ public class EmailMonitoringComponent implements RepositoryJob {
         try {
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
-            Session session = (Session) envCtx.lookup("mail/NHSMail");
+            Session session = (Session) envCtx.lookup("mail/Session");
 
             try {
                 Message message = new MimeMessage(session);
@@ -33,6 +33,8 @@ public class EmailMonitoringComponent implements RepositoryJob {
                 message.setRecipients(Message.RecipientType.TO, to);
                 message.setSubject("EMAIL MONITOR ONLY");
                 message.setContent("AUTOMATED", "text/plain");
+                InternetAddress fromAddress = new InternetAddress("hippo.nhsdigital@nhs.net");
+                message.setFrom(fromAddress);
                 Transport.send(message);
                 log.info("EMAIL MONITOR: SUCCESS");
             } catch (MessagingException mex) {

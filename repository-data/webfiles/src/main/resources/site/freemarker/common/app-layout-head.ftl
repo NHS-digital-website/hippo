@@ -1,6 +1,23 @@
 <#ftl output_format="HTML">
 <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,6 +66,7 @@
 
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print.css"/>" media="print" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhse-global-menu.css"/>" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 

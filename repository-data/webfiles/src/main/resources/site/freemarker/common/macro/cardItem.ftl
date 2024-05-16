@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
+
 <#macro cardItem cardProps>
     <#assign cardClass = ""/>
     <#if cardProps.featured?? && cardProps.featured && cardProps.image?has_content>
@@ -9,12 +12,10 @@
     <#if cardProps.authorsInfo?has_content && cardProps.authorsInfo?size gt 0>
         <#assign cardClass += " nhsd-m-card--author"/>
     </#if>
-
-    <#if cardProps.contentType?has_content>
-        <#assign trackingEvent = 'onclick="logGoogleAnalyticsEvent(\'Link click\', \'${cardProps.contentType}\', \'${cardProps.link}\')" onkeyup="return vjsu.onKeyUp(event)"' />
+    <#if cardProps.fullHeight?has_content && cardProps.fullHeight>
+        <#assign cardClass += " nhsd-m-card--full-height"/>
     </#if>
-
-    <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}" ${trackingEvent?has_content?then(trackingEvent?no_esc, '')}>
+    <article class="nhsd-m-card ${cardClass} ${cardProps.cardClass?has_content?then(cardProps.cardClass, '')}">
         <a href="${cardProps.link}" class="nhsd-a-box-link" >
             <div class="nhsd-a-box ${cardProps.background?has_content?then("nhsd-!t-bg-" + cardProps.background, "")}">
                 <#if cardProps.image?has_content>
@@ -23,6 +24,18 @@
                             <picture class="nhsd-a-image__picture">
                                 <@hst.link hippobean=cardProps.image.newsPostImageLarge fullyQualified=true var="leadImage" />
                                 <img src="${leadImage}" alt="${cardProps.altText}" />
+                            </picture>
+                        </figure>
+                    </div>
+                <#elseif cardProps.svgXmlFromRepository?has_content>
+                    <div class="nhsd-m-card__image_container">
+                        <figure class="nhsd-a-image ${cardProps.imageClass?has_content?then(cardProps.imageClass, '')}">
+                            <picture class="nhsd-a-image__picture">
+                                <#if cardProps.altText?? && cardProps.altText?has_content>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(cardProps.svgXmlFromRepository, "005EB8"))}" alt="${cardProps.altText} icon" aria-hidden="true">
+                                <#else>
+                                    <img src="data:image/svg+xml;base64,${base64(colour(cardProps.svgXmlFromRepository, "000000"))}" aria-hidden="true">
+                                </#if>
                             </picture>
                         </figure>
                     </div>

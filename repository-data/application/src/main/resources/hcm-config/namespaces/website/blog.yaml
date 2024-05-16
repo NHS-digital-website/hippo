@@ -41,6 +41,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /socialMediaBar:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: SocialMediaBar
+            field: socialMediaBar
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /summary:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -69,14 +78,6 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /dateofpublication:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Date of publication
-            field: dateofpublication
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
           /authors:
             /cluster.options:
@@ -135,6 +136,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /dateofpublication:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Date of publication
+            field: dateofpublication
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /leadimage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -182,6 +191,23 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Lead paragraph
             field: leadparagraph
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /primaryCtaButton:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Primary CTA Button
+            field: primaryCtaButton
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /secondaryCtaButton:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Secondary CTA Button
+            field: secondaryCtaButton
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -389,6 +415,16 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /primaryCtaButton:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:primaryCtaButton
+            hipposysedit:primary: false
+            hipposysedit:type: website:ctaButtonSimplified
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /relatedsubjects:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -404,6 +440,16 @@ definitions:
             hipposysedit:path: website:searchTab
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /secondaryCtaButton:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:secondaryCtaButton
+            hipposysedit:primary: false
+            hipposysedit:type: website:ctaButtonSimplified
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -438,6 +484,14 @@ definitions:
             hipposysedit:type: Text
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /socialMediaBar:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:socialMediaBar
+            hipposysedit:primary: false
+            hipposysedit:type: website:socialMediaBar
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
@@ -509,9 +563,22 @@ definitions:
           /website:leadparagraph:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:primaryCtaButton:
+            jcr:primaryType: website:ctaButtonSimplified
+            website:string: ''
+          /website:secondaryCtaButton:
+            jcr:primaryType: website:ctaButtonSimplified
+            website:string: ''
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:socialMediaBar:
+            jcr:primaryType: website:socialMediaBar
+            website:direction: false
+            website:enable: false
+            website:hexagons: false
+            website:iconSize: false
+            website:imageSize: false
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

@@ -37,6 +37,12 @@
         <param-name>repository-config</param-name>
         <param-value>repository.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>hst-config-properties</param-name>
+        <param-value>${brc.appconfigpath}/platform.properties</param-value>
+    </context-param>
+
+
 
     <filter>
         <filter-name>HippoCmsIpFilter</filter-name>
@@ -255,6 +261,21 @@
         <url-pattern>/ws/*</url-pattern>
     </servlet-mapping>
 
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>CMS</web-resource-name>
+            <url-pattern>/cms</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>everybody</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <description>Default role of Hippo CMS</description>
+        <role-name>everybody</role-name>
+    </security-role>
+
     <!-- Timeout in minutes -->
     <session-config>
         <session-timeout>10</session-timeout>
@@ -295,7 +316,7 @@
             messages, preconfigured to connect to NHSMail SMTP server.
         </description>
         <res-ref-name>
-            mail/NHSMail
+            mail/Session
         </res-ref-name>
         <res-type>
             javax.mail.Session

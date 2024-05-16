@@ -2,7 +2,9 @@ package uk.nhs.digital.common;
 
 import static java.util.Collections.emptyMap;
 import static org.apache.commons.lang3.ArrayUtils.isEmpty;
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.HOUR_OF_PUBLICATION_RELEASE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.LONDON_ZONE_ID;
+import static uk.nhs.digital.ps.PublicationSystemConstants.MINUTE_OF_PUBLICATION_RELEASE;
 
 import org.apache.jackrabbit.value.LongValue;
 import org.hippoecm.repository.ext.DerivedDataFunction;
@@ -19,6 +21,7 @@ import javax.jcr.Value;
  * sorted, will have all published documents first in descending order followed by
  * upcoming documents in ascending date order
  */
+@SuppressWarnings("PMD.TooManyStaticImports")
 public class OrderedSearchDateDerivedDataFunction extends DerivedDataFunction {
 
     private static final long serialVersionUID = 1;

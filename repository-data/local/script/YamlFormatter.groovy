@@ -13,6 +13,7 @@ class YamlFormatter extends Script {
     // Same for ci-hub, since referenced for page links
     static final Set keepUuidFiles = [
         "corporate-website.yaml",
+        "ndrs.yaml",
         "ccg-outcomes.yaml",
         "compendium-indicators.yaml",
         "nhs-outcomes-framework.yaml",
@@ -29,6 +30,7 @@ class YamlFormatter extends Script {
         "news-and-events.yaml",
         "cyber-alerts.yaml",
         "api-catalogue.yaml",
+        "website-acceptance-tests.yaml",
     ]
 
     // We don't want to change the order of the children of '/_default_' tags

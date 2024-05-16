@@ -10,15 +10,13 @@ import com.google.common.collect.ImmutableSet;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoEventConstants;
-import uk.nhs.digital.cache.Cache;
-import uk.nhs.digital.cache.listener.CacheEvictingListener;
+import uk.nhs.digital.cache.HeavyContentCache;
 import uk.nhs.digital.test.TestLoggerRule;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
@@ -29,7 +27,8 @@ public class CacheEvictingListenerTest extends MockitoSessionTestBase {
 
     @Rule public TestLoggerRule logger = TestLoggerRule.targeting(CacheEvictingListener.class);
 
-    @Mock Cache<String, String> cache;
+    @Mock
+    HeavyContentCache<String, String> cache;
 
     private Set<String> eligibleDoctypes = ImmutableSet.of("supported:doctype");
 

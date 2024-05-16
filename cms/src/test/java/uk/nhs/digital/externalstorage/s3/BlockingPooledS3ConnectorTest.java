@@ -1,12 +1,10 @@
 package uk.nhs.digital.externalstorage.s3;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.sameInstance;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +36,7 @@ public class BlockingPooledS3ConnectorTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         expectedObjectPath = newRandomString();
 
@@ -108,9 +106,8 @@ public class BlockingPooledS3ConnectorTest {
         scheduledUploadTaskArgumentCaptor.getValue().call(); // ensures that the scheduled Runnable actually gets called
 
         then(s3SdkConnector).should().uploadFile(expectedUploadInputStream, expectedFileName, expectedMimeType);
-        assertThat("Returns uploaded object metadata produced by the connector.",
-            actualS3ObjectMetadata, is(expectedS3ObjectMetadata)
-        );
+        assertEquals("Returns uploaded object metadata produced by the connector.", actualS3ObjectMetadata, expectedS3ObjectMetadata);
+
     }
 
     @Test
@@ -135,8 +132,9 @@ public class BlockingPooledS3ConnectorTest {
         scheduledDownloadTaskArgumentCaptor.getValue().call(); // ensures that the scheduled Callable actually gets called
 
         then(s3SdkConnector).should().downloadFile(expectedObjectPath);
-        assertThat("Download consumer task has been called for downloaded file.",
-            actualS3File.get(), is(sameInstance(expectedDownloadedFile)));
+
+        assertEquals("Download consumer task has been called for downloaded file.", actualS3File.get(), expectedDownloadedFile);
+
     }
 
     private static String newRandomString() {

@@ -1,16 +1,32 @@
 package uk.nhs.digital.common.contentrewriters;
 
+import org.apache.jackrabbit.util.ISO9075;
 import org.hippoecm.hst.configuration.hosting.*;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.request.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.website.beans.CustomizedAssetSet;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 
 public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(BrandRefreshContentRewriter.class);
 
     public String rewrite(String html, Node hippoHtmlNode, HstRequestContext requestContext, Mount targetMount) {
 
@@ -19,44 +35,68 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         Document document = Jsoup.parse(html, "", Parser.xmlParser());
 
         // normal
-        if (document.select("p").first() != null) {
-            document.select("p").attr("class", "nhsd-t-body");
-        }
+        docSelect(document, "p", "nhsd-t-body");
 
         // heading 2
-        if (document.select("h2").first() != null) {
-            document.select("h2").attr("class", "nhsd-t-heading-xl");
-        }
+        docSelect(document, "h2", "nhsd-t-heading-xl");
 
         // heading 3
-        if (document.select("h3").first() != null) {
-            document.select("h3").attr("class", "nhsd-t-heading-l");
-        }
+        docSelect(document, "h3", "nhsd-t-heading-l");
 
         // heading 4
-        if (document.select("h4").first() != null) {
-            document.select("h4").attr("class", "nhsd-t-heading-m");
-        }
+        docSelect(document, "h4", "nhsd-t-heading-m");
 
         // code
         if (document.select("code").first() != null) {
             Elements code = document.select("code");
-            code.tagName("span").attr("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code");
+            code.tagName("span").attr("class", "nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break");
         }
 
         // numbered list
-        if (document.select("ol").first() != null) {
-            document.select("ol").attr("class", "nhsd-t-list nhsd-t-list--number");
-        }
+        docSelect(document, "ol", "nhsd-t-list nhsd-t-list--number");
 
         // bullet point list
-        if (document.select("ul").first() != null) {
-            document.select("ul").attr("class", "nhsd-t-list nhsd-t-list--bullet");
+        docSelect(document, "ul", "nhsd-t-list nhsd-t-list--bullet");
+        if (document.select("div").first() != null && document.select("div").hasClass("ctct-inline-form")) {
+            document.select("div").attr("data-form-id", document.select("div").get(0).childNodes().get(0).toString());
+            document.select("div").empty();
         }
 
-        // external link
+        // add class="nhsd-t-body" to bullet point list items
+        if (document.select("ul").first() != null) {
+            document.select("ul").select("li").attr("class", "nhsd-t-body");
+        }
+
+        // external or internal link
         if (document.select("a").first() != null) {
             document.select("a").attr("class", "nhsd-a-link");
+            List<Element> lsElements = document.select("a").stream().filter(a -> a.attr("href").contains("/binaries/content/assets")
+                    && !(a.attr("href").contains("https://") || a.attr("href").contains("http://")))
+                .collect(Collectors.toList());
+
+            for (Element ele : lsElements) {
+                LOGGER.debug("Element " + ele);
+                try {
+                    String assetPath = ele.attr("href");
+                    String assetQueryPath = assetPath.substring(assetPath.indexOf("/content"));
+                    LOGGER.debug("Query Path is  " + assetQueryPath);
+                    QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
+                    Query jcrQuery = jcrQueryManager.createQuery("/jcr:root" + ISO9075.encodePath(assetQueryPath), "xpath");
+                    QueryResult queryResult = jcrQuery.execute();
+                    NodeIterator nodes = queryResult.getNodes();
+                    CustomizedAssetSet hp = (CustomizedAssetSet) requestContext
+                        .getQueryManager()
+                        .createQuery(nodes.nextNode(),
+                            CustomizedAssetSet.class).execute().getHippoBeans().next();
+                    if (hp.getArchiveMaterial() != null && hp.getArchiveMaterial()) {
+                        ele.attr("rel", "archived");
+                        ele.text(ele.text() + " [Archive Content]");
+                    }
+                } catch (NoSuchElementException | RepositoryException | QueryException e) {
+                    LOGGER.warn(" Error updating Asset link ", e.getMessage());
+                }
+
+            }
         }
 
         // image
@@ -69,14 +109,14 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
             });
 
             document.select("img")
-                    .wrap("<span class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></span>");
+                .wrap("<span class=\"nhsd-a-image nhsd-a-image--round-corners nhsd-a-image--no-scale\"><picture class=\"nhsd-a-image__picture\"></picture></span>");
         }
 
         // table
         if (document.select("table").first() != null) {
             document.select("table")
-                    .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
-                    .attr("data-responsive", "");
+                .wrap("<div class=\"nhsd-m-table nhsd-t-body\"></div>")
+                .attr("data-responsive", "");
 
             for (Element table : document.select("table")) {
                 if (table.select("th").first() != null) {
@@ -99,5 +139,11 @@ public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter 
         }
 
         return String.valueOf(document);
+    }
+
+    private void docSelect(Document document, String p, String attributeValue) {
+        if (document.select(p).first() != null) {
+            document.select(p).attr("class", attributeValue);
+        }
     }
 }

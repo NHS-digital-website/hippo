@@ -43,7 +43,8 @@
 </#if>
 
 <#-- Don't use the summary in the content when the hero module is active -->
-<#if publicationStyle = 'heromodule'>
+<#--also if the publication system style is blueBanner or slimpicture do not use the summary in the content-->
+<#if publicationStyle = 'heromodule' || publicationStyle = 'bluebanner' || publicationStyle = 'slimpicture'>
     <#assign hasSummaryContent = false />
 <#else>
     <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
@@ -109,10 +110,10 @@
 
         <@chapterNav document />
     </#if>
-    <div class="nhsd-t-grid nhsd-!t-margin-top-8" id="document-content">
+    <div class="nhsd-t-grid nhsd-!t-margin-top-8 nhsd-!t-margin-bottom-6" id="document-content">
         <div class="nhsd-t-row">
             <#if renderNav>
-                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
+                <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
                     <!-- start sticky-nav -->
                     <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
                     <#assign links = [] />
@@ -127,7 +128,7 @@
                 </div>
             </#if>
 
-            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 ${renderNav?then('nhsd-t-off-s-1', '')}">
                 <#if hasSummaryContent>
                     <div id="${slugify('Summary')}">
                         <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
@@ -192,26 +193,24 @@
                                              itemscope
                                              itemtype="http://schema.org/MediaObject">
                                             <@externalstorageLink attachment.resource; url>
-                                                <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
+                                                <div class="nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                     <a class="nhsd-a-box-link"
                                                        title="${attachment.text}"
                                                        href="${url}"
-                                                       onClick="logGoogleAnalyticsEvent('Download attachment','Published work','${url}');"
-                                                       onKeyUp="return vjsu.onKeyUp(event)"
                                                        itemprop="contentUrl"
                                                     >
                                                         <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
-                                                            <div class="nhsd-m-download-card__image-box">
+                                                            <div class="nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                 <@documentIcon "${iconTypeFromMime}"/>
                                                             </div>
 
-                                                            <div class="nhsd-m-download-card__content-box">
+                                                            <div class="nhsd-m-download-card__content-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                 <#if attachment.text?has_content>
                                                                     <p class="nhsd-t-heading-s"
                                                                        itemprop="name">${attachment.text}</p>
                                                                 </#if>
 
-                                                                <div class="nhsd-m-download-card__meta-tags">
+                                                                <div class="nhsd-m-download-card__meta-tags nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                                                                     <#assign fileFormat = iconTypeFromMime />
                                                                     <#if fileName != "">
                                                                         <#assign fileFormat = getFileExtension(fileName?lower_case) />
@@ -245,10 +244,11 @@
                 </#if>
 
                 <div class="nhsd-!t-margin-bottom-6">
+                    <hr class="nhsd-a-horizontal-rule"/>
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
 
-                <div class="nhsd-!t-margin-bottom-8">
+                <div class="nhsd-!t-margin-bottom-6">
                     <@pagination document />
                 </div>
 
@@ -257,6 +257,9 @@
                     <div class="nhsd-m-publication-chapter-navigation nhsd-m-publication-chapter-navigation--split nhsd-!t-margin-1"
                          id="chapter-index"
                     >
+                        <hr class="nhsd-a-horizontal-rule"/>
+                        <h2 class="nhsd-t-heading-m">Chapters</h2>
+
                         <ol class="nhsd-t-list nhsd-t-list--number nhsd-t-list--loose">
                             <#list splitChapters.left as chapter>
                                 <#if chapter.id == document.identifier>
@@ -265,7 +268,7 @@
                                     <li class="">
                                 </#if>
                                 <a class="nhsd-a-link"
-                                   href="${chapter.link}?key=${earlyAccessKey}"
+                                   href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
                                    onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
@@ -283,12 +286,11 @@
                                         <li class="">
                                     </#if>
                                     <a class="nhsd-a-link"
-                                       href="${chapter.link}?key=${earlyAccessKey}"
+                                       href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
                                        onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >
                                         ${chapter.title}
-                                        <span class="nhsd-t-sr-only"></span>
                                     </a>
                                     </li>
                                 </#list>

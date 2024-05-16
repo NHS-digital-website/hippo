@@ -83,6 +83,32 @@ public class SiteSteps extends AbstractSpringSteps {
         sitePage.clickCookieAcceptButton();
     }
 
+    @When("^I click on the \"([^\"]*)\" labelled button$")
+    public void whenIClickOnLinkLabelled(String linkLabel) throws Throwable {
+        WebElement element = sitePage.findElementWithLabel(linkLabel);
+
+        assertThat("I can find element with label: " + linkLabel,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
+    @When("^I click on the \"([^\"]*)\" labelled tag$")
+    public void whenIClickOnTagLabelled(String title) throws Throwable {
+        WebElement element = sitePage.findElementWithTitleAndClass(title, "nhsd-a-tag");
+
+        assertThat("I can find element with title: " + title,
+            element, is(notNullValue()));
+
+        sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
+    }
+
     @When("^I click on the (?:link|button) named \"([^\"]+)\"$")
     public void whenIClickOnTheLinkNamed(String linkName) throws Throwable {
         WebElement element = sitePage.findLinkWithText(linkName);
@@ -111,6 +137,39 @@ public class SiteSteps extends AbstractSpringSteps {
 
         // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
         sitePage.clickCookieAcceptButton();
+    }
+
+    @When("^I enter search term \"([^\"]+)\"$")
+    public void whenIEnterSearchTerm(String searchTerm) throws Throwable {
+        WebElement element = sitePage.findElementWithID("catalogue-search-bar-input");
+        sitePage.clickOnElement(element);
+        element.clear();
+        element.sendKeys(searchTerm);
+    }
+
+    @Then("^I should see the search result with the id \"([^\"]+)\"$")
+    public void thenIShouldSeeSearchResult(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement elementParent = element.findElement(By.xpath("./.."));
+        boolean isHidden = elementParent.getAttribute("class").equals("nhsd-!t-display-hide");
+        assertThat(isHidden, is(false));
+    }
+
+    @Then("^I should not see the search result \"([^\"]+)\"$")
+    public void thenIShouldNotSeeSearchResult(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement elementParent = element.findElement(By.xpath("./.."));
+        boolean isHidden = elementParent.getAttribute("class").equals("nhsd-!t-display-hide");
+        assertThat(isHidden, is(true));
+    }
+
+    @Then("^I should see the search result with the id \"([^\"]*)\" highlighted in yellow colour$")
+    public void thenIShouldSearchResultHighlightedInYellow(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement childElement = element.findElement(By.xpath("./child::*"));
+        WebElement grandChildElement = childElement.findElement(By.xpath("./child::*"));
+        boolean isPresent = grandChildElement.getAttribute("class").equals("filter-tag-yellow-highlight");
+        assertThat(isPresent, is(true));
     }
 
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")
@@ -309,6 +368,11 @@ public class SiteSteps extends AbstractSpringSteps {
                 sitePage.findElementWithXPath(xPathExpression)
             );
         }
+    }
+
+    @Then("^I can see an update alert")
+    public void thenICanSeeUpdate() throws Throwable {
+        assertNotNull("I can see an update alert", sitePage.findCssClass("nhsd-m-emphasis-box"));
     }
 
     private String buildXPathExpressionFromElementAttributes(List<String> keys, List<String> elementItem) {
@@ -543,5 +607,10 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIfIInspectedTheHtmlIShouldNotFindThe(String cssClass) throws Throwable {
         assertNull("Cannot find the CSS class " + cssClass,
             sitePage.findCssClass(cssClass));
+    }
+
+    @Then("I can see the entries footer")
+    public void thenICanSeeTheEntriesFooter() {
+        assertNotNull("Element is present", sitePage.findCssClass("nhsd-a-box--border-grey"));
     }
 }

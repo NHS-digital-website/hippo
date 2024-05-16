@@ -1,7 +1,6 @@
 const printPreviewSelector = 'js-print-preview';
 
 function printPDF() {
-
     // Log the event
     if (typeof logGoogleAnalyticsEvent === "function") {
         logGoogleAnalyticsEvent('Button click','Download as PDF', window.location.href);
@@ -20,11 +19,14 @@ function printPDF() {
     new Promise(res => {
         // The iframe seems to initalise with a readyState == 'complete'
         // before changing to 'loading'. A timeout fixes this.
-        setTimeout(() => {
-            if (printPreview.contentWindow.document.readyState == 'complete') return res(true);
-            printPreview.contentWindow.document.addEventListener('DOMContentLoaded', () => res(true));
-        }, 500);
+        printPreview.onload = function () {
+            setTimeout(() => {
+                if (printPreview.contentWindow.document.readyState === 'complete') return res(true);
+                printPreview.contentWindow.document.addEventListener('load', () => res(true));
+            }, 500);
+        }
     }).then(() => {
+
         // Get other publication pages
         const printArticle = Array.from(document.querySelectorAll('[data-print-article]'));
 
@@ -48,8 +50,21 @@ function printPDF() {
             articleRequests.push(articleRequest);
         });
 
-        // When all publications have been downloaded open print dialog
-        Promise.all(articleRequests).then(() => printPreview.contentWindow.print());
+        // When all publications and images have been downloaded open print dialog
+        Promise.all(articleRequests).then(() => {
+            const imgs = printPreview.contentWindow.document.body.querySelectorAll('img');
+            const imgLoadPromises = [];
+            Array.from(imgs).forEach(img => {
+                if (img.complete) return;
+                imgLoadPromises.push(new Promise(res => {
+                    img.onload = function() { res(true) }
+                    img.onerror = function() { res(true) }
+                }));
+            })
+            return Promise.all(imgLoadPromises);
+        }).then(() => {
+            printPreview.contentWindow.print();
+        });
     });
 }
 

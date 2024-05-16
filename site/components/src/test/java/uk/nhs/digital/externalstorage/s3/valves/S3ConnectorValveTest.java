@@ -1,17 +1,16 @@
 package uk.nhs.digital.externalstorage.s3.valves;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.sameInstance;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomInt;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
@@ -61,7 +60,7 @@ public class S3ConnectorValveTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         // set up prerequsites for a happy path; error cases will re-set appropriate mocks to suit their needs:
 
@@ -111,13 +110,10 @@ public class S3ConnectorValveTest {
         then(response).should().setStatus(HttpServletResponse.SC_ACCEPTED);
 
         // verify response content (stream)
-        assertThat("Content received from S3 connector is written to the output.",
-            userResponseOutputStream.getContent(),
-            is(expectedFileContent)
-        );
+        assertThat("Content received from S3 connector is written to the output.", userResponseOutputStream.getContent(), is(expectedFileContent));
+        assertEquals("Response output stream was closed once.", 1, userResponseOutputStream.getClosedCount());
+        assertEquals("S3 input stream was closed once.", 1, s3InputStream.getClosedCount());
 
-        assertThat("Response output stream was closed once.", userResponseOutputStream.getClosedCount(), is(1));
-        assertThat("S3 input stream was closed once.", s3InputStream.getClosedCount(), is(1));
     }
 
     @Test
@@ -133,7 +129,7 @@ public class S3ConnectorValveTest {
         then(s3Connector).should().download(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
         downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
-        verifyZeroInteractions(s3Connector);
+        verifyNoMoreInteractions(s3Connector);
         then(response).should().setStatus(HttpServletResponse.SC_FORBIDDEN);
     }
 
@@ -152,9 +148,7 @@ public class S3ConnectorValveTest {
             // then
             fail("Expected an exception but none was thrown");
         } catch (final RuntimeException runtimeException) {
-            assertThat("Exception is as thrown by the connector.",
-                runtimeException, is(sameInstance(expectedConnecorException))
-            );
+            assertEquals("Exception is as thrown by the connector.", runtimeException, expectedConnecorException);
         } catch (final Exception unexpectedException) {
             fail("Exception of unexpected type was thrown: " + unexpectedException);
         }
@@ -178,20 +172,16 @@ public class S3ConnectorValveTest {
 
             fail("Expected an exception but none was thrown");
         } catch (final RuntimeException runtimeException) {
-            assertThat("Exception carries expected error message.",
-                runtimeException.getMessage(),
-                is("Failed to download content from S3: " + expectedFileName + ": " + s3ObjectPath)
-            );
-            assertThat("Exception carries expected cause exception.",
-                runtimeException.getCause(),
-                is(sameInstance(expectedCauseException))
-            );
+            assertEquals("Exception carries expected error message.",
+                runtimeException.getMessage(), "Failed to download content from S3: " + expectedFileName + ": " + s3ObjectPath);
+            assertEquals("Exception carries expected cause exception.", runtimeException.getCause(), expectedCauseException);
         } catch (final Exception unexpectedException) {
             fail("Exception of unexpected type was thrown: " + unexpectedException);
         }
 
-        assertThat("Response output stream was closed once.", userResponseOutputStream.getClosedCount(), is(1));
-        assertThat("S3 input stream was closed once.", s3InputStream.getClosedCount(), is(1));
+        assertEquals("Response output stream was closed once.", userResponseOutputStream.getClosedCount(), 1);
+        assertEquals("S3 input stream was closed once.", s3InputStream.getClosedCount(), 1);
+
     }
 
 

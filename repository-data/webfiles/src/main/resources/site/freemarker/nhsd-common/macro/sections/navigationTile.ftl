@@ -1,4 +1,7 @@
 <#ftl output_format="HTML">
+<#include "../../../ndrs/macro/metaTags.ftl">
+<#assign base64="uk.nhs.digital.freemarker.utils.StringToBase64"?new() />
+<#assign colour="uk.nhs.digital.freemarker.svg.SvgChangeColour"?new() />
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.NavigationTile" -->
 
@@ -10,34 +13,77 @@
     </#if>
 </#macro>
 
-<#macro navigationTile tile tileType="full" imageType="icon">
-
+<#macro navigationTile tile imageType="icon" options={}>
     <#assign hasLink = tile.link?? && tile.link?size gt 0 />
 
     <#if hasLink>
         <#local link = tile.link?first />
     </#if>
 
+    <#assign classes = "" />
+    <#if options.fullHeight?has_content && options.fullHeight>
+        <#assign classes += "nhsd-m-nav-block--full-height" />
+    </#if>
+
     <#assign blockColour = 'light-grey' />
 
-    <div class="nhsd-m-nav-block">
+    <#assign websiteName_LOCALISED = '${websiteName_GLOBALISED}'>
+   <#if websiteName_LOCALISED == "NDRS">
+   <#--    NDRS navigation tile design-->
+    <a class="navigation-tile navigation-tile--${tileType}"
+       href="<@linkDestination link />">
+        <#if (tile.image.original)??>
+            <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
+            <#if (imageLink?ends_with("svg") && imageType == 'icon')>
+                <img
+                    src="${imageLink?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8"
+                    alt="${tile.title}"
+                    class="navigation-tile__image navigation-tile__image--icon"/>
+            <#else>
+                <img src="${imageLink}" alt="${tile.title}"
+                     class="navigation-tile__image"/>
+            </#if>
+        </#if>
+        <div class="navigation-tile__content">
+            <h3 class="navigation-tile__title">${tile.title}</h3>
+            <p class="navigation-tile__description">
+                ${tile.description}
+            </p>
+            <p class="navigation-tile__link">
+
+                <span class="nhsd-a-icon nhsd-a-icon--size-xs">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     preserveAspectRatio="xMidYMid meet"
+                     focusable="false" viewBox="0 0 16 16">
+                    <path
+                        d="M8.5,15L15,8L8.5,1L7,2.5L11.2,7H1v2h10.2L7,13.5L8.5,15z"/>
+                </svg>
+            </span>
+                <span
+                    class="navigation-tile__link-text">${tile.actionDescription}
+                </span>
+            </p>
+        </div>
+    </a>
+    <#else>
+<#--   NHSD navigation tile design-->
+    <div class="nhsd-m-nav-block ${classes}">
         <a class="nhsd-a-box-link" href="<@linkDestination link />" aria-label="${tile.title} - ${tile.actionDescription}">
             <div class="nhsd-a-box nhsd-a-box--bg-${blockColour} nhsd-!t-padding-6">
                 <div class="nhsd-m-nav-block__content-box">
-                    <span class="nhsd-a-icon nhsd-a-icon--size-xxl">
-
-                        <#if (tile.image.original)??>
+                    <#if (tile.image.original)??>
+                        <span class="nhsd-a-icon nhsd-a-icon--size-xxxl">
                             <@hst.link hippobean=tile.image.original fullyQualified=true var="imageLink" />
                             <#if (imageLink?ends_with("svg") && imageType == 'icon')>
                                 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
                                 <path d="M8,16l-6.9-4V4L8,0l6.9,4v8L8,16z M2,11.5L8,15l6-3.5v-7L8,1L2,4.5V11.5z"/>
-                                <image href="${imageLink?replace("/binaries", "/svg-magic/binaries")}?colour=231f20" x="4" y="4" width="8" height="8" />
+                                <image href="data:image/svg+xml;base64,${base64(colour(tile.svgXmlFromRepository, "231f20"))}" x="0" y="0" width="100%" height="100%" />
                                 </svg>
                             <#else>
                                 <img src="${imageLink}" alt="${tile.title}"/>
                             </#if>
-                        </#if>
-                    </span>
+                        </span>
+                    </#if>
 
                     <p class="nhsd-t-heading-xl nhsd-t-word-break">${tile.title}</p>
 
@@ -57,4 +103,5 @@
             </div>
         </a>
     </div>
+    </#if>
 </#macro>

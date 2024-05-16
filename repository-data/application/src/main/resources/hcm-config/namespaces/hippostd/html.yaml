@@ -2,8 +2,8 @@
 definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
-      ckeditor.config.appended.json: '{ toolbarGroups: [{ name: ''document'', items:
-        [ ''PickImage'']]}, extraPlugins: ''balloonpanel,a11ychecker,abbr,definedterms,wordcount'',
+      ckeditor.config.appended.json: '{ "toolbarGroups": [{"name": "document","groups":
+        ["PickImage"]}], extraPlugins: ''balloonpanel,a11ychecker,abbr,definedterms,wordcount'',
         allowedContent: ''h2;h3;h4;code;em;strong;ul;div;span;thead;tbody;td;tr;th;caption;ol;li;dfn;abbr;sub;sup;img[*](*);a[*](*);p{text-align};abbr[title,id];span[class];table[class,id,dir,data-disablesort]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
         disallowedContent: ''iframe[frameborder];td[align,axis,bgcolor,char,charoff,height,nowrap,scope,valign,width,colspan,rowspan];tr[align,axis,bgcolor,char,charoff,height,nowrap,valign,width,colspan,rowspan];thead[align,axis,charoff,valign];p[align]'',
         contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css'' }'

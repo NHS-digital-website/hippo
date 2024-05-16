@@ -10,7 +10,7 @@
 <#assign hasWrappingDoc = wrappingDocument?has_content />
 <#assign hasWrappingDocLink = wrappingDocument.external?has_content || wrappingDocument.internal?has_content />
 
-<div class="nhsd-o-image-with-link-list nhsd-!t-margin-bottom-9">
+<div class="nhsd-!t-margin-bottom-9">
     <div class="nhsd-t-grid">
         <#if hasWrappingDoc>
             <div class="nhsd-t-row">
@@ -20,7 +20,7 @@
             </div>
         </#if>
         <#if pageable?? && pageable.items?has_content>
-            <div class="nhsd-t-row nhsd-o-image-with-link-list__items nhsd-t-row--centred">
+            <div class="nhsd-t-row nhsd-t-row--centred">
                 <#list pageable.items as item>
                     <#assign hasImage = item.image?has_content />
                     <#assign hasLink = item.external?has_content || item.internal?has_content />
@@ -46,7 +46,7 @@
                             </figure>
 
                             <#if hasLink && hasLabel>
-                                <div class="nhsd-t-heading-s">
+                                <div class="nhsd-t-heading-s nhsd-!t-margin-bottom-5">
                                     <#assign linkLabel = item.label />
                                     <#if item.internal?has_content>
                                         <a class="nhsd-a-link" href="<@hst.link hippobean=item.internal/>">
@@ -72,15 +72,13 @@
         <#if hasWrappingDoc && hasWrappingDocLink>
             <div class="nhsd-t-row">
                 <div class="nhsd-t-col">
-                    <nav class="nhsd-m-button-nav">
+                    <nav class="nhsd-m-button-nav" style="justify-content: center">
                         <#if wrappingDocument.internal?has_content>
                             <a class="nhsd-a-button" href="<@hst.link hippobean=wrappingDocument.internal/>">
                         <#elseif wrappingDocument.external?has_content>
                             <a class="nhsd-a-button" href="${wrappingDocument.external}" target="_blank" rel="external">
                         </#if>
-
                         <span class="nhsd-a-button__label">${wrappingDocument.label}</span>
-
                         <#if wrappingDocument.external?has_content>
                             <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                         </#if>

@@ -220,26 +220,22 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:51.117Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:18.860Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -247,10 +243,11 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
-          website:specification_id: 123456-di
+          website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
         /content[2]:
@@ -262,13 +259,9 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -277,11 +270,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -290,6 +284,7 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -305,13 +300,9 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - api-status
-          - out-of-hours
-          - deprecated-api
-          - api-catalogue
+          - a-e
           common:SearchableTags:
-          - Deprecated API
-          - OOH GP
+          - A&E
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -320,12 +311,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:02.396Z
+          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-08-19T19:22:12.192Z
+          hippostdpubwf:publicationDate: 2024-04-30T08:56:29.155Z
           hippotaxonomy:keys:
           - deprecated-api
           - out-of-hours
+          - a-e
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -333,6 +325,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -340,7 +333,7 @@
           website:summary: ''
           website:title: Deprecated API
         hippo:name: Deprecated API
-        hippo:versionHistory: 79ce6c09-a638-44eb-b2b6-51fe35e171ac
+        hippo:versionHistory: 78c89387-768d-417b-bd23-6bdf1b71d68d
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -694,17 +687,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -713,11 +704,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -725,6 +718,7 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -829,17 +823,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -848,12 +840,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:11.882Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-08-19T19:18:15.240Z
+          hippostdpubwf:publicationDate: 2024-02-06T16:43:39.061Z
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -861,6 +855,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -965,17 +960,15 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - health-services
-          - people-and-places
-          - data-and-information
-          - inpatients
-          - national-health-service
-          - hospital
-          - secondary-care
-          - demographics
+          - security
+          - patient-communication
+          - reference-data
+          - tests-and-diagnostics
           common:SearchableTags:
-          - Demographic
-          - Inpatient
+          - Patient communication
+          - Reference data
+          - Security
+          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -983,11 +976,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:18:02.736Z
+          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:19.435Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - inpatients
-          - demographics
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -995,6 +990,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
+          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -1091,7 +1087,7 @@
           website:summary: ''
           website:title: Hello World API
         hippo:name: Hello World API
-        hippo:versionHistory: 31bef0ff-ad1a-4082-8b27-d51ee63e1411
+        hippo:versionHistory: ff9b8fc2-5fcf-4a10-8c1d-b85186efe7fa
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -1633,6 +1629,88 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: 1cbbcfd2-e33b-4726-b74d-839d2f8b9351
+    /recent-updates:
+      /recent-updates[1]:
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: a2a7f481-fe7a-4b26-993d-dd89eab3db72
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      /recent-updates[2]:
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:10:25.249Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: 4cc07520-7a16-4907-95b7-633169cd977c
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      /recent-updates[3]:
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-22T10:03:53.265Z
+        hippostdpubwf:lastModificationDate: 2024-01-22T10:10:25.249Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-22T10:10:32.777Z
+        hippotranslation:id: 12a77c86-6d5f-4285-8b34-f81acfed3f99
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:recentupdates
+        jcr:uuid: 924e542d-69e5-4d78-be0d-f40052c600a4
+        website:includeChildren: true
+        website:itemsPerPage: 10
+        website:pickerPath: /content/documents/corporate-website/developer/api-catalogue
+        website:pickerType: website:apispecification
+        website:seoSummary: <p>Recent updates page for APIs</p>
+        website:shortsummary: Recent updates page for APIs.
+        website:summary: Recent updates page for APIs.
+        website:title: Recent updates
+      hippo:name: Recent Updates
+      hippo:versionHistory: 5180edff-2f46-44e1-900d-1a21e5652ce0
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+      jcr:uuid: fc60757b-0d13-4c77-9b59-cbeb93a2a6fb
     /retired-api:
       /content:
         /content[1]:
@@ -1821,6 +1899,94 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: 112c5b83-ce80-48b3-a1ba-f5211e7bb0e1
+    /test-update:
+      /test-update[1]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:update
+        jcr:uuid: 5c2a4f9f-2fff-4519-b4bc-17d389538a73
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      /test-update[2]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:08:12.150Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:update
+        jcr:uuid: 4438fc95-4bed-4106-9ed0-1252868ca7a0
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      /test-update[3]:
+        /website:content:
+          hippostd:content: <p>This is a test update</p>
+          jcr:primaryType: hippostd:html
+        /website:relateddocument:
+          hippo:docbase: bcd0ee45-2ff2-429d-8679-5d494184dbbc
+          jcr:primaryType: hippo:mirror
+        common:searchRank: 4
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-09-08T14:07:30.293Z
+        hippostdpubwf:lastModificationDate: 2023-09-08T14:08:12.150Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-09-08T14:08:22.069Z
+        hippotranslation:id: 2955a65b-be33-4d2c-afd0-85d96ed3f597
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:update
+        jcr:uuid: 591c2c07-756a-4f9c-be66-3ba2f1f3053b
+        website:expirydate: 0001-01-01T12:00:00Z
+        website:severity: information
+        website:title: Test update
+      hippo:name: Test-update
+      hippo:versionHistory: b2aca973-c116-44bc-add4-02c7fb1e6f56
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+      jcr:uuid: e3ce6e1f-acd3-4b22-9c0b-6ccc886f4953
     hippo:name: API Catalogue
     hippostd:foldertype:
     - new-digital-website-folder
@@ -1832,7 +1998,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
-    jcr:uuid: 62f17dec-5d85-4060-8aa9-0fbd09d074e1
+    jcr:uuid: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
   hippo:name: Developer
   hippostd:foldertype:
   - new-digital-website-folder

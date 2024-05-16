@@ -13,7 +13,7 @@ public class S3ObjectKeyGenerator {
 
     public S3ObjectKeyGenerator(final Supplier<String> randomSeedProvider) {
         this.randomSeedProvider = randomSeedProvider;
-        messageDigest = getMd5MessageDigest();
+        messageDigest = getSha256MessageDigest();
     }
 
 
@@ -30,11 +30,11 @@ public class S3ObjectKeyGenerator {
         return hash.substring(0,2) + "/" + hash.substring(2,8) + "/" + fileName;
     }
 
-    private MessageDigest getMd5MessageDigest() {
+    private MessageDigest getSha256MessageDigest() {
         try {
-            return MessageDigest.getInstance("MD5");
+            return MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException ex) {
-            throw new RuntimeException("Error initialising MD5 MessageDigest in " + S3SdkConnector.class.getName(), ex);
+            throw new RuntimeException("Error initialising SHA-256 MessageDigest in " + S3SdkConnector.class.getName(), ex);
         }
     }
 }

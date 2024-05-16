@@ -10,6 +10,8 @@ definitions:
       - nationalindicatorlibrary
       - publicationsystem
       search.input.maxlength: 100
+    /hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/changePasswordShortcut:
+      passwordexpirationnotificationdays: 10.0
     /hippo:configuration/hippo:frontend/cms/cms-folder-views/urlrewriter:ruleset:
       list.page.size: '20'
       list.view.size: '20'
@@ -18,6 +20,10 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extension.mimetype.allowed.mappings:
       - .csv,text/csv
+      - .exe,application/x-dosexec
+      - .crt,application/x-x509-cert; format=der
+      - .crt,application/x-x509-cert; format=pem
+      - .rar,application/x-rar-compressed; version=5
       extensions.allowed:
       - doc
       - docx
@@ -44,6 +50,12 @@ definitions:
       - odt
       - odp
       - ods
+      - exe
+      - gz
+      - msi
+      - inf
+      - html
+      - crt
       jcr:primaryType: frontend:plugin
       max.file.size: 3000M
       plugin.class: org.hippoecm.frontend.plugins.yui.upload.validation.AssetUploadValidationPlugin

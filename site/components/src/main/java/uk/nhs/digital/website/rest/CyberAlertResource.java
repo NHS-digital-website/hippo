@@ -1,6 +1,5 @@
 package uk.nhs.digital.website.rest;
 
-import org.hippoecm.hst.configuration.hosting.*;
 import org.hippoecm.hst.container.*;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryManager;
@@ -14,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.essentials.components.rest.BaseRestResource;
 import org.onehippo.cms7.essentials.components.rest.ctx.DefaultRestContext;
+import org.onehippo.cms7.essentials.components.rest.ctx.RestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.website.beans.CyberAcknowledgement;
@@ -21,7 +21,7 @@ import uk.nhs.digital.website.beans.CyberAlert;
 import uk.nhs.digital.website.beans.ThreatIdDate;
 import uk.nhs.digital.website.beans.ThreatIds;
 
-
+import java.io.IOException;
 import java.util.*;
 import javax.jcr.Node;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-
 /**
  * @version "$Id$"
  */
@@ -47,6 +46,13 @@ public class CyberAlertResource extends BaseRestResource {
 
     private static final Logger log = LoggerFactory.getLogger(CyberAlertResource.class);
 
+    @Override
+    public HstQuery createQuery(final RestContext context, final Class<? extends HippoBean> clazz, final Subtypes subtypes) {
+        final HstQuery query = super.createQuery(context, clazz, subtypes);
+        query.addOrderByDescending("hippostdpubwf:lastModificationDate");
+        return query;
+    }
+
     @GET
     @Path("/")
     public Pageable<CyberAlert> index(@Context HttpServletRequest request) {
@@ -55,7 +61,7 @@ public class CyberAlertResource extends BaseRestResource {
 
     @GET
     @Path("/getAllThreatIds/")
-    public ThreatIds fetchAllThreatIds(@Context HttpServletRequest request,@Context HttpServletResponse servletResponse) {
+    public ThreatIds fetchAllThreatIds(@Context HttpServletRequest request, @Context HttpServletResponse servletResponse) {
 
         ThreatIds threatId = new ThreatIds();
         List<ThreatIdDate> threatIdDateList = new ArrayList<ThreatIdDate>();
@@ -68,7 +74,7 @@ public class CyberAlertResource extends BaseRestResource {
             HippoBeanIterator iterator = result.getHippoBeans();
             while (iterator.hasNext()) {
                 CyberAlert cyberAlert = (CyberAlert) iterator.nextHippoBean();
-                List<Calendar> calList =  new ArrayList<Calendar>();
+                List<Calendar> calList = new ArrayList<Calendar>();
                 ThreatIdDate threDate = new ThreatIdDate();
 
                 if (cyberAlert != null) {
@@ -93,7 +99,7 @@ public class CyberAlertResource extends BaseRestResource {
 
     @GET
     @Path("/page/")
-    public Pageable<CyberAlert> fetchPage(@Context HttpServletRequest servletRequest,@Context HttpServletResponse servletResponse, @PathParam("page") int page) {
+    public Pageable<CyberAlert> fetchPage(@Context HttpServletRequest servletRequest, @Context HttpServletResponse servletResponse, @PathParam("page") int page) {
         if (servletRequest.getParameter("page") != null) {
             page = Integer.parseInt(servletRequest.getParameter("page"));
         }
@@ -103,7 +109,7 @@ public class CyberAlertResource extends BaseRestResource {
     @GET
     @Path("/single/")
     public CyberAlert fetchCyberAlert(@Context HttpServletRequest servletRequest,
-        @Context HttpServletResponse servletResponse,@Context UriInfo uriInfo,@PathParam("threatid") String threatid) {
+                                      @Context HttpServletResponse servletResponse, @Context UriInfo uriInfo, @PathParam("threatid") String threatid) {
 
         CyberAlert cyberAlert = null;
         try {
@@ -111,7 +117,7 @@ public class CyberAlertResource extends BaseRestResource {
 
             if (threatid != null) {
                 HstRequestContext requestContext = RequestContextProvider.get();
-                HstQueryManager hstQueryManager = getHstQueryManager(requestContext.getSession(),requestContext);
+                HstQueryManager hstQueryManager = getHstQueryManager(requestContext.getSession(), requestContext);
 
                 String mountContentPath = requestContext.getResolvedMount().getMount().getContentPath();
 
@@ -134,12 +140,7 @@ public class CyberAlertResource extends BaseRestResource {
                     JSONObject json = new JSONObject();
                     json.put("error", "The threatid=" + threatid + " is not found");
 
-                    servletResponse.resetBuffer();
-                    servletResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                    servletResponse.setHeader("Content-Type", "application/json");
-                    servletResponse.setCharacterEncoding("UTF-8");
-                    servletResponse.getWriter().write(json.toString());
-                    servletResponse.flushBuffer();
+                    setServletResponse(servletResponse, json);
                 }
 
             } else {
@@ -147,17 +148,21 @@ public class CyberAlertResource extends BaseRestResource {
                 JSONObject json = new JSONObject();
                 json.put("error", "The URL is not correct. Use /single?threatid=<threatid>");
 
-                servletResponse.resetBuffer();
-                servletResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                servletResponse.setHeader("Content-Type", "application/json");
-                servletResponse.setCharacterEncoding("UTF-8");
-                servletResponse.getWriter().write(json.toString());
-                servletResponse.flushBuffer();
+                setServletResponse(servletResponse, json);
             }
 
         } catch (Exception queryException) {
             log.warn("QueryException ", queryException);
         }
         return cyberAlert;
+    }
+
+    private void setServletResponse(HttpServletResponse servletResponse, JSONObject json) throws IOException {
+        servletResponse.resetBuffer();
+        servletResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        servletResponse.setHeader("Content-Type", "application/json");
+        servletResponse.setCharacterEncoding("UTF-8");
+        servletResponse.getWriter().write(json.toString());
+        servletResponse.flushBuffer();
     }
 }

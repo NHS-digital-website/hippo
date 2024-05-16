@@ -2,21 +2,28 @@
 
 [![Build Status][build-status]][travis-project-page]
 
-* To setup this project run `make init`.
+* To setup this project run `make init` (Optional, as can hinder development).
 * To run an initial build of all modules run `mvn clean verify` (only need to do this once).
 * To start local server `make serve`.
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
+
+## Repository Persistence
 
 Set `REPO_PATH = -Drepo.path=storage` in `env.mk` to preserve your local docs between `make serve` sessions.
 This creates `storage` directory within the project directory, that contains your local CMS database.
 The directory is ignored by git, so you're not risking committing it by accident. If you need to start with
 clean slate, simply delete the directory and it will be recreated on the next run.
 
+## API Catalogue Heavy Content Cache
+
+To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
+your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
+E.g. `docker start hippo-redis || docker run -d --name hippo-redis -p 6379:6379 redis`.
 
 ## Key Maven Build Operations
 
-This project uses [Maven] as its build system. Unless stated otherwise, instructions below assume that Maven commands
+This project uses [Maven] 3+ as its build system. Unless stated otherwise, instructions below assume that Maven commands
 will be executed from command line in the directory of the parent module.
 
 The [IDE] of your choice may offer alternate (sometimes more convenient) mechanisms to execute those or similar
@@ -32,12 +39,12 @@ used.
 To run:
 
 **Unit tests**:
-```
+``` shell
 mvn test
 ```
 
 **Full suite of tests**:
-```
+``` shell
 mvn verify -Pacceptance-test-hippo,acceptance-test
 ```
 This will execute both unit and acceptance tests. An instance of Tomcat server will be automatically spawned and
@@ -84,10 +91,10 @@ development cycle when working on acceptance tests.
 ## Auto-export
 
 When making changes to the CMS or console data, you may want your changes to be persisted in the yaml configuration
-to be boot strapped into the application on startup. The easiest way to do this is to turn auto-export on in the CMS
-(gray button on bottom left of every CMS page) or in the Console (top menu options). Make sure you turn it on before
-making any of the changes and turn it off again once you are done. This will produce new/amended yaml files. You should
-make sure the changes are in the correct module (`application` / `development`) creating a new file for new nodes where appropriate.
+to be boot strapped into the application on startup. The easiest way to do this is to turn auto-export on in
+the Console (top menu options). Make sure you turn it on before making any of the changes and turn it off again once you are done.
+This will produce new/amended yaml files. You should make sure the changes are in the correct module (`application` / `development`)
+creating a new file for new nodes where appropriate.
 
 ### YAML Formatter
 
@@ -109,8 +116,10 @@ To use this, simply run:
 make update-dependencies
 ```
 
-This will go through all the modules and sub-modules and check for newer versions for any that are specified
+This will go through all the modules and submodules and check for newer versions for any that are specified
 in the pom.
+
+However, if it fails, you will need to manually update the versions.
 
 ### Potential issues when upgrading Hippo version
 
@@ -146,12 +155,11 @@ The developer may also navigate to `/repository-data/webfiles` and run the vario
 The browser scope is based on [GDS best practices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices#browsers-to-test-in), which follows the Gov.UK service manual).
 
 We support following browsers:
-- Safari (latest version)
+- Safari (12 and later)
 - Chrome (latest version)
 - Firefox (latest version)
-- Opera (latest version)
-- MS Edge (latest version)
-- IE11
+- Edge (latest version)
+- Samsung Internet (latest versions)
 
 ### CLI commands
 
@@ -213,11 +221,13 @@ For more information, read [What If I Want to Work on the UI](docs/what-if/work-
 
 #### Front-end library
 
-> Ths project is using a styling system based on the [NHS UI library](https://github.com/nhsuk/frontend-library) for most of the UI components. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
-
-There is a custom float based grid system in place. For more details on the grid system please refer to the [grid](/repository-data/webfiles/src/main/resources/site/scss/objects/_grid.scss) file.
+The front-end is currently using the NHSD Design System. However it may go back to using the NHS UI Library.
 
 The styling approach follows the [BEM](http://getbem.com/naming/) methodology - providing a robust naming convention and helping with the creation of reusable UI components.
+
+> ~~Ths project is using a styling system based on the [NHS UI library](https://github.com/nhsuk/frontend-library) for most of the UI components. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).~~
+
+The below information is kept for reference to legacy code still used in some areas of the project.
 
 The stylesheets are compiled using the modern Dart implementation of Sass. The source folder is under `repository-data/webfiles/src/main/resources/site/src/scss`, and the compiled files are created under `repository-data/webfiles/src/main/resources/site/dist`.
 
@@ -235,9 +245,9 @@ In order to be able to test your localhost from a VM (such as VirtualBox) you'll
 
 Check out the [What if I want to add test content section for details][what if]
 
-## Valtech branching strategy
+## Branching strategy
 
-Valtech follows RPS's `rebase` strategy - working off `master` branch. Once a feature branch is complete, we squash all commits on it into 1 meaningful commit and make a PR.
+We follows RPS's `rebase` strategy - working off `master` branch. Once a feature branch is complete, we squash all commits on it into 1 meaningful commit and make a PR.
 
 ### Step 0 - Checkout `master` branch
 ```
@@ -290,13 +300,6 @@ To do that:
 Remember to remove these custom tags before executing a final complete suite of tests and
 before pushing your changes to the central repo.
 
-### Acceptance tests on Travis
-
-Automated tests automatically run during the CI build process. Sometimes the build can fail due to acceptance tests erroring for seemingly no reason. To restart the build process, and rerun the acceptance tests, do:
-
-    git commit --amend --no-edit
-    git push -f
-
 ## More details
 
 This Maven project has been generated using the official [Hippo Maven project archetype] v12.1.0.
@@ -309,7 +312,7 @@ but you can find more details in the original README files auto-generated by the
 
 ## Intranet
 
-Information about the project under the "Intranet" channel can be found [here](docs/intranet.md). 
+Information about the project under the "Intranet" channel can be found [here](docs/intranet.md).
 
 
 

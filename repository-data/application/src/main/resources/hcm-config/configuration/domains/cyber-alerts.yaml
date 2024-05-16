@@ -17,6 +17,15 @@ definitions:
           hipposys:value: /content/documents/corporate-website/cyber-alerts
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
+      /cyber-security-glossary:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/cyber-and-data-security/about-us/cyber-security-glossary
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /editor:
         hipposys:groups:
         - cyber-alerts-editor

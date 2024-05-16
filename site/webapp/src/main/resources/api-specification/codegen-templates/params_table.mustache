@@ -24,14 +24,14 @@
                         {{/response}}
 
                         {{#dataFormat}}
-                            <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">({{dataFormat}})</span>
+                            <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">({{dataFormat}})</span>
                         {{/dataFormat}}
                     </p>
                 {{/or}}
 
                 {{#defaultValue}}
                     <p class="nhsd-t-body">
-                        Default value: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{defaultValue}}</span>
+                        Default value: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{defaultValue}}</span>
                     </p>
                 {{/defaultValue}}
 
@@ -41,32 +41,32 @@
 
                 {{#pattern}}
                     <p class="nhsd-t-body">
-                        Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{pattern}}</span>
+                        Pattern: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{pattern}}</span>
                     </p>
                 {{/pattern}}
 
                 {{#ifNotNull maximum}}
                     <p class="nhsd-t-body">
-                        Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maximum}}</span>
+                        Maximum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maximum}}</span>
                         {{#if exclusiveMaximum}}(exclusive){{else}}(inclusive){{/if}}
                     </p>
                 {{/ifNotNull}}
 
                 {{#ifNotNull minimum}}
                     <p class="nhsd-t-body">
-                        Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minimum}}</span>
+                        Minimum: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minimum}}</span>
                         {{#if exclusiveMinimum}}(exclusive){{else}}(inclusive){{/if}}
                     </p>
                 {{/ifNotNull}}
 
                 {{#ifNotNull maxLength}}
                     <p class="nhsd-t-body">
-                        Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{maxLength}}</span>
+                        Max length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{maxLength}}</span>
                     </p>
                 {{/ifNotNull}}
                 {{#ifNotNull minLength}}
                     <p class="nhsd-t-body">
-                        Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code">{{minLength}}</span>
+                        Min length: <span class="nhsd-a-text-highlight nhsd-a-text-highlight--code nhsd-t-word-break">{{minLength}}</span>
                     </p>
                 {{/ifNotNull}}
 
@@ -84,7 +84,13 @@
                 {{/example}}
                 {{/_enum}}
 
-                {{#required}}<div class="nhsd-!t-col-red">Required</div>{{/required}}
+                {{^response}}
+                    {{#required}}
+                        <div class="nhsd-!t-col-red">Required</div>
+                    {{else}}
+                        <div class="nhsd-!t-col-red">Optional</div>
+                    {{/required}}
+                {{/response}}
             </td>
         </tr>
         {{/this}}

@@ -1,0 +1,232 @@
+name: Deploy to Production - Stage 2
+
+on:
+  # Hotfix Deployment
+  repository_dispatch:
+    types:
+      - slack-deploy-hotfix-command-odv2
+  # A Normal Deployment
+  schedule:
+    # Runs at 12:05pm BST weekdays
+    - cron: "5 11 * * 1-5"
+
+env:
+  PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
+  TARGET: "production"
+  SLACK_CHANNEL: "C0353KHFXNJ"
+
+jobs:
+
+  # For Hotfix Deployment Only
+  integrity:
+    name: Slack Integrity Check
+    # Only runs for SLACK Command (hotfix)
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: (github.event_name != 'schedule')
+    steps:
+      # Validate that the command is called from deployment-od2-prod
+      - name: Checking source
+        uses: actions/github-script@v7
+        env:
+          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+        if: ${{ env.CHANNEL_ID !='C0353KHFXNJ' }}
+        with:
+          script: |
+            core.setFailed('Caller source not verified!')
+
+      #
+      # Validate that the origin is from Slack
+      # See: https://api.slack.com/authentication/verifying-requests-from-slack
+      #
+      - name: Validate Origin
+        uses: actions/github-script@v7
+        env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+        with:
+          script: |
+            if(!`${process.env.AGENT}`.startsWith("Slackbot")){
+                core.setFailed("User agent mismatch.")
+            } else {
+                const base = `v0:${process.env.TIMESTAMP}:${process.env.BODY}`
+                const hash = require('crypto').createHmac('sha256', `${process.env.SIGNING_SECRET}`).update(base).digest("hex")
+                if(`${process.env.SIGNATURE}` !== `v0=${hash}`) {
+                  core.setFailed("The origin integrity check failed.")
+                }
+            }
+
+
+  # For Hotfix Deployment Only
+  update-tag-hotfix:
+    runs-on: ubuntu-latest
+    name: Move tag uat to rc for Hotfix
+    # Only runs for SLACK Command (hotfix)
+    needs: integrity
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      # If this fails on GitHub for a permissions issues (that may seem unrelated) run the failing command
+      # on your DevOps laptop. Then rerun the failed job.
+      - name: Tagging the build
+        run: |
+          make git.update-environment-tag ENV=rc VERSION=uat
+
+  prepare-prod-deployment:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    if: ${{ !failure() }}
+    needs: [update-tag-hotfix,integrity]
+    steps:
+      #
+      # Step 1
+      #
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      - name: Obtain file name for deployment
+        id: filename
+        run: |
+          fileVersion=$(git describe --tags --match v3.0* rc)
+          fileName=$(git describe --tags --match v3.0* rc).tar.gz
+
+          echo "fileName=${fileName}" >> $GITHUB_OUTPUT
+          echo "fileVersion=${fileVersion}" >> $GITHUB_OUTPUT
+
+
+      # Get API access token and verify it.
+      - name: Get BR Cloud Token
+        id: jwt_token
+        uses: ./.github/actions/br-cloud-token
+        with:
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
+
+      #
+      # Prepare App Config Deployment Details
+      #
+      - name: Get Configuration Files Details
+        id: files
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
+           echo "details=${response}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest System Properties for Envrinment
+        id: system-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest AWS Keys for Envrinment
+        id: aws-keys
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest IP Configuration File ID
+        id: latest-ip-whitelist
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get All Distribution Ids
+        id: all-distribution-id
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/distributions)
+          echo "allDistIds=${response}" >> $GITHUB_OUTPUT
+          respLengthTemp=${#response}
+          echo "respLength=${respLengthTemp}" >> $GITHUB_OUTPUT
+          echo ${respLengthTemp}
+
+      - name: Distribution Ids Retrival failed
+        if: ${{steps.all-distribution-id.outputs.respLength < 4}}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.setFailed('Retrival of distibution ids failed ')
+
+      - name: Get Distribution Ids for prod deployment
+        id: prod-distribution-ids
+        run: |
+          latestId=$(echo '${{steps.all-distribution-id.outputs.allDistIds}}' | sed -e 's/+00:00/Z/g' | jq --compact-output '[.items[] | {id: .id , date: .createdAt, name: .name}] | map(select(.name | test("${{ steps.filename.outputs.fileName }}"))) | map(.id)')
+          prodLatestDistId=$(echo ${latestId} | tr "[" " " | tr "]" " " | xargs)
+          echo "prodDistId=${prodLatestDistId}" >> $GITHUB_OUTPUT
+          echo  ${{steps.all-distribution-id.outputs.respLength}}
+
+      - name: Get latest Email SMTP properties File
+        id: brc-mail-smtp
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Request Deployment from BR Cloud
+        id: deployment
+        run: |
+          code=$(curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "code=$code" >> $GITHUB_OUTPUT
+        env:
+          DISTRIBUTION: ${{ steps.prod-distribution-ids.outputs.prodDistId }}
+          ENVIRONMENT: ${{ env.PROD_ENV_ID }}
+
+      - name: Check Response Code from Request Deployment
+        uses: actions/github-script@v7
+        if: ${{ steps.deployment.outputs.code != 202 }}
+        with:
+          script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
+        env:
+          CODE: ${{ steps.deployment.outputs.code }}
+
+  post-deployment:
+    needs: prepare-prod-deployment
+    if: ${{ !failure() }}
+    timeout-minutes: 60
+    name: Updating Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      # If this fails on GitHub for a permissions issues (that may seem unrelated) run the failing command
+      # on your DevOps laptop. Then rerun the failed job.
+      - name: Tagging the build
+        run: |
+          make git.update-environment-tag ENV=prd VERSION=rc
+
+
+      - name: Slack message (Track progress message)
+        if: ${{ success() }}
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
+          TITLE: ":rocket: Deploying to Production"
+          MESSAGE: |
+            Production is being deployed. This can take several minutes.
+            \\n\\n
+            You can check the progress in <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ env.PROD_ENV_ID }}/details|Mission Control>.

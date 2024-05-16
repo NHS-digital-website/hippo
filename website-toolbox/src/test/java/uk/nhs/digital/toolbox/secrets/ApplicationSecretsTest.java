@@ -1,13 +1,15 @@
 package uk.nhs.digital.toolbox.secrets;
 
-import static ch.qos.logback.classic.Level.WARN;
 import static org.junit.Assert.assertEquals;
+import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.test.TestLogger.LogAssertor.debug;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.warn;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
+import org.slf4j.Logger;
 import uk.nhs.digital.test.TestLoggerRule;
 
 import java.util.HashMap;
@@ -22,7 +24,7 @@ public class ApplicationSecretsTest {
     public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
     @Rule
-    public TestLoggerRule logger = TestLoggerRule.targeting(ApplicationSecrets.class, WARN);
+    public TestLoggerRule logger = TestLoggerRule.targeting(ApplicationSecrets.class);
 
     @Before
     public void setUp() throws Exception {
@@ -55,12 +57,16 @@ public class ApplicationSecretsTest {
 
     @Test
     public void missingKeysAreLoggedByApplicationSecrets() {
+        String key = "GOOGLE_CAPTCHA_SECRET";
+
         // Then look for something that does not exist
-        applicationSecrets.getValue("GOOGLE_CAPTCHA_SECRET");
+        applicationSecrets.getValue(key);
 
         // And make sure the missing key was logged
         logger.shouldReceive(
-            warn("The key/value (or address of a remote value) for 'GOOGLE_CAPTCHA_SECRET', should be set as a Java Property or an Environment variable.")
+            warn("The key/value (or address of a remote value) for '"
+                + key
+                + "', should be set as a Java Property or an Environment variable or a file in {catalina.base}/conf.")
         );
     }
 
@@ -96,5 +102,80 @@ public class ApplicationSecretsTest {
         assertEquals("***********cdef", ApplicationSecrets.mask("123456789abcdef"));
         assertEquals("************defg", ApplicationSecrets.mask("123456789abcdefg"));
         assertEquals("*******************************wxyz", ApplicationSecrets.mask("123456789abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void getValueChained_chainsCorrectlyAtOneLevel() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+
+        String value1 = applicationSecrets.getValueChained("LEVEL1");
+        assertEquals("LEVEL2", value1);
+    }
+
+    @Test
+    public void getValueChained_chainsCorrectlyAtThreeLevels() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+        environmentVariables.set("LEVEL2", "LEVEL3");
+        environmentVariables.set("LEVEL3", "LEVEL4");
+
+        String value1 = applicationSecrets.getValueChained("LEVEL1");
+        assertEquals("LEVEL4", value1);
+
+        String value2 = applicationSecrets.getValueChained("LEVEL2");
+        assertEquals("LEVEL4", value2);
+
+        String value3 = applicationSecrets.getValueChained("LEVEL3");
+        assertEquals("LEVEL4", value3);
+    }
+
+    /**
+     * Don't set cache key LEVEL1 to value LEVEL4 in case a call to
+     * {@link ApplicationSecrets#getValue} wants an intermediate value.
+     */
+    @Test
+    public void getValueChained_cacheDoesNotShortCut() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+        environmentVariables.set("LEVEL2", "LEVEL3");
+        environmentVariables.set("LEVEL3", "LEVEL4");
+
+        applicationSecrets.getValueChained("LEVEL1");
+
+        assertEquals(3, cache.size());
+        assertEquals("LEVEL2", cache.get("LEVEL1"));
+        assertEquals("LEVEL3", cache.get("LEVEL2"));
+        assertEquals("LEVEL4", cache.get("LEVEL3"));
+    }
+
+    /**
+     * Chaining stops by failing to find the next value. Don't log this as it can't
+     * be known if it's unintentional.
+     */
+    @Test
+    public void getValueChained_doesNotLogFinalGet() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+        environmentVariables.set("LEVEL2", "LEVEL3");
+        environmentVariables.set("LEVEL3", "LEVEL4");
+
+        applicationSecrets.getValueChained("LEVEL1");
+
+        Logger classLogger = getLogger(ApplicationSecrets.class);
+        classLogger.debug("End");
+
+        logger.shouldReceive(debug("End"));
+    }
+
+    @Test
+    public void getValueChained_logsInitialMiss() {
+        environmentVariables.set("LEVEL1", "LEVEL2");
+        environmentVariables.set("LEVEL2", "LEVEL3");
+        environmentVariables.set("LEVEL3", "LEVEL4");
+
+        applicationSecrets.getValueChained("LEVEL4");
+
+        logger.shouldReceive(
+            warn("The key/value (or address of a remote value) for '"
+                + "LEVEL4"
+                + "', should be set as a Java Property or an Environment variable or a file in {catalina.base}/conf.")
+        );
     }
 }

@@ -10,7 +10,6 @@ public class ExampleObjectTest {
 
     @Test
     public void exampleValueIsDeserialised_usingCustomDeserializer() {
-
         assertClassHasFieldWithAnnotationWithAttributeValue(
             ExampleObject.class, "value",
             JsonDeserialize.class, "using", ToPrettyJsonStringDeserializer.class

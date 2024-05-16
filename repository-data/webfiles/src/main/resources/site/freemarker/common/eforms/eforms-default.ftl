@@ -43,7 +43,7 @@
     <p class="eforms-intro">${formIntro}</p>
 </#if>
 
-<#assign className = (processDone! == "true")?then("eforms-success-box", "eforms-success-box visually-hidden") />
+<#assign className = (processDone! == "true")?then("eforms-success-box", "eforms-success-box visually-hidden nhsd-t-sr-only") />
 <div class="${className}">
     <span class="eforms-success-box__title">Form submitted successfully</span>
 

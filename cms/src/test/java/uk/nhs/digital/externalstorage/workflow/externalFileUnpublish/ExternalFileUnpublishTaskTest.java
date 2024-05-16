@@ -8,7 +8,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
@@ -46,7 +46,7 @@ public class ExternalFileUnpublishTaskTest {
 
     @Before
     public void setUp() throws RepositoryException {
-        initMocks(this);
+        openMocks(this);
 
         Repository repository = MockJcr.newRepository();
         session = repository.login();

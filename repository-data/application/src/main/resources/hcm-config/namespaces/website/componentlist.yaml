@@ -73,7 +73,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /items:
+          /relateddocuments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Links
@@ -111,6 +111,23 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /entriesFooterContentTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Entries Footer Content Title
+            field: entriesFooterContentTitle
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /entriesFooterContentBody:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Entries Footer Content Body
+            field: entriesFooterContentBody
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -129,6 +146,22 @@ definitions:
             hipposysedit:path: website:body
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /entriesFooterContentBody:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:entriesFooterContentBody
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /entriesFooterContentTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:entriesFooterContentTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
@@ -223,10 +256,16 @@ definitions:
           /website:body:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:entriesFooterContentBody:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -245,6 +284,7 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:componentlist
           website:anchor: false
+          website:entriesFooterContentTitle: ''
           website:gossid: 0
           website:shortsummary: ''
           website:title: ''

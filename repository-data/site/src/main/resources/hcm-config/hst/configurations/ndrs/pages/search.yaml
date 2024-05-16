@@ -1,0 +1,21 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/search:
+      /main:
+        /left:
+          hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
+          hst:template: facets
+          jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
+        hst:parameternames:
+        - pageSize
+        - showPagination
+        hst:parametervalues:
+        - '10'
+        - 'true'
+        hst:template: search-results-layout
+        jcr:primaryType: hst:component
+      hst:cacheable: false
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

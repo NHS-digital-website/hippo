@@ -59,9 +59,25 @@
         <constructor-arg name="timeToIdle" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
     </bean>
 
-    <!-- Convenience wrapper for heavyContentEhcache. See JavaDoc for more details. -->
-    <bean id="heavyContentCache" class="uk.nhs.digital.cache.Cache">
+    <bean id="heavyContentCacheDisk" class="uk.nhs.digital.cache.DiskCache">
         <constructor-arg name="ehcache" ref="heavyContentEhcache"/>
+    </bean>
+
+    <bean id="jedisPool" class="uk.nhs.digital.cache.JedisPoolFactory" factory-method="factory" destroy-method="destroy">
+        <constructor-arg name="url" value="${siteCache.heavyContentPageCache.redisUrl:http://example.com:6379}"/>
+        <constructor-arg name="timeout" value="5000"/>
+    </bean>
+
+    <bean id="heavyContentCacheRedis" class="uk.nhs.digital.cache.RedisCache">
+        <constructor-arg name="jedisPool" ref="jedisPool"/>
+        <constructor-arg name="expiryDuration" value="${siteCache.heavyContentPageCache.timeToIdle:PT24H}"/>
+        <constructor-arg name="environmentName" value="#{systemProperties['brc.environmentname'] ?: systemProperties['hippo.environment'] ?: systemProperties['brx.contentfeed.environment']}"/>
+    </bean>
+
+    <bean id="heavyContentCache" class="uk.nhs.digital.cache.HeavyContentCacheFactory" factory-method="factory">
+        <constructor-arg name="type" value="${siteCache.heavyContentPageCache.type:noop}"/>
+        <constructor-arg name="diskCache" ref="heavyContentCacheDisk"/>
+        <constructor-arg name="redisCache" ref="heavyContentCacheRedis"/>
     </bean>
 
     <!--
@@ -83,5 +99,4 @@
             </bean>
         </constructor-arg>
     </bean>
-
 </beans>

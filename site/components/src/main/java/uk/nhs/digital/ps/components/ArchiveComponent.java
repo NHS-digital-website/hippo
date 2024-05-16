@@ -1,6 +1,8 @@
 package uk.nhs.digital.ps.components;
 
-import static uk.nhs.digital.ps.components.HippoComponentHelper.*;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportDisplayError;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportInvalidInvocation;
+import static uk.nhs.digital.ps.components.HippoComponentHelper.reportInvalidTarget;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;

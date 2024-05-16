@@ -1,0 +1,20 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:workspace/hst:containers/data/data-sets/ncras-data-sets:
+      .meta:order-before: banner
+      /banner:
+        .meta:residual-child-node-category: content
+        hippo:identifier: 1d933641-1c6d-4beb-a844-39dd8d2de473
+        hst:label: Banner
+        hst:lastmodified: 2022-03-29T21:23:40.194Z
+        hst:xtype: hst.nomarkup
+        jcr:primaryType: hst:containercomponent
+      /main:
+        .meta:residual-child-node-category: content
+        hippo:identifier: 949df42a-684a-4d27-9931-e20cc53e61e5
+        hst:label: Main
+        hst:lastmodified: 2022-03-29T21:46:17.778Z
+        hst:xtype: hst.nomarkup
+        jcr:primaryType: hst:containercomponent
+      jcr:primaryType: hst:containercomponentfolder

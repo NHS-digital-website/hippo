@@ -35,19 +35,19 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     @Rule public TestLoggerRule logger = TestLoggerRule.targeting(AdminCommandEventListener.class);
 
     @Mock AdminCommandProvider adminCommandProvider;
-    @Mock AdminCommandEvenHandler adminCommandEvenHandlerA;
-    @Mock AdminCommandEvenHandler adminCommandEvenHandlerB;
-    @Mock AdminCommandEvenHandler adminCommandEvenHandlerC;
+    @Mock AdminCommandEventHandler adminCommandEventHandlerA;
+    @Mock AdminCommandEventHandler adminCommandEventHandlerB;
+    @Mock AdminCommandEventHandler adminCommandEventHandlerC;
 
-    private Set<AdminCommandEvenHandler> adminCommandEvenHandlers;
+    private Set<AdminCommandEventHandler> adminCommandEventHandlers;
     private AdminCommandEventListener listener;
 
     @Before
     public void setUp() throws Exception {
-        adminCommandEvenHandlers = ImmutableSet.of(
-            adminCommandEvenHandlerA,
-            adminCommandEvenHandlerB,
-            adminCommandEvenHandlerC
+        adminCommandEventHandlers = ImmutableSet.of(
+            adminCommandEventHandlerA,
+            adminCommandEventHandlerB,
+            adminCommandEventHandlerC
         );
     }
 
@@ -58,7 +58,7 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         // setUp()
 
         // when
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         // then
         assertThat(
@@ -84,7 +84,7 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     public void testsAllHandlersForEligibleEvent() {
 
         // given
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         final AdminCommand expectedCommand = AdminCommand.with("TEST-ADMIN-COMMAND", ImmutableList.of());
 
@@ -107,9 +107,9 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         listener.onHippoEvent(eligibleEvent);
 
         // then
-        then(adminCommandEvenHandlerA).should().supports(expectedCommand);
-        then(adminCommandEvenHandlerB).should().supports(expectedCommand);
-        then(adminCommandEvenHandlerC).should().supports(expectedCommand);
+        then(adminCommandEventHandlerA).should().supports(expectedCommand);
+        then(adminCommandEventHandlerB).should().supports(expectedCommand);
+        then(adminCommandEventHandlerC).should().supports(expectedCommand);
 
         logger.shouldReceive(
             debug(format("Admin Command Interface document has been published: %s (%s).", VALID_DOCUMENT_PATH, documentId)),
@@ -121,16 +121,16 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     public void invokesSupportingHandlersForEligibleEvent() {
 
         // given
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         final AdminCommand expectedCommand = AdminCommand.with("TEST-ADMIN-COMMAND", ImmutableList.of());
 
         given(adminCommandProvider.currentCommandFromAdminCommandInterface())
             .willReturn(expectedCommand);
 
-        when(adminCommandEvenHandlerA.supports(expectedCommand)).thenReturn(true);
-        when(adminCommandEvenHandlerB.supports(expectedCommand)).thenReturn(false);
-        when(adminCommandEvenHandlerC.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerA.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerB.supports(expectedCommand)).thenReturn(false);
+        when(adminCommandEventHandlerC.supports(expectedCommand)).thenReturn(true);
 
         final String documentId = randomString();
         final String userId = randomString();
@@ -148,9 +148,9 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         listener.onHippoEvent(eligibleEvent);
 
         // then
-        then(adminCommandEvenHandlerA).should().execute(expectedCommand);
-        then(adminCommandEvenHandlerB).should(never()).execute(any());
-        then(adminCommandEvenHandlerC).should().execute(expectedCommand);
+        then(adminCommandEventHandlerA).should().execute(expectedCommand);
+        then(adminCommandEventHandlerB).should(never()).execute(any());
+        then(adminCommandEventHandlerC).should().execute(expectedCommand);
 
         logger.shouldReceive(
             debug(format("Admin Command Interface document has been published: %s (%s).", VALID_DOCUMENT_PATH, documentId)),
@@ -163,7 +163,7 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     public void ignoresIneligibleEventsWith(final String documentType, final String action, final String documentPath, final Exception exception) {
 
         // given
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         final String documentId = randomString();
 
@@ -179,9 +179,9 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         listener.onHippoEvent(nonEligibleEvent);
 
         // then
-        then(adminCommandEvenHandlerA).shouldHaveNoInteractions();
-        then(adminCommandEvenHandlerB).shouldHaveNoInteractions();
-        then(adminCommandEvenHandlerC).shouldHaveNoInteractions();
+        then(adminCommandEventHandlerA).shouldHaveNoInteractions();
+        then(adminCommandEventHandlerB).shouldHaveNoInteractions();
+        then(adminCommandEventHandlerC).shouldHaveNoInteractions();
 
         logger.shouldReceive(
             debug(format("Ignoring ineligible event '%s' for document %s", action, documentPath))
@@ -205,16 +205,16 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     public void invokesWorkingHandlers_evenIfOneOfTheSupportChecksFails() {
 
         // given
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         final AdminCommand expectedCommand = AdminCommand.with("TEST-ADMIN-COMMAND", ImmutableList.of());
 
         given(adminCommandProvider.currentCommandFromAdminCommandInterface())
             .willReturn(expectedCommand);
 
-        when(adminCommandEvenHandlerA.supports(expectedCommand)).thenReturn(true);
-        when(adminCommandEvenHandlerB.supports(expectedCommand)).thenThrow(new RuntimeException("CHECK FAILURE"));
-        when(adminCommandEvenHandlerC.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerA.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerB.supports(expectedCommand)).thenThrow(new RuntimeException("CHECK FAILURE"));
+        when(adminCommandEventHandlerC.supports(expectedCommand)).thenReturn(true);
 
         final String documentId = randomString();
         final String userId = randomString();
@@ -232,9 +232,9 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         listener.onHippoEvent(eligibleEvent);
 
         // then
-        then(adminCommandEvenHandlerA).should().execute(expectedCommand);
-        then(adminCommandEvenHandlerB).should(never()).execute(any());
-        then(adminCommandEvenHandlerC).should().execute(expectedCommand);
+        then(adminCommandEventHandlerA).should().execute(expectedCommand);
+        then(adminCommandEventHandlerB).should(never()).execute(any());
+        then(adminCommandEventHandlerC).should().execute(expectedCommand);
 
         logger.shouldReceive(
             debug(format("Admin Command Interface document has been published: %s (%s).", VALID_DOCUMENT_PATH, documentId)),
@@ -248,19 +248,19 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
     public void invokesWorkingHandlers_evenIfExecutionOfOneOfTheHandlersFails() {
 
         // given
-        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEvenHandlers);
+        listener = new AdminCommandEventListener(adminCommandProvider, adminCommandEventHandlers);
 
         final AdminCommand expectedCommand = AdminCommand.with("TEST-ADMIN-COMMAND", ImmutableList.of());
 
         given(adminCommandProvider.currentCommandFromAdminCommandInterface())
             .willReturn(expectedCommand);
 
-        when(adminCommandEvenHandlerA.supports(expectedCommand)).thenReturn(true);
-        when(adminCommandEvenHandlerB.supports(expectedCommand)).thenReturn(true);
-        when(adminCommandEvenHandlerC.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerA.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerB.supports(expectedCommand)).thenReturn(true);
+        when(adminCommandEventHandlerC.supports(expectedCommand)).thenReturn(true);
 
         doThrow(new RuntimeException("EXECUTION FAILURE"))
-            .when(adminCommandEvenHandlerB)
+            .when(adminCommandEventHandlerB)
             .execute(expectedCommand);
 
         final String documentId = randomString();
@@ -279,8 +279,8 @@ public class AdminCommandEventListenerTest extends MockitoSessionTestBase {
         listener.onHippoEvent(eligibleEvent);
 
         // then
-        then(adminCommandEvenHandlerA).should().execute(expectedCommand);
-        then(adminCommandEvenHandlerC).should().execute(expectedCommand);
+        then(adminCommandEventHandlerA).should().execute(expectedCommand);
+        then(adminCommandEventHandlerC).should().execute(expectedCommand);
 
         logger.shouldReceive(
             debug(format("Admin Command Interface document has been published: %s (%s).", VALID_DOCUMENT_PATH, documentId)),

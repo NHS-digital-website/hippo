@@ -1,6 +1,5 @@
 package uk.nhs.digital.arc.json.website;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import uk.nhs.digital.arc.json.PublicationBodyItem;

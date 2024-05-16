@@ -1,5 +1,6 @@
 ---
 /content/documents/administration/resources/tableau-postcode-labels:
+  .meta:order-before: series-feed-hub-resource-bundle
   /tableau-postcode-labels[1]:
     hippo:availability:
     - preview

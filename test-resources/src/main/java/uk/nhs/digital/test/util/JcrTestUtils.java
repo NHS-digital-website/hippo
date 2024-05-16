@@ -1,6 +1,6 @@
 package uk.nhs.digital.test.util;
 
-import static uk.nhs.digital.test.util.ExceptionTestUtils.*;
+import static uk.nhs.digital.test.util.ExceptionTestUtils.wrapCheckedException;
 
 import java.time.Instant;
 import java.util.Optional;

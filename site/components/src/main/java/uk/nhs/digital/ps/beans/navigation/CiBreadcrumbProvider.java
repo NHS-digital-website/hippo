@@ -15,8 +15,11 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
-
-import uk.nhs.digital.ps.beans.*;
+import uk.nhs.digital.ps.beans.BaseDocument;
+import uk.nhs.digital.ps.beans.CiLanding;
+import uk.nhs.digital.ps.beans.Dataset;
+import uk.nhs.digital.ps.beans.Publication;
+import uk.nhs.digital.ps.beans.PublicationPage;
 
 import java.util.*;
 

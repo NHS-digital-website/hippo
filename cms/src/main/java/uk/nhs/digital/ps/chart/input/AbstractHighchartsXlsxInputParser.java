@@ -6,13 +6,14 @@ import static java.util.stream.Collectors.toSet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
-import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
+import uk.nhs.digital.ps.chart.enums.ChartType;
+import uk.nhs.digital.ps.chart.model.AbstractVisualisationModel;
+import uk.nhs.digital.ps.chart.parameters.AbstractVisualisationParameters;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 import javax.jcr.Binary;
@@ -33,7 +34,7 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
     }
 
     @Override
-    public AbstractHighchartsModel parse(final AbstractHighchartsParameters config) {
+    public AbstractVisualisationModel parse(final AbstractVisualisationParameters config) {
 
         final ChartType chartType = config.getChartType();
 
@@ -46,11 +47,18 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
         }
     }
 
-    protected abstract AbstractHighchartsModel parseXlsxChart(AbstractHighchartsParameters chartConfig)
+    protected abstract AbstractVisualisationModel parseXlsxChart(AbstractVisualisationParameters chartConfig)
         throws IOException, RepositoryException;
 
-    Double getDoubleValue(Cell cell) {
-        return cell.getCellType() == CellType.STRING ? Double.valueOf(cell.getStringCellValue()) : cell.getNumericCellValue();
+    public Optional<Double> getDoubleValue(Cell cell) {
+        return Optional.ofNullable(
+            cell == null
+                || cell.getCellType() == CellType.BLANK
+                ? null
+                : cell.getCellType() == CellType.STRING
+                ? Double.valueOf(cell.getStringCellValue())
+                : cell.getNumericCellValue()
+        );
     }
 
     String getStringValue(Cell cell) {
@@ -68,7 +76,7 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
     protected XSSFWorkbook readXssfWorkbook(final Binary inputFileContent)
         throws IOException, RepositoryException {
 
-        try (final InputStream is = inputFileContent.getStream()) {
+        try (InputStream is = inputFileContent.getStream()) {
             return new XSSFWorkbook(is);
         }
     }

@@ -6,8 +6,10 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
         hst:parameternames:
         - defaultPageSize
+        - intervalFilter
         hst:parametervalues:
         - '100'
+        - 'false'
         hst:template: event-hub-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage

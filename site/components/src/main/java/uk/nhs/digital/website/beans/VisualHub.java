@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.svg.SvgProvider;
 
 import java.util.List;
 
@@ -44,4 +45,10 @@ public class VisualHub extends CommonFieldsBean {
     public HippoHtml getIntroduction() {
         return getHippoHtml("website:introduction");
     }
+
+    public String getSvgXmlFromRepository() {
+        HippoBean imageBean = getIcon();
+        return SvgProvider.getSvgXmlFromBean(imageBean);
+    }
+
 }

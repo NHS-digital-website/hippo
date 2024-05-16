@@ -16,4 +16,9 @@ public class Externallink extends ExternalLinkBase {
     public String getShortsummary() {
         return getSingleProperty("website:shortsummary");
     }
+
+    @HippoEssentialsGenerated(internalName = "jcr:uuid")
+    public String getId() {
+        return getSingleProperty("jcr:uuid");
+    }
 }

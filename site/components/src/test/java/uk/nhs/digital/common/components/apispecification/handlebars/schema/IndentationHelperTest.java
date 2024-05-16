@@ -2,7 +2,7 @@ package uk.nhs.digital.common.components.apispecification.handlebars.schema;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.powermock.api.mockito.PowerMockito.mock;
@@ -11,17 +11,11 @@ import static uk.nhs.digital.common.components.apispecification.handlebars.Optio
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Options;
 import org.apache.commons.lang3.RandomUtils;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import uk.nhs.digital.common.components.apispecification.handlebars.OptionsStub;
 import uk.nhs.digital.common.components.apispecification.handlebars.TemplateRenderingException;
 
 public class IndentationHelperTest {
-
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
-    private IndentationHelper indentationHelper = new IndentationHelper(new ContextModelsStack.Factory(new UniqueModelStackExtractor()));
 
     @Test
     public void returnsIndentationLevel_equalToNumberOfAllUniqueModelsFromTheContextStack() {
@@ -83,7 +77,7 @@ public class IndentationHelperTest {
         );
     }
 
-    @Test
+    @Test (expected = TemplateRenderingException.class)
     public void throwsException_onCalculationFailure() {
 
         // given
@@ -92,17 +86,14 @@ public class IndentationHelperTest {
         final ContextModelsStack.Factory contextStackFactory = mock(ContextModelsStack.Factory.class);
         given(contextStackFactory.from(any())).willThrow(expectedCauseException);
 
-        indentationHelper = IndentationHelper.with(contextStackFactory);
-
-        expectedException.expect(TemplateRenderingException.class);
-        expectedException.expectMessage("Failed to calculate indentation level.");
-        expectedException.expectCause(sameInstance(expectedCauseException));
+        IndentationHelper indentationHelper = IndentationHelper.with(contextStackFactory);
 
         final Context irrelevantContext = Context.newContext("irrelevant model");
         final Options options = OptionsStub.with(irrelevantContext);
 
         // when
         indentationHelper.apply(null, options);
+        fail("Failed to calculate indentation level.");
 
         // then
         // expectations set in 'given' are satisfied

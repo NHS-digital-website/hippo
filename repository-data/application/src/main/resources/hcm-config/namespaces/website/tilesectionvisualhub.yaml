@@ -38,7 +38,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /tilesectionlinks:
+          /links:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Tile sections builder

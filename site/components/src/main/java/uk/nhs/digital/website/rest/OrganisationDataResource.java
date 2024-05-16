@@ -12,7 +12,6 @@ import uk.nhs.digital.model.OdsOrganisation;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -22,7 +21,6 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -31,7 +29,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})
 @Path("/orgname/")
 public class OrganisationDataResource extends BaseRestResource {
-    private static final Logger log = LoggerFactory.getLogger(CyberAlertResource.class);
+    private static final Logger log = LoggerFactory.getLogger(OrganisationDataResource.class);
     private List<OdsOrganisation> odsResults = null;
 
     @GET

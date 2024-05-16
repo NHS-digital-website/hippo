@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -13,7 +12,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
-
 
 import java.util.Calendar;
 import java.util.Comparator;
@@ -82,9 +80,10 @@ public class CyberAlert extends CommonFieldsBean {
         if (getPublicallyAccessible() || getLimitedAccess()) {
             final HstRequestContext context = RequestContextProvider.get();
             if (context != null) {
-                //DW-1077 - compose this documetn base URL for REST API purposes
+                //DW-1077 - compose this document base URL for REST API purposes
                 HttpServletRequest req = context.getServletRequest();
-                StringBuffer url = req.getRequestURL();
+                StringBuilder url = new StringBuilder();
+                url.append(req.getRequestURL().toString());
                 String base = url.substring(0, url.length() - req.getRequestURI().length() + req.getContextPath().length());
 
                 //remove basepath part ('content/documents/corporate-website')

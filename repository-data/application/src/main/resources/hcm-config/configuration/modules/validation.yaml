@@ -30,16 +30,16 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       regexp.pattern: ^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/publicationsystem-attachment:
-      hipposys:className: uk.nhs.digital.ps.AttachmentFieldValidator
+      hipposys:className: uk.nhs.digital.ps.validators.AttachmentFieldValidator
       jcr:primaryType: hipposys:moduleconfig
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/publicationsystem-charts-datafile:
       hipposys:className: uk.nhs.digital.ps.chart.HighchartsDataFileValidator
       jcr:primaryType: hipposys:moduleconfig
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/publicationsystem-coverage-dates:
-      hipposys:className: uk.nhs.digital.ps.CoverageDatesValidator
+      hipposys:className: uk.nhs.digital.ps.validators.CoverageDatesValidator
       jcr:primaryType: hipposys:moduleconfig
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/publicationsystem-publication-date:
-      hipposys:className: uk.nhs.digital.ps.PublicationDateValidator
+      hipposys:className: uk.nhs.digital.ps.validators.PublicationDateValidator
       jcr:primaryType: hipposys:moduleconfig
       validPeriodLengthInYears: 7
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/rgbcolor:

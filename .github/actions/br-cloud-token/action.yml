@@ -1,0 +1,90 @@
+name: 'Get BR Cloud API access token'
+description: 'Gets a BR API access token and verify it.'
+
+inputs:
+  MISSION_CONTROL_API_USERNAME:
+    description: 'A BR Cloud Mission Control username'
+    required: true
+  MISSION_CONTROL_API_PASSWORD:
+    description: 'A BR Cloud Mission Control password'
+    required: true
+  MISSION_CONTROL_API_HOST:
+    description: 'A BR Cloud Mission Control host domain'
+    required: true
+
+outputs:
+  token:
+    description: "The JWT Token"
+    value: ${{ steps.jwt_token.outputs.token }}
+
+runs:
+  using: "composite"
+  steps:
+
+    - id: jwt_token
+      run: |
+        response=$(curl -i \
+        -H "Accept: application/json; charset=utf-8" \
+        -X POST https://api.${{ env.HOST }}/v3/authn/access_token \
+        -d '{ "username": "${{ env.USERNAME }}", "password": "${{ env.PASSWORD }}" }')
+        token=$(echo $response | awk 'match($0, /access_token":"[^"]+"/) {print substr($0, RSTART+15)}' | cut -d '"' -f 1 )
+        refresh=$(echo $response | awk 'match($0, /refresh_token":"[^"]+"/) {print substr($0, RSTART+16)}' | cut -d '"' -f 1 )
+        echo "::add-mask::$token"
+        echo "token=$token" >> $GITHUB_OUTPUT
+        echo "::add-mask::$refresh"
+        echo "refresh=$refresh" >> $GITHUB_OUTPUT
+      env:
+        HOST: ${{ inputs.MISSION_CONTROL_API_HOST }}
+        USERNAME: ${{ inputs.MISSION_CONTROL_API_USERNAME }}
+        PASSWORD: ${{ inputs.MISSION_CONTROL_API_PASSWORD }}
+      shell: bash
+
+    - name: Verify JWT Token
+      id: jwt_token_verify
+      run: |
+        code=$(curl -L \
+        -H "Accept: application/json; charset=utf-8" \
+        -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+        -X GET https://api.${{ env.HOST }}/v3/authn/verify_token \
+        -o /dev/null -w '%{http_code}\n' -s)
+        echo "code=$code" >> $GITHUB_OUTPUT
+      env:
+        HOST: ${{ inputs.MISSION_CONTROL_API_HOST }}
+      shell: bash
+
+    - name: Check Response Code from Verify JWT Token
+      if: ${{ steps.jwt_token_verify.outputs.code != 200 }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.setFailed('The JWT token failed verification!')
+      env:
+        # 'CODE' is for debugging fails
+        CODE: ${{ steps.jwt_token_verify.outputs.code }}
+
+
+    # Delete JWT refresh token for added security
+    - name: Request Deletion of JWT Refresh Access tokens
+      if: always()
+      id: jwt_refresh_token_invalidate
+      run: |
+        code=$(curl -L \
+        -H "Accept: application/json; charset=utf-8" \
+        -X DELETE https://api.${{ env.HOST }}/v3/authn/refresh_token \
+        -d '{ "grant_type": "refresh_token", "refresh_token": "${{ env.REFRESH }}" }' \
+        -o /dev/null -w '%{http_code}\n' -s)
+        echo "code=$code" >> $GITHUB_OUTPUT
+      env:
+        REFRESH: ${{ steps.jwt_token.outputs.refresh }}
+        HOST: ${{ inputs.MISSION_CONTROL_API_HOST }}
+      shell: bash
+
+    - name: Check Response Code from Deletion of JWT Refresh Access tokens
+      if: ${{ steps.jwt_refresh_token_invalidate.outputs.code != 200 }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.setFailed('The JWT Deletion of JWT Refresh Access tokens failed!')
+      env:
+        # 'CODE' is for debugging fails
+        CODE: ${{ steps.jwt_refresh_token_invalidate.outputs.code }}

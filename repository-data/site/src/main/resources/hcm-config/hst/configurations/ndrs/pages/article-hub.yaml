@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/ndrs/hst:pages/article-hub:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
+        hst:parameternames:
+        - googleAnalyticsContentRewriter
+        - brandRefreshContentRewriter
+        hst:parametervalues:
+        - 'true'
+        - 'true'
+        hst:template: article-hub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

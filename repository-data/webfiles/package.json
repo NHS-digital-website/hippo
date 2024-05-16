@@ -6,12 +6,16 @@
     "directories": {
         "doc": "../../docs"
     },
+    "engines": {
+        "node": "~14.17.3"
+    },
     "scripts": {
         "start": "gulp",
-        "lint": "gulp lint",
-        "build": "gulp build",
+        "build": "npm run lint && gulp build",
         "build-css": "gulp build-css",
-        "build-js": "gulp build-js"
+        "build-js": "gulp build-js",
+        "lint": "npx eslint $(git diff --name-only origin/master --line-prefix=$(git rev-parse --show-toplevel)/ '*.js') --no-error-on-unmatched-pattern",
+        "lint-fix": "npx eslint --fix $(git diff origin/master --name-only --line-prefix=$(git rev-parse --show-toplevel)/ '*.js') --no-error-on-unmatched-pattern"
     },
     "repository": {
         "type": "git",
@@ -25,35 +29,37 @@
     "homepage": "https://github.com/NHS-digital-website/hippo#readme",
     "devDependencies": {
         "@babel/core": "^7.14.3",
+        "@babel/eslint-parser": "^7.18.2",
         "@babel/preset-env": "^7.14.4",
         "autoprefixer": "^9.8.6",
         "babel-loader": "^8.2.2",
         "browser-sync": "^2.26.14",
         "cssnano": "^4.1.11",
         "del": "^6.0.0",
-        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint": "^8.19.0",
+        "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jquery": "^1.5.1",
-        "expose-loader": "^0.7.5",
+        "eslint-webpack-plugin": "^3.2.0",
+        "expose-loader": "^4.0.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-dart-sass": "^1.0.2",
-        "gulp-eslint": "^6.0.0",
         "gulp-if": "^3.0.0",
         "gulp-postcss": "^8.0.0",
         "gulp-stylelint": "^13.0.0",
         "husky": "^6.0.0",
         "lint-staged": "^11.0.0",
-        "minimist": "^1.2.5",
+        "minimist": "^1.2.6",
         "prettier": "^2.3.0",
         "stylelint": "^13.13.1",
         "stylelint-config-recommended-scss": "^4.2.0",
         "stylelint-scss": "^3.19.0",
         "vinyl-named": "^1.1.0",
-        "webpack": "^4.46.0",
-        "webpack-cli": "^3.3.11",
-        "webpack-stream": "^6.1.2"
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-stream": "^7.0.0"
     },
     "browserslist": [
         "> 0.1% in GB"
@@ -96,6 +102,10 @@
             "jquery"
         ]
     },
+    "eslintIgnore": [
+        "rapidoc-min.js",
+        "rapidoc-custom-styles.js"
+    ],
     "stylelint": {
         "extends": "stylelint-config-recommended-scss",
         "rules": {
@@ -126,7 +136,8 @@
         "countup.js": "^2.0.7",
         "highcharts": "^9.1.0",
         "jquery": "^3.6.0",
-        "jquery-ui": "^1.12.1",
+        "jquery-ui": "^1.13.2",
+        "nhsd-dataviz": "^1.1.0",
         "papaparse": "^5.3.1",
         "tablesort": "^5.2.0"
     }

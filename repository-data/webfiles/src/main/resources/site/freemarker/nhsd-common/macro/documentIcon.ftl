@@ -2,7 +2,7 @@
 
 <#include "../../include/imports.ftl">
 
-<#macro documentIcon icontype="web" size="medium">
+<#macro documentIcon icontype="web" size="medium" fileFormat="">
     <#-- default is medium -->
     <#-- as far as I can see the svg's for different sizes are identical apart from the class -->
 
@@ -86,7 +86,7 @@
                 </g>
             </svg>
         </span>
-    <#elseif icontype == "txt" >
+    <#elseif icontype == "txt" && fileFormat == "txt">
         <span class="nhsd-a-document-icon ${sizeClass}">
             <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 39 46">
                 <g>
@@ -246,6 +246,74 @@
                 </g>
                 <path d="M28.2,34.6h-0.5v-2.1h0.5c0.8,0,1.6,0.1,1.6,1C29.9,34.5,29,34.6,28.2,34.6z M27.7,39v-3.2h0.5
                     c0.6,0,0.8,0.2,1.1,0.8l0.9,2.4h1.7l-1.2-3c-0.2-0.3-0.4-0.8-0.8-0.8v0c1-0.1,1.6-0.9,1.6-1.8c0-1.9-1.5-2.1-3-2.1l-0.3,0l-2,0V39 H27.7z M22.5,36h-2.2l1.1-3.2h0L22.5,36z M19.2,39l0.7-1.8H23l0.7,1.8h1.7l-3-7.7h-1.7l-3,7.7H19.2z M11,39l1.4-6.1h0l1.4,6.1h2 l2-7.7h-1.5l-1.4,6.1h0l-1.4-6.1h-2.1l-1.3,6.1h0l-1.4-6.1H7L9,39H11z" fill="#231F20"></path>
+            </svg>
+        </span>
+    <#elseif icontype == "exe" >
+        <span class="nhsd-a-document-icon ${sizeClass}">
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 39 46">
+                <g fill="#231F20">
+                    <polygon points="30,9 39,9 39,9 30.1,0 30,0"></polygon>
+                    <path d="M28,11V0H3C1.4,0,0,1.3,0,3v40c0,1.7,1.3,3,3,3h33c1.7,0,3-1.3,3-3V11L28,11z"></path>
+                </g>
+                <g fill="#FFFFFF">
+                    <path d="M8,29h23c1.7,0,3,1.3,3,3v6c0,1.7-1.3,3-3,3H8c-1.7,0-3-1.3-3-3v-6C5,30.3,6.4,29,8,29z"></path>
+                    <polygon points="14.8,14.8 11,18.5 14.8,22.2 16.2,20.8 13.8,18.5 16.2,16.2"></polygon>
+                    <polygon points="20,12 17.2,24.5 19.1,25 21.9,12.5"></polygon>
+                    <polygon points="22.9,16.2 25.2,18.5 22.9,20.8 24.3,22.2 28,18.5 24.3,14.8"></polygon>
+                </g>
+                <!--<path d="M28.2,34.6h-0.5v-2.1h0.5c0.8,0,1.6,0.1,1.6,1C29.9,34.5,29,34.6,28.2,34.6z M27.7,39v-3.2h0.5
+                    c0.6,0,0.8,0.2,1.1,0.8l0.9,2.4h1.7l-1.2-3c-0.2-0.3-0.4-0.8-0.8-0.8v0c1-0.1,1.6-0.9,1.6-1.8c0-1.9-1.5-2.1-3-2.1l-0.3,0l-2,0V39 H27.7z M22.5,36h-2.2l1.1-3.2h0L22.5,36z M19.2,39l0.7-1.8H23l0.7,1.8h1.7l-3-7.7h-1.7l-3,7.7H19.2z M11,39l1.4-6.1h0l1.4,6.1h2 l2-7.7h-1.5l-1.4,6.1h0l-1.4-6.1h-2.1l-1.3,6.1h0l-1.4-6.1H7L9,39H11z" fill="#231F20"></path>-->
+            </svg>
+        </span>
+    <#elseif icontype == "gz" >
+        <span class="nhsd-a-document-icon ${sizeClass}">
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 39 46">
+                <g fill="#231F20">
+                    <polygon points="30,9 39,9 39,9 30.1,0 30,0"></polygon>
+                    <path d="M28,11V0H3C1.4,0,0,1.3,0,3v40c0,1.7,1.3,3,3,3h33c1.7,0,3-1.3,3-3V11L28,11z"></path>
+                </g>
+                <g fill="#FFFFFF">
+                    <path d="M8,29h23c1.7,0,3,1.3,3,3v6c0,1.7-1.3,3-3,3H8c-1.7,0-3-1.3-3-3v-6C5,30.3,6.4,29,8,29z"></path>
+                    <polygon points="14.8,14.8 11,18.5 14.8,22.2 16.2,20.8 13.8,18.5 16.2,16.2"></polygon>
+                    <polygon points="20,12 17.2,24.5 19.1,25 21.9,12.5"></polygon>
+                    <polygon points="22.9,16.2 25.2,18.5 22.9,20.8 24.3,22.2 28,18.5 24.3,14.8"></polygon>
+                </g>
+                <!--<path d="M28.2,34.6h-0.5v-2.1h0.5c0.8,0,1.6,0.1,1.6,1C29.9,34.5,29,34.6,28.2,34.6z M27.7,39v-3.2h0.5
+                    c0.6,0,0.8,0.2,1.1,0.8l0.9,2.4h1.7l-1.2-3c-0.2-0.3-0.4-0.8-0.8-0.8v0c1-0.1,1.6-0.9,1.6-1.8c0-1.9-1.5-2.1-3-2.1l-0.3,0l-2,0V39 H27.7z M22.5,36h-2.2l1.1-3.2h0L22.5,36z M19.2,39l0.7-1.8H23l0.7,1.8h1.7l-3-7.7h-1.7l-3,7.7H19.2z M11,39l1.4-6.1h0l1.4,6.1h2 l2-7.7h-1.5l-1.4,6.1h0l-1.4-6.1h-2.1l-1.3,6.1h0l-1.4-6.1H7L9,39H11z" fill="#231F20"></path>-->
+            </svg>
+        </span>
+    <#elseif icontype == "msi" >
+        <span class="nhsd-a-document-icon ${sizeClass}">
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 39 46">
+                <g fill="#231F20">
+                    <polygon points="30,9 39,9 39,9 30.1,0 30,0"></polygon>
+                    <path d="M28,11V0H3C1.4,0,0,1.3,0,3v40c0,1.7,1.3,3,3,3h33c1.7,0,3-1.3,3-3V11L28,11z"></path>
+                </g>
+                <g fill="#FFFFFF">
+                    <path d="M8,29h23c1.7,0,3,1.3,3,3v6c0,1.7-1.3,3-3,3H8c-1.7,0-3-1.3-3-3v-6C5,30.3,6.4,29,8,29z"></path>
+                    <polygon points="14.8,14.8 11,18.5 14.8,22.2 16.2,20.8 13.8,18.5 16.2,16.2"></polygon>
+                    <polygon points="20,12 17.2,24.5 19.1,25 21.9,12.5"></polygon>
+                    <polygon points="22.9,16.2 25.2,18.5 22.9,20.8 24.3,22.2 28,18.5 24.3,14.8"></polygon>
+                </g>
+                <!--<path d="M28.2,34.6h-0.5v-2.1h0.5c0.8,0,1.6,0.1,1.6,1C29.9,34.5,29,34.6,28.2,34.6z M27.7,39v-3.2h0.5
+                    c0.6,0,0.8,0.2,1.1,0.8l0.9,2.4h1.7l-1.2-3c-0.2-0.3-0.4-0.8-0.8-0.8v0c1-0.1,1.6-0.9,1.6-1.8c0-1.9-1.5-2.1-3-2.1l-0.3,0l-2,0V39 H27.7z M22.5,36h-2.2l1.1-3.2h0L22.5,36z M19.2,39l0.7-1.8H23l0.7,1.8h1.7l-3-7.7h-1.7l-3,7.7H19.2z M11,39l1.4-6.1h0l1.4,6.1h2 l2-7.7h-1.5l-1.4,6.1h0l-1.4-6.1h-2.1l-1.3,6.1h0l-1.4-6.1H7L9,39H11z" fill="#231F20"></path>-->
+            </svg>
+        </span>
+    <#elseif icontype == "inf" || fileFormat == "inf">
+        <span class="nhsd-a-document-icon ${sizeClass}">
+            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 39 46">
+                <g fill="#231F20">
+                    <polygon points="30,9 39,9 39,9 30.1,0 30,0"></polygon>
+                    <path d="M28,11V0H3C1.4,0,0,1.3,0,3v40c0,1.7,1.3,3,3,3h33c1.7,0,3-1.3,3-3V11L28,11z"></path>
+                </g>
+                <g fill="#FFFFFF">
+                    <path d="M8,29h23c1.7,0,3,1.3,3,3v6c0,1.7-1.3,3-3,3H8c-1.7,0-3-1.3-3-3v-6C5,30.3,6.4,29,8,29z"></path>
+                    <polygon points="14.8,14.8 11,18.5 14.8,22.2 16.2,20.8 13.8,18.5 16.2,16.2"></polygon>
+                    <polygon points="20,12 17.2,24.5 19.1,25 21.9,12.5"></polygon>
+                    <polygon points="22.9,16.2 25.2,18.5 22.9,20.8 24.3,22.2 28,18.5 24.3,14.8"></polygon>
+                </g>
+                <!--<path d="M28.2,34.6h-0.5v-2.1h0.5c0.8,0,1.6,0.1,1.6,1C29.9,34.5,29,34.6,28.2,34.6z M27.7,39v-3.2h0.5
+                    c0.6,0,0.8,0.2,1.1,0.8l0.9,2.4h1.7l-1.2-3c-0.2-0.3-0.4-0.8-0.8-0.8v0c1-0.1,1.6-0.9,1.6-1.8c0-1.9-1.5-2.1-3-2.1l-0.3,0l-2,0V39 H27.7z M22.5,36h-2.2l1.1-3.2h0L22.5,36z M19.2,39l0.7-1.8H23l0.7,1.8h1.7l-3-7.7h-1.7l-3,7.7H19.2z M11,39l1.4-6.1h0l1.4,6.1h2 l2-7.7h-1.5l-1.4,6.1h0l-1.4-6.1h-2.1l-1.3,6.1h0l-1.4-6.1H7L9,39H11z" fill="#231F20"></path>-->
             </svg>
         </span>
     <#else>

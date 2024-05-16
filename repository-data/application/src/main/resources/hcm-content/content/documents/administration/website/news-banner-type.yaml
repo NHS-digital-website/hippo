@@ -3,16 +3,16 @@
   /news-banner-type:
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
-      selection:key: credit-information
-      selection:label: NHS Digital must be credited as the source of this information.
+      selection:key: nhs-england-credit-information
+      selection:label: NHS England must be credited as the source of this information.
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
-      selection:key: credit-figures
-      selection:label: NHS Digital must be credited as the source of these figures.
+      selection:key: nhs-england-credit-figures
+      selection:label: NHS England must be credited as the source of these figures.
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: credit-local-figures
-      selection:label: NHS Digital must be credited as the source of these figures.
+      selection:key: nhs-england-credit-local-figures
+      selection:label: NHS England must be credited as the source of these figures.
         Regional data is available in this report.
     hippo:availability:
     - live

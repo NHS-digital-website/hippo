@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.website.AbstractWebsiteItemlink;
 import uk.nhs.digital.arc.json.website.WebsiteExternalLink;
@@ -20,7 +21,6 @@ import uk.nhs.digital.arc.transformer.abs.AbstractSectionTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -56,7 +56,7 @@ public class WebsiteIconListTransformerTest {
     }
 
     @Test
-    public void testInternalLinkCreatesApporopriateNodes() throws RepositoryException {
+    public void testInternalLinkCreatesApporopriateNodes() throws RepositoryException, ArcException {
         // given
         WebsiteIconListTransformer transformer = getWebsiteIconlistTransformer(true);
 
@@ -89,7 +89,7 @@ public class WebsiteIconListTransformerTest {
     }
 
     @Test
-    public void testExternalLinkCreatesApporopriateNodes() throws RepositoryException {
+    public void testExternalLinkCreatesApporopriateNodes() throws RepositoryException, ArcException {
         // given
         WebsiteIconListTransformer transformer = getWebsiteIconlistTransformer(false);
 

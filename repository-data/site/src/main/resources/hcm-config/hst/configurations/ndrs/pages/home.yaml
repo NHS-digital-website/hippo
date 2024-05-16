@@ -1,9 +1,10 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/ndrs/hst:pages/home:
+    /hst:hst/hst:configurations/ndrs/hst:pages/static-ui-general:
       /main:
-        hst:template: home
+        hst:componentclassname: ''
+        hst:template: data-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
       jcr:primaryType: hst:component

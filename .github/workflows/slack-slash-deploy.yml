@@ -1,0 +1,505 @@
+#Slack deployment command for (TST,Development, CS)
+name: Slack Deployment Command
+
+on:
+  repository_dispatch:
+    types:
+      - slack-deploy-command
+
+jobs:
+
+  integrity:
+    name: Slack Integrity Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+
+      #
+      # Validate that the origin is from Slack
+      # See: https://api.slack.com/authentication/verifying-requests-from-slack
+      #
+      - name: Validate Origin
+        uses: actions/github-script@v7
+        env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+        with:
+          script: |
+            if(!`${process.env.AGENT}`.startsWith("Slackbot")){
+                core.setFailed("User agent mismatch.")
+            } else {
+                const base = `v0:${process.env.TIMESTAMP}:${process.env.BODY}`
+                const hash = require('crypto').createHmac('sha256', `${process.env.SIGNING_SECRET}`).update(base).digest("hex")
+                if(`${process.env.SIGNATURE}` !== `v0=${hash}`) {
+                  core.setFailed("The origin integrity check failed.")
+                }
+            }
+
+
+  build:
+    name: Build Commit
+    needs: integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+      CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+      USER_ID: ${{  github.event.client_payload.data.user_id }}
+
+    steps:
+
+      #
+      # Checkout the branch
+      #
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+      - name: Fallback Checkout # Used by local actions when the main checkout attempt fails.
+        if: ${{ failure() }}
+        uses: actions/checkout@v4
+
+      - name: Slack message (failed to checkout the branch)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Cannot find the branch named ${{ env.BRANCH }}. Please check the branch name and try again.
+
+      #
+      # Build the branch
+      #
+      - name: Slack message (building the branch)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Building the branch (${{ env.BRANCH }}).
+
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      - name: Setup Cache
+        uses: ./.github/actions/build-cache
+
+      - name: Build and Package Branch
+        run: make clean build
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      - name: Slack message (failed to build the branch)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Failed to build the branch named ${{ env.BRANCH }}. Please check the logs for more information.
+
+      #
+      # upload build for next job
+      #
+      - name: Store Built Artifact for Later in the Pipeline
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: target/*.tar.gz
+          if-no-files-found: error
+
+      - name: Slack message (failed to store artifact for later in the pipeline)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            The pipeline failed to locate the built artifact. Please check the logs for more information.
+
+      - name: Slack message (Successfully stored the built artifact)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Successfully stored the built artifacts. Note they can be downloaded if required for debugging.
+
+  upload:
+    name: Upload Build to BR Cloud ODv2
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+      CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+      USER_ID: ${{  github.event.client_payload.data.user_id }}
+      MESSAGING: true
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      #
+      # Upload the build
+      #
+      - name: Slack message (uploading the build)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Preparing to upload the build to BR Cloud.
+
+      # Set up steps.
+
+      #
+      # Identify target server
+      #
+      - name: Identify target
+        uses: actions/github-script@v7
+        id: find-target
+        env:
+          CS_ID: ${{ vars.BR_ID_CS }}
+          TST_ID: ${{ vars.BR_ID_TST }}
+          DEV_ID: ${{ vars.BR_ID_DEV }}
+          TRAINING_ID: ${{ vars.BR_ID_TRAINING }}
+        with:
+          result-encoding: json
+          script: |
+            const environments = {
+              C031HQR9Q0P: {
+                "name" : "cs",
+                "id": `${process.env.CS_ID}`
+              },
+              C026PH4GQSH: {
+                "name": "development",
+                "id": `${process.env.DEV_ID}`
+              },
+              C0323S3FW4T: {
+                "name": "tst",
+                "id": `${process.env.TST_ID}`
+              },
+              C03AADPJJRY: {
+                "name": "training",
+                "id": `${process.env.TRAINING_ID}`
+              }
+            }
+            if(environments[`${process.env.CHANNEL_ID}`] === undefined) {
+              core.setFailed("No target environment has been identifed.")
+            } else {
+              return environments[`${process.env.CHANNEL_ID}`]
+            }
+
+      - name: Slack message (failed to identify the target)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Cannot find the target server. Are you running the command from the correct channel?
+
+      - name: Print Identify target for debugging
+        run: |
+          echo ${{fromJson(steps.find-target.outputs.result).name}}
+          echo ${{fromJson(steps.find-target.outputs.result).id}}
+
+      # Get API access token and verify it.
+      - name: Get BR Cloud Token
+        id: jwt_token
+        uses: ./.github/actions/br-cloud-token
+        with:
+          MISSION_CONTROL_API_USERNAME: ${{ secrets.MISSION_CONTROL_API_USERNAME }}
+          MISSION_CONTROL_API_PASSWORD: ${{ secrets.MISSION_CONTROL_API_PASSWORD }}
+          MISSION_CONTROL_API_HOST: ${{ vars.BR_CLOUD }}
+
+      # Main steps
+      - name: Download version artifact
+        uses: actions/download-artifact@v4
+        id: download
+
+      #
+      # Get and store the details of the download
+      #
+      - name: Get artifact details
+        id: details
+        run: |
+          echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }')" >> $GITHUB_OUTPUT
+          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')" >> $GITHUB_OUTPUT
+        working-directory: ${{steps.download.outputs.download-path}}/build
+
+      #
+      # Upload Build to BR Cloud
+      #
+      - name: Upload Build to BR Cloud
+        id: distribution
+        run: |
+          response=$(curl -i \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X POST https://api.${{ vars.BR_CLOUD }}/v3/distributions \
+          -F "dist_file=@${{ env.DISTRIBUTION }};filename=${{ env.VERSION }}.tar.gz")
+          id=$(echo $response | awk 'match($0, /id":"[^"]+"/) {print substr($0, RSTART+5)}' | cut -d '"' -f 1 )
+          echo "id=$id" >> $GITHUB_OUTPUT
+        env:
+          DISTRIBUTION: ${{steps.details.outputs.distribution}}
+          VERSION: ${{steps.details.outputs.version}}
+        working-directory: ${{steps.download.outputs.download-path}}/build
+
+      - name: Check Response has ID from Upload Build to BR Cloud
+        if: ${{ steps.distribution.outputs.id.length == 36 }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.setFailed('Upload Build to BR Cloud failed!')
+        env:
+          # For debugging
+          ID: ${{ steps.distribution.outputs.id }}
+          ID-LENGTH: ${{ steps.distribution.outputs.id.length }}
+
+      - name: Slack message (failed to upload the build)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Failed to upload the build to BR Cloud. Please check the logs for more details.
+
+      - name: Slack message (successfully upload the build)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Successfully upload the build to BR Cloud.
+
+      #
+      # Prepare App Config Deployment Details
+      #
+      - name: Get Configuration Files Details
+        id: files
+        run: |
+          response=$(curl \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X GET https://api.${{ vars.BR_CLOUD }}/v3/appconfigfiles)
+          echo "details=${response}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest System Properties for Envrinment
+        id: system-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-system-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+      - name: Get Lastest AWS Keys for Envrinment
+        id: aws-keys
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-aws-credentials-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+      - name: Get Lastest IP Configuration File ID
+        id: latest-ip-whitelist
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "hippo-ipfilter-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get latest Email SMTP properties File
+        id: brc-mail-smtp
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
+      - name: Get Lastest Platform Properties for Environment
+        id: platform-properties
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-platform-properties-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+      #
+      # Request deployment from ODv2
+      #
+      - name: Slack message (requesting deployment)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            Requesting a deployment on BR Cloud on environment ${{ env.TARGET }}.
+        env:
+          TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
+
+
+      - name: Create Deployment Details for BR Cloud
+        id: create-deployment-details
+        uses: actions/github-script@v7
+        env:
+          DISTRIBUTION: ${{ steps.distribution.outputs.id }}
+        with:
+          script: |
+            let args = {
+              "distributionId": "${{ env.DISTRIBUTION }}",
+              "strategy" : "rollingupdate",
+              "appConfigFileRoles": [
+                {
+                  "appConfigFileId": ${{ steps.aws-keys.outputs.id }},
+                  "role": "file",
+                  "newFilename": "aws-credentials.properties"
+                },
+                {
+                  "appConfigFileId": ${{ steps.system-properties.outputs.id }},
+                  "role": "systemproperty"
+                },
+                {
+                  "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }},
+                  "role": "file",
+                  "newFilename": "hippo-ipfilter.properties"
+                },
+                {
+                  "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }},
+                  "role": "file",
+                  "newFilename": "brc-mail-smtp.properties"
+                }
+              ]
+            };
+
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.platform-properties.outputs.id }}))
+            {
+              args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.platform-properties.outputs.id }},
+                "role": "file",
+                "newFilename": "platform.properties"
+              })
+            }
+            core.setOutput("deployment_args", args);
+
+
+      - name: Request Deployment from BR Cloud
+        id: deployment
+        run: |
+          code=$(curl -i \
+          -H "Accept: application/json; charset=utf-8" \
+          -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
+          -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
+          -d '${{ steps.create-deployment-details.outputs.deployment_args }}' \
+          -o /dev/null -w '%{http_code}\n' -s)
+          echo "code=$code" >> $GITHUB_OUTPUT
+        env:
+          ENVIRONMENT: ${{ fromJson(steps.find-target.outputs.result).id }}
+
+      - name: Check Response Code from Request Deployment from BR Cloud
+        if: ${{ steps.deployment.outputs.code != 202 }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.setFailed('Request Deployment from BR Cloud failed!')
+        env:
+          # 'CODE' is for debugging fails
+          CODE: ${{ steps.deployment.outputs.code }}
+
+      - name: Slack message (failed to deploy)
+        if: ${{ failure() }}
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":x: Pipeline Error"
+          MESSAGE: |
+            Deployment request failed. Please check the logs for more details.
+
+      - name: Slack message (end message)
+        uses: ./.github/actions/slack-message
+        with:
+          ENABLED: ${{ ! contains(github.event.client_payload.data.client_accepts_replies, false ) }} # A default to true
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ github.event.client_payload.data.channel_id }}
+          TITLE: ":green_book: Pipeline Progress"
+          MESSAGE: |
+            <@${{ env.USER_ID }}>, BR Cloud has accepted the deployment request. You can track progress on <https://missioncontrol.${{ vars.BR_CLOUD }}/#/environment/${{ fromJson(steps.find-target.outputs.result).id }}/details|Mission Control>.
+
+
+  test_report:
+    name: Create Test Report
+    needs: integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      BRANCH: ${{ github.event.client_payload.data.text }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+          fetch-depth: 0 # Need all the tags for versioning
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      - name: Setup Cache
+        uses: ./.github/actions/build-cache
+
+      - name: Test Branch
+        run: make test.site CI=true
+        env:
+          HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
+          HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+
+      - name: Save Report (Cucumber Report)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report
+          path: |
+            acceptance-tests/target/cucumber-reports/*
+
+      - name: Save Jacoco Report (Jacoco Report)
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: |
+            cms/target/site/jacoco/*

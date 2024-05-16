@@ -1,0 +1,56 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/tst-od2/cloud:
+      .meta:residual-child-node-category: content
+      /bloomreach:
+        .meta:residual-child-node-category: content
+        /nhsdigital:
+          .meta:residual-child-node-category: content
+          /tst:
+            .meta:residual-child-node-category: content
+            /content:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:virtualhost
+            /hst:root:
+              .meta:residual-child-node-category: content
+              /gdpr:
+                .meta:residual-child-node-category: content
+                hst:ismapped: false
+                hst:namedpipeline: TargetingRestApiPipeline
+                hst:types:
+                - rest
+                jcr:primaryType: hst:mount
+              /ndrs:
+                .meta:residual-child-node-category: content
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/ndrs
+                jcr:primaryType: hst:mount
+              /restapi:
+                .meta:residual-child-node-category: content
+                hst:alias: restapi
+                hst:ismapped: false
+                hst:namedpipeline: JaxrsRestPlainPipeline
+                hst:responseheaders:
+                - 'Access-Control-Allow-Origin: https://test.nhsdigital.bloomreach.cloud'
+                hst:types:
+                - rest
+                jcr:primaryType: hst:mount
+              hst:cacheable: false
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/common
+              hst:responseheaders:
+              - 'Strict-Transport-Security : max-age=31536000'
+              - 'Content-Security-Policy: upgrade-insecure-requests'
+              - 'Referrer-Policy: no-referrer-when-downgrade'
+              - 'Permissions-Policy: camera=(), display-capture=(), fullscreen=(),
+                geolocation=(), microphone=(), publickey-credentials-get=(), web-share=()'
+              - 'X-Content-Type-Options: nosniff'
+              - 'X-Frame-Options: SAMEORIGIN'
+              jcr:primaryType: hst:mount
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      hst:scheme: https
+      hst:showcontextpath: true
+      jcr:primaryType: hst:virtualhost

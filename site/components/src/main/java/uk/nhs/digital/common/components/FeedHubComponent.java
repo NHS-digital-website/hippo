@@ -17,7 +17,16 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
-import uk.nhs.digital.website.beans.*;
+import uk.nhs.digital.common.enums.Region;
+import uk.nhs.digital.ps.beans.HippoBeanHelper;
+import uk.nhs.digital.ps.beans.RestrictableDate;
+import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.website.beans.CyberAlert;
+import uk.nhs.digital.website.beans.Event;
+import uk.nhs.digital.website.beans.FeedHub;
+import uk.nhs.digital.website.beans.Interval;
+import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.SupplementaryInformation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,8 +37,7 @@ import java.util.stream.Collectors;
 public class FeedHubComponent extends ContentRewriterComponent {
     List<Map> filters;
     Map<String, String[]> filterValues;
-    String queryText;
-    String sort;
+    Map<String, String> topicMap;
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
@@ -37,6 +45,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
         filters = new ArrayList<>();
         filterValues = new HashMap<>();
+        topicMap = new HashMap<>();
 
         String[] yearParams = getPublicRequestParameters(request, "year");
         filterValues.put("year", yearParams);
@@ -45,19 +54,27 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
         filterValues.put("type[]", getPublicRequestParameters(request, "type[]"));
         filterValues.put("severity", getPublicRequestParameters(request, "severity"));
+
+        filterValues.put("status", getPublicRequestParameters(request, "status"));
+        filterValues.put("granularity[]", getPublicRequestParameters(request, "granularity[]"));
+        filterValues.put("area[]", getPublicRequestParameters(request, "area[]"));
+        filterValues.put("information[]", getPublicRequestParameters(request, "information[]"));
+        filterValues.put("topic[]", getPublicRequestParameters(request, "topic[]"));
+        filterValues.put("upcoming", getPublicRequestParameters(request, "upcoming"));
+
         request.setAttribute("filterValues", filterValues);
         long filterCount = filterValues.values()
             .stream()
             .filter(value -> value.length > 0).count();
         request.setAttribute("filterCount", filterCount);
 
-        queryText = getPublicRequestParameter(request, "query");
+        String queryText = getPublicRequestParameter(request, "query");
         if (queryText == null) {
             queryText = "";
         }
         request.setAttribute("query", queryText);
 
-        sort = getPublicRequestParameter(request, "sort");
+        String sort = getPublicRequestParameter(request, "sort");
         if (sort == null) {
             sort = "date-desc";
         }
@@ -70,7 +87,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
 
         try {
-            List<HippoBean> feed = getFeed(request);
+            List<HippoBean> feed = getFeed(request, queryText, sort);
             request.setAttribute("feed", feed);
             Pageable<HippoBean> pagedFeed = pageResults(feed, request);
             request.setAttribute("pageable", pagedFeed);
@@ -83,13 +100,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     getNewsFilters(feed);
                     break;
                 case "Supplementary information":
-                    getSupInfoFilters(feed);
+                    getSupInfoFilters(feed, filterValues);
                     break;
                 case "Events":
-                    getEventFilters(feed);
+                    getEventFilters(feed, filterValues);
                     break;
                 case "Cyber Alerts":
-                    getCyberAlertFilters(feed);
+                    getCyberAlertFilters(feed, filterValues);
+                    break;
+                case "Series":
+                    getSeriesFilters(feed);
+                    request.setAttribute("topicMap", topicMap);
                     break;
                 default:
             }
@@ -111,7 +132,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         addFilter("Year", "year", yearFilters);
     }
 
-    private void getSupInfoFilters(List<HippoBean> supInfoFeed) throws QueryException {
+    private void getSupInfoFilters(List<HippoBean> supInfoFeed, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = supInfoFeed.stream()
             .map(e -> (SupplementaryInformation) e)
             .map(SupplementaryInformation::getPublishedDate)
@@ -132,7 +153,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
     }
 
-    private void getEventFilters(List<HippoBean> eventFeed) throws QueryException {
+    private void getEventFilters(List<HippoBean> eventFeed, Map<String, String[]> filterValues) throws QueryException {
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (Event) e)
             .flatMap(e -> e.getEvents().parallelStream()
@@ -163,8 +184,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
         addFilter("Type", "type[]", typeFilters);
     }
 
-    private void getCyberAlertFilters(List<HippoBean> eventFeed) throws QueryException {
-        Map<String, Long> yearFilters = eventFeed.stream()
+    private void getCyberAlertFilters(List<HippoBean> cyberFeed, Map<String, String[]> filterValues) throws QueryException {
+        Map<String, Long> severityFilters = cyberFeed.stream()
+            .map(e -> (CyberAlert) e)
+            .map(CyberAlert::getSeverity)
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Severity", "severity", severityFilters);
+
+        Map<String, Long> yearFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getPublishedDate)
             .map(e -> String.valueOf(e.get(Calendar.YEAR)))
@@ -174,7 +204,18 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
         addFilter("Year", "year", yearFilters);
 
-        Map<String, Long> typeFilters = eventFeed.stream()
+        if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
+            Map<String, Long> monthFilters = cyberFeed.stream()
+                .map(e -> (CyberAlert) e)
+                .map(CyberAlert::getPublishedDate)
+                .map(date -> new SimpleDateFormat("MMMMM").format(date.getTime()))
+                .distinct()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+            addFilter("Month", "month", monthFilters);
+        }
+
+        Map<String, Long> typeFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getThreatType)
             .collect(Collectors.groupingBy(
@@ -183,20 +224,88 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
         addFilter("Type", "type[]", typeFilters);
 
-        Map<String, Long> severityFilters = eventFeed.stream()
+        Map<String, Long> cyberSeverityFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getSeverity)
             .collect(Collectors.groupingBy(
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Severity", "severity", severityFilters);
+        addFilter("Severity", "severity", cyberSeverityFilters);
     }
 
-    private <T extends HippoBean> List<T> getFeed(HstRequest request) throws QueryException {
+    private void getSeriesFilters(List<HippoBean> seriesFeed) throws QueryException {
+        Map<String, Long> seriesYearFilters = seriesFeed.stream()
+            .filter(x -> x instanceof Series && ((Series) x).getPublicationDates() != null && ((Series) x).getPublicationDates().size() > 0)
+            .map(e -> (Series) e)
+            .map(Series::getPublicationDates)
+            .map(date -> String.valueOf(date.get(0).getYear()))
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Year", "year", seriesYearFilters);
+
+        if (seriesYearFilters.size() > 0 && filterValues.get("year").length > 0) {
+            Map<String, Long> monthFilters = seriesFeed.stream()
+                .filter(x -> x instanceof Series && ((Series) x).getPublicationDates() != null && ((Series) x).getPublicationDates().size() > 0)
+                .map(e -> (Series) e)
+                .map(Series::getPublicationDates)
+                .map(date -> date.get(0).getMonth().toString())
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+            addFilter("Month", "month", monthFilters);
+        }
+
+        Map<String, Long> seriesTaxFilters = seriesFeed.stream()
+            .filter(x -> x instanceof Series && ((Series) x).getKeys() != null)
+            .map(e -> (Series) e)
+            .flatMap(e -> Arrays.stream(e.getKeys()))
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Topic", "topic[]", seriesTaxFilters);
+
+        topicMap = HippoBeanHelper.getTaxonomyKeysAndNames(seriesTaxFilters.keySet().toArray(new String[seriesTaxFilters.size()]));
+
+        Map<String, Long> seriesInfoFilters = seriesFeed.stream()
+            .filter(e -> e instanceof Series && ((Series) e).getInformationType() != null)
+            .map(e -> (Series) e)
+            .flatMap(e -> Arrays.stream(e.getInformationType()))
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Information type", "information[]", seriesInfoFilters);
+
+        Map<String, Long> seriesAreaFilters = seriesFeed.stream()
+            .filter(e -> e instanceof Series && ((Series) e).getGeographicCoverage() != null)
+            .map(e -> (Series) e)
+            .flatMap(e -> Arrays.stream(e.getGeographicCoverage()))
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        addFilter("Geographical area", "area[]", seriesAreaFilters);
+
+        Map<String, Long> seriesGranularityFilters = seriesFeed.stream()
+            .filter(e -> e instanceof Series && ((Series) e).getGranularity() != null)
+            .map(e -> (Series) e)
+            .flatMap(e -> Arrays.stream(e.getGranularity()))
+            .collect(Collectors.groupingBy(
+                Function.identity(), Collectors.counting()
+            ));
+
+        addFilter("Geographical granularity", "granularity[]", seriesGranularityFilters);
+
+        Map<String, Long> upcomingFilters = new HashMap<>();
+        upcomingFilters.put("Upcomming publications", -1L);
+
+        addFilter("Upcoming publications", "upcoming", upcomingFilters);
+    }
+
+    private <T extends HippoBean> List<T> getFeed(HstRequest request, String queryText, String sort) throws QueryException {
         final HstRequestContext context = request.getRequestContext();
         FeedHub feedHub = (FeedHub) context.getContentBean();
-
         HippoBean folder = feedHub.getParentBean();
         ArrayList<Constraint> constraints = new ArrayList<>();
 
@@ -205,14 +314,16 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
             if (feedHub.getFeedType().equals("Cyber Alerts")) {
                 constraints.add(constraint("website:publicallyaccessible").equalTo(true));
-            } else if (!feedHub.getFeedType().equals("Supplementary information")) {
+            } else if (!feedHub.getFeedType().equals("Supplementary information") && !feedHub.getFeedType().equals("Series")) {
                 constraints.add(constraint("website:display").equalTo(true));
             }
         }
 
         String dateField = "website:publisheddatetime";
-
+        String titleField = "";
+        String tierField = "";
         Class feedClass = null;
+
         switch (feedHub.getFeedType()) {
             case "News":
                 feedClass = News.class;
@@ -224,8 +335,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
                     constraints.add(constraint(dateField).equalTo(newsDateFilter, DateTools.Resolution.YEAR));
                 }
-
                 break;
+
             case "Events":
                 feedClass = Event.class;
                 dateField = "website:events/@website:startdatetime";
@@ -252,8 +363,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
                         constraints.add(constraint("website:type").equalTo(type));
                     }
                 }
-
                 break;
+
             case "Cyber Alerts":
                 feedClass = CyberAlert.class;
                 dateField = "publicationsystem:NominalDate";
@@ -264,6 +375,14 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     cyberAlertsDateFilter.set(Calendar.DAY_OF_YEAR, 1);
 
                     constraints.add(constraint(dateField).equalTo(cyberAlertsDateFilter, DateTools.Resolution.YEAR));
+                    if (filterValues.get("month").length > 0) {
+                        Integer month = getMonth(filterValues.get("month")[0]);
+                        if (month != null) {
+                            cyberAlertsDateFilter.set(Calendar.MONTH, month);
+                            cyberAlertsDateFilter.set(Calendar.DAY_OF_MONTH, 1);
+                            constraints.add(constraint(dateField).equalTo(cyberAlertsDateFilter, DateTools.Resolution.MONTH));
+                        }
+                    }
                 }
 
                 if (filterValues.get("type[]").length > 0) {
@@ -274,10 +393,13 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 }
 
                 if (filterValues.get("severity").length > 0) {
-                    constraints.add(constraint("website:severity").equalTo(filterValues.get("severity")[0]));
+                    constraints.add(or(
+                        constraint("website:severity").equalTo(filterValues.get("severity")[0]),
+                        constraint("website:severitystatuschanges/website:severity").equalTo(filterValues.get("severity")[0])
+                    ));
                 }
-
                 break;
+
             case "Supplementary information":
                 feedClass = SupplementaryInformation.class;
                 dateField = "publicationsystem:NominalDate";
@@ -301,36 +423,163 @@ public class FeedHubComponent extends ContentRewriterComponent {
                                 dateResolution = DateTools.Resolution.MONTH;
                             }
                         }
-
                         constraints.add(constraint(dateField).equalTo(supplimentaryInfoDateFilter, dateResolution));
                     }
                 }
-
                 break;
+
+            case "Series":
+                feedClass = Series.class;
+                dateField = "hippostdpubwf:lastModificationDate";
+                titleField = "publicationsystem:Title";
+                tierField = "publicationsystem:publicationTier";
+
+                if (filterValues.get("status").length > 0) {
+                    String[] status = filterValues.get("status");
+                    constraints.add(constraint("publicationsystem:PubliclyAccessible").equalTo(status[0]));
+                }
+
+                if (filterValues.get("granularity[]").length > 0) {
+                    String[]geoGran = filterValues.get("granularity[]");
+                    for (String granularity : geoGran) {
+                        constraints.add(constraint("publicationsystem:Granularity").equalTo(granularity));
+                    }
+                }
+
+                if (filterValues.get("area[]").length > 0) {
+                    String[] areas = Region.convertGeographicCoverageToValues(filterValues.get("area[]"));
+                    for (String area : areas) {
+                        constraints.add(or(
+                            constraint("publicationsystem:GeographicCoverage").equalTo(area),
+                            constraint("publicationsystem:properties/publicationsystem:GeographicCoverage").equalTo(area)
+                        ));
+                    }
+                    if (filterValues.get("area[]")[0].equals("Great Britain")) {
+                        constraints.add(and(
+                            constraint("publicationsystem:GeographicCoverage").notContains("Northern Ireland"),
+                            constraint("publicationsystem:properties/publicationsystem:GeographicCoverage").notContains("Northern Ireland")
+                        ));
+                    }
+                    if (filterValues.get("area[]")[0].equals("Great Britain") || filterValues.get("area[]")[0].equals("United Kingdom")) {
+                        constraints.add(and(
+                            constraint("publicationsystem:GeographicCoverage").notContains("Republic of Ireland"),
+                            constraint("publicationsystem:properties/publicationsystem:GeographicCoverage").notContains("Republic of Ireland")
+                        ));
+                    }
+                }
+
+                if (filterValues.get("information[]").length > 0) {
+                    String[] information = filterValues.get("information[]");
+                    for (String info : information) {
+                        constraints.add(constraint("publicationsystem:InformationType").equalTo(info));
+                    }
+                }
+
+                if (filterValues.get("topic[]").length > 0) {
+                    String[] topics = filterValues.get("topic[]");
+                    for (String topic : topics) {
+                        constraints.add(constraint("hippotaxonomy:keys").equalTo(topic));
+                    }
+                }
+                break;
+
             default:
         }
 
         if (queryText != null && !queryText.isEmpty()) {
-            constraints.add(or(
-                constraint("website:title").contains(queryText),
-                constraint("website:shortsummary").contains(queryText)
-            ));
+            if (feedHub.getFeedType().equals("Series")) {
+                constraints.add(or(
+                    constraint("publicationsystem:Title").contains(queryText),
+                    constraint("publicationsystem:Summary").contains(queryText)
+                ));
+            } else {
+                constraints.add(or(
+                    constraint("website:title").contains(queryText),
+                    constraint("website:shortsummary").contains(queryText)
+                ));
+            }
         }
 
         HstQueryBuilder query = HstQueryBuilder.create(folder);
-        query.where(and(constraints.toArray(new Constraint[0])))
-            .ofTypes(feedClass);
 
-        if (sort.equals("date-asc")) {
-            query.orderByAscending(dateField);
+        query.where(and(constraints.toArray(new Constraint[0]))).ofTypes(feedClass);
+
+        if (feedHub.getFeedType().equals("Series")) {
+            switch (sort) {
+                case "title-desc":
+                    query.orderByDescending(titleField);
+                    break;
+                case "title-asc":
+                    query.orderByAscending(titleField);
+                    break;
+                case "date-asc":
+                    query.orderByAscending(dateField)
+                        .orderByAscending(tierField)
+                        .orderByAscending(titleField);
+                    break;
+                case "date-desc":
+                    query.orderByDescending(dateField)
+                        .orderByAscending(tierField)
+                        .orderByAscending(titleField);
+                    break;
+                default:
+                    break;
+            }
         } else {
-            query.orderByDescending(dateField);
+            if (sort.equals("date-asc")) {
+                query.orderByAscending(dateField);
+            } else {
+                query.orderByDescending(dateField);
+            }
         }
 
         HippoBeanIterator beanIterator = query
             .build()
             .execute()
             .getHippoBeans();
+
+        if (feedHub.getFeedType().equals("Series")) {
+            List<T> beanList = new ArrayList<T>();
+            boolean inRange = false;
+
+            for (Object bean : toList(beanIterator)) {
+                inRange = false;
+                if (bean instanceof Series) {
+                    if (filterValues.get("year").length > 0) {
+                        ArrayList<RestrictableDate> dateList = ((Series) bean).getPublicationDates();
+                        for (RestrictableDate date : dateList) {
+                            if (date.getYear() >= Integer.parseInt(filterValues.get("year")[0])
+                                && date.getYear() <= Integer.parseInt(filterValues.get("year")[filterValues.get("year").length - 1])) {
+                                if (filterValues.get("month").length > 0) {
+                                    if (date.getMonth().toString().equals(filterValues.get("month")[0])) {
+                                        inRange = true;
+                                        break;
+                                    }
+                                } else {
+                                    inRange = true;
+                                    break;
+                                }
+                            }
+                        }
+                    } else {
+                        inRange = true;
+                    }
+
+                    if (filterValues.get("upcoming").length > 0) {
+                        if (((Series) bean).getHasUpcomming()) {
+                            inRange = true;
+                        } else {
+                            inRange = false;
+                        }
+                    }
+
+                    if (inRange) {
+                        beanList.add((T) bean);
+                    }
+                }
+            }
+            return beanList;
+        }
 
         return toList(beanIterator);
     }

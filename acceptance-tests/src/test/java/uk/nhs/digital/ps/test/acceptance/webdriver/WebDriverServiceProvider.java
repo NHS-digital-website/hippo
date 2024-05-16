@@ -91,7 +91,7 @@ public class WebDriverServiceProvider {
 
         for (File file : candidateFiles) {
             if (file.getName().contains(driverMap.get(os))) {
-                return file;
+                return new File(file, "chromedriver");
             }
         }
         return null;

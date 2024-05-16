@@ -1,10 +1,12 @@
 package uk.nhs.digital.ps.beans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
+import java.util.Calendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:archive")
@@ -48,5 +50,11 @@ public class Archive extends BaseDocument {
 
     public String getAdministrativeSources() {
         return getSingleProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
+    }
+
+    @JsonProperty
+    @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate", allowModifications = false)
+    public Calendar getPublishedDate() {
+        return getSingleProperty("publicationsystem:NominalDate");
     }
 }

@@ -16,9 +16,11 @@ public class CaseStudyComponent extends CommonComponent {
 
         CaseStudyComponentInfo componentInfo = getComponentParametersInfo(request);
         final String textAlignment = componentInfo.getTextAlignment();
+        final String bMargin = componentInfo.getTextBMargin();
         HippoBean document = getHippoBeanForPath(componentInfo.getDocument(), HippoBean.class);
 
         request.setAttribute("document", document);
         request.setAttribute("textAlignment", textAlignment);
+        request.setAttribute("bMargin", bMargin);
     }
 }

@@ -3,7 +3,7 @@ package uk.nhs.digital.website.beans;
 import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
-import uk.nhs.digital.ps.beans.*;
+import uk.nhs.digital.ps.beans.ExtAttachment;
 
 import java.util.*;
 
@@ -58,11 +58,6 @@ public class Event extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:relatedDocuments")
     public List<HippoBean> getRelatedDocuments() {
         return getLinkedBeans("website:relatedDocuments", HippoBean.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:peoplementioned")
-    public List<HippoBean> getPeoplementioned() {
-        return getLinkedBeans("website:peoplementioned", HippoBean.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:summaryimage")

@@ -1,0 +1,240 @@
+@import "../../units/list";
+
+.navigationMarker,
+navigationMarker-sub {
+  /* do not use - used by sticky-nav.js - are here to aid intellisense  */
+}
+
+[data-nav-marker^="|"] {
+  border-left: solid #87d8dd;
+  text-decoration: none;
+
+  & a {
+    padding-left: 12px;
+  }
+
+  // Reset so that only the first instance gets the style
+  & ~ & {
+    border: none;
+
+    a {
+      padding-left: 0;
+    }
+  }
+}
+
+.article-header__title {
+  background: transparent !important;
+}
+.hub-box-list .hub-box:first-child {
+  margin-top: 0;
+  background-color: transparent;
+}
+.hub-box-list .hub-box {
+  border-bottom: 1px solid #cbcbcb !important;
+}
+.hub-box-list .hub-box__contents {
+  padding: 0 20px 20px 0 !important;
+}
+.inner-wrapper-sticky .tag-link {
+  border-radius: 40px;
+  padding: 10px 15px !important;
+  background-color: #f0f4f5 !important;
+  margin-bottom: 10px;
+}
+
+.article-section-nav {
+  padding-top: $default-spacing-unit;
+  padding-bottom: $default-spacing-unit * 2;
+  border-bottom: 1px solid $grey-4;
+
+  @include media(wide) {
+    &:not(.article-section-nav--facets) {
+      max-width: 320px;
+    }
+  }
+
+  @include media(desktop) {
+    padding-bottom: 0;
+    border: none;
+  }
+
+  .article-section-nav__title {
+    margin: 0 0 (($default-spacing-unit/8) * 7);
+    display: inline-block;
+    padding: 0 10px 16px 0 !important;
+    border-bottom: 1px solid #d8dde0 !important;
+    width: 100%;
+    font-size: 19px !important;
+    line-height: 24px !important;
+    font-weight: 700 !important;
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+      display: block;
+      padding: 0 0 4px 0;
+    }
+  }
+
+  .article-section-nav__section {
+    margin-top: round($gutter * 1.5);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .article-section-nav__list {
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+    line-height: 14px;
+    font-size: 16px;
+
+    li {
+      padding-left: 0;
+      margin-top: 10px;
+      &:first-child {
+        a {
+          margin-top: 0;
+          text-decoration: none;
+        }
+      }
+    }
+
+    li {
+      line-height: 16px;
+      a {
+        color: #218183;
+        display: inline-block;
+        text-decoration: none;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        font-weight: 700;
+        line-height: 16px;
+        &:hover {
+          text-decoration: none;
+          color: #353535;
+          background-color: #87d8dd;
+          box-shadow: 0 0 0 4px #87d8dd;
+          outline: 1px solid #87d8dd;
+        }
+      }
+    }
+
+    .section-numbered {
+      margin-left: 20px;
+      font-size: 16px;
+    }
+  }
+
+  .article-section-nav__list--tag-links {
+    list-style: none;
+    padding-left: 0;
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+      @include clearfix;
+
+      position: relative;
+      line-height: 0;
+      left: -6px;
+      margin-bottom: -10px;
+
+      li {
+        display: inline-block;
+        float: left;
+        margin-left: 6px;
+        margin-top: 0;
+        margin-bottom: 6px;
+
+        a {
+          margin-top: 0;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .article-section-nav__menu {
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+
+    @include bold-font(18);
+    @include clearfix;
+
+    li {
+      position: relative;
+      display: inline-block;
+      float: left;
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+      vertical-align: middle;
+      text-align: center;
+      margin: 0 3px 3px 0;
+      background-color: $col-primary;
+
+      a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        color: $col-septenary;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: $link-hover-colour-nhs;
+        }
+        &:active {
+          color: $link-active-colour-nhs;
+        }
+      }
+
+      .active {
+        box-shadow: 0 0 0 2px $yellow-link-active;
+      }
+
+      &:hover,
+      &:focus {
+        a {
+          text-decoration: none;
+        }
+      }
+
+      &.is-disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        background-color: $col-senary;
+
+        a {
+          color: $col-quinary;
+          text-decoration: none;
+        }
+      }
+    }
+
+    @include media($max-width: $min-desktop-width) {
+      li {
+        margin: 0 4px 4px 0;
+      }
+    }
+  }
+
+  & + .article-section-nav {
+    margin-top: $gutter * 3;
+  }
+}
+
+.inner-wrapper-sticky {
+  transform: translate(0, 0); /* For browsers don't support translate3d. */
+  transform: translate3d(0, 0, 0);
+  will-change: position, transform;
+  z-index: 1;
+
+  // Fixes for IE 11
+  @include media($max-width: $min-desktop-width) {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+}

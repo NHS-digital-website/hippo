@@ -71,7 +71,7 @@ definitions:
           /galleryitems:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: website:galleryitems
             hipposysedit:primary: false
             hipposysedit:type: hippo:compound

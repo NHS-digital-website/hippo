@@ -32,7 +32,7 @@
 
                     <br>
                     <@externalstorageLink document.adviceForm.resource; url>
-                    <a class="niFormBtn" title="${document.adviceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download advice form','Indicator','${document.adviceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.adviceForm"/></a>
+                    <a class="niFormBtn" title="${document.adviceForm.text}" href="${url}"><@fmt.message key="headers.adviceForm"/></a>
                     </@externalstorageLink>
                     <@fileMetaAppendix document.adviceForm.resource.length, document.adviceForm.resource.mimeType></@fileMetaAppendix>
                 </div>
@@ -46,7 +46,7 @@
 
                     <br>
                     <@externalstorageLink document.addForm.resource; url>
-                    <a class="niFormBtn" title="${document.addForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download indicator template form','Indicator','${document.addForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.addForm"/></a>
+                    <a class="niFormBtn" title="${document.addForm.text}" href="${url}"><@fmt.message key="headers.addForm"/></a>
                     </@externalstorageLink>
                     <@fileMetaAppendix document.addForm.resource.length, document.addForm.resource.mimeType ></@fileMetaAppendix>
                 </div>
@@ -61,14 +61,15 @@
                     <br>
 
                     <@externalstorageLink document.applyForm.resource; url>
-                    <a class="niFormBtn" title="${document.applyForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyForm"/></a>
+                    <a class="niFormBtn" title="${document.applyForm.text}" href="${url}"><@fmt.message key="headers.applyForm"/></a>
                     </@externalstorageLink>
                     <@fileMetaAppendix document.applyForm.resource.length, document.applyForm.resource.mimeType ></@fileMetaAppendix>
 
                     <br>
 
                     <@externalstorageLink document.applyGuidanceForm.resource; url>
-                    <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyGuidanceForm"/></a></@externalstorageLink>
+                    <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}"><@fmt.message key="headers.applyGuidanceForm"/></a>
+                    </@externalstorageLink>
                     <@fileMetaAppendix document.applyGuidanceForm.resource.length, document.applyGuidanceForm.resource.mimeType ></@fileMetaAppendix>
                 </div>
             </div>

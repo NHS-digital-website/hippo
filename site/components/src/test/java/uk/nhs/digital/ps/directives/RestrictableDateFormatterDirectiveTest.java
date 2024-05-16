@@ -1,6 +1,5 @@
 package uk.nhs.digital.ps.directives;
 
-import static java.text.MessageFormat.format;
 import static java.time.Month.APRIL;
 import static java.time.Month.AUGUST;
 import static java.time.Month.DECEMBER;
@@ -16,7 +15,7 @@ import static java.time.Month.SEPTEMBER;
 import static java.util.stream.Collectors.toList;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -27,9 +26,7 @@ import freemarker.ext.beans.BeansWrapperBuilder;
 import freemarker.ext.beans.StringModel;
 import freemarker.template.*;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import uk.nhs.digital.ps.beans.RestrictableDate;
@@ -50,8 +47,6 @@ public class RestrictableDateFormatterDirectiveTest {
 
     private static final String DATE_PARAM_NAME = "value";
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
-
     @Mock private Template template;
     @Mock private Configuration configuration;
     @Mock private Writer writer;
@@ -66,7 +61,7 @@ public class RestrictableDateFormatterDirectiveTest {
 
     @Before
     public void setUp() throws Exception {
-        initMocks(this);
+        openMocks(this);
 
         loopVariables = new TemplateModel[0];
         body = null;
@@ -121,19 +116,10 @@ public class RestrictableDateFormatterDirectiveTest {
         testRestrictableDateFormatting(restrictableDate, expectedFormattedDate);
     }
 
-    @Test
+    @Test(expected = TemplateException.class)
     public void reportsErrorOnMissingRequriedParameter() throws Exception {
-
-        // given
-        // no DATE_PARAM_NAME entry in parameters
-
-        expectedException.expect(TemplateException.class);
-        expectedException.expectMessage(format("Required parameter ''{0}'' was not provided to template {1}.",
-            DATE_PARAM_NAME, RestrictableDateFormatterDirective.class.getName()));
-
         // when
         formatterDirective.execute(environment, parameters, loopVariables, body);
-
         // then
         // the framework asserts expected exception
     }

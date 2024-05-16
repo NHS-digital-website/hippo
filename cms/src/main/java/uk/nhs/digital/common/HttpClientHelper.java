@@ -41,14 +41,12 @@ public class HttpClientHelper {
             List<URI> redirectLocations = context.getRedirectLocations();
             URI location = URIUtils.resolve(httpGet.getURI(), target, redirectLocations);
             finalDestination = location.toASCIIString();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             statusCode = 500;
             finalDestination = ex.getMessage();
         }
         return new HttpResponse(statusCode, finalDestination) ;
     }
-
 
     public int getInitialHttpStatusCode(String link) {
 
@@ -62,8 +60,7 @@ public class HttpClientHelper {
             HttpGet httpGet = new HttpGet(link);
             CloseableHttpResponse response = httpclient.execute(httpGet, context);
             statusCode = response.getStatusLine().getStatusCode();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             statusCode = 500;
         }
         return statusCode;

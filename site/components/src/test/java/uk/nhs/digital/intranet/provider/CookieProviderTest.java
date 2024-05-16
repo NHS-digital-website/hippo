@@ -12,11 +12,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
+import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
 
 import javax.servlet.http.Cookie;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CookieProviderTest {
+public class CookieProviderTest extends MockitoSessionTestBase {
 
     @Mock private AccessTokenEncoder encoder;
 

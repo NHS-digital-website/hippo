@@ -1,6 +1,7 @@
 package uk.nhs.digital.arc.transformer.impl.pagelevel;
 
 import org.onehippo.forge.content.pojo.model.ContentNode;
+import uk.nhs.digital.arc.exception.ArcException;
 import uk.nhs.digital.arc.factory.InnerSectionTransformerFactory;
 import uk.nhs.digital.arc.json.PublicationBodyItem;
 import uk.nhs.digital.arc.json.PublicationPage;
@@ -12,7 +13,7 @@ public class PublicationPageTransformer extends AbstractPageLevelTransformer {
     private PublicationPage publicationPage;
 
     @Override
-    public ContentNode process() {
+    public ContentNode process() throws ArcException {
         publicationPage = (PublicationPage)doctype;
 
         ContentNode contentNode = new ContentNode(publicationPage.getTitleReq(), PUBLICATIONSYSTEM_PUBLICATIONPAGE);
@@ -27,7 +28,7 @@ public class PublicationPageTransformer extends AbstractPageLevelTransformer {
      *
      * @param cn is the {@link ContentNode} to which we will attach the new node we create
      */
-    private void processSections(ContentNode cn) {
+    private void processSections(ContentNode cn) throws ArcException {
         for (PublicationBodyItem bodyItem : publicationPage.getBody()) {
             AbstractSectionTransformer sectionTransformer =
                 InnerSectionTransformerFactory.getTransformerFromSectionType(bodyItem, session, docbase, storageManager);

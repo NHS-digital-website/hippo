@@ -2,9 +2,9 @@ package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import cucumber.api.java.en.Given;
@@ -17,7 +17,6 @@ import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
-import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
@@ -26,7 +25,6 @@ import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
 import java.util.List;
-import java.util.Optional;
 
 public class PublicationSteps extends AbstractSpringSteps {
 
