@@ -208,11 +208,14 @@ definitions:
           /InformationType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Audit,Experimental statistics,National statistics,Official
-                statistics,Open data,Other reports and statistics,Survey
+              selectable.options: Accredited official statistics,Audit,Experimental
+                statistics,National statistics,Official statistics,Official statistics
+                in development,Open data,Other reports and statistics,Survey
             caption: Information Type
             field: information_type
-            hint: ''
+            hint: National statistics & Experimental statistics are now legacy options.
+              Please use Accredited official statistics & Official statistics in development
+              respectively.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
