@@ -190,7 +190,8 @@
         </div>
     </#if>
 
-                <#assign administrativeSources = publication.parentDocument?has_content?then(publication.parentDocument.administrativeSources?has_content?then(publication.parentDocument.administrativeSources, ""), "") />
+                <#assign parentDocument = publication.parentSeriesCollectionDocument />
+                <#assign administrativeSources = parentDocument?has_content?then(parentDocument.administrativeSources?has_content?then(parentDocument.administrativeSources, ""), "") />
 
                 <#if administrativeSources?has_content>
                     <div class="article-section" id="administrative-sources">

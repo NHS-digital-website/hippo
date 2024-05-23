@@ -132,7 +132,7 @@ public class CiBreadcrumbProvider  {
         }
 
         // Is publication part of archive/series?
-        HippoBean publicationParent =  publication.getParentDocument();
+        HippoBean publicationParent =  publication.getParentSeriesCollectionDocument();
         if (publicationParent != null) {
             // Create Archive/Series navigation
             BaseDocument seriesOrArchiveDocument = (BaseDocument) publicationParent;
@@ -152,7 +152,7 @@ public class CiBreadcrumbProvider  {
             Publication publication = (Publication) datasetParent;
 
             // Is publication part of archive/series?
-            HippoBean publicationParent =  publication.getParentDocument();
+            HippoBean publicationParent =  publication.getParentSeriesCollectionDocument();
             if (publicationParent != null) {
 
                 // Create Archive/Series navigation
