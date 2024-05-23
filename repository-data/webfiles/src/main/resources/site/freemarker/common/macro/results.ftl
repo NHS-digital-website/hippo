@@ -56,18 +56,13 @@
 </#macro>
 
 <#macro publication item>
-    <#assign stampedPublication = false />
-    <#if item.informationType?has_content>
-        <#list item.informationType as type>
-            <#if type == "National statistics">
-                <#assign stampedPublication = true />
-                <#break>
-            </#if>
-        </#list>
+
+    <#if item.parentDocument?has_content && item.informationType?has_content>
+        <#assign informationTypes = item.parentDocument.informationType />
     </#if>
 
-    <div class="cta cta--detailed ${stampedPublication?then(" cta--stamped", "")}" data-uipath="ps.search-results.result">
-        <#if stampedPublication>
+    <div class="cta cta--detailed ${informationTypes?has_content?then(" cta--stamped", "")}" data-uipath="ps.search-results.result">
+        <#if informationTypes?has_content>
             <div class="cta__stamped-header">
                 <div class="cta__stamped-header-col cta__stamped-header-col--left">
         </#if>
@@ -81,11 +76,25 @@
         </a>
         <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></span>
 
-        <#if stampedPublication>
+        <#if informationTypes?has_content>
                 </div>
 
                 <div class="cta__stamped-header-col cta__stamped-header-col--right">
-                    <img src="<@hst.webfile  path="images/national-statistics-logo.svg"/>" data-uipath="ps.search-results.result.national-statistics" alt="National Statistics" title="National Statistics" class="image-icon image-icon--large" />
+                    <#if informationTypes?seq_contains("Accredited official statistics")>
+                        <@hst.webfile path="images/accredited-official-statistics-logo-english.svg" var="badgeSrc" />
+                        <img src="${badgeSrc}"
+                             data-uipath="ps.search-results.result.national-statistics"
+                             alt="Accredited official statistics logo. "
+                             class="image-icon image-icon--large"
+                        />
+                    <#elseif informationTypes?seq_contains("National statistics")>
+                        <@hst.webfile path="images/national-statistics-logo.svg" var="badgeSrc" />
+                        <img src="${badgeSrc}"
+                        data-uipath="ps.search-results.result.national-statistics"
+                        alt="National Statistics logo. "
+                        class="image-icon image-icon--large"
+                        />
+                    </#if>
                 </div>
             </div>
         </#if>

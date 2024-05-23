@@ -54,8 +54,6 @@
 
     <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
         <#assign informationTypes = publication.parentDocument.informationType/>
-    <#elseif publication.informationType?has_content>
-        <#assign informationTypes = publication.informationType/>
     </#if>
 
     <#assign heroOptions = {
@@ -83,7 +81,17 @@
         <#assign heroOptions += {
             "badge": {
                 "src": badgeSrc,
-                "alt": "National Statistics"
+                "alt": "National Statistics logo. "
+            }
+        }/>
+    </#if>
+
+    <#if informationTypes?has_content && informationTypes?seq_contains("Accredited official statistics")>
+        <@hst.webfile path="images/accredited-official-statistics-logo-english.svg" var="badgeSrc"/>
+        <#assign heroOptions += {
+            "badge": {
+                "src": badgeSrc,
+                "alt": "Accredited official statistics logo. "
             }
         }/>
     </#if>
