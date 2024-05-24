@@ -30,21 +30,18 @@ class RemoveGranularity extends BaseNodeUpdateVisitor {
 
     boolean updateNode(Node n) {
 
-      JcrUtils.ensureIsCheckedOut(n)
-
-      def path = n.getPath()
-      def nodeType = n.getPrimaryNodeType().getName()
-
-      if ("publicationsystem:publication".equals(nodeType))  {
-        def property = n.getProperty("publicationsystem:Granularity")
-        if (property) {
-            log.info("Removing publicationsystem:Granularity from node: " + path + " => current node type: " + nodeType)
-            property.remove()
-            return true
+        JcrUtils.ensureIsCheckedOut(n)
+        def path = n.getPath()
+        def nodeType = n.getPrimaryNodeType().getName()
+        if ("publicationsystem:publication".equals(nodeType)) {
+            if (n.hasProperty("publicationsystem:Granularity")) {
+                log.info("Success - Removing publicationsystem:Granularity from node: " + path + " => current node type: " + nodeType)
+                n.getProperty("publicationsystem:Granularity").remove()
+                return true
+            } else
+                log.info("Skipped - Removing publicationsystem:Granularity from node: " + path + " => current node type: " + nodeType)
         }
-      }
-
-      return false
+        return false
     }
 
     boolean undoUpdate(Node node) {
