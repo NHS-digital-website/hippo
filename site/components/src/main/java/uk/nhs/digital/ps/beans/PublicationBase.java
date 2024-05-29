@@ -287,10 +287,6 @@ public abstract class PublicationBase extends BaseDocument {
                 EARLY_ACCESS_KEY_QUERY_PARAM));
     }
 
-    public String[] getInformationType() {
-        return getMultipleProperty(PropertyKeys.INFORMATION_TYPE);
-    }
-
     public String[] getGeographicCoverage() {
         return geographicCoverageValuesToRegionValue(getMultipleProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }

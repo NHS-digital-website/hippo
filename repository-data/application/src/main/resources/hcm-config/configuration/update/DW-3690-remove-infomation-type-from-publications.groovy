@@ -6,7 +6,7 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 import javax.jcr.Node
 
 /**
- * Removes publicationsystem:InformationTypes   from Publications.
+ * Removes publicationsystem:InformationType   from Publications.
  */
 class RemoveInformationTypes  extends BaseNodeUpdateVisitor {
 
@@ -31,7 +31,7 @@ class RemoveInformationTypes  extends BaseNodeUpdateVisitor {
         def path = n.getPath()
         def nodeType = n.getPrimaryNodeType().getName()
         if ("publicationsystem:publication".equals(nodeType)) {
-            if (n.hasProperty("publicationsystem:InformationTypes")) {
+            if (n.hasProperty("publicationsystem:InformationType")) {
                 log.info("Success - Removing publicationsystem:InformationType from node: " + path + " => current node type: " + nodeType)
                 n.getProperty("publicationsystem:InformationType").remove()
                 return true

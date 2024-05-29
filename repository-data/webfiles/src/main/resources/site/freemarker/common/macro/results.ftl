@@ -57,7 +57,9 @@
 
 <#macro publication item>
 
-    <#if item.parentDocument?has_content && item.informationType?has_content>
+    <#assign informationTypes = [] />
+    <#if item.parentDocument?has_content && item.parentDocument.informationType?has_content>
+        <!-- scope issue ? -->
         <#assign informationTypes = item.parentDocument.informationType />
     </#if>
 
