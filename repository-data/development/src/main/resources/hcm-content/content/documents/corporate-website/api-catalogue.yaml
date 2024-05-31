@@ -6,69 +6,7 @@
         /website:body:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
-        /website:friendlyurls:
-          jcr:primaryType: website:friendlyurls
-          website:alternativeurls: []
-          website:destination: ''
-        /website:items[1]:
-          /website:link:
-            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[2]:
-          /website:link:
-            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[3]:
-          /website:link:
-            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[4]:
-          /website:link:
-            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[5]:
-          /website:link:
-            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:items[6]:
-          jcr:primaryType: website:externallink
-          website:link: https://google.com
-          website:shortsummary: External Resource summary
-          website:title: External Resource
-        /website:seosummary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Test API catalogue for smoke tests</p>
-          jcr:primaryType: hippostd:html
-        common:searchRank: 3
-        common:searchable: true
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:38:54.604Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
-        hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippotaxonomy:classifiable
-        - mix:referenceable
-        jcr:primaryType: website:componentlist
-        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
-        website:anchor: true
-        website:gossid: 0
-        website:seosummarytext: <p>Test API catalogue for smoke tests</p>
-        website:shortsummary: Test API catalogue for smoke tests
-        website:title: Test API catalogue
-      /content[2]:
-        /website:body:
+        /website:entriesFooterContentBody:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /website:friendlyurls:
@@ -105,6 +43,85 @@
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:seosummary:
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>Test API catalogue for smoke tests</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
+        hippostdpubwf:lastModificationDate: 2024-05-22T12:23:30.876Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:componentlist
+        jcr:uuid: 8045d8f2-4def-4c3f-b981-07b0e2c8384c
+        website:anchor: true
+        website:entriesFooterContentTitle: ''
+        website:gossid: 0
+        website:seosummarytext: <p>Test API catalogue for smoke tests</p>
+        website:shortsummary: Test API catalogue for smoke tests
+        website:title: Test API catalogue
+      /content[2]:
+        /website:body:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:entriesFooterContentBody:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 6681acac-59a6-4f6e-918f-119c989cbd8d
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          /website:link:
+            hippo:docbase: 218e4b29-3223-41a0-9c02-beb76df6f1dd
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[3]:
+          /website:link:
+            hippo:docbase: b6cadc10-ea1e-4059-8cf2-0a2184509273
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[4]:
+          /website:link:
+            hippo:docbase: ce8d4195-c3a0-41bb-b393-06659f75e1f6
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[5]:
+          /website:link:
+            hippo:docbase: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[6]:
+          jcr:primaryType: website:externallink
+          website:link: https://google.com
+          website:shortsummary: External Resource summary
+          website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -119,7 +136,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2024-05-22T12:24:25.706Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
@@ -130,12 +147,16 @@
         jcr:primaryType: website:componentlist
         jcr:uuid: a943a220-9f9b-4384-9e86-15381d2fc6df
         website:anchor: true
+        website:entriesFooterContentTitle: ''
         website:gossid: 0
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
       /content[3]:
         /website:body:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:entriesFooterContentBody:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /website:friendlyurls:
@@ -172,6 +193,11 @@
           website:link: https://google.com
           website:shortsummary: External Resource summary
           website:title: External Resource
+        /website:items[7]:
+          /website:link:
+            hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -186,9 +212,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2021-08-19T08:40:02.713Z
+        hippostdpubwf:lastModificationDate: 2024-05-22T12:24:25.706Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-08-19T08:40:06.552Z
+        hippostdpubwf:publicationDate: 2024-05-22T12:24:28.115Z
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -197,12 +223,13 @@
         jcr:primaryType: website:componentlist
         jcr:uuid: 76042466-7949-428d-b36b-5538f48c9b90
         website:anchor: true
+        website:entriesFooterContentTitle: ''
         website:gossid: 0
         website:seosummarytext: <p>Test API catalogue for smoke tests</p>
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
       hippo:name: API catalogue
-      hippo:versionHistory: 2db2316d-50ea-4b2c-a689-14b648e8a53b
+      hippo:versionHistory: 94b11129-72ea-4d80-b5ad-4205b85b8eac
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -352,6 +379,1169 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: cd856bbe-7286-48ee-baff-b27216e29245
+    /digital-staff-passport-api-standard:
+      /digital-staff-passport-api-standard:
+        /digital-staff-passport-api-standard[1]:
+          /website:seosummary:
+            hippostd:content: Allow Digital Staff Passport to access employee information
+              in your system.3
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Allow Digital Staff Passport to access employee information
+              in your system.1</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-05-22T12:21:12.592Z
+          hippostdpubwf:lastModificationDate: 2024-05-22T12:21:12.592Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: 7ced5001-3227-478e-b011-e194918b0c56
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
+            API","description":"## Overview\nUse this API standard to build an API
+            that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
+            can use to interact with your system.\n\nThe standard currently supports
+            the following use cases:\n\n| Use case                              |
+            External system type       |\n| -------------------------------------
+            | -------------------------- |\n| Get core skills                       |
+            Learning management system |\n| Send core skills                      |
+            Learning management system |\n| Send right to work information        |
+            Recruitment system         |\n| Send DBS check supporting information
+            | Recruitment system         |\n\nFor more context, see [Integrating with
+            the Digital Staf Passport](https://digital.nhs.uk/services/digital-staff-passport/integration),
+            specifically:\n- [integration pattern 2](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-2-outbound-via-online-portal)\n-
+            [integration pattern 4](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-4-inbound-via-online-portal)\n\n##
+            Who can use this API standard\nYou can only use this API standard if you
+            are integrating your system with Digital Staff Passport.\n\n## How this
+            API standard works\nDSP needs to interact with a variety of external systems,
+            to send and receive a variety of information.\nThis API standard provides
+            a common approach regardless of the type of external system, as explained
+            below.\n\n### Employee linking\nBefore DSP can exchange information with
+            an external system, it needs to ''link'' the employee record using the
+            external systems''s unique identifier for that employee.\n\nThere are
+            two ways DSP can do this:\n- if the DSP user knows the employee''s external
+            system ID, DSP can use the [Get employee personal details](#get-/organisations/-org-id-/employees/-employee-id-)
+            operation to allow the user to check it''s the right ID\n- if the DSP
+            user doesn''t know the employee''s external system ID, DSP can use the
+            [Search for an employee](#get-/organisations/-org-id-/employees) operation
+            to find the ID based on employee details such as name and date of birth\n\n###
+            Getting employee information\nGiven the employee''s external system ID,
+            DSP can get information from the external system using the [Get employee
+            records](#get-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information returned depends on the type of
+            system. For example, a learning management system would return core skills
+            records.\n\n### Sending employee information\nGiven the employee''s external
+            system ID, DSP can send information to the external system using the [Add
+            an employee record](#post-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information sent depends on the type of system.
+            For example, DSP might send identity information to a recruitment system
+            in order to support varioius employment checks.\n\n## Employee record
+            types\n\n### Core skills\nCore skills are a specific type of mandatory
+            training that are common across all NHS organisations,\nand are generally
+            aligned with the [Core Skills Training Framework (CSTF)](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nCore
+            skills are not always part of the CSTF.\nFor example, at the time of writing,
+            Oliver McGowan Mandatory Training on Learning Disability and Autism is
+            not part of the CSTF but is in scope for Digital Staff Passport.\n\nAlso,
+            the Employee Staff Record (ESR) system includes a number of competencies
+            which are flagged as ''CSTF'' even though they are not part of the Core
+            Skills Training Framework.\nThey generally represent skills that have
+            a [nationally-defined framework](https://www.skillsforhealth.org.uk/resources/category/capabilities-frameworks/)\nsuch
+            as the [Dementia skills framework](https://www.skillsforhealth.org.uk/resources/dementia-2015-updated-2018/).\n\nFor
+            the avoidance of doubt, a full list of the core skills in scope for Digital
+            Staff Passport is provided in the\n[Digital Staff Passport core skills
+            scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nCore
+            skills records are typically held in a learning managements system (LMS).\nThis
+            API standard supports:\n- DSP getting core skills from an LMS\n- DSP sending
+            core skills to an LMS\n\nWhen sending and receiving core skills records,
+            LMSs must follow the\n[standard naming conventions for CSTF core skills](https://www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nTo
+            help with this, mappings for the various data fields are included in the\n[Digital
+            Staff Passport core skills scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nWhen
+            receiving a core skill, LMSs should:\n- reject duplicates i.e. same competency
+            name, same date last awarded\n- ignore the renewal period and expiry date,
+            instead applying the local renewal period and re-calculating the expiry
+            date\n\n### Right to work information\n[Right to work checks](https://www.nhsemployers.org/publications/right-work-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the right to work check.\n\nHence this API standard supports
+            Digital Staff Passport sending right to work check information to a recruitment
+            system.\n\n### DBS check supporting information\n[Criminal record (DBS)
+            checks](https://www.nhsemployers.org/publications/criminal-record-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the DBS check.\n\nHence this API standard supports Digital
+            Staff Passport sending DBS check supporting information to a recruitment
+            system.\n\n## Status\nThis API standard is a [draft](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),\nmeaning
+            it is under development and might be subject to breaking changes.\n\n##
+            Service level\nYour API must be a bronze service, meaning it is operational
+            and supported during business hours.\n\nFor more details, see [service
+            levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).\n\n##
+            Technology\nThis API standard is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nIt
+            does not conform to the [FHIR](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#fhir)\nglobal
+            standard for health care data exchance because it is not a clinical API,
+            it relates to workforce.\nThis has been agreed with the [HL7 FHIR UK Board](https://www.hl7.org.uk/register/about-hl7-uk/management-board-members/).\n\n##
+            Network access\nYour API must be available on the internet.\n\n## Security
+            and authorisation\nYour API must use OAuth 2.0 ''private key JWT'' to
+            authenticate and authorise Digital Staff Passport as the calling system.\n\nFor
+            more details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not. They are usually in the range:\n\n* 200 to 299 if it
+            succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\n\nAlthough this is not a FHIR API, errors are returned
+            as FHIR [OperationOutcome](https://hl7.org/fhir/R4/operationoutcome.html)
+            resources, in line with our API design guidance.\n\nFor details of specific
+            errors, see the ''Response'' section for each operation. See our [reference
+            guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes)
+            for more on errors.\n\n## Environments and testing\nYou''ll need to provide
+            the following environments:\n\n| Environment | Suggested base URL |\n|---|---|\n|
+            Integration test | `integration-test.<your domain>/dsp-api` |\n| Integration
+            test | `<your domain>/dsp-api` |\n\n### Single versus multiple instance
+            systems\nIf your system runs as a single instance supporting multiple
+            employer organisations (sometimes called ''multiple tenant''), you should
+            deploy it as per the suggested base URLs suggested above.\n\nIf you have
+            a separate instance of your system per employer organisation, you should
+            deploy each instance at the following base URL:\n\n`<your domain>/dsp-api/organisations/<org
+            ODS code>`\n\nIn this case, you should alter the URL for the individual
+            operations to exclude the `organisations/{org-id}` part, so that it isn''t
+            repeated.\n\n### Integration testing\nYour integration test environment
+            needs to include:\n- at least two organisations, so we can test cross-organisation
+            security\n- sufficient test data to support a reasonable set of test scenarios
+            - for example multiple people with the same surname or date of birth\n\n##
+            Onboarding\nWe are currently running a pilot with one external system,
+            so the API standard is not available for anyone else to onboard just yet.
+            \n","contact":{"name":"API Management Support","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"version":"v1.0.269-alpha"},"servers":[{"url":"/"}],"paths":{"/organisations/{org-id}/employees":{"get":{"summary":"Search
+            for an employee","description":"This operation returns a list of employees
+            that match the supplied search parameters.\n\nThe following search parameters
+            are supported:\n- first name\n- surname\n- date of birth\n\nAll search
+            parameters are optional, but at least one must be provided.\n\nIf there
+            are no matches, the operation returns an empty array, not an error.\n\nIf
+            there are more than 50 matches, the operation only returns the first 50.\nThere
+            is currently no way of knowing whether there are more than 50 matches.\nIn
+            the future we might add pagination.\n","operationId":"search-for-employee","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"name":"firstName","in":"query","description":"The
+            employee''s first name. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Jane"},{"name":"surname","in":"query","description":"The
+            employee''s surname. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Smith"},{"name":"birthDate","in":"query","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"1998-10-22"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"A
+            completed search. This might contain zero, one or many matching employees.","content":{"application/json":{"schema":{"maxItems":50,"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeePersonalDetails"}},"example":[{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}]}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | - |\n| 400         | invalid      | Invalid query parameter(s).
+            |\n| 401         | forbidden    | OAuth 2.0 bearer token missing, invalid
+            or expired, or calling application not enabled for this operation within
+            the specified organisation. |\n| 404         | not-found    | Organisation
+            not found for the given organisation ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"invalid","details":{"text":"Invalid
+            format for birthDate query parameter - must be yyyy-mm-dd."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}":{"get":{"summary":"Get
+            employee personal details","description":"This operation returns personal
+            details for a given employee.\nUse this operation if you already have
+            the employee''s ID but want to check it''s the right ID.\n","operationId":"get-employee-personal-details","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Employee
+            exists for the given ID.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeePersonalDetails"},"example":{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | --------------------------------------------- |\n| 401         |
+            forbidden    | OAuth 2.0 bearer token missing, invalid or expired, or
+            calling application not enabled for this operation within the specified
+            organisation. |\n| 404         | not-found    | Organisation not found
+            for the given organisation ID or employee not found for the given employee
+            ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}/records":{"get":{"summary":"Get
+            employee records","description":"### Overview\nThis operation returns
+            a list of all data records available for a given employee.\n\nIt supports
+            the following record and external system types:\n\n| Record type | External
+            system type       |\n| ----------- | -------------------------- |\n| Core
+            skills | Learning management system |\n","operationId":"get-employee-records","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Successful
+            operation.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecords"},"example":{"id":"12345","records":[{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"},{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Resuscitation","competencyName":"Resuscitation
+            Adult Basic Life Support","subjectLevel":"2","renewalPeriodNumber":"1","renewalPeriodUnits":"Year","proficiencyLevel":"1
+            - Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Observation","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-20","dateTo":"2024-11-19"}]}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 401         | forbidden    |
+            OAuth 2.0 bearer token missing, invalid or expired, or calling application
+            not enabled for this operation within the specified organisation. |\n|
+            404         | not-found    | Organisation not found for the given organisation
+            ID or employee not found for the given employee ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false},"post":{"summary":"Add
+            an employee record","description":"This operation adds a data record for
+            a given employee.\n\nIt supports the following record and external system
+            types:\n\n| Record type                      | External system type       |\n|
+            -------------------------------- | -------------------------- |\n| Core
+            skills                      | Learning management system |\n| Right to
+            work check information  | Recruitment system         |\n| DBS check supporting
+            information | Recruitment system         |\n","operationId":"add-employee-record","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Add
+            a right to work record","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"Add
+            a DBS check supporting information record","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Add
+            a core skills record","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}},"required":true},"responses":{"201":{"description":"Record
+            created.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Right
+            to work record added","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"DBS
+            check supporting information record added","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Core
+            skills record added","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 400         | invalid      |
+            Invalid data in request body, for example, missing mandatory field or
+            invalid date format. |\n| 401         | forbidden    | OAuth 2.0 bearer
+            token missing, invalid or expired, or calling application not enabled
+            for this operation within the specified organisation. |\n| 404         |
+            not-found    | Organisation not found for the given organisation ID or
+            employee not found for the given employee ID. |\n| 409         | duplicate    |
+            Attempted to add a record that already exists, for example a core skill
+            with the same date last awarded. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/_status":{"get":{"summary":"Get
+            API status","description":"This operation allows our live service monitoring
+            tools to check that the API is available and working.\n\nThe URL is `/organisations/{org-id}/_status`
+            rather than just `/_status` so that it can be supported by systems that
+            have separate instances deployed for each organisation.\n\nIt is based
+            on the draft standard [Health Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n\nIt
+            can be implemented as a ''shallow ping'' or a ''deep ping'':\n- For a
+            shallow ping, the operation returns a `status` of `pass` without checking
+            any dependent resources. This is the easier approach.\n- For a deep ping,
+            the operation checks the status of dependent resources and returns a status
+            that reflects the overall health of the service. The status of dependent
+            resources is provided within the `checks` object. This approach is more
+            work but allows us to react to live incidents more quickly.\n\nThe operation
+            always returns an HTTP status code of 200, even if one or more of the
+            dependent resources is not healthy.\nTherefore it is important for monitoring
+            tools to check the `status` field in the body of the response.\n\nAll
+            fields apart from `status` are optional, so the simplest possible implementation
+            is a ''shallow ping'' response that always returns a single field `status`
+            with a value of `pass`.\n","operationId":"status","parameters":[{"$ref":"#/components/parameters/OrganisationId"}],"responses":{"200":{"description":"The
+            status operation was executed and the result might have been a pass or
+            a fail (for example due to an unhealthy dependent resource).","content":{"application/health+json":{"schema":{"$ref":"#/components/schemas/Status"},"examples":{"shallow-ping-success":{"summary":"Shallow
+            ping","value":{"status":"pass"}},"deep-ping-fail":{"summary":"Deep ping
+            with a dependent resource failure","value":{"description":"Acme Workforce
+            System Digital Staff Passport API","version":"1","releaseId":"1.0.123","status":"fail","notes":["Dependent
+            resource B timed out."],"output":"","checks":{"dependentResourceA:status":[{"status":"pass"}],"dependentResourceB:status":[{"status":"fail"}]}}}}}}}},"deprecated":false}}},"components":{"schemas":{"EmployeePersonalDetails":{"required":["id","firstName","surname"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"firstName":{"type":"string","description":"The
+            employee''s first name.","example":"Jane"},"surname":{"type":"string","description":"The
+            employee''s surname.","example":"Smith"},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","example":"1998-10-22"},"email":{"type":"string","description":"The
+            employee''s email address.","example":"jane.smith@example.com"},"esrIdentifier":{"type":"string","description":"The
+            employee''s unique identifier in the ESR system.","example":"87654321"},"furtherInformation":{"type":"string","description":"Further
+            information about the employee record that disambiguates it from other
+            records.\nThis can be anything and is likely to be system-specific.\nFor
+            example, a recruitment system holding possibly multiple applications for
+            the same person\ncould include a composite of the job description and
+            contract type being applied for.\n","example":"Orthapaedic Practitioner
+            (XR05) - Permanent"}}},"EmployeeRecords":{"required":["id","records"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"records":{"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeeRecordGet"},"description":"The
+            employee''s records."}}},"EmployeeRecordGet":{"oneOf":[{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"EmployeeRecordPost":{"oneOf":[{"$ref":"#/components/schemas/RightToWork"},{"$ref":"#/components/schemas/DBSCheckSupportingInformation"},{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"RightToWork":{"required":["recordType","legalFirstName","legalSurname","birthDate","biometricPageImage","photograph","passportExpiryDate","identityVerified","evidenceCheckedBy","dateOfIdCheck","GPG45profile"],"type":"object","properties":{"recordType":{"enum":["RightToWork"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"biometricPageImage":{"type":"string","description":"An
+            image of the biometric page of the employee''s identity document - JPEG
+            format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x600 pixels. Approximate data size (base64 encoded): 105KB.\n"},"photograph":{"type":"string","description":"A
+            photograph of the employee, as it appears on their identity document -
+            JPEG format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x300 Approximate data size (base64 encoded): 12-15KB.\n"},"passportExpiryDate":{"type":"string","description":"Passport
+            expiry date, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"dateOfIdCheck":{"type":"string","description":"The
+            date the ID check was performed, in the format `YYYY-MM-DD`."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."}},"description":"Identity
+            information to support a right to work check, as obtained and verified
+            by an Identity Service Provider."},"DBSCheckSupportingInformation":{"required":["recordType","legalFirstName","legalSurname","birthDate","currentAddress","currentAddressVerified","dateOfAddressCheck","identityVerified","evidenceCheckedBy","GPG45profile","subjectId"],"type":"object","properties":{"recordType":{"enum":["DBSCheckInformation"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"currentAddress":{"type":"string","description":"The
+            employee''s current address, as it appears on their identity document."},"currentAddressVerified":{"type":"boolean","description":"Whether
+            the employee''s current address has been verified by the IDSP. With our
+            current IDSP this is always `true` but we anticipate it could be `false`
+            in the future."},"dateOfAddressCheck":{"type":"string","description":"Date
+            the address check was done, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."},"GPG44level":{"enum":["Low","Medium","High","Very
+            high"],"type":"string","description":"The [level of protection](https://www.gov.uk/government/publications/authentication-credentials-for-online-government-services/giving-users-access-to-online-services#choosing-an-authenticator)\nprovided
+            by the authenticator used by the digital identity check service.\n"},"subjectId":{"type":"string","description":"Unique
+            identifier for the identity check as shared between DSP and the IDSP.
+            Generally expressed as a GUID."},"passportNumber":{"type":"string","description":"Passport
+            number."},"passportBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their passport, in the format `YYYY-MM-DD`."},"passportNationality":{"type":"string","description":"Issuing
+            country for the passport, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."},"passportIssueDate":{"type":"string","description":"Passport
+            issue date, in the format `YYYY-MM-DD`."},"drivingLicenceNumber":{"type":"string","description":"Driving
+            licence number."},"drivingLicenceBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their driving licence, in the format `YYYY-MM-DD`."},"drivingLicenceType":{"enum":["Full","Provisional"],"type":"string","description":"Driving
+            licence type."},"drivingLicenceValidFrom":{"type":"string","description":"Date
+            the driving licence is valid from, in the format `YYYY-MM-DD`."},"drivingLicenceCountry":{"type":"string","description":"Issuing
+            country for the driving licence, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."}},"description":"Identity information to support
+            a DBS check, as obtained and verified by an Identity Service Provider."},"CoreSkillsTraining":{"required":["recordType","competencyFramework","subjectName","competencyName","subjectLevel","attainmentStatus","awardingOrganisation","dateLastAwarded"],"type":"object","properties":{"recordType":{"enum":["CoreSkillsTraining"],"type":"string","description":"Type
+            of record."},"competencyFramework":{"enum":["CSTF","MAND"],"type":"string","description":"Training
+            framework. One of:\n* `CSTF` - Core Skills Training Framework\n* `MAND`
+            - mandatory training outside of CSTF\n"},"subjectName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number.
+            For example, if the subject name is `Resuscitation - Level 2 - Adult Basic
+            Life Support - 1 Year`, this would be `Resuscitation`.\n","example":"Resuscitation"},"competencyName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number
+            concatenated with the part that appears after the level number. For example,
+            if the subject name is `Resuscitation - Level 2 - Adult Basic Life Support
+            - 1 Year`, this would be `Resuscitation Adult Basic Life Support`.\n","example":"Resuscitation
+            Adult Basic Life Support"},"subjectLevel":{"type":"string","description":"Subject
+            level as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nIf
+            the core skill has no subject level, it defaults to `1`.\n","example":"2"},"renewalPeriodNumber":{"type":"string","description":"The
+            number associated with the core skill''s renewal period. For example if
+            the core skill renewal period is `2 Years`, this will be `2`.","example":"2"},"renewalPeriodUnits":{"type":"string","description":"The
+            unit of measure associated with the core skill''s renewal period. For
+            example if the core skill renewal period is `2 Years`, this will be `Years`.
+            If the renewal period is `1 Year`, this will be `Year` (singular).","example":"Years"},"proficiencyLevel":{"enum":["0
+            - Not Assessed","1 - Assessed"],"type":"string","description":"Whether
+            the core skill was assessed by the awarding organisation."},"attainmentStatus":{"enum":["ACHIEVED"],"type":"string","description":"Attainment
+            status.","example":"ACHIEVED"},"learningMethod":{"type":"string","description":"The
+            method by which the core skill was obtained.","example":"Examination"},"awardingOrganisation":{"type":"string","description":"The
+            ODS code for the NHS organisation that awarded the core skill.","example":"RHQ"},"dateLastAwarded":{"type":"string","description":"The
+            date when the core skill was most recently awarded, in the format `YYYY-MM-DD`.","example":"2023-11-01"},"dateTo":{"type":"string","description":"The
+            date when the core skill expires, if appropriate, in the format `YYYY-MM-DD`.","example":"2024-10-31"}},"description":"A
+            record of a core skill attained by the employee. In most cases this will
+            be part of the [Core Skills Training Framework](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nWhen
+            receiving a core skill, external systems should:\n- reject duplicates
+            i.e. same competency name, same date last awarded\n- ignore the renewal
+            period and expiry date, instead applying the local renewal period and
+            re-calculating the expiry date\n"},"Error":{"required":["resourceType","issue"],"type":"object","properties":{"resourceType":{"enum":["OperationOutcome"],"type":"string","description":"The
+            resource type."},"issue":{"minItems":1,"type":"array","items":{"required":["severity","code"],"type":"object","properties":{"severity":{"enum":["fatal","error","warning","information"],"type":"string","description":"Issue
+            severity, as per [https://hl7.org/fhir/R4/valueset-issue-severity.html](https://hl7.org/fhir/R4/valueset-issue-severity.html)."},"code":{"type":"string","description":"Error
+            or warning code, as per [https://hl7.org/fhir/R4/valueset-issue-type.html](https://hl7.org/fhir/R4/valueset-issue-type.html).","example":"invalid"},"details":{"required":["text"],"type":"object","properties":{"text":{"type":"string","description":"A
+            text description of the error or warning.","example":"Invalid format for
+            birthDate query parameter - must be YYYY-MM-DD."}},"description":"Additional
+            details about the error or warning."}}},"description":"List of issues
+            that have occurred. Usually there will be just one."}}},"Status":{"required":["status"],"type":"object","properties":{"description":{"description":"Human-friendly
+            description of the service"},"version":{"type":"string","description":"Major
+            version number for the service."},"releaseId":{"type":"string","description":"Minor
+            version number and/or build or release number."},"status":{"enum":["pass","fail","warn"],"type":"string","description":"Whether
+            the service status is acceptable or not:\n- `pass`: healthy\n- `fail`:
+            unhealthy\n- `warn`: healthy, with some concerns\n"},"notes":{"type":"array","description":"Array
+            of notes relevant to current state of health"},"output":{"type":"string","description":"raw
+            error output, in case of `fail` or `warn` states."},"checks":{"type":"object","description":"Detailed
+            health statuses of any dependent systems. Include one object per sub-component
+            and choose suitable names and data attributes as explained in\n[Health
+            Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n"}}}},"parameters":{"BearerAuthorization":{"name":"Authorization","in":"header","description":"The
+            calling system''s access token, which must be an OAuth 2.0 bearer token.\nFor
+            details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string","format":"^Bearer\\
+            [[:ascii:]]+$","example":"Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM"}},"OrganisationId":{"name":"org-id","in":"path","description":"The
+            ODS code for the employing organisation.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"RHQ"},"EmployeeId":{"name":"employee-id","in":"path","description":"The
+            employee''s primary unique identifier, as used by the external system.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"12345"}}},"x-spec-publication":{"try-this-api":{"disabled":true}}}'
+          website:seosummary: ''
+          website:shortsummary: Allow Digital Staff Passport to access employee information
+            in your system.2
+          website:specification_id: hello-world
+          website:summary: ''
+          website:title: Digital Staff Passport API standard
+        /digital-staff-passport-api-standard[2]:
+          /website:seosummary:
+            hippostd:content: Allow Digital Staff Passport to access employee information
+              in your system.3
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Allow Digital Staff Passport to access employee information
+              in your system.1</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-05-22T12:21:12.592Z
+          hippostdpubwf:lastModificationDate: 2024-05-22T12:22:52.853Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: 93ff5589-874d-4519-b006-ce34f116193d
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
+            API","description":"## Overview\nUse this API standard to build an API
+            that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
+            can use to interact with your system.\n\nThe standard currently supports
+            the following use cases:\n\n| Use case                              |
+            External system type       |\n| -------------------------------------
+            | -------------------------- |\n| Get core skills                       |
+            Learning management system |\n| Send core skills                      |
+            Learning management system |\n| Send right to work information        |
+            Recruitment system         |\n| Send DBS check supporting information
+            | Recruitment system         |\n\nFor more context, see [Integrating with
+            the Digital Staf Passport](https://digital.nhs.uk/services/digital-staff-passport/integration),
+            specifically:\n- [integration pattern 2](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-2-outbound-via-online-portal)\n-
+            [integration pattern 4](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-4-inbound-via-online-portal)\n\n##
+            Who can use this API standard\nYou can only use this API standard if you
+            are integrating your system with Digital Staff Passport.\n\n## How this
+            API standard works\nDSP needs to interact with a variety of external systems,
+            to send and receive a variety of information.\nThis API standard provides
+            a common approach regardless of the type of external system, as explained
+            below.\n\n### Employee linking\nBefore DSP can exchange information with
+            an external system, it needs to ''link'' the employee record using the
+            external systems''s unique identifier for that employee.\n\nThere are
+            two ways DSP can do this:\n- if the DSP user knows the employee''s external
+            system ID, DSP can use the [Get employee personal details](#get-/organisations/-org-id-/employees/-employee-id-)
+            operation to allow the user to check it''s the right ID\n- if the DSP
+            user doesn''t know the employee''s external system ID, DSP can use the
+            [Search for an employee](#get-/organisations/-org-id-/employees) operation
+            to find the ID based on employee details such as name and date of birth\n\n###
+            Getting employee information\nGiven the employee''s external system ID,
+            DSP can get information from the external system using the [Get employee
+            records](#get-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information returned depends on the type of
+            system. For example, a learning management system would return core skills
+            records.\n\n### Sending employee information\nGiven the employee''s external
+            system ID, DSP can send information to the external system using the [Add
+            an employee record](#post-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information sent depends on the type of system.
+            For example, DSP might send identity information to a recruitment system
+            in order to support varioius employment checks.\n\n## Employee record
+            types\n\n### Core skills\nCore skills are a specific type of mandatory
+            training that are common across all NHS organisations,\nand are generally
+            aligned with the [Core Skills Training Framework (CSTF)](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nCore
+            skills are not always part of the CSTF.\nFor example, at the time of writing,
+            Oliver McGowan Mandatory Training on Learning Disability and Autism is
+            not part of the CSTF but is in scope for Digital Staff Passport.\n\nAlso,
+            the Employee Staff Record (ESR) system includes a number of competencies
+            which are flagged as ''CSTF'' even though they are not part of the Core
+            Skills Training Framework.\nThey generally represent skills that have
+            a [nationally-defined framework](https://www.skillsforhealth.org.uk/resources/category/capabilities-frameworks/)\nsuch
+            as the [Dementia skills framework](https://www.skillsforhealth.org.uk/resources/dementia-2015-updated-2018/).\n\nFor
+            the avoidance of doubt, a full list of the core skills in scope for Digital
+            Staff Passport is provided in the\n[Digital Staff Passport core skills
+            scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nCore
+            skills records are typically held in a learning managements system (LMS).\nThis
+            API standard supports:\n- DSP getting core skills from an LMS\n- DSP sending
+            core skills to an LMS\n\nWhen sending and receiving core skills records,
+            LMSs must follow the\n[standard naming conventions for CSTF core skills](https://www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nTo
+            help with this, mappings for the various data fields are included in the\n[Digital
+            Staff Passport core skills scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nWhen
+            receiving a core skill, LMSs should:\n- reject duplicates i.e. same competency
+            name, same date last awarded\n- ignore the renewal period and expiry date,
+            instead applying the local renewal period and re-calculating the expiry
+            date\n\n### Right to work information\n[Right to work checks](https://www.nhsemployers.org/publications/right-work-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the right to work check.\n\nHence this API standard supports
+            Digital Staff Passport sending right to work check information to a recruitment
+            system.\n\n### DBS check supporting information\n[Criminal record (DBS)
+            checks](https://www.nhsemployers.org/publications/criminal-record-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the DBS check.\n\nHence this API standard supports Digital
+            Staff Passport sending DBS check supporting information to a recruitment
+            system.\n\n## Status\nThis API standard is a [draft](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),\nmeaning
+            it is under development and might be subject to breaking changes.\n\n##
+            Service level\nYour API must be a bronze service, meaning it is operational
+            and supported during business hours.\n\nFor more details, see [service
+            levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).\n\n##
+            Technology\nThis API standard is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nIt
+            does not conform to the [FHIR](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#fhir)\nglobal
+            standard for health care data exchance because it is not a clinical API,
+            it relates to workforce.\nThis has been agreed with the [HL7 FHIR UK Board](https://www.hl7.org.uk/register/about-hl7-uk/management-board-members/).\n\n##
+            Network access\nYour API must be available on the internet.\n\n## Security
+            and authorisation\nYour API must use OAuth 2.0 ''private key JWT'' to
+            authenticate and authorise Digital Staff Passport as the calling system.\n\nFor
+            more details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not. They are usually in the range:\n\n* 200 to 299 if it
+            succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\n\nAlthough this is not a FHIR API, errors are returned
+            as FHIR [OperationOutcome](https://hl7.org/fhir/R4/operationoutcome.html)
+            resources, in line with our API design guidance.\n\nFor details of specific
+            errors, see the ''Response'' section for each operation. See our [reference
+            guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes)
+            for more on errors.\n\n## Environments and testing\nYou''ll need to provide
+            the following environments:\n\n| Environment | Suggested base URL |\n|---|---|\n|
+            Integration test | `integration-test.<your domain>/dsp-api` |\n| Integration
+            test | `<your domain>/dsp-api` |\n\n### Single versus multiple instance
+            systems\nIf your system runs as a single instance supporting multiple
+            employer organisations (sometimes called ''multiple tenant''), you should
+            deploy it as per the suggested base URLs suggested above.\n\nIf you have
+            a separate instance of your system per employer organisation, you should
+            deploy each instance at the following base URL:\n\n`<your domain>/dsp-api/organisations/<org
+            ODS code>`\n\nIn this case, you should alter the URL for the individual
+            operations to exclude the `organisations/{org-id}` part, so that it isn''t
+            repeated.\n\n### Integration testing\nYour integration test environment
+            needs to include:\n- at least two organisations, so we can test cross-organisation
+            security\n- sufficient test data to support a reasonable set of test scenarios
+            - for example multiple people with the same surname or date of birth\n\n##
+            Onboarding\nWe are currently running a pilot with one external system,
+            so the API standard is not available for anyone else to onboard just yet.
+            \n","contact":{"name":"API Management Support","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"version":"v1.0.269-alpha"},"servers":[{"url":"/"}],"paths":{"/organisations/{org-id}/employees":{"get":{"summary":"Search
+            for an employee","description":"This operation returns a list of employees
+            that match the supplied search parameters.\n\nThe following search parameters
+            are supported:\n- first name\n- surname\n- date of birth\n\nAll search
+            parameters are optional, but at least one must be provided.\n\nIf there
+            are no matches, the operation returns an empty array, not an error.\n\nIf
+            there are more than 50 matches, the operation only returns the first 50.\nThere
+            is currently no way of knowing whether there are more than 50 matches.\nIn
+            the future we might add pagination.\n","operationId":"search-for-employee","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"name":"firstName","in":"query","description":"The
+            employee''s first name. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Jane"},{"name":"surname","in":"query","description":"The
+            employee''s surname. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Smith"},{"name":"birthDate","in":"query","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"1998-10-22"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"A
+            completed search. This might contain zero, one or many matching employees.","content":{"application/json":{"schema":{"maxItems":50,"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeePersonalDetails"}},"example":[{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}]}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | - |\n| 400         | invalid      | Invalid query parameter(s).
+            |\n| 401         | forbidden    | OAuth 2.0 bearer token missing, invalid
+            or expired, or calling application not enabled for this operation within
+            the specified organisation. |\n| 404         | not-found    | Organisation
+            not found for the given organisation ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"invalid","details":{"text":"Invalid
+            format for birthDate query parameter - must be yyyy-mm-dd."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}":{"get":{"summary":"Get
+            employee personal details","description":"This operation returns personal
+            details for a given employee.\nUse this operation if you already have
+            the employee''s ID but want to check it''s the right ID.\n","operationId":"get-employee-personal-details","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Employee
+            exists for the given ID.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeePersonalDetails"},"example":{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | --------------------------------------------- |\n| 401         |
+            forbidden    | OAuth 2.0 bearer token missing, invalid or expired, or
+            calling application not enabled for this operation within the specified
+            organisation. |\n| 404         | not-found    | Organisation not found
+            for the given organisation ID or employee not found for the given employee
+            ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}/records":{"get":{"summary":"Get
+            employee records","description":"### Overview\nThis operation returns
+            a list of all data records available for a given employee.\n\nIt supports
+            the following record and external system types:\n\n| Record type | External
+            system type       |\n| ----------- | -------------------------- |\n| Core
+            skills | Learning management system |\n","operationId":"get-employee-records","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Successful
+            operation.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecords"},"example":{"id":"12345","records":[{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"},{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Resuscitation","competencyName":"Resuscitation
+            Adult Basic Life Support","subjectLevel":"2","renewalPeriodNumber":"1","renewalPeriodUnits":"Year","proficiencyLevel":"1
+            - Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Observation","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-20","dateTo":"2024-11-19"}]}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 401         | forbidden    |
+            OAuth 2.0 bearer token missing, invalid or expired, or calling application
+            not enabled for this operation within the specified organisation. |\n|
+            404         | not-found    | Organisation not found for the given organisation
+            ID or employee not found for the given employee ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false},"post":{"summary":"Add
+            an employee record","description":"This operation adds a data record for
+            a given employee.\n\nIt supports the following record and external system
+            types:\n\n| Record type                      | External system type       |\n|
+            -------------------------------- | -------------------------- |\n| Core
+            skills                      | Learning management system |\n| Right to
+            work check information  | Recruitment system         |\n| DBS check supporting
+            information | Recruitment system         |\n","operationId":"add-employee-record","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Add
+            a right to work record","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"Add
+            a DBS check supporting information record","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Add
+            a core skills record","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}},"required":true},"responses":{"201":{"description":"Record
+            created.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Right
+            to work record added","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"DBS
+            check supporting information record added","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Core
+            skills record added","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 400         | invalid      |
+            Invalid data in request body, for example, missing mandatory field or
+            invalid date format. |\n| 401         | forbidden    | OAuth 2.0 bearer
+            token missing, invalid or expired, or calling application not enabled
+            for this operation within the specified organisation. |\n| 404         |
+            not-found    | Organisation not found for the given organisation ID or
+            employee not found for the given employee ID. |\n| 409         | duplicate    |
+            Attempted to add a record that already exists, for example a core skill
+            with the same date last awarded. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/_status":{"get":{"summary":"Get
+            API status","description":"This operation allows our live service monitoring
+            tools to check that the API is available and working.\n\nThe URL is `/organisations/{org-id}/_status`
+            rather than just `/_status` so that it can be supported by systems that
+            have separate instances deployed for each organisation.\n\nIt is based
+            on the draft standard [Health Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n\nIt
+            can be implemented as a ''shallow ping'' or a ''deep ping'':\n- For a
+            shallow ping, the operation returns a `status` of `pass` without checking
+            any dependent resources. This is the easier approach.\n- For a deep ping,
+            the operation checks the status of dependent resources and returns a status
+            that reflects the overall health of the service. The status of dependent
+            resources is provided within the `checks` object. This approach is more
+            work but allows us to react to live incidents more quickly.\n\nThe operation
+            always returns an HTTP status code of 200, even if one or more of the
+            dependent resources is not healthy.\nTherefore it is important for monitoring
+            tools to check the `status` field in the body of the response.\n\nAll
+            fields apart from `status` are optional, so the simplest possible implementation
+            is a ''shallow ping'' response that always returns a single field `status`
+            with a value of `pass`.\n","operationId":"status","parameters":[{"$ref":"#/components/parameters/OrganisationId"}],"responses":{"200":{"description":"The
+            status operation was executed and the result might have been a pass or
+            a fail (for example due to an unhealthy dependent resource).","content":{"application/health+json":{"schema":{"$ref":"#/components/schemas/Status"},"examples":{"shallow-ping-success":{"summary":"Shallow
+            ping","value":{"status":"pass"}},"deep-ping-fail":{"summary":"Deep ping
+            with a dependent resource failure","value":{"description":"Acme Workforce
+            System Digital Staff Passport API","version":"1","releaseId":"1.0.123","status":"fail","notes":["Dependent
+            resource B timed out."],"output":"","checks":{"dependentResourceA:status":[{"status":"pass"}],"dependentResourceB:status":[{"status":"fail"}]}}}}}}}},"deprecated":false}}},"components":{"schemas":{"EmployeePersonalDetails":{"required":["id","firstName","surname"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"firstName":{"type":"string","description":"The
+            employee''s first name.","example":"Jane"},"surname":{"type":"string","description":"The
+            employee''s surname.","example":"Smith"},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","example":"1998-10-22"},"email":{"type":"string","description":"The
+            employee''s email address.","example":"jane.smith@example.com"},"esrIdentifier":{"type":"string","description":"The
+            employee''s unique identifier in the ESR system.","example":"87654321"},"furtherInformation":{"type":"string","description":"Further
+            information about the employee record that disambiguates it from other
+            records.\nThis can be anything and is likely to be system-specific.\nFor
+            example, a recruitment system holding possibly multiple applications for
+            the same person\ncould include a composite of the job description and
+            contract type being applied for.\n","example":"Orthapaedic Practitioner
+            (XR05) - Permanent"}}},"EmployeeRecords":{"required":["id","records"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"records":{"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeeRecordGet"},"description":"The
+            employee''s records."}}},"EmployeeRecordGet":{"oneOf":[{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"EmployeeRecordPost":{"oneOf":[{"$ref":"#/components/schemas/RightToWork"},{"$ref":"#/components/schemas/DBSCheckSupportingInformation"},{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"RightToWork":{"required":["recordType","legalFirstName","legalSurname","birthDate","biometricPageImage","photograph","passportExpiryDate","identityVerified","evidenceCheckedBy","dateOfIdCheck","GPG45profile"],"type":"object","properties":{"recordType":{"enum":["RightToWork"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"biometricPageImage":{"type":"string","description":"An
+            image of the biometric page of the employee''s identity document - JPEG
+            format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x600 pixels. Approximate data size (base64 encoded): 105KB.\n"},"photograph":{"type":"string","description":"A
+            photograph of the employee, as it appears on their identity document -
+            JPEG format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x300 Approximate data size (base64 encoded): 12-15KB.\n"},"passportExpiryDate":{"type":"string","description":"Passport
+            expiry date, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"dateOfIdCheck":{"type":"string","description":"The
+            date the ID check was performed, in the format `YYYY-MM-DD`."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."}},"description":"Identity
+            information to support a right to work check, as obtained and verified
+            by an Identity Service Provider."},"DBSCheckSupportingInformation":{"required":["recordType","legalFirstName","legalSurname","birthDate","currentAddress","currentAddressVerified","dateOfAddressCheck","identityVerified","evidenceCheckedBy","GPG45profile","subjectId"],"type":"object","properties":{"recordType":{"enum":["DBSCheckInformation"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"currentAddress":{"type":"string","description":"The
+            employee''s current address, as it appears on their identity document."},"currentAddressVerified":{"type":"boolean","description":"Whether
+            the employee''s current address has been verified by the IDSP. With our
+            current IDSP this is always `true` but we anticipate it could be `false`
+            in the future."},"dateOfAddressCheck":{"type":"string","description":"Date
+            the address check was done, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."},"GPG44level":{"enum":["Low","Medium","High","Very
+            high"],"type":"string","description":"The [level of protection](https://www.gov.uk/government/publications/authentication-credentials-for-online-government-services/giving-users-access-to-online-services#choosing-an-authenticator)\nprovided
+            by the authenticator used by the digital identity check service.\n"},"subjectId":{"type":"string","description":"Unique
+            identifier for the identity check as shared between DSP and the IDSP.
+            Generally expressed as a GUID."},"passportNumber":{"type":"string","description":"Passport
+            number."},"passportBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their passport, in the format `YYYY-MM-DD`."},"passportNationality":{"type":"string","description":"Issuing
+            country for the passport, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."},"passportIssueDate":{"type":"string","description":"Passport
+            issue date, in the format `YYYY-MM-DD`."},"drivingLicenceNumber":{"type":"string","description":"Driving
+            licence number."},"drivingLicenceBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their driving licence, in the format `YYYY-MM-DD`."},"drivingLicenceType":{"enum":["Full","Provisional"],"type":"string","description":"Driving
+            licence type."},"drivingLicenceValidFrom":{"type":"string","description":"Date
+            the driving licence is valid from, in the format `YYYY-MM-DD`."},"drivingLicenceCountry":{"type":"string","description":"Issuing
+            country for the driving licence, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."}},"description":"Identity information to support
+            a DBS check, as obtained and verified by an Identity Service Provider."},"CoreSkillsTraining":{"required":["recordType","competencyFramework","subjectName","competencyName","subjectLevel","attainmentStatus","awardingOrganisation","dateLastAwarded"],"type":"object","properties":{"recordType":{"enum":["CoreSkillsTraining"],"type":"string","description":"Type
+            of record."},"competencyFramework":{"enum":["CSTF","MAND"],"type":"string","description":"Training
+            framework. One of:\n* `CSTF` - Core Skills Training Framework\n* `MAND`
+            - mandatory training outside of CSTF\n"},"subjectName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number.
+            For example, if the subject name is `Resuscitation - Level 2 - Adult Basic
+            Life Support - 1 Year`, this would be `Resuscitation`.\n","example":"Resuscitation"},"competencyName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number
+            concatenated with the part that appears after the level number. For example,
+            if the subject name is `Resuscitation - Level 2 - Adult Basic Life Support
+            - 1 Year`, this would be `Resuscitation Adult Basic Life Support`.\n","example":"Resuscitation
+            Adult Basic Life Support"},"subjectLevel":{"type":"string","description":"Subject
+            level as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nIf
+            the core skill has no subject level, it defaults to `1`.\n","example":"2"},"renewalPeriodNumber":{"type":"string","description":"The
+            number associated with the core skill''s renewal period. For example if
+            the core skill renewal period is `2 Years`, this will be `2`.","example":"2"},"renewalPeriodUnits":{"type":"string","description":"The
+            unit of measure associated with the core skill''s renewal period. For
+            example if the core skill renewal period is `2 Years`, this will be `Years`.
+            If the renewal period is `1 Year`, this will be `Year` (singular).","example":"Years"},"proficiencyLevel":{"enum":["0
+            - Not Assessed","1 - Assessed"],"type":"string","description":"Whether
+            the core skill was assessed by the awarding organisation."},"attainmentStatus":{"enum":["ACHIEVED"],"type":"string","description":"Attainment
+            status.","example":"ACHIEVED"},"learningMethod":{"type":"string","description":"The
+            method by which the core skill was obtained.","example":"Examination"},"awardingOrganisation":{"type":"string","description":"The
+            ODS code for the NHS organisation that awarded the core skill.","example":"RHQ"},"dateLastAwarded":{"type":"string","description":"The
+            date when the core skill was most recently awarded, in the format `YYYY-MM-DD`.","example":"2023-11-01"},"dateTo":{"type":"string","description":"The
+            date when the core skill expires, if appropriate, in the format `YYYY-MM-DD`.","example":"2024-10-31"}},"description":"A
+            record of a core skill attained by the employee. In most cases this will
+            be part of the [Core Skills Training Framework](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nWhen
+            receiving a core skill, external systems should:\n- reject duplicates
+            i.e. same competency name, same date last awarded\n- ignore the renewal
+            period and expiry date, instead applying the local renewal period and
+            re-calculating the expiry date\n"},"Error":{"required":["resourceType","issue"],"type":"object","properties":{"resourceType":{"enum":["OperationOutcome"],"type":"string","description":"The
+            resource type."},"issue":{"minItems":1,"type":"array","items":{"required":["severity","code"],"type":"object","properties":{"severity":{"enum":["fatal","error","warning","information"],"type":"string","description":"Issue
+            severity, as per [https://hl7.org/fhir/R4/valueset-issue-severity.html](https://hl7.org/fhir/R4/valueset-issue-severity.html)."},"code":{"type":"string","description":"Error
+            or warning code, as per [https://hl7.org/fhir/R4/valueset-issue-type.html](https://hl7.org/fhir/R4/valueset-issue-type.html).","example":"invalid"},"details":{"required":["text"],"type":"object","properties":{"text":{"type":"string","description":"A
+            text description of the error or warning.","example":"Invalid format for
+            birthDate query parameter - must be YYYY-MM-DD."}},"description":"Additional
+            details about the error or warning."}}},"description":"List of issues
+            that have occurred. Usually there will be just one."}}},"Status":{"required":["status"],"type":"object","properties":{"description":{"description":"Human-friendly
+            description of the service"},"version":{"type":"string","description":"Major
+            version number for the service."},"releaseId":{"type":"string","description":"Minor
+            version number and/or build or release number."},"status":{"enum":["pass","fail","warn"],"type":"string","description":"Whether
+            the service status is acceptable or not:\n- `pass`: healthy\n- `fail`:
+            unhealthy\n- `warn`: healthy, with some concerns\n"},"notes":{"type":"array","description":"Array
+            of notes relevant to current state of health"},"output":{"type":"string","description":"raw
+            error output, in case of `fail` or `warn` states."},"checks":{"type":"object","description":"Detailed
+            health statuses of any dependent systems. Include one object per sub-component
+            and choose suitable names and data attributes as explained in\n[Health
+            Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n"}}}},"parameters":{"BearerAuthorization":{"name":"Authorization","in":"header","description":"The
+            calling system''s access token, which must be an OAuth 2.0 bearer token.\nFor
+            details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string","format":"^Bearer\\
+            [[:ascii:]]+$","example":"Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM"}},"OrganisationId":{"name":"org-id","in":"path","description":"The
+            ODS code for the employing organisation.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"RHQ"},"EmployeeId":{"name":"employee-id","in":"path","description":"The
+            employee''s primary unique identifier, as used by the external system.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"12345"}}},"x-spec-publication":{"try-this-api":{"disabled":true}}}'
+          website:seosummary: ''
+          website:shortsummary: Allow Digital Staff Passport to access employee information
+            in your system.2
+          website:specification_id: hello-world
+          website:summary: ''
+          website:title: Digital Staff Passport API standard
+        /digital-staff-passport-api-standard[3]:
+          /website:seosummary:
+            hippostd:content: Allow Digital Staff Passport to access employee information
+              in your system.3
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Allow Digital Staff Passport to access employee information
+              in your system.1</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-05-22T12:21:12.592Z
+          hippostdpubwf:lastModificationDate: 2024-05-22T12:22:52.853Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-05-22T12:22:55.728Z
+          hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: 18dc0290-75e4-4b1e-9ddd-a8951c1027c6
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
+            API","description":"## Overview\nUse this API standard to build an API
+            that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
+            can use to interact with your system.\n\nThe standard currently supports
+            the following use cases:\n\n| Use case                              |
+            External system type       |\n| -------------------------------------
+            | -------------------------- |\n| Get core skills                       |
+            Learning management system |\n| Send core skills                      |
+            Learning management system |\n| Send right to work information        |
+            Recruitment system         |\n| Send DBS check supporting information
+            | Recruitment system         |\n\nFor more context, see [Integrating with
+            the Digital Staf Passport](https://digital.nhs.uk/services/digital-staff-passport/integration),
+            specifically:\n- [integration pattern 2](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-2-outbound-via-online-portal)\n-
+            [integration pattern 4](https://digital.nhs.uk/services/digital-staff-passport/integration#pattern-4-inbound-via-online-portal)\n\n##
+            Who can use this API standard\nYou can only use this API standard if you
+            are integrating your system with Digital Staff Passport.\n\n## How this
+            API standard works\nDSP needs to interact with a variety of external systems,
+            to send and receive a variety of information.\nThis API standard provides
+            a common approach regardless of the type of external system, as explained
+            below.\n\n### Employee linking\nBefore DSP can exchange information with
+            an external system, it needs to ''link'' the employee record using the
+            external systems''s unique identifier for that employee.\n\nThere are
+            two ways DSP can do this:\n- if the DSP user knows the employee''s external
+            system ID, DSP can use the [Get employee personal details](#get-/organisations/-org-id-/employees/-employee-id-)
+            operation to allow the user to check it''s the right ID\n- if the DSP
+            user doesn''t know the employee''s external system ID, DSP can use the
+            [Search for an employee](#get-/organisations/-org-id-/employees) operation
+            to find the ID based on employee details such as name and date of birth\n\n###
+            Getting employee information\nGiven the employee''s external system ID,
+            DSP can get information from the external system using the [Get employee
+            records](#get-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information returned depends on the type of
+            system. For example, a learning management system would return core skills
+            records.\n\n### Sending employee information\nGiven the employee''s external
+            system ID, DSP can send information to the external system using the [Add
+            an employee record](#post-/organisations/-org-id-/employees/-employee-id-/records)
+            operation.\n\nThe type of information sent depends on the type of system.
+            For example, DSP might send identity information to a recruitment system
+            in order to support varioius employment checks.\n\n## Employee record
+            types\n\n### Core skills\nCore skills are a specific type of mandatory
+            training that are common across all NHS organisations,\nand are generally
+            aligned with the [Core Skills Training Framework (CSTF)](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nCore
+            skills are not always part of the CSTF.\nFor example, at the time of writing,
+            Oliver McGowan Mandatory Training on Learning Disability and Autism is
+            not part of the CSTF but is in scope for Digital Staff Passport.\n\nAlso,
+            the Employee Staff Record (ESR) system includes a number of competencies
+            which are flagged as ''CSTF'' even though they are not part of the Core
+            Skills Training Framework.\nThey generally represent skills that have
+            a [nationally-defined framework](https://www.skillsforhealth.org.uk/resources/category/capabilities-frameworks/)\nsuch
+            as the [Dementia skills framework](https://www.skillsforhealth.org.uk/resources/dementia-2015-updated-2018/).\n\nFor
+            the avoidance of doubt, a full list of the core skills in scope for Digital
+            Staff Passport is provided in the\n[Digital Staff Passport core skills
+            scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nCore
+            skills records are typically held in a learning managements system (LMS).\nThis
+            API standard supports:\n- DSP getting core skills from an LMS\n- DSP sending
+            core skills to an LMS\n\nWhen sending and receiving core skills records,
+            LMSs must follow the\n[standard naming conventions for CSTF core skills](https://www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nTo
+            help with this, mappings for the various data fields are included in the\n[Digital
+            Staff Passport core skills scope and mappings spreadsheet](https://digital.nhs.uk/binaries/content/assets/website-assets/developer/digital-staff-passport-api-standard/digital-staff-passport---core-skills-scope-and-mappings.xlsx).\n\nWhen
+            receiving a core skill, LMSs should:\n- reject duplicates i.e. same competency
+            name, same date last awarded\n- ignore the renewal period and expiry date,
+            instead applying the local renewal period and re-calculating the expiry
+            date\n\n### Right to work information\n[Right to work checks](https://www.nhsemployers.org/publications/right-work-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the right to work check.\n\nHence this API standard supports
+            Digital Staff Passport sending right to work check information to a recruitment
+            system.\n\n### DBS check supporting information\n[Criminal record (DBS)
+            checks](https://www.nhsemployers.org/publications/criminal-record-checks-standard)
+            must be performed by all NHS employers.\n\nThese checks are normally managed
+            in a recruitment system.\n\nIf the employee has completed digital identity
+            verification via Digital Staff Passport, this information can be used
+            to support the DBS check.\n\nHence this API standard supports Digital
+            Staff Passport sending DBS check supporting information to a recruitment
+            system.\n\n## Status\nThis API standard is a [draft](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses),\nmeaning
+            it is under development and might be subject to breaking changes.\n\n##
+            Service level\nYour API must be a bronze service, meaning it is operational
+            and supported during business hours.\n\nFor more details, see [service
+            levels](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels).\n\n##
+            Technology\nThis API standard is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nIt
+            does not conform to the [FHIR](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#fhir)\nglobal
+            standard for health care data exchance because it is not a clinical API,
+            it relates to workforce.\nThis has been agreed with the [HL7 FHIR UK Board](https://www.hl7.org.uk/register/about-hl7-uk/management-board-members/).\n\n##
+            Network access\nYour API must be available on the internet.\n\n## Security
+            and authorisation\nYour API must use OAuth 2.0 ''private key JWT'' to
+            authenticate and authorise Digital Staff Passport as the calling system.\n\nFor
+            more details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not. They are usually in the range:\n\n* 200 to 299 if it
+            succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\n\nAlthough this is not a FHIR API, errors are returned
+            as FHIR [OperationOutcome](https://hl7.org/fhir/R4/operationoutcome.html)
+            resources, in line with our API design guidance.\n\nFor details of specific
+            errors, see the ''Response'' section for each operation. See our [reference
+            guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#http-status-codes)
+            for more on errors.\n\n## Environments and testing\nYou''ll need to provide
+            the following environments:\n\n| Environment | Suggested base URL |\n|---|---|\n|
+            Integration test | `integration-test.<your domain>/dsp-api` |\n| Integration
+            test | `<your domain>/dsp-api` |\n\n### Single versus multiple instance
+            systems\nIf your system runs as a single instance supporting multiple
+            employer organisations (sometimes called ''multiple tenant''), you should
+            deploy it as per the suggested base URLs suggested above.\n\nIf you have
+            a separate instance of your system per employer organisation, you should
+            deploy each instance at the following base URL:\n\n`<your domain>/dsp-api/organisations/<org
+            ODS code>`\n\nIn this case, you should alter the URL for the individual
+            operations to exclude the `organisations/{org-id}` part, so that it isn''t
+            repeated.\n\n### Integration testing\nYour integration test environment
+            needs to include:\n- at least two organisations, so we can test cross-organisation
+            security\n- sufficient test data to support a reasonable set of test scenarios
+            - for example multiple people with the same surname or date of birth\n\n##
+            Onboarding\nWe are currently running a pilot with one external system,
+            so the API standard is not available for anyone else to onboard just yet.
+            \n","contact":{"name":"API Management Support","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"version":"v1.0.269-alpha"},"servers":[{"url":"/"}],"paths":{"/organisations/{org-id}/employees":{"get":{"summary":"Search
+            for an employee","description":"This operation returns a list of employees
+            that match the supplied search parameters.\n\nThe following search parameters
+            are supported:\n- first name\n- surname\n- date of birth\n\nAll search
+            parameters are optional, but at least one must be provided.\n\nIf there
+            are no matches, the operation returns an empty array, not an error.\n\nIf
+            there are more than 50 matches, the operation only returns the first 50.\nThere
+            is currently no way of knowing whether there are more than 50 matches.\nIn
+            the future we might add pagination.\n","operationId":"search-for-employee","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"name":"firstName","in":"query","description":"The
+            employee''s first name. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Jane"},{"name":"surname","in":"query","description":"The
+            employee''s surname. Case insensitive.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"Smith"},{"name":"birthDate","in":"query","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"1998-10-22"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"A
+            completed search. This might contain zero, one or many matching employees.","content":{"application/json":{"schema":{"maxItems":50,"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeePersonalDetails"}},"example":[{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}]}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | - |\n| 400         | invalid      | Invalid query parameter(s).
+            |\n| 401         | forbidden    | OAuth 2.0 bearer token missing, invalid
+            or expired, or calling application not enabled for this operation within
+            the specified organisation. |\n| 404         | not-found    | Organisation
+            not found for the given organisation ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"invalid","details":{"text":"Invalid
+            format for birthDate query parameter - must be yyyy-mm-dd."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}":{"get":{"summary":"Get
+            employee personal details","description":"This operation returns personal
+            details for a given employee.\nUse this operation if you already have
+            the employee''s ID but want to check it''s the right ID.\n","operationId":"get-employee-personal-details","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Employee
+            exists for the given ID.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeePersonalDetails"},"example":{"id":"12345","firstName":"Jane","surname":"Smith","birthDate":"1998-10-22","email":"jane.smith@example.com","esrIdentifier":"87654321","furtherInformation":"Orthapaedic
+            Practitioner (XR05) - Permanent"}}}},"4XX":{"description":"An error occurred
+            as follows:\n\n| HTTP status | Error code   | Description |\n| -----------
+            | ------------ | --------------------------------------------- |\n| 401         |
+            forbidden    | OAuth 2.0 bearer token missing, invalid or expired, or
+            calling application not enabled for this operation within the specified
+            organisation. |\n| 404         | not-found    | Organisation not found
+            for the given organisation ID or employee not found for the given employee
+            ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/employees/{employee-id}/records":{"get":{"summary":"Get
+            employee records","description":"### Overview\nThis operation returns
+            a list of all data records available for a given employee.\n\nIt supports
+            the following record and external system types:\n\n| Record type | External
+            system type       |\n| ----------- | -------------------------- |\n| Core
+            skills | Learning management system |\n","operationId":"get-employee-records","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"responses":{"200":{"description":"Successful
+            operation.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecords"},"example":{"id":"12345","records":[{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"},{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Resuscitation","competencyName":"Resuscitation
+            Adult Basic Life Support","subjectLevel":"2","renewalPeriodNumber":"1","renewalPeriodUnits":"Year","proficiencyLevel":"1
+            - Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Observation","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-20","dateTo":"2024-11-19"}]}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 401         | forbidden    |
+            OAuth 2.0 bearer token missing, invalid or expired, or calling application
+            not enabled for this operation within the specified organisation. |\n|
+            404         | not-found    | Organisation not found for the given organisation
+            ID or employee not found for the given employee ID. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false},"post":{"summary":"Add
+            an employee record","description":"This operation adds a data record for
+            a given employee.\n\nIt supports the following record and external system
+            types:\n\n| Record type                      | External system type       |\n|
+            -------------------------------- | -------------------------- |\n| Core
+            skills                      | Learning management system |\n| Right to
+            work check information  | Recruitment system         |\n| DBS check supporting
+            information | Recruitment system         |\n","operationId":"add-employee-record","parameters":[{"$ref":"#/components/parameters/OrganisationId"},{"$ref":"#/components/parameters/EmployeeId"},{"$ref":"#/components/parameters/BearerAuthorization"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Add
+            a right to work record","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"Add
+            a DBS check supporting information record","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Add
+            a core skills record","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}},"required":true},"responses":{"201":{"description":"Record
+            created.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/EmployeeRecordPost"},"examples":{"right-to-work":{"summary":"Right
+            to work record added","value":{"recordType":"RightToWork","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","biometricPageImage":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","photograph":"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==","passportExpiryDate":"2030-11-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","dateOfIdCheck":"2024-05-01","GPG45profile":"H1A"}},"dbs-check-supporting-information":{"summary":"DBS
+            check supporting information record added","value":{"recordType":"DBSCheckSupportingInformation","legalFirstName":"Jane","middleNames":"Annabel","legalSurname":"Smith","birthDate":"1998-10-22","currentAddress":"1
+            Trevelyan Square\nBoar Lane\nCity Centre\nLeeds\nWest Yorkshire\nLS1 6AE","currentAddressVerified":"true","dateOfAddressCheck":"2024-05-01","identityVerified":"true","evidenceCheckedBy":"Yoti
+            Ltd","GPG45profile":"H1A","GPG44level":"High","subjectId":"434c9ed9-2210-4727-8df7-10222b36a789","passportNumber":"107182890","passportBirthDate":"1998-10-22","passportNationality":"GBR","passportIssueDate":"2020-11-01","drivingLicenceNumber":"SMITH960228JA1AA","drivingLicenceBirthDate":"1998-10-22","drivingLicenceType":"Full","drivingLicenceValidFrom":"2020-11-01","drivingLicenceCountry":"GBR"}},"core-skills":{"summary":"Core
+            skills record added","value":{"recordType":"CoreSkillsTraining","competencyFramework":"CSTF","subjectName":"Information
+            Governance and Data Security","competencyName":"Information Governance
+            and Data Security","subjectLevel":"1","renewalPeriodNumber":"2","renewalPeriodUnits":"Years","proficiencyLevel":"0
+            - Not Assessed","attainmentStatus":"ACHIEVED","learningMethod":"Examination","awardingOrganisation":"RHQ","dateLastAwarded":"2023-11-01","dateTo":"2025-10-31"}}}}}},"4XX":{"description":"An
+            error occurred as follows:\n\n| HTTP status | Error code   | Description
+            |\n| ----------- | ------------ | - |\n| 400         | invalid      |
+            Invalid data in request body, for example, missing mandatory field or
+            invalid date format. |\n| 401         | forbidden    | OAuth 2.0 bearer
+            token missing, invalid or expired, or calling application not enabled
+            for this operation within the specified organisation. |\n| 404         |
+            not-found    | Organisation not found for the given organisation ID or
+            employee not found for the given employee ID. |\n| 409         | duplicate    |
+            Attempted to add a record that already exists, for example a core skill
+            with the same date last awarded. |\n","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Error"},"example":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"not-found","details":{"text":"Employee
+            not found for the given ID."}}]}}}}},"deprecated":false}},"/organisations/{org-id}/_status":{"get":{"summary":"Get
+            API status","description":"This operation allows our live service monitoring
+            tools to check that the API is available and working.\n\nThe URL is `/organisations/{org-id}/_status`
+            rather than just `/_status` so that it can be supported by systems that
+            have separate instances deployed for each organisation.\n\nIt is based
+            on the draft standard [Health Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n\nIt
+            can be implemented as a ''shallow ping'' or a ''deep ping'':\n- For a
+            shallow ping, the operation returns a `status` of `pass` without checking
+            any dependent resources. This is the easier approach.\n- For a deep ping,
+            the operation checks the status of dependent resources and returns a status
+            that reflects the overall health of the service. The status of dependent
+            resources is provided within the `checks` object. This approach is more
+            work but allows us to react to live incidents more quickly.\n\nThe operation
+            always returns an HTTP status code of 200, even if one or more of the
+            dependent resources is not healthy.\nTherefore it is important for monitoring
+            tools to check the `status` field in the body of the response.\n\nAll
+            fields apart from `status` are optional, so the simplest possible implementation
+            is a ''shallow ping'' response that always returns a single field `status`
+            with a value of `pass`.\n","operationId":"status","parameters":[{"$ref":"#/components/parameters/OrganisationId"}],"responses":{"200":{"description":"The
+            status operation was executed and the result might have been a pass or
+            a fail (for example due to an unhealthy dependent resource).","content":{"application/health+json":{"schema":{"$ref":"#/components/schemas/Status"},"examples":{"shallow-ping-success":{"summary":"Shallow
+            ping","value":{"status":"pass"}},"deep-ping-fail":{"summary":"Deep ping
+            with a dependent resource failure","value":{"description":"Acme Workforce
+            System Digital Staff Passport API","version":"1","releaseId":"1.0.123","status":"fail","notes":["Dependent
+            resource B timed out."],"output":"","checks":{"dependentResourceA:status":[{"status":"pass"}],"dependentResourceB:status":[{"status":"fail"}]}}}}}}}},"deprecated":false}}},"components":{"schemas":{"EmployeePersonalDetails":{"required":["id","firstName","surname"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"firstName":{"type":"string","description":"The
+            employee''s first name.","example":"Jane"},"surname":{"type":"string","description":"The
+            employee''s surname.","example":"Smith"},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`.","example":"1998-10-22"},"email":{"type":"string","description":"The
+            employee''s email address.","example":"jane.smith@example.com"},"esrIdentifier":{"type":"string","description":"The
+            employee''s unique identifier in the ESR system.","example":"87654321"},"furtherInformation":{"type":"string","description":"Further
+            information about the employee record that disambiguates it from other
+            records.\nThis can be anything and is likely to be system-specific.\nFor
+            example, a recruitment system holding possibly multiple applications for
+            the same person\ncould include a composite of the job description and
+            contract type being applied for.\n","example":"Orthapaedic Practitioner
+            (XR05) - Permanent"}}},"EmployeeRecords":{"required":["id","records"],"type":"object","properties":{"id":{"type":"string","description":"The
+            employee''s primary unique identifier, as used by the external system.","example":"12345"},"records":{"minItems":0,"type":"array","items":{"$ref":"#/components/schemas/EmployeeRecordGet"},"description":"The
+            employee''s records."}}},"EmployeeRecordGet":{"oneOf":[{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"EmployeeRecordPost":{"oneOf":[{"$ref":"#/components/schemas/RightToWork"},{"$ref":"#/components/schemas/DBSCheckSupportingInformation"},{"$ref":"#/components/schemas/CoreSkillsTraining"}]},"RightToWork":{"required":["recordType","legalFirstName","legalSurname","birthDate","biometricPageImage","photograph","passportExpiryDate","identityVerified","evidenceCheckedBy","dateOfIdCheck","GPG45profile"],"type":"object","properties":{"recordType":{"enum":["RightToWork"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"biometricPageImage":{"type":"string","description":"An
+            image of the biometric page of the employee''s identity document - JPEG
+            format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x600 pixels. Approximate data size (base64 encoded): 105KB.\n"},"photograph":{"type":"string","description":"A
+            photograph of the employee, as it appears on their identity document -
+            JPEG format and [base64 encoded](https://datatracker.ietf.org/doc/html/rfc4648#section-4).\nApproximate
+            image size: 450x300 Approximate data size (base64 encoded): 12-15KB.\n"},"passportExpiryDate":{"type":"string","description":"Passport
+            expiry date, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"dateOfIdCheck":{"type":"string","description":"The
+            date the ID check was performed, in the format `YYYY-MM-DD`."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."}},"description":"Identity
+            information to support a right to work check, as obtained and verified
+            by an Identity Service Provider."},"DBSCheckSupportingInformation":{"required":["recordType","legalFirstName","legalSurname","birthDate","currentAddress","currentAddressVerified","dateOfAddressCheck","identityVerified","evidenceCheckedBy","GPG45profile","subjectId"],"type":"object","properties":{"recordType":{"enum":["DBSCheckInformation"],"type":"string","description":"Type
+            of record."},"legalFirstName":{"type":"string","description":"The employee''s
+            legal first name, as it appears on their identity document."},"middleNames":{"type":"string","description":"The
+            employee''s middle names, as they appear on their identity document."},"legalSurname":{"type":"string","description":"The
+            employee''s legal surname, as it appears on their identity document."},"birthDate":{"type":"string","description":"The
+            employee''s date of birth, in the format `YYYY-MM-DD`."},"currentAddress":{"type":"string","description":"The
+            employee''s current address, as it appears on their identity document."},"currentAddressVerified":{"type":"boolean","description":"Whether
+            the employee''s current address has been verified by the IDSP. With our
+            current IDSP this is always `true` but we anticipate it could be `false`
+            in the future."},"dateOfAddressCheck":{"type":"string","description":"Date
+            the address check was done, in the format `YYYY-MM-DD`."},"identityVerified":{"type":"boolean","description":"Whether
+            the employee''s identity has been verified - always `true`."},"evidenceCheckedBy":{"type":"string","description":"Organisation
+            that performed the identity check."},"GPG45profile":{"type":"string","description":"Code
+            for the [identity profile](https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual/identity-profiles)
+            for the identity check, for example `H1A`."},"GPG44level":{"enum":["Low","Medium","High","Very
+            high"],"type":"string","description":"The [level of protection](https://www.gov.uk/government/publications/authentication-credentials-for-online-government-services/giving-users-access-to-online-services#choosing-an-authenticator)\nprovided
+            by the authenticator used by the digital identity check service.\n"},"subjectId":{"type":"string","description":"Unique
+            identifier for the identity check as shared between DSP and the IDSP.
+            Generally expressed as a GUID."},"passportNumber":{"type":"string","description":"Passport
+            number."},"passportBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their passport, in the format `YYYY-MM-DD`."},"passportNationality":{"type":"string","description":"Issuing
+            country for the passport, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."},"passportIssueDate":{"type":"string","description":"Passport
+            issue date, in the format `YYYY-MM-DD`."},"drivingLicenceNumber":{"type":"string","description":"Driving
+            licence number."},"drivingLicenceBirthDate":{"type":"string","description":"Employee''s
+            date of birth as it appears on their driving licence, in the format `YYYY-MM-DD`."},"drivingLicenceType":{"enum":["Full","Provisional"],"type":"string","description":"Driving
+            licence type."},"drivingLicenceValidFrom":{"type":"string","description":"Date
+            the driving licence is valid from, in the format `YYYY-MM-DD`."},"drivingLicenceCountry":{"type":"string","description":"Issuing
+            country for the driving licence, as an [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)
+            alpha-3 three-letter code."}},"description":"Identity information to support
+            a DBS check, as obtained and verified by an Identity Service Provider."},"CoreSkillsTraining":{"required":["recordType","competencyFramework","subjectName","competencyName","subjectLevel","attainmentStatus","awardingOrganisation","dateLastAwarded"],"type":"object","properties":{"recordType":{"enum":["CoreSkillsTraining"],"type":"string","description":"Type
+            of record."},"competencyFramework":{"enum":["CSTF","MAND"],"type":"string","description":"Training
+            framework. One of:\n* `CSTF` - Core Skills Training Framework\n* `MAND`
+            - mandatory training outside of CSTF\n"},"subjectName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number.
+            For example, if the subject name is `Resuscitation - Level 2 - Adult Basic
+            Life Support - 1 Year`, this would be `Resuscitation`.\n","example":"Resuscitation"},"competencyName":{"type":"string","description":"Subject
+            name as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nSpecifically,
+            this is the part of the subject name that appears before the level number
+            concatenated with the part that appears after the level number. For example,
+            if the subject name is `Resuscitation - Level 2 - Adult Basic Life Support
+            - 1 Year`, this would be `Resuscitation Adult Basic Life Support`.\n","example":"Resuscitation
+            Adult Basic Life Support"},"subjectLevel":{"type":"string","description":"Subject
+            level as defined in [Core Skills Training Framework naming conventions](www.skillsforhealth.org.uk/images/services/cstf/CSTF%20Naming%20Conventions%20%20Competencies%20on%20ESR%20June%202019.pdf).\nIf
+            the core skill has no subject level, it defaults to `1`.\n","example":"2"},"renewalPeriodNumber":{"type":"string","description":"The
+            number associated with the core skill''s renewal period. For example if
+            the core skill renewal period is `2 Years`, this will be `2`.","example":"2"},"renewalPeriodUnits":{"type":"string","description":"The
+            unit of measure associated with the core skill''s renewal period. For
+            example if the core skill renewal period is `2 Years`, this will be `Years`.
+            If the renewal period is `1 Year`, this will be `Year` (singular).","example":"Years"},"proficiencyLevel":{"enum":["0
+            - Not Assessed","1 - Assessed"],"type":"string","description":"Whether
+            the core skill was assessed by the awarding organisation."},"attainmentStatus":{"enum":["ACHIEVED"],"type":"string","description":"Attainment
+            status.","example":"ACHIEVED"},"learningMethod":{"type":"string","description":"The
+            method by which the core skill was obtained.","example":"Examination"},"awardingOrganisation":{"type":"string","description":"The
+            ODS code for the NHS organisation that awarded the core skill.","example":"RHQ"},"dateLastAwarded":{"type":"string","description":"The
+            date when the core skill was most recently awarded, in the format `YYYY-MM-DD`.","example":"2023-11-01"},"dateTo":{"type":"string","description":"The
+            date when the core skill expires, if appropriate, in the format `YYYY-MM-DD`.","example":"2024-10-31"}},"description":"A
+            record of a core skill attained by the employee. In most cases this will
+            be part of the [Core Skills Training Framework](https://www.skillsforhealth.org.uk/core-skills-training-framework/).\n\nWhen
+            receiving a core skill, external systems should:\n- reject duplicates
+            i.e. same competency name, same date last awarded\n- ignore the renewal
+            period and expiry date, instead applying the local renewal period and
+            re-calculating the expiry date\n"},"Error":{"required":["resourceType","issue"],"type":"object","properties":{"resourceType":{"enum":["OperationOutcome"],"type":"string","description":"The
+            resource type."},"issue":{"minItems":1,"type":"array","items":{"required":["severity","code"],"type":"object","properties":{"severity":{"enum":["fatal","error","warning","information"],"type":"string","description":"Issue
+            severity, as per [https://hl7.org/fhir/R4/valueset-issue-severity.html](https://hl7.org/fhir/R4/valueset-issue-severity.html)."},"code":{"type":"string","description":"Error
+            or warning code, as per [https://hl7.org/fhir/R4/valueset-issue-type.html](https://hl7.org/fhir/R4/valueset-issue-type.html).","example":"invalid"},"details":{"required":["text"],"type":"object","properties":{"text":{"type":"string","description":"A
+            text description of the error or warning.","example":"Invalid format for
+            birthDate query parameter - must be YYYY-MM-DD."}},"description":"Additional
+            details about the error or warning."}}},"description":"List of issues
+            that have occurred. Usually there will be just one."}}},"Status":{"required":["status"],"type":"object","properties":{"description":{"description":"Human-friendly
+            description of the service"},"version":{"type":"string","description":"Major
+            version number for the service."},"releaseId":{"type":"string","description":"Minor
+            version number and/or build or release number."},"status":{"enum":["pass","fail","warn"],"type":"string","description":"Whether
+            the service status is acceptable or not:\n- `pass`: healthy\n- `fail`:
+            unhealthy\n- `warn`: healthy, with some concerns\n"},"notes":{"type":"array","description":"Array
+            of notes relevant to current state of health"},"output":{"type":"string","description":"raw
+            error output, in case of `fail` or `warn` states."},"checks":{"type":"object","description":"Detailed
+            health statuses of any dependent systems. Include one object per sub-component
+            and choose suitable names and data attributes as explained in\n[Health
+            Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/draft-inadarei-api-health-check/).\n"}}}},"parameters":{"BearerAuthorization":{"name":"Authorization","in":"header","description":"The
+            calling system''s access token, which must be an OAuth 2.0 bearer token.\nFor
+            details, see [Authorisation using OAuth 2.0 private key JWT](https://digital.nhs.uk/developer/api-catalogue/digital-staff-passport-api-standard/authorisation-using-oauth-2.0-private-key-jwt).\n","required":false,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string","format":"^Bearer\\
+            [[:ascii:]]+$","example":"Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM"}},"OrganisationId":{"name":"org-id","in":"path","description":"The
+            ODS code for the employing organisation.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"RHQ"},"EmployeeId":{"name":"employee-id","in":"path","description":"The
+            employee''s primary unique identifier, as used by the external system.","required":true,"deprecated":false,"allowEmptyValue":false,"explode":false,"allowReserved":false,"schema":{"type":"string"},"example":"12345"}}},"x-spec-publication":{"try-this-api":{"disabled":true}}}'
+          website:seosummary: ''
+          website:shortsummary: Allow Digital Staff Passport to access employee information
+            in your system.2
+          website:specification_id: hello-world
+          website:summary: ''
+          website:title: Digital Staff Passport API standard
+        hippo:name: Digital Staff Passport API standard
+        hippo:versionHistory: 89e36f46-e82d-4c74-b393-cecd3522e8b7
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
+      hippo:name: Digital Staff Passport API standard
+      hippostd:foldertype:
+      - new-digital-website-folder
+      - new-digital-website-document
+      hippotranslation:id: 1db66117-d5e1-43a9-9197-7b2d78d7ebe3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+      jcr:uuid: a2459ce5-481e-401a-880a-b06e0a3cd8bc
     /general-document-not-api-specification:
       /content:
         /content[1]:
