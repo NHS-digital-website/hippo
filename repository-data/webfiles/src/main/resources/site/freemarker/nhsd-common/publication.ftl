@@ -29,6 +29,7 @@
 <@metaTags></@metaTags>
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
+<#assign parentDocument = publication.parentSeriesCollectionDocument />
 
 <article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
     <#assign metaData = publicationMetaData(publication, publication.publiclyAccessible) />
@@ -41,21 +42,19 @@
     </#if>
 
     <#assign introText>
-        <#if publication.parentDocument?has_content>
-            <@hst.link hippobean=publication.parentDocument.selfLinkBean var="parentLink"/>
+        <#if parentDocument?has_content>
+            <@hst.link hippobean=parentDocument.selfLinkBean var="parentLink"/>
             <@fmt.message key="labels.publication"/>, Part of <a class="nhsd-a-link nhsd-a-link--col-white"
-                                                                 href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
-                                                                 onClick="${getOnClickMethodCall(publication.parentDocument.class.name, parentLink)}"
-                                                                 itemprop="url"><span itemprop="name">${publication.parentDocument.title}</span></a>
+                                                                 href="<@hst.link hippobean=parentDocument.selfLinkBean/>"
+                                                                 onClick="${getOnClickMethodCall(parentDocument.class.name, parentLink)}"
+                                                                 itemprop="url"><span itemprop="name">${parentDocument.title}</span></a>
         <#else>
             <@fmt.message key="labels.publication"/>
         </#if>
     </#assign>
 
-    <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
-        <#assign informationTypes = publication.parentDocument.informationType/>
-    <#elseif publication.informationType?has_content>
-        <#assign informationTypes = publication.informationType/>
+    <#if parentDocument?has_content && parentDocument.informationType?has_content>
+        <#assign informationTypes = parentDocument.informationType/>
     </#if>
 
     <#assign heroOptions = {
@@ -83,15 +82,25 @@
         <#assign heroOptions += {
             "badge": {
                 "src": badgeSrc,
-                "alt": "National Statistics"
+                "alt": "National Statistics logo. "
+            }
+        }/>
+    </#if>
+
+    <#if informationTypes?has_content && informationTypes?seq_contains("Accredited official statistics")>
+        <@hst.webfile path="images/accredited-official-statistics-logo-english.svg" var="badgeSrc"/>
+        <#assign heroOptions += {
+            "badge": {
+                "src": badgeSrc,
+                "alt": "Accredited official statistics logo. "
             }
         }/>
     </#if>
 
     <@hero heroOptions>
-        <#assign informationTypes = publication.informationType/>
-        <#if publication.parentDocument?has_content && publication.parentDocument.informationType?has_content>
-            <#assign informationTypes = publication.parentDocument.informationType/>
+        <#assign informationTypes = parentDocument.informationType/>
+        <#if parentDocument?has_content && parentDocument.informationType?has_content>
+            <#assign informationTypes = parentDocument.informationType/>
         </#if>
         <#if informationTypes?has_content>
             <p class="nhsd-t-body nhsd-!t-margin-0 nhsd-!t-margin-top-4" data-uipath="ps.publication.information-types">

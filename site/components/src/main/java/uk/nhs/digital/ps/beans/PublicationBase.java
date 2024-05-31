@@ -6,12 +6,14 @@ import static org.apache.commons.collections.IteratorUtils.toList;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -30,6 +32,9 @@ import uk.nhs.digital.website.beans.Update;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 public abstract class PublicationBase extends BaseDocument {
 
@@ -68,6 +73,69 @@ public abstract class PublicationBase extends BaseDocument {
         return this;
     }
 
+    /**
+     * Retrieves the parent Series/Collection document for the current document.
+     * This method ensures the correct parent Series/Collection is retrieved.
+     *
+     * @return The parent Series Collection document, or null if not found.
+     */
+    public HippoBean getParentSeriesCollectionDocument() {
+        assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
+        List<Series> seriesDocuments = new ArrayList<>();
+        List<HippoBean> siblingDocuments = getSiblingDocuments();
+        for (HippoBean sibling : siblingDocuments) {
+            if (sibling instanceof Series) {
+                seriesDocuments.add((Series) sibling);
+            }
+        }
+        if (seriesDocuments.size() > 0) {
+            return seriesDocuments.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Retrieves a list of sibling documents for the current document.
+     *
+     * <p>This method identifies the parent folder of the current document and retrieves all
+     * sibling documents within that folder.</p>
+     *
+     * @return a list of {@link HippoBean} objects representing the sibling documents of the
+     *         current document. If no siblings are found or an exception occurs, an empty list
+     *         is returned.
+     */
+    private List<HippoBean> getSiblingDocuments() {
+        List<HippoBean> siblings = new ArrayList<>();
+        try {
+            String handleUuid = this.getCanonicalHandleUUID();
+            Session jcrSession = this.getNode().getSession();
+            Node handleNode = jcrSession.getNodeByIdentifier(handleUuid);
+            Node parentNode = handleNode.getParent();
+            HippoBean parentBeanFolder = (HippoBean) getObjectConverter().getObject(jcrSession, parentNode.getPath());
+            if (parentBeanFolder instanceof HippoFolderBean) {
+                HippoFolderBean parentFolder = (HippoFolderBean) parentBeanFolder;
+                List<HippoBean> children = parentFolder.getChildBeans(HippoBean.class);
+                for (HippoBean child : children) {
+                    siblings.add(child);
+                }
+            }
+        } catch (RepositoryException e) {
+            log.error("Error retrieving sibling documents due to a repository exception. Handle UUID: {}", this.getCanonicalHandleUUID(), e);
+        } catch (ObjectBeanManagerException e) {
+            log.error("Error retrieving sibling documents due to an object bean manager exception. Handle UUID: {}", this.getCanonicalHandleUUID(), e);
+        }
+        return siblings;
+    }
+
+    /**
+     * @deprecated This method is deprecated because it may return the parent of another unrelated result
+     *             when in the context of a Faceted ResultSet, leading to an incorrect parent
+     *             Series/Collection.
+     *
+     *             Use {@link #getParentSeriesCollectionDocument()} instead.
+     */
+    @Deprecated
     public HippoBean getParentDocument() {
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
 
@@ -285,10 +353,6 @@ public abstract class PublicationBase extends BaseDocument {
             && getSingleProperty(PublicationBase.PropertyKeys.EARLY_ACCESS_KEY).equals(
             RequestContextProvider.get().getServletRequest().getParameter(
                 EARLY_ACCESS_KEY_QUERY_PARAM));
-    }
-
-    public String[] getInformationType() {
-        return getMultipleProperty(PropertyKeys.INFORMATION_TYPE);
     }
 
     public String[] getGeographicCoverage() {

@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-3690-remove-infomation-type-from-publications:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:publication')]
+      hipposys:script:
+        resource: /configuration/update/DW-3690-remove-infomation-type-from-publications.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo
