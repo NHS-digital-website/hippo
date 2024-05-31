@@ -6,12 +6,14 @@ import static org.apache.commons.collections.IteratorUtils.toList;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -30,6 +32,9 @@ import uk.nhs.digital.website.beans.Update;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 public abstract class PublicationBase extends BaseDocument {
 
@@ -66,6 +71,54 @@ public abstract class PublicationBase extends BaseDocument {
         }
 
         return this;
+    }
+
+    public HippoBean getParentSeriesCollectionDocument() {
+        assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
+        List<Series> seriesDocuments = new ArrayList<>();
+        List<HippoBean> siblingDocuments = getSiblingDocuments();
+        for (HippoBean sibling : siblingDocuments) {
+            if (sibling instanceof Series) {
+                seriesDocuments.add((Series) sibling);
+            }
+        }
+        if (seriesDocuments.size() > 0) {
+            return seriesDocuments.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    public List<HippoBean> getSiblingDocuments() {
+        List<HippoBean> siblings = new ArrayList<>();
+        try {
+            // Get the canonical handle UUID of the current document
+            String handleUuid = this.getCanonicalHandleUUID();
+            // Get the JCR session
+            Session session = this.getNode().getSession();
+            // Get the handle node of the current document
+            Node handleNode = session.getNodeByIdentifier(handleUuid);
+
+            // Get the parent node of the handle node
+            Node parentNode = handleNode.getParent();
+
+            // Convert parent node to HippoFolderBean
+            HippoBean parentBean = (HippoBean) getObjectConverter().getObject(session, parentNode.getPath());
+            if (parentBean instanceof HippoFolderBean) {
+                HippoFolderBean parentFolder = (HippoFolderBean) parentBean;
+                List<HippoBean> children = parentFolder.getChildBeans(HippoBean.class);
+                for (HippoBean child : children) {
+                    siblings.add(child);
+                }
+            }
+        } catch (RepositoryException e) {
+            // Handle exceptions
+            e.printStackTrace();
+        } catch (ObjectBeanManagerException e) {
+            // Handle exceptions
+            e.printStackTrace();
+        }
+        return siblings;
     }
 
     public HippoBean getParentDocument() {

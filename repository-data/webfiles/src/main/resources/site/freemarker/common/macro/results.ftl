@@ -58,9 +58,12 @@
 <#macro publication item>
 
     <#assign informationTypes = [] />
-    <#if item.parentDocument?has_content && item.parentDocument.informationType?has_content>
-        <!-- scope issue ? -->
-        <#assign informationTypes = item.parentDocument.informationType />
+    <#if item.parentSeriesCollectionDocument??>
+        <#assign parentSeriesCollectionDocument = item.parentSeriesCollectionDocument>
+        <!-- Check if informationType exists and has content -->
+        <#if parentSeriesCollectionDocument.informationType?? && parentSeriesCollectionDocument.informationType?has_content>
+            <#assign informationTypes = parentSeriesCollectionDocument.informationType>
+        </#if>
     </#if>
 
     <div class="cta cta--detailed ${informationTypes?has_content?then(" cta--stamped", "")}" data-uipath="ps.search-results.result">
