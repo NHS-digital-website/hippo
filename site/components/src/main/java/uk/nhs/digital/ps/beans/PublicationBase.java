@@ -73,6 +73,12 @@ public abstract class PublicationBase extends BaseDocument {
         return this;
     }
 
+    /**
+     * Retrieves the parent Series/Collection document for the current document.
+     * This method ensures the correct parent Series/Collection is retrieved.
+     *
+     * @return The parent Series Collection document, or null if not found.
+     */
     public HippoBean getParentSeriesCollectionDocument() {
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
         List<Series> seriesDocuments = new ArrayList<>();
@@ -89,38 +95,47 @@ public abstract class PublicationBase extends BaseDocument {
         }
     }
 
-    public List<HippoBean> getSiblingDocuments() {
+    /**
+     * Retrieves a list of sibling documents for the current document.
+     *
+     * <p>This method identifies the parent folder of the current document and retrieves all
+     * sibling documents within that folder.</p>
+     *
+     * @return a list of {@link HippoBean} objects representing the sibling documents of the
+     *         current document. If no siblings are found or an exception occurs, an empty list
+     *         is returned.
+     */
+    private List<HippoBean> getSiblingDocuments() {
         List<HippoBean> siblings = new ArrayList<>();
         try {
-            // Get the canonical handle UUID of the current document
             String handleUuid = this.getCanonicalHandleUUID();
-            // Get the JCR session
-            Session session = this.getNode().getSession();
-            // Get the handle node of the current document
-            Node handleNode = session.getNodeByIdentifier(handleUuid);
-
-            // Get the parent node of the handle node
+            Session jcrSession = this.getNode().getSession();
+            Node handleNode = jcrSession.getNodeByIdentifier(handleUuid);
             Node parentNode = handleNode.getParent();
-
-            // Convert parent node to HippoFolderBean
-            HippoBean parentBean = (HippoBean) getObjectConverter().getObject(session, parentNode.getPath());
-            if (parentBean instanceof HippoFolderBean) {
-                HippoFolderBean parentFolder = (HippoFolderBean) parentBean;
+            HippoBean parentBeanFolder = (HippoBean) getObjectConverter().getObject(jcrSession, parentNode.getPath());
+            if (parentBeanFolder instanceof HippoFolderBean) {
+                HippoFolderBean parentFolder = (HippoFolderBean) parentBeanFolder;
                 List<HippoBean> children = parentFolder.getChildBeans(HippoBean.class);
                 for (HippoBean child : children) {
                     siblings.add(child);
                 }
             }
         } catch (RepositoryException e) {
-            // Handle exceptions
-            e.printStackTrace();
+            log.error("Error retrieving sibling documents due to a repository exception. Handle UUID: {}", this.getCanonicalHandleUUID(), e);
         } catch (ObjectBeanManagerException e) {
-            // Handle exceptions
-            e.printStackTrace();
+            log.error("Error retrieving sibling documents due to an object bean manager exception. Handle UUID: {}", this.getCanonicalHandleUUID(), e);
         }
         return siblings;
     }
 
+    /**
+     * @deprecated This method is deprecated because it may return the parent of another unrelated result
+     *             when in the context of a Faceted ResultSet, leading to an incorrect parent
+     *             Series/Collection.
+     *
+     *             Use {@link #getParentSeriesCollectionDocument()} instead.
+     */
+    @Deprecated
     public HippoBean getParentDocument() {
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
 

@@ -29,7 +29,7 @@
 <@metaTags></@metaTags>
 
 <#assign hasChapters = publication.publiclyAccessible && publication.pageIndex?has_content />
-<#assign parentDocument = publication.parentDocument />
+<#assign parentDocument = publication.parentSeriesCollectionDocument />
 
 <article class="article article--publication ${hasChapters?then('nhsd-!t-display-chapters', '')}" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
     <#assign metaData = publicationMetaData(publication, publication.publiclyAccessible) />
