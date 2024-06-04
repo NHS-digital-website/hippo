@@ -211,7 +211,7 @@ public class CiBreadcrumbTest {
 
     private void mockPublicationHasParentSeries(Publication publication) {
         Series series = mock(Series.class);
-        given(publication.getParentDocument()).willReturn(series);
+        given(publication.getParentSeriesCollectionDocument()).willReturn(series);
         given(series.getTitle()).willReturn(TITLE_SERIES);
     }
 

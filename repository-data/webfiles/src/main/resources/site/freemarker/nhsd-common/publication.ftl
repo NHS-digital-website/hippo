@@ -275,8 +275,8 @@
                         <hr class="nhsd-a-horizontal-rule"/>
                     </#if>
 
-                    <#if document.parentDocument?? && document.parentDocument?is_hash && document.parentDocument.administrativeSources?has_content>
-                        <#assign administrativeSources = document.parentDocument.administrativeSources />
+                    <#if parentDocument?has_content && parentDocument.administrativeSources?has_content>
+                        <#assign administrativeSources = parentDocument.administrativeSources />
                     <#elseif document.administrativeSources?has_content>
                         <#assign administrativeSources = document.administrativeSources />
                     </#if>

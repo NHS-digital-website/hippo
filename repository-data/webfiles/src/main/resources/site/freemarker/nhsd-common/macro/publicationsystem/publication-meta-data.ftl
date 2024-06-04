@@ -3,6 +3,7 @@
 <#include "../../../include/imports.ftl">
 
 <#function publicationMetaData document publiclyAccessible>
+
     <@fmt.message key="headers.publication-date" var="publicationDateHeader"/>
     <#assign publicationDate>
         <@formatRestrictableDate value=document.nominalPublicationDate/>
@@ -14,10 +15,11 @@
     <#assign metaData = []/>
 
     <#if publiclyAccessible>
+        <#assign parentDocument = document.parentSeriesCollectionDocument />
         <#if document.fullTaxonomyList?has_content>
             <#assign fullTaxonomyList = document.fullTaxonomyList/>
-        <#elseif document.parentDocument?has_content && document.parentDocument.fullTaxonomyList?has_content>
-            <#assign fullTaxonomyList = document.parentDocument.fullTaxonomyList/>
+        <#elseif parentDocument?has_content && parentDocument.fullTaxonomyList?has_content>
+            <#assign fullTaxonomyList = parentDocument.fullTaxonomyList/>
         </#if>
         <#if fullTaxonomyList?has_content>
             <#assign metaData += [{
@@ -27,8 +29,8 @@
         </#if>
 
         <#assign geographicCoverage = document.geographicCoverage/>
-        <#if document.parentDocument?has_content && document.parentDocument.geographicCoverage?has_content>
-            <#assign geographicCoverage = document.parentDocument.geographicCoverage/>
+        <#if parentDocument?has_content && parentDocument.geographicCoverage?has_content>
+            <#assign geographicCoverage = parentDocument.geographicCoverage/>
         </#if>
         <#if geographicCoverage?has_content>
             <@fmt.message key="headers.geographical-coverage" var="geographicalCoverageHeader"/>
@@ -42,10 +44,11 @@
             }]/>
         </#if>
 
+
         <#if document.granularity?has_content>
             <#assign granularity = document.granularity/>
-        <#elseif document.parentDocument?has_content && document.parentDocument.granularity?has_content>
-            <#assign granularity = document.parentDocument.granularity/>
+        <#elseif parentDocument?has_content && parentDocument.granularity?has_content>
+            <#assign granularity = parentDocument.granularity/>
         </#if>
         <#if granularity?has_content>
             <@fmt.message key="headers.geographical-granularity" var="geographicalGranularityHeader"/>
