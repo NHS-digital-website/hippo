@@ -2,8 +2,14 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
+      /catalogue-facet:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-facet.ftl
+        jcr:primaryType: hst:template
       /catalogue-main:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-main.ftl
+        jcr:primaryType: hst:template
+      /catalogue2:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue2.ftl
         jcr:primaryType: hst:template
       /macro-test-layout:
         hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-layout.ftl

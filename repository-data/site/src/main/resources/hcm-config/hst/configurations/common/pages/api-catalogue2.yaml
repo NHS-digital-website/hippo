@@ -1,0 +1,23 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/api-catalogue2:
+      /main:
+        /filters:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:template: catalogue-facet
+          jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.common.components.ApiCatalogueHubComponent
+        hst:parameternames:
+        - pageSize
+        - sortOrder
+        - showPagination
+        hst:parametervalues:
+        - '10'
+        - asc
+        - 'true'
+        hst:template: catalogue2
+        jcr:primaryType: hst:component
+      hst:cacheable: false
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component
