@@ -384,6 +384,13 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /developer:
         /api-catalogue:
+          /Taxonomies:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/api-catalogue
+              hst:relativecontentpath: faceted-api-specifications/Taxonomies/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
           /_any_:
             /_index_:
               hst:cacheable: true
@@ -413,7 +420,7 @@ definitions:
             - hst:pages/componentlist
             - hst:pages/apispecification
             - hst:pages/recent-updates
-            hst:relativecontentpath: ${parent}/${1}
+            hst:relativecontentpath: developer/api-catalogue/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
             hst:componentconfigurationid: hst:pages/apitryitnow
@@ -423,8 +430,8 @@ definitions:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          hst:cacheable: false
-          hst:relativecontentpath: developer/api-catalogue
+          hst:componentconfigurationid: hst:pages/api-catalogue
+          hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer

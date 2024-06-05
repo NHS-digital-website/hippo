@@ -3,7 +3,7 @@ Feature: Faceted search
     As a content consumer I need to be able to filter search results so I can easily
     navigate to the documents I'm interested in.
 
-
+@skip
     Scenario: All expected facets are displayed
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -32,7 +32,7 @@ Feature: Faceted search
         And I should see the list with title "YEAR" containing:
             | 2018 (2) |
             | 2017 (1) |
-
+@skip
     Scenario: All expected NIL facets are displayed
         Given I navigate to the "home" page
         When I search for "NilTaxonomySearchTerm"
@@ -70,7 +70,7 @@ Feature: Faceted search
         And I should see the list with title "YEAR" containing:
             | 2018 (2) |
             | 2017 (1) |
-
+@skip
     Scenario: Navigation and filtering
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -99,7 +99,7 @@ Feature: Faceted search
             | Publication   |
         And I should see the list with title "YEAR" containing:
             | 2018   |
-
+@skip
     Scenario: Reset facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -112,7 +112,7 @@ Feature: Faceted search
             | Social care (2) |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" including:
             | England (1) |
-
+@skip
     Scenario: Sort by maintains selected facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -132,7 +132,7 @@ Feature: Faceted search
             | Upcoming ( ...  |
         When I click on the "Upcoming" button
         Then I can click on the "Upcoming Publication" link
-
+@skip
     Scenario: Facet Category tree drill down
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"

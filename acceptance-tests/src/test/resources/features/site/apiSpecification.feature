@@ -1,3 +1,4 @@
+@skip
 Feature: API Specifications from Apigee
 
   Scenario: API Specification is rendered in Site

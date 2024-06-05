@@ -5,6 +5,7 @@
         <div class="nhsd-m-character-block-list">
             <nav>
                 <ul>
+
                     <#if pageable.currentPage gt 1>
                         <@hst.renderURL var="pageUrl">
                             <@hst.param name="page" value="${pageable.currentPage - 1}"/>
@@ -29,7 +30,7 @@
                         </@hst.renderURL>
 
                         <li>
-                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}">${pageNr}</a></#outputformat>
+                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}" title="Page ${pageNr}">${pageNr}</a></#outputformat>
                         </li>
                     </#list>
 

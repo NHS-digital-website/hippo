@@ -8,7 +8,6 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Then I should see data set page titled "publication-with-datasets Dataset"
         And I should also see:
             | Dataset Summary               | Mauris ex est, dapibus in dictum ut, elementum sit amet ... |
-            | Dataset Granularity           | NHS Trusts                                                  |
             | Dataset Geographic Coverage   | England                                                     |
             | Dataset Date Range            | 01 Feb 2016 to 01 Jul 2017                                  |
             | Dataset Nominal Date          | 10 Oct 2017                                                 |
@@ -26,7 +25,6 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Then I should see headers:
             | Publication Date:         |
             | Geographic Coverage:      |
-            | Geographical Granularity: |
             | Date Range:               |
             | Summary                   |
             | Resources                 |

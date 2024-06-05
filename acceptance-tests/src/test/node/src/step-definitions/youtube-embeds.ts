@@ -63,7 +63,6 @@ Then('{string} YouTube embed should start playing', {timeout: 10000}, async func
     //         });
     //     });
     // `);
-
     expect(videoPlaying).to.be.true;
 });
 

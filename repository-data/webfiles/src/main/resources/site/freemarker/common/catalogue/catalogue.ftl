@@ -10,6 +10,8 @@
 <#include "../../nhsd-common/macros/az-nav.ftl">
 <#include "../../nhsd-common/macro/updateSection.ftl">
 
+<#--This is the Service Catalogue page ftl-->
+
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
 <#-- @ftlvariable name="filtersModel" type="uk.nhs.digital.common.components.catalogue.filters.Filters" -->
 <#assign renderUrl = "uk.nhs.digital.common.components.catalogue.UrlGeneratorDirective"?new() />
@@ -90,7 +92,7 @@
                                     </button>
                                 </span>
                                 <script
-                                    src="<@hst.webfile path="/apicatalogue/apicatalogue.js"/>"></script>
+                                    src="<@hst.webfile path="/apicatalogue/servicecatalogue.js"/>"></script>
                             </div>
                         </div>
                     </div>

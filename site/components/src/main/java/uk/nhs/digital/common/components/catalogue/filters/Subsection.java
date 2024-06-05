@@ -21,13 +21,13 @@ public class Subsection extends Section {
 
     @JsonCreator
     protected Subsection(
-        @JsonProperty("displayName") final String displayName,
         @JsonProperty("taxonomyKey") final String taxonomyKey,
+        @JsonProperty("displayName") final String displayName,
         @JsonProperty("description") final String description,
         @JsonProperty("highlight") final String highlight,
         @JsonProperty("entries") final Subsection... subsections
     ) {
-        super(displayName, description, "false", "false", "0", subsections);
+        super(taxonomyKey, displayName, description, "false", "false", "0", subsections);
         this.taxonomyKey = taxonomyKey;
         this.highlight = highlight;
     }
