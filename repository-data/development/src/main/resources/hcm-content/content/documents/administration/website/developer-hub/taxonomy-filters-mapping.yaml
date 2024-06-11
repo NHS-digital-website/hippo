@@ -5,17 +5,17 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-04-30T08:56:50.347Z
+    hippostdpubwf:lastModificationDate: 2024-06-11T09:58:28.464Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: website:taxonomymapping
-    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    description:\
-      \ Short description of\r\n                 filter category.\r\n    entries:\r\
+    website:text: "sections:\r\n\r\n  - displayName: Care Setting\r\n    entries:\r\
       \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
       \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
       \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \

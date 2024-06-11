@@ -1,6 +1,1238 @@
 ---
 /content/documents/corporate-website/developer:
   /api-catalogue:
+    /access-control-service-hl7-v3:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections[1]:
+            /website:body:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in production, but under review for deprecation</a>.&nbsp; We will contact you before agreeing to a retirement date.</p>
+
+                <p>If you are developing a new integration, consider using the <a href="content">Summary Care Record - FHIR API</a> first, which has endpoints that partly (but not fully) replace this API.</p>
+              jcr:primaryType: hippostd:html
+            /website:image:
+              hippo:docbase: df8a48ee-9919-4d28-a8f8-5cfb30eb03ab
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: website:emphasisBox
+            website:emphasisType: Emphasis
+            website:heading: ''
+          /website:sections[2]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this API to access the Access Control Service (ACS) - which manages consent to share patient information, including their SCR.</p>
+
+                <p>GP systems must check consent to share before sharing, for example, a patient's Summary Care Record (SCR).</p>
+
+                <p>You can:</p>
+
+                <ul>
+                 <li>get the access permissions for a patient's documents, including their SCR</li>
+                 <li>set access permissions on a patient's documents, including their SCR</li>
+                </ul>
+
+                <p>Note the <a href="content">Summary Care Record - FHIR API</a>&nbsp;also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</p>
+
+                <p>A healthcare worker must be present and authenticated with an&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/nhs-smartcards-for-developers">NHS smartcard or a modern alternative</a>&nbsp;to use this API.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:sections[3]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API can only be used where there is a legal basis to do so. Make sure you have a&nbsp;<a href="https://digital.nhs.uk/services/summary-care-records-scr/viewing-summary-care-records-scr#scope-of-viewing-scrs">valid use case</a>&nbsp;before you go too far with your development.</p>
+
+                <p>You must do this before you can go live (see ‘Onboarding’ below).</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Who can use this API
+            website:type: ''
+          /website:sections[4]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_2:
+                hippo:docbase: 2bdd6b42-13b8-4619-a97d-294b27811915
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>The following APIs are related to this one:</p>
+
+                <ul>
+                 <li><a href="content">Summary Care Record - FHIR API</a> - use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our FHIR API. It also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</li>
+                 <li><a href="content_2">Summary Care Record - HL7 V3 API</a> -&nbsp;use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our HL7 V3 API.</li>
+                </ul>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Related APIs
+            website:type: ''
+          /website:sections[5]:
+            /website:html:
+              hippostd:content: <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in
+                production, but under review for deprecation</a>.&nbsp; We will contact
+                you before agreeing to a <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">retirement</a>
+                date.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: API status
+            website:type: ''
+          /website:sections[6]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Service level
+            website:type: ''
+          /website:sections[7]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is an HL7 V3 API.</p>
+
+                <p>It uses synchronous interactions, using HL7 V3 SOAP web services, for example:</p>
+
+                <ul>
+                 <li>Get resource permissions - to get the permissions on a patient's documents</li>
+                 <li>Set resource permissions - set the access permissions on a patient's documents</li>
+                </ul>
+
+                <p>For more details, see <a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Technology
+            website:type: ''
+          /website:sections[8]:
+            /website:html:
+              hippostd:content: |-
+                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Network access
+            website:type: ''
+          /website:sections[9]:
+            /website:html:
+              /content:
+                hippo:docbase: 8f2fd81b-36b8-4e7a-8629-5f26fe6e23ef
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 3e73c4a2-b79b-40a7-a7c8-af6458c8b161
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /registration-authority-key-documents-and-forms:
+                hippo:docbase: e5a1581c-44cc-4b86-b6fc-59ef2dc35590
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <h3>Authentication</h3>
+
+                <p>This API is user-restricted, meaning an end user must be present and authenticated to use it.</p>
+
+                <p>The end user must be:</p>
+
+                <ul>
+                 <li>a healthcare worker</li>
+                 <li>strongly authenticated, using either an NHS <a href="content">smartcard </a>or a <a href="content_1">modern alternative</a></li>
+                </ul>
+
+                <p>We support the following security patterns:</p>
+
+                <ul>
+                 <li>user-restricted HL7 V3 API, using NHS Care Identity Service 2 (NHS CIS2)</li>
+                 <li>user-restricted HL7 V3 API, using CIS</li>
+                </ul>
+
+                <p>For more details see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis">user-restricted APIs</a>.</p>
+
+                <h3>Authorisation</h3>
+
+                <p>For some activities, the end user must be authorised to perform that activity.</p>
+
+                <p>The API itself does not perform any authorisation checks. Rather, the calling system is expected to perform them. The authorisation rules are specified in our national Role Based Access Control (RBAC) database.</p>
+
+                <p>For more details see our <a href="registration-authority-key-documents-and-forms">national Role Based Access Control (RBAC) database</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Security and authorisation
+            website:type: ''
+          /website:sections[10]:
+            /website:html:
+              /content:
+                hippo:docbase: 950d8ae7-3827-4d38-a53e-3b4c8bbc0224
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: <p>You can test this API using our <a href="content">Path
+                to Live environments</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Testing
+            website:type: ''
+          /website:sections[11]:
+            /website:html:
+              hippostd:content: |-
+                <p>You must get your software onboarded before it can go live.</p>
+
+                <p><a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/help-and-support" target="_blank">Contact us</a>&nbsp;before onboarding with this API. It uses the&nbsp;<a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/guides-and-documentation/onboarding-process#onboard-using-the-common-assurance-process-cap-" target="_blank">Common Assurance Process (CAP)</a>&nbsp;which is tailored for each NHS service.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Onboarding
+            website:type: ''
+          /website:sections[12]:
+            /website:html:
+              /spine-external-interface-specification:
+                hippo:docbase: e3f0711b-89ec-40a8-b8b3-10a4e56a312b
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>For details of interactions for this API see part 11 of the <a href="spine-external-interface-specification">Spine External Interface Specification</a>.</p>
+
+                <p>For details on the general structure of the interactions, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Interactions
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - technology-and-architecture
+          - ambulance-services
+          - care-capability
+          - national-health-service
+          - out-of-hours
+          - community-health-care
+          - access-to-records_1
+          - '111'
+          - capability
+          - central
+          - hl7-v3
+          - standards_1
+          - under-review-for-deprecation
+          - hospital
+          - in-production
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - api-service
+          - hl7
+          - pharmacy
+          - messaging-standards
+          - secondary-care
+          - general-practice
+          - status
+          common:SearchableTags:
+          - OUH
+          - Out-of-hours
+          - Urgent and Emergency Care
+          - Mental health
+          - NHS 111
+          - Central
+          - HL7 V3
+          - '111'
+          - Under review for deprecation (API)
+          - In production (API)
+          - Ambulance
+          - Pharmacy
+          - Urgent Treatment Centre
+          - General practice
+          - Community health
+          - Hospital
+          - Access to records
+          - API service
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2023-09-15T06:34:50.849Z
+          hippostdpubwf:lastModifiedBy: tony.heap
+          hippotaxonomy:keys:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:versionable
+          jcr:primaryType: website:general
+          jcr:uuid: 011d063f-44d2-4504-9fb4-3d5f6521a287
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: <p>Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.</p>
+          website:shortsummary: Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.
+          website:taxonomyClassificationField:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          website:title: Access Control Service HL7 V3 API
+          website:type: ''
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections[1]:
+            /website:body:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in production, but under review for deprecation</a>.&nbsp; We will contact you before agreeing to a retirement date.</p>
+
+                <p>If you are developing a new integration, consider using the <a href="content">Summary Care Record - FHIR API</a> first, which has endpoints that partly (but not fully) replace this API.</p>
+              jcr:primaryType: hippostd:html
+            /website:image:
+              hippo:docbase: df8a48ee-9919-4d28-a8f8-5cfb30eb03ab
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: website:emphasisBox
+            website:emphasisType: Emphasis
+            website:heading: ''
+          /website:sections[2]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this API to access the Access Control Service (ACS) - which manages consent to share patient information, including their SCR.</p>
+
+                <p>GP systems must check consent to share before sharing, for example, a patient's Summary Care Record (SCR).</p>
+
+                <p>You can:</p>
+
+                <ul>
+                 <li>get the access permissions for a patient's documents, including their SCR</li>
+                 <li>set access permissions on a patient's documents, including their SCR</li>
+                </ul>
+
+                <p>Note the <a href="content">Summary Care Record - FHIR API</a>&nbsp;also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</p>
+
+                <p>A healthcare worker must be present and authenticated with an&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/nhs-smartcards-for-developers">NHS smartcard or a modern alternative</a>&nbsp;to use this API.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:sections[3]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API can only be used where there is a legal basis to do so. Make sure you have a&nbsp;<a href="https://digital.nhs.uk/services/summary-care-records-scr/viewing-summary-care-records-scr#scope-of-viewing-scrs">valid use case</a>&nbsp;before you go too far with your development.</p>
+
+                <p>You must do this before you can go live (see ‘Onboarding’ below).</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Who can use this API
+            website:type: ''
+          /website:sections[4]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_2:
+                hippo:docbase: 2bdd6b42-13b8-4619-a97d-294b27811915
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>The following APIs are related to this one:</p>
+
+                <ul>
+                 <li><a href="content">Summary Care Record - FHIR API</a> - use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our FHIR API. It also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</li>
+                 <li><a href="content_2">Summary Care Record - HL7 V3 API</a> -&nbsp;use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our HL7 V3 API.</li>
+                </ul>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Related APIs
+            website:type: ''
+          /website:sections[5]:
+            /website:html:
+              hippostd:content: <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in
+                production, but under review for deprecation</a>.&nbsp; We will contact
+                you before agreeing to a <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">retirement</a>
+                date.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: API status
+            website:type: ''
+          /website:sections[6]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Service level
+            website:type: ''
+          /website:sections[7]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is an HL7 V3 API.</p>
+
+                <p>It uses synchronous interactions, using HL7 V3 SOAP web services, for example:</p>
+
+                <ul>
+                 <li>Get resource permissions - to get the permissions on a patient's documents</li>
+                 <li>Set resource permissions - set the access permissions on a patient's documents</li>
+                </ul>
+
+                <p>For more details, see <a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Technology
+            website:type: ''
+          /website:sections[8]:
+            /website:html:
+              hippostd:content: |-
+                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Network access
+            website:type: ''
+          /website:sections[9]:
+            /website:html:
+              /content:
+                hippo:docbase: 8f2fd81b-36b8-4e7a-8629-5f26fe6e23ef
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 3e73c4a2-b79b-40a7-a7c8-af6458c8b161
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /registration-authority-key-documents-and-forms:
+                hippo:docbase: e5a1581c-44cc-4b86-b6fc-59ef2dc35590
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <h3>Authentication</h3>
+
+                <p>This API is user-restricted, meaning an end user must be present and authenticated to use it.</p>
+
+                <p>The end user must be:</p>
+
+                <ul>
+                 <li>a healthcare worker</li>
+                 <li>strongly authenticated, using either an NHS <a href="content">smartcard </a>or a <a href="content_1">modern alternative</a></li>
+                </ul>
+
+                <p>We support the following security patterns:</p>
+
+                <ul>
+                 <li>user-restricted HL7 V3 API, using NHS Care Identity Service 2 (NHS CIS2)</li>
+                 <li>user-restricted HL7 V3 API, using CIS</li>
+                </ul>
+
+                <p>For more details see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis">user-restricted APIs</a>.</p>
+
+                <h3>Authorisation</h3>
+
+                <p>For some activities, the end user must be authorised to perform that activity.</p>
+
+                <p>The API itself does not perform any authorisation checks. Rather, the calling system is expected to perform them. The authorisation rules are specified in our national Role Based Access Control (RBAC) database.</p>
+
+                <p>For more details see our <a href="registration-authority-key-documents-and-forms">national Role Based Access Control (RBAC) database</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Security and authorisation
+            website:type: ''
+          /website:sections[10]:
+            /website:html:
+              /content:
+                hippo:docbase: 950d8ae7-3827-4d38-a53e-3b4c8bbc0224
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: <p>You can test this API using our <a href="content">Path
+                to Live environments</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Testing
+            website:type: ''
+          /website:sections[11]:
+            /website:html:
+              hippostd:content: |-
+                <p>You must get your software onboarded before it can go live.</p>
+
+                <p><a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/help-and-support" target="_blank">Contact us</a>&nbsp;before onboarding with this API. It uses the&nbsp;<a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/guides-and-documentation/onboarding-process#onboard-using-the-common-assurance-process-cap-" target="_blank">Common Assurance Process (CAP)</a>&nbsp;which is tailored for each NHS service.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Onboarding
+            website:type: ''
+          /website:sections[12]:
+            /website:html:
+              /spine-external-interface-specification:
+                hippo:docbase: e3f0711b-89ec-40a8-b8b3-10a4e56a312b
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>For details of interactions for this API see part 11 of the <a href="spine-external-interface-specification">Spine External Interface Specification</a>.</p>
+
+                <p>For details on the general structure of the interactions, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Interactions
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - technology-and-architecture
+          - ambulance-services
+          - care-capability
+          - national-health-service
+          - out-of-hours
+          - community-health-care
+          - access-to-records_1
+          - '111'
+          - capability
+          - central
+          - hl7-v3
+          - standards_1
+          - under-review-for-deprecation
+          - hospital
+          - in-production
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - api-service
+          - hl7
+          - pharmacy
+          - messaging-standards
+          - secondary-care
+          - general-practice
+          - status
+          common:SearchableTags:
+          - OUH
+          - Out-of-hours
+          - Urgent and Emergency Care
+          - Mental health
+          - NHS 111
+          - Central
+          - HL7 V3
+          - '111'
+          - Under review for deprecation (API)
+          - In production (API)
+          - Ambulance
+          - Pharmacy
+          - Urgent Treatment Centre
+          - General practice
+          - Community health
+          - Hospital
+          - Access to records
+          - API service
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2024-02-14T15:57:36.635Z
+          hippostdpubwf:lastModifiedBy: nathan.kinsler
+          hippotaxonomy:keys:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          jcr:uuid: d3651dac-e39d-4a5d-9539-3f756652e69a
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: <p>Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.</p>
+          website:shortsummary: Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.
+          website:taxonomyClassificationField:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          website:title: Access Control Service HL7 V3 API
+          website:type: ''
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections[1]:
+            /website:body:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in production, but under review for deprecation</a>.&nbsp; We will contact you before agreeing to a retirement date.</p>
+
+                <p>If you are developing a new integration, consider using the <a href="content">Summary Care Record - FHIR API</a> first, which has endpoints that partly (but not fully) replace this API.</p>
+              jcr:primaryType: hippostd:html
+            /website:image:
+              hippo:docbase: df8a48ee-9919-4d28-a8f8-5cfb30eb03ab
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: website:emphasisBox
+            website:emphasisType: Emphasis
+            website:heading: ''
+          /website:sections[2]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this API to access the Access Control Service (ACS) - which manages consent to share patient information, including their SCR.</p>
+
+                <p>GP systems must check consent to share before sharing, for example, a patient's Summary Care Record (SCR).</p>
+
+                <p>You can:</p>
+
+                <ul>
+                 <li>get the access permissions for a patient's documents, including their SCR</li>
+                 <li>set access permissions on a patient's documents, including their SCR</li>
+                </ul>
+
+                <p>Note the <a href="content">Summary Care Record - FHIR API</a>&nbsp;also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</p>
+
+                <p>A healthcare worker must be present and authenticated with an&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation/nhs-smartcards-for-developers">NHS smartcard or a modern alternative</a>&nbsp;to use this API.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:sections[3]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API can only be used where there is a legal basis to do so. Make sure you have a&nbsp;<a href="https://digital.nhs.uk/services/summary-care-records-scr/viewing-summary-care-records-scr#scope-of-viewing-scrs">valid use case</a>&nbsp;before you go too far with your development.</p>
+
+                <p>You must do this before you can go live (see ‘Onboarding’ below).</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Who can use this API
+            website:type: ''
+          /website:sections[4]:
+            /website:html:
+              /content:
+                hippo:docbase: 1bd6ea66-ec57-4fd5-ae48-e507403b3c3a
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_2:
+                hippo:docbase: 2bdd6b42-13b8-4619-a97d-294b27811915
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>The following APIs are related to this one:</p>
+
+                <ul>
+                 <li><a href="content">Summary Care Record - FHIR API</a> - use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our FHIR API. It also has endpoints enabling you to get and set access permissions<em>,</em>&nbsp;the same as this&nbsp;ACS API.</li>
+                 <li><a href="content_2">Summary Care Record - HL7 V3 API</a> -&nbsp;use this API to access a patient's Summary Care Record (SCR), an electronic record of important patient information created from GP medical records, using our HL7 V3 API.</li>
+                </ul>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Related APIs
+            website:type: ''
+          /website:sections[5]:
+            /website:html:
+              hippostd:content: <p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">in
+                production, but under review for deprecation</a>.&nbsp; We will contact
+                you before agreeing to a <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses">retirement</a>
+                date.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: API status
+            website:type: ''
+          /website:sections[6]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Service level
+            website:type: ''
+          /website:sections[7]:
+            /website:html:
+              hippostd:content: |-
+                <p>This API is an HL7 V3 API.</p>
+
+                <p>It uses synchronous interactions, using HL7 V3 SOAP web services, for example:</p>
+
+                <ul>
+                 <li>Get resource permissions - to get the permissions on a patient's documents</li>
+                 <li>Set resource permissions - set the access permissions on a patient's documents</li>
+                </ul>
+
+                <p>For more details, see <a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Technology
+            website:type: ''
+          /website:sections[8]:
+            /website:html:
+              hippostd:content: |-
+                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+
+                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Network access
+            website:type: ''
+          /website:sections[9]:
+            /website:html:
+              /content:
+                hippo:docbase: 8f2fd81b-36b8-4e7a-8629-5f26fe6e23ef
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 3e73c4a2-b79b-40a7-a7c8-af6458c8b161
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /registration-authority-key-documents-and-forms:
+                hippo:docbase: e5a1581c-44cc-4b86-b6fc-59ef2dc35590
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <h3>Authentication</h3>
+
+                <p>This API is user-restricted, meaning an end user must be present and authenticated to use it.</p>
+
+                <p>The end user must be:</p>
+
+                <ul>
+                 <li>a healthcare worker</li>
+                 <li>strongly authenticated, using either an NHS <a href="content">smartcard </a>or a <a href="content_1">modern alternative</a></li>
+                </ul>
+
+                <p>We support the following security patterns:</p>
+
+                <ul>
+                 <li>user-restricted HL7 V3 API, using NHS Care Identity Service 2 (NHS CIS2)</li>
+                 <li>user-restricted HL7 V3 API, using CIS</li>
+                </ul>
+
+                <p>For more details see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis">user-restricted APIs</a>.</p>
+
+                <h3>Authorisation</h3>
+
+                <p>For some activities, the end user must be authorised to perform that activity.</p>
+
+                <p>The API itself does not perform any authorisation checks. Rather, the calling system is expected to perform them. The authorisation rules are specified in our national Role Based Access Control (RBAC) database.</p>
+
+                <p>For more details see our <a href="registration-authority-key-documents-and-forms">national Role Based Access Control (RBAC) database</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Security and authorisation
+            website:type: ''
+          /website:sections[10]:
+            /website:html:
+              /content:
+                hippo:docbase: 950d8ae7-3827-4d38-a53e-3b4c8bbc0224
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: <p>You can test this API using our <a href="content">Path
+                to Live environments</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Testing
+            website:type: ''
+          /website:sections[11]:
+            /website:html:
+              hippostd:content: |-
+                <p>You must get your software onboarded before it can go live.</p>
+
+                <p><a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/help-and-support" target="_blank">Contact us</a>&nbsp;before onboarding with this API. It uses the&nbsp;<a rel="noopener noreferrer nofollow" href="https://digital.nhs.uk/developer/guides-and-documentation/onboarding-process#onboard-using-the-common-assurance-process-cap-" target="_blank">Common Assurance Process (CAP)</a>&nbsp;which is tailored for each NHS service.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Onboarding
+            website:type: ''
+          /website:sections[12]:
+            /website:html:
+              /spine-external-interface-specification:
+                hippo:docbase: e3f0711b-89ec-40a8-b8b3-10a4e56a312b
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>For details of interactions for this API see part 11 of the <a href="spine-external-interface-specification">Spine External Interface Specification</a>.</p>
+
+                <p>For details on the general structure of the interactions, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#hl7-v3">HL7 V3</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Interactions
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Manage patient consent to share their information,
+              including their Summary Care Record (SCR), with the Access Control Service.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - technology-and-architecture
+          - ambulance-services
+          - care-capability
+          - national-health-service
+          - out-of-hours
+          - community-health-care
+          - access-to-records_1
+          - '111'
+          - capability
+          - central
+          - hl7-v3
+          - standards_1
+          - under-review-for-deprecation
+          - hospital
+          - in-production
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - api-service
+          - hl7
+          - pharmacy
+          - messaging-standards
+          - secondary-care
+          - general-practice
+          - status
+          common:SearchableTags:
+          - OUH
+          - Out-of-hours
+          - Urgent and Emergency Care
+          - Mental health
+          - NHS 111
+          - Central
+          - HL7 V3
+          - '111'
+          - Under review for deprecation (API)
+          - In production (API)
+          - Ambulance
+          - Pharmacy
+          - Urgent Treatment Centre
+          - General practice
+          - Community health
+          - Hospital
+          - Access to records
+          - API service
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2023-09-15T06:34:50.849Z
+          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:publicationDate: 2023-09-15T06:34:54.247Z
+          hippotaxonomy:keys:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          jcr:uuid: 1898ddaf-142c-44a5-b876-18b9222a045c
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: <p>Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.</p>
+          website:shortsummary: Manage patient consent to share their information,
+            including their Summary Care Record (SCR), with the Access Control Service.
+          website:taxonomyClassificationField:
+          - community-health-care
+          - hospital
+          - general-practice
+          - urgent-and-emergency-care
+          - urgent-treatment-centre
+          - ambulance-services
+          - '111'
+          - access-to-records_1
+          - mental-health
+          - out-of-hours
+          - pharmacy
+          - hl7-v3
+          - api-service
+          - central
+          - in-production
+          - under-review-for-deprecation
+          website:title: Access Control Service HL7 V3 API
+          website:type: ''
+        hippo:name: Access Control Service HL7 V3 API
+        hippo:versionHistory: f7edd5ff-fbe9-4d9a-b242-83051f2b7d6e
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 8ca5f6f2-4cb1-4665-9545-7b3265aa52df
+      hippo:name: Access Control Service HL7 V3
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: ad4de97a-6c54-46e4-9433-58a4163bc170
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+      jcr:uuid: 1d8ca025-9eb0-47ea-846e-87b52efeee30
     /content:
       /content[1]:
         /website:body:
@@ -48,6 +1280,11 @@
             hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
             jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+        /website:items[8]:
+          /website:link:
+            hippo:docbase: 8ca5f6f2-4cb1-4665-9545-7b3265aa52df
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -61,7 +1298,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2024-05-22T12:23:30.876Z
+        hippostdpubwf:lastModificationDate: 2024-06-11T10:30:54.503Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
@@ -122,6 +1359,11 @@
             hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
             jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+        /website:items[8]:
+          /website:link:
+            hippo:docbase: 8ca5f6f2-4cb1-4665-9545-7b3265aa52df
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -136,7 +1378,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2024-05-22T12:24:25.706Z
+        hippostdpubwf:lastModificationDate: 2024-06-11T10:31:50.123Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
@@ -198,6 +1440,11 @@
             hippo:docbase: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
             jcr:primaryType: hippo:mirror
           jcr:primaryType: website:internallink
+        /website:items[8]:
+          /website:link:
+            hippo:docbase: 8ca5f6f2-4cb1-4665-9545-7b3265aa52df
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
         /website:seosummary:
           hippostd:content: <p>Test API catalogue for smoke tests</p>
           jcr:primaryType: hippostd:html
@@ -212,9 +1459,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-24T14:35:21.682Z
-        hippostdpubwf:lastModificationDate: 2024-05-22T12:24:25.706Z
+        hippostdpubwf:lastModificationDate: 2024-06-11T10:31:50.123Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-05-22T12:24:28.115Z
+        hippostdpubwf:publicationDate: 2024-06-11T10:31:52.061Z
         hippotranslation:id: 61b0c0b8-971a-4fbd-8608-d40f9aadb1de
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -229,7 +1476,7 @@
         website:shortsummary: Test API catalogue for smoke tests
         website:title: Test API catalogue
       hippo:name: API catalogue
-      hippo:versionHistory: 94b11129-72ea-4d80-b5ad-4205b85b8eac
+      hippo:versionHistory: 594c48b5-463e-4cd5-896f-6ad897147903
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -248,8 +1495,10 @@
           common:FacetType: apispecification
           common:FullTaxonomy:
           - a-e
+          - acceptance-tests
           common:SearchableTags:
           - A&E
+          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
@@ -257,12 +1506,11 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:18.860Z
+          hippostdpubwf:lastModificationDate: 2024-06-11T09:58:13.516Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
           - a-e
+          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -287,8 +1535,10 @@
           common:FacetType: apispecification
           common:FullTaxonomy:
           - a-e
+          - acceptance-tests
           common:SearchableTags:
           - A&E
+          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -297,12 +1547,11 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
+          hippostdpubwf:lastModificationDate: 2024-06-11T09:59:28.681Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
           - a-e
+          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -328,8 +1577,10 @@
           common:FacetType: apispecification
           common:FullTaxonomy:
           - a-e
+          - acceptance-tests
           common:SearchableTags:
           - A&E
+          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           hippo:availability:
@@ -338,13 +1589,12 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2024-04-30T08:56:26.487Z
+          hippostdpubwf:lastModificationDate: 2024-06-11T09:59:28.681Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-04-30T08:56:29.155Z
+          hippostdpubwf:publicationDate: 2024-06-11T09:59:30.710Z
           hippotaxonomy:keys:
-          - deprecated-api
-          - out-of-hours
           - a-e
+          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -360,7 +1610,7 @@
           website:summary: ''
           website:title: Deprecated API
         hippo:name: Deprecated API
-        hippo:versionHistory: 78c89387-768d-417b-bd23-6bdf1b71d68d
+        hippo:versionHistory: 451c520e-d425-4aba-bd84-28cf6bca8174
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
