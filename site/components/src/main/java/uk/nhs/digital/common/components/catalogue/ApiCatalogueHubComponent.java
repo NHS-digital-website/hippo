@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.components;
+package uk.nhs.digital.common.components.catalogue;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
