@@ -146,6 +146,10 @@
         <Logger name="uk.nhs.digital.common.components.SearchComponent"
                 level="info"/>
 
+        <!-- API Catalogue Logging-->
+        <Logger name="uk.nhs.digital.common.components.catalogue.ApiCatalogueComponent"
+                level="debug"/>
+
         <Root level="warn">
             <AppenderRef ref="site"/>
             <AppenderRef ref="cms"/>
