@@ -4,6 +4,7 @@ import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -63,7 +64,8 @@ public class PublicationComponent extends ContentRewriterComponent {
             index.add(KEY_FACTS_ID);
         }
 
-        if (parentIsSeriesAndAdminSourcesNotBlank(publication) || parentIsArchiveAndAdminSourcesNotBlank(publication)) {
+        HippoBean seriesCollection = publication.getParentSeriesCollectionDocument();
+        if (isSeriesAndAdminSourcesNotBlank(seriesCollection) || isArchiveAndAdminSourcesNotBlank(seriesCollection)) {
             index.add(ADMIN_SOURCES_ID);
         }
 
@@ -87,11 +89,11 @@ public class PublicationComponent extends ContentRewriterComponent {
         return index;
     }
 
-    private boolean parentIsSeriesAndAdminSourcesNotBlank(Publication publication) {
-        return publication.getParentDocument() instanceof Series && isNotBlank(((Series) publication.getParentDocument()).getAdministrativeSources());
+    private boolean isSeriesAndAdminSourcesNotBlank(Object series) {
+        return series instanceof Series && isNotBlank(((Series) series).getAdministrativeSources());
     }
 
-    private boolean parentIsArchiveAndAdminSourcesNotBlank(Publication publication) {
-        return publication.getParentDocument() instanceof Archive && isNotBlank(((Archive) publication.getParentDocument()).getAdministrativeSources());
+    private boolean isArchiveAndAdminSourcesNotBlank(Object archive) {
+        return archive instanceof Archive && isNotBlank(((Archive) archive).getAdministrativeSources());
     }
 }
