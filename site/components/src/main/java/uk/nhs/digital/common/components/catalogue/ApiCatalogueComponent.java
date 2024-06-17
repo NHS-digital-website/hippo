@@ -20,6 +20,10 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
+
+        long startTime = System.currentTimeMillis();
+        log.debug("Start Time:", startTime);
+
         super.doBeforeRender(request, response);
 
         final List<CatalogueLink> allCatalogueLinks = catalogueLinksFrom(request);
@@ -46,6 +50,10 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         request.setAttribute(Param.retiredFilterEnabled.name(), true);
         request.setAttribute(Param.catalogueLinks.name(), filtersAndLinks.links.stream().map(CatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        log.info("End of method: doBeforeRender in ApiCatalogueComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
     private boolean queryStringContainsParameter(final HstRequest request, final Param queryStringParameter) {
