@@ -3,6 +3,8 @@ package uk.nhs.digital.common.components.catalogue;
 import static java.util.stream.Collectors.toList;
 
 import com.google.common.collect.ImmutableSet;
+import org.ehcache.Cache;
+import org.ehcache.CacheManager;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -22,7 +24,9 @@ public class ApiCatalogueComponent extends CatalogueComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
 
         long startTime = System.currentTimeMillis();
-        log.debug("Start Time:", startTime);
+        log.debug("Start Time:" + startTime);
+
+        CacheManager cacheManager = ApiCatalogueCacheManager.loadCacheManager();
 
         super.doBeforeRender(request, response);
 
@@ -35,7 +39,17 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
         final List<String> userSelectedFilterKeys = userSelectedFilterKeysFrom(request);
 
-        Filters rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+        Filters rawFilters = null;
+        Cache<String, Filters> cache = cacheManager.getCache("apiFilterCache", String.class, Filters.class);
+
+        if (null == cache.get("rawFiltersCache")) {
+            rawFilters = rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+            cache.put("rawFiltersCache", rawFilters);
+            log.info("YAML coversion data has been fetched!!!");
+        } else {
+            rawFilters = cache.get("rawFiltersCache");
+            log.info("Cache data has been fetched!!!");
+        }
 
         FiltersAndLinks filtersAndLinks = new FiltersAndLinks(userSelectedFilterKeys, catalogueLinksExcludingRetiredIfNeeded, rawFilters, facetNavHelper);
 
@@ -50,6 +64,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
         request.setAttribute(Param.retiredFilterEnabled.name(), true);
         request.setAttribute(Param.catalogueLinks.name(), filtersAndLinks.links.stream().map(CatalogueLink::raw).collect(toList()));
         request.setAttribute(Param.filtersModel.name(), filtersModel);
+        request.setAttribute(Param.statusKeys.name(), rawFilters.getSections().get(4).getEntries());
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
@@ -85,6 +100,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
 
         // Older parameter, deprecated in favour of showRetired,
         // retained in case it's been included in existing bookmarks.
-        showDeprecatedAndRetired
+        showDeprecatedAndRetired,
+        statusKeys
     }
 }

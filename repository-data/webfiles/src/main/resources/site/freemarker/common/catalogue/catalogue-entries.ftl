@@ -8,7 +8,7 @@
 
 <#assign matchesFound = 0/>
 
-<#macro apiCatalogueEntries blockGroups filtersModel>
+<#macro apiCatalogueEntries blockGroups filtersModel statusKeys>
     <#if blockGroups?has_content>
         <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
             <#list lettersOfTheAlphabet as letter>
@@ -53,7 +53,7 @@
                                         </#if>
                                     </#if>
                                     <div data-api-catalogue-entry="">
-                                    <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
+                                    <#list get_unique_sorted_tags(block filtersModel statusKeys) as taxonomyTag>
                                         <#assign isSelected = filtersModel.selectedFiltersContain(taxonomyTag.key)/>
                                         <#if filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
                                             <a title="${filter_title(taxonomyTag, isSelected)}"
@@ -77,7 +77,7 @@
                                             <@hst.html hippohtml=block.definition contentRewriter=brContentRewriter/>
                                         </div>
                                     </#if>
-                                        <#list get_unique_sorted_tags(block filtersModel) as taxonomyTag>
+                                        <#list get_unique_sorted_tags(block filtersModel statusKeys) as taxonomyTag>
                                             <#assign isSelected = filtersModel.selectedFiltersContain(taxonomyTag.key)/>
                                             <#if !filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
                                                 <a title="${filter_title(taxonomyTag, isSelected)}"
@@ -116,10 +116,10 @@
     </#if>
 </#function>
 
-<#function get_unique_sorted_tags block filtersModel>
+<#function get_unique_sorted_tags block filtersModel statusKeys>
     <#local documentTags = block.getMultipleProperty("hippotaxonomy:keys")![] />
     <#local uniqueSortedTags = [] />
-    <#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
+    <#list statusKeys as filterSection>
         <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
             <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
         </#if>
