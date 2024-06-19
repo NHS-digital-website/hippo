@@ -53,7 +53,7 @@
                                         </#if>
                                     </#if>
                                     <div data-api-catalogue-entry="">
-                                    <#list get_unique_sorted_tags(block filtersModel statusKeys) as taxonomyTag>
+                                    <#list get_unique_sorted_status_tags(block filtersModel statusKeys) as taxonomyTag>
                                         <#assign isSelected = filtersModel.selectedFiltersContain(taxonomyTag.key)/>
                                         <#if filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
                                             <a title="${filter_title(taxonomyTag, isSelected)}"
@@ -77,7 +77,7 @@
                                             <@hst.html hippohtml=block.definition contentRewriter=brContentRewriter/>
                                         </div>
                                     </#if>
-                                        <#list get_unique_sorted_tags(block filtersModel statusKeys) as taxonomyTag>
+                                        <#list get_unique_sorted_taxonomies_tags(block filtersModel) as taxonomyTag>
                                             <#assign isSelected = filtersModel.selectedFiltersContain(taxonomyTag.key)/>
                                             <#if !filtersModel.isHighlighted(taxonomyTag.getDisplayName())>
                                                 <a title="${filter_title(taxonomyTag, isSelected)}"
@@ -116,10 +116,21 @@
     </#if>
 </#function>
 
-<#function get_unique_sorted_tags block filtersModel statusKeys>
+<#function get_unique_sorted_status_tags block filtersModel statusKeys>
     <#local documentTags = block.getMultipleProperty("hippotaxonomy:keys")![] />
     <#local uniqueSortedTags = [] />
     <#list statusKeys as filterSection>
+        <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
+            <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
+        </#if>
+    </#list>
+    <#return uniqueSortedTags>
+</#function>
+
+<#function get_unique_sorted_taxonomies_tags block filtersModel>
+    <#local documentTags = block.getMultipleProperty("hippotaxonomy:keys")![] />
+    <#local uniqueSortedTags = [] />
+    <#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
         <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
             <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
         </#if>
