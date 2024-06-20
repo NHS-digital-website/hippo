@@ -54,7 +54,7 @@ public class ApiCatalogueComponent extends CatalogueComponent {
             .isPresent();
     }
 
-    private boolean shouldShowRetired(final HstRequest request) {
+    public boolean shouldShowRetired(final HstRequest request) {
         return queryStringContainsParameter(request, Param.showDeprecatedAndRetired)
             || queryStringContainsParameter(request, Param.showRetired);
     }

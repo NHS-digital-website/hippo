@@ -110,9 +110,15 @@
                                 <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                     <span class="nhsd-m-selector-toggle-card__toggle">
                                         <div class="nhsd-a-selector-toggle">
+                                            <#assign hstRequestContext = requestContext>
+                                            <#assign contextPath = hstRequestContext.baseURL.contextPath>
+                                            <#assign requestPath = hstRequestContext.baseURL.requestPath>
+                                            <#assign fullURL = contextPath + requestPath +"?r120_r1:page=1"/>
+                                            <#assign queryParams = showRetired?then("${fullURL}","${fullURL}&showRetired") />
+                                            <input type="hidden" name="hiddenVar" value="${queryParams}">
                                         <@hst.link var="baseUrl"/>
-                                            <a onclick="window.location = '<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />'"
-                                               href="<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=!showRetired filters=filtersModel.selectedFiltersKeysMinusCollection(["retired-api","retired","retired-standard"]) />"
+                                            <a onclick=""
+                                               href="${queryParams}"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">
                                                 <input type="checkbox"
                                                        <#if showRetired>checked</#if> />

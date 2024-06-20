@@ -28,8 +28,10 @@
                             <@hst.param name="page" value="${pageNr}"/>
                         </@hst.renderURL>
 
+                        <#assign showRetired = showRetired?then("&showRetired","") />
+
                         <li>
-                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}">${pageNr}</a></#outputformat>
+                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}${showRetired}">${pageNr}</a></#outputformat>
                         </li>
                     </#list>
 
