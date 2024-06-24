@@ -1,13 +1,9 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.hippoecm.hst.content.beans.query.HstQuery;
-import org.hippoecm.hst.content.beans.query.HstQueryManager;
-import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
-import org.hippoecm.hst.content.beans.query.filter.BaseFilter;
-import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
+import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -21,7 +17,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
-import java.util.List;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @ParametersInfo(
     type = ApiCatalogueHubComponentInfo.class
@@ -60,42 +62,40 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-
-    @Override
-    protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
-        // filter's documents such that the website:showRetired is set to true
-        try {
-            Filter filter = query.createFilter();
-            filter.addEqualTo("website:showRetired", showRetired);
-            filters.add(filter);
-        } catch (FilterException var7) {
-            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
-        }
-    }
+    /*
+    StreamSupport.stream(
+    Spliterators.spliteratorUnknownSize(resultSet.getDocumentIterator(HippoBean.class), Spliterator.ORDERED), false)
+    .collect(Collectors.toList()).get(1).getMultipleProperty("hippotaxonomy:keys")
+     */
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
-
-        try {
-            HstQueryManager queryManager = request.getRequestContext().getQueryManager();
-            HstQuery query = queryManager.createQuery(scope);
-
-            // Add filter to exclude documents with 'excludeProperty' set to false
-            Filter filter = query.createFilter();
-            filter.addEqualTo("common:retired", showRetired); // Replace with your property name
-            query.setFilter(filter);
-
-            // Execute the query
-            HstQueryResult result = query.execute();
-            log.info("result" + result);
-
-            // Convert the query result to a pageable
-            pageable = null;
-        } catch (Exception e) {
-            log.error("Error executing faceted search with exclusion filter", e);
+        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+        if (facetBean != null) {
+            HippoResultSetBean resultSet = facetBean.getResultSet();
+            if (resultSet != null) {
+                HippoDocumentIterator<HippoBean> iterator = getFilteredIterator(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
+                    String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
+                    if (keys != null) {
+                        return !Arrays.asList(keys).contains("retired-api");
+                    }
+                    return true;
+                });
+                pageable = this.getPageableFactory().createPageable(iterator, resultSet.getCount().intValue(), paramInfo.getPageSize(), this.getCurrentPage(request));
+            }
         }
 
-        return pageable;
+        return (Pageable)pageable;
     }
+
+    private <T>  HippoDocumentIterator<HippoBean> getFilteredIterator(Iterator<T> iterator, Predicate<T> filter) {
+        Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
+        return (HippoDocumentIterator<HippoBean>) StreamSupport.stream(spliterator, false)
+            .filter(filter)
+            .collect(Collectors.toList())
+            .iterator();
+    }
+
 }
