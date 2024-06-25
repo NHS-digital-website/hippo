@@ -40,30 +40,14 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
         showRetired = apiCatalogueComponent.shouldShowRetired(request);
         log.debug("showRetired:" + showRetired);
-
         super.doBeforeRender(request, response);
-        // Get the total results before the facet limit is applied.
-        /*EssentialsListComponentInfo paramInfo = this.getComponentParametersInfo(request);
-        HippoBean scope = this.getSearchScope(request, paramInfo.getPath());
-        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
-        HippoFacetNavigationBean facetNavigationBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));*/
         request.setAttribute("showRetired", showRetired);
         request.setAttribute("requestContext", request.getRequestContext());
-        //request.setAttribute("parameterMap",  request.getRequestContext().getBaseURL().getParameterMap().get("query"));
         request.setAttribute("currentQuery", getAnyParameter(request, "query"));
-        /* if (Boolean.valueOf(request.getAttribute("showRetired").toString())) {
-            request.setAttribute("totalAvailable", facetNavigationBean.getCount().intValue());
-        }*/
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
-
-    /*
-    StreamSupport.stream(
-    Spliterators.spliteratorUnknownSize(resultSet.getDocumentIterator(HippoBean.class), Spliterator.ORDERED), false)
-    .collect(Collectors.toList()).get(1).getMultipleProperty("hippotaxonomy:keys")
-     */
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
@@ -83,7 +67,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 });
                 HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
                 pageable = this.getPageableFactory().createPageable(iterator, filteredList.size() - 1 , paramInfo.getPageSize(), this.getCurrentPage(request));
-                request.setAttribute("totalAvailable", filteredList.size());
+                request.setAttribute("totalAvailable", filteredList.size()-1);
             }
         }
         return (Pageable) pageable;

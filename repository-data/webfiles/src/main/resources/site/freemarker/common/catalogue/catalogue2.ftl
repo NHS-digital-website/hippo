@@ -114,11 +114,12 @@
                                             <#assign hstRequestContext = requestContext>
                                             <#assign contextPath = hstRequestContext.baseURL.contextPath>
                                             <#assign requestPath = hstRequestContext.baseURL.requestPath>
-                                            <#assign fullURL = contextPath + requestPath + "?query=${currentQuery}&r120_r1:page=1"/>
+                                            <#assign currentQuery1 = "">
+                                            <#if currentQuery?exists && currentQuery?has_content>
+                                                    <#assign currentQuery1 = currentQuery>
+                                            </#if>
+                                            <#assign fullURL = contextPath + requestPath + "?query=${currentQuery1}&r120_r1:page=1"/>
                                             <#assign queryParams = showRetired?then("${fullURL}","${fullURL}&showRetired") />
-
-                                          <#--  <input type="hidden" name="hiddenVar" value="${queryParams}">
-                                        <@hst.link var="baseUrl"/>-->
                                             <a onclick=""
                                                href="${queryParams}"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">
