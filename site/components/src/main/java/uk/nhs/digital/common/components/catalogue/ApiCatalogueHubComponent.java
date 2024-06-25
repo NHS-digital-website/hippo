@@ -92,10 +92,11 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private <T>  HippoDocumentIterator<HippoBean> getFilteredIterator(Iterator<T> iterator, Predicate<T> filter) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
-        return (HippoDocumentIterator<HippoBean>) StreamSupport.stream(spliterator, false)
+        // Convert the filtered list back to a HippoDocumentIterator
+        return new CustomHippoDocumentIterator(StreamSupport.stream(spliterator, false)
             .filter(filter)
             .collect(Collectors.toList())
-            .iterator();
+            .iterator());
     }
 
 }

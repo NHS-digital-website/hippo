@@ -143,7 +143,7 @@
                     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
                     <#list pageable.items as document>
 
-                            <#assign containsRetiredApi = false>
+                            <#--<#assign containsRetiredApi = false>
                             <#list document.keys as key>
                                 <#if key == "retired-api">
                                     <#assign containsRetiredApi = true>
@@ -151,7 +151,7 @@
                                 </#if>
                             </#list>
 
-                        <#if !containsRetiredApi || showRetired>
+                        <#if !containsRetiredApi || showRetired>-->
 
                         <div class="nhsd-t-flex-item--grow">
                             <div data-api-catalogue-entry="">
@@ -171,7 +171,7 @@
                         </div>
 
                         <hr class="nhsd-a-horizontal-rule">
-                        </#if>
+                        <#--</#if>-->
                     </#list>
                     </div>
 
@@ -179,7 +179,7 @@
                     <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
                 </#if>
             </div>
-            <#if pageable?? && pageable.total gt 0>
+          <#if pageable?? && pageable.total gt 0>
                <#-- <hr class="nhsd-a-horizontal-rule">-->
                 <@pagination />
             </#if>
