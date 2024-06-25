@@ -75,6 +75,7 @@
                                     autocomplete="off"
                                     placeholder="What are you looking for today?"
                                     aria-label="Keywords"
+                                    value="${currentQuery}"
                                 />
                                 <span class="nhsd-t-form-control__button">
                                     <button
@@ -100,7 +101,7 @@
                 <div class="nhsd-t-row nhsd-!t-padding-top-1">
                     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
                         id="search-results-count">${totalAvailable}
-                        results</h6>
+                        results ${parameterMap}</h6>
                 </div>
                <#-- <#if retiredFilterEnabled>-->
                     <div class="nhsd-t-row">
@@ -113,10 +114,11 @@
                                             <#assign hstRequestContext = requestContext>
                                             <#assign contextPath = hstRequestContext.baseURL.contextPath>
                                             <#assign requestPath = hstRequestContext.baseURL.requestPath>
-                                            <#assign fullURL = contextPath + requestPath +"?r120_r1:page=1"/>
+                                            <#assign fullURL = contextPath + requestPath + "?query=${currentQuery}&r120_r1:page=1"/>
                                             <#assign queryParams = showRetired?then("${fullURL}","${fullURL}&showRetired") />
-                                            <input type="hidden" name="hiddenVar" value="${queryParams}">
-                                        <@hst.link var="baseUrl"/>
+
+                                          <#--  <input type="hidden" name="hiddenVar" value="${queryParams}">
+                                        <@hst.link var="baseUrl"/>-->
                                             <a onclick=""
                                                href="${queryParams}"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">

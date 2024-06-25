@@ -155,9 +155,26 @@ function showFilterSubsections(element) {
         });
 }
 
+function searchApiCatalogue() {
+    const searchInput = document.querySelector('#catalogue-search-bar-input');
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+        const currentUrl = window.location.href;
+        const requestUrl = new URL(currentUrl);
+        requestUrl.searchParams.set('query', searchTerm);
+        window.location.href = requestUrl.toString();
+    }
+}
+
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
 document.querySelector('#catalogue-search-bar-input').addEventListener('input', (ev) => updateSearchResults(ev));
 document.querySelectorAll('#show-more').forEach((element) => element.addEventListener('click', () => {
     showFilterSubsections(element);
     hide(element);
 }));
+document.querySelector('#catalogue-search-bar-input').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        searchApiCatalogue();
+    }
+});
