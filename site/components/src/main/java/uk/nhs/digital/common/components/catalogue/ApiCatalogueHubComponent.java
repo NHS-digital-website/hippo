@@ -17,10 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.Spliterators;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -52,10 +49,14 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         HippoBean scope = this.getSearchScope(request, paramInfo.getPath());
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
         HippoFacetNavigationBean facetNavigationBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
-        request.setAttribute("totalAvailable", facetNavigationBean.getCount().intValue());
+
         request.setAttribute("showRetired", showRetired);
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("parameterMap",  request.getRequestContext().getBaseURL().getParameterMap());
+
+        if (Boolean.valueOf(request.getAttribute("showRetired").toString())) {
+            request.setAttribute("totalAvailable", facetNavigationBean.getCount().intValue());
+        }
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
@@ -70,33 +71,37 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
-        Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
-        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
-        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
-        if (facetBean != null) {
-            HippoResultSetBean resultSet = facetBean.getResultSet();
-            if (resultSet != null) {
-                HippoDocumentIterator<HippoBean> iterator = getFilteredIterator(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
-                    String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
-                    if (keys != null) {
-                        return !Arrays.asList(keys).contains("retired-api");
-                    }
-                    return true;
-                });
-                pageable = this.getPageableFactory().createPageable(iterator, resultSet.getCount().intValue(), paramInfo.getPageSize(), this.getCurrentPage(request));
+        ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
+        if (apiCatalogueComponent.shouldShowRetired(request)) {
+            return super.doFacetedSearch(request, paramInfo, scope);
+        } else {
+            Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
+            String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+            HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+            if (facetBean != null) {
+                HippoResultSetBean resultSet = facetBean.getResultSet();
+                if (resultSet != null) {
+                    List<HippoBean> filteredList = filterItems(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
+                        String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
+                        if (keys != null) {
+                            return !Arrays.asList(keys).contains("retired-api");
+                        }
+                        return true;
+                    });
+                    HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
+                    pageable = this.getPageableFactory().createPageable(iterator, filteredList.size() - 1, paramInfo.getPageSize(), this.getCurrentPage(request));
+                    request.setAttribute("totalAvailable", filteredList.size() - 1);
+                }
             }
+            return (Pageable) pageable;
         }
-
-        return (Pageable)pageable;
     }
 
-    private <T>  HippoDocumentIterator<HippoBean> getFilteredIterator(Iterator<T> iterator, Predicate<T> filter) {
+    private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> filter) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
-        // Convert the filtered list back to a HippoDocumentIterator
-        return new CustomHippoDocumentIterator(StreamSupport.stream(spliterator, false)
+        return StreamSupport.stream(spliterator, false)
             .filter(filter)
-            .collect(Collectors.toList())
-            .iterator());
+            .collect(Collectors.toList());
     }
 
 }
