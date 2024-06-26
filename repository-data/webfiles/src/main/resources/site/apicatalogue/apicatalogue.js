@@ -158,12 +158,10 @@ function showFilterSubsections(element) {
 function searchApiCatalogue() {
     const searchInput = document.querySelector('#catalogue-search-bar-input');
     const searchTerm = searchInput.value.trim();
-    if (searchTerm) {
-        const currentUrl = window.location.href;
-        const requestUrl = new URL(currentUrl);
-        requestUrl.searchParams.set('query', searchTerm);
-        window.location.href = requestUrl.toString();
-    }
+    const currentUrl = window.location.href;
+    const requestUrl = new URL(currentUrl);
+    requestUrl.searchParams.set('query', searchTerm);
+    window.location.href = requestUrl.toString();
 }
 
 document.querySelector('#catalogue-search-bar').classList.remove(nhsdHiddenClass);
