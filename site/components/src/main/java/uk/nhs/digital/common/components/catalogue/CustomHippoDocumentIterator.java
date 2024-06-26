@@ -16,7 +16,7 @@ public class CustomHippoDocumentIterator<T> implements HippoDocumentIterator<T> 
 
     @Override
     public void skip(int i) {
-        for (int index = 0; index <= i && this.hasNext(); index++) {
+        for (int index = 0; index < i; index++) {
             this.next();
         }
     }

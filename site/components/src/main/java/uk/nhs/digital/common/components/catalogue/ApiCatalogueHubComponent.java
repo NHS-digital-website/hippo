@@ -66,17 +66,17 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                     return true;
                 });
                 HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
-                pageable = this.getPageableFactory().createPageable(iterator, filteredList.size() - 1 , paramInfo.getPageSize(), this.getCurrentPage(request));
-                request.setAttribute("totalAvailable", filteredList.size()-1);
+                pageable = this.getPageableFactory().createPageable(iterator, filteredList.size(), paramInfo.getPageSize(), this.getCurrentPage(request));
+                request.setAttribute("totalAvailable", filteredList.size());
             }
         }
         return (Pageable) pageable;
     }
 
-    private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> filter) {
+    private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
         return StreamSupport.stream(spliterator, false)
-            .filter(filter)
+            .filter(shouldKeep)
             .collect(Collectors.toList());
     }
 }
