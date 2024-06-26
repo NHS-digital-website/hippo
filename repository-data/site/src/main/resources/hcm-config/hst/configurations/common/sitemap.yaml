@@ -427,6 +427,10 @@ definitions:
           hst:relativecontentpath: developer/api-catalogue
           jcr:primaryType: hst:sitemapitem
         /api-catalogue2:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/api-catalogue2
+            hst:relativecontentpath: faceted-api-specifications/${1}
+            jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/api-catalogue2
           hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
