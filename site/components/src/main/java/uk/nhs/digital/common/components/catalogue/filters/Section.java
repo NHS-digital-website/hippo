@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class Section implements Walkable {
 
+    private final String taxonomyKey;
     private final String displayName;
     private final List<Subsection> entries;
     private final String description;
@@ -23,6 +24,7 @@ public class Section implements Walkable {
 
     @JsonCreator
     protected Section(
+        @JsonProperty("taxonomyKey") final String taxonomyKey,
         @JsonProperty("displayName") final String displayName,
         @JsonProperty("description") final String description,
         @JsonProperty("defaultExpanded") final String defaultExpanded,
@@ -30,6 +32,7 @@ public class Section implements Walkable {
         @JsonProperty("amountChildrenToShow") final String amountChildrenToShow,
         @JsonProperty("entries") final Subsection... entries
     ) {
+        this.taxonomyKey = taxonomyKey;
         this.displayName = displayName;
         this.description = description;
         this.expanded = parseBooleanFromString(defaultExpanded);
@@ -37,6 +40,10 @@ public class Section implements Walkable {
         this.amountChildrenToShow = parseIntegerFromString(amountChildrenToShow);
         this.entries = Optional.ofNullable(entries).map(Arrays::asList).orElse(emptyList());
         this.entries.forEach(entry -> entry.setParentAndSubsectionVisibility(this));
+    }
+
+    public String getTaxonomyKey() {
+        return taxonomyKey;
     }
 
     public String getDisplayName() {

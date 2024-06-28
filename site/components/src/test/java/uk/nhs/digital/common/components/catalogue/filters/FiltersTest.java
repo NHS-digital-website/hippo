@@ -137,14 +137,14 @@ public class FiltersTest {
 
     private Filters baseFilters() {
         return FiltersTestUtils.filters(
-            section("Section 5",
+            section("section-5", "Section 5",
                 subsection("Subsection Z", "key-z"),
                 subsection("Subsection D", "key-d", "colour-a",
                     subsection("Subsection S", "key-s", null, "colour-b"),
                     subsection("Subsection U", "key-u")
                 )
             ),
-            section("Section 2",
+            section("section-2", "Section 2",
                 subsection("Subsection 3", "key-3"),
                 subsection("Subsection I", "key-i",
                     subsection("Subsection T", "key-t", null, "colour-c"),

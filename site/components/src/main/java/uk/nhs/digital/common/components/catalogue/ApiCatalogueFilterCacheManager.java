@@ -13,8 +13,8 @@ import java.time.Duration;
 
 public class ApiCatalogueFilterCacheManager {
 
-    static CacheManager filterCache = null;
-    static CacheManager facetBeanCache = null;
+    private static CacheManager filterCache = null;
+    private static CacheManager facetBeanCache = null;
 
     public static CacheManager loadFilterCache() {
 

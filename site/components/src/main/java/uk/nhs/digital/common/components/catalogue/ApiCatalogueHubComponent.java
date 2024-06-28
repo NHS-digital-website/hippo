@@ -1,7 +1,5 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.ehcache.Cache;
-import org.ehcache.CacheManager;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
@@ -17,6 +15,7 @@ import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.essentials.components.utils.SiteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
 import java.util.*;
@@ -39,10 +38,29 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         long startTime = System.currentTimeMillis();
         log.debug("Start Time:" + startTime);
 
+        super.doBeforeRender(request, response);
+
+        // Note remove ApiCatalogueComponent after when work is done.
         ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
         showRetired = apiCatalogueComponent.shouldShowRetired(request);
+
+        // This is the replacement
+        ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+
+        Optional<Section> status = apiCatalogueFilterManager.getRawFilters(request).getSections().stream()
+            .filter(section -> "Status".equals(section.getDisplayName()))
+            .findFirst();
+
+        status.ifPresent(section -> {
+            Map<String, Section> sectionMap = section.getEntries().stream()
+                .collect(Collectors.toMap(
+                    Section::getTaxonomyKey,
+                    entry -> entry
+                ));
+            request.setAttribute("apiStatusEntries", sectionMap);
+        });
+
         log.debug("showRetired:" + showRetired);
-        super.doBeforeRender(request, response);
         request.setAttribute("showRetired", showRetired);
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", getAnyParameter(request, "query"));
@@ -67,7 +85,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                     }
                     return true;
                 });
-                addFacetBeanInCache(facetBean);
+                // addFacetBeanInCache(facetBean); I did't understand this bit, but happy to talk about it.
                 HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
                 pageable = this.getPageableFactory().createPageable(iterator, filteredList.size(), paramInfo.getPageSize(), this.getCurrentPage(request));
                 request.setAttribute("totalAvailable", filteredList.size());
@@ -76,13 +94,13 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         return (Pageable) pageable;
     }
 
-    private void addFacetBeanInCache(HippoFacetNavigationBean facetBean) {
+    /* private void addFacetBeanInCache(HippoFacetNavigationBean facetBean) {
 
         CacheManager cacheManager1 = ApiCatalogueFilterCacheManager.loadFacetBeanCache();
         Cache<String, HippoFacetNavigationBean> cache = cacheManager1.getCache("apiFacetBeanCache", String.class, HippoFacetNavigationBean.class);
         cache.put("facetBeanCache", facetBean);
 
-    }
+    } */
 
     private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);

@@ -55,14 +55,14 @@ public class JacksonFiltersFactoryTest {
         );
 
         final Filters expectedFilters = filters(
-            section("Section 5",
+            section("section-5", "Section 5",
                 subsection("Subsection Z", "key-z"),
                 subsection("Subsection D", "key-d",
                     subsection("Subsection S", "key-s"),
                     subsection("Subsection U", "key-u")
                 )
             ),
-            section("Section 2",
+            section("section-2", "Section 2",
                 "section multiline description"
                     + " with <a href=\"https://digital.nhs.uk/developer\" class=\"nhsd-a-link\" target=\"_blank\">hyperlink</a>"
                     + " more text",

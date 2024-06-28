@@ -145,31 +145,23 @@
 
                     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
                     <#list pageable.items as document>
-
-                            <#--<#assign containsRetiredApi = false>
-                            <#list document.keys as key>
-                                <#if key == "retired-api">
-                                    <#assign containsRetiredApi = true>
-                                    <#break>
-                                </#if>
-                            </#list>
-
-                        <#if !containsRetiredApi || showRetired>-->
-
                         <div class="nhsd-t-flex-item--grow">
                             <div data-api-catalogue-entry="">
                                 <#list document.keys as key>
-                                <a title="Filter by In production" href="/developer/api-catalogue?filter=access-to-records_1&amp;filter=community-health-care&amp;filter=in-production" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-light-green nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${key}</a>
-                               <#-- <a title="Filter by Under review for deprecation" href="/developer/api-catalogue?filter=access-to-records_1&amp;filter=community-health-care&amp;filter=under-review-for-deprecation" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-light-red nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">Under review for deprecation</a>-->
-
+                                    <#if apiStatusEntries[key]?exists>
+                                        <a title="Filter by ${apiStatusEntries[key].displayName}" href="/developer/api-catalogue2/t/${key}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${apiStatusEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${apiStatusEntries[key].displayName}</a>
+                                    </#if>
                                 </#list>
                                 <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="access-control-service-hl7-v3-api">
                                     <a href="/developer/api-catalogue/access-control-service-hl7-v3" class="nhsd-a-link" data-filterable="">${document.title} </a>
                                 </h2>
 
                                 <p class="nhsd-t-body" data-filterable="">${document.shortsummary}</p>
-                                <#--<a title="Remove Access to records filter" href="/developer/api-catalogue?filter=community-health-care" style="line-height:1; text-decoration:none" class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">Access to records</a>-->
-
+                                <#list document.keys as key>
+                                    <#if !(apiStatusEntries[key]?exists)>
+                                        <a title="Filter by ${key}" href="/developer/api-catalogue2/t/${key}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${key}</a>
+                                    </#if>
+                                </#list>
                             </div>
                         </div>
 

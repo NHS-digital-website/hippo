@@ -23,7 +23,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsDisplayed_whenAnyChildSubsectionTagIsDisplayed() {
 
         // given
-        final Section section = section("Section",
+        final Section section = section("section", "Section",
             subsection("Tag A", "tag-a"),
             subsection("Tag B", "tag-b")
         );
@@ -47,7 +47,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsNotDisplayed_whenNoChildTagIsDisplayed() {
 
         // given
-        final Section section = section("Section",
+        final Section section = section("section", "Section",
             subsection("Tag A", "tag-a"),
             subsection("Tag B", "tag-b")
         );
@@ -71,7 +71,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsExpanded_whenAChildSubsectionIsSelected() {
 
         // given
-        final Section actualSection = section("Section",
+        final Section actualSection = section("section", "Section",
             subsection("Tag A", "tag-a"),
             subsection("Tag B", "tag-b")
         );
@@ -95,7 +95,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsExpanded_whenAChildSubsectionIsExpanded() {
 
         // given
-        final Section actualSection = section("Section",
+        final Section actualSection = section("section", "Section",
             subsection("Tag A", "tag-a"),
             subsection("Tag B", "tag-b")
         );
@@ -119,7 +119,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsCollapsed_whenNoChildTagsAreSelected_andSectionDoesNotDefaultExpanded() {
 
         // given
-        final Section section = section("Section",
+        final Section section = section("section", "Section",
             subsection("Tag A", "tag-a"),
             subsection("Tag B", "tag-b")
         );
