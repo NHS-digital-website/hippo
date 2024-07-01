@@ -176,3 +176,7 @@ document.querySelector('#catalogue-search-bar-input').addEventListener('keydown'
         searchApiCatalogue();
     }
 });
+document.querySelector('#catalogue-search-bar-input-button').addEventListener('click', (event) => {
+    event.preventDefault();
+    searchApiCatalogue();
+});

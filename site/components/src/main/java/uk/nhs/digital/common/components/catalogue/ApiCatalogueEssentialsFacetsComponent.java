@@ -47,15 +47,16 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             log.info("Cache data not fetched!!!");
         } else {
             facetBean = cache1.get("facetBeanCache");
-            log.info("Cache data fetched!!!" + facetBean);
+            log.info("Cache data fetched!!!");
         }
 
         request.setAttribute("statusKeys", rawFilters.getSections().get(4).getEntries());
-        request.setModel("facets", facetBean);
+        request.setAttribute("filtersModel",rawFilters);
+        request.setAttribute("facets", facetBean);
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+        log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
 }

@@ -63,7 +63,8 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         log.debug("showRetired:" + showRetired);
         request.setAttribute("showRetired", showRetired);
         request.setAttribute("requestContext", request.getRequestContext());
-        request.setAttribute("currentQuery", getAnyParameter(request, "query"));
+        request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));
+
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
