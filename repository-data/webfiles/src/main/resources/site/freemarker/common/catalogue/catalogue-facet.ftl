@@ -5,9 +5,8 @@
 
 <@hst.setBundle basename="month-names"/>
 
-hello
 <#if facets??>
-    world<@hst.link var="baseLink" hippobean=facets />
+    <@hst.link var="baseLink" hippobean=facets />
     <#list facets.folders as facet>
         <div class="article-section-nav-wrapper faceted-nav-facet">
             <div class="js-filter-list">

@@ -78,8 +78,8 @@
       \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
       \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
       \n      displayName: Closed programme\r\n      highlight: light-purple\r\n \
-      \   - taxonomyKey: in-production\r\n      displayName: In Production\r\
-      \n      highlight: light-green"
+      \   - taxonomyKey: in-production\r\n      displayName: In Production\r\n   \
+      \   highlight: light-green"
   /taxonomy-filters-mapping[2]:
     common:searchable: true
     hippo:availability:

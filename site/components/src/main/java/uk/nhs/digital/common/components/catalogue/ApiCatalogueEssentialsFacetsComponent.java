@@ -52,7 +52,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
 
         request.setAttribute("statusKeys", rawFilters.getSections().get(4).getEntries());
         request.setAttribute("filtersModel",rawFilters);
-        request.setAttribute("facets", facetBean);
+        request.setModel("facets", facetBean);
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;

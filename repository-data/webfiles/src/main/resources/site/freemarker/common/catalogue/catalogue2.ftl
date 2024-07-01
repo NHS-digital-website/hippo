@@ -96,7 +96,7 @@
                 <div class="nhsd-t-row nhsd-!t-padding-top-1">
                     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
                         id="search-results-count">${totalAvailable}
-                        results ${parameterMap}</h6>
+                        results </h6>
                 </div>
                <#-- <#if retiredFilterEnabled>-->
                     <div class="nhsd-t-row">

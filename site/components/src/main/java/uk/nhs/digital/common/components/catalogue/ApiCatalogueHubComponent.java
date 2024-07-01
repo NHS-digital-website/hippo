@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
+import org.ehcache.Cache;
+import org.ehcache.CacheManager;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
@@ -86,7 +88,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                     }
                     return true;
                 });
-                // addFacetBeanInCache(facetBean); I did't understand this bit, but happy to talk about it.
+                addFacetBeanInCache(facetBean); //I did't understand this bit, but happy to talk about it.
                 HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
                 pageable = this.getPageableFactory().createPageable(iterator, filteredList.size(), paramInfo.getPageSize(), this.getCurrentPage(request));
                 request.setAttribute("totalAvailable", filteredList.size());
@@ -95,13 +97,13 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         return (Pageable) pageable;
     }
 
-    /* private void addFacetBeanInCache(HippoFacetNavigationBean facetBean) {
+    private void addFacetBeanInCache(HippoFacetNavigationBean facetBean) {
 
         CacheManager cacheManager1 = ApiCatalogueFilterCacheManager.loadFacetBeanCache();
         Cache<String, HippoFacetNavigationBean> cache = cacheManager1.getCache("apiFacetBeanCache", String.class, HippoFacetNavigationBean.class);
         cache.put("facetBeanCache", facetBean);
 
-    } */
+    }
 
     private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
