@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 @ParametersInfo(
         type = EssentialsFacetsComponentInfo.class
 )
@@ -53,10 +55,22 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         request.setAttribute("statusKeys", rawFilters.getSections().get(4).getEntries());
         request.setAttribute("filtersModel",rawFilters);
         request.setModel("facets", facetBean);
+        request.setModel("facets1", getFacetFiltermap(facetBean));
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+    }
+
+    private ConcurrentHashMap<String, Object> getFacetFiltermap(HippoFacetNavigationBean facetBean) {
+        ConcurrentHashMap<String, Object> facetFilterMap = new ConcurrentHashMap();
+        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
+            facetFilterMap.put(
+                ((HippoFacetNavigationBean) i).getDisplayName(),
+                ((HippoFacetNavigationBean) i).getCount()
+            )
+        );
+        return facetFilterMap;
     }
 
 }
