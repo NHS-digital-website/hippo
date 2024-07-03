@@ -113,7 +113,9 @@
                                             <#if currentQuery?exists && currentQuery?has_content>
                                                     <#assign currentQuery1 = currentQuery>
                                             </#if>
-                                            <#assign fullURL = contextPath + requestPath + "?query=${currentQuery1}&r120_r1:page=1"/>
+                                            <@hst.renderURL fullyQualified=true var="link" />
+                                            <#assign fullURL =  link + "?query=${currentQuery1}&r120_r1:page=1"/>
+                                            <#--<#assign fullURL =  contextPath + "?query=${currentQuery1}&r120_r1:page=1"/>-->
                                             <#assign queryParams = showRetired?then("${fullURL}","${fullURL}&showRetired") />
                                             <a onclick=""
                                                href="${queryParams}"

@@ -40,11 +40,11 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         long startTime = System.currentTimeMillis();
         log.debug("Start Time:" + startTime);
 
-        super.doBeforeRender(request, response);
-
         // Note remove ApiCatalogueComponent after when work is done.
         ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
         showRetired = apiCatalogueComponent.shouldShowRetired(request);
+
+        super.doBeforeRender(request, response);
 
         // This is the replacement
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();

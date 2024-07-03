@@ -51,15 +51,32 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             facetBean = cache1.get("facetBeanCache");
             log.info("Cache data fetched!!!");
         }
+        //request.setAttribute("statusKeys", rawFilters.getSections().get(4).getEntries());
 
-        request.setAttribute("statusKeys", rawFilters.getSections().get(4).getEntries());
-        request.setAttribute("filtersModel",rawFilters);
         request.setModel("facets", facetBean);
-        request.setModel("facets1", getFacetFiltermap(facetBean));
+        ConcurrentHashMap<String, Object> facetBeanMap = getFacetFiltermap(facetBean);
+        request.setModel("facets1", facetBeanMap);
+
+        request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+    }
+
+    private Filters getFiltersBasedOnFacetResults(Filters rawFilters, ConcurrentHashMap<String, Object> facetBeanMap) {
+        rawFilters.getSections().parallelStream().forEach(section ->
+            {
+                section.getEntries().parallelStream().forEach(subsection -> {
+                        if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
+                            && !facetBeanMap.get(subsection.getTaxonomyKey()).toString().isEmpty()) {
+                            section.display();
+                        }
+                    }
+                );
+            }
+        );
+        return rawFilters;
     }
 
     private ConcurrentHashMap<String, Object> getFacetFiltermap(HippoFacetNavigationBean facetBean) {
@@ -67,7 +84,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
-                ((HippoFacetNavigationBean) i).getCount()
+                (HippoFacetNavigationBean) i//((HippoFacetNavigationBean) i).getCount()
             )
         );
         return facetFilterMap;

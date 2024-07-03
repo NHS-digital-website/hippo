@@ -82,53 +82,69 @@
                     <span class="filter-head__title">Filters</span>
                 </h2>
                 <span class="nhsd-t-body">
-                        <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>" title="Reset filters">
+                        <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>"
+                           title="Reset filters">
                             Reset filters
                         </a>
                     </span>
             </div>
 
             <nav>
-             <#if filtersModel?? && facets1?has_content>
-               <#list filtersModel.sections as section>
-                  <#--<#if !section.displayed>-->
+                <#if filtersModel?? && facets1?has_content>
+                    <#list filtersModel.sections as section>
+                    <#if section.displayed>
                         <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
-                            <input id="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                   class="section-folder"
-                                   type="checkbox"
-                                   aria-hidden="true"
-                                   <#if section.expanded>checked</#if>/>
-                            <div class="nhsd-m-filter-menu-section__menu-button section-label-container">
-                                <label for="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                       class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
-                                        <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
-                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-                                                <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
+                            <input
+                                id="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                class="section-folder"
+                                type="checkbox"
+                                aria-hidden="true"
+                                <#if section.expanded>checked</#if>/>
+                            <div
+                                class="nhsd-m-filter-menu-section__menu-button section-label-container">
+                                <label
+                                    for="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                    class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
+                                        <span
+                                            class="nhsd-a-icon nhsd-a-icon--size-xxs">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 preserveAspectRatio="xMidYMid meet"
+                                                 aria-hidden="true"
+                                                 focusable="false"
+                                                 viewBox="0 0 16 16" width="100%"
+                                                 height="100%">
+                                                <path
+                                                    d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
                                             </svg>
                                         </span>
-                                    <span class="<#if !responsive>filter-category-label__text</#if>nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
-                                        </label>
+                                    <span
+                                        class="<#if !responsive>filter-category-label__text</#if>nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
+                                </label>
                                 <#--<@filterDescription section.description()!"" responsive/>-->
-                                </div>
+                            </div>
                             <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
                                     <@filterTemplate filter filtersModel facets1 0 responsive></@filterTemplate>
-                            </#list>
-                               <#-- <#if section.hasHiddenSubsections()>-->
-                                    <div class="nhsd-m-filter-menu-section" id="show-more">
-                                        <a class="nhsd-a-link--col-dark-grey">show more...</a>
-                                    </div>
-                               <#-- </#if>-->
+                                </#list>
+                                <#-- <#if section.hasHiddenSubsections()>-->
+                                <div class="nhsd-m-filter-menu-section"
+                                     id="show-more">
+                                    <a class="nhsd-a-link--col-dark-grey">show
+                                        more...</a>
+                                </div>
+                                <#-- </#if>-->
+                            </div>
                         </div>
-                    </div>
                         <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
-                  <#--</#if>-->
-               </#list>
-             </#if>
+                   </#if>
+                    </#list>
+                </#if>
             </nav>
-                </div>
-            </div>
-    <div class="nhsd-t-body nhsd-!t-display-hide nhsd-!t-display-l-show"><a class="nhsd-a-link" href="#">Back to top</a></div>
+
+        </div>
+    </div>
+    <div class="nhsd-t-body nhsd-!t-display-hide nhsd-!t-display-l-show"><a
+            class="nhsd-a-link" href="#">Back to top</a></div>
 </div>
 
 <#macro filterTemplate filter filtersModel facets1 indentationLevel=0 responsive=false>
@@ -158,7 +174,7 @@
                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey]}) </span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey]!= null> (${facets1[filter.taxonomyKey].count}) </#if></span>
 
                         </a>
                    <#-- <#else>
