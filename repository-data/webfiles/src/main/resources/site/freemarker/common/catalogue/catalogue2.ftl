@@ -155,8 +155,15 @@
                                         </#if>
                                     </#if>
                                 </#list>
-                                <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="access-control-service-hl7-v3-api">
-                                    <a href="/developer/api-catalogue/access-control-service-hl7-v3" class="nhsd-a-link" data-filterable="">${document.title} </a>
+
+                                <@hst.link hippobean=document var="link1"/>
+
+                                <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="${document.title?lower_case?replace(" ", "-")}">
+                                    <#if link1?has_content>
+                                        <a href="${link1}" class="nhsd-a-link" data-filterable>${document.title}</a>
+                                    <#else>
+                                        ${document.title}
+                                    </#if>
                                 </h2>
 
                                 <p class="nhsd-t-body" data-filterable="">${document.shortsummary}</p>
