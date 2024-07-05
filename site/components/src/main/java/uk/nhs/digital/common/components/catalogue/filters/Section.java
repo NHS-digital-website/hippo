@@ -108,7 +108,8 @@ public class Section implements Walkable {
     }
 
     public boolean hasHiddenSubsections() {
-        return displayedSubsections().size() < getEntriesAndChildEntries().stream().filter(Section::isDisplayed).count() && !anyHiddenSubsectionsSelected();
+        //return displayedSubsections().size() < getEntriesAndChildEntries().stream().filter(Section::isDisplayed).count() && !anyHiddenSubsectionsSelected();
+        return true;
     }
 
     protected boolean anyHiddenSubsectionsSelected() {
@@ -117,7 +118,7 @@ public class Section implements Walkable {
                 .anyMatch(Subsection::isSelected);
     }
 
-    protected boolean getHideChildren() {
+    public boolean getHideChildren() {
         return this.hideChildren;
     }
 

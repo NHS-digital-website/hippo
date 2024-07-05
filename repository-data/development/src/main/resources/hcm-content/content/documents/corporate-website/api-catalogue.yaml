@@ -3546,6 +3546,697 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: 82719d59-ae36-4aed-b992-59c9e9c93725
+    /national-care-records-service-integration:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /website:html:
+              /content:
+                hippo:docbase: f94432ef-c655-44d6-96c4-d0921c13bda7
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 857bcc7e-f419-4ef4-9ce0-d604b0e24fe9
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /integrating-the-national-care-records-service-for-system-suppliers:
+                hippo:docbase: 6e133f0d-c4d8-4bbe-ad74-469c61f86a59
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this integration to integrate point-of-care applications with the <a href="content">National Care Records Service&nbsp;(NCRS)</a>&nbsp;to quickly and easily view patient records.</p>
+
+                <p>This is a user interface integration, not an API. The user clicks a 'deep link' in the point-of-care application which launches NCRS and immediately displays the appropriate patient record.</p>
+
+                <p>The deep link URL includes the patient's NHS number so that NCRS knows which patient to display.</p>
+
+                <p>The user is authenticated for NCRS in the same way they would be if they launched NCRS themselves - with a smartcard or modern alternative, using the&nbsp;<a href="content_1">Care Identity Service</a>&nbsp;(NCRS works with both CIS1 and CIS2).</p>
+
+                <p>For more details, see <a href="integrating-the-national-care-records-service-for-system-suppliers">Integrating the National Care Records Service for system suppliers</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - standard
+          - health-services
+          - people-and-places
+          - data-and-information
+          - accident-and-emergency--a-e-
+          - technology-and-architecture
+          - inpatients
+          - care-capability
+          - ambulance-services
+          - national-health-service
+          - care-settings
+          - out-of-hours
+          - community-health-care
+          - patient-citizen
+          - eyecare
+          - access-to-records_1
+          - '111'
+          - capability
+          - care-services
+          - general-practice_1
+          - transport-infrastructure
+          - maternity
+          - ui-integration
+          - internet-facing
+          - hospital
+          - key-care-information
+          - in-production
+          - social-care
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - service-catalogue
+          - pharmacy
+          - outpatients
+          - dental-health
+          - secondary-care
+          - status
+          - general-practice
+          - demographics
+          common:SearchableTags:
+          - Injury
+          - Accident and Emergency
+          - Mental health
+          - Social care
+          - '111'
+          - Key Care Information
+          - Ambulance
+          - Transport/Infrastructure
+          - General practice
+          - Community health
+          - Hospital
+          - Outpatient
+          - A&E
+          - Maternity
+          - OUH
+          - Out-of-hours
+          - Eyecare
+          - Urgent and Emergency Care
+          - Internet facing
+          - NHS 111
+          - UI integration
+          - Demographic
+          - In production (API)
+          - Patient-facing
+          - Dental practice
+          - Pharmacy
+          - Urgent Treatment Centre
+          - Inpatient
+          - Access to records
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2024-01-22T11:15:23.674Z
+          hippostdpubwf:lastModifiedBy: tony.heap
+          hippotaxonomy:keys:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          - community-health-care
+          - hospital
+          - accident-and-emergency--a-e-
+          - inpatients
+          - outpatients
+          - maternity
+          - mental-health
+          - patient-citizen
+          - transport-infrastructure
+          - ambulance-services
+          - '111'
+          - urgent-treatment-centre
+          - out-of-hours
+          - eyecare
+          hippotranslation:id: dc2327a4-6402-4310-a6ac-36fc0e8c6b74
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:versionable
+          jcr:primaryType: website:general
+          jcr:uuid: d1000062-de24-4e87-86c4-81d913dcdb6c
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:shortsummary: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:taxonomyClassificationField:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          website:title: National Care Records Service integration
+          website:type: ''
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /website:html:
+              /content:
+                hippo:docbase: f94432ef-c655-44d6-96c4-d0921c13bda7
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 857bcc7e-f419-4ef4-9ce0-d604b0e24fe9
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /integrating-the-national-care-records-service-for-system-suppliers:
+                hippo:docbase: 6e133f0d-c4d8-4bbe-ad74-469c61f86a59
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this integration to integrate point-of-care applications with the <a href="content">National Care Records Service&nbsp;(NCRS)</a>&nbsp;to quickly and easily view patient records.</p>
+
+                <p>This is a user interface integration, not an API. The user clicks a 'deep link' in the point-of-care application which launches NCRS and immediately displays the appropriate patient record.</p>
+
+                <p>The deep link URL includes the patient's NHS number so that NCRS knows which patient to display.</p>
+
+                <p>The user is authenticated for NCRS in the same way they would be if they launched NCRS themselves - with a smartcard or modern alternative, using the&nbsp;<a href="content_1">Care Identity Service</a>&nbsp;(NCRS works with both CIS1 and CIS2).</p>
+
+                <p>For more details, see <a href="integrating-the-national-care-records-service-for-system-suppliers">Integrating the National Care Records Service for system suppliers</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - standard
+          - health-services
+          - people-and-places
+          - data-and-information
+          - accident-and-emergency--a-e-
+          - technology-and-architecture
+          - inpatients
+          - care-capability
+          - ambulance-services
+          - national-health-service
+          - care-settings
+          - out-of-hours
+          - community-health-care
+          - patient-citizen
+          - eyecare
+          - access-to-records_1
+          - '111'
+          - capability
+          - care-services
+          - general-practice_1
+          - transport-infrastructure
+          - maternity
+          - ui-integration
+          - internet-facing
+          - hospital
+          - key-care-information
+          - in-production
+          - social-care
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - service-catalogue
+          - pharmacy
+          - outpatients
+          - dental-health
+          - secondary-care
+          - status
+          - general-practice
+          - demographics
+          common:SearchableTags:
+          - Injury
+          - Accident and Emergency
+          - Mental health
+          - Social care
+          - '111'
+          - Key Care Information
+          - Ambulance
+          - Transport/Infrastructure
+          - General practice
+          - Community health
+          - Hospital
+          - Outpatient
+          - A&E
+          - Maternity
+          - OUH
+          - Out-of-hours
+          - Eyecare
+          - Urgent and Emergency Care
+          - Internet facing
+          - NHS 111
+          - UI integration
+          - Demographic
+          - In production (API)
+          - Patient-facing
+          - Dental practice
+          - Pharmacy
+          - Urgent Treatment Centre
+          - Inpatient
+          - Access to records
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2024-01-22T11:12:26.798Z
+          hippostdpubwf:lastModifiedBy: tony.heap
+          hippotaxonomy:keys:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          - community-health-care
+          - hospital
+          - accident-and-emergency--a-e-
+          - inpatients
+          - outpatients
+          - maternity
+          - mental-health
+          - patient-citizen
+          - transport-infrastructure
+          - ambulance-services
+          - '111'
+          - urgent-treatment-centre
+          - out-of-hours
+          - eyecare
+          hippotranslation:id: dc2327a4-6402-4310-a6ac-36fc0e8c6b74
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          jcr:uuid: 69ebd60a-eb15-455f-bb7a-1bdf495880cc
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:shortsummary: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:taxonomyClassificationField:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          website:title: National Care Records Service integration
+          website:type: ''
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:sections:
+            /website:html:
+              /content:
+                hippo:docbase: f94432ef-c655-44d6-96c4-d0921c13bda7
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /content_1:
+                hippo:docbase: 857bcc7e-f419-4ef4-9ce0-d604b0e24fe9
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              /integrating-the-national-care-records-service-for-system-suppliers:
+                hippo:docbase: 6e133f0d-c4d8-4bbe-ad74-469c61f86a59
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+                jcr:primaryType: hippo:facetselect
+              hippostd:content: |-
+                <p>Use this integration to integrate point-of-care applications with the <a href="content">National Care Records Service&nbsp;(NCRS)</a>&nbsp;to quickly and easily view patient records.</p>
+
+                <p>This is a user interface integration, not an API. The user clicks a 'deep link' in the point-of-care application which launches NCRS and immediately displays the appropriate patient record.</p>
+
+                <p>The deep link URL includes the patient's NHS number so that NCRS knows which patient to display.</p>
+
+                <p>The user is authenticated for NCRS in the same way they would be if they launched NCRS themselves - with a smartcard or modern alternative, using the&nbsp;<a href="content_1">Care Identity Service</a>&nbsp;(NCRS works with both CIS1 and CIS2).</p>
+
+                <p>For more details, see <a href="integrating-the-national-care-records-service-for-system-suppliers">Integrating the National Care Records Service for system suppliers</a>.</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:section
+            website:headinglevel: Main heading
+            website:numberedList: false
+            website:title: Overview
+            website:type: ''
+          /website:seosummary:
+            hippostd:content: Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Integrate point-of-care applications with the National
+              Care Records Service (NCRS) to quickly and easily view patient records.</p>
+            jcr:primaryType: hippostd:html
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
+          common:FullTaxonomy:
+          - standard
+          - health-services
+          - people-and-places
+          - data-and-information
+          - accident-and-emergency--a-e-
+          - technology-and-architecture
+          - inpatients
+          - care-capability
+          - ambulance-services
+          - national-health-service
+          - care-settings
+          - out-of-hours
+          - community-health-care
+          - patient-citizen
+          - eyecare
+          - access-to-records_1
+          - '111'
+          - capability
+          - care-services
+          - general-practice_1
+          - transport-infrastructure
+          - maternity
+          - ui-integration
+          - internet-facing
+          - hospital
+          - key-care-information
+          - in-production
+          - social-care
+          - mental-health
+          - apis_1
+          - urgent-treatment-centre
+          - api-catalogue
+          - urgent-and-emergency-care
+          - primary-care
+          - service-catalogue
+          - pharmacy
+          - outpatients
+          - dental-health
+          - secondary-care
+          - status
+          - general-practice
+          - demographics
+          common:SearchableTags:
+          - Injury
+          - Accident and Emergency
+          - Mental health
+          - Social care
+          - '111'
+          - Key Care Information
+          - Ambulance
+          - Transport/Infrastructure
+          - General practice
+          - Community health
+          - Hospital
+          - Outpatient
+          - A&E
+          - Maternity
+          - OUH
+          - Out-of-hours
+          - Eyecare
+          - Urgent and Emergency Care
+          - Internet facing
+          - NHS 111
+          - UI integration
+          - Demographic
+          - In production (API)
+          - Patient-facing
+          - Dental practice
+          - Pharmacy
+          - Urgent Treatment Centre
+          - Inpatient
+          - Access to records
+          common:searchRank: 3
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: owain.davies1
+          hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
+          hippostdpubwf:lastModificationDate: 2024-01-22T11:15:23.674Z
+          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:publicationDate: 2024-01-22T11:15:27.020Z
+          hippotaxonomy:keys:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          - community-health-care
+          - hospital
+          - accident-and-emergency--a-e-
+          - inpatients
+          - outpatients
+          - maternity
+          - mental-health
+          - patient-citizen
+          - transport-infrastructure
+          - ambulance-services
+          - '111'
+          - urgent-treatment-centre
+          - out-of-hours
+          - eyecare
+          hippotranslation:id: dc2327a4-6402-4310-a6ac-36fc0e8c6b74
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:general
+          jcr:uuid: 14a442e2-dc62-4767-ae5e-ce47c55775c5
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noindexcontrol: false
+          website:propmtuserorg: Do not prompt
+          website:seosummarytext: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:shortsummary: Integrate point-of-care applications with the National
+            Care Records Service (NCRS) to quickly and easily view patient records.
+          website:taxonomyClassificationField:
+          - ui-integration
+          - access-to-records_1
+          - internet-facing
+          - in-production
+          - pharmacy
+          - general-practice_1
+          - social-care
+          - dental-health
+          - urgent-and-emergency-care
+          - general-practice
+          - key-care-information
+          - demographics
+          website:title: National Care Records Service integration
+          website:type: ''
+        hippo:name: National Care Records Service integration
+        hippo:versionHistory: 2b471127-2423-4d4d-9429-44adec9325c8
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 951cef58-58f2-436b-b766-9d871580c6a9
+      hippo:name: National Care Records Service integration
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: c8217045-a612-4ae1-b1b0-affcd298613f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+      jcr:uuid: 58ed33b7-f9c9-49f6-a462-c07035c6cf67
     /personal-demographics-service---fhir-api:
       /content:
         /content[1]:

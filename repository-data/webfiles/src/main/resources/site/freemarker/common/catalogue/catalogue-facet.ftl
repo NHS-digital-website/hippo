@@ -126,15 +126,15 @@
                             </div>
                             <div class="section-entries nhsd-!t-margin-top-2">
                                 <#list section.entries as filter>
-                                    <@filterTemplate filter filtersModel facets1 0 responsive></@filterTemplate>
+                                    <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
                                 </#list>
-                                <#-- <#if section.hasHiddenSubsections()>-->
+                                 <#if section.hasHiddenSubsections()>
                                 <div class="nhsd-m-filter-menu-section"
                                      id="show-more">
                                     <a class="nhsd-a-link--col-dark-grey">show
                                         more...</a>
                                 </div>
-                                <#-- </#if>-->
+                                </#if>
                             </div>
                         </div>
                         <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
@@ -149,7 +149,7 @@
             class="nhsd-a-link" href="#">Back to top</a></div>
 </div>
 
-<#macro filterTemplate filter filtersModel facets1 indentationLevel=0 responsive=false>
+<#macro filterTemplate filter filtersModel facets1 section indentationLevel=0 responsive=false>
 <#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.catalogue.filters.Subsection" -->
    <#--<#if !filter.displayed>-->
         <@hst.link var="baseUrl"/>
@@ -194,7 +194,7 @@
         <#if filter.entries?has_content>
             <div class="nhsd-m-filter-menu-section__option-group">
                 <#list filter.entries as filter>
-                    <@filterTemplate filter filtersModel facets1 nextLevel responsive></@filterTemplate>
+                    <@filterTemplate filter filtersModel facets1 section nextLevel responsive></@filterTemplate>
     </#list>
             </div>
         </#if>
@@ -236,7 +236,7 @@
 <#function getBaseURL url>
     <#assign index = url?index_of("Taxonomies") />
     <#if index != -1>
-        <#return url[0..(index - 1)] />
+        <#return url[0..(index - 2)] />
     <#else>
         <#return url />
     </#if>

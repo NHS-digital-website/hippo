@@ -7,7 +7,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:35.464Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T15:27:13.339Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -16,71 +16,105 @@
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
       \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
-      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
-      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
-      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
-      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
-      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
-      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
-      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
-      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
-      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
-      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
-      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
-      \ patient-information-and-demographics\r\n        displayName: Patient information\
-      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
-      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
-      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
-      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
-      \n      displayName: Population health and proactive care\r\n      entries:\r\
-      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
-      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
-      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
-      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
-      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
-      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
-      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
-      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
-      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
-      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
-      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
-      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
-      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
-      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
-      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
-      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
-      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
-      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
-      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
-      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
-      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
-      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
-      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
-      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
-      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
-      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
-      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
-      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
-      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
-      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
-      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
-      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
-      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
-      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
-      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
-      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
-      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
-      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
-      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
-      \n      displayName: Closed programme\r\n      highlight: light-purple\r\n \
-      \   - taxonomyKey: in-production\r\n      displayName: In Production (test)\r\
-      \n      highlight: light-green"
+      \n    - taxonomyKey: appointments-scheduling\r\n      displayName: Appointment\
+      \ / scheduling\r\n      entries:\r\n      - taxonomyKey: referrals\r\n     \
+      \   displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\n   \
+      \   displayName: Access to records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical decision support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of care\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key care information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication management\r\n      entries:\r\n      - taxonomyKey:\
+      \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
+      \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
+      \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
+      \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\n\
+      \      displayName: Patient communication\r\n    - taxonomyKey: reference-data\r\
+      \n      displayName: Reference data\r\n    - taxonomyKey: referrals-and-bookings\r\
+      \n      displayName: Referrals and bookings\r\n    - taxonomyKey: information-governance\r\
+      \n      displayName: Information governance\r\n    - taxonomyKey: security\r\
+      \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
+      \      displayName: Tests and diagnostics\r\n    - taxonomyKey: workforce\r\n\
+      \      displayName: Workforce\r\n\r\n  - displayName: Care setting\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
+      \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
+      \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
+      \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
+      \        displayName: A&E / emergency department\r\n          - taxonomyKey:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
+      \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
+      \n        displayName: Mental health\r\n      - taxonomyKey: patient-citizen\r\
+      \n        displayName: Patient-facing\r\n      - taxonomyKey: pharmacy\r\n \
+      \       displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\n \
+      \       displayName: GP / primary care\r\n      - taxonomyKey: transport-infrastructure\r\
+      \n        displayName: Transport / infrastructure\r\n      - taxonomyKey: social-care\r\
+      \n        displayName: Social care\r\n      - taxonomyKey: urgent-and-emergency-care\r\
+      \n        displayName: Urgent and emergency care\r\n        entries:\r\n   \
+      \     - taxonomyKey: ambulance-services\r\n          displayName: Ambulance\
+      \ services\r\n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\
+      \n        - taxonomyKey: urgent-treatment-centres\r\n          displayName:\
+      \ Urgent treatment centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+      \n          displayName: A&E / emergency department\r\n        - taxonomyKey:\
+      \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Integration\
+      \ type\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API\r\n      description: We have a [callable API](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-services)\
+      \ in place for healthcare systems to talk to.\r\n      entries:\r\n      - taxonomyKey:\
+      \ central\r\n        displayName: Central\r\n      - taxonomyKey: intermediary\r\
+      \n        displayName: Intermediary\r\n    - taxonomyKey: message-integration\r\
+      \n      displayName: Message integration\r\n      description: Uses [messages](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#message-integration)\
+      \ to send and receive information.\r\n    - taxonomyKey: publish-subscribe-events\r\
+      \n      displayName: Publish-subscribe events\r\n      description: To [broadcast\
+      \ an event](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#publish-subscribe-events)\
+      \ to all interested parties.\r\n    - taxonomyKey: api-standard\r\n      displayName:\
+      \ API standard\r\n      description: We [define a specification](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards)\
+      \ for how applications can talk to each other.\r\n    - taxonomyKey: ui-integration\r\
+      \n      displayName: UI integration\r\n      description: We provide a [user\
+      \ interface](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#ui-integration)\
+      \ for you to either embed or link to.\r\n      \r\n  - displayName: Technology\r\
+      \n    entries:\r\n    - taxonomyKey: internet-facing\r\n      displayName: Internet\
+      \ facing\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n      entries:\r\
+      \n      - taxonomyKey: dstu1\r\n        displayName: DSTU1\r\n      - taxonomyKey:\
+      \ dstu2\r\n        displayName: DSTU2\r\n      - taxonomyKey: stu3\r\n     \
+      \   displayName: STU3\r\n      - taxonomyKey: r4\r\n        displayName: R4\r\
+      \n    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
+      \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
+      \ nems\r\n      displayName: NEMS\r\n    - taxonomyKey: adaptors\r\n      displayName:\
+      \ Has adaptor\r\n    - taxonomyKey: sandbox\r\n      displayName: Has sandbox\r\
+      \n    - taxonomyKey: uses-api-platform\r\n      displayName: Uses API platform\r\
+      \n      description: The API is hosted on our [API platform](https://digital.nhs.uk/services/api-platform).\r\
+      \n    - taxonomyKey: uses-oas\r\n      displayName: Uses OAS\r\n      description:\
+      \ The API specification can be downloaded in [OAS format](https://digital.nhs.uk/developer/guides-and-documentation/our-api-technologies#oas).\r\
+      \n    - taxonomyKey: uses-digital-onboarding\r\n      displayName: Uses digital\
+      \ onboarding\r\n      description: The API uses [digital onboarding](https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding).\r\
+      \n\r\n  - displayName: Status\r\n    description: For definitions of status,\
+      \ see our [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).\r\
+      \n    entries:\r\n    - taxonomyKey: apis_1\r\n      displayName: APIs\r\n \
+      \     entries:\r\n      - taxonomyKey: in-development\r\n        displayName:\
+      \ In development\r\n        highlight: light-amber\r\n      - taxonomyKey: beta-api\r\
+      \n        displayName: Beta\r\n        highlight: light-yellow\r\n      - taxonomyKey:\
+      \ in-production\r\n        displayName: In production\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: internal\r\n        displayName: Internal\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: under-review-for-deprecation\r\
+      \n        displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated\r\n        displayName: Deprecated\r\n   \
+      \     highlight: light-red\r\n      - taxonomyKey: retired\r\n        displayName:\
+      \ Retired\r\n        highlight: light-purple\r\n\r\n    - taxonomyKey: api-standards\r\
+      \n      displayName: API standards\r\n      entries:\r\n      - taxonomyKey:\
+      \ draft\r\n        displayName: Draft\r\n        highlight: light-yellow\r\n\
+      \      - taxonomyKey: active\r\n        displayName: Active\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: under-review-for-deprecation_1\r\n   \
+      \     displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated-standard\r\n        displayName: Deprecated\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: retired-standard\r\n\
+      \        displayName: Retired\r\n        highlight: light-purple\r\n\r\n  -\
+      \ displayName: Owner\r\n    description: These APIs are [owned](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#non-nhs-england-apis)\
+      \ by associated organisations.\r\n    entries:\r\n    - taxonomyKey: nhs-bsa\r\
+      \n      displayName: NHS BSA\r\n    - taxonomyKey: nhs-england\r\n      displayName:\
+      \ NHS England\r\n    - taxonomyKey: nhs-wales\r\n      displayName: NHS Wales\r\
+      \n    - taxonomyKey: ordnance-survey\r\n      displayName: Ordnance Survey"
   /taxonomy-filters-mapping[2]:
     common:searchable: true
     hippo:availability:
@@ -89,7 +123,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:40.791Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T15:27:18.009Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -99,71 +133,105 @@
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
       \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
-      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
-      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
-      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
-      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
-      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
-      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
-      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
-      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
-      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
-      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
-      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
-      \ patient-information-and-demographics\r\n        displayName: Patient information\
-      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
-      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
-      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
-      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
-      \n      displayName: Population health and proactive care\r\n      entries:\r\
-      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
-      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
-      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
-      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
-      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
-      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
-      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
-      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
-      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
-      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
-      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
-      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
-      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
-      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
-      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
-      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
-      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
-      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
-      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
-      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
-      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
-      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
-      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
-      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
-      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
-      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
-      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
-      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
-      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
-      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
-      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
-      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
-      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
-      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
-      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
-      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
-      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
-      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
-      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
-      \n      displayName: Closed programme\r\n      highlight: light-purple\r\n \
-      \   - taxonomyKey: in-production\r\n      displayName: In Production (test)\r\
-      \n      highlight: light-green"
+      \n    - taxonomyKey: appointments-scheduling\r\n      displayName: Appointment\
+      \ / scheduling\r\n      entries:\r\n      - taxonomyKey: referrals\r\n     \
+      \   displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\n   \
+      \   displayName: Access to records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical decision support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of care\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key care information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication management\r\n      entries:\r\n      - taxonomyKey:\
+      \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
+      \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
+      \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
+      \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\n\
+      \      displayName: Patient communication\r\n    - taxonomyKey: reference-data\r\
+      \n      displayName: Reference data\r\n    - taxonomyKey: referrals-and-bookings\r\
+      \n      displayName: Referrals and bookings\r\n    - taxonomyKey: information-governance\r\
+      \n      displayName: Information governance\r\n    - taxonomyKey: security\r\
+      \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
+      \      displayName: Tests and diagnostics\r\n    - taxonomyKey: workforce\r\n\
+      \      displayName: Workforce\r\n\r\n  - displayName: Care setting\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
+      \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
+      \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
+      \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
+      \        displayName: A&E / emergency department\r\n          - taxonomyKey:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
+      \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
+      \n        displayName: Mental health\r\n      - taxonomyKey: patient-citizen\r\
+      \n        displayName: Patient-facing\r\n      - taxonomyKey: pharmacy\r\n \
+      \       displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\n \
+      \       displayName: GP / primary care\r\n      - taxonomyKey: transport-infrastructure\r\
+      \n        displayName: Transport / infrastructure\r\n      - taxonomyKey: social-care\r\
+      \n        displayName: Social care\r\n      - taxonomyKey: urgent-and-emergency-care\r\
+      \n        displayName: Urgent and emergency care\r\n        entries:\r\n   \
+      \     - taxonomyKey: ambulance-services\r\n          displayName: Ambulance\
+      \ services\r\n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\
+      \n        - taxonomyKey: urgent-treatment-centres\r\n          displayName:\
+      \ Urgent treatment centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+      \n          displayName: A&E / emergency department\r\n        - taxonomyKey:\
+      \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Integration\
+      \ type\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API\r\n      description: We have a [callable API](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-services)\
+      \ in place for healthcare systems to talk to.\r\n      entries:\r\n      - taxonomyKey:\
+      \ central\r\n        displayName: Central\r\n      - taxonomyKey: intermediary\r\
+      \n        displayName: Intermediary\r\n    - taxonomyKey: message-integration\r\
+      \n      displayName: Message integration\r\n      description: Uses [messages](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#message-integration)\
+      \ to send and receive information.\r\n    - taxonomyKey: publish-subscribe-events\r\
+      \n      displayName: Publish-subscribe events\r\n      description: To [broadcast\
+      \ an event](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#publish-subscribe-events)\
+      \ to all interested parties.\r\n    - taxonomyKey: api-standard\r\n      displayName:\
+      \ API standard\r\n      description: We [define a specification](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards)\
+      \ for how applications can talk to each other.\r\n    - taxonomyKey: ui-integration\r\
+      \n      displayName: UI integration\r\n      description: We provide a [user\
+      \ interface](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#ui-integration)\
+      \ for you to either embed or link to.\r\n      \r\n  - displayName: Technology\r\
+      \n    entries:\r\n    - taxonomyKey: internet-facing\r\n      displayName: Internet\
+      \ facing\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n      entries:\r\
+      \n      - taxonomyKey: dstu1\r\n        displayName: DSTU1\r\n      - taxonomyKey:\
+      \ dstu2\r\n        displayName: DSTU2\r\n      - taxonomyKey: stu3\r\n     \
+      \   displayName: STU3\r\n      - taxonomyKey: r4\r\n        displayName: R4\r\
+      \n    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
+      \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
+      \ nems\r\n      displayName: NEMS\r\n    - taxonomyKey: adaptors\r\n      displayName:\
+      \ Has adaptor\r\n    - taxonomyKey: sandbox\r\n      displayName: Has sandbox\r\
+      \n    - taxonomyKey: uses-api-platform\r\n      displayName: Uses API platform\r\
+      \n      description: The API is hosted on our [API platform](https://digital.nhs.uk/services/api-platform).\r\
+      \n    - taxonomyKey: uses-oas\r\n      displayName: Uses OAS\r\n      description:\
+      \ The API specification can be downloaded in [OAS format](https://digital.nhs.uk/developer/guides-and-documentation/our-api-technologies#oas).\r\
+      \n    - taxonomyKey: uses-digital-onboarding\r\n      displayName: Uses digital\
+      \ onboarding\r\n      description: The API uses [digital onboarding](https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding).\r\
+      \n\r\n  - displayName: Status\r\n    description: For definitions of status,\
+      \ see our [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).\r\
+      \n    entries:\r\n    - taxonomyKey: apis_1\r\n      displayName: APIs\r\n \
+      \     entries:\r\n      - taxonomyKey: in-development\r\n        displayName:\
+      \ In development\r\n        highlight: light-amber\r\n      - taxonomyKey: beta-api\r\
+      \n        displayName: Beta\r\n        highlight: light-yellow\r\n      - taxonomyKey:\
+      \ in-production\r\n        displayName: In production\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: internal\r\n        displayName: Internal\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: under-review-for-deprecation\r\
+      \n        displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated\r\n        displayName: Deprecated\r\n   \
+      \     highlight: light-red\r\n      - taxonomyKey: retired\r\n        displayName:\
+      \ Retired\r\n        highlight: light-purple\r\n\r\n    - taxonomyKey: api-standards\r\
+      \n      displayName: API standards\r\n      entries:\r\n      - taxonomyKey:\
+      \ draft\r\n        displayName: Draft\r\n        highlight: light-yellow\r\n\
+      \      - taxonomyKey: active\r\n        displayName: Active\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: under-review-for-deprecation_1\r\n   \
+      \     displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated-standard\r\n        displayName: Deprecated\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: retired-standard\r\n\
+      \        displayName: Retired\r\n        highlight: light-purple\r\n\r\n  -\
+      \ displayName: Owner\r\n    description: These APIs are [owned](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#non-nhs-england-apis)\
+      \ by associated organisations.\r\n    entries:\r\n    - taxonomyKey: nhs-bsa\r\
+      \n      displayName: NHS BSA\r\n    - taxonomyKey: nhs-england\r\n      displayName:\
+      \ NHS England\r\n    - taxonomyKey: nhs-wales\r\n      displayName: NHS Wales\r\
+      \n    - taxonomyKey: ordnance-survey\r\n      displayName: Ordnance Survey"
   /taxonomy-filters-mapping[3]:
     common:searchable: true
     hippo:availability:
@@ -172,9 +240,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:40.791Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T15:27:18.009Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-07-05T12:15:43.944Z
+    hippostdpubwf:publicationDate: 2024-07-05T15:27:20.784Z
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
@@ -182,73 +250,107 @@
     jcr:primaryType: website:taxonomymapping
     website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
       \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
-      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
-      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
-      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
-      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
-      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
-      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
-      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
-      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
-      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
-      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
-      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
-      \ patient-information-and-demographics\r\n        displayName: Patient information\
-      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
-      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
-      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
-      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
-      \n      displayName: Population health and proactive care\r\n      entries:\r\
-      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
-      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
-      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
-      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
-      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
-      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
-      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
-      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
-      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
-      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
-      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
-      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
-      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
-      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
-      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
-      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
-      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
-      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
-      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
-      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
-      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
-      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
-      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
-      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
-      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
-      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
-      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
-      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
-      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
-      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
-      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
-      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
-      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
-      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
-      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
-      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
-      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
-      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
-      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
-      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
-      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
-      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
-      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
-      \n      displayName: Closed programme\r\n      highlight: light-purple\r\n \
-      \   - taxonomyKey: in-production\r\n      displayName: In Production (test)\r\
-      \n      highlight: light-green"
+      \n    - taxonomyKey: appointments-scheduling\r\n      displayName: Appointment\
+      \ / scheduling\r\n      entries:\r\n      - taxonomyKey: referrals\r\n     \
+      \   displayName: Referrals\r\n    - taxonomyKey: access-to-records_1\r\n   \
+      \   displayName: Access to records\r\n    - taxonomyKey: clinical-decision-support\r\
+      \n      displayName: Clinical decision support\r\n    - taxonomyKey: continuity-of-care\r\
+      \n      displayName: Continuity of care\r\n    - taxonomyKey: demographics\r\
+      \n      displayName: Demographics\r\n    - taxonomyKey: key-care-information\r\
+      \n      displayName: Key care information\r\n    - taxonomyKey: medication-management\r\
+      \n      displayName: Medication management\r\n      entries:\r\n      - taxonomyKey:\
+      \ prescribing\r\n        displayName: Prescribing\r\n      - taxonomyKey: dispensing\r\
+      \n        displayName: Dispensing\r\n      - taxonomyKey: vaccination\r\n  \
+      \      displayName: Vaccination\r\n    - taxonomyKey: messaging-standards\r\n\
+      \      displayName: Messaging\r\n    - taxonomyKey: patient-communication\r\n\
+      \      displayName: Patient communication\r\n    - taxonomyKey: reference-data\r\
+      \n      displayName: Reference data\r\n    - taxonomyKey: referrals-and-bookings\r\
+      \n      displayName: Referrals and bookings\r\n    - taxonomyKey: information-governance\r\
+      \n      displayName: Information governance\r\n    - taxonomyKey: security\r\
+      \n      displayName: Security\r\n    - taxonomyKey: tests-and-diagnostics\r\n\
+      \      displayName: Tests and diagnostics\r\n    - taxonomyKey: workforce\r\n\
+      \      displayName: Workforce\r\n\r\n  - displayName: Care setting\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n      - taxonomyKey: community-health-care\r\n        displayName: Community\
+      \ health\r\n      - taxonomyKey: dental-health\r\n        displayName: Dentistry\r\
+      \n      - taxonomyKey: hospital\r\n        displayName: Hospital\r\n       \
+      \ entries:\r\n          - taxonomyKey: accident-and-emergency--a-e-\r\n    \
+      \        displayName: A&E / emergency department\r\n          - taxonomyKey:\
+      \ inpatients\r\n            displayName: Inpatient\r\n          - taxonomyKey:\
+      \ outpatients\r\n            displayName: Outpatient\r\n      - taxonomyKey:\
+      \ maternity\r\n        displayName: Maternity\r\n      - taxonomyKey: mental-health\r\
+      \n        displayName: Mental health\r\n      - taxonomyKey: patient-citizen\r\
+      \n        displayName: Patient-facing\r\n      - taxonomyKey: pharmacy\r\n \
+      \       displayName: Pharmacy\r\n      - taxonomyKey: general-practice\r\n \
+      \       displayName: GP / primary care\r\n      - taxonomyKey: transport-infrastructure\r\
+      \n        displayName: Transport / infrastructure\r\n      - taxonomyKey: social-care\r\
+      \n        displayName: Social care\r\n      - taxonomyKey: urgent-and-emergency-care\r\
+      \n        displayName: Urgent and emergency care\r\n        entries:\r\n   \
+      \     - taxonomyKey: ambulance-services\r\n          displayName: Ambulance\
+      \ services\r\n        - taxonomyKey: 111\r\n          displayName: NHS 111\r\
+      \n        - taxonomyKey: urgent-treatment-centres\r\n          displayName:\
+      \ Urgent treatment centres\r\n        - taxonomyKey: accident-and-emergency--a-e-\r\
+      \n          displayName: A&E / emergency department\r\n        - taxonomyKey:\
+      \ out-of-hours\r\n          displayName: OOH GP\r\n\r\n  - displayName: Integration\
+      \ type\r\n    entries:\r\n    - taxonomyKey: api-service\r\n      displayName:\
+      \ API\r\n      description: We have a [callable API](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-services)\
+      \ in place for healthcare systems to talk to.\r\n      entries:\r\n      - taxonomyKey:\
+      \ central\r\n        displayName: Central\r\n      - taxonomyKey: intermediary\r\
+      \n        displayName: Intermediary\r\n    - taxonomyKey: message-integration\r\
+      \n      displayName: Message integration\r\n      description: Uses [messages](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#message-integration)\
+      \ to send and receive information.\r\n    - taxonomyKey: publish-subscribe-events\r\
+      \n      displayName: Publish-subscribe events\r\n      description: To [broadcast\
+      \ an event](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis?key=#publish-subscribe-events)\
+      \ to all interested parties.\r\n    - taxonomyKey: api-standard\r\n      displayName:\
+      \ API standard\r\n      description: We [define a specification](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards)\
+      \ for how applications can talk to each other.\r\n    - taxonomyKey: ui-integration\r\
+      \n      displayName: UI integration\r\n      description: We provide a [user\
+      \ interface](https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#ui-integration)\
+      \ for you to either embed or link to.\r\n      \r\n  - displayName: Technology\r\
+      \n    entries:\r\n    - taxonomyKey: internet-facing\r\n      displayName: Internet\
+      \ facing\r\n    - taxonomyKey: fhir\r\n      displayName: FHIR\r\n      entries:\r\
+      \n      - taxonomyKey: dstu1\r\n        displayName: DSTU1\r\n      - taxonomyKey:\
+      \ dstu2\r\n        displayName: DSTU2\r\n      - taxonomyKey: stu3\r\n     \
+      \   displayName: STU3\r\n      - taxonomyKey: r4\r\n        displayName: R4\r\
+      \n    - taxonomyKey: rest\r\n      displayName: REST\r\n    - taxonomyKey: soap\r\
+      \n      displayName: SOAP\r\n    - taxonomyKey: hl7-v3\r\n      displayName:\
+      \ HL7 V3\r\n    - taxonomyKey: mesh\r\n      displayName: MESH\r\n    - taxonomyKey:\
+      \ nems\r\n      displayName: NEMS\r\n    - taxonomyKey: adaptors\r\n      displayName:\
+      \ Has adaptor\r\n    - taxonomyKey: sandbox\r\n      displayName: Has sandbox\r\
+      \n    - taxonomyKey: uses-api-platform\r\n      displayName: Uses API platform\r\
+      \n      description: The API is hosted on our [API platform](https://digital.nhs.uk/services/api-platform).\r\
+      \n    - taxonomyKey: uses-oas\r\n      displayName: Uses OAS\r\n      description:\
+      \ The API specification can be downloaded in [OAS format](https://digital.nhs.uk/developer/guides-and-documentation/our-api-technologies#oas).\r\
+      \n    - taxonomyKey: uses-digital-onboarding\r\n      displayName: Uses digital\
+      \ onboarding\r\n      description: The API uses [digital onboarding](https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding).\r\
+      \n\r\n  - displayName: Status\r\n    description: For definitions of status,\
+      \ see our [reference guide](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).\r\
+      \n    entries:\r\n    - taxonomyKey: apis_1\r\n      displayName: APIs\r\n \
+      \     entries:\r\n      - taxonomyKey: in-development\r\n        displayName:\
+      \ In development\r\n        highlight: light-amber\r\n      - taxonomyKey: beta-api\r\
+      \n        displayName: Beta\r\n        highlight: light-yellow\r\n      - taxonomyKey:\
+      \ in-production\r\n        displayName: In production\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: internal\r\n        displayName: Internal\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: under-review-for-deprecation\r\
+      \n        displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated\r\n        displayName: Deprecated\r\n   \
+      \     highlight: light-red\r\n      - taxonomyKey: retired\r\n        displayName:\
+      \ Retired\r\n        highlight: light-purple\r\n\r\n    - taxonomyKey: api-standards\r\
+      \n      displayName: API standards\r\n      entries:\r\n      - taxonomyKey:\
+      \ draft\r\n        displayName: Draft\r\n        highlight: light-yellow\r\n\
+      \      - taxonomyKey: active\r\n        displayName: Active\r\n        highlight:\
+      \ light-green\r\n      - taxonomyKey: under-review-for-deprecation_1\r\n   \
+      \     displayName: Under review for deprecation\r\n        highlight: light-red\r\
+      \n      - taxonomyKey: deprecated-standard\r\n        displayName: Deprecated\r\
+      \n        highlight: light-red\r\n      - taxonomyKey: retired-standard\r\n\
+      \        displayName: Retired\r\n        highlight: light-purple\r\n\r\n  -\
+      \ displayName: Owner\r\n    description: These APIs are [owned](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#non-nhs-england-apis)\
+      \ by associated organisations.\r\n    entries:\r\n    - taxonomyKey: nhs-bsa\r\
+      \n      displayName: NHS BSA\r\n    - taxonomyKey: nhs-england\r\n      displayName:\
+      \ NHS England\r\n    - taxonomyKey: nhs-wales\r\n      displayName: NHS Wales\r\
+      \n    - taxonomyKey: ordnance-survey\r\n      displayName: Ordnance Survey"
   hippo:name: Taxonomy filters mapping
-  hippo:versionHistory: 5a91cb60-7329-433e-bf7f-180dc4e62eb6
+  hippo:versionHistory: 742ad8d4-dec7-42dd-bd08-7243466f429d
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo

@@ -74,6 +74,15 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                             && !facetBeanMap.get(subsection.getTaxonomyKey()).toString().isEmpty()) {
                             section.display();
                             subsection.setCount(subSectionCounter.incrementAndGet());
+                            if (subSectionCounter.get() >= 2 && section.getHideChildren()) {
+                                section.hasHiddenSubsections();
+                            }
+                            subsection.getEntries().forEach(subsectionEntry -> {
+                                if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
+                                    && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).toString().isEmpty()) {
+                                    subsectionEntry.setCount(subSectionCounter.incrementAndGet());
+                                }
+                            });
                         }
                     }
                 );
@@ -84,7 +93,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
 
     private ConcurrentHashMap<String, Object> getFacetFiltermap(HippoFacetNavigationBean facetBean) {
         ConcurrentHashMap<String, Object> facetFilterMap = new ConcurrentHashMap();
-        facetBean.getFolders().get(0).getFolders().forEach(i ->
+        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
                 (HippoFacetNavigationBean) i//((HippoFacetNavigationBean) i).getCount()
