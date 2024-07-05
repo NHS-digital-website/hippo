@@ -121,7 +121,7 @@ public class Section implements Walkable {
         return this.hideChildren;
     }
 
-    protected int getAmountChildrenToShow() {
+    public int getAmountChildrenToShow() {
         return this.amountChildrenToShow;
     }
 

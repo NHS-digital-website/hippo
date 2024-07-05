@@ -81,8 +81,10 @@
                 <h2 class="nhsd-t-heading-xs">
                     <span class="filter-head__title">Filters</span>
                 </h2>
+                <@hst.renderURL fullyQualified=true var="link" />
+                <#assign baseURL = getBaseURL(link) />
                 <span class="nhsd-t-body">
-                        <a class="nhsd-a-link nhsd-!t-padding-0" href="<@hst.link/>"
+                        <a class="nhsd-a-link nhsd-!t-padding-0" href="${baseURL}"<#-- <@hst.link/>-->
                            title="Reset filters">
                             Reset filters
                         </a>
@@ -149,7 +151,7 @@
 
 <#macro filterTemplate filter filtersModel facets1 indentationLevel=0 responsive=false>
 <#-- @ftlvariable name="filter" type="uk.nhs.digital.common.components.catalogue.filters.Subsection" -->
-   <#-- <#if !filter.displayed>-->
+   <#--<#if !filter.displayed>-->
         <@hst.link var="baseUrl"/>
        <#-- <#if !filter.selected>
             <#assign filtersParam = filtersModel.selectedFiltersKeysMinus(filter.key) />
@@ -159,7 +161,7 @@
 
     <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
 
-        <div class="section-label-container <#if filter.isHidden()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
+        <div class="section-label-container <#if filter.getAmountChildrenToShow()?number < filter.count()?number>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
             <span class="nhsd-a-checkbox">
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                     <@hst.renderURL fullyQualified=true var="link" />
@@ -229,4 +231,13 @@
 
 <#-- Output the updated link without escaping HTML special characters -->
     <#return updatedLink?no_esc>
+</#function>
+
+<#function getBaseURL url>
+    <#assign index = url?index_of("Taxonomies") />
+    <#if index != -1>
+        <#return url[0..(index - 1)] />
+    <#else>
+        <#return url />
+    </#if>
 </#function>

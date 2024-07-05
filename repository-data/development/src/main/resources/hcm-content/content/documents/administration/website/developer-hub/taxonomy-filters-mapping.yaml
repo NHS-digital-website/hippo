@@ -7,7 +7,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-06-28T11:21:21.431Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:35.464Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -68,7 +68,8 @@
       \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
       \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
       \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
+      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
       \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
       \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
       \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
@@ -78,8 +79,8 @@
       \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
       \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
       \n      displayName: Closed programme\r\n      highlight: light-purple\r\n \
-      \   - taxonomyKey: in-production\r\n      displayName: In Production\r\n   \
-      \   highlight: light-green"
+      \   - taxonomyKey: in-production\r\n      displayName: In Production (test)\r\
+      \n      highlight: light-green"
   /taxonomy-filters-mapping[2]:
     common:searchable: true
     hippo:availability:
@@ -88,7 +89,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-06-28T11:22:46.819Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:40.791Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
@@ -150,7 +151,8 @@
       \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
       \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
       \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
+      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
       \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
       \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
       \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
@@ -170,9 +172,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-06-28T11:22:46.819Z
+    hippostdpubwf:lastModificationDate: 2024-07-05T12:15:40.791Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-06-28T11:22:57.468Z
+    hippostdpubwf:publicationDate: 2024-07-05T12:15:43.944Z
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale
     jcr:mixinTypes:
@@ -232,7 +234,8 @@
       \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
       \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
       \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
-      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \      \r\n  - displayName: Status\r\n    defaultExpanded: true\r\n    hideChildren:\
+      \ true\r\n    amountChildrenToShow: 2\r\n    description: For status definitions,\
       \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
       \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
       \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
@@ -245,7 +248,7 @@
       \   - taxonomyKey: in-production\r\n      displayName: In Production (test)\r\
       \n      highlight: light-green"
   hippo:name: Taxonomy filters mapping
-  hippo:versionHistory: f8305c1a-9171-4a82-87b8-59f25a399bde
+  hippo:versionHistory: 5a91cb60-7329-433e-bf7f-180dc4e62eb6
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo

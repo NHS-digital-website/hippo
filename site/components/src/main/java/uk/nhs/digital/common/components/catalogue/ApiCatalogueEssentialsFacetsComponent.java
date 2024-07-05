@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ParametersInfo(
         type = EssentialsFacetsComponentInfo.class
@@ -65,12 +66,14 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     }
 
     private Filters getFiltersBasedOnFacetResults(Filters rawFilters, ConcurrentHashMap<String, Object> facetBeanMap) {
-        rawFilters.getSections().parallelStream().forEach(section ->
+        rawFilters.getSections().forEach(section ->
             {
-                section.getEntries().parallelStream().forEach(subsection -> {
+                AtomicInteger subSectionCounter = new AtomicInteger(0);
+                section.getEntries().forEach(subsection -> {
                         if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
                             && !facetBeanMap.get(subsection.getTaxonomyKey()).toString().isEmpty()) {
                             section.display();
+                            subsection.setCount(subSectionCounter.incrementAndGet());
                         }
                     }
                 );
@@ -81,7 +84,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
 
     private ConcurrentHashMap<String, Object> getFacetFiltermap(HippoFacetNavigationBean facetBean) {
         ConcurrentHashMap<String, Object> facetFilterMap = new ConcurrentHashMap();
-        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
+        facetBean.getFolders().get(0).getFolders().forEach(i ->
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
                 (HippoFacetNavigationBean) i//((HippoFacetNavigationBean) i).getCount()
