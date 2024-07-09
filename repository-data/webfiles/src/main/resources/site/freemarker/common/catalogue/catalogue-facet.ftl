@@ -128,7 +128,7 @@
                                 <#list section.entries as filter>
                                     <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
                                 </#list>
-                                 <#if section.hasHiddenSubsections()>
+                                 <#if section.showMoreIndc>
                                 <div class="nhsd-m-filter-menu-section"
                                      id="show-more">
                                     <a class="nhsd-a-link--col-dark-grey">show
@@ -160,8 +160,29 @@
         </#if>-->
 
     <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
+       <#-- ${filter.count()?number}-->
+       <#-- ${filter.showMoreIndc?string}-->
+      <#--  ${filter.getAmountChildrenToShow()?number},  ${filter.count()?number}, ${filter.parent().amountChildrenToShow};-->
+       <#-- filter.count()?number lt filter.getAmountChildrenToShow()?number-->
 
-        <div class="section-label-container <#if filter.getAmountChildrenToShow()?number < filter.count()?number>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
+       <#-- <#assign classToAdd = "">
+        <#if filter.expanded?is_boolean && filter.getAmountChildrenToShow()==0>
+        <#assign classToAdd = "hi">
+        <#elseif filter.getAmountChildrenToShow()?number gt filter.count()?number>
+            <#assign classToAdd = "yes">
+        <#elseif filter.count()?number lt filter.parent().amountChildrenToShow && filter.getAmountChildrenToShow()==0>
+            <#assign classToAdd = "yes1">
+       <#elseif filter.getAmountChildrenToShow()!=0 && filter.getAmountChildrenToShow()?number < filter.count()?number>
+            <#assign classToAdd = "nhsd-!t-display-hide ">
+        </#if>-->
+
+    <#--${filter.isExpanded()?string}-->
+    <#--${filter.isDisplayed()?string}-->
+    <#--<#if filter.getAmountChildrenToShow()?number < filter.count()?number>nhsd-!t-display-hide</#if>-->
+
+       <#-- ${filter.isHidden()?string}-->
+        <div class="section-label-container <#if !filter.isDisplayed()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
+
             <span class="nhsd-a-checkbox">
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                     <@hst.renderURL fullyQualified=true var="link" />
@@ -176,7 +197,7 @@
                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey].count})</span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count})</span>
 
                         </a>
                    <#-- <#else>
@@ -235,8 +256,11 @@
 
 <#function getBaseURL url>
     <#assign index = url?index_of("Taxonomies") />
+    <#assign index1 = url?index_of("?") />
     <#if index != -1>
         <#return url[0..(index - 2)] />
+    <#elseif index1 != -1>
+        <#return url[0..(index1 - 1)] />
     <#else>
         <#return url />
     </#if>

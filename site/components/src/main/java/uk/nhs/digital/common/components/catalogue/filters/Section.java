@@ -22,6 +22,16 @@ public class Section implements Walkable {
     private boolean hideChildren;
     private int amountChildrenToShow;
 
+    public boolean isShowMoreIndc() {
+        return showMoreIndc;
+    }
+
+    public void setShowMoreIndc(boolean showMoreIndc) {
+        this.showMoreIndc = showMoreIndc;
+    }
+
+    private boolean showMoreIndc;
+
     @JsonCreator
     protected Section(
         @JsonProperty("taxonomyKey") final String taxonomyKey,
@@ -107,9 +117,12 @@ public class Section implements Walkable {
         return String.valueOf(count);
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public boolean hasHiddenSubsections() {
-        //return displayedSubsections().size() < getEntriesAndChildEntries().stream().filter(Section::isDisplayed).count() && !anyHiddenSubsectionsSelected();
-        return true;
+        return displayedSubsections().size() < getEntriesAndChildEntries().stream().filter(Section::isDisplayed).count() && !anyHiddenSubsectionsSelected();
     }
 
     protected boolean anyHiddenSubsectionsSelected() {
@@ -126,7 +139,7 @@ public class Section implements Walkable {
         return this.amountChildrenToShow;
     }
 
-    protected void setHideChildren(boolean hideChildren) {
+    public void setHideChildren(boolean hideChildren) {
         this.hideChildren = hideChildren;
     }
 
