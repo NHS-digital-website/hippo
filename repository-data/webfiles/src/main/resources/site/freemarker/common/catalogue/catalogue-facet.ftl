@@ -5,7 +5,7 @@
 
 <@hst.setBundle basename="month-names"/>
 
-<#if facets??>
+<#--<#if facets??>
     <@hst.link var="baseLink" hippobean=facets />
     <#list facets.folders as facet>
         <div class="article-section-nav-wrapper faceted-nav-facet">
@@ -72,7 +72,7 @@
             </div>
         </div>
     </#list>
-</#if>
+</#if>-->
 
 <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
     <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
@@ -160,27 +160,6 @@
         </#if>-->
 
     <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
-       <#-- ${filter.count()?number}-->
-       <#-- ${filter.showMoreIndc?string}-->
-      <#--  ${filter.getAmountChildrenToShow()?number},  ${filter.count()?number}, ${filter.parent().amountChildrenToShow};-->
-       <#-- filter.count()?number lt filter.getAmountChildrenToShow()?number-->
-
-       <#-- <#assign classToAdd = "">
-        <#if filter.expanded?is_boolean && filter.getAmountChildrenToShow()==0>
-        <#assign classToAdd = "hi">
-        <#elseif filter.getAmountChildrenToShow()?number gt filter.count()?number>
-            <#assign classToAdd = "yes">
-        <#elseif filter.count()?number lt filter.parent().amountChildrenToShow && filter.getAmountChildrenToShow()==0>
-            <#assign classToAdd = "yes1">
-       <#elseif filter.getAmountChildrenToShow()!=0 && filter.getAmountChildrenToShow()?number < filter.count()?number>
-            <#assign classToAdd = "nhsd-!t-display-hide ">
-        </#if>-->
-
-    <#--${filter.isExpanded()?string}-->
-    <#--${filter.isDisplayed()?string}-->
-    <#--<#if filter.getAmountChildrenToShow()?number < filter.count()?number>nhsd-!t-display-hide</#if>-->
-
-       <#-- ${filter.isHidden()?string}-->
         <div class="section-label-container <#if !filter.isDisplayed()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
 
             <span class="nhsd-a-checkbox">
