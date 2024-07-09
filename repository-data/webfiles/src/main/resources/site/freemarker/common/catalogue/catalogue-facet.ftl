@@ -188,7 +188,7 @@
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if filter.selected>checked</#if> <#if filter.selectable>disabled</#if>>
+                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if>>
                     <#-- <#if !filter.selectable>-->
                         <a aria-label="Filter by ${filter.displayName}"
                            <#--href="&lt;#&ndash;<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />&ndash;&gt;"-->
