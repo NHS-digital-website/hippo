@@ -12,9 +12,12 @@ import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ParametersInfo(
@@ -49,8 +52,17 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
 
     private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
         rawFilters.getSections().forEach(section -> {
+            List<Runnable> deferredOperations = new ArrayList<>();
             AtomicInteger subSectionCounter = new AtomicInteger(0);
+            AtomicBoolean display = new AtomicBoolean(false);
             section.getEntries().forEach(subsection -> {
+
+                // This doesn't run display now!
+                // The loop needs to finish because if one or more of the loop's iterations
+                // determine this to be true, then all subsections are given the value.
+                // Deferred operations are collected and executed after the loop completes.
+                deferredOperations.add(subsection::display);
+
                 if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
                     && !facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()) {
 
@@ -61,18 +73,29 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                     displayShowMoreButton(subSectionCounter,section);
 
                     // Display parent/first level filter
-                    displayFirstLevelFilter(subSectionCounter,section,subsection);
+                    displayFirstLevelFilter(subSectionCounter,section,subsection,facetBeanMap);
 
                     // Display child/second level child filter within subsection
-                    displaySubSectionEntries(subsection,facetBeanMap,subSectionCounter,section);
+                    displaySubSectionEntries(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
+
+                    if (facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
+                        && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
+                        display.set(true);
+                    }
                 }
             });
+            if (display.get()) {
+                deferredOperations.forEach(Runnable::run);
+                section.setShowMoreIndc(false);
+            }
         });
         return rawFilters;
     }
 
-    private void displaySubSectionEntries(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section) {
+    private void displaySubSectionEntries(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
+                                          AtomicBoolean display, List<Runnable> deferredOperations) {
         subsection.getEntries().forEach(subsectionEntry -> {
+            deferredOperations.add(subsectionEntry::display);
             if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
                 && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()) {
                 subsectionEntry.setCount(subSectionCounter.incrementAndGet());
@@ -82,20 +105,39 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 && subsectionEntry.getAmountChildrenToShow() == 0
                 && !subsectionEntry.getHideChildren()
                 && subSectionCounter.get() <= section.getAmountChildrenToShow()) {
-                subsectionEntry.display();
+                display.set(true);
             }
 
             if (subsectionEntry.getCount() >= section.getAmountChildrenToShow()
                 && section.getAmountChildrenToShow() == 0) {
-                subsectionEntry.display();
+                display.set(true);
             }
+
+            if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
+                && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()
+                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
+                section.expand();
+            }
+
+            if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
+                && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()
+                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
+                display.set(true);
+            }
+
         });
     }
 
-    private void displayFirstLevelFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection) {
+    private void displayFirstLevelFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
         if (subSectionCounter.get() <= section.getAmountChildrenToShow()
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
             subsection.display();
+        }
+        if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
+            && !facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()
+            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
+            // display.set(true);
+            section.expand();
         }
     }
 
