@@ -106,19 +106,14 @@
                                 <div class="nhsd-a-box nhsd-!t-padding-left-0">
                                     <span class="nhsd-m-selector-toggle-card__toggle">
                                         <div class="nhsd-a-selector-toggle">
-                                            <#assign hstRequestContext = requestContext>
-                                            <#assign contextPath = hstRequestContext.baseURL.contextPath>
-                                            <#assign requestPath = hstRequestContext.baseURL.requestPath>
                                             <#assign currentQuery1 = "">
-                                            <#if currentQuery?exists && currentQuery?has_content>
-                                                    <#assign currentQuery1 = currentQuery>
-                                            </#if>
+                                            <#assign currentQuery1 = currentQuery>
                                             <@hst.renderURL fullyQualified=true var="link" />
-                                            <#assign fullURL =  link + "?query=${currentQuery1}&r120_r1:page=1"/>
-                                            <#--<#assign fullURL =  contextPath + "?query=${currentQuery1}&r120_r1:page=1"/>-->
-                                            <#assign queryParams = showRetired?then("${fullURL}","${fullURL}&showRetired") />
+
+                                            <#assign fullURL = updateQueryParamsAndUrl(currentQuery1 showRetired) />
+
                                             <a onclick=""
-                                               href="${queryParams}"
+                                               href="${fullURL}"
                                                class="nhsd-a-checkbox__label nhsd-t-body-s">
                                                 <input type="checkbox"
                                                        <#if showRetired>checked</#if> />
@@ -231,6 +226,23 @@
 
     <#-- Output the updated link without escaping HTML special characters -->
     <#return updatedLink?no_esc>
+</#function>
+
+
+<#function updateQueryParamsAndUrl currentQuery1 showRetired>
+<#-- Check if the link contains '?query=' and remove it if it does -->
+    <#assign queryPresent = "?query=">
+    <#if link?contains(queryPresent)>
+    <#-- Extract the part before '?query=' -->
+        <#assign link = link?substring(0, link?index_of(queryPresent))>
+    </#if>
+
+<#-- Construct the URL with the new query parameters -->
+    <#assign urlWithQueryParams = link + "?query=" + currentQuery1 + "&r120_r1:page=1"/>
+    <#assign fullURL = showRetired?then(urlWithQueryParams, urlWithQueryParams + "&showRetired") />
+
+<#-- Output the updated URL -->
+    <#return fullURL?no_esc>
 </#function>
 
 <@hst.setBundle basename="month-names"/>
