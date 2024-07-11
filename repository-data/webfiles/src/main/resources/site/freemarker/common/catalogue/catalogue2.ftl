@@ -58,7 +58,7 @@
                 <div class="nhsd-!t-display-l-hide">
                     <@hst.include ref="filters" />
                 </div>
-                <div class="nhsd-t-row nhsd-!t-display-hide"
+                <div class="nhsd-t-row <#--nhsd-!t-display-hide-->"
                      id="catalogue-search-bar">
                     <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
                         <div class="nhsd-t-float-left">
@@ -67,6 +67,8 @@
                         </div>
                         <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
                             <div class="nhsd-t-form-control">
+                                <@hst.renderURL fullyQualified=true var="searchUrlLink" />
+                                <form action="${searchUrlLink}" method="get">
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"
@@ -78,7 +80,7 @@
                                     value="${currentQuery}"
                                 />
                                 <span class="nhsd-t-form-control__button">
-                                    <button  class="nhsd-a-button nhsd-a-button--circle"  id="catalogue-search-bar-input-button" type="button" aria-label="Search">
+                                    <button  class="nhsd-a-button nhsd-a-button--circle" type="submit" aria-label="Search">
                                       <span class="nhsd-a-icon nhsd-a-icon--size-s">
                                       <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
                                            focusable="false" viewBox="0 0 16 16"><path
@@ -86,6 +88,7 @@
                                       </span>
                                     </button>
                                 </span>
+                                </form>
                                 <script
                                     src="<@hst.webfile path="/apicatalogue/apicatalogue.js"/>"></script>
                             </div>
@@ -136,6 +139,7 @@
 
                     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
                     <#list pageable.items as document>
+                       <#-- ${document.shortsummary}-->
                         <div class="nhsd-t-flex-item--grow">
                             <div data-api-catalogue-entry="">
                                 <#list document.keys as key>
@@ -231,14 +235,17 @@
 
 <#function updateQueryParamsAndUrl currentQuery1 showRetired>
 <#-- Check if the link contains '?query=' and remove it if it does -->
-    <#assign queryPresent = "?query=">
-    <#if link?contains(queryPresent)>
+    <#assign queryParams = "?query=">
+    <#assign query = "?">
+    <#if link?contains(queryParams)>
     <#-- Extract the part before '?query=' -->
-        <#assign link = link?substring(0, link?index_of(queryPresent))>
+        <#assign link = link?substring(0, link?index_of(queryParams))>
+        <#assign query = "?query=">
+        <#else>
     </#if>
 
 <#-- Construct the URL with the new query parameters -->
-    <#assign urlWithQueryParams = link + "?query=" + currentQuery1 + "&r120_r1:page=1"/>
+    <#assign urlWithQueryParams = link + query + currentQuery1/>
     <#assign fullURL = showRetired?then(urlWithQueryParams, urlWithQueryParams + "&showRetired") />
 
 <#-- Output the updated URL -->
