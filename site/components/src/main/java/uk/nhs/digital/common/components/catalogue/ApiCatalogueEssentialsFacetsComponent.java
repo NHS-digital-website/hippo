@@ -63,9 +63,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 // Deferred operations are collected and executed after the loop completes.
                 deferredOperations.add(subsection::display);
 
-                if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
-                    && !facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()) {
-
+                if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap)) {
                     section.display();
                     subsection.setCount(subSectionCounter.incrementAndGet());
 
@@ -73,10 +71,10 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                     displayShowMoreButton(subSectionCounter,section);
 
                     // Display parent/first level filter
-                    displayFirstLevelFilter(subSectionCounter,section,subsection,facetBeanMap);
+                    displayFirstLevelParentFilter(subSectionCounter,section,subsection,facetBeanMap);
 
                     // Display child/second level child filter within subsection
-                    displaySubSectionEntries(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
+                    displaySecondLevelChildFilter(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
 
                     if (facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
                         && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
@@ -92,12 +90,29 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return rawFilters;
     }
 
-    private void displaySubSectionEntries(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
+    private void displayShowMoreButton(AtomicInteger subSectionCounter, Section section) {
+        if (subSectionCounter.get() >= section.getAmountChildrenToShow() && section.getHideChildren()) {
+            section.setShowMoreIndc(true);
+        }
+    }
+
+    private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+        if (subSectionCounter.get() <= section.getAmountChildrenToShow()
+            || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
+            subsection.display();
+        }
+        if (!facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()
+            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
+            section.expand();
+        }
+    }
+
+    private void displaySecondLevelChildFilter(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
         subsection.getEntries().forEach(subsectionEntry -> {
             deferredOperations.add(subsectionEntry::display);
-            if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
-                && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()) {
+
+            if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)) {
                 subsectionEntry.setCount(subSectionCounter.incrementAndGet());
             }
 
@@ -113,14 +128,12 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 display.set(true);
             }
 
-            if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
-                && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()
+            if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
                 && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
                 section.expand();
             }
 
-            if (subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
-                && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty()
+            if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
                 && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
                 display.set(true);
             }
@@ -128,23 +141,9 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         });
     }
 
-    private void displayFirstLevelFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
-        if (subSectionCounter.get() <= section.getAmountChildrenToShow()
-            || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
-            subsection.display();
-        }
-        if (subsection.getTaxonomyKey() != null && facetBeanMap.get(subsection.getTaxonomyKey()) != null
-            && !facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()
-            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
-            // display.set(true);
-            section.expand();
-        }
-    }
-
-    private void displayShowMoreButton(AtomicInteger subSectionCounter, Section section) {
-        if (subSectionCounter.get() >= section.getAmountChildrenToShow() && section.getHideChildren()) {
-            section.setShowMoreIndc(true);
-        }
+    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+        return subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
+            && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty();
     }
 
     private ConcurrentHashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {

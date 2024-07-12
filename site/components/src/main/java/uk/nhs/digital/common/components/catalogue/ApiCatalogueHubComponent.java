@@ -44,9 +44,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         super.doBeforeRender(request, response);
 
-        // This is the replacement
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
-
         Optional<Section> status = apiCatalogueFilterManager.getRawFilters(request).getSections().stream()
             .filter(section -> "Status".equals(section.getDisplayName()))
             .findFirst();
