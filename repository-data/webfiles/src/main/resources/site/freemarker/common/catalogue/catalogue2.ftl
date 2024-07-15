@@ -44,13 +44,13 @@
     </div>
    <#-- <#if alphabetical_hash??>-->
         <div class="nhsd-t-row">
-            <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
+         <#--   <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
                 <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick
                     navigation</h2>
-               <#-- <@azList alphabetical_hash "side-az-nav-heading"/>-->
-            </div>
+               &lt;#&ndash; <@azList alphabetical_hash "side-az-nav-heading"/>&ndash;&gt;
+            </div>-->
 
-            <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
+            <div class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-12 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4">
                 <@hst.include ref="filters" />
             </div>
 
