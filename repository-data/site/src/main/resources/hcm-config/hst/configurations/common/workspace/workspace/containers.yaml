@@ -2,18 +2,30 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      /api-catlogue-homepage:
+        /banner:
+          .meta:residual-child-node-category: content
+          hippo:identifier: bbd5b366-6ac5-483e-962c-ded5e43e605c
+          hst:label: Banner
+          hst:lastmodified: 2024-07-15T15:32:03.200Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /cyber-security-homepage:
         /banner:
+          hippo:identifier: 8e8d8da6-9275-41fb-a748-67f1cae1a451
           hst:label: Banner
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: ee451be1-6638-4cf2-859c-3fe99201b4c5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /homepage:
         /homepage-blog:
           .meta:residual-child-node-category: content
+          hippo:identifier: 8794c8f7-b456-411b-903e-a8d9ede48d63
           hst:label: Blog
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
@@ -21,24 +33,28 @@ definitions:
           jcr:primaryType: hst:containercomponentfolder
         /homepage-center:
           .meta:residual-child-node-category: content
+          hippo:identifier: 822a26e0-eb19-4093-b4db-68393698dbc4
           hst:label: Data and Information
           hst:lastmodified: 2018-02-21T10:59:17.217Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-center-2:
           .meta:residual-child-node-category: content
+          hippo:identifier: 3081864d-758e-4a7d-8177-ccbeae33ca9b
           hst:label: Systems and Services
           hst:lastmodified: 2018-02-27T18:40:30.862Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-information:
           .meta:residual-child-node-category: content
+          hippo:identifier: e27736e0-48f3-4cc5-9228-97dab7fb4912
           hst:label: How we use your information
           hst:lastmodified: 2018-02-21T11:03:27.706Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-top:
           .meta:residual-child-node-category: content
+          hippo:identifier: 0bf511a3-a181-4646-a5c9-d18bf4ba0f01
           hst:label: Top
           hst:lastmodified: 2018-02-05T20:39:14.327Z
           hst:xtype: HST.vBox
@@ -46,10 +62,12 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /news-hub:
         /banner:
+          hippo:identifier: eb80a232-7c53-4b41-b0cf-e4209bc780ca
           hst:label: Banner
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 29888e75-91e1-4810-bfed-bd9e0b4ab057
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
@@ -57,6 +75,7 @@ definitions:
       /newshubpage:
         /newshubpage-right:
           .meta:residual-child-node-category: content
+          hippo:identifier: 2425af8b-ab2f-440b-8589-81129a4df18b
           hst:label: News page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
@@ -64,84 +83,103 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-about-us-hub:
         /banner:
+          hippo:identifier: 72c8aff4-cd0b-4f89-8ed4-6300398ddd51
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 88a098ec-56b0-4909-8a3a-7df949c7dfb3
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-coronavirus:
         /banner:
+          hippo:identifier: 7dce1e4b-f391-4710-8dbb-0ea0ad69f9aa
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 3d3629e4-298a-45bc-b65d-23c2dfc3de4c
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-cyber-hub:
         /banner:
+          hippo:identifier: 2e596b33-a5d1-45bd-aaa4-681b223a29b6
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 22ed4c3c-2f97-428a-bb44-0804b748a4b8
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-data-hub:
         /banner:
+          hippo:identifier: 94f05a9d-718d-41e7-baa3-617a04fe2f0c
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 1680b072-6b60-4a46-9df2-25ce7b4f83c5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-developer-hub:
         /banner:
+          hippo:identifier: 117f1130-0a54-4113-9f45-fc642b39bfb7
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 4a6105d3-8529-49a8-b568-2a183509d36b
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
         /banner:
+          hippo:identifier: 98a26148-1b25-452e-a5b9-2d5e3fdb3d62
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-1:
+          hippo:identifier: 45fc3877-616a-4795-a317-15828db9ad30
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-2:
+          hippo:identifier: 301e67d4-922d-4505-ac35-361ede2bd573
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-3:
+          hippo:identifier: 720008f5-24d0-4217-ac2c-ce9cccd396bf
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-4:
+          hippo:identifier: 70012c5a-fe4d-40c2-9239-bebec9552643
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: 2f042056-26dc-4c57-a6b5-30bca494f570
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-news:
         /main:
+          hippo:identifier: f55c0bdf-5ae5-4878-afa8-bb4ea7ff7697
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /servicepage:
         /servicepage-bottom:
           .meta:residual-child-node-category: content
+          hippo:identifier: c9cf9f48-115b-404e-8e8d-3eb5fb6f834c
           hst:label: Service page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /servicepage-top:
           .meta:residual-child-node-category: content
+          hippo:identifier: 238f476a-7602-47d6-abfa-e6eea8ea2d2c
           hst:label: Service page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox

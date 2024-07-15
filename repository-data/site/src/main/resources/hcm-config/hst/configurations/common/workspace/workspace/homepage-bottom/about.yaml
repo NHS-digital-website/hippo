@@ -3,6 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/about:
       .meta:residual-child-node-category: content
+      hippo:identifier: 6bf7e314-bca3-4c60-b12b-2fd40169fcb6
       hst:label: Bottom Header
       hst:lastmodified: 2018-02-05T20:39:14.327Z
       hst:suppresswastemessage: true

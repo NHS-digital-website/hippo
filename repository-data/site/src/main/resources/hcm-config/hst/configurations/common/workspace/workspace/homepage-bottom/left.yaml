@@ -4,6 +4,7 @@ definitions:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/left:
       .meta:order-before: center
       .meta:residual-child-node-category: content
+      hippo:identifier: 6046a31d-801e-4adc-867f-a016bd0b441c
       hst:label: Bottom Left
       hst:lastmodified: 2018-02-21T11:03:27.706Z
       hst:xtype: HST.vBox

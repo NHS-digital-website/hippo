@@ -3,6 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/right:
       .meta:residual-child-node-category: content
+      hippo:identifier: 6d813a3c-733d-4595-841b-f225955efe77
       hst:label: Bottom Right
       hst:lastmodified: 2018-02-21T11:10:05.928Z
       hst:xtype: HST.vBox
