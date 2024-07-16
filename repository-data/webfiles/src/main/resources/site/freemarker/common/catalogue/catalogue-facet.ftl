@@ -176,7 +176,12 @@
                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count})</span>
+                            <#if retiredCounts[filter.taxonomyKey]?has_content>
+                                <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${difference})</span>
+                            <#else>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count})</span>
+                            </#if>
 
                         </a>
                    <#-- <#else>

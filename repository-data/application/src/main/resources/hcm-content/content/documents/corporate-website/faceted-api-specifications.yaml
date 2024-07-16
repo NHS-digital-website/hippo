@@ -1,7 +1,11 @@
+---
 /content/documents/corporate-website/faceted-api-specifications:
-  jcr:primaryType: hippofacnav:facetnavigation
   hippo:docbase: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
-  hippofacnav:facetnodenames: [Taxonomies]
-  hippofacnav:facets: ['hippotaxonomy:keys']
-  hippofacnav:filters: ['hippo:availability=live']
+  hippofacnav:facetnodenames:
+  - Taxonomies
+  hippofacnav:facets:
+  - hippotaxonomy:keys
+  hippofacnav:filters:
+  - hippo:availability=live
   hippofacnav:limit: 250
+  jcr:primaryType: hippofacnav:facetnavigation

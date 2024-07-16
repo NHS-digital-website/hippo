@@ -20,7 +20,7 @@
 <#assign alphabetical_hash = group_blocks(flat_blocks(catalogueLinks true))/>
 -->
 
-<@hst.include ref= "banner"/>
+<@hst.include ref="banner"/>
 
 <div
     class="nhsd-t-grid nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-7 nhsd-api-catalogue">

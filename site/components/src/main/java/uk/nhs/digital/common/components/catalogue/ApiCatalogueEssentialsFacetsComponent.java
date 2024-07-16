@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
+import uk.nhs.digital.website.beans.ApiSpecification;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +40,13 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         request.setModel("facets", facetBean);
         ConcurrentHashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
+
+        // Note remove ApiCatalogueComponent after when work is done.
+        ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
+        boolean showRetired = apiCatalogueComponent.shouldShowRetired(request);
+
+        ConcurrentHashMap<String, Integer> retiredCountsMap = showRetired ? new ConcurrentHashMap<>() : getRetiredCountsMap(facetBean);
+        request.setModel("retiredCounts", retiredCountsMap);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
         Filters rawFilters = apiCatalogueFilterManager.getRawFilters(request);
@@ -152,9 +160,26 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
                 Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf()})
-            ) //Arrays.asList((HippoFacetNavigationBean) i//((HippoFacetNavigationBean) i).getCount()
+            )
         );
         return facetFilterMap;
+    }
+
+    private ConcurrentHashMap<String, Integer> getRetiredCountsMap(HippoFacetNavigationBean facetBean) {
+        ConcurrentHashMap<String, Integer> retiredCounter = new ConcurrentHashMap<>();
+        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i -> {
+            if (((HippoFacetNavigationBean) i).getDisplayName().toLowerCase().contains("retired")) {
+                ((HippoFacetNavigationBean) i).getResultSet().getDocuments().forEach(doc -> {
+                    if (doc instanceof ApiSpecification) {
+                        ApiSpecification apiSpec = (ApiSpecification) doc;
+                        Arrays.stream(apiSpec.getKeys()).forEach(key -> {
+                            retiredCounter.merge(key, 1, Integer::sum);
+                        });
+                    }
+                });
+            }
+        });
+        return retiredCounter;
     }
 
 }

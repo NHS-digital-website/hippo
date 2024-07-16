@@ -80,7 +80,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 List<HippoBean> filteredList = filterItems(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
                     String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
                     if (keys != null && !showRetired) {
-                        return !Arrays.asList(keys).contains("retired-api");
+                        return ! Arrays.stream(keys).map(String::toLowerCase).collect(Collectors.toList()).contains("retired");
                     }
                     return true;
                 });
