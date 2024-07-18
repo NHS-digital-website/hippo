@@ -160,6 +160,12 @@
         </#if>-->
 
     <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
+        <#assign difference = ""/>
+        <#if retiredCounts[filter.taxonomyKey]?has_content>
+            <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
+        </#if>
+
+        <#if (difference?has_content && difference != 0 && difference >= 0) || (difference == "")>
         <div class="section-label-container <#if !filter.isDisplayed()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
 
             <span class="nhsd-a-checkbox">
@@ -176,6 +182,7 @@
                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
+                            ${facets1[filter.taxonomyKey][0].count} , ${retiredCounts[filter.taxonomyKey]}
                             <#if retiredCounts[filter.taxonomyKey]?has_content>
                                 <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${difference})</span>
@@ -195,6 +202,7 @@
                 <@filterDescription filter.description()!"" responsive/>
             </span>
         </div>
+       </#if>
         <#local nextLevel = indentationLevel + 1>
         <#if filter.entries?has_content>
             <div class="nhsd-m-filter-menu-section__option-group">
