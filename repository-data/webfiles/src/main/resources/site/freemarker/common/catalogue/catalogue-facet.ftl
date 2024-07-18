@@ -160,12 +160,12 @@
         </#if>-->
 
     <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
-        <#assign difference = ""/>
-        <#if retiredCounts[filter.taxonomyKey]?has_content>
-            <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
-        </#if>
+    <#--<#assign difference = ""/>
+    <#if retiredCounts[filter.taxonomyKey]?has_content>
+        <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
+    </#if>
 
-        <#if (difference?has_content && difference != 0 && difference >= 0) || (difference == "")>
+    <#if (difference?has_content && difference != 0) || (difference == "")>-->
         <div class="section-label-container <#if !filter.isDisplayed()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
 
             <span class="nhsd-a-checkbox">
@@ -183,11 +183,12 @@
                             <input type="checkbox">
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
 
+                            <#--${facets1[filter.taxonomyKey][0].count} , ${retiredCounts[filter.taxonomyKey]}-->
                             <#if retiredCounts[filter.taxonomyKey]?has_content>
                                 <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
-                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${difference})</span>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if !link?matches(".*Taxonomies.*Taxonomies.*")>(${difference}) <#else>(${facets1[filter.taxonomyKey][0].count})</#if> </span>
                             <#else>
-                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count})</span>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count}) </span>
                             </#if>
 
                         </a>
@@ -202,7 +203,7 @@
                 <@filterDescription filter.description()!"" responsive/>
             </span>
         </div>
-       </#if>
+       <#--</#if>-->
         <#local nextLevel = indentationLevel + 1>
         <#if filter.entries?has_content>
             <div class="nhsd-m-filter-menu-section__option-group">
