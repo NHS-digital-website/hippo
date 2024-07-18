@@ -66,7 +66,7 @@
                         <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
                             <div class="nhsd-t-form-control">
                                 <@hst.renderURL fullyQualified=true var="searchUrlLink" />
-                                <form action="${searchUrlLink}<#if showRetired>?&showRetired111</#if>" method="get">
+                                <form action="${searchUrlLink}<#if showRetired>?&showRetired</#if>" method="get">
                                 <input
                                     class="nhsd-t-form-input"
                                     type="text"

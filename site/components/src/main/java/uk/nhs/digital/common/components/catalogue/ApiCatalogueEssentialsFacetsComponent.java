@@ -191,19 +191,23 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     private void getRetiredCountFromApiSpecAndGeneralDoc(HippoDocumentBean doc, AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter, String displayName) {
         if (doc instanceof ApiSpecification) {
             ApiSpecification apiSpec = (ApiSpecification) doc;
-            Arrays.stream(apiSpec.getKeys()).forEach(key -> {
+            outerLoop:
+            for (String key : apiSpec.getKeys()) {
                 if (key.toLowerCase().contains("retired")) {
                     retiredCounter.get().merge(displayName, 1, Integer::sum);
+                    break outerLoop;
                 }
-            });
+            }
         }
         if (doc instanceof General) {
             General general = (General) doc;
-            Arrays.stream(general.getKeys()).forEach(key -> {
+            outerLoop:
+            for (String key : general.getKeys()) {
                 if (key.toLowerCase().contains("retired")) {
                     retiredCounter.get().merge(displayName, 1, Integer::sum);
+                    break outerLoop;
                 }
-            });
+            }
         }
     }
 

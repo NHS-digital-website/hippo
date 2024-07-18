@@ -16,7 +16,7 @@ definitions:
         - sortOrder
         - showPagination
         hst:parametervalues:
-        - '2'
+        - '10'
         - asc
         - 'true'
         hst:template: catalogue2
