@@ -5,9 +5,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-04-07T06:26:52.343Z
-    hippostdpubwf:lastModificationDate: 2024-07-05T15:27:13.339Z
+    hippostdpubwf:lastModificationDate: 2024-07-17T11:11:17.146Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 4e04e90e-c2f3-4cca-84a5-817e6a9c8995
     hippotranslation:locale: document-type-locale

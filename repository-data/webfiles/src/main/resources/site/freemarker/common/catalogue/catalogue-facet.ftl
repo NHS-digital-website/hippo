@@ -166,7 +166,7 @@
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
-                    <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                    <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath, showRetired) />
                     <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if>>
                     <#-- <#if !filter.selectable>-->
                         <a aria-label="Filter by ${filter.displayName}"
@@ -216,7 +216,7 @@
     </#if>
 </#macro>
 
-<#function updateOrRemoveLinkWithTaxonomyPath link taxonomyPath>
+<#function updateOrRemoveLinkWithTaxonomyPath link taxonomyPath showRetired>
 <#-- Split the link into base URL and query parameters -->
     <#assign parts = link?split("?", 2)>
     <#assign baseURL = parts[0]>
@@ -232,7 +232,7 @@
     </#if>
 
 <#-- Reassemble the updated link with query parameters if they exist -->
-    <#assign updatedLink = updatedBaseURL + (queryParams?has_content?then("?", "") + queryParams)>
+    <#assign updatedLink = updatedBaseURL + showRetired?then("?showRetired","?") + (queryParams?has_content?then(queryParams, ""))>
 
 <#-- Output the updated link without escaping HTML special characters -->
     <#return updatedLink?no_esc>

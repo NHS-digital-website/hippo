@@ -309,6 +309,7 @@
           - hl7-v3
           - standards_1
           - under-review-for-deprecation
+          - retired
           - hospital
           - in-production
           - mental-health
@@ -326,20 +327,21 @@
           - status
           common:SearchableTags:
           - OUH
-          - Out-of-hours
           - Urgent and Emergency Care
+          - Out-of-hours
           - Mental health
           - NHS 111
           - Central
           - HL7 V3
-          - '111'
           - Under review for deprecation (API)
+          - '111'
           - In production (API)
           - Ambulance
           - Pharmacy
           - Urgent Treatment Centre
-          - General practice
           - Community health
+          - General practice
+          - Retired (API)
           - Hospital
           - Access to records
           - API service
@@ -351,8 +353,8 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2023-09-15T06:34:50.849Z
-          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:06:19.190Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - community-health-care
           - hospital
@@ -370,6 +372,7 @@
           - central
           - in-production
           - under-review-for-deprecation
+          - retired
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -712,6 +715,7 @@
           - hl7-v3
           - standards_1
           - under-review-for-deprecation
+          - retired
           - hospital
           - in-production
           - mental-health
@@ -729,20 +733,21 @@
           - status
           common:SearchableTags:
           - OUH
-          - Out-of-hours
           - Urgent and Emergency Care
+          - Out-of-hours
           - Mental health
           - NHS 111
           - Central
           - HL7 V3
-          - '111'
           - Under review for deprecation (API)
+          - '111'
           - In production (API)
           - Ambulance
           - Pharmacy
           - Urgent Treatment Centre
-          - General practice
           - Community health
+          - General practice
+          - Retired (API)
           - Hospital
           - Access to records
           - API service
@@ -751,11 +756,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-02-14T15:57:36.635Z
-          hippostdpubwf:lastModifiedBy: nathan.kinsler
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:05:47.859Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - community-health-care
           - hospital
@@ -773,6 +777,7 @@
           - central
           - in-production
           - under-review-for-deprecation
+          - retired
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -1115,6 +1120,7 @@
           - hl7-v3
           - standards_1
           - under-review-for-deprecation
+          - retired
           - hospital
           - in-production
           - mental-health
@@ -1132,20 +1138,21 @@
           - status
           common:SearchableTags:
           - OUH
-          - Out-of-hours
           - Urgent and Emergency Care
+          - Out-of-hours
           - Mental health
           - NHS 111
           - Central
           - HL7 V3
-          - '111'
           - Under review for deprecation (API)
+          - '111'
           - In production (API)
           - Ambulance
           - Pharmacy
           - Urgent Treatment Centre
-          - General practice
           - Community health
+          - General practice
+          - Retired (API)
           - Hospital
           - Access to records
           - API service
@@ -1157,9 +1164,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2023-09-15T06:34:50.849Z
-          hippostdpubwf:lastModifiedBy: tony.heap
-          hippostdpubwf:publicationDate: 2023-09-15T06:34:54.247Z
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:06:19.190Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-07-17T11:06:21.254Z
           hippotaxonomy:keys:
           - community-health-care
           - hospital
@@ -1177,6 +1184,7 @@
           - central
           - in-production
           - under-review-for-deprecation
+          - retired
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -1214,7 +1222,7 @@
           website:title: Access Control Service HL7 V3 API
           website:type: ''
         hippo:name: Access Control Service HL7 V3 API
-        hippo:versionHistory: f7edd5ff-fbe9-4d9a-b242-83051f2b7d6e
+        hippo:versionHistory: c4f6bf2f-9d53-428d-ab6a-7283a2f9915d
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -4883,23 +4891,21 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - demographics_2
           - health-services
           - data-and-information
-          - api-status
           - service-types
           - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
           - outpatients
+          - implementing-digital
+          - retired
+          - apis_1
           - hospital
+          - api-catalogue
           - secondary-care
+          - status
           common:SearchableTags:
-          - Demographics
           - Implementing Digital
-          - Retired API
+          - Retired (API)
           - Outpatient
           common:searchRank: 5
           common:searchable: true
@@ -4909,13 +4915,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:26.493Z
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:04:12.490Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - retired-api
           - demographics_2
           - implementing-digital
           - outpatients
+          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -4923,6 +4929,7 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -4938,23 +4945,21 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - demographics_2
           - health-services
           - data-and-information
-          - api-status
           - service-types
           - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
           - outpatients
+          - implementing-digital
+          - retired
+          - apis_1
           - hospital
+          - api-catalogue
           - secondary-care
+          - status
           common:SearchableTags:
-          - Demographics
           - Implementing Digital
-          - Retired API
+          - Retired (API)
           - Outpatient
           common:searchRank: 5
           common:searchable: true
@@ -4964,14 +4969,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T19:17:26.493Z
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:04:12.490Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-08-19T19:21:55.823Z
+          hippostdpubwf:publicationDate: 2024-07-17T11:04:15.338Z
           hippotaxonomy:keys:
-          - retired-api
           - demographics_2
           - implementing-digital
           - outpatients
+          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -4979,6 +4984,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -4994,39 +5000,36 @@
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:FullTaxonomy:
-          - demographics_2
           - health-services
           - data-and-information
-          - api-status
           - service-types
           - national-health-service
-          - implementing-digital
-          - api-catalogue
-          - service-specification
-          - retired-api
           - outpatients
+          - implementing-digital
+          - retired
+          - apis_1
           - hospital
+          - api-catalogue
           - secondary-care
+          - status
           common:SearchableTags:
-          - Demographics
           - Implementing Digital
-          - Retired API
+          - Retired (API)
           - Outpatient
           common:searchRank: 5
           common:searchable: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
-          hippostdpubwf:lastModificationDate: 2021-08-19T20:11:01.812Z
+          hippostdpubwf:lastModificationDate: 2024-07-17T11:03:58.603Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
-          - retired-api
           - demographics_2
           - implementing-digital
           - outpatients
+          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -5034,6 +5037,7 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa
+          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -5041,7 +5045,7 @@
           website:summary: ''
           website:title: Retired API
         hippo:name: Retired API
-        hippo:versionHistory: 34cb974d-8335-482b-8b32-fc9abdeea401
+        hippo:versionHistory: 7a82a3c9-e601-4df0-8587-1b8d4c88392b
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo

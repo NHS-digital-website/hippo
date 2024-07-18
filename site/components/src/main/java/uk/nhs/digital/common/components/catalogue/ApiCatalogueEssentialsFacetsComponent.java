@@ -1,6 +1,8 @@
 package uk.nhs.digital.common.components.catalogue;
 
+import org.hippoecm.hst.content.beans.standard.HippoDocumentBean;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
+import org.hippoecm.hst.content.beans.standard.facetnavigation.HippoFacetSubNavigation;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -12,6 +14,7 @@ import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
 import uk.nhs.digital.website.beans.ApiSpecification;
+import uk.nhs.digital.website.beans.General;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +23,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 @ParametersInfo(
         type = EssentialsFacetsComponentInfo.class
@@ -52,6 +56,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         Filters rawFilters = apiCatalogueFilterManager.getRawFilters(request);
 
         request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));
+        request.setAttribute("showRetired", showRetired);
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
@@ -166,20 +171,40 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     }
 
     private ConcurrentHashMap<String, Integer> getRetiredCountsMap(HippoFacetNavigationBean facetBean) {
-        ConcurrentHashMap<String, Integer> retiredCounter = new ConcurrentHashMap<>();
-        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i -> {
-            if (((HippoFacetNavigationBean) i).getDisplayName().toLowerCase().contains("retired")) {
+        AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter = new AtomicReference<>(new ConcurrentHashMap<>());
+        facetBean.getFolders().get(0).getFolders().forEach(i -> {
+            //if (((HippoFacetNavigationBean) i).getDisplayName().toLowerCase().contains("retired")) {
+            String displayName = ((HippoFacetNavigationBean) i).getDisplayName();
+            if (((HippoFacetNavigationBean) i).getResultSet() != null) {
                 ((HippoFacetNavigationBean) i).getResultSet().getDocuments().forEach(doc -> {
-                    if (doc instanceof ApiSpecification) {
-                        ApiSpecification apiSpec = (ApiSpecification) doc;
-                        Arrays.stream(apiSpec.getKeys()).forEach(key -> {
-                            retiredCounter.merge(key, 1, Integer::sum);
-                        });
-                    }
+                    getRetiredCountFromApiSpecAndGeneralDoc(doc, retiredCounter, displayName);
+                });
+            } else if (((HippoFacetSubNavigation) ((HippoFacetNavigationBean) i)).getAncestors() != null) {
+                ((HippoFacetSubNavigation) (HippoFacetNavigationBean) i).getAncestors().get(0).getResultSet().getDocuments().forEach(doc -> {
+                    getRetiredCountFromApiSpecAndGeneralDoc(doc, retiredCounter, displayName);
                 });
             }
         });
-        return retiredCounter;
+        return retiredCounter.get();
+    }
+
+    private void getRetiredCountFromApiSpecAndGeneralDoc(HippoDocumentBean doc, AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter, String displayName) {
+        if (doc instanceof ApiSpecification) {
+            ApiSpecification apiSpec = (ApiSpecification) doc;
+            Arrays.stream(apiSpec.getKeys()).forEach(key -> {
+                if (key.toLowerCase().contains("retired")) {
+                    retiredCounter.get().merge(displayName, 1, Integer::sum);
+                }
+            });
+        }
+        if (doc instanceof General) {
+            General general = (General) doc;
+            Arrays.stream(general.getKeys()).forEach(key -> {
+                if (key.toLowerCase().contains("retired")) {
+                    retiredCounter.get().merge(displayName, 1, Integer::sum);
+                }
+            });
+        }
     }
 
 }
