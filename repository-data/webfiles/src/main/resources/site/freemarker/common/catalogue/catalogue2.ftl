@@ -154,8 +154,12 @@
                                     </#if>
                                 </#list>-->
 
-                                <#if apiStatusEntries["apis_1"]?exists>
+                                <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
                                     <#assign entry = apiStatusEntries["apis_1"]>
+                                <#elseif apiStatusEntries["apis"]?? && apiStatusEntries["apis"]?has_content>
+                                    <#assign entry = apiStatusEntries["apis"]>
+                                </#if>
+                                <#if entry?? && entry?has_content>
                                     <@hst.renderURL fullyQualified=true var="link" />
                                     <#list document.keys as key>
                                         <#list entry.entries as subEntry>
@@ -177,7 +181,6 @@
                                         </#list>
                                     </#list>
                                 </#if>
-
 
                                 <@hst.link hippobean=document var="link1"/>
 
