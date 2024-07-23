@@ -1,8 +1,6 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.hippoecm.hst.content.beans.standard.HippoDocumentBean;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
-import org.hippoecm.hst.content.beans.standard.facetnavigation.HippoFacetSubNavigation;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -13,8 +11,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
-import uk.nhs.digital.website.beans.ApiSpecification;
-import uk.nhs.digital.website.beans.General;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +19,6 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 @ParametersInfo(
         type = EssentialsFacetsComponentInfo.class
@@ -49,8 +44,8 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
         boolean showRetired = apiCatalogueComponent.shouldShowRetired(request);
 
-        ConcurrentHashMap<String, Integer> retiredCountsMap = showRetired ? new ConcurrentHashMap<>() : getRetiredCountsMap(facetBean);
-        request.setModel("retiredCounts", retiredCountsMap);
+        //ConcurrentHashMap<String, Integer> retiredCountsMap = showRetired ? new ConcurrentHashMap<>() : getRetiredCountsMap(facetBean);
+        //request.setModel("retiredCounts", retiredCountsMap);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
         Filters rawFilters = apiCatalogueFilterManager.getRawFilters(request);
@@ -170,7 +165,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return facetFilterMap;
     }
 
-    private ConcurrentHashMap<String, Integer> getRetiredCountsMap(HippoFacetNavigationBean facetBean) {
+    /*private ConcurrentHashMap<String, Integer> getRetiredCountsMap(HippoFacetNavigationBean facetBean) {
         AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter = new AtomicReference<>(new ConcurrentHashMap<>());
         facetBean.getFolders().get(0).getFolders().forEach(i -> {
             //if (((HippoFacetNavigationBean) i).getDisplayName().toLowerCase().contains("retired")) {
@@ -186,9 +181,9 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             }
         });
         return retiredCounter.get();
-    }
+    }*/
 
-    private void getRetiredCountFromApiSpecAndGeneralDoc(HippoDocumentBean doc, AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter, String displayName) {
+    /*private void getRetiredCountFromApiSpecAndGeneralDoc(HippoDocumentBean doc, AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter, String displayName) {
         if (doc instanceof ApiSpecification) {
             ApiSpecification apiSpec = (ApiSpecification) doc;
             outerLoop:
@@ -209,6 +204,6 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 }
             }
         }
-    }
+    }*/
 
 }

@@ -100,7 +100,7 @@
                         results </h6>
                 </div>
                <#-- <#if retiredFilterEnabled>-->
-                    <div class="nhsd-t-row">
+                    <#--<div class="nhsd-t-row">
                         <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
                             <label aria-label="Include retired APIs and API standards"
                                    class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
@@ -128,7 +128,7 @@
                                 </div>
                             </label>
                         </div>
-                    </div>
+                    </div>-->
                 <#--<#else>-->
                     <div class="nhsd-!t-padding-top-4"/>
                 <#--</#if>-->
@@ -140,7 +140,8 @@
                        <#-- ${document.shortsummary}-->
                         <div class="nhsd-t-flex-item--grow">
                             <div data-api-catalogue-entry="">
-                                <#list document.keys as key>
+
+                                <#--<#list document.keys as key>
                                     <#if apiStatusEntries[key]?exists>
                                         <@hst.renderURL fullyQualified=true var="link" />
                                         <#assign taxonomyPath = "/Taxonomies/${key}">
@@ -151,10 +152,28 @@
                                             <a title="Filter by ${apiStatusEntries[key].displayName}" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${apiStatusEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${apiStatusEntries[key].displayName}</a>
                                         </#if>
                                     </#if>
+                                </#list>-->
+
+                                <#list document.keys as key>
+                                    <#if apiStatusEntries["apis_1"]?exists>
+                                        <#assign entry = apiStatusEntries["apis_1"]>
+                                        <#list entry.entries as subEntry>
+                                            <#if subEntry.taxonomyKey == key>
+                                                <@hst.renderURL fullyQualified=true var="link" />
+                                                <#assign taxonomyPath = "/Taxonomies/${key}">
+                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                                                <#if link?contains(taxonomyPath)>
+                                                    <a title="Remove ${subEntry.displayName} filter" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                <#else>
+                                                    <a title="Filter by ${subEntry.displayName}" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                </#if>
+                                            </#if>
+                                        </#list>
+                                    </#if>
                                 </#list>
 
                                 <@hst.link hippobean=document var="link1"/>
-
+                                
                                 <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="${document.title?lower_case?replace(" ", "-")}">
                                     <#if link1?has_content>
                                         <a href="${link1}" class="nhsd-a-link" data-filterable>${document.title}</a>

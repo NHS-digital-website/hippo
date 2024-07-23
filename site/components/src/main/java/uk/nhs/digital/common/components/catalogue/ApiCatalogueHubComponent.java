@@ -19,9 +19,7 @@ import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @ParametersInfo(
     type = ApiCatalogueHubComponentInfo.class
@@ -77,26 +75,27 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
-                List<HippoBean> filteredList = filterItems(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
-                    String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
+                /*List<HippoBean> filteredList = filterItems(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
+                    *//*String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
                     if (keys != null && !showRetired) {
                         return ! Arrays.stream(keys).map(String::toLowerCase).collect(Collectors.toList()).contains("retired");
-                    }
+                    }*//*
                     return true;
-                });
+                });*/
 
-                HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
-                pageable = this.getPageableFactory().createPageable(iterator, filteredList.size(), paramInfo.getPageSize(), this.getCurrentPage(request));
-                request.setAttribute("totalAvailable", filteredList.size());
+                //HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
+                HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
+                pageable = this.getPageableFactory().createPageable(iterator, facetBean.getResultSet().getDocumentSize(), paramInfo.getPageSize(), this.getCurrentPage(request));
+                request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
             }
         }
         return (Pageable) pageable;
     }
 
-    private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
+    /*private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
         Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
         return StreamSupport.stream(spliterator, false)
             .filter(shouldKeep)
             .collect(Collectors.toList());
-    }
+    }*/
 }

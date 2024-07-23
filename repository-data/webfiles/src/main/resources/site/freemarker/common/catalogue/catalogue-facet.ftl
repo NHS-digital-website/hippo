@@ -184,12 +184,12 @@
                             <#--<span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>-->
 
                             <#--${facets1[filter.taxonomyKey][0].count} , ${retiredCounts[filter.taxonomyKey]}-->
-                            <#if retiredCounts[filter.taxonomyKey]?has_content>
+                           <#-- <#if retiredCounts[filter.taxonomyKey]?has_content>
                                 <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if !link?matches(".*Taxonomies.*Taxonomies.*")>(${difference}) <#else>(${facets1[filter.taxonomyKey][0].count})</#if> </span>
-                            <#else>
+                            <#else>-->
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count}) </span>
-                            </#if>
+                           <#-- </#if>-->
 
                         </a>
                    <#-- <#else>
