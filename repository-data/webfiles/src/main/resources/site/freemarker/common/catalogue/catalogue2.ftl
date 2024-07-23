@@ -154,26 +154,33 @@
                                     </#if>
                                 </#list>-->
 
-                                <#list document.keys as key>
-                                    <#if apiStatusEntries["apis_1"]?exists>
-                                        <#assign entry = apiStatusEntries["apis_1"]>
+                                <#if apiStatusEntries["apis_1"]?exists>
+                                    <#assign entry = apiStatusEntries["apis_1"]>
+                                    <@hst.renderURL fullyQualified=true var="link" />
+                                    <#list document.keys as key>
                                         <#list entry.entries as subEntry>
                                             <#if subEntry.taxonomyKey == key>
-                                                <@hst.renderURL fullyQualified=true var="link" />
                                                 <#assign taxonomyPath = "/Taxonomies/${key}">
                                                 <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
                                                 <#if link?contains(taxonomyPath)>
-                                                    <a title="Remove ${subEntry.displayName} filter" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                    <a title="Remove ${subEntry.displayName} filter"
+                                                       href="${updatedLink}"
+                                                       style="line-height:1; text-decoration:none"
+                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
                                                 <#else>
-                                                    <a title="Filter by ${subEntry.displayName}" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                    <a title="Filter by ${subEntry.displayName}"
+                                                       href="${updatedLink}"
+                                                       style="line-height:1; text-decoration:none"
+                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
                                                 </#if>
                                             </#if>
                                         </#list>
-                                    </#if>
-                                </#list>
+                                    </#list>
+                                </#if>
+
 
                                 <@hst.link hippobean=document var="link1"/>
-                                
+
                                 <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1" id="${document.title?lower_case?replace(" ", "-")}">
                                     <#if link1?has_content>
                                         <a href="${link1}" class="nhsd-a-link" data-filterable>${document.title}</a>
