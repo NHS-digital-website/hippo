@@ -5,75 +5,6 @@
 
 <@hst.setBundle basename="month-names"/>
 
-<#--<#if facets??>
-    <@hst.link var="baseLink" hippobean=facets />
-    <#list facets.folders as facet>
-        <div class="article-section-nav-wrapper faceted-nav-facet">
-            <div class="js-filter-list">
-                <#assign filterKey = facet.name />
-                <#assign filterName = facet.displayName?cap_first />
-                <div class="nhsd-m-filter-menu-section ${facet.folders[0].leaf?then('nhsd-m-filter-menu-section--active', '')}" data-active-menu="${filterKey}">
-                    <div class="nhsd-m-filter-menu-section__accordion-heading">
-                        <button class="nhsd-m-filter-menu-section__menu-button" type="button">
-                                <span class="nhsd-m-filter-menu-section__heading-text nhsd-t-body-s">
-                                    <span>
-                                        <span class="nhsd-a-icon nhsd-a-icon--size-xxs">
-                                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 16 16" width="100%" height="100%">
-                                                <path d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"/>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    ${filterName}
-                                </span>
-                        </button>
-                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-xxs" />
-
-                        <div class="nhsd-m-filter-menu-section__accordion-panel">
-                            <#list facet.folders as value>
-                                <#assign valueName = value.displayName />
-                                <div class="nhsd-m-filter-menu-section__option-row">
-                                    <span class="nhsd-a-checkbox">
-                                        <#assign filterName = facet.name?replace(' ', '+')/>
-                                        <#assign filterValue = valueName?replace(' ', '+')/>
-                                        <#assign newLink = baseLink + "/" + filterName + "/" + filterValue />
-                                        <#if value.leaf>
-                                            <#assign newLink = newLink?replace('/${filterName}/${filterValue}', '', 'i')>
-                                        </#if>
-                                        <label>
-                                            <#assign newLink = newLink + query?has_content?then("?query=" + query, "") />
-
-                                            <#if filterKey="year">
-                                                <#assign redirect = newLink?replace('month/(?:[0-9]|1[0-1])/?', '', 'ir')/>
-                                            <#else>
-                                                <#assign redirect = newLink />
-                                            </#if>
-                                            ${valueName} (${value.count})
-                                            <#if facet.name="month">
-                                                <@fmt.message key=value.name var="monthName"/>
-                                                <#assign valueName=monthName/>
-                                            </#if>
-                                            <input name="${filterKey}" type="checkbox"
-                                                   data-input-id="${filterKey}-${valueName}"
-                                                   class="js-filter-checkbox"
-                                                   value="${valueName}"
-                                                ${value.leaf?then('checked=checked', '')}
-                                                onClick="window.location='${redirect}'"
-                                            />
-                                            <span class="nhsd-a-checkbox__label nhsd-t-body-s">${valueName} (${value.count})</span>
-                                            <span class="checkmark"></span>
-
-                                        </label>
-                                    </span>
-                                </div>
-                            </#list>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </#list>
-</#if>-->
-
 <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
     <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
         <div style="padding-bottom: 2.5rem">
@@ -159,7 +90,10 @@
             <#assign filtersParam = filtersModel.selectedFiltersKeysPlus(filter.key) />
         </#if>-->
 
-    <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>
+    <#--<#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>-->
+    <#if (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists) || (filter.taxonomyKey == "apis_1" || filter.taxonomyKey == "api-standards")>
+
+
     <#--<#assign difference = ""/>
     <#if retiredCounts[filter.taxonomyKey]?has_content>
         <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
@@ -173,8 +107,8 @@
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath, showRetired) />
-                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if>>
-                    <#-- <#if !filter.selectable>-->
+                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
+                     <#if !filter.selectable >
                         <a aria-label="Filter by ${filter.displayName}"
                            <#--href="&lt;#&ndash;<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />&ndash;&gt;"-->
 
@@ -188,16 +122,16 @@
                                 <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if !link?matches(".*Taxonomies.*Taxonomies.*")>(${difference}) <#else>(${facets1[filter.taxonomyKey][0].count})</#if> </span>
                             <#else>-->
-                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][0].count}) </span>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][2]}) </span>
                            <#-- </#if>-->
 
                         </a>
-                   <#-- <#else>
+                    <#else>
                         <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox" disabled>
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if filter.count() != "0">(${filter.count()})</#if></span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
                         </a>
-                    </#if>-->
+                    </#if>
                     <div class="checkmark"></div>
                 </label>
                 <@filterDescription filter.description()!"" responsive/>

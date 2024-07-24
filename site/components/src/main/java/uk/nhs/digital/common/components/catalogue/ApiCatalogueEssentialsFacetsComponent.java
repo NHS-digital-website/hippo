@@ -12,10 +12,7 @@ import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -71,10 +68,12 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 // Deferred operations are collected and executed after the loop completes.
                 deferredOperations.add(subsection::display);
 
-                if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap)) {
+                if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) || isApiOrApiStandardFilter(subsection)) {
                     section.display();
-                    subsection.setCount(subSectionCounter.incrementAndGet());
 
+                    if (!isApiOrApiStandardFilter(subsection)) {
+                        subsection.setCount(subSectionCounter.incrementAndGet());
+                    }
                     // Display 'show more' button if necessary
                     displayShowMoreButton(subSectionCounter,section);
 
@@ -84,7 +83,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                     // Display child/second level child filter within subsection
                     displaySecondLevelChildFilter(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
 
-                    if (facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
+                    if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) && facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
                         && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
                         display.set(true);
                     }
@@ -109,9 +108,15 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
             subsection.display();
         }
-        if (!facetBeanMap.get(subsection.getTaxonomyKey()).isEmpty()
+        if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap)
             && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
             section.expand();
+        }
+        if (isApiStandardFilter(subsection)) {
+            subsection.setSelectable();
+        }
+        if (isApisFilter(subsection) && facetBeanMap.get("apis_1") == null) {
+            subsection.setSelectable();
         }
     }
 
@@ -139,10 +144,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
                 && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
                 section.expand();
-            }
-
-            if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
-                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
+                subsectionEntry.display();
                 display.set(true);
             }
 
@@ -154,12 +156,32 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty();
     }
 
+    private boolean isApiOrApiStandardFilter(Subsection subsection) {
+        return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1")
+            || subsection.getTaxonomyKey().equalsIgnoreCase("api-standards");
+    }
+
+    private boolean isApiStandardFilter(Subsection subsection) {
+        return subsection.getTaxonomyKey().equalsIgnoreCase("api-standards");
+    }
+
+    private boolean isApisFilter(Subsection subsection) {
+        return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
+    }
+
+    /*private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+        return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
+            .map(key -> (facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
+                || key.equalsIgnoreCase("apis_1") || key.equalsIgnoreCase("api-standards"))
+            .orElse(false);
+    }*/
+
     private ConcurrentHashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
         ConcurrentHashMap<String, List<Object>> facetFilterMap = new ConcurrentHashMap();
         facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
-                Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf()})
+                Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf(),((HippoFacetNavigationBean) i).getCount()})
             )
         );
         return facetFilterMap;
