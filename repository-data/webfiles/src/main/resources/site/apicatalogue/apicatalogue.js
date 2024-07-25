@@ -1,6 +1,5 @@
 const nhsdHiddenClass = 'nhsd-!t-display-hide';
 
-
 function hide(element) {
     element.classList.add(nhsdHiddenClass);
 }
