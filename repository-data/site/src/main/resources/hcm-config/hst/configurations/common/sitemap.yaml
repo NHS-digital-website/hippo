@@ -433,13 +433,6 @@ definitions:
           hst:componentconfigurationid: hst:pages/api-catalogue2
           hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
-        /api-catalogue-old:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/api-catalogue
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:relativecontentpath: developer/api-catalogue
-          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer
         jcr:primaryType: hst:sitemapitem

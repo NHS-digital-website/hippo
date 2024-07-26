@@ -30,7 +30,7 @@ public class FiltersTestUtils {
     }
 
     public static Section section(final String taxonomyKey, final String displayName, final String description, final Subsection... subsections) {
-        return new Section(taxonomyKey, displayName, description, "false", "false", "0", subsections);
+        return new Section(taxonomyKey, displayName, description, "true", "false", "0", subsections);
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {
@@ -45,8 +45,8 @@ public class FiltersTestUtils {
         return new Subsection(displayName, taxonomyKey, null, null, subsections);
     }
 
-    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description) {
-        return new Subsection(displayName, taxonomyKey, description, null);
+    public static Subsection subsection( final String taxonomyKey, final String displayName, final String description) {
+        return new Subsection(taxonomyKey, displayName, description, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String highlight, final Subsection... subsections) {

@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 )
 public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsComponent {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueEssentialsFacetsComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -37,18 +37,10 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         ConcurrentHashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
-        // Note remove ApiCatalogueComponent after when work is done.
-        ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
-        boolean showRetired = apiCatalogueComponent.shouldShowRetired(request);
-
-        //ConcurrentHashMap<String, Integer> retiredCountsMap = showRetired ? new ConcurrentHashMap<>() : getRetiredCountsMap(facetBean);
-        //request.setModel("retiredCounts", retiredCountsMap);
-
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
         Filters rawFilters = apiCatalogueFilterManager.getRawFilters(request);
 
         request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));
-        request.setAttribute("showRetired", showRetired);
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
@@ -151,11 +143,6 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         });
     }
 
-    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
-        return subsectionEntry.getTaxonomyKey() != null && facetBeanMap.get(subsectionEntry.getTaxonomyKey()) != null
-            && !facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isEmpty();
-    }
-
     private boolean isApiOrApiStandardFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1")
             || subsection.getTaxonomyKey().equalsIgnoreCase("api-standards");
@@ -169,12 +156,11 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
 
-    /*private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
-            .map(key -> (facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
-                || key.equalsIgnoreCase("apis_1") || key.equalsIgnoreCase("api-standards"))
+            .map(key -> facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
             .orElse(false);
-    }*/
+    }
 
     private ConcurrentHashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
         ConcurrentHashMap<String, List<Object>> facetFilterMap = new ConcurrentHashMap();
@@ -186,46 +172,5 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         );
         return facetFilterMap;
     }
-
-    /*private ConcurrentHashMap<String, Integer> getRetiredCountsMap(HippoFacetNavigationBean facetBean) {
-        AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter = new AtomicReference<>(new ConcurrentHashMap<>());
-        facetBean.getFolders().get(0).getFolders().forEach(i -> {
-            //if (((HippoFacetNavigationBean) i).getDisplayName().toLowerCase().contains("retired")) {
-            String displayName = ((HippoFacetNavigationBean) i).getDisplayName();
-            if (((HippoFacetNavigationBean) i).getResultSet() != null) {
-                ((HippoFacetNavigationBean) i).getResultSet().getDocuments().forEach(doc -> {
-                    getRetiredCountFromApiSpecAndGeneralDoc(doc, retiredCounter, displayName);
-                });
-            } else if (((HippoFacetSubNavigation) ((HippoFacetNavigationBean) i)).getAncestors() != null) {
-                ((HippoFacetSubNavigation) (HippoFacetNavigationBean) i).getAncestors().get(0).getResultSet().getDocuments().forEach(doc -> {
-                    getRetiredCountFromApiSpecAndGeneralDoc(doc, retiredCounter, displayName);
-                });
-            }
-        });
-        return retiredCounter.get();
-    }*/
-
-    /*private void getRetiredCountFromApiSpecAndGeneralDoc(HippoDocumentBean doc, AtomicReference<ConcurrentHashMap<String, Integer>> retiredCounter, String displayName) {
-        if (doc instanceof ApiSpecification) {
-            ApiSpecification apiSpec = (ApiSpecification) doc;
-            outerLoop:
-            for (String key : apiSpec.getKeys()) {
-                if (key.toLowerCase().contains("retired")) {
-                    retiredCounter.get().merge(displayName, 1, Integer::sum);
-                    break outerLoop;
-                }
-            }
-        }
-        if (doc instanceof General) {
-            General general = (General) doc;
-            outerLoop:
-            for (String key : general.getKeys()) {
-                if (key.toLowerCase().contains("retired")) {
-                    retiredCounter.get().merge(displayName, 1, Integer::sum);
-                    break outerLoop;
-                }
-            }
-        }
-    }*/
 
 }

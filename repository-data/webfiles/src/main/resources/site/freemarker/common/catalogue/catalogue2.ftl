@@ -273,10 +273,9 @@
 
 <#-- Construct the URL with the new query parameters -->
     <#assign urlWithQueryParams = link + query + currentQuery1/>
-    <#assign fullURL = showRetired?then(urlWithQueryParams, urlWithQueryParams + "&showRetired") />
 
 <#-- Output the updated URL -->
-    <#return fullURL?no_esc>
+    <#return urlWithQueryParams?no_esc>
 </#function>
 
 <@hst.setBundle basename="month-names"/>

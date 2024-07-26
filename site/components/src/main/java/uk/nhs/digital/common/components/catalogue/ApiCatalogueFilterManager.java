@@ -11,7 +11,7 @@ import javax.jcr.Session;
 
 public class ApiCatalogueFilterManager {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueFilterManager.class);
     private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
     public Filters getRawFilters(HstRequest request) {

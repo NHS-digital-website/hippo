@@ -28,17 +28,11 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
 
-    boolean showRetired = false;
-
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
 
         long startTime = System.currentTimeMillis();
         log.debug("Start Time:" + startTime);
-
-        // Note remove ApiCatalogueComponent after when work is done.
-        ApiCatalogueComponent apiCatalogueComponent = new ApiCatalogueComponent();
-        showRetired = apiCatalogueComponent.shouldShowRetired(request);
 
         super.doBeforeRender(request, response);
 
@@ -56,8 +50,6 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
             request.setAttribute("apiStatusEntries", sectionMap);
         });
 
-        log.debug("showRetired:" + showRetired);
-        request.setAttribute("showRetired", showRetired);
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));
 
@@ -75,15 +67,6 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
-                /*List<HippoBean> filteredList = filterItems(resultSet.getDocumentIterator(HippoBean.class), hippoBean -> {
-                    *//*String[] keys = hippoBean.getMultipleProperty("hippotaxonomy:keys");
-                    if (keys != null && !showRetired) {
-                        return ! Arrays.stream(keys).map(String::toLowerCase).collect(Collectors.toList()).contains("retired");
-                    }*//*
-                    return true;
-                });*/
-
-                //HippoDocumentIterator<HippoBean> iterator = new CustomHippoDocumentIterator(filteredList.stream().iterator());
                 HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
                 pageable = this.getPageableFactory().createPageable(iterator, facetBean.getResultSet().getDocumentSize(), paramInfo.getPageSize(), this.getCurrentPage(request));
                 request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
@@ -92,10 +75,4 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         return (Pageable) pageable;
     }
 
-    /*private <T> List<T> filterItems(Iterator<T> iterator, Predicate<T> shouldKeep) {
-        Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED);
-        return StreamSupport.stream(spliterator, false)
-            .filter(shouldKeep)
-            .collect(Collectors.toList());
-    }*/
 }

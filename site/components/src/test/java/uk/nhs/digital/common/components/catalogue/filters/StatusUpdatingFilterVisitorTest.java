@@ -24,8 +24,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Section section = section("section", "Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(section, "tag-b", Section::display);
@@ -48,8 +48,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Section section = section("section", "Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-a","Tag B", "tag-b")
         );
 
         updateSubsections(section, Section::hide, "tag-a", "tag-b");
@@ -72,8 +72,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Section actualSection = section("section", "Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b", "Tag B", "tag-b")
         );
 
         updateSubsection(actualSection, "tag-b", Subsection::select);
@@ -96,8 +96,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Section actualSection = section("section", "Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(actualSection, "tag-b", Subsection::expand);
@@ -120,8 +120,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Section section = section("section", "Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b", "Tag B", "tag-b")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -141,8 +141,8 @@ public class StatusUpdatingFilterVisitorTest {
     public void doesNotMarkSectionAsCollapsed_whenSectionIsDefaultExpanded() {
         // given
         final Section section = section("Section", "true", "false",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -163,8 +163,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Subsection",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(subsection, "tag-b", Subsection::display);
@@ -186,9 +186,9 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsDisplayed_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -209,8 +209,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-a","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         updateSubsection(subsection, "tag-c", Subsection::display);
@@ -232,9 +232,9 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsNotDisplayed_whenItsTagIsNotFilteredNorAnyChildSubsectionIsDisplayed() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("tag-a", "Tag A", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -254,9 +254,9 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelectable_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -277,8 +277,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -298,9 +298,9 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelected_whenItsTagIsSelected() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+            subsection("tag-b", "Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
@@ -321,8 +321,8 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c", "Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
