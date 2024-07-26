@@ -38,11 +38,11 @@ public class FiltersTestUtils {
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey) {
-        return new Subsection(displayName, taxonomyKey, null, null);
+        return new Subsection(taxonomyKey,displayName, null, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, null, null, subsections);
+        return new Subsection(taxonomyKey, displayName, null, null, subsections);
     }
 
     public static Subsection subsection( final String taxonomyKey, final String displayName, final String description) {
@@ -50,11 +50,11 @@ public class FiltersTestUtils {
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String highlight, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, null, highlight, subsections);
+        return new Subsection(taxonomyKey, displayName, null, highlight, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String description, final String highlight, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, description, highlight, subsections);
+        return new Subsection(taxonomyKey, displayName, description, highlight, subsections);
     }
 
     public static void updateFilters(

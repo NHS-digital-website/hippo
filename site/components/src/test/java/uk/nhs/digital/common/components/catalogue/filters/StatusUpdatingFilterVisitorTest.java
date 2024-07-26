@@ -186,7 +186,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsDisplayed_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
             subsection("tag-b","Tag B", "tag-b"),
             subsection("tag-c","Tag C", "tag-c")
         );
@@ -254,7 +254,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelectable_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
             subsection("tag-b","Tag B", "tag-b"),
             subsection("tag-c","Tag C", "tag-c")
         );
@@ -298,7 +298,7 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelected_whenItsTagIsSelected() {
 
         // given
-        final Subsection subsection = subsection("tag-a","Tag A", "tag-a",
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
             subsection("tag-b", "Tag B", "tag-b"),
             subsection("tag-c","Tag C", "tag-c")
         );
