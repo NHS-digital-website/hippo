@@ -1,40 +1,47 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/apispecification:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: The name of the API
             field: title
             hint: The name of the API.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /classifiable:
+            /cluster.options:
+              caption: Keys
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
             essentials-taxonomy-name: publication_taxonomy
             hint: One of more topics that describe the subject matter of the API
             jcr:primaryType: frontend:plugin
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              caption: Keys
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
           /specification_id:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Specification Id
             field: specification_id
             hint: Binds the document in CMS to the actual API specification in Apigee
@@ -42,38 +49,38 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /enable_rapidoc:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /enable_rapidoc:
             caption: Enable RapiDoc
             field: enable_rapidoc
             hint: Click to use the new RapiDoc renderer for this API specification
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /summary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
+                [] }] }'
+              jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary
             hint: A meaningful but conscise description of the API in a single paragraph.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [] }] }'
-              jcr:primaryType: frontend:pluginconfig
           /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /seosummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /seosummary:
             caption: SEO Summary
             field: seosummary
             hint: A short concise summary of the API describing it's function alone
@@ -81,9 +88,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /json:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /json:
             caption: Specification JSON content
             field: json
             hint: JSON content automatically imported from specifications in Apigee
@@ -92,30 +99,19 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /showApiResult:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /showApiResult:
-            jcr:primaryType: frontend:plugin
             caption: Show as a result on the API and integration catalogue
             field: showApiResult
             hint: This field is only required if creating API and integration catalogue
               content
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: e8e8d147-647a-4a6c-b63c-62a842bf21dc
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated',
-            'hippotaxonomy:classifiable']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: f3afd148-f4b4-4369-8f98-5ab14a45f2e7
           /enable_rapidoc:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -139,7 +135,8 @@ definitions:
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
             hipposysedit:type: website:seoSummary
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: true
@@ -148,7 +145,16 @@ definitions:
             hipposysedit:path: website:shortsummary
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /showApiResult:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:showApiResult
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
           /specification_id:
             hipposysedit:mandatory: false
@@ -157,7 +163,8 @@ definitions:
             hipposysedit:path: website:specification_id
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: true
@@ -166,7 +173,8 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -175,19 +183,31 @@ definitions:
             hipposysedit:path: website:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
-          /showApiResult:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:showApiResult
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:FacetType: apispecification
           common:searchRank: 5
           common:searchable: true
@@ -199,20 +219,20 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
           website:enable_rapidoc: true
           website:json: ''
           website:seosummary: ''
           website:shortsummary: ''
+          website:showApiResult: false
           website:specification_id: ''
           website:summary: ''
           website:title: ''
-          website:showApiResult: false
-          jcr:uuid: 371e9eed-3a70-411a-80a7-c7e2ab4c7eb7
-          /website:seosummary:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /website:summary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
