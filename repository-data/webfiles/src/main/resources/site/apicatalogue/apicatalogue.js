@@ -17,3 +17,16 @@ document.querySelectorAll('#show-more').forEach((element) => element.addEventLis
     showFilterSubsections(element);
     hide(element);
 }));
+
+// Keeps the scroll level at the same spot when reloading
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollpos = localStorage.getItem('scrollpos');
+    if (scrollpos) {
+        window.scrollTo(0, scrollpos);
+    }
+});
+
+window.onbeforeunload = function saveScrollPos() {
+    localStorage.setItem('scrollpos', window.scrollY);
+};
+// Scroll level end
