@@ -175,7 +175,7 @@
     </#if>
 
 <#-- Reassemble the updated link with query parameters if they exist -->
-    <#assign updatedLink = updatedBaseURL + (queryParams?has_content?then(queryParams, ""))>
+    <#assign updatedLink = updatedBaseURL + (queryParams?has_content?then("?" + queryParams, ""))>
 
 <#-- Output the updated link without escaping HTML special characters -->
     <#return updatedLink?no_esc>
