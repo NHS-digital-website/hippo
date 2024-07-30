@@ -109,7 +109,7 @@
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
                     <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
                      <#if !filter.selectable >
-                        <a aria-label="Filter by ${filter.displayName}"
+                        <a aria-label="Filter1 by ${filter.displayName}"
                            <#--href="&lt;#&ndash;<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />&ndash;&gt;"-->
 
                            href="${updatedLink}"
