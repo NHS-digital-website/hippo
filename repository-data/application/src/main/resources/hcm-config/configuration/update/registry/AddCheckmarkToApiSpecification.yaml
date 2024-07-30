@@ -1,0 +1,48 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/AddCheckmarkToApiSpecification:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: //*[@hippo:paths='12345678-1234-1234-1234-123456789abc' and((@hippostd:state='draft')
+        or (@hippostd:state='unpublished') or (@hippostd:state='published'))]
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.hippoecm.repository.util.JcrUtils\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
+        \n\r\nimport javax.jcr.Node\r\nimport javax.jcr.nodetype.NodeType\r\nimport\
+        \ java.util.function.Predicate\r\n\r\nclass ApiSpecificationPropertyAdd extends\
+        \ BaseNodeUpdateVisitor {\r\n\r\n    private static final APISPECIFICATION_NODE_NAME\
+        \ = \"website:apispecification\";\r\n    private static final GENERAL_NODE_NAME\
+        \ = \"website:general\";\r\n    private static final BOOLEAN_PROPERTY_NAME\
+        \ = \"website:showApiResult\";\r\n\r\n    boolean logSkippedNodePaths() {\r\
+        \n        return false // don't log skipped node paths\r\n    }\r\n\r\n  \
+        \  boolean skipCheckoutNodes() {\r\n        return false // return true for\
+        \ readonly visitors and/or updates unrelated to versioned content\r\n    }\r\
+        \n\r\n    boolean doUpdate(Node node) {\r\n\r\n        String nodeTypeName\
+        \ = node.getPrimaryNodeType().getName();\r\n        if(nodeTypeName.toLowerCase().equals(APISPECIFICATION_NODE_NAME)\
+        \ || nodeTypeName.toLowerCase().equals(GENERAL_NODE_NAME)) {\r\n         \
+        \   log.debug \"-------------------------------------------------------------------------------------------\"\
+        \r\n            log.debug \"Updating node with type ${nodeTypeName} and path\
+        \ ${node.path}\"\r\n\r\n            Node prototypeNode = node.getSession().getRootNode().getNode(\"\
+        hippo:namespaces/website/${nodeTypeName.substring(nodeTypeName.lastIndexOf(\"\
+        :\") +1)}/hipposysedit:prototypes/hipposysedit:prototype\");\r\n         \
+        \   if (prototypeNode.hasProperty(BOOLEAN_PROPERTY_NAME)) {\r\n          \
+        \      if (!node.hasProperty(BOOLEAN_PROPERTY_NAME)) {\r\n               \
+        \     node.setProperty(BOOLEAN_PROPERTY_NAME, true);\r\n                 \
+        \   log.info \"Set property ${BOOLEAN_PROPERTY_NAME} to true\"\r\n       \
+        \             return true;\r\n                } else {\r\n               \
+        \     log.info \"Node ${node.path} already had the property present\"\r\n\
+        \                    return true;\r\n                }\r\n            }\r\n\
+        \            log.warn \"Failed to update node, unknown error\"\r\n       \
+        \ }\r\n\r\n        return false;\r\n    }\r\n\r\n    boolean undoUpdate(Node\
+        \ node) {\r\n        throw new UnsupportedOperationException('Updater does\
+        \ not implement undoUpdate method')\r\n    }\r\n\r\n/*\r\n    Use this as\
+        \ the XPath query, and replace the \"12345678-1234-1234-1234-123456789abc\"\
+        \ with the UUID of the website content folder.\r\n    //*[@hippo:paths='12345678-1234-1234-1234-123456789abc'\
+        \ and((@hippostd:state='draft') or (@hippostd:state='unpublished') or (@hippostd:state='published'))]\r\
+        \n\r\n */\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
