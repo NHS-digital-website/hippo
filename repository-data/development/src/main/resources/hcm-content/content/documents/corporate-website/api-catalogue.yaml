@@ -3629,6 +3629,707 @@
       - mix:versionable
       jcr:primaryType: hippostd:folder
       jcr:uuid: cd856bbe-7286-48ee-baff-b27216e29245
+    /digital-signature-service-api:
+      /digital-signature-service-api:
+        /digital-signature-service-api[1]:
+          /website:seosummary:
+            hippostd:content: Access the signing service API to generate an electronic
+              signature using your NHS CIS2 Authenticator.&nbsp;Electronic Prescription
+              Services EPS FHIR API. 1. Send an unsigned&nbsp;FHIR prescription 2.
+              Receive a bundle of data (Hl7v3) as a successful&nbsp;response 3.&nbsp;Send
+              a signed FHIR prescription
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Generate an electronic signature using your NHS CIS2
+              Authenticator.</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - in-production
+          - pharmacy
+          - prescribing
+          - apis_1
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Prescribing
+          - Prescription
+          - In production (API)
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
+          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:10.032Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys:
+          - prescribing
+          - in-production
+          hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: f681988e-762e-4fb3-8eba-4f090fb84954
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
+            Signature Service API","version":"{VERSION}","contact":{"name":"Digital
+            Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
+            Overview\nUse this Digital Signature Service API to digitally sign one
+            or more prescriptions from an application with a CIS2 Authentication session.
+            There are various CIS2 Authentication mechanisms, with the choice made
+            separately for each request.\n\nThe current authenticators available with
+            the Signing Gateway API include:\n* Windows Hello for Business \n* Security
+            keys\n* iPad authentication via IOS CIS2 app\n* NHS Smartcards \n\nYou
+            cannot use this API to produce signatures using:  \n* Virtual Smartcards
+            \n* Microsoft Authenticator \n\nA healthcare worker must be present and
+            authenticated with an [NHS CIS2 authenticator](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication#authenticator-options)
+            to use this API.\n\n## Using this API\nUse this API for browser based
+            and native applications.\n\nTo use this API, you must: \n1. create an
+            RSA key pair with a key length of 4096 bits or greater  \n2. [contact
+            us](https://digital.nhs.uk/developer/help-and-support)\n\nWhen you contact
+            us you must provide:\n   * your public key, which we store in our JSON
+            Web Key Set (JWKS) and give you a Key ID\n   * a callback URL which our
+            service can use to notify your system when the signing process is complete\n\nTo
+            generate signatures you should:\n1. make a request to the POST /$prepare
+            endpoint of the [Electronic Prescription Service - FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir)
+            and save the response, for each prescription to be signed \n2. create
+            a JSON Web Token (JWT) containing the Key ID and the data to be signed
+            (see [signature-request](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir#api-description__endpoint-overview)
+            for more information) \n3. sign the JWT with the RS256 or RS512 algorithm
+            using your private key \n4. send the JWT to the Digital Signature Service
+            using the POST /signaturerequest endpoint. The service responds with a
+            token representing your signature request and a redirect URL.  \n5. expect
+            the user experience to vary at this point, based on the authentication
+            mechanism used \n6. send the token received by the callback URL to the
+            GET /signatureresponse endpoint to obtain the signatures \n\n## Who can
+            use this API\nThis API can only be used where there is a legal basis to
+            do so. Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development. You must do this before you can
+            go live.\n\n## Related APIs\nThe following APIs are related to the Digital
+            Signature Service API:\n* [Electronic Prescription Service (FHIR) API](https://portal.developer.nhs.uk/docs/electronic-prescription-service-api-prod/1/overview)
+            - use this API if you want to send prescriptions electronically once they
+            are signed with the via the Digital Signature Service API.\n\n## API status
+            and roadmap\nThis API is [in production, beta](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).
+            If you have any other queries, please [contact us](https://digital.nhs.uk/developer/help-and-support).\n\n##
+            Technology\nThis API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nEnd
+            users of the API require NHS Credential Management to be installed and
+            running on their local machine for signing by smartcard to be successful.  \n\n##
+            Network access\nThis API is available on the internet.\n\n## Security
+            and authorisation\nThis API is [user-restricted](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis),\nmeaning
+            an end user must be present and authenticated to use it.\n\nThe end user
+            must be:\n* a healthcare professional\n* strongly authenticated using
+            one of the approved CIS2 Authentication methods\n\nThe API uses Open ID
+            Connect to authenticate the end user and OAuth 2.0 to authorise the calling
+            system. It supports the separate authentication and authorisation security
+            pattern using the user-restricted RESTful API with NHS Care Identity Service
+            2 (NHS CIS2) Authentication and authorisation.  \n\n## Environments and
+            testing\n\n| Purpose                                     | URL                                                                  |\n|---------------------------------------------|----------------------------------------------------------------------|\n|
+            Sandbox                                     | `https://sandbox.api.service.nhs.uk/signing-service`                 |\n|
+            Integration test (smartcard authentication) | `https://int.api.service.nhs.uk/signing-service`                     |\n|
+            Production                                  | Published when we move into
+            Beta                                     |\n\n### Sandbox testing\nOur
+            [sandbox environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#sandbox-testing):\n*
+            is for early developer testing\n* only covers a limited set of scenarios\n*
+            is stateless, so it does not store data\n* is open access, so does not
+            allow you to test authorisation\n\nFor more details on sandbox testing,
+            or to try out the sandbox using our \"Try this API\" feature, see the
+            documentation for each endpoint.\n\n### Integration testing\nOur [integration
+            test environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing):\n*
+            is for formal integration testing\n* is stateful, so it does persist data\n*
+            includes authorisation, with [smartcard](https://digital.nhs.uk/services/registration-authorities-and-smartcards)
+            and non-smartcard options\n\nFor more details see [integration testing
+            with our RESTful APIs](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing-with-our-restful-apis).\n\n##
+            Onboarding\nThis API can only be used for Signature creation with the
+            [Electronic Prescription Service FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir).
+            Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development.\n\nYou will have to complete onboarding
+            with CIS2 Authentication first, and your use of this API in production
+            will be granted with EPS.  \n\nLearn more about developing with CIS2 Authentication
+            by reading our [onboarding documentation](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication/guidance-for-developers/detailed-guidance/authorization-code-flow).  \n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not.\n\nThey are usually in the range:\n\n* 200 to 299 if
+            it succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\nErrors specific to each API are shown in the Endpoints
+            section, under Response. See our [reference guide](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors)
+            for more on errors.\n"},"servers":[{"url":"https://sandbox.api.service.nhs.uk/signing-service","description":"Sandbox"},{"url":"https://int.api.service.nhs.uk/signing-service","description":"Integration
+            test (smartcard authentication)"}],"tags":[{"name":"signature request"},{"name":"signature
+            response"}],"paths":{"/signaturerequest":{"post":{"operationId":"upload-payload","tags":["signature
+            request"],"summary":"Request signature generation","description":"## Overview\nRequest
+            signatures, from a minimum of 1 up to a maximum of 250, and receive a
+            token in exchange.","requestBody":{"required":true,"content":{"text/plain":{"schema":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"examples":{"success":{"description":"Valid
+            JWT","value":"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS0xIn0.eyJwYXlsb2FkcyI6W3siaWQiOiIxIiwicGF5bG9hZCI6IlBGTnBaMjVsWkVsdVptOCtQRU5oYm05dWFXTmhiR2w2WVhScGIyNU5aWFJvYjJRZ1FXeG5iM0pwZEdodFBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF4THpFd0wzaHRiQzFsZUdNdFl6RTBiaU1pUGp3dlEyRnViMjVwWTJGc2FYcGhkR2x2YmsxbGRHaHZaRDQ4VTJsbmJtRjBkWEpsVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM0p6WVMxemFHRXhJajQ4TDFOcFoyNWhkSFZ5WlUxbGRHaHZaRDQ4VW1WbVpYSmxibU5sUGp4VWNtRnVjMlp2Y20xelBqeFVjbUZ1YzJadmNtMGdRV3huYjNKcGRHaHRQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBeEx6RXdMM2h0YkMxbGVHTXRZekUwYmlNaVBqd3ZWSEpoYm5ObWIzSnRQand2VkhKaGJuTm1iM0p0Y3o0OFJHbG5aWE4wVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM05vWVRFaVBqd3ZSR2xuWlhOMFRXVjBhRzlrUGp4RWFXZGxjM1JXWVd4MVpUNDVVVWg2VVdGR2FUSnRMMnBuTmpGWWEzUkVRemRNYTNWb1JGVTlQQzlFYVdkbGMzUldZV3gxWlQ0OEwxSmxabVZ5Wlc1alpUNDhMMU5wWjI1bFpFbHVabTgrIn1dLCJhbGdvcml0aG0iOiJSUzEiLCJpYXQiOjE2MjgxNzY4NzIsImV4cCI6MTYyODE3NzQ3MiwiYXVkIjoiaHR0cHM6Ly9pbnRlcm5hbC1kZXYuYXBpLnNlcnZpY2UubmhzLnVrL3NpZ25pbmctc2VydmljZSIsImlzcyI6InF2UDlOb1FjT1ZxS3JYRWR0THY4QjBqN3A1Vm1qUERkIiwic3ViIjoicXZQOU5vUWNPVnFLclhFZHRMdjhCMGo3cDVWbWpQRGQifQ.eK6ak8YjcG8_k5Q0QH1fcDjmoXo-SB3ocNPW3rPLDR99hMv2EdFYulZXk3fPhL4wYaOut16jL0yTKpcfKrNFTNCYW6d7dPF5E984reqmbFqs7ic4PBIZfv8tUHYAgUBE2LT_g60PJdrME5SXcng12h1FXePWBbiAQQKAWBxLv7_aWr0HC7x9CudTr9jF8IdirFN7EpxIph73FE7j0uLmUEME-Fb2Sloi4UvtHBXVoc7KASDi9XAVngInUgsg5G8w_1642zfmbZsKJyemEYRGMHGVGmzoM_pycBxJ8a8BI3HNL_4ZpKEwUXKul09AwO2dzG9EWXTMKJNVA2oawehE4KruI3yvghQjfzq6ta9oyIJ66AKSQQd833_UEEhfLsDFIEx1Im2aVytwmSnRnpDomPuIzpZe7EdX9OR7AS7D1eGTFPX8xANoV7WM5dyrOyP5Iwwc6wztfUEbFmCxaj-qRsCE6YvCX3Pqi6XBXYwpE2x0LLX39a8kOZasAsJBWvSsGIUEBx9xt4g7wl1GbSSFZtr_SogcKGDu-Jz_4LIb5b_VH8lhYCsPxVHLaSf8wKAfecYomZO-Q8TW21B4TVO-M2pPa8Ht5BG5T2XcC-yPm66oF7OUze0uNaRhMXXPRtSYbXxVOlZB7VtywN5MFH4WgXjAepw0pQ9EcVVVAGFJjD0"}}}},"description":"The
+            payload to be signed"},"responses":{"200":{"description":"Successful upload","content":{"application/json":{"schema":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"examples":{"success":{"value":{"token":"ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj","redirectUri":"https://int.api.service.nhs.uk/signing-service/client?token=ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj"}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}},"/signatureresponse/{token}":{"get":{"operationId":"retrieve-signature","tags":["signature
+            response"],"summary":"Retrieve signatures","description":"## Overview\nRetrieve
+            signatures for a given payload token.","parameters":[{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}],"responses":{"200":{"description":"Successful
+            retrieval","content":{"application/json":{"schema":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}},"examples":{"success":{"value":{"signatures":[{"id":"e77bf3e8-bcf5-4431-91a2-22672b27662a","signature":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}],"certificate":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}}},"components":{"parameters":{"token":{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}},"schemas":{"token-body":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"signature-request-body":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"signature-response-body":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}}'
+          website:seosummary: ''
+          website:shortsummary: Generate an electronic signature using your NHS CIS2
+            Authenticator.
+          website:specification_id: '232323'
+          website:summary: ''
+          website:title: Digital Signature Service API
+        /digital-signature-service-api[2]:
+          /website:seosummary:
+            hippostd:content: Access the signing service API to generate an electronic
+              signature using your NHS CIS2 Authenticator.&nbsp;Electronic Prescription
+              Services EPS FHIR API. 1. Send an unsigned&nbsp;FHIR prescription 2.
+              Receive a bundle of data (Hl7v3) as a successful&nbsp;response 3.&nbsp;Send
+              a signed FHIR prescription
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Generate an electronic signature using your NHS CIS2
+              Authenticator.</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - in-production
+          - pharmacy
+          - prescribing
+          - apis_1
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Prescribing
+          - Prescription
+          - In production (API)
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
+          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys:
+          - prescribing
+          - in-production
+          hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: 1b3e2ca4-4cb1-435d-a070-a19e0c62bc75
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
+            Signature Service API","version":"{VERSION}","contact":{"name":"Digital
+            Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
+            Overview\nUse this Digital Signature Service API to digitally sign one
+            or more prescriptions from an application with a CIS2 Authentication session.
+            There are various CIS2 Authentication mechanisms, with the choice made
+            separately for each request.\n\nThe current authenticators available with
+            the Signing Gateway API include:\n* Windows Hello for Business \n* Security
+            keys\n* iPad authentication via IOS CIS2 app\n* NHS Smartcards \n\nYou
+            cannot use this API to produce signatures using:  \n* Virtual Smartcards
+            \n* Microsoft Authenticator \n\nA healthcare worker must be present and
+            authenticated with an [NHS CIS2 authenticator](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication#authenticator-options)
+            to use this API.\n\n## Using this API\nUse this API for browser based
+            and native applications.\n\nTo use this API, you must: \n1. create an
+            RSA key pair with a key length of 4096 bits or greater  \n2. [contact
+            us](https://digital.nhs.uk/developer/help-and-support)\n\nWhen you contact
+            us you must provide:\n   * your public key, which we store in our JSON
+            Web Key Set (JWKS) and give you a Key ID\n   * a callback URL which our
+            service can use to notify your system when the signing process is complete\n\nTo
+            generate signatures you should:\n1. make a request to the POST /$prepare
+            endpoint of the [Electronic Prescription Service - FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir)
+            and save the response, for each prescription to be signed \n2. create
+            a JSON Web Token (JWT) containing the Key ID and the data to be signed
+            (see [signature-request](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir#api-description__endpoint-overview)
+            for more information) \n3. sign the JWT with the RS256 or RS512 algorithm
+            using your private key \n4. send the JWT to the Digital Signature Service
+            using the POST /signaturerequest endpoint. The service responds with a
+            token representing your signature request and a redirect URL.  \n5. expect
+            the user experience to vary at this point, based on the authentication
+            mechanism used \n6. send the token received by the callback URL to the
+            GET /signatureresponse endpoint to obtain the signatures \n\n## Who can
+            use this API\nThis API can only be used where there is a legal basis to
+            do so. Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development. You must do this before you can
+            go live.\n\n## Related APIs\nThe following APIs are related to the Digital
+            Signature Service API:\n* [Electronic Prescription Service (FHIR) API](https://portal.developer.nhs.uk/docs/electronic-prescription-service-api-prod/1/overview)
+            - use this API if you want to send prescriptions electronically once they
+            are signed with the via the Digital Signature Service API.\n\n## API status
+            and roadmap\nThis API is [in production, beta](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).
+            If you have any other queries, please [contact us](https://digital.nhs.uk/developer/help-and-support).\n\n##
+            Technology\nThis API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nEnd
+            users of the API require NHS Credential Management to be installed and
+            running on their local machine for signing by smartcard to be successful.  \n\n##
+            Network access\nThis API is available on the internet.\n\n## Security
+            and authorisation\nThis API is [user-restricted](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis),\nmeaning
+            an end user must be present and authenticated to use it.\n\nThe end user
+            must be:\n* a healthcare professional\n* strongly authenticated using
+            one of the approved CIS2 Authentication methods\n\nThe API uses Open ID
+            Connect to authenticate the end user and OAuth 2.0 to authorise the calling
+            system. It supports the separate authentication and authorisation security
+            pattern using the user-restricted RESTful API with NHS Care Identity Service
+            2 (NHS CIS2) Authentication and authorisation.  \n\n## Environments and
+            testing\n\n| Purpose                                     | URL                                                                  |\n|---------------------------------------------|----------------------------------------------------------------------|\n|
+            Sandbox                                     | `https://sandbox.api.service.nhs.uk/signing-service`                 |\n|
+            Integration test (smartcard authentication) | `https://int.api.service.nhs.uk/signing-service`                     |\n|
+            Production                                  | Published when we move into
+            Beta                                     |\n\n### Sandbox testing\nOur
+            [sandbox environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#sandbox-testing):\n*
+            is for early developer testing\n* only covers a limited set of scenarios\n*
+            is stateless, so it does not store data\n* is open access, so does not
+            allow you to test authorisation\n\nFor more details on sandbox testing,
+            or to try out the sandbox using our \"Try this API\" feature, see the
+            documentation for each endpoint.\n\n### Integration testing\nOur [integration
+            test environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing):\n*
+            is for formal integration testing\n* is stateful, so it does persist data\n*
+            includes authorisation, with [smartcard](https://digital.nhs.uk/services/registration-authorities-and-smartcards)
+            and non-smartcard options\n\nFor more details see [integration testing
+            with our RESTful APIs](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing-with-our-restful-apis).\n\n##
+            Onboarding\nThis API can only be used for Signature creation with the
+            [Electronic Prescription Service FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir).
+            Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development.\n\nYou will have to complete onboarding
+            with CIS2 Authentication first, and your use of this API in production
+            will be granted with EPS.  \n\nLearn more about developing with CIS2 Authentication
+            by reading our [onboarding documentation](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication/guidance-for-developers/detailed-guidance/authorization-code-flow).  \n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not.\n\nThey are usually in the range:\n\n* 200 to 299 if
+            it succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\nErrors specific to each API are shown in the Endpoints
+            section, under Response. See our [reference guide](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors)
+            for more on errors.\n"},"servers":[{"url":"https://sandbox.api.service.nhs.uk/signing-service","description":"Sandbox"},{"url":"https://int.api.service.nhs.uk/signing-service","description":"Integration
+            test (smartcard authentication)"}],"tags":[{"name":"signature request"},{"name":"signature
+            response"}],"paths":{"/signaturerequest":{"post":{"operationId":"upload-payload","tags":["signature
+            request"],"summary":"Request signature generation","description":"## Overview\nRequest
+            signatures, from a minimum of 1 up to a maximum of 250, and receive a
+            token in exchange.","requestBody":{"required":true,"content":{"text/plain":{"schema":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"examples":{"success":{"description":"Valid
+            JWT","value":"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS0xIn0.eyJwYXlsb2FkcyI6W3siaWQiOiIxIiwicGF5bG9hZCI6IlBGTnBaMjVsWkVsdVptOCtQRU5oYm05dWFXTmhiR2w2WVhScGIyNU5aWFJvYjJRZ1FXeG5iM0pwZEdodFBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF4THpFd0wzaHRiQzFsZUdNdFl6RTBiaU1pUGp3dlEyRnViMjVwWTJGc2FYcGhkR2x2YmsxbGRHaHZaRDQ4VTJsbmJtRjBkWEpsVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM0p6WVMxemFHRXhJajQ4TDFOcFoyNWhkSFZ5WlUxbGRHaHZaRDQ4VW1WbVpYSmxibU5sUGp4VWNtRnVjMlp2Y20xelBqeFVjbUZ1YzJadmNtMGdRV3huYjNKcGRHaHRQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBeEx6RXdMM2h0YkMxbGVHTXRZekUwYmlNaVBqd3ZWSEpoYm5ObWIzSnRQand2VkhKaGJuTm1iM0p0Y3o0OFJHbG5aWE4wVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM05vWVRFaVBqd3ZSR2xuWlhOMFRXVjBhRzlrUGp4RWFXZGxjM1JXWVd4MVpUNDVVVWg2VVdGR2FUSnRMMnBuTmpGWWEzUkVRemRNYTNWb1JGVTlQQzlFYVdkbGMzUldZV3gxWlQ0OEwxSmxabVZ5Wlc1alpUNDhMMU5wWjI1bFpFbHVabTgrIn1dLCJhbGdvcml0aG0iOiJSUzEiLCJpYXQiOjE2MjgxNzY4NzIsImV4cCI6MTYyODE3NzQ3MiwiYXVkIjoiaHR0cHM6Ly9pbnRlcm5hbC1kZXYuYXBpLnNlcnZpY2UubmhzLnVrL3NpZ25pbmctc2VydmljZSIsImlzcyI6InF2UDlOb1FjT1ZxS3JYRWR0THY4QjBqN3A1Vm1qUERkIiwic3ViIjoicXZQOU5vUWNPVnFLclhFZHRMdjhCMGo3cDVWbWpQRGQifQ.eK6ak8YjcG8_k5Q0QH1fcDjmoXo-SB3ocNPW3rPLDR99hMv2EdFYulZXk3fPhL4wYaOut16jL0yTKpcfKrNFTNCYW6d7dPF5E984reqmbFqs7ic4PBIZfv8tUHYAgUBE2LT_g60PJdrME5SXcng12h1FXePWBbiAQQKAWBxLv7_aWr0HC7x9CudTr9jF8IdirFN7EpxIph73FE7j0uLmUEME-Fb2Sloi4UvtHBXVoc7KASDi9XAVngInUgsg5G8w_1642zfmbZsKJyemEYRGMHGVGmzoM_pycBxJ8a8BI3HNL_4ZpKEwUXKul09AwO2dzG9EWXTMKJNVA2oawehE4KruI3yvghQjfzq6ta9oyIJ66AKSQQd833_UEEhfLsDFIEx1Im2aVytwmSnRnpDomPuIzpZe7EdX9OR7AS7D1eGTFPX8xANoV7WM5dyrOyP5Iwwc6wztfUEbFmCxaj-qRsCE6YvCX3Pqi6XBXYwpE2x0LLX39a8kOZasAsJBWvSsGIUEBx9xt4g7wl1GbSSFZtr_SogcKGDu-Jz_4LIb5b_VH8lhYCsPxVHLaSf8wKAfecYomZO-Q8TW21B4TVO-M2pPa8Ht5BG5T2XcC-yPm66oF7OUze0uNaRhMXXPRtSYbXxVOlZB7VtywN5MFH4WgXjAepw0pQ9EcVVVAGFJjD0"}}}},"description":"The
+            payload to be signed"},"responses":{"200":{"description":"Successful upload","content":{"application/json":{"schema":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"examples":{"success":{"value":{"token":"ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj","redirectUri":"https://int.api.service.nhs.uk/signing-service/client?token=ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj"}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}},"/signatureresponse/{token}":{"get":{"operationId":"retrieve-signature","tags":["signature
+            response"],"summary":"Retrieve signatures","description":"## Overview\nRetrieve
+            signatures for a given payload token.","parameters":[{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}],"responses":{"200":{"description":"Successful
+            retrieval","content":{"application/json":{"schema":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}},"examples":{"success":{"value":{"signatures":[{"id":"e77bf3e8-bcf5-4431-91a2-22672b27662a","signature":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}],"certificate":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}}},"components":{"parameters":{"token":{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}},"schemas":{"token-body":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"signature-request-body":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"signature-response-body":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}}'
+          website:seosummary: ''
+          website:shortsummary: Generate an electronic signature using your NHS CIS2
+            Authenticator.
+          website:specification_id: '232323'
+          website:summary: ''
+          website:title: Digital Signature Service API
+        /digital-signature-service-api[3]:
+          /website:seosummary:
+            hippostd:content: Access the signing service API to generate an electronic
+              signature using your NHS CIS2 Authenticator.&nbsp;Electronic Prescription
+              Services EPS FHIR API. 1. Send an unsigned&nbsp;FHIR prescription 2.
+              Receive a bundle of data (Hl7v3) as a successful&nbsp;response 3.&nbsp;Send
+              a signed FHIR prescription
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Generate an electronic signature using your NHS CIS2
+              Authenticator.</p>
+            jcr:primaryType: hippostd:html
+          common:FacetType: apispecification
+          common:FullTaxonomy:
+          - health-services
+          - data-and-information
+          - in-production
+          - pharmacy
+          - prescribing
+          - apis_1
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Prescribing
+          - Prescription
+          - In production (API)
+          common:searchRank: 5
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
+          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-07-29T15:31:34.870Z
+          hippotaxonomy:keys:
+          - prescribing
+          - in-production
+          hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:apispecification
+          jcr:uuid: ec5d7105-29fd-4d87-a90f-4601a4837b33
+          website:enable_rapidoc: true
+          website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
+            Signature Service API","version":"{VERSION}","contact":{"name":"Digital
+            Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
+            Overview\nUse this Digital Signature Service API to digitally sign one
+            or more prescriptions from an application with a CIS2 Authentication session.
+            There are various CIS2 Authentication mechanisms, with the choice made
+            separately for each request.\n\nThe current authenticators available with
+            the Signing Gateway API include:\n* Windows Hello for Business \n* Security
+            keys\n* iPad authentication via IOS CIS2 app\n* NHS Smartcards \n\nYou
+            cannot use this API to produce signatures using:  \n* Virtual Smartcards
+            \n* Microsoft Authenticator \n\nA healthcare worker must be present and
+            authenticated with an [NHS CIS2 authenticator](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication#authenticator-options)
+            to use this API.\n\n## Using this API\nUse this API for browser based
+            and native applications.\n\nTo use this API, you must: \n1. create an
+            RSA key pair with a key length of 4096 bits or greater  \n2. [contact
+            us](https://digital.nhs.uk/developer/help-and-support)\n\nWhen you contact
+            us you must provide:\n   * your public key, which we store in our JSON
+            Web Key Set (JWKS) and give you a Key ID\n   * a callback URL which our
+            service can use to notify your system when the signing process is complete\n\nTo
+            generate signatures you should:\n1. make a request to the POST /$prepare
+            endpoint of the [Electronic Prescription Service - FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir)
+            and save the response, for each prescription to be signed \n2. create
+            a JSON Web Token (JWT) containing the Key ID and the data to be signed
+            (see [signature-request](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir#api-description__endpoint-overview)
+            for more information) \n3. sign the JWT with the RS256 or RS512 algorithm
+            using your private key \n4. send the JWT to the Digital Signature Service
+            using the POST /signaturerequest endpoint. The service responds with a
+            token representing your signature request and a redirect URL.  \n5. expect
+            the user experience to vary at this point, based on the authentication
+            mechanism used \n6. send the token received by the callback URL to the
+            GET /signatureresponse endpoint to obtain the signatures \n\n## Who can
+            use this API\nThis API can only be used where there is a legal basis to
+            do so. Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development. You must do this before you can
+            go live.\n\n## Related APIs\nThe following APIs are related to the Digital
+            Signature Service API:\n* [Electronic Prescription Service (FHIR) API](https://portal.developer.nhs.uk/docs/electronic-prescription-service-api-prod/1/overview)
+            - use this API if you want to send prescriptions electronically once they
+            are signed with the via the Digital Signature Service API.\n\n## API status
+            and roadmap\nThis API is [in production, beta](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#statuses).
+            If you have any other queries, please [contact us](https://digital.nhs.uk/developer/help-and-support).\n\n##
+            Technology\nThis API is [RESTful](https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#basic-rest).\n\nEnd
+            users of the API require NHS Credential Management to be installed and
+            running on their local machine for signing by smartcard to be successful.  \n\n##
+            Network access\nThis API is available on the internet.\n\n## Security
+            and authorisation\nThis API is [user-restricted](https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis),\nmeaning
+            an end user must be present and authenticated to use it.\n\nThe end user
+            must be:\n* a healthcare professional\n* strongly authenticated using
+            one of the approved CIS2 Authentication methods\n\nThe API uses Open ID
+            Connect to authenticate the end user and OAuth 2.0 to authorise the calling
+            system. It supports the separate authentication and authorisation security
+            pattern using the user-restricted RESTful API with NHS Care Identity Service
+            2 (NHS CIS2) Authentication and authorisation.  \n\n## Environments and
+            testing\n\n| Purpose                                     | URL                                                                  |\n|---------------------------------------------|----------------------------------------------------------------------|\n|
+            Sandbox                                     | `https://sandbox.api.service.nhs.uk/signing-service`                 |\n|
+            Integration test (smartcard authentication) | `https://int.api.service.nhs.uk/signing-service`                     |\n|
+            Production                                  | Published when we move into
+            Beta                                     |\n\n### Sandbox testing\nOur
+            [sandbox environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#sandbox-testing):\n*
+            is for early developer testing\n* only covers a limited set of scenarios\n*
+            is stateless, so it does not store data\n* is open access, so does not
+            allow you to test authorisation\n\nFor more details on sandbox testing,
+            or to try out the sandbox using our \"Try this API\" feature, see the
+            documentation for each endpoint.\n\n### Integration testing\nOur [integration
+            test environment](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing):\n*
+            is for formal integration testing\n* is stateful, so it does persist data\n*
+            includes authorisation, with [smartcard](https://digital.nhs.uk/services/registration-authorities-and-smartcards)
+            and non-smartcard options\n\nFor more details see [integration testing
+            with our RESTful APIs](https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing-with-our-restful-apis).\n\n##
+            Onboarding\nThis API can only be used for Signature creation with the
+            [Electronic Prescription Service FHIR API](https://digital.nhs.uk/developer/api-catalogue/electronic-prescription-service-fhir).
+            Make sure you have a [valid use case](https://digital.nhs.uk/services/electronic-prescription-service/enabling-eps-for-your-service)
+            before you complete your development.\n\nYou will have to complete onboarding
+            with CIS2 Authentication first, and your use of this API in production
+            will be granted with EPS.  \n\nLearn more about developing with CIS2 Authentication
+            by reading our [onboarding documentation](https://digital.nhs.uk/services/care-identity-service/applications-and-services/cis2-authentication/guidance-for-developers/detailed-guidance/authorization-code-flow).  \n\n##
+            Errors\nWe use standard HTTP status codes to show whether an API request
+            succeeded or not.\n\nThey are usually in the range:\n\n* 200 to 299 if
+            it succeeded, including code 202 if it was accepted by an API that needs
+            to wait for further action\n* 400 to 499 if it failed because of a client
+            error by your application\n* 500 to 599 if it failed because of an error
+            on our server\nErrors specific to each API are shown in the Endpoints
+            section, under Response. See our [reference guide](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors)
+            for more on errors.\n"},"servers":[{"url":"https://sandbox.api.service.nhs.uk/signing-service","description":"Sandbox"},{"url":"https://int.api.service.nhs.uk/signing-service","description":"Integration
+            test (smartcard authentication)"}],"tags":[{"name":"signature request"},{"name":"signature
+            response"}],"paths":{"/signaturerequest":{"post":{"operationId":"upload-payload","tags":["signature
+            request"],"summary":"Request signature generation","description":"## Overview\nRequest
+            signatures, from a minimum of 1 up to a maximum of 250, and receive a
+            token in exchange.","requestBody":{"required":true,"content":{"text/plain":{"schema":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"examples":{"success":{"description":"Valid
+            JWT","value":"eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS0xIn0.eyJwYXlsb2FkcyI6W3siaWQiOiIxIiwicGF5bG9hZCI6IlBGTnBaMjVsWkVsdVptOCtQRU5oYm05dWFXTmhiR2w2WVhScGIyNU5aWFJvYjJRZ1FXeG5iM0pwZEdodFBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF4THpFd0wzaHRiQzFsZUdNdFl6RTBiaU1pUGp3dlEyRnViMjVwWTJGc2FYcGhkR2x2YmsxbGRHaHZaRDQ4VTJsbmJtRjBkWEpsVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM0p6WVMxemFHRXhJajQ4TDFOcFoyNWhkSFZ5WlUxbGRHaHZaRDQ4VW1WbVpYSmxibU5sUGp4VWNtRnVjMlp2Y20xelBqeFVjbUZ1YzJadmNtMGdRV3huYjNKcGRHaHRQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBeEx6RXdMM2h0YkMxbGVHTXRZekUwYmlNaVBqd3ZWSEpoYm5ObWIzSnRQand2VkhKaGJuTm1iM0p0Y3o0OFJHbG5aWE4wVFdWMGFHOWtJRUZzWjI5eWFYUm9iVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOHdPUzk0Yld4a2MybG5JM05vWVRFaVBqd3ZSR2xuWlhOMFRXVjBhRzlrUGp4RWFXZGxjM1JXWVd4MVpUNDVVVWg2VVdGR2FUSnRMMnBuTmpGWWEzUkVRemRNYTNWb1JGVTlQQzlFYVdkbGMzUldZV3gxWlQ0OEwxSmxabVZ5Wlc1alpUNDhMMU5wWjI1bFpFbHVabTgrIn1dLCJhbGdvcml0aG0iOiJSUzEiLCJpYXQiOjE2MjgxNzY4NzIsImV4cCI6MTYyODE3NzQ3MiwiYXVkIjoiaHR0cHM6Ly9pbnRlcm5hbC1kZXYuYXBpLnNlcnZpY2UubmhzLnVrL3NpZ25pbmctc2VydmljZSIsImlzcyI6InF2UDlOb1FjT1ZxS3JYRWR0THY4QjBqN3A1Vm1qUERkIiwic3ViIjoicXZQOU5vUWNPVnFLclhFZHRMdjhCMGo3cDVWbWpQRGQifQ.eK6ak8YjcG8_k5Q0QH1fcDjmoXo-SB3ocNPW3rPLDR99hMv2EdFYulZXk3fPhL4wYaOut16jL0yTKpcfKrNFTNCYW6d7dPF5E984reqmbFqs7ic4PBIZfv8tUHYAgUBE2LT_g60PJdrME5SXcng12h1FXePWBbiAQQKAWBxLv7_aWr0HC7x9CudTr9jF8IdirFN7EpxIph73FE7j0uLmUEME-Fb2Sloi4UvtHBXVoc7KASDi9XAVngInUgsg5G8w_1642zfmbZsKJyemEYRGMHGVGmzoM_pycBxJ8a8BI3HNL_4ZpKEwUXKul09AwO2dzG9EWXTMKJNVA2oawehE4KruI3yvghQjfzq6ta9oyIJ66AKSQQd833_UEEhfLsDFIEx1Im2aVytwmSnRnpDomPuIzpZe7EdX9OR7AS7D1eGTFPX8xANoV7WM5dyrOyP5Iwwc6wztfUEbFmCxaj-qRsCE6YvCX3Pqi6XBXYwpE2x0LLX39a8kOZasAsJBWvSsGIUEBx9xt4g7wl1GbSSFZtr_SogcKGDu-Jz_4LIb5b_VH8lhYCsPxVHLaSf8wKAfecYomZO-Q8TW21B4TVO-M2pPa8Ht5BG5T2XcC-yPm66oF7OUze0uNaRhMXXPRtSYbXxVOlZB7VtywN5MFH4WgXjAepw0pQ9EcVVVAGFJjD0"}}}},"description":"The
+            payload to be signed"},"responses":{"200":{"description":"Successful upload","content":{"application/json":{"schema":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"examples":{"success":{"value":{"token":"ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj","redirectUri":"https://int.api.service.nhs.uk/signing-service/client?token=ZDk1YjE0NmEtZWQwMi00N2QzLWE3ZjctNWEwMGY2YzI4NTBj"}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}},"/signatureresponse/{token}":{"get":{"operationId":"retrieve-signature","tags":["signature
+            response"],"summary":"Retrieve signatures","description":"## Overview\nRetrieve
+            signatures for a given payload token.","parameters":[{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}],"responses":{"200":{"description":"Successful
+            retrieval","content":{"application/json":{"schema":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}},"examples":{"success":{"value":{"signatures":[{"id":"e77bf3e8-bcf5-4431-91a2-22672b27662a","signature":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}],"certificate":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}},"4XX":{"description":"Unsuccessful
+            operation","content":{"application/json":{"examples":{"validationError":{"value":{"statusCode":404,"error":"Not
+            Found","message":"No signature request for specified token"}},"authError":{"value":{"resourceType":"OperationOutcome","issue":[{"severity":"error","code":"forbidden","details":{"coding":[{"system":"https://fhir.nhs.uk/R4/CodeSystem/Spine-ErrorOrWarningCode","version":"1","code":"ACCESS_DENIED","display":"Invalid
+            Access Token"}]}}]}}}}}}}}}},"components":{"parameters":{"token":{"in":"path","name":"token","description":"The
+            payload token returned in response to the signature creation request","schema":{"type":"string","format":"uuid"},"required":true}},"schemas":{"token-body":{"type":"object","description":"The
+            response returned by the service when a redirect is required to continue
+            the signing process.","required":["token","redirectUri"],"properties":{"token":{"type":"string","format":"uuid","description":"A
+            token representing the signature creation request. This can be used to
+            retrieve the signature once it has been created.","example":"f523a772-24f2-45d6-a8da-59b48de0231a"},"redirectUri":{"type":"string","format":"uri","description":"The
+            URL which you should redirect to in order to continue the signing process.\nIf
+            using local smartcard authentication, when redirecting to the Signing
+            Service Client, you may append `&mock=true` to the query string to request\na
+            mock implementation of the Credential Management integration.\n","example":"https://example.com/sign?token=f523a772-24f2-45d6-a8da-59b48de0231a"}}},"signature-request-body":{"type":"string","description":"A
+            signed [JWT](https://tools.ietf.org/html/rfc7519) containing the data
+            to be signed by the service.\n\nThe JWT header must include the following
+            fields:\n* `typ` - the type of the token. This must be `JWT`.\n* `alg`
+            - the algorithm used to sign the token. This must be `RS512`.\n* `kid`
+            - the ID of the key which the service uses to verify the JWT signature.\n\nThe
+            JWT payload must include the following fields:\n* `iss` - the issuer of
+            the token. This must be the client ID of your Apigee app.\n* `sub` - the
+            subject of the token. This must be the SDS user ID of the person requesting
+            the signature.\n* `aud` - the intended audience of the token. This must
+            be the URL of the Signing Service.\n* `exp` - the expiry time of the token.
+            This must be at most 10 minutes in the future.\n* `iat` - the time the
+            token was issued.\n* `algorithm` - the algorithm which is used to sign
+            the prescription itself (not the JWT).\n  Values are defined in [JSON
+            Web Signature and Encryption Algorithms](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).\n  At
+            present, only `RS1` is supported when using smartcards. Otherwise `RS1`,
+            `RS256` and `RS512` are supported. \n* `payloads` - a list of objects,
+            each containing the following fields:\n  * `id` - an identifier for the
+            payload. This can be used to match up the signature with the payload which
+            was signed.\n  * `payload` - the [base64](https://tools.ietf.org/html/rfc4648#section-4)
+            encoded payload to be signed.\n\nThe JWT signature must be present, and
+            must use the `RS512` algorithm.\n","pattern":"^[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?\\.[a-zA-Z0-9\\-_]+?$"},"signature-response-body":{"type":"object","description":"The
+            response to a signature retrieval request.","required":["signatures","certificate"],"properties":{"signatures":{"type":"array","description":"The
+            signatures which were generated and the ids which link them to their payloads.","items":{"type":"object","description":"A
+            signature and the id which links it to its payload.","properties":{"id":{"type":"string","description":"The
+            id of the payload which was signed to produce this signature.","example":"e77bf3e8-bcf5-4431-91a2-22672b27662a"},"signature":{"type":"string","format":"base64","description":"A
+            signature, encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"XpjsKXPfUW708rGPuOAphlr4/UA23f3bhdBOocEJ17BXV0Jruz1E1KLFQwq37EJfnVo/WCLTSjgkkp0BWj5bG3JjEfj78ZjI1yVSRbfbVXXQX0GLZmiSGJrhWnFZt8cFrxO1MFAtSLmKfyXKzbuHsLTmsHQKpXCRdZnFmKBojLmp7NBr0lLE8Phttu8F2Eaeu2wPQ84p1iNW91fo1H+SFVxC+BRoPI1polXg42ceTjoJ7+FqYPDHfC7nNFIgTYJZlQdboMNbndv6BPDuFq0wusQjDQ4zMZ+8ClpRdt3iKmylXNmKkJA15W0pFbGq0Xnf3S1MXWElkaCIUCdGK2WsPA=="}}}},"certificate":{"type":"string","format":"base64","description":"The
+            certificate associated with the private key used to generate the signature,
+            represented in X.509 version 3 format and encoded in [base64](https://tools.ietf.org/html/rfc4648#section-4).","example":"MIIEJDCCAwygAwIBAgIUK3xkEUlRhXPJKNVwryqLZRoNTQQwDQYJKoZIhvcNAQELBQAwRDEOMAwGA1UEChMFSFNDSUMxETAPBgNVBAsTCE9wZW50ZXN0MR8wHQYDVQQDExZFUFMgTm9uLXJlcHVkaWF0aW9uIENBMB4XDTIwMDIyNzEzMDcyMloXDTIyMDIyNjEzMDcyMlowOzEOMAwGA1UEChMFSFNDSUMxGzAZBgNVBAsTElNvbHV0aW9uIEFzc3VyYW5jZTEMMAoGA1UEAxMDRU1VMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0G4Gac7S0mqlHY/sW+EFZZL8AU+FMRrSFIefISocA6DsHePgHpg0tJcdmj3N45VR6FHDrKx5Dg/005R/t8gbuIHF+iI1puTcV9jWPmakkurlVPARmiAy767WPk9mpUolfoHdILKqfIWMzQzW7C4L8vFK55BIeV4/lIDvEpxZ+LHWbkmk/h1dWexupjOTfqTn/Uix+Lat2TpqzYSrM0bep8p8ucndN5sqcm6UkPothsxNEi2Hjkd8aoH1H4KIVwgcBwWe+XrLXK5WarMW0Y9qgQKxMsnvW8oyHa83mkHY+e8OeN/SnqYjkag0I4pvbBTclrGfIScIfTZorVn2WvCIQIDAQABo4IBFTCCAREwCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMDYGCWCGSAGG+EIBDQQpFidPcGVudGVzdDogT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFAH4ptckOhsUzBfVjt/m05GiO8XRMHsGA1UdIwR0MHKAFNIRvX9omrl7ZXSqEINy6w2rPQduoU+kTTBLMRQwEgYDVQQKEwtOSFMgRGlnaXRhbDERMA8GA1UECxMIT3BlbnRlc3QxIDAeBgNVBAMTF09wZW50ZXN0IFJvb3QgQXV0aG9yaXR5ggkA6u0cXbLqKoQwDQYJKoZIhvcNAQELBQADggEBAEDcrPcdrIC5ufVHra62oGBP/lz5oJq3Ql93Phgw9BDbumPU74P+XgQoO9vw8xO2Yb4+PL7M2BuJo3fDqcDsW+4B4t9mdhWW7lRjN3WcujoLslPz23cfyxCgZnYMMDbOhBrJxVCzYeC6nx6OhkL1V3Yoe+OIyrReUzpzeBwsUX5q802dNaV1yrb6ai2icgxqpY+fOZYFLRefPIqutBK73hnDuxDjI+7ehyFpapfOXVBmLTacLxLF1Dy/7+GIXbdIwbedet4p2IcEaRX0eWT0U//ZJSeBqnOOpXo64DfZtS9Vl2exHbHHqYc0RVNpKImaWVrMydC1qOexjUZSVBVd+Zo="}}}}}}'
+          website:seosummary: ''
+          website:shortsummary: Generate an electronic signature using your NHS CIS2
+            Authenticator.
+          website:specification_id: '232323'
+          website:summary: ''
+          website:title: Digital Signature Service API
+        hippo:name: Digital Signature Service API
+        hippo:versionHistory: ff1f422d-96a9-4694-9f2f-158271e55dc2
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: c6db13a0-82e2-4780-9c5f-00e6d3524bea
+      hippo:name: Digital Signature Service API
+      hippostd:foldertype:
+      - new-digital-website-folder
+      - new-digital-website-document
+      hippotranslation:id: 3e290cd6-8fb6-4bd9-ac36-84efcdb76d7f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+      jcr:uuid: 1cb98a0a-034d-4df3-a086-84fd09bcaa62
     /digital-staff-passport-api-standard:
       /digital-staff-passport-api-standard:
         /digital-staff-passport-api-standard[1]:

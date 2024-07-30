@@ -386,7 +386,7 @@ definitions:
         /api-catalogue:
           /Taxonomies:
             /_any_:
-              hst:componentconfigurationid: hst:pages/api-catalogue2
+              hst:componentconfigurationid: hst:pages/api-catalogue
               hst:relativecontentpath: faceted-api-specifications/Taxonomies/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
@@ -430,7 +430,7 @@ definitions:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/api-catalogue2
+          hst:componentconfigurationid: hst:pages/api-catalogue
           hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub

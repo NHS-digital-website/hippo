@@ -60,10 +60,10 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 // Deferred operations are collected and executed after the loop completes.
                 deferredOperations.add(subsection::display);
 
-                if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) || isApiOrApiStandardFilter(subsection)) {
+                if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) || isExceptionalFilter(subsection)) {
                     section.display();
 
-                    if (!isApiOrApiStandardFilter(subsection)) {
+                    if (!isExceptionalFilter(subsection)) {
                         subsection.setCount(subSectionCounter.incrementAndGet());
                     }
                     // Display 'show more' button if necessary
@@ -104,7 +104,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
             section.expand();
         }
-        if (isApiStandardFilter(subsection)) {
+        if (isGrayedOutFilter(subsection)) {
             subsection.setSelectable();
         }
         if (isApisFilter(subsection) && facetBeanMap.get("apis_1") == null) {
@@ -143,13 +143,15 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         });
     }
 
-    private boolean isApiOrApiStandardFilter(Subsection subsection) {
+    private boolean isExceptionalFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1")
-            || subsection.getTaxonomyKey().equalsIgnoreCase("api-standards");
+            || subsection.getTaxonomyKey().equalsIgnoreCase("api-standards")
+            || subsection.getTaxonomyKey().equalsIgnoreCase("medication-management");
     }
 
-    private boolean isApiStandardFilter(Subsection subsection) {
-        return subsection.getTaxonomyKey().equalsIgnoreCase("api-standards");
+    private boolean isGrayedOutFilter(Subsection subsection) {
+        return subsection.getTaxonomyKey().equalsIgnoreCase("api-standards")
+            || subsection.getTaxonomyKey().equalsIgnoreCase("medication-management");
     }
 
     private boolean isApisFilter(Subsection subsection) {

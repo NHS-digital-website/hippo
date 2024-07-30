@@ -91,7 +91,7 @@
         </#if>-->
 
     <#--<#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists>-->
-    <#if (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists) || (filter.taxonomyKey == "apis_1" || filter.taxonomyKey == "api-standards")>
+    <#if (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists) || (filter.taxonomyKey == "apis_1" || filter.taxonomyKey == "api-standards" || filter.taxonomyKey == "medication-management")>
 
 
     <#--<#assign difference = ""/>

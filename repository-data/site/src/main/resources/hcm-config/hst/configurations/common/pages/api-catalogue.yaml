@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/api-catalogue2:
+    /hst:hst/hst:configurations/common/hst:pages/api-catalogue:
       /main:
         /banner:
           hst:referencecomponent: api-catlogue-homepage/banner
@@ -19,7 +19,7 @@ definitions:
         - '10'
         - asc
         - 'true'
-        hst:template: catalogue2
+        hst:template: apicatalogue
         jcr:primaryType: hst:component
       hst:cacheable: false
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
