@@ -16,6 +16,7 @@ import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @ParametersInfo(
@@ -24,6 +25,8 @@ import java.util.stream.Collectors;
 public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
+    private static final String APISPECIFICATION_NODE_NAME = "website:apispecification";
+    private static final String GENERAL_NODE_NAME = "website:general";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -64,9 +67,21 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
-                //All documents that do not have the field showApiResult set as True get removed from the results
-                List<HippoDocumentBean> documentList = resultSet.getDocuments().stream().filter(doc ->
-                    doc.getSingleProperty("website:showApiResult") != null && doc.getSingleProperty("website:showApiResult").equals(true))
+                /* All documents with type apispecification or general that do not
+                *  have the field showApiResult set as True get removed from the results
+                *  Predicate:
+                *  NOT ( Documents of type apispecification or general that
+                *  are missing the property or property is set to false )
+                *  ----
+                *  So any of the documents that fill those conditions get filtered out
+                */
+                Predicate<HippoDocumentBean> isLegalForSearch = doc ->
+                    !((doc.getContentType().equals(APISPECIFICATION_NODE_NAME)
+                    || doc.getContentType().equals(GENERAL_NODE_NAME))
+                    && (doc.getSingleProperty("website:showApiResult") == null
+                    || doc.getSingleProperty("website:showApiResult").equals(false)));
+                List<HippoDocumentBean> documentList = resultSet.getDocuments().stream()
+                    .filter(isLegalForSearch)
                     .collect(Collectors.toList());
                 pageable = this.getPageableFactory().createPageable(documentList, this.getCurrentPage(request), paramInfo.getPageSize());
                 request.setAttribute("totalAvailable", documentList.size());
