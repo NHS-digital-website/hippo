@@ -1,9 +1,6 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
-import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
-import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
+import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -61,18 +58,20 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
 
-        Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
+        Pageable<HippoDocumentBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
         HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
-                HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
-                pageable = this.getPageableFactory().createPageable(iterator, facetBean.getResultSet().getDocumentSize(), paramInfo.getPageSize(), this.getCurrentPage(request));
-                request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
+                //All documents that do not have the field showApiResult set as True get removed from the results
+                List<HippoDocumentBean> documentList = resultSet.getDocuments().stream().filter(doc ->
+                    doc.getSingleProperty("website:showApiResult") != null && doc.getSingleProperty("website:showApiResult").equals(true))
+                    .collect(Collectors.toList());
+                pageable = this.getPageableFactory().createPageable(documentList, this.getCurrentPage(request), paramInfo.getPageSize());
+                request.setAttribute("totalAvailable", documentList.size());
             }
         }
         return (Pageable) pageable;
     }
-
 }
