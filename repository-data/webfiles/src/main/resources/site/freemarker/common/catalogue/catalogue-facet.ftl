@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
+<#-- @ftlvariable name="facets1[filter.taxonomyKey]" type="uk.nhs.digital.common.components.catalogue.FacetObject" -->
+
 <#assign markdownDescription = "uk.nhs.digital.common.components.catalogue.FilterDescriptionDirective"?new() />
 
 <@hst.setBundle basename="month-names"/>
@@ -107,7 +109,7 @@
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
+                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey].isLeaf()>checked</#if> <#if filter.selectable>disabled</#if> >
                      <#if !filter.selectable >
                         <a aria-label="Filter by ${filter.displayName}"
                            <#--href="&lt;#&ndash;<@renderUrl baseUrl=baseUrl retiredFilterEnabled=retiredFilterEnabled showRetired=showRetired filters=filtersParam />&ndash;&gt;"-->
@@ -122,14 +124,14 @@
                                 <#assign difference = facets1[filter.taxonomyKey][0].count - retiredCounts[filter.taxonomyKey]>
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if !link?matches(".*Taxonomies.*Taxonomies.*")>(${difference}) <#else>(${facets1[filter.taxonomyKey][0].count})</#if> </span>
                             <#else>-->
-                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][2]}) </span>
+                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey].resultCount}) </span>
                            <#-- </#if>-->
 
                         </a>
                     <#else>
                         <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox" disabled>
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey].resultCount != "0">(${facets1[filter.taxonomyKey].resultCount})</#if></span>
                         </a>
                     </#if>
                     <div class="checkmark"></div>
