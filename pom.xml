@@ -158,7 +158,7 @@
         Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>124.0.6367.60</chromedriver.version>
+        <chromedriver.version>127.0.6533.72</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
