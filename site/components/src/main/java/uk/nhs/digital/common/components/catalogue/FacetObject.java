@@ -50,7 +50,8 @@ public class FacetObject {
         if (hasResultSetNode) {
             resultSetNode = folderBean.getNode().getNode(RESULTSET_NODE_NAME);
             setFilteredCount(getResultCount(), resultSetNode);
-        } else if (folderBean.getNode().getName().equals(folderBean.getNode().getParent().getParent().getName())) {
+        } else if (folderBean.getNode().getName().equals(folderBean.getNode().getParent().getParent().getName())
+            && folderBean.getNode().getParent().hasNode(RESULTSET_NODE_NAME)) {
             resultSetNode = folderBean.getNode().getParent().getNode(RESULTSET_NODE_NAME);
             setFilteredCount(getResultCount(), resultSetNode);
             /* On the facet nodes, the facet node with the same name as the parent facet
@@ -59,7 +60,6 @@ public class FacetObject {
              *  from the parent to correct this.
              */
         }
-
     }
 
     private void setFilteredCount(Long filteredCount, Node resultSetNode) throws RepositoryException {
