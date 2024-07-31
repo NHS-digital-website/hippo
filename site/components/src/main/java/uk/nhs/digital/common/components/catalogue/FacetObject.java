@@ -45,22 +45,34 @@ public class FacetObject {
     }
 
     public void calculateResultCountWithApiResultFilter() throws RepositoryException {
-        Long filteredCount = getResultCount();
-
         boolean hasResultSetNode = folderBean.getNode().hasNode(RESULTSET_NODE_NAME);
+        Node resultSetNode;
         if (hasResultSetNode) {
-            Node resultSetNode = folderBean.getNode().getNode(RESULTSET_NODE_NAME);
-            NodeIterator nodeIterator = resultSetNode.getNodes("content");
-            while (nodeIterator.hasNext()) {
-                Node contentNode = nodeIterator.nextNode();
-                boolean hasShowApiProperty = contentNode.hasProperty(SHOWAPI_PROPERTY_NAME);
-                if (hasShowApiProperty && !contentNode.getProperty(SHOWAPI_PROPERTY_NAME).getValue().getBoolean()) {
-                    filteredCount--;
-                }
-
-            }
-            setResultCount(filteredCount);
+            resultSetNode = folderBean.getNode().getNode(RESULTSET_NODE_NAME);
+            setFilteredCount(getResultCount(), resultSetNode);
+        } else if (folderBean.getNode().getName().equals(folderBean.getNode().getParent().getParent().getName())) {
+            resultSetNode = folderBean.getNode().getParent().getNode(RESULTSET_NODE_NAME);
+            setFilteredCount(getResultCount(), resultSetNode);
+            /* On the facet nodes, the facet node with the same name as the parent facet
+             *  does not have a result set. This will cause the result count to be wrong.
+             *  If we find that this is the node we are traversing, we take the resultset
+             *  from the parent to correct this.
+             */
         }
+
+    }
+
+    private void setFilteredCount(Long filteredCount, Node resultSetNode) throws RepositoryException {
+        NodeIterator nodeIterator = resultSetNode.getNodes("content");
+        while (nodeIterator.hasNext()) {
+            Node contentNode = nodeIterator.nextNode();
+            boolean hasShowApiProperty = contentNode.hasProperty(SHOWAPI_PROPERTY_NAME);
+            if (hasShowApiProperty && !contentNode.getProperty(SHOWAPI_PROPERTY_NAME).getValue().getBoolean()) {
+                filteredCount--;
+            }
+
+        }
+        setResultCount(filteredCount);
     }
 
     public boolean isEmpty() {
