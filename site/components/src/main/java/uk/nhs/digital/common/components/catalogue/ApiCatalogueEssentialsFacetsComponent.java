@@ -170,7 +170,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 FacetObject facetObject = new FacetObject(folderBean, folderBean.isLeaf(), ((HippoFacetNavigationBean) folderBean).getCount());
                 try {
                     facetObject.calculateResultCountWithApiResultFilter();
-                    if (facetObject.getResultCount() > 0) {
+                    if (!facetObject.isEmpty()) {
                         facetFilterMap.put(
                             folderBean.getDisplayName(),
                             facetObject

@@ -70,8 +70,8 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 /* All documents with type apispecification or general that do not
                 *  have the field showApiResult set as True get removed from the results
                 *  Predicate:
-                *  NOT ( Documents of type apispecification or general that
-                *  are missing the property or property is set to false )
+                *  NOT ( Documents of type "apispecification" OR "general" THAT
+                *  are missing the property OR property is set to false )
                 *  ----
                 *  So any of the documents that fill those conditions get filtered out
                 */

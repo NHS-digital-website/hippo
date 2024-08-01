@@ -44,6 +44,17 @@ public class FacetObject {
         this.folderBean = folderBean;
     }
 
+    /**
+     * Calculates the new result count excluding documents that are filtered out
+     * using the checkbox field.
+     * We get the resultset from the facet node and traverse the documents checking
+     * for the checkmark.
+     * On the facet nodes, the facet node with the same name as the parent facet
+     * does not have a result set. This will cause the result count to be wrong.
+     * If we find that this is the node we are traversing, we take the resultset
+     * from the parent to correct this.
+     * @throws RepositoryException when there is an issue getting the node from the repo
+     */
     public void calculateResultCountWithApiResultFilter() throws RepositoryException {
         boolean hasResultSetNode = folderBean.getNode().hasNode(RESULTSET_NODE_NAME);
         Node resultSetNode;
@@ -54,11 +65,6 @@ public class FacetObject {
             && folderBean.getNode().getParent().hasNode(RESULTSET_NODE_NAME)) {
             resultSetNode = folderBean.getNode().getParent().getNode(RESULTSET_NODE_NAME);
             setFilteredCount(getResultCount(), resultSetNode);
-            /* On the facet nodes, the facet node with the same name as the parent facet
-             *  does not have a result set. This will cause the result count to be wrong.
-             *  If we find that this is the node we are traversing, we take the resultset
-             *  from the parent to correct this.
-             */
         }
     }
 
@@ -70,12 +76,11 @@ public class FacetObject {
             if (hasShowApiProperty && !contentNode.getProperty(SHOWAPI_PROPERTY_NAME).getValue().getBoolean()) {
                 filteredCount--;
             }
-
         }
         setResultCount(filteredCount);
     }
 
     public boolean isEmpty() {
-        return getResultCount() == 0;
+        return getResultCount() <= 0;
     }
 }

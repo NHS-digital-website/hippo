@@ -131,7 +131,7 @@
                     <#else>
                         <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox" disabled>
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey].resultCount != "0">(${facets1[filter.taxonomyKey].resultCount})</#if></span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if !facets1[filter.taxonomyKey].isEmpty()>(${facets1[filter.taxonomyKey].resultCount})</#if></span>
                         </a>
                     </#if>
                     <div class="checkmark"></div>
