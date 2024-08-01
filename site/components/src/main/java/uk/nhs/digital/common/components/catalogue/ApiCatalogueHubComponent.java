@@ -37,7 +37,10 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         super.doBeforeRender(request, response);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
-        Optional<Section> status = apiCatalogueFilterManager.getRawFilters(request).getSections().stream()
+
+        List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
+
+        Optional<Section> status = sections.stream()
             .filter(section -> "Status".equals(section.getDisplayName()))
             .findFirst();
 
@@ -49,6 +52,12 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 ));
             request.setAttribute("apiStatusEntries", sectionMap);
         });
+
+        List<Section> nonStatusSections = sections.stream()
+            .filter(section -> !"Status".equals(section.getDisplayName()))
+            .collect(Collectors.toList());
+
+        request.setAttribute("nonStatusSections", nonStatusSections);
 
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));

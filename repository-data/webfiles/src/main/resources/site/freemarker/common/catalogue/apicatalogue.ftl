@@ -156,14 +156,20 @@
 
                                 <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
                                     <#assign entry = apiStatusEntries["apis_1"]>
-                                <#elseif apiStatusEntries["apis"]?? && apiStatusEntries["apis"]?has_content>
-                                    <#assign entry = apiStatusEntries["apis"]>
                                 </#if>
+                                <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
+                                    <#assign entry = entry + apiStatusEntries["apis_standards"]>
+                                </#if>
+
+                                <#assign nonstatusentry = {}>
+
                                 <#if entry?? && entry?has_content>
                                     <@hst.renderURL fullyQualified=true var="link" />
                                     <#list document.keys as key>
+                                        <#assign keyExists = false>
                                         <#list entry.entries as subEntry>
                                             <#if subEntry.taxonomyKey == key>
+                                                <#assign keyExists = true>
                                                 <#assign taxonomyPath = "/Taxonomies/${key}">
                                                 <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
                                                 <#if link?contains(taxonomyPath)>
@@ -179,6 +185,10 @@
                                                 </#if>
                                             </#if>
                                         </#list>
+                                        <#if !keyExists>
+                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
+                                        </#if>
+
                                     </#list>
                                 </#if>
 
@@ -193,18 +203,48 @@
                                 </h2>
 
                                 <p class="nhsd-t-body" data-filterable="">${document.shortsummary}</p>
+
                                 <#list document.keys as key>
-                                    <#if !(apiStatusEntries[key]?exists)>
-                                        <@hst.renderURL fullyQualified=true var="link" />
-                                        <#assign taxonomyPath = "/Taxonomies/${key}">
-                                        <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                                        <#if link?contains(taxonomyPath)>
-                                            <a title="Remove ${key} filter" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${key}</a>
-                                        <#else >
-                                            <a title="Filter by key ${key}" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${key}</a>
+                                    <#if nonstatusentry[key]?exists>
+                                        <#assign displayName = key />
+                                        <#assign isTaxonomyFilterMappingTag = false />
+                                        <#list nonStatusSections as section>
+
+                                            <#list section.entries as subEntry>
+                                                <#if subEntry.taxonomyKey == key>
+                                                    <#assign displayName = subEntry.displayName />
+                                                    <#assign isTaxonomyFilterMappingTag = true />
+                                                </#if>
+                                                <#list subEntry.entries as innersubEntry>
+                                                    <#if innersubEntry.taxonomyKey == key>
+                                                        <#assign displayName = innersubEntry.displayName />
+                                                        <#assign isTaxonomyFilterMappingTag = true />
+                                                    </#if>
+                                                </#list>
+                                            </#list>
+
+                                        </#list>
+
+                                        <#if isTaxonomyFilterMappingTag>
+                                            <@hst.renderURL fullyQualified=true var="link" />
+                                            <#assign taxonomyPath = "/Taxonomies/${key}" />
+                                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+
+                                            <#if link?contains(taxonomyPath)>
+                                                <a title="Remove ${key} filter"
+                                                   href="${updatedLink}"
+                                                   style="line-height:1; text-decoration:none"
+                                                   class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
+                                            <#else>
+                                                <a title="Filter by key ${key}"
+                                                   href="${updatedLink}"
+                                                   style="line-height:1; text-decoration:none"
+                                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
+                                            </#if>
                                         </#if>
                                     </#if>
                                 </#list>
+
                             </div>
                         </div>
 
@@ -279,4 +319,15 @@
 </#function>
 
 <@hst.setBundle basename="month-names"/>
+
+<#function get_unique_sorted_tags document>
+    <#local documentTags = document.keys />
+    <#local uniqueSortedTags = [] />
+<#--<#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
+    <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
+        <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
+    </#if>
+</#list>-->
+    <#return document.keys>
+</#function>
 
