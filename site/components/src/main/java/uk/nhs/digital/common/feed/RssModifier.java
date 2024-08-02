@@ -304,7 +304,7 @@ public class RssModifier extends RSS20Modifier {
     }
 
     private String getCategory(Publication publicationBean) {
-        HippoBean parentDocument = publicationBean.getParentDocument();
+        HippoBean parentDocument = publicationBean.getParentSeriesCollectionDocument();
         if (parentDocument instanceof Series) {
             Series series = (Series) parentDocument;
             StringBuilder category = new StringBuilder();

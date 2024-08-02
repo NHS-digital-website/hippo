@@ -3,11 +3,11 @@
 
 <#-- Big Blue document header for Series -->
 <#macro seriesDocumentHeader document>
-    <#assign informationTypes = (series.informationType??)?then(series.informationType, [])  />
-    <#assign frequency = (series.frequency?has_content)?then(series.frequency, "") />
-    <#assign geographicCoverage = (series.geographicCoverage?has_content)?then(series.geographicCoverage, []) />
-    <#assign granularity = (series.granularity??)?then(series.granularity, []) />
-    <#assign fullTaxonomyList = series.fullTaxonomyList />
+    <#assign informationTypes = (document.informationType??)?then(series.informationType, [])  />
+    <#assign frequency = (document.frequency?has_content)?then(series.frequency, "") />
+    <#assign geographicCoverage = (document.geographicCoverage?has_content)?then(series.geographicCoverage, []) />
+    <#assign granularity = (document.granularity??)?then(series.granularity, []) />
+    <#assign fullTaxonomyList = document.fullTaxonomyList />
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed" aria-label="Series Title">
@@ -16,9 +16,9 @@
                     <span class="article-header__label"><@fmt.message key="labels.series"/></span>
                     <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${document.title}</h1>
 
-                    <#if series.informationType?has_content>
+                    <#if document.informationType?has_content>
                         <span class="article-header__types article-header__types--push" data-uipath="ps.series.information-types">
-                            <#list series.informationType as type>${type}<#sep>, </#list>
+                            <#list document.informationType as type>${type}<#sep>, </#list>
                         </span>
                         <hr class="hr hr--short hr--light">
                     </#if>
