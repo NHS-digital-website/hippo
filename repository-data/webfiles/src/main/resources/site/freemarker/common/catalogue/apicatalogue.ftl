@@ -96,7 +96,7 @@
                 </div>
                 <div class="nhsd-t-row nhsd-!t-padding-top-1">
                     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
-                        id="search-results-count">${totalAvailable}
+                        id="search-results-count"><#if totalAvailable?has_content> ${totalAvailable} <#else>0</#if>
                         results </h6>
                 </div>
                <#-- <#if retiredFilterEnabled>-->
