@@ -18,15 +18,15 @@ document.querySelectorAll('#show-more').forEach((element) => element.addEventLis
     hide(element);
 }));
 
-// Keeps the scroll level at the same spot when reloading
-addEventListener('DOMContentLoaded', () => {
+// Keeps the scroll level at the same spot when reloading..
+document.addEventListener('DOMContentLoaded', () => {
     const scrollpos = localStorage.getItem('scrollpos');
     if (scrollpos) {
         window.scrollTo(0, scrollpos);
     }
 });
 
-addEventListener('beforeunload', () => {
+document.addEventListener('beforeunload', () => {
     localStorage.setItem('scrollpos', window.scrollY);
 });
 // Scroll level end
