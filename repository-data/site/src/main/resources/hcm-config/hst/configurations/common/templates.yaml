@@ -8,6 +8,9 @@ definitions:
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
+      /apicatalogue:
+        hst:renderpath: webfile:/freemarker/common/catalogue/apicatalogue.ftl
+        jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
         jcr:primaryType: hst:template

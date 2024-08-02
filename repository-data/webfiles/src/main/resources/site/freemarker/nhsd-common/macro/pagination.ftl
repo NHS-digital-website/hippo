@@ -30,7 +30,7 @@
                         </@hst.renderURL>
 
                         <li>
-                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}" aria-label="Page ${pageNr}">${pageNr}</a></#outputformat>
+                            <#outputformat "undefined"><a class="nhsd-a-character-block ${(pageable.currentPage == pageNr)?then("nhsd-a-character-block--active", "")}" href="${pageUrl}" title="Page ${pageNr}">${pageNr}</a></#outputformat>
                         </li>
                     </#list>
 
