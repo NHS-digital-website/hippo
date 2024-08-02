@@ -157,8 +157,9 @@
                                 <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
                                     <#assign entry = apiStatusEntries["apis_1"]>
                                 </#if>
-                                <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
-                                    <#assign entry = entry + apiStatusEntries["apis_standards"]>
+
+                                <#if apiStatusEntries["api-standards"]?? && apiStatusEntries["api-standards"]?has_content>
+                                    <#assign entry1 = apiStatusEntries["api-standards"]>
                                 </#if>
 
                                 <#assign nonstatusentry = {}>
@@ -188,7 +189,34 @@
                                         <#if !keyExists>
                                             <#assign nonstatusentry = nonstatusentry + { (key): key }>
                                         </#if>
+                                    </#list>
+                                </#if>
 
+                                <#if entry1?? && entry1?has_content>
+                                    <@hst.renderURL fullyQualified=true var="link" />
+                                    <#list document.keys as key>
+                                        <#assign keyExists = false>
+                                        <#list entry1.entries as subEntry>
+                                            <#if subEntry.taxonomyKey == key>
+                                                <#assign keyExists = true>
+                                                <#assign taxonomyPath = "/Taxonomies/${key}">
+                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                                                <#if link?contains(taxonomyPath)>
+                                                    <a title="Remove ${subEntry.displayName} filter"
+                                                       href="${updatedLink}"
+                                                       style="line-height:1; text-decoration:none"
+                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                <#else>
+                                                    <a title="Filter by ${subEntry.displayName}"
+                                                       href="${updatedLink}"
+                                                       style="line-height:1; text-decoration:none"
+                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                </#if>
+                                            </#if>
+                                        </#list>
+                                        <#if !keyExists>
+                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
+                                        </#if>
                                     </#list>
                                 </#if>
 
