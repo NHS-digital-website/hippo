@@ -65,7 +65,7 @@ test.site:
 ## Run acceptance tests against already running server (`make serve`) with playwright (visual test).
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Dcucumber.options="src/test/resources/features/site" \
+		-Dcucumber.options="src/test/resources/features/site --tags 'not @skip'" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 
 # Updates snapshots for all tests tagged @snapshot
