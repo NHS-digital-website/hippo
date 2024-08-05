@@ -34,29 +34,4 @@ public interface ApiCatalogueHubComponentInfo extends EssentialsListComponentInf
     @Override
     String getDocumentTypes();
 
-    /*@Parameter(
-        name = "documentDateField",
-        required = false,
-        defaultValue = "publicationsystem:NominalDate"
-    )
-    String getDocumentDateField();
-
-    @Parameter(
-        name = "sortField",
-        required = false,
-        defaultValue = "publicationsystem:NominalDate"
-        )
-    @Override
-    String getSortField();
-
-    @Parameter(
-        name = "showPagination",
-        required = false,
-        defaultValue = "true"
-    )
-    @Override
-    String getShowPagination();
-    */
-
-
 }

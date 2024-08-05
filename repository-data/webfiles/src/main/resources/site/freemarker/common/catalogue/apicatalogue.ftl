@@ -10,15 +10,6 @@
 
 <#assign renderUrl = "uk.nhs.digital.common.components.catalogue.UrlGeneratorDirective"?new() />
 
-<#--
-
-&lt;#&ndash; Add meta tags &ndash;&gt;
-<@metaTags></@metaTags>
-&lt;#&ndash; Content Page Pixel &ndash;&gt;
-<@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
-
-<#assign alphabetical_hash = group_blocks(flat_blocks(catalogueLinks true))/>
--->
 
 <@hst.include ref="banner"/>
 
@@ -40,13 +31,8 @@
             </#if>
         </div>
     </div>
-   <#-- <#if alphabetical_hash??>-->
+
         <div class="nhsd-t-row">
-         <#--   <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
-                <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick
-                    navigation</h2>
-               &lt;#&ndash; <@azList alphabetical_hash "side-az-nav-heading"/>&ndash;&gt;
-            </div>-->
 
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-12 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4">
                 <@hst.include ref="filters" />
@@ -99,60 +85,14 @@
                         id="search-results-count"><#if totalAvailable?has_content> ${totalAvailable} <#else>0</#if>
                         results </h6>
                 </div>
-               <#-- <#if retiredFilterEnabled>-->
-                    <#--<div class="nhsd-t-row">
-                        <div class="nhsd-t-col-6 nhsd-!t-padding-left-0">
-                            <label aria-label="Include retired APIs and API standards"
-                                   class="nhsd-m-selector-toggle-card nhsd-!t-padding-left-0">
-                                <div class="nhsd-a-box nhsd-!t-padding-left-0">
-                                    <span class="nhsd-m-selector-toggle-card__toggle">
-                                        <div class="nhsd-a-selector-toggle">
-                                            <#assign currentQuery1 = "">
-                                            <#assign currentQuery1 = currentQuery>
-                                            <@hst.renderURL fullyQualified=true var="link" />
 
-                                            <#assign fullURL = updateQueryParamsAndUrl(currentQuery1 showRetired) />
-
-                                            <a onclick=""
-                                               href="${fullURL}"
-                                               class="nhsd-a-checkbox__label nhsd-t-body-s">
-                                                <input type="checkbox"
-                                                       <#if showRetired>checked</#if> />
-                                                <span class="slider"></span>
-                                            </a>
-                                        </div>
-                                    </span>
-
-                                    <p class="nhsd-t-body-s">Include retired APIs and
-                                        API standards</p>
-                                </div>
-                            </label>
-                        </div>
-                    </div>-->
-                <#--<#else>-->
                     <div class="nhsd-!t-padding-top-4"/>
-                <#--</#if>-->
-
-               <#-- <@apiCatalogueEntries alphabetical_hash filtersModel></@apiCatalogueEntries>-->
 
                     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
                     <#list pageable.items as document>
                        <#-- ${document.shortsummary}-->
                         <div class="nhsd-t-flex-item--grow">
                             <div data-api-catalogue-entry="">
-
-                                <#--<#list document.keys as key>
-                                    <#if apiStatusEntries[key]?exists>
-                                        <@hst.renderURL fullyQualified=true var="link" />
-                                        <#assign taxonomyPath = "/Taxonomies/${key}">
-                                        <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                                        <#if link?contains(taxonomyPath)>
-                                            <a title="Remove ${apiStatusEntries[key].displayName} filter" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${apiStatusEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${apiStatusEntries[key].displayName}</a>
-                                        <#else>
-                                            <a title="Filter by ${apiStatusEntries[key].displayName}" href="${updatedLink}" style="line-height:1; text-decoration:none" class="nhsd-a-tag nhsd-a-tag--bg-${apiStatusEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${apiStatusEntries[key].displayName}</a>
-                                        </#if>
-                                    </#if>
-                                </#list>-->
 
                                 <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
                                     <#assign entry = apiStatusEntries["apis_1"]>
@@ -346,16 +286,4 @@
     <#return urlWithQueryParams?no_esc>
 </#function>
 
-<@hst.setBundle basename="month-names"/>
-
-<#function get_unique_sorted_tags document>
-    <#local documentTags = document.keys />
-    <#local uniqueSortedTags = [] />
-<#--<#list filtersModel.sectionsInOrderOfDeclaration() as filterSection>
-    <#if documentTags?? && documentTags?seq_contains(filterSection.getKey()) && uniqueSortedTags?filter(x -> x.getDisplayName() == filterSection.getDisplayName())?size == 0>
-        <#local uniqueSortedTags = uniqueSortedTags + [ filterSection ] />
-    </#if>
-</#list>-->
-    <#return document.keys>
-</#function>
 
