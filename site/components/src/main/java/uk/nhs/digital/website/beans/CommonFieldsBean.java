@@ -250,4 +250,8 @@ public class CommonFieldsBean extends BaseDocument {
         ).collect(Collectors.toList());
     }
 
+    public String[] getKeys() {
+        return getMultipleProperty("hippotaxonomy:keys");
+    }
+
 }

@@ -67,6 +67,8 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return Filters.emptyInstance();
     }
 
+    // Temp copy from old code - old code should go.
+    // CPD-OFF
     protected Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
         try {
             return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
@@ -88,4 +90,5 @@ public class CatalogueComponent extends ContentRewriterComponent {
 
         return Optional.empty();
     }
+    // CPD-ON
 }

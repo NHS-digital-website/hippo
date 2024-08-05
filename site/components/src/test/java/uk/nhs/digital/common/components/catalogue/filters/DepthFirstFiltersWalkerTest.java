@@ -38,14 +38,14 @@ public class DepthFirstFiltersWalkerTest {
         filtersWalker = new DepthFirstFiltersWalker();
 
         filters = FiltersTestUtils.filters(
-            section("Section A",
+            section("section-a", "Section A",
                 subsection("Tag A-A", "tag-a-a"),
                 subsection("Tag A-B", "tag-a-b",
                     subsection("Tag A-B-A", "tag-a-b-a"),
                     subsection("Tag A-B-B", "tag-a-b-b")
                 )
             ),
-            section("Section B",
+            section("section-b", "Section B",
                 subsection("Tag B-A", "tag-b-a"),
                 subsection("Tag B-B", "tag-b-b")
             )

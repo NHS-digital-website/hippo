@@ -175,15 +175,15 @@ public class FiltersAndLinksTests {
 
     private Filters baseFilters() {
         return FiltersTestUtils.filters(
-            section("Section 1",
+            section("section-1", "Section 1",
                 subsection("Subsection 1A", "inpatient"),
                 subsection("Subsection 2B", "outpatient")
             ),
-            section("Section 2",
+            section("section-2", "Section 2",
                 subsection("Subsection 2A", "service"),
                 subsection("Subsection 2B", "fhir")
             ),
-            section("Section 3",
+            section("section-3", "Section 3",
                 subsection("Subsection 3A", "hospital"),
                 subsection("Subsection 3B", "patient")
             )

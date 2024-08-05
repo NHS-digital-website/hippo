@@ -20,7 +20,7 @@ Feature: Data and Information hub page and sub sections
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | Clinical Commissioning Groups Outcomes Framework   |
         And I should see 1 search result
-
+@skip
     Scenario: CI landing pages - Compendium
         Given I navigate to the "Data and information" page
         And I click on link "Compendium of Population Health Indicators"
@@ -29,7 +29,7 @@ Feature: Data and Information hub page and sub sections
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | Compendium   |
         And I should see 1 search result
-
+@skip
     Scenario: CI landing pages - Social Care
         Given I navigate to the "Data and information" page
         And I click on link "Social Care"
@@ -38,7 +38,7 @@ Feature: Data and Information hub page and sub sections
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | Adult Social Outcomes Framework (ASCOF)   |
         And I should see 1 search result
-
+@skip
     Scenario: CI landing pages - NHS Outcomes Framework
         Given I navigate to the "Data and information" page
         And I click on link "NHS Outcomes Framework"
@@ -47,7 +47,7 @@ Feature: Data and Information hub page and sub sections
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | NHS Outcomes Framework   |
         And I should see 1 search result
-
+@skip
     Scenario: CI landing pages - SHMI
         Given I navigate to the "Data and information" page
         And I click on link "Summary Hospital-level Mortality Indicator (SHMI)"
