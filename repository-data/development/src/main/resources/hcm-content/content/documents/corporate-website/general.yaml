@@ -67,6 +67,7 @@
       jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
     /content[2]:
       /website:component:
@@ -136,6 +137,7 @@
       jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
     /content[3]:
       /website:component:
@@ -205,6 +207,7 @@
       jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
     hippo:name: 'General Document #1'
     jcr:mixinTypes:
@@ -308,6 +311,7 @@
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           basenavigationcontroller
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
       /content[2]:
@@ -407,6 +411,7 @@
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
       /content[3]:
@@ -506,6 +511,7 @@
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
       hippo:name: 'Genera Child Document #1'
@@ -624,6 +630,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
       /content[2]:
@@ -724,6 +731,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
       /content[3]:
@@ -824,6 +832,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
       hippo:name: 'General Child Document #2'

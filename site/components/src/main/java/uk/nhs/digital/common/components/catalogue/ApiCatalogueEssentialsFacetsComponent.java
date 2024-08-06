@@ -34,7 +34,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         HippoFacetNavigationBean facetBean = request.getModel("facets");
 
         request.setModel("facets", facetBean);
-        ConcurrentHashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
+        ConcurrentHashMap<String, FacetObject> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
@@ -47,7 +47,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-    private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, ConcurrentHashMap<String, FacetObject> facetBeanMap) {
         rawFilters.getSections().forEach(section -> {
             List<Runnable> deferredOperations = new ArrayList<>();
             AtomicInteger subSectionCounter = new AtomicInteger(0);
@@ -75,8 +75,8 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                     // Display child/second level child filter within subsection
                     displaySecondLevelChildFilter(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
 
-                    if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) && facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
-                        && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
+                    if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) && facetBeanMap.get(subsection.getTaxonomyKey()) != null
+                        && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).isLeaf(), true)) {
                         display.set(true);
                     }
                 }
@@ -95,13 +95,13 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
-    private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, FacetObject> facetBeanMap) {
         if (subSectionCounter.get() <= section.getAmountChildrenToShow()
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
             subsection.display();
         }
         if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap)
-            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
+            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).isLeaf(), true)) {
             section.expand();
         }
         if (isGrayedOutFilter(subsection)) {
@@ -112,7 +112,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
-    private void displaySecondLevelChildFilter(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
+    private void displaySecondLevelChildFilter(Subsection subsection, ConcurrentHashMap<String, FacetObject> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
         subsection.getEntries().forEach(subsectionEntry -> {
             deferredOperations.add(subsectionEntry::display);
@@ -134,7 +134,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             }
 
             if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
-                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
+                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isLeaf(), true)) {
                 section.expand();
                 subsectionEntry.display();
                 display.set(true);
@@ -158,19 +158,24 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
 
-    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, FacetObject> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
             .map(key -> facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
             .orElse(false);
     }
 
-    private ConcurrentHashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
-        ConcurrentHashMap<String, List<Object>> facetFilterMap = new ConcurrentHashMap();
-        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
-            facetFilterMap.put(
-                ((HippoFacetNavigationBean) i).getDisplayName(),
-                Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf(),((HippoFacetNavigationBean) i).getCount()})
-            )
+    private ConcurrentHashMap<String, FacetObject> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
+        ConcurrentHashMap<String, FacetObject> facetFilterMap = new ConcurrentHashMap<>();
+        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(folderBean ->
+            {
+                FacetObject facetObject = new FacetObject(folderBean, folderBean.isLeaf(), ((HippoFacetNavigationBean) folderBean).getCount());
+                if (!facetObject.isEmpty()) {
+                    facetFilterMap.put(
+                        folderBean.getDisplayName(),
+                        facetObject
+                    );
+                }
+            }
         );
         return facetFilterMap;
     }
