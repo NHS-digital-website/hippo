@@ -158,10 +158,10 @@
         <ehcache3.version>3.9.9</ehcache3.version>
 
         <!--
-        Consult https://chromedriver.chromium.org/downloads
+        Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>119.0.6045.105</chromedriver.version>
+        <chromedriver.version>127.0.6533.72</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -208,7 +208,7 @@
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.3.0</maven-enforcer.version>
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
-        <maven-frontend.version>1.12.1</maven-frontend.version>
+        <maven-frontend.version>1.15.0</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
@@ -241,12 +241,10 @@
         <repository>
             <id>hippo</id>
             <name>Hippo maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2/</url>
-        </repository>
-        <repository>
-            <id>hippo-maven2</id>
-            <name>Hippo Maven 2 Repository</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>splunk-artifactory</id>
@@ -260,12 +258,12 @@
             </releases>
             <id>hippo-maven2-enterprise</id>
             <name>Hippo Enterprise Maven 2</name>
-            <url>https://maven.onehippo.com/maven2-enterprise</url>
+            <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
         </repository>
         <repository>
             <id>hippo-forge</id>
             <name>Hippo Forge maven 2 repository.</name>
-            <url>https://maven.onehippo.com/maven2-forge/</url>
+            <url>https://maven.bloomreach.com/repository/maven2-forge/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -290,12 +288,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-content-feed-search-api</artifactId>
-            <version>${bloomreach.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
@@ -1088,9 +1080,32 @@
                     <artifactId>jaxb-runtime</artifactId>
                     <scope>runtime</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <scope>provided</scope>
+                    <version>1.16.0</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <version>1.16.0</version>
+                        <configuration>
+                            <targetClasses>
+                                <param>com.uk.nhs.digital.mutate.*</param>
+                            </targetClasses>
+                            <targetTests>
+                                <param>com.uk.nhs.digital.test.*</param>
+                            </targetTests>
+                            <!-- Optional: Configure mutation thresholds -->
+                            <mutationThreshold>
+                                <high>50</high>
+                            </mutationThreshold>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
                         <artifactId>cargo-maven2-plugin</artifactId>
@@ -1225,6 +1240,11 @@
                                 </systemProperties>
                                 <dependencies>
                                     <dependency>
+                                        <groupId>org.pitest</groupId>
+                                        <artifactId>pitest</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
                                         <groupId>org.jetbrains.kotlin</groupId>
                                         <artifactId>kotlin-stdlib</artifactId>
                                         <classpath>shared</classpath>
@@ -1237,11 +1257,6 @@
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-content-feed-search-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>

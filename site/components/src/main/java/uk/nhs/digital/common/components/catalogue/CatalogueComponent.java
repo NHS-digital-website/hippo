@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components.catalogue;
 import static java.util.stream.Collectors.toList;
 
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.container.HstContainerURL;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
@@ -16,6 +17,13 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class CatalogueComponent extends ContentRewriterComponent {
+    protected FacetNavHelper facetNavHelper;
+
+    @Override
+    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+        super.doBeforeRender(request, response);
+        facetNavHelper = request.getRequestContext().getModel("facetsNavHelper");
+    }
 
     protected Session sessionFrom(final HstRequest request) {
         try {
@@ -59,6 +67,8 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return Filters.emptyInstance();
     }
 
+    // Temp copy from old code - old code should go.
+    // CPD-OFF
     protected Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
         try {
             return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
@@ -80,4 +90,5 @@ public class CatalogueComponent extends ContentRewriterComponent {
 
         return Optional.empty();
     }
+    // CPD-ON
 }

@@ -47,6 +47,7 @@ definitions:
           - website:video
           - website:policypage
           - website:corporatepolicy
+          - website:recentupdates
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -89,6 +90,7 @@ definitions:
           - hst:pages/video
           - hst:pages/policy-page
           - hst:pages/corporatepolicy
+          - hst:pages/recent-updates
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         /root:
@@ -138,6 +140,7 @@ definitions:
         - website:video
         - website:policypage
         - website:corporatepolicy
+        - website:recentupdates
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -180,6 +183,7 @@ definitions:
         - hst:pages/video
         - hst:pages/policy-page
         - hst:pages/corporatepolicy
+        - hst:pages/recent-updates
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -380,6 +384,13 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /developer:
         /api-catalogue:
+          /Taxonomies:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/api-catalogue
+              hst:relativecontentpath: faceted-api-specifications/Taxonomies/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
           /_any_:
             /_index_:
               hst:cacheable: true
@@ -402,12 +413,14 @@ definitions:
             - website:general
             - website:componentlist
             - website:apispecification
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
             - hst:pages/general
             - hst:pages/componentlist
             - hst:pages/apispecification
-            hst:relativecontentpath: ${parent}/${1}
+            - hst:pages/recent-updates
+            hst:relativecontentpath: developer/api-catalogue/${1}
             jcr:primaryType: hst:sitemapitem
           /_any_.trythisapi:
             hst:componentconfigurationid: hst:pages/apitryitnow
@@ -417,8 +430,8 @@ definitions:
             hst:componentconfigurationid: hst:pages/api-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          hst:cacheable: false
-          hst:relativecontentpath: developer/api-catalogue
+          hst:componentconfigurationid: hst:pages/api-catalogue
+          hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
         hst:relativecontentpath: developer
@@ -548,8 +561,10 @@ definitions:
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
             - website:service
+            - website:recentupdates
             hst:componentconfigurationmappingvalues:
             - hst:pages/service
+            - hst:pages/recent-updates
             hst:relativecontentpath: ${parent}/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:

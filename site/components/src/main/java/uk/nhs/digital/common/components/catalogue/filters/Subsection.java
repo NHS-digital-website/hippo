@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.*;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,16 +17,17 @@ public class Subsection extends Section {
 
     private boolean selected;
     private boolean selectable;
+    private Section parent;
 
     @JsonCreator
     protected Subsection(
-        @JsonProperty("displayName") final String displayName,
         @JsonProperty("taxonomyKey") final String taxonomyKey,
+        @JsonProperty("displayName") final String displayName,
         @JsonProperty("description") final String description,
         @JsonProperty("highlight") final String highlight,
         @JsonProperty("entries") final Subsection... subsections
     ) {
-        super(displayName, description, subsections);
+        super(taxonomyKey, displayName, description, "false", "false", "0", subsections);
         this.taxonomyKey = taxonomyKey;
         this.highlight = highlight;
     }
@@ -75,6 +77,22 @@ public class Subsection extends Section {
         } else {
             return Stream.of(getKey()).collect(Collectors.toSet());
         }
+    }
+
+    public void setParentAndSubsectionVisibility(Section parent) {
+        this.parent = parent;
+        this.setHideChildren(parent.getHideChildren());
+        this.setAmountChildren(parent.getAmountChildrenToShow());
+    }
+
+    public Section parent() {
+        return this.parent;
+    }
+
+    public boolean isHidden() {
+        return this.parent.displayedSubsections()
+                .stream()
+                .noneMatch(child -> Objects.equals(child.getKey(), this.getKey())) && !this.parent.anyHiddenSubsectionsSelected();
     }
 
     @Override

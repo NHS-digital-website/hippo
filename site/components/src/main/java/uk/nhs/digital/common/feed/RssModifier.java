@@ -10,7 +10,7 @@ import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSetBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
@@ -23,6 +23,7 @@ import uk.nhs.digital.ps.beans.Series;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.Blog;
 import uk.nhs.digital.website.beans.ContactDetail;
+import uk.nhs.digital.website.beans.CorporateWebsiteImageset;
 import uk.nhs.digital.website.beans.CyberAlert;
 import uk.nhs.digital.website.beans.EmphasisBox;
 import uk.nhs.digital.website.beans.Expander;
@@ -33,13 +34,8 @@ import uk.nhs.digital.website.beans.Person;
 import uk.nhs.digital.website.beans.Quote;
 import uk.nhs.digital.website.beans.Section;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import javax.imageio.ImageIO;
 
 public class RssModifier extends RSS20Modifier {
     private static final Logger LOGGER = LoggerFactory.getLogger(RssModifier.class);
@@ -66,12 +62,12 @@ public class RssModifier extends RSS20Modifier {
                     query.setFilter(publishedDateFilter);
 
                     LOGGER.debug(" Query String is  " + query.toString());
-                } catch (final FilterException exception) {
-                    exception.printStackTrace();
+                } catch (final FilterException e) {
+                    LOGGER.warn("Error in modifying the HST Query", e);
                 }
             }
         } catch (QueryException e) {
-            e.printStackTrace();
+            LOGGER.warn("Error in modifying the HST Query", e);
         }
     }
 
@@ -138,15 +134,10 @@ public class RssModifier extends RSS20Modifier {
                     source.setAttribute("url", "https://digital.nhs.uk");
                     foreignMarkup.add(source);
 
-                    final HippoGalleryImageSetBean image = blogBean.getLeadImage();
+                    CorporateWebsiteImageset image = blogBean.getLeadImage();
                     if (image != null) {
-                        hstLink = context.getHstLinkCreator().create(image, context);
-                        if (hstLink != null) {
-                            foreignMarkup = entry.getForeignMarkup();
-                            String imageUrl = hstLink.toUrlForm(context, true);
-                            final Element element = getImageElement(imageUrl);
-                            foreignMarkup.add(element);
-                        }
+                        final Element element = getImageElement(context, image.getNewsThumbnail2x());
+                        foreignMarkup.add(element);
                     }
                 }
             }
@@ -192,13 +183,13 @@ public class RssModifier extends RSS20Modifier {
             String urlNews = hstLink.toUrlForm(context, true);
             foreignMarkup.add(getElement("link", urlNews));
 
-            String tempUrl = urlNews.substring(0, urlNews.indexOf(context.getBaseURL().getHostName()));
-            String finalUrl = tempUrl + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
-            final LeadImageSection leadimagesection = newsBean.getLeadimagesection();
+            LeadImageSection leadimagesection = newsBean.getLeadimagesection();
             if (leadimagesection != null && leadimagesection.getLeadImage() != null) {
-                String imageUrl = finalUrl + leadimagesection.getLeadImage().getCanonicalHandlePath();
-                Element imageElement = getImageElement(imageUrl);
-                foreignMarkup.add(imageElement);
+                CorporateWebsiteImageset image = leadimagesection.getLeadImage();
+                if (image != null) {
+                    final Element element = getImageElement(context, image.getNewsThumbnail2x());
+                    foreignMarkup.add(element);
+                }
             }
             Element source = getElement("source", "NHS Digital");
             source.setAttribute("url", "https://digital.nhs.uk");
@@ -236,13 +227,11 @@ public class RssModifier extends RSS20Modifier {
                 String url = hstLink.toUrlForm(context, true);
                 foreignMarkup.add(getElement("link", url));
 
-                String tempUrl1 = url.substring(0, url.indexOf(context.getBaseURL().getHostName()));
-                String finalUrl = tempUrl1 + context.getBaseURL().getHostName() + context.getHstLinkCreator().getBinariesPrefix();
-
                 if (publicationBean.getKeyFactInfographics() != null) {
-                    for (Infographic test : publicationBean.getKeyFactInfographics()) {
-                        if (test.getIcon() != null) {
-                            foreignMarkup.add(getImageElement(finalUrl + test.getIcon().getCanonicalHandlePath()));
+                    for (Infographic pb : publicationBean.getKeyFactInfographics()) {
+                        if (pb.getIcon() != null) {
+                            final Element element = getImageElement(context, pb.getIcon().getNewsThumbnail2x());
+                            foreignMarkup.add(element);
                         }
                     }
                 }
@@ -279,34 +268,14 @@ public class RssModifier extends RSS20Modifier {
 
     }
 
-    @NotNull
-    private Element getImageElement(String imageUrl) {
-        final Element element
-            = new Element("content", "media", "http://search.yahoo.com/mrss/");
-        element.setAttribute("url", imageUrl);
-        addImageProperties(imageUrl, element);
-
+    private Element getImageElement(HstRequestContext context, HippoGalleryImageBean image) {
+        final Element element = new Element("content", "media", "http://search.yahoo.com/mrss/");
+        element.setAttribute("url", context.getHstLinkCreator().create(image, context).toUrlForm(context, true));
+        element.setAttribute("type", image.getMimeType());
+        element.setAttribute("height", String.valueOf(image.getHeight()));
+        element.setAttribute("width", String.valueOf(image.getWidth()));
+        element.setAttribute("expression", "full");
         return element;
-    }
-
-    private void addImageProperties(String imageUrl, Element element) {
-        String contentType = null;
-        URL url = null;
-        try {
-            url = new URL(imageUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            contentType = connection.getContentType();
-            element.setAttribute("type", contentType.substring(0, contentType.indexOf(";")));
-            BufferedImage bufferedImage = ImageIO.read(url);
-            if (bufferedImage != null) {
-                element.setAttribute("height", String.valueOf(bufferedImage.getHeight()));
-                element.setAttribute("width", String.valueOf(bufferedImage.getWidth()));
-            }
-            element.setAttribute("expression", "full");
-        } catch (IOException e) {
-            LOGGER.error("Image to be loaded " + url.getPath());
-            LOGGER.error("Image can not read {}", e.getMessage());
-        }
     }
 
     private String getNewsCategory(News newsBean) {
@@ -335,7 +304,7 @@ public class RssModifier extends RSS20Modifier {
     }
 
     private String getCategory(Publication publicationBean) {
-        HippoBean parentDocument = publicationBean.getParentDocument();
+        HippoBean parentDocument = publicationBean.getParentSeriesCollectionDocument();
         if (parentDocument instanceof Series) {
             Series series = (Series) parentDocument;
             StringBuilder category = new StringBuilder();

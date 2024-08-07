@@ -4,7 +4,11 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/search:
       /main:
         /left:
-          hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
+          hst:componentclassname: uk.nhs.digital.common.components.SearchEssentialsFacetsComponent
+          hst:parameternames:
+          - facetPath
+          hst:parametervalues:
+          - facets
           hst:template: facets
           jcr:primaryType: hst:component
         /tabs:
@@ -16,15 +20,11 @@ definitions:
         hst:parameternames:
         - pageSize
         - showPagination
-        - contentSearchEnabled
-        - contentSearchTimeOut
         hst:parametervalues:
         - '10'
         - 'true'
-        - 'true'
-        - '1500'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
-      hst:cacheable: false
+      hst:cacheable: true
       hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results
       jcr:primaryType: hst:component

@@ -1,5 +1,141 @@
 ---
 /content/documents/corporate-website/banners:
+  /api-catalogue-banner:
+    /api-catalogue-banner[1]:
+      /website:content:
+        hippostd:content: |-
+          <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
+
+          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
+
+          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: All our available APIs are listed here. Search through the
+          catalogue to find the API you need, read its specifications and documentation,
+          understand the process and the tools you need, start to develop your software
+          and connect to NHS England services.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: API and integration catalogue
+    /api-catalogue-banner[2]:
+      /website:content:
+        hippostd:content: |-
+          <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
+
+          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
+
+          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: All our available APIs are listed here. Search through the
+          catalogue to find the API you need, read its specifications and documentation,
+          understand the process and the tools you need, start to develop your software
+          and connect to NHS England services.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-07-15T15:10:39.882Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:bannerdocument
+      website:title: API and integration catalogue
+    /api-catalogue-banner[3]:
+      /website:content:
+        hippostd:content: |-
+          <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
+
+          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
+
+          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: All our available APIs are listed here. Search through the
+          catalogue to find the API you need, read its specifications and documentation,
+          understand the process and the tools you need, start to develop your software
+          and connect to NHS England services.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-07-15T15:10:39.882Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-07-15T15:10:42.984Z
+      hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: API and integration catalogue
+    hippo:versionHistory: 2a43438f-96a7-4309-ad79-d3a70035c44b
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Banners
   hippostd:foldertype:
   - new-digital-website-folder

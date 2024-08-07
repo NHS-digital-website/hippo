@@ -21,12 +21,16 @@ public class FiltersTestUtils {
         return filters;
     }
 
-    public static Section section(final String displayName, final Subsection... subsections) {
-        return new Section(displayName, null, subsections);
+    public static Section section(final String taxonomyKey, final String displayName, final Subsection... subsections) {
+        return new Section(taxonomyKey, displayName, null, "false", "false", "0", subsections);
     }
 
-    public static Section section(final String displayName, final String description, final Subsection... subsections) {
-        return new Section(displayName, description, subsections);
+    public static Section section(final String taxonomyKey, final String displayName, final String defaultExpanded, final String hideChildren, final Subsection... subsections) {
+        return new Section(taxonomyKey, displayName, null, defaultExpanded, hideChildren, "0", subsections);
+    }
+
+    public static Section section(final String taxonomyKey, final String displayName, final String description, final Subsection... subsections) {
+        return new Section(taxonomyKey, displayName, description, "true", "false", "0", subsections);
     }
 
     public static Subsection subsection(final String displayName, final Subsection... subsections) {
@@ -34,23 +38,23 @@ public class FiltersTestUtils {
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey) {
-        return new Subsection(displayName, taxonomyKey, null, null);
+        return new Subsection(taxonomyKey,displayName, null, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, null, null, subsections);
+        return new Subsection(taxonomyKey, displayName, null, null, subsections);
     }
 
-    public static Subsection subsection(final String displayName, final String taxonomyKey, final String description) {
-        return new Subsection(displayName, taxonomyKey, description, null);
+    public static Subsection subsection( final String taxonomyKey, final String displayName, final String description) {
+        return new Subsection(taxonomyKey, displayName, description, null);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String highlight, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, null, highlight, subsections);
+        return new Subsection(taxonomyKey, displayName, null, highlight, subsections);
     }
 
     public static Subsection subsection(final String displayName, final String taxonomyKey, final String description, final String highlight, final Subsection... subsections) {
-        return new Subsection(displayName, taxonomyKey, description, highlight, subsections);
+        return new Subsection(taxonomyKey, displayName, description, highlight, subsections);
     }
 
     public static void updateFilters(

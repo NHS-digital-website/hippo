@@ -1,0 +1,25 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-recentupdates-folder:
+      /hippostd:templates:
+        /hippostd:folder:
+          hippostd:foldertype:
+          - new-recentupdates-document
+          - new-recentupdates-folder
+          hippotranslation:id: generated id
+          hippotranslation:locale: inherited locale
+          jcr:mixinTypes:
+          - hippotranslation:translated
+          jcr:primaryType: hippostd:folder
+        jcr:primaryType: hippostd:templates
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./hippotranslation:id
+      - $uuid
+      - ./hippotranslation:locale
+      - $inherited
+      jcr:language: xpath
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-recentupdates-folder/hippostd:templates/node()

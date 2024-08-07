@@ -142,20 +142,35 @@
         }
     }
 
+    function addSecNavEventInLeftNav(className, additionalClassName) {
+        const elements = rapiDocEl.querySelectorAll(('.').concat(className));
+        elements.forEach((element) => {
+            element.classList.add(additionalClassName);
+            const elementData = element.textContent
+                .replaceAll('\n', '')
+                .replaceAll('GET', '')
+                .replaceAll('PATCH', '')
+                .replaceAll('POST', '')
+                .replaceAll('DELETE', '')
+                .trim();
+            element.setAttribute('onclick', 'dataLayer.push({\'event\':\'left_nav\',\'leftNavLink\':\''.concat(elementData).concat('\'});'));
+        });
+    }
+
     function customiseRapiDoc() {
         rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
         makeTablesResponsive();
         addHorizontalRuleBetweenHeadings();
         highlightNavbarOnScroll();
+        addSecNavEventInLeftNav('nav-bar-h2', 'section-nav-event');
+        addSecNavEventInLeftNav('nav-bar-path', 'section-nav-event');
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         rapiDocEl = document.getElementById('rapi-doc-spec');
-
         rapiDocEl.addEventListener('spec-loaded', () => {
             setTimeout(customiseRapiDoc);
         });
-
         // RapiDoc uses replaceState which doesn't trigger any navigation events.
         // Navigation API is still experimental and largely unsupported.
         const replaceStateOriginal = window.history.replaceState;

@@ -4,20 +4,16 @@ definitions:
     /hst:hst/hst:configurations/ndrs/hst:pages/search:
       /main:
         /left:
-          hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
+          hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
           hst:template: facets
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
         hst:parameternames:
         - pageSize
         - showPagination
-        - contentSearchEnabled
-        - contentSearchTimeOut
         hst:parametervalues:
         - '10'
         - 'true'
-        - 'true'
-        - '1500'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
       hst:cacheable: false

@@ -363,14 +363,14 @@
                                     <platform>linux</platform>
                                     <bit>64</bit>
                                     <version>${chromedriver.version}</version>
-                                    <url>https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${chromedriver.version}/linux64/chromedriver-linux64.zip</url>
+                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/linux64/chromedriver-linux64.zip</url>
                                 </driver>
                                 <driver>
                                     <name>chromedriver</name>
                                     <platform>mac</platform>
                                     <bit>64</bit>
                                     <version>${chromedriver.version}</version>
-                                    <url>https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${chromedriver.version}/mac-x64/chromedriver-mac-x64.zip</url>
+                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/mac-x64/chromedriver-mac-x64.zip</url>
                                 </driver>
                             </drivers>
                         </configuration>

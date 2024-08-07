@@ -18,9 +18,7 @@ import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.common.util.DocumentUtils;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -67,6 +65,16 @@ public class CommonFieldsBean extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:bannercontrols", allowModifications = false)
     public BannerControl  getBannercontrols() {
         return getBean("website:bannercontrols", BannerControl.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:publisheddate")
+    public Date getPublishedDateCommon() {
+        try {
+            GregorianCalendar publishedAt = getSingleProperty("hippostdpubwf:publicationDate");
+            return publishedAt.getTime();
+        } catch (Exception e) {
+            return Calendar.getInstance().getTime();
+        }
     }
 
     public List<Update> getUpdates() throws QueryException {
@@ -240,6 +248,10 @@ public class CommonFieldsBean extends BaseDocument {
         return getNews(true).stream().sorted(
             (n1, n2) -> n2.getPublisheddatetime().compareTo(n1.getPublisheddatetime())
         ).collect(Collectors.toList());
+    }
+
+    public String[] getKeys() {
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
 }

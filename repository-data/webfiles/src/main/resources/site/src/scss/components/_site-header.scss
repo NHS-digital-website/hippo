@@ -340,3 +340,15 @@ $burger-piece-height: 3px;
         }
     }
 }
+
+%digital-heading {
+    color: #231f20;
+    font-family: "FrutigerLTW01-65Bold.woff2", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.digital-descriptor-text {
+    @extend %digital-heading;
+}

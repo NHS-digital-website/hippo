@@ -19,7 +19,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -52,7 +52,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -61,7 +61,7 @@ jobs:
       # Step 2
       #
       - name: Set up JDK 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
           java-version: 11
@@ -87,7 +87,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: distribution-odv2
           path: target/*.tar.gz
@@ -100,7 +100,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       #
       # Get API access token and verify it.
@@ -117,7 +117,7 @@ jobs:
       # Download the distribution artifact
       #
       - name: Download version artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
 
       #
@@ -152,7 +152,7 @@ jobs:
       #
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -179,20 +179,6 @@ jobs:
           echo "id=${id}" >> $GITHUB_OUTPUT
         env:
           TARGET: "uat"
-
-      - name: Get Lastest Platform Properties for Envrinment
-        id: platform-properties
-        run: |
-          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-content-search-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "id=${id}" >> $GITHUB_OUTPUT
-        env:
-          TARGET: "uat"
-
-      - name: Get Lastest Content Search key for Envrinment
-        id: content-search-key
-        run: |
-          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "content-search-key-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
-          echo "id=${id}" >> $GITHUB_OUTPUT
 
       - name: Get Lastest AWS Keys for Envrinment
         id: aws-keys
@@ -221,7 +207,7 @@ jobs:
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" }, { "appConfigFileId": ${{ steps.platform-properties.outputs.id }}, "role": "file", "newFilename": "platform.properties" }, { "appConfigFileId": ${{ steps.content-search-key.outputs.id }}, "role": "file", "newFilename": "content-search-key.pem" } ] }' \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
         env:
@@ -229,7 +215,7 @@ jobs:
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')

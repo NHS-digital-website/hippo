@@ -3,26 +3,36 @@ package uk.nhs.digital.common.components.catalogue.filters;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.section;
 import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.subsection;
 
 import com.google.common.collect.ImmutableList;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.CatalogueLink;
+import uk.nhs.digital.common.components.catalogue.FacetNavHelper;
 import uk.nhs.digital.website.beans.Internallink;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
-@RunWith(DataProviderRunner.class)
+@RunWith(PowerMockRunner.class)
 public class FiltersAndLinksTests {
+
+    @Mock private FacetNavHelper facetNavHelper;
+
+    @Before
+    public void setUp() throws Exception {
+        when(facetNavHelper.getAllTags()).thenReturn(allTags());
+        when(facetNavHelper.getAllTagsForLink(any())).thenReturn(new ArrayList<String>(allTags()));
+    }
 
     @Test
     public void validResultsForLinksAndFilters() {
@@ -110,6 +120,9 @@ public class FiltersAndLinksTests {
 
     @Test
     public void invalidUserSelectedFilterIsRemovedAfterInvalidatingSelection() {
+        reset(facetNavHelper);
+        when(facetNavHelper.getAllTags()).thenReturn(allTags());
+        when(facetNavHelper.getAllTagsForLink(any())).thenReturn(ImmutableList.of("outpatient", "patient"));
         List<String> selectedFilterKeys = ImmutableList.of("inpatient", "outpatient", "patient");
         FiltersAndLinks filtersAndLinks = filtersAndLinks(baseFilters(), selectedFilterKeys);
 
@@ -162,15 +175,15 @@ public class FiltersAndLinksTests {
 
     private Filters baseFilters() {
         return FiltersTestUtils.filters(
-            section("Section 1",
+            section("section-1", "Section 1",
                 subsection("Subsection 1A", "inpatient"),
                 subsection("Subsection 2B", "outpatient")
             ),
-            section("Section 2",
+            section("section-2", "Section 2",
                 subsection("Subsection 2A", "service"),
                 subsection("Subsection 2B", "fhir")
             ),
-            section("Section 3",
+            section("section-3", "Section 3",
                 subsection("Subsection 3A", "hospital"),
                 subsection("Subsection 3B", "patient")
             )
@@ -178,7 +191,7 @@ public class FiltersAndLinksTests {
     }
 
     private FiltersAndLinks filtersAndLinks(Filters filters, List<String> selectedFilterKeys) {
-        return new FiltersAndLinks(selectedFilterKeys, catalogueLinks(), filters);
+        return new FiltersAndLinks(selectedFilterKeys, catalogueLinks(), filters, facetNavHelper);
     }
 
     private List<CatalogueLink> catalogueLinks() {
@@ -203,5 +216,9 @@ public class FiltersAndLinksTests {
         given(link.toString()).willReturn("Internallink of a doc tagged with: " + String.join(", ", taxonomyKeys));
 
         return link;
+    }
+
+    private Set<String> allTags() {
+        return new HashSet<String>(Arrays.asList("fhir", "inpatient", "outpatient", "hospital", "patient", "service"));
     }
 }

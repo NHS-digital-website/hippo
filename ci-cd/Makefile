@@ -47,26 +47,27 @@ release: test version.bumpup
 	# we have to call build manually, so that the VERSION is set properly.
 	$(MAKE) build upload
 
-## Run all tests
-test: clean test.e2e
+## Run tests (legacy)
+test:
+	mvn --file ../pom.xml -Drevision=$(VERSION) clean test
 
 ## Run unit tests
 test.unit:
 	mvn package $(MVN_OPTS) -DskipTests --quiet
 	mvn test $(MVN_OPTS) --quiet
 
-## Run BDD tests for "site" only.
+## Run BDD tests for "site" only with playwright (visual test).
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Djava.locale.providers=COMPAT \
-		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.features="src/test/resources/features/site --tags ~@skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
-## Run acceptance tests against already running server (`make serve`)
+## Run acceptance tests against already running server (`make serve`) with playwright (visual test).
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Djava.locale.providers=COMPAT \
-		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.features="src/test/resources/features/site --tags ~@skip" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 
 # Updates snapshots for all tests tagged @snapshot

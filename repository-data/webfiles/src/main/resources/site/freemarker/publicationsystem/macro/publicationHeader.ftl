@@ -3,10 +3,11 @@
 
 
 <#macro publicationHeader publication restricted=false downloadPDF=false earlyAccessKey="">
-    <#assign informationTypes = publication.parentDocument?has_content?then(publication.parentDocument.informationType?has_content?then(publication.parentDocument.informationType, publication.informationType), publication.informationType) />
-    <#assign fullTaxonomyList = publication.parentDocument?has_content?then(publication.parentDocument.fullTaxonomyList?has_content?then(publication.parentDocument.fullTaxonomyList, publication.fullTaxonomyList), publication.fullTaxonomyList) />
-    <#assign geographicCoverage = publication.parentDocument?has_content?then(publication.parentDocument.geographicCoverage?has_content?then(publication.parentDocument.geographicCoverage, publication.geographicCoverage), publication.geographicCoverage) />
-    <#assign granularity = publication.parentDocument?has_content?then(publication.parentDocument.granularity?has_content?then(publication.parentDocument.granularity, publication.granularity), publication.granularity) />
+    <#assign parentDocument = publication.parentSeriesCollectionDocument />
+    <#assign informationTypes = parentDocument?has_content?then(parentDocument.informationType?has_content?then(parentDocument.informationType, publication.informationType), publication.informationType) />
+    <#assign fullTaxonomyList = parentDocument?has_content?then(parentDocument.fullTaxonomyList?has_content?then(parentDocument.fullTaxonomyList, publication.fullTaxonomyList), publication.fullTaxonomyList) />
+    <#assign geographicCoverage = parentDocument?has_content?then(parentDocument.geographicCoverage?has_content?then(parentDocument.geographicCoverage, publication.geographicCoverage), publication.geographicCoverage) />
+    <#assign granularity = parentDocument?has_content?then(parentDocument.granularity?has_content?then(parentDocument.granularity, publication.granularity), publication.granularity) />
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
@@ -15,15 +16,15 @@
 
                     <@nationalStatsStamp informationTypes=informationTypes/>
 
-                    <#if publication.parentDocument??>
-                        <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>" title="${publication.parentDocument.title}"><span itemprop="name">${publication.parentDocument.title}</span></a></span>
+                    <#if parentDocument??>
+                        <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=parentDocument.selfLinkBean/>" title="${parentDocument.title}"><span itemprop="name">${parentDocument.title}</span></a></span>
                     <#else>
                         <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                     </#if>
                     <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${publication.title}</h1>
 
                     <#if informationTypes?has_content>
-                        <span class="article-header__types ${(publication.parentDocument??)?then('', 'article-header__types--push')}" data-uipath="ps.publication.information-types">
+                        <span class="article-header__types ${(parentDocument??)?then('', 'article-header__types--push')}" data-uipath="ps.publication.information-types">
                             <#list informationTypes as type>${type}<#sep>, </#list>
                         </span>
                     </#if>

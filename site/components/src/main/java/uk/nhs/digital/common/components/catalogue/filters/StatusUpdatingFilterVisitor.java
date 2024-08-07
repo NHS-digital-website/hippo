@@ -47,7 +47,9 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
     }
 
     private void updateExpanded(final Section section) {
-        if (section.getEntries().stream().anyMatch(entry -> entry.isSelected() || entry.isExpanded())) {
+        if (section.isExpanded()) {
+            section.expand();
+        } else if (section.getEntriesAndChildEntries().stream().anyMatch(entry -> entry.isSelected() || entry.isExpanded())) {
             section.expand();
         } else {
             section.collapse();
@@ -77,6 +79,9 @@ public class StatusUpdatingFilterVisitor implements FilterVisitor {
                         .findFirst();
         int count = navFilter.map(filter -> filter.count).orElse(0);
         subsection.setCount(count);
+        if (subsection.getEntries().size() != 0 && count == 0) {
+            subsection.setUnselectable();
+        }
     }
 
     private Predicate<Subsection> hasSelectedTag = subsection -> selectedTags.contains(subsection.getKey());

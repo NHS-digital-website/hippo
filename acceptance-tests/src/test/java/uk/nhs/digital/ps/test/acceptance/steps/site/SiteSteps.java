@@ -140,6 +140,39 @@ public class SiteSteps extends AbstractSpringSteps {
         sitePage.clickCookieAcceptButton();
     }
 
+    @When("^I enter search term \"([^\"]+)\"$")
+    public void whenIEnterSearchTerm(String searchTerm) throws Throwable {
+        WebElement element = sitePage.findElementWithID("catalogue-search-bar-input");
+        sitePage.clickOnElement(element);
+        element.clear();
+        element.sendKeys(searchTerm);
+    }
+
+    @Then("^I should see the search result with the id \"([^\"]+)\"$")
+    public void thenIShouldSeeSearchResult(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement elementParent = element.findElement(By.xpath("./.."));
+        boolean isHidden = elementParent.getAttribute("class").equals("nhsd-!t-display-hide");
+        assertThat(isHidden, is(false));
+    }
+
+    @Then("^I should not see the search result \"([^\"]+)\"$")
+    public void thenIShouldNotSeeSearchResult(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement elementParent = element.findElement(By.xpath("./.."));
+        boolean isHidden = elementParent.getAttribute("class").equals("nhsd-!t-display-hide");
+        assertThat(isHidden, is(true));
+    }
+
+    @Then("^I should see the search result with the id \"([^\"]*)\" highlighted in yellow colour$")
+    public void thenIShouldSearchResultHighlightedInYellow(String id) throws Throwable {
+        WebElement element = sitePage.findElementWithID(id);
+        WebElement childElement = element.findElement(By.xpath("./child::*"));
+        WebElement grandChildElement = childElement.findElement(By.xpath("./child::*"));
+        boolean isPresent = grandChildElement.getAttribute("class").equals("filter-tag-yellow-highlight");
+        assertThat(isPresent, is(true));
+    }
+
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")
     public void thenISeeLink(String linkTitle) throws Throwable {
         assertNotNull("Can see element", sitePage.findElementWithTitle(linkTitle));

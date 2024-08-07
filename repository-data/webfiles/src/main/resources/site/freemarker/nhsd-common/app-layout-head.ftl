@@ -76,6 +76,7 @@
     <link rel="stylesheet" href="https://design-system.digital.nhs.uk/cdn/${toolkitVersion}/stylesheets/nhsd-frontend.css" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-frontend-edge-cases.css"/>" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhse-global-menu.css"/>" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 </head>

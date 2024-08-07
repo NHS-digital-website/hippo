@@ -2,6 +2,14 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      /api-catlogue-homepage:
+        /banner:
+          .meta:residual-child-node-category: content
+          hst:label: Banner
+          hst:lastmodified: 2024-07-15T15:32:03.200Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /cyber-security-homepage:
         /banner:
           hst:label: Banner
@@ -149,7 +157,6 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /sign-up:
         /form:
-          hippo:identifier: 1a003fff-cd2a-48dd-96d0-aa1ae9d147e3
           hst:label: Form
           hst:lastmodified: 2022-06-20T11:55:08.546Z
           hst:xtype: hst.vbox

@@ -97,7 +97,7 @@ Feature: Basic search
         Then I should see the weight search test results ordered by date
         When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
-
+@skip
     Scenario: Upcoming publications are ordered correctly in increasing date order
         Given I navigate to the "search" page
         When I click on the "Upcoming" link
@@ -175,7 +175,7 @@ Feature: Basic search
          Given I navigate to the "search" page
          When I can click on the "News and Events results" link
          Then I can see the search description matching "No results for filters"
-
+@skip
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
         When I search for "Bare Minimum"

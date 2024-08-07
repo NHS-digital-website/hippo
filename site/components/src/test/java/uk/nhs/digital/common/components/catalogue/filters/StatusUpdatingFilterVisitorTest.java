@@ -23,16 +23,17 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsDisplayed_whenAnyChildSubsectionTagIsDisplayed() {
 
         // given
-        final Section section = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+        final Section section = section("section", "Section",
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(section, "tag-b", Section::display);
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -46,16 +47,17 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsNotDisplayed_whenNoChildTagIsDisplayed() {
 
         // given
-        final Section section = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+        final Section section = section("section", "Section",
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-a","Tag B", "tag-b")
         );
 
         updateSubsections(section, Section::hide, "tag-a", "tag-b");
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -69,16 +71,17 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsExpanded_whenAChildSubsectionIsSelected() {
 
         // given
-        final Section actualSection = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+        final Section actualSection = section("section", "Section",
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b", "Tag B", "tag-b")
         );
 
         updateSubsection(actualSection, "tag-b", Subsection::select);
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -92,16 +95,17 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSectionAsExpanded_whenAChildSubsectionIsExpanded() {
 
         // given
-        final Section actualSection = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+        final Section actualSection = section("section", "Section",
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(actualSection, "tag-b", Subsection::expand);
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -112,24 +116,46 @@ public class StatusUpdatingFilterVisitorTest {
     }
 
     @Test
-    public void marksSectionAsCollapsed_whenNoChildTagsAreSelected() {
+    public void marksSectionAsCollapsed_whenNoChildTagsAreSelected_andSectionDoesNotDefaultExpanded() {
 
         // given
-        final Section section = section("Section",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+        final Section section = section("section", "Section",
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b", "Tag B", "tag-b")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantSelectedTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
         filterVisitor.visit(section);
 
         // then
-        assertThat("Section is expanded.", section.isExpanded(), is(false));
+        assertThat("Section is not expanded.", section.isExpanded(), is(false));
+    }
+
+    @Test
+    public void doesNotMarkSectionAsCollapsed_whenSectionIsDefaultExpanded() {
+        // given
+        final Section section = section("Section", "true", "false",
+            subsection("tag-a", "Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
+        );
+
+        final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
+            irrelevantSelectedTags(),
+            irrelevantSelectedTags(),
+            0
+        );
+
+        // when
+        filterVisitor.visit(section);
+
+        // then
+        assertThat("Section is expanded.", section.isExpanded(), is(true));
     }
 
     @Test
@@ -137,15 +163,16 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Subsection",
-            subsection("Tag A", "tag-a"),
-            subsection("Tag B", "tag-b")
+            subsection("tag-a","Tag A", "tag-a"),
+            subsection("tag-b","Tag B", "tag-b")
         );
 
         updateSubsection(subsection, "tag-b", Subsection::display);
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -159,14 +186,15 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsDisplayed_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -181,15 +209,16 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-a","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         updateSubsection(subsection, "tag-c", Subsection::display);
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -203,14 +232,15 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsNotDisplayed_whenItsTagIsNotFilteredNorAnyChildSubsectionIsDisplayed() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("tag-a", "Tag A", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -224,14 +254,15 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelectable_whenItsTagIsFiltered() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-a", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            1
         );
 
         // when
@@ -246,13 +277,14 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             filteredTags("tag-c", "tag-d"),
-            irrelevantSelectedTags()
+            irrelevantSelectedTags(),
+            0
         );
 
         // when
@@ -266,14 +298,15 @@ public class StatusUpdatingFilterVisitorTest {
     public void marksSubsectionAsSelected_whenItsTagIsSelected() {
 
         // given
-        final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+        final Subsection subsection = subsection("Tag A","tag-a", "tag-a",
+            subsection("tag-b", "Tag B", "tag-b"),
+            subsection("tag-c","Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            selectedTags("tag-a", "tag-d")
+            selectedTags("tag-a", "tag-d"),
+            0
         );
 
         // when
@@ -288,13 +321,14 @@ public class StatusUpdatingFilterVisitorTest {
 
         // given
         final Subsection subsection = subsection("Tag A", "tag-a",
-            subsection("Tag B", "tag-b"),
-            subsection("Tag C", "tag-c")
+            subsection("tag-b","Tag B", "tag-b"),
+            subsection("tag-c", "Tag C", "tag-c")
         );
 
         final StatusUpdatingFilterVisitor filterVisitor = visitorWith(
             irrelevantFilteredTags(),
-            selectedTags("tag-c", "tag-d")
+            selectedTags("tag-c", "tag-d"),
+            0
         );
 
         // when
@@ -323,12 +357,12 @@ public class StatusUpdatingFilterVisitorTest {
             .ifPresent(mutator);
     }
 
-    private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags) {
+    private StatusUpdatingFilterVisitor visitorWith(final List<String> filteredTags, final List<String> selectedTags, final int tagCount) {
         return new StatusUpdatingFilterVisitor(
                 ImmutableSet.copyOf(
                         filteredTags
                                 .stream()
-                                .map(tag -> new NavFilter(tag, 0))
+                                .map(tag -> new NavFilter(tag, tagCount))
                                 .collect(Collectors.toList())
                 ),
                 ImmutableSet.copyOf(selectedTags)

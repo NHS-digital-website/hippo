@@ -17,13 +17,12 @@ public class DatasetComponent extends EssentialsContentComponent {
         final HstRequestContext ctx = request.getRequestContext();
         Dataset dataset = (Dataset) ctx.getContentBean();
 
-        if (!dataset.isPubliclyAccessible()) {
+        if (dataset != null && !dataset.isPubliclyAccessible()) {
             try {
                 response.forward("/error/404");
             } catch (IOException ioException) {
                 throw new HstComponentException("forward failed", ioException);
             }
-
             return;
         }
 

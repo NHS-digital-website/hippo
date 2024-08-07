@@ -7,7 +7,9 @@ definitions:
         hst:parameternames:
         - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
+        - stripTagsWithLinksContentRewriter
         hst:parametervalues:
+        - 'true'
         - 'true'
         - 'true'
         hst:template: news-article

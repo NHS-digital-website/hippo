@@ -29,7 +29,6 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
-              contentSearchEnabled: 'false'
               hst:cacheable: false
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
@@ -37,10 +36,8 @@ definitions:
               - 'Strict-Transport-Security : max-age=31536000'
               - 'Content-Security-Policy: upgrade-insecure-requests'
               - 'Referrer-Policy: no-referrer-when-downgrade'
-              - 'Permissions-Policy: vibrate=(), microphone=(), camera=(), payment=(),
-                accelerometer=(), ambient-light-sensor=(), magnetometer=(), midi=(),
-                usb=(), wake-lock=(), execution-while-out-of-viewport=(), sync-xhr=''self'',
-                gyroscope=(), push=''self'', speaker=*, fullscreen=*'
+              - 'Permissions-Policy: camera=(), display-capture=(), fullscreen=(),
+                geolocation=(), microphone=(), publickey-credentials-get=(), web-share=()'
               - 'X-Content-Type-Options: nosniff'
               - 'X-Frame-Options: SAMEORIGIN'
               jcr:primaryType: hst:mount

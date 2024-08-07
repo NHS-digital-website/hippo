@@ -185,4 +185,10 @@ public class SitePage extends AbstractSitePage {
     public boolean isWideMode() {
         return helper.findOptionalElement(By.cssSelector("article > div.nhsd-t-grid > div > div.nhsd-t-col-12")) != null;
     }
+
+    public WebElement findElementWithID(String id) {
+        return helper.findElement(By.id(id));
+    }
+
+
 }
