@@ -159,7 +159,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
 
-    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, FacetObject> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
             .map(key -> facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
             .orElse(false);
@@ -173,7 +173,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                 try {
                     facetObject.calculateResultCountWithApiResultFilter();
                     if (!facetObject.isEmpty()) {
-            facetFilterMap.put(
+                        facetFilterMap.put(
                             folderBean.getDisplayName(),
                             facetObject
                         );

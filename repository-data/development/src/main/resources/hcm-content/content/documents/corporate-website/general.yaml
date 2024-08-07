@@ -1,58 +1,20 @@
----
 /content/documents/corporate-website/general/general-document-1:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 005f70e1-fbf9-487a-9aba-ccaf54c835c1
+  hippo:name: 'General Document #1'
+  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+  hippotranslation:id: cb64dcbb-6553-4913-b3cb-f765c6b9454b
+  hippotranslation:locale: en
   /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: ddec06cc-75a2-4287-99a7-e02a6359cbd6
+    hippo:name: 'General Document #1'
     /content[1]:
-      /website:component:
-        hippostd:content: |-
-          <h2>General Document</h2>
-
-          <p>Objectively revolutionize premium e-services with cross-unit portals. Dynamically myocardinate equity invested e-business and parallel intellectual capital.</p>
-        jcr:primaryType: hippostd:html
-      /website:sections[1]:
-        /website:html:
-          hippostd:content: |-
-            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
-
-            <p>Rapidiously enable principle-centered.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:numberedList: false
-        website:title: Section One
-        website:type: ''
-      /website:sections[2]:
-        /website:html:
-          hippostd:content: <p>Globally promote reliable best practices and web-enabled
-            ROI. Rapidiously myocardinate highly efficient functionalities via installed
-            base e-services. Dynamically supply robust experiences before reliable
-            collaboration and idea-sharing. Distinctively parallel task collaborative
-            opportunities after low-risk high-yield ROI. Globally morph worldwide
-            opportunities vis-a-vis bricks-and-clicks partnerships.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:numberedList: false
-        website:title: Section Two
-        website:type: ''
-      /website:sections[3]:
-        /website:html:
-          hippostd:content: |-
-            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
-
-            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:numberedList: false
-        website:title: Section Three
-        website:type: ''
-      /website:seosummary:
-        hippostd:content: Objectively revolutionize premium e-services with cross-unit
-          portals. Dynamically myocardinate equity invested e-business and parallel
-          intellectual capital.
-        jcr:primaryType: hippostd:html
-      /website:summary:
-        hippostd:content: <p>Objectively revolutionize premium e-services with cross-unit
-          portals. Dynamically myocardinate equity invested e-business and parallel
-          intellectual capital.</p>
-        jcr:primaryType: hippostd:html
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 323f52d0-d09d-4986-b317-1228e4ee64c1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -62,67 +24,67 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 16f4782e-2594-4a8c-90da-916fd2e74c3d
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
-    /content[2]:
       /website:component:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <h2>General Document</h2>
 
           <p>Objectively revolutionize premium e-services with cross-unit portals. Dynamically myocardinate equity invested e-business and parallel intellectual capital.</p>
-        jcr:primaryType: hippostd:html
       /website:sections[1]:
-        /website:html:
-          hippostd:content: |-
-            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
-
-            <p>Rapidiously enable principle-centered.</p>
-          jcr:primaryType: hippostd:html
         jcr:primaryType: website:section
         website:numberedList: false
         website:title: Section One
         website:type: ''
-      /website:sections[2]:
         /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
+
+            <p>Rapidiously enable principle-centered.</p>
+      /website:sections[2]:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section Two
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Globally promote reliable best practices and web-enabled
             ROI. Rapidiously myocardinate highly efficient functionalities via installed
             base e-services. Dynamically supply robust experiences before reliable
             collaboration and idea-sharing. Distinctively parallel task collaborative
             opportunities after low-risk high-yield ROI. Globally morph worldwide
             opportunities vis-a-vis bricks-and-clicks partnerships.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:numberedList: false
-        website:title: Section Two
-        website:type: ''
       /website:sections[3]:
-        /website:html:
-          hippostd:content: |-
-            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
-
-            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
-          jcr:primaryType: hippostd:html
         jcr:primaryType: website:section
         website:numberedList: false
         website:title: Section Three
         website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
+
+            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: Objectively revolutionize premium e-services with cross-unit
           portals. Dynamically myocardinate equity invested e-business and parallel
           intellectual capital.
-        jcr:primaryType: hippostd:html
       /website:summary:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>Objectively revolutionize premium e-services with cross-unit
           portals. Dynamically myocardinate equity invested e-business and parallel
           intellectual capital.</p>
-        jcr:primaryType: hippostd:html
+    /content[2]:
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 4f8e3594-7ce9-433f-8537-5358f4e81112
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-27T17:43:28.893Z
@@ -130,68 +92,67 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 16f4782e-2594-4a8c-90da-916fd2e74c3d
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
-    /content[3]:
       /website:component:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <h2>General Document</h2>
 
           <p>Objectively revolutionize premium e-services with cross-unit portals. Dynamically myocardinate equity invested e-business and parallel intellectual capital.</p>
-        jcr:primaryType: hippostd:html
       /website:sections[1]:
-        /website:html:
-          hippostd:content: |-
-            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
-
-            <p>Rapidiously enable principle-centered.</p>
-          jcr:primaryType: hippostd:html
         jcr:primaryType: website:section
         website:numberedList: false
         website:title: Section One
         website:type: ''
-      /website:sections[2]:
         /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
+
+            <p>Rapidiously enable principle-centered.</p>
+      /website:sections[2]:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section Two
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Globally promote reliable best practices and web-enabled
             ROI. Rapidiously myocardinate highly efficient functionalities via installed
             base e-services. Dynamically supply robust experiences before reliable
             collaboration and idea-sharing. Distinctively parallel task collaborative
             opportunities after low-risk high-yield ROI. Globally morph worldwide
             opportunities vis-a-vis bricks-and-clicks partnerships.</p>
-          jcr:primaryType: hippostd:html
-        jcr:primaryType: website:section
-        website:numberedList: false
-        website:title: Section Two
-        website:type: ''
       /website:sections[3]:
-        /website:html:
-          hippostd:content: |-
-            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
-
-            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
-          jcr:primaryType: hippostd:html
         jcr:primaryType: website:section
         website:numberedList: false
         website:title: Section Three
         website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
+
+            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: Objectively revolutionize premium e-services with cross-unit
           portals. Dynamically myocardinate equity invested e-business and parallel
           intellectual capital.
-        jcr:primaryType: hippostd:html
       /website:summary:
+        jcr:primaryType: hippostd:html
         hippostd:content: <p>Objectively revolutionize premium e-services with cross-unit
           portals. Dynamically myocardinate equity invested e-business and parallel
           intellectual capital.</p>
-        jcr:primaryType: hippostd:html
+    /content[3]:
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c85ef8d1-71b2-4816-a83e-7f3cdebb0e8e
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-27T17:43:28.893Z
@@ -200,97 +161,79 @@
       hippostdpubwf:publicationDate: 2018-02-27T17:44:37.148Z
       hippotranslation:id: 16f4782e-2594-4a8c-90da-916fd2e74c3d
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:general
       website:shortsummary: Objectively revolutionize premium e-services with cross-unit
         portals
+      website:showApiResult: true
       website:title: General Document
-    hippo:name: 'General Document #1'
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /general-child-document-1:
-    /content:
-      /content[1]:
-        /website:component:
+      /website:component:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <h2>General Document</h2>
+
+          <p>Objectively revolutionize premium e-services with cross-unit portals. Dynamically myocardinate equity invested e-business and parallel intellectual capital.</p>
+      /website:sections[1]:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section One
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <h2>General Child Document #1</h2>
+            <p>Globally recaptiualize magnetic e-commerce for error-free applications. Synergistically communicate interdependent users via enterprise-wide bandwidth. Synergistically fabricate team building functionalities for team building intellectual capital. Seamlessly synergize customized networks via extensive methodologies. Distinctively expedite ethical value for end-to-end customer service.</p>
 
-            <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
+            <p>Rapidiously enable principle-centered.</p>
+      /website:sections[2]:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section Two
+        website:type: ''
+        /website:html:
           jcr:primaryType: hippostd:html
-        /website:friendlyurls:
-          jcr:primaryType: website:friendlyurls
-          website:alternativeurls: []
-        /website:leadimage:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
-        /website:pageicon:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
-        /website:sections[1]:
-          /website:html:
-            hippostd:content: |-
-              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
+          hippostd:content: <p>Globally promote reliable best practices and web-enabled
+            ROI. Rapidiously myocardinate highly efficient functionalities via installed
+            base e-services. Dynamically supply robust experiences before reliable
+            collaboration and idea-sharing. Distinctively parallel task collaborative
+            opportunities after low-risk high-yield ROI. Globally morph worldwide
+            opportunities vis-a-vis bricks-and-clicks partnerships.</p>
+      /website:sections[3]:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section Three
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Dynamically evolve prospective systems with premier outsourcing. Holisticly supply one-to-one relationships vis-a-vis market-driven supply chains. Phosfluorescently harness maintainable markets for installed base platforms. Phosfluorescently engage maintainable networks through 24/365 scenarios. Dramatically maintain client-centered communities without proactive ROI.</p>
 
-              <p>Interactively matrix leveraged.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section One
-          website:type: ''
-        /website:sections[2]:
-          /website:html:
-            hippostd:content: |-
-              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
-
-              <p>Monotonectally enhance exceptional.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section Two
-          website:type: ''
-        /website:sections[3]:
-          /website:html:
-            hippostd:content: <p>Appropriately brand web-enabled information through
-              scalable internal or "organic" sources. Synergistically supply professional
-              potentialities for integrated platforms. Monotonectally innovate top-line
-              initiatives through ubiquitous channels. Distinctively administrate
-              extensive strategic theme areas rather than highly efficient methods
-              of empowerment. Synergistically simplify equity invested ideas.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section Three
-          website:type: ''
-        /website:seosummary:
-          hippostd:content: Enthusiastically reintermediate exceptional networks for
-            interactive methods of empowerment. Professionally network installed base
-            potentialities vis-a-vis an expanded array of e-commerce.
-          jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Enthusiastically reintermediate exceptional networks
-            for interactive methods of empowerment. Professionally network installed
-            base potentialities vis-a-vis an expanded array of e-commerce.</p>
-          jcr:primaryType: hippostd:html
-        /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:userNeedandcontact
-          website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+            <p>Efficiently fashion one-to-one web-readiness whereas.</p>
+      /website:seosummary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: Objectively revolutionize premium e-services with cross-unit
+          portals. Dynamically myocardinate equity invested e-business and parallel
+          intellectual capital.
+      /website:summary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Objectively revolutionize premium e-services with cross-unit
+          portals. Dynamically myocardinate equity invested e-business and parallel
+          intellectual capital.</p>
+  /general-child-document-1:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 3dd79657-d15d-40a0-8e5f-0a23d00cc3d6
+    hippo:name: 'General Child Document #1'
+    hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+    hippotranslation:id: 1f19e34f-86c3-469c-a736-253288e9b8d1
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 2a4b7877-6fdc-4f55-aa4a-876d514a9c20
+      hippo:name: 'Genera Child Document #1'
+      hippo:versionHistory: 34e4f5be-b4c6-4480-a0c1-ead800985701
+      /content[1]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: afdf448b-5268-4e66-8503-9e921c23d84e
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -300,97 +243,96 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           basenavigationcontroller
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
-      /content[2]:
         /website:component:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2>General Child Document #1</h2>
 
             <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
-          jcr:primaryType: hippostd:html
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
-          /website:html:
-            hippostd:content: |-
-              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
-
-              <p>Interactively matrix leveraged.</p>
-            jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section One
           website:type: ''
-        /website:sections[2]:
           /website:html:
-            hippostd:content: |-
-              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
-
-              <p>Monotonectally enhance exceptional.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
+
+              <p>Interactively matrix leveraged.</p>
+        /website:sections[2]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Two
           website:type: ''
-        /website:sections[3]:
           /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
+
+              <p>Monotonectally enhance exceptional.</p>
+        /website:sections[3]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section Three
+          website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>Appropriately brand web-enabled information through
               scalable internal or "organic" sources. Synergistically supply professional
               potentialities for integrated platforms. Monotonectally innovate top-line
               initiatives through ubiquitous channels. Distinctively administrate
               extensive strategic theme areas rather than highly efficient methods
               of empowerment. Synergistically simplify equity invested ideas.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section Three
-          website:type: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Enthusiastically reintermediate exceptional networks for
             interactive methods of empowerment. Professionally network installed base
             potentialities vis-a-vis an expanded array of e-commerce.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Enthusiastically reintermediate exceptional networks
             for interactive methods of empowerment. Professionally network installed
             base potentialities vis-a-vis an expanded array of e-commerce.</p>
-          jcr:primaryType: hippostd:html
         /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:userNeedandcontact
           website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /content[2]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: ec31bf0a-a31d-4e1c-a8b5-cdfba52643b8
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:45:21.390Z
@@ -398,98 +340,96 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        - mix:versionable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
-      /content[3]:
         /website:component:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2>General Child Document #1</h2>
 
             <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
-          jcr:primaryType: hippostd:html
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
-          /website:html:
-            hippostd:content: |-
-              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
-
-              <p>Interactively matrix leveraged.</p>
-            jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section One
           website:type: ''
-        /website:sections[2]:
           /website:html:
-            hippostd:content: |-
-              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
-
-              <p>Monotonectally enhance exceptional.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
+
+              <p>Interactively matrix leveraged.</p>
+        /website:sections[2]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Two
           website:type: ''
-        /website:sections[3]:
           /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
+
+              <p>Monotonectally enhance exceptional.</p>
+        /website:sections[3]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section Three
+          website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>Appropriately brand web-enabled information through
               scalable internal or "organic" sources. Synergistically supply professional
               potentialities for integrated platforms. Monotonectally innovate top-line
               initiatives through ubiquitous channels. Distinctively administrate
               extensive strategic theme areas rather than highly efficient methods
               of empowerment. Synergistically simplify equity invested ideas.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section Three
-          website:type: ''
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Enthusiastically reintermediate exceptional networks for
             interactive methods of empowerment. Professionally network installed base
             potentialities vis-a-vis an expanded array of e-commerce.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Enthusiastically reintermediate exceptional networks
             for interactive methods of empowerment. Professionally network installed
             base potentialities vis-a-vis an expanded array of e-commerce.</p>
-          jcr:primaryType: hippostd:html
         /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:userNeedandcontact
           website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /content[3]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 46ecfb45-16ae-47da-b65c-81a33f1816b9
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:45:21.390Z
@@ -498,116 +438,108 @@
         hippostdpubwf:publicationDate: 2020-10-21T12:01:47.743Z
         hippotranslation:id: 7d12c3d8-6436-4c6f-95d2-8c9196de38f8
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Enthusiastically reintermediate exceptional networks
           for interactive methods of empowerment. Professionally network installed
           base
+        website:showApiResult: true
         website:title: 'General Child Document #1'
         website:type: ''
-      hippo:name: 'Genera Child Document #1'
-      hippo:versionHistory: 34e4f5be-b4c6-4480-a0c1-ead800985701
-      jcr:mixinTypes:
-      - hippo:named
-      - hippo:versionInfo
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-    hippo:name: 'General Child Document #1'
-    hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
-    hippotranslation:id: 1f19e34f-86c3-469c-a736-253288e9b8d1
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippo:named
-    - hippotranslation:translated
-    - mix:versionable
-    jcr:primaryType: hippostd:folder
-  /general-child-document-2:
-    /content:
-      /content[1]:
         /website:component:
-          hippostd:content: |-
-            <h2>General Child Document #2</h2>
-
-            <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
           jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>General Child Document #1</h2>
+
+            <p>Enthusiastically reintermediate exceptional networks for interactive methods of empowerment. Professionally network installed base potentialities vis-a-vis an expanded array of e-commerce.&nbsp;</p>
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
-          /website:html:
-            hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
-              sources for leveraged internal or "organic" sources. Distinctively aggregate
-              enterprise best practices rather than cross-unit experiences. Monotonectally
-              extend economically sound methods of empowerment with proactive leadership
-              skills. Progressively plagiarize impactful leadership skills for functional
-              niche markets.</p>
-            jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section One
           website:type: ''
-        /website:sections[2]:
           /website:html:
-            hippostd:content: |-
-              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
-
-              <p>Distinctively extend.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Credibly formulate team building human capital through optimal niche markets. Monotonectally administrate 24/7 ROI vis-a-vis empowered paradigms. Collaboratively seize virtual benefits with competitive communities. Credibly simplify strategic core competencies vis-a-vis standardized vortals. Interactively reconceptualize exceptional leadership vis-a-vis focused information.</p>
+
+              <p>Interactively matrix leveraged.</p>
+        /website:sections[2]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Two
           website:type: ''
-        /website:sections[3]:
           /website:html:
-            hippostd:content: |-
-              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
-
-              <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Conveniently extend backend alignments vis-a-vis ethical information. Distinctively disseminate adaptive paradigms after real-time expertise. Synergistically synergize customized manufactured products without extensive relationships. Synergistically recaptiualize highly efficient materials and leveraged niches. Professionally synthesize user friendly action items and interoperable ROI.</p>
+
+              <p>Monotonectally enhance exceptional.</p>
+        /website:sections[3]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Three
           website:type: ''
-        /website:seosummary:
-          hippostd:content: Collaboratively maintain bricks-and-clicks web services
-            vis-a-vis exceptional human capital. Energistically matrix business metrics
-            via interoperable manufactured products. Credibly iterate robust experiences
-            whereas orthogonal web services.
-          jcr:primaryType: hippostd:html
-        /website:summary:
-          hippostd:content: <p>Collaboratively maintain bricks-and-clicks web services
-            vis-a-vis exceptional human capital. Energistically matrix business metrics
-            via interoperable manufactured products. Credibly iterate robust experiences
-            whereas orthogonal web services.</p>
-          jcr:primaryType: hippostd:html
-        /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
+          /website:html:
             jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
+            hippostd:content: <p>Appropriately brand web-enabled information through
+              scalable internal or "organic" sources. Synergistically supply professional
+              potentialities for integrated platforms. Monotonectally innovate top-line
+              initiatives through ubiquitous channels. Distinctively administrate
+              extensive strategic theme areas rather than highly efficient methods
+              of empowerment. Synergistically simplify equity invested ideas.</p>
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: Enthusiastically reintermediate exceptional networks for
+            interactive methods of empowerment. Professionally network installed base
+            potentialities vis-a-vis an expanded array of e-commerce.
+        /website:summary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enthusiastically reintermediate exceptional networks
+            for interactive methods of empowerment. Professionally network installed
+            base potentialities vis-a-vis an expanded array of e-commerce.</p>
+        /website:userNeedandcontact:
           jcr:primaryType: website:userNeedandcontact
           website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /general-child-document-2:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 0eead5df-6680-4f19-9079-9bd2890e993a
+    hippo:name: 'General Child Document #2'
+    hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+    hippotranslation:id: 978f3f80-0d91-461b-837d-c5e278582f2d
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 719ef921-6174-40b3-83e0-dd65aeeb839e
+      hippo:name: 'General Child Document #2'
+      hippo:versionHistory: 35c7076c-8ba5-4176-9699-7734e85827f0
+      /content[1]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 2b95ea8d-6c13-4240-9ea2-6414867d63b8
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -617,98 +549,97 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
-      /content[2]:
         /website:component:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2>General Child Document #2</h2>
 
             <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
-          jcr:primaryType: hippostd:html
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section One
+          website:type: ''
           /website:html:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
               sources for leveraged internal or "organic" sources. Distinctively aggregate
               enterprise best practices rather than cross-unit experiences. Monotonectally
               extend economically sound methods of empowerment with proactive leadership
               skills. Progressively plagiarize impactful leadership skills for functional
               niche markets.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section One
-          website:type: ''
         /website:sections[2]:
-          /website:html:
-            hippostd:content: |-
-              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
-
-              <p>Distinctively extend.</p>
-            jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Two
           website:type: ''
-        /website:sections[3]:
           /website:html:
-            hippostd:content: |-
-              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
-
-              <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
+
+              <p>Distinctively extend.</p>
+        /website:sections[3]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Three
           website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
+
+              <p>Conveniently evolve resource.</p>
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Collaboratively maintain bricks-and-clicks web services
             vis-a-vis exceptional human capital. Energistically matrix business metrics
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Collaboratively maintain bricks-and-clicks web services
             vis-a-vis exceptional human capital. Energistically matrix business metrics
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.</p>
-          jcr:primaryType: hippostd:html
         /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:userNeedandcontact
           website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /content[2]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 17654a27-9b72-47db-acc0-4b0a1b756fdc
         common:searchable: true
-        hippo:availability:
-        - preview
+        hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:47:00.182Z
@@ -716,99 +647,97 @@
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        - mix:versionable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
-      /content[3]:
         /website:component:
+          jcr:primaryType: hippostd:html
           hippostd:content: |-
             <h2>General Child Document #2</h2>
 
             <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
-          jcr:primaryType: hippostd:html
         /website:friendlyurls:
           jcr:primaryType: website:friendlyurls
           website:alternativeurls: []
         /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         /website:sections[1]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section One
+          website:type: ''
           /website:html:
+            jcr:primaryType: hippostd:html
             hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
               sources for leveraged internal or "organic" sources. Distinctively aggregate
               enterprise best practices rather than cross-unit experiences. Monotonectally
               extend economically sound methods of empowerment with proactive leadership
               skills. Progressively plagiarize impactful leadership skills for functional
               niche markets.</p>
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:section
-          website:numberedList: false
-          website:title: Section One
-          website:type: ''
         /website:sections[2]:
-          /website:html:
-            hippostd:content: |-
-              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
-
-              <p>Distinctively extend.</p>
-            jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Two
           website:type: ''
-        /website:sections[3]:
           /website:html:
-            hippostd:content: |-
-              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
-
-              <p>Conveniently evolve resource.</p>
             jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
+
+              <p>Distinctively extend.</p>
+        /website:sections[3]:
           jcr:primaryType: website:section
           website:numberedList: false
           website:title: Section Three
           website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
+
+              <p>Conveniently evolve resource.</p>
         /website:seosummary:
+          jcr:primaryType: hippostd:html
           hippostd:content: Collaboratively maintain bricks-and-clicks web services
             vis-a-vis exceptional human capital. Energistically matrix business metrics
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.
-          jcr:primaryType: hippostd:html
         /website:summary:
+          jcr:primaryType: hippostd:html
           hippostd:content: <p>Collaboratively maintain bricks-and-clicks web services
             vis-a-vis exceptional human capital. Energistically matrix business metrics
             via interoperable manufactured products. Credibly iterate robust experiences
             whereas orthogonal web services.</p>
-          jcr:primaryType: hippostd:html
         /website:userNeedandcontact:
-          /website:briefDescription:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:teampicker:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:userNeedandcontact
           website:portfolioCode: ''
-          website:userNeedismet:
-          - ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /content[3]:
+        jcr:primaryType: website:general
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 304bc7a3-3507-4025-a6a5-a258d58c1f90
         common:searchable: true
-        hippo:availability:
-        - live
+        hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-27T17:47:00.182Z
@@ -817,41 +746,88 @@
         hippostdpubwf:publicationDate: 2020-10-05T16:31:25.215Z
         hippotranslation:id: d70243ad-59ea-4af0-8aa6-47cd1ea2c373
         hippotranslation:locale: en
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: website:general
         website:gossid: 0
         website:navigationcontroller: withNav
         website:shortsummary: Collaboratively maintain bricks-and-clicks web services
           vis-a-vis exceptional human capital.
+        website:showApiResult: true
         website:title: 'General Child Document #2'
         website:type: ''
-      hippo:name: 'General Child Document #2'
-      hippo:versionHistory: 35c7076c-8ba5-4176-9699-7734e85827f0
-      jcr:mixinTypes:
-      - hippo:named
-      - hippo:versionInfo
-      - mix:referenceable
-      jcr:primaryType: hippo:handle
-    hippo:name: 'General Child Document #2'
-    hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
-    hippotranslation:id: 978f3f80-0d91-461b-837d-c5e278582f2d
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippo:named
-    - hippotranslation:translated
-    - mix:versionable
-    jcr:primaryType: hippostd:folder
-  hippo:name: 'General Document #1'
-  hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
-  hippotranslation:id: cb64dcbb-6553-4913-b3cb-f765c6b9454b
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+        /website:component:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>General Child Document #2</h2>
+
+            <p>Collaboratively maintain bricks-and-clicks web services vis-a-vis exceptional human capital. Energistically matrix business metrics via interoperable manufactured products. Credibly iterate robust experiences whereas orthogonal web services.</p>
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+        /website:leadimage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:pageicon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /website:sections[1]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section One
+          website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Quickly evolve inexpensive internal or "organic"
+              sources for leveraged internal or "organic" sources. Distinctively aggregate
+              enterprise best practices rather than cross-unit experiences. Monotonectally
+              extend economically sound methods of empowerment with proactive leadership
+              skills. Progressively plagiarize impactful leadership skills for functional
+              niche markets.</p>
+        /website:sections[2]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section Two
+          website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Authoritatively coordinate covalent vortals after visionary collaboration and idea-sharing. Competently create principle-centered ROI before unique core competencies. Quickly unleash world-class quality vectors before collaborative initiatives. Credibly plagiarize bleeding-edge manufactured products without seamless processes. Assertively re-engineer magnetic materials through enterprise alignments.</p>
+
+              <p>Distinctively extend.</p>
+        /website:sections[3]:
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section Three
+          website:type: ''
+          /website:html:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Globally synthesize orthogonal quality vectors through extensible best practices. Continually pontificate enterprise systems after focused systems. Distinctively envisioneer scalable mindshare via error-free growth strategies. Compellingly scale effective ideas for premium imperatives. Compellingly productize B2C scenarios for 2.0 manufactured products.</p>
+
+              <p>Conveniently evolve resource.</p>
+        /website:seosummary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: Collaboratively maintain bricks-and-clicks web services
+            vis-a-vis exceptional human capital. Energistically matrix business metrics
+            via interoperable manufactured products. Credibly iterate robust experiences
+            whereas orthogonal web services.
+        /website:summary:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Collaboratively maintain bricks-and-clicks web services
+            vis-a-vis exceptional human capital. Energistically matrix business metrics
+            via interoperable manufactured products. Credibly iterate robust experiences
+            whereas orthogonal web services.</p>
+        /website:userNeedandcontact:
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet: ['']
+          /website:briefDescription:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /website:teampicker:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

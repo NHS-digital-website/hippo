@@ -16,6 +16,10 @@ public class General extends CommonFieldsBean {
         return getChildBeansByName("website:sections");
     }
 
+    public Boolean getShowApiResult() {
+        return getSingleProperty("website:showApiResult");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:component")
     public HippoHtml getComponent() {
         return getHippoHtml("website:component");
