@@ -136,6 +136,7 @@
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
+      website:showApiResult: true
       website:title: 'Service Document #1'
     /content[2]:
       /website:component:
@@ -274,6 +275,7 @@
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
+      website:showApiResult: true
       website:title: 'Service Document #1'
     /content[3]:
       /website:component:
@@ -412,6 +414,7 @@
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
+      website:showApiResult: true
       website:title: 'Service Document #1'
     hippo:name: 'Service Document #1'
     hippo:versionHistory: 834237af-e457-4e20-af0b-87ef24072ecc
@@ -488,6 +491,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
+        website:showApiResult: true
         website:title: 'Service Child Document #1'
       /content[2]:
         /website:component:
@@ -557,6 +561,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
+        website:showApiResult: true
         website:title: 'Service Child Document #1'
       /content[3]:
         /website:component:
@@ -626,6 +631,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
+        website:showApiResult: true
         website:title: 'Service Child Document #1'
       hippo:name: 'Service Child Document #1'
       jcr:mixinTypes:
@@ -703,6 +709,7 @@
           jcr:primaryType: website:service
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
+          website:showApiResult: true
           website:title: 'Service Grandchild Document #1'
         /content[2]:
           /website:component:
@@ -775,6 +782,7 @@
           jcr:primaryType: website:service
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
+          website:showApiResult: true
           website:title: 'Service Grandchild Document #1'
         /content[3]:
           /website:component:
@@ -847,6 +855,7 @@
           jcr:primaryType: website:service
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
+          website:showApiResult: true
           website:title: 'Service Grandchild Document #1'
         hippo:name: 'Service Grandchild Document #1'
         jcr:mixinTypes:
@@ -940,6 +949,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
+        website:showApiResult: true
         website:title: 'Service Child Document #2'
       /content[2]:
         /website:component:
@@ -1006,6 +1016,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
+        website:showApiResult: true
         website:title: 'Service Child Document #2'
       /content[3]:
         /website:component:
@@ -1072,6 +1083,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
+        website:showApiResult: true
         website:title: 'Service Child Document #2'
       hippo:name: 'Service Child Document #2'
       jcr:mixinTypes:
@@ -1165,6 +1177,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
+        website:showApiResult: true
         website:title: 'Service Child Document #3'
       /content[2]:
         /website:component:
@@ -1242,6 +1255,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
+        website:showApiResult: true
         website:title: 'Service Child Document #3'
       /content[3]:
         /website:component:
@@ -1319,6 +1333,7 @@
         jcr:primaryType: website:service
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
+        website:showApiResult: true
         website:title: 'Service Child Document #3'
       hippo:name: 'Service Child Document #3'
       jcr:mixinTypes:
@@ -1418,6 +1433,7 @@
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
+        website:showApiResult: true
         website:title: 'Service Child Document #4'
       /content[2]:
         /website:component:
@@ -1501,6 +1517,7 @@
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
+        website:showApiResult: true
         website:title: 'Service Child Document #4'
       /content[3]:
         /website:component:
@@ -1584,6 +1601,7 @@
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
+        website:showApiResult: true
         website:title: 'Service Child Document #4'
       hippo:name: 'Service Child Document #4'
       hippo:versionHistory: 647b8952-2f32-4431-9bcd-9e12bd4ca38e
@@ -1680,6 +1698,7 @@
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
+        website:showApiResult: true
         website:title: 'Service Child Document #5'
       /content[2]:
         /website:component:
@@ -1758,6 +1777,7 @@
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
+        website:showApiResult: true
         website:title: 'Service Child Document #5'
       /content[3]:
         /website:component:
@@ -1836,6 +1856,7 @@
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
+        website:showApiResult: true
         website:title: 'Service Child Document #5'
       hippo:name: 'Service Child Document #5'
       jcr:mixinTypes:

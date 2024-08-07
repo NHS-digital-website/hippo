@@ -116,6 +116,7 @@
           - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:blog
+          jcr:uuid: ee5bac64-4b31-487d-b16c-13aef69034aa
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -241,6 +242,7 @@
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:blog
+          jcr:uuid: 0ed2e886-8167-4478-9fe9-742e2a5d4266
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -368,6 +370,7 @@
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:blog
+          jcr:uuid: 2230373e-dd4a-496b-a858-86ff8624d36f
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -389,6 +392,7 @@
         - hippo:versionInfo
         - mix:referenceable
         jcr:primaryType: hippo:handle
+        jcr:uuid: 92185376-a2aa-435d-9ba4-ddda065c9273
       hippo:name: Blog subfolder
       hippostd:foldertype:
       - new-digital-website-folder
@@ -400,6 +404,7 @@
       - hippotranslation:translated
       - mix:versionable
       jcr:primaryType: hippostd:folder
+      jcr:uuid: 9273de80-4571-4e4e-88ab-b9eceebc4d16
     /blog-test-document-1:
       /blog-test-document-1[1]:
         /website:authordescription:
@@ -503,6 +508,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: 31228713-7be1-43da-835f-0ef4a0ec2455
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -620,6 +626,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:blog
+        jcr:uuid: 94cdd721-633c-4458-97ad-1f3c998aff7d
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -737,6 +744,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: 5b99b9bb-1f8d-4d98-b9a9-62c704e82d8c
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -757,6 +765,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 1277523a-45b8-4e4f-86d8-141ae229dc4e
     /blog-test-document-2:
       /blog-test-document-2[1]:
         /website:authordescription:
@@ -875,6 +884,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:blog
+        jcr:uuid: e2de2893-928e-4933-b46a-6b5e744f100e
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -1006,6 +1016,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: cc02059a-4e02-4645-8811-8b2b2a715dc1
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -1139,6 +1150,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: d9692b0f-b7b9-4278-95a0-c7e57ec7e213
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -1161,6 +1173,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 2bb11d73-776c-454a-9b6e-44db46204bef
     /citizen-identity---the-evolution-of-username-password-security:
       /citizen-identity---the-evolution-of-username-password-security[1]:
         /website:component:
@@ -1317,11 +1330,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 1f5e74de-640c-49ab-9b66-88414a23f950
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       /citizen-identity---the-evolution-of-username-password-security[2]:
@@ -1481,11 +1496,13 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: aa419488-7cb7-459d-b6ca-0cd1845816d2
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       /citizen-identity---the-evolution-of-username-password-security[3]:
@@ -1645,11 +1662,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: caf5a48e-28c4-4033-a44c-47d6f330c712
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       hippo:name: Citizen Identity – the evolution of username password security
@@ -1659,6 +1678,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 7811f760-026a-4e6c-94b2-4064b87a5e1b
     hippo:name: Blog
     hippostd:foldertype:
     - new-digital-website-folder
@@ -1670,6 +1690,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 0019c8ca-3e98-4b2e-9f5e-bab2eeaf7181
   /cyber-alert:
     /cyber-alert-test-document-1:
       /cyber-alert-test-document-1[1]:
@@ -1789,6 +1810,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 63e49697-dee2-4315-8b64-52a90d15260a
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -1924,6 +1946,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 6cf3e67f-4811-4b40-98e5-08bd135a3406
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -2059,6 +2082,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 571cb3a6-1c4e-4946-805e-38596187bf0b
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -2080,6 +2104,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 3af1bbab-a580-4562-b786-afd8b3ad2d2a
     /cyber-alert-test-document-2:
       /cyber-alert-test-document-2[1]:
         /website:cybercveidentifiers:
@@ -2179,6 +2204,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 25cdfea7-ca7e-491a-832e-475b2e0f4328
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2294,6 +2320,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 20da1f56-95d5-4628-b5cd-c61991223a77
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2411,6 +2438,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 763fb784-e7cb-402e-bb36-8ff8d94822ff
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2434,6 +2462,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 20c92261-e272-47ae-b080-90c92eaf3b99
     hippo:name: Cyber alert
     hippostd:foldertype:
     - new-translated-folder
@@ -2445,6 +2474,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: fac9f56f-69f2-48d8-846e-d4de04050576
   /gdpr-summary-test-document:
     /gdpr-summary-test-document[1]:
       /website:body:
@@ -2481,6 +2511,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: 42c6d3ce-4760-486d-9f87-4c874f048fdb
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[2]:
@@ -2520,6 +2551,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: 007fc96a-b886-467f-82b5-1018c4ecf36f
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[3]:
@@ -2559,6 +2591,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: b1055633-c78f-4fb6-8807-05721b68d3d2
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     hippo:name: GDPR Summary test document
@@ -2566,6 +2599,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 020a28a0-1ea2-4d10-b5b4-523cc56fb2e8
   /gdpr-transparency-test-document:
     /gdpr-transparency-test-document[1]:
       /website:friendlyurls:
@@ -2607,6 +2641,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: 2f12122c-350f-4659-9921-aeb1dd1e1750
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2666,6 +2701,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: 1c1da22d-d6ef-438e-8000-d99fa0e8fd7f
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2725,6 +2761,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: d626c27a-9b04-48e0-9cc9-4aba303da0a2
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2747,6 +2784,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: e3762d3b-b2e2-469b-a939-8d776e38d782
   /general:
     /with-side-navigation:
       /with-side-navigation[1]:
@@ -2886,11 +2924,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 8bc42622-ef50-440f-9c85-3656ddfef61a
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       /with-side-navigation[2]:
@@ -3032,11 +3072,13 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: e874e126-f49f-412b-b70a-020bfdcbbfce
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       /with-side-navigation[3]:
@@ -3178,11 +3220,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: f63e828a-46dc-490b-a7a5-4960888477e1
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       hippo:name: With Side Navigation
@@ -3192,6 +3236,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 9d3efbf1-aaf7-4a2d-95d3-a2e9e9a6132c
     /without-side-navigation:
       /without-side-navigation[1]:
         /website:component:
@@ -3331,11 +3376,13 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: 830ab50a-dd3d-4c33-8e28-0aa0742ead32
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       /without-side-navigation[2]:
@@ -3475,11 +3522,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 44478d2c-eabc-4880-9796-ab10fcd52be1
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       /without-side-navigation[3]:
@@ -3621,11 +3670,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 3f76fa8c-ca41-41f4-877c-b62630bbb4bb
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       hippo:name: Without Side Navigation
@@ -3635,6 +3686,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: ac5bbaf8-afdc-4543-bdf5-fea0ca131d4e
     /without-side-navigation--wide:
       /without-side-navigation--wide[1]:
         /website:component:
@@ -3774,11 +3826,13 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: 2bb4acf2-e19a-4e3a-ade3-0377a6dc1b4a
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       /without-side-navigation--wide[2]:
@@ -3918,11 +3972,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 2ed779eb-297c-478b-926b-c3e9b3cdea70
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       /without-side-navigation--wide[3]:
@@ -4064,11 +4120,13 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 4ac5d695-118d-49fb-adc6-1348bcf4e932
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       hippo:name: Without Side Navigation & Wide
@@ -4078,6 +4136,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 1af8bf72-5e41-496e-bb18-19565bf29c87
     hippo:name: General
     hippostd:foldertype:
     - new-digital-website-folder
@@ -4089,6 +4148,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 3c313acc-c93c-496e-ad31-24f43e165e80
   /general-test-document:
     /general-test-document[1]:
       /website:component:
@@ -4250,6 +4310,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:general
+      jcr:uuid: 690bd28d-9afb-45f8-abc8-6f336bb0f204
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4257,6 +4318,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     /general-test-document[2]:
@@ -4420,6 +4482,7 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:general
+      jcr:uuid: 01cd439a-6a9b-4228-85f1-162b0fc0c131
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4427,6 +4490,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     /general-test-document[3]:
@@ -4591,6 +4655,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:general
+      jcr:uuid: 3192a2ba-ddf7-4cb5-af02-6bb17160fb3b
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4598,6 +4663,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
@@ -4655,6 +4721,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: 519bdb47-91b0-4a75-94d0-7e0293e756f0
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4706,6 +4773,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: a1dc4323-d1fb-4965-87d2-b677222c4a40
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4757,6 +4825,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: acb0dbdd-a889-49e1-8bb8-91105eab71d3
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4767,6 +4836,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: dcf1f276-d93e-4ca8-8666-0b69c84de95e
   /hub-test-document:
     /hub-test-document[1]:
       /website:body:
@@ -4802,6 +4872,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:hub
+      jcr:uuid: c6606127-29b7-47d5-96e3-ed02b1519edd
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4842,6 +4913,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:hub
+      jcr:uuid: 3a5d5cda-5270-4315-99e3-a3f45b47389a
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4882,6 +4954,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:hub
+      jcr:uuid: 23fc8bcb-6908-4673-b335-423a92a8bfd1
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4891,6 +4964,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 9cc560cc-0a8d-422c-9619-f04af334a6f0
   /links-list-test-document:
     /links-list-test-document[1]:
       /website:body:
@@ -4923,6 +4997,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:componentlist
+      jcr:uuid: 1f079a83-bd24-4628-9611-515cfa466d3f
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -4960,6 +5035,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:componentlist
+      jcr:uuid: 56ccc74e-77e7-4f78-b87c-9f4bbd963a1e
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -4997,6 +5073,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:componentlist
+      jcr:uuid: 3be57c31-6269-425f-9b23-72a415c885ac
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -5006,6 +5083,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 32c24489-e473-49e6-8ce9-9ff26f2e680e
   /person-test-document:
     /person-test-document[1]:
       /website:biographies:
@@ -5087,6 +5165,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: ad991956-3f0b-47aa-b394-2d8b4d0459df
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5172,6 +5251,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: c8627e9a-a665-4a6a-94d9-d445f4cd37bc
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5257,6 +5337,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: eb876c31-59a5-4988-9c87-859279485b50
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5267,6 +5348,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 9a743429-c75e-43d6-be1d-3232a849983d
   /person-test-document-2:
     /person-test-document-2[1]:
       /website:biographies:
@@ -5346,6 +5428,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: a2811de3-75d7-4f2c-aaba-a9bcd8f14961
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5430,6 +5513,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: 3e896547-8c43-4d72-a97f-123bf060efd2
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5514,6 +5598,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: 4baea8e3-dd5a-425d-a4f9-9a9bf689ef86
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5525,6 +5610,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: fcbe4e33-4021-4bc8-8106-9615838516bf
   /person-test-document-3:
     /person-test-document-3[1]:
       /website:biographies:
@@ -5597,6 +5683,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: ab2d46f7-7fc3-4186-b181-9dcea2e77b8b
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5674,6 +5761,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: 96e4903f-3977-40bd-8a27-45be4ac071c4
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5751,6 +5839,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: 4433fcee-efd4-4090-8551-89cef0489882
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5762,6 +5851,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 180a7021-5df1-4c76-9d55-56ffbfc38275
   /published-work-chapter-1:
     /published-work-chapter-1[1]:
       /website:friendlyurls:
@@ -5799,6 +5889,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 533babf4-4107-4ea0-86ab-ae51ab139549
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[2]:
@@ -5839,6 +5930,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: ccb83410-7a06-4dc0-8181-cc3c9a789134
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[3]:
@@ -5879,6 +5971,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 3045b7a1-3d8b-45d9-a6dd-8183d9cb4162
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     hippo:name: Published Work Chapter 1
@@ -5886,6 +5979,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 7b260b73-a1c2-4850-8515-50a82f3d27fd
   /published-work-chapter-2:
     /published-work-chapter-2[1]:
       /website:friendlyurls:
@@ -5920,6 +6014,7 @@
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: af277e2f-70bd-449c-91e5-918af2d735e8
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[2]:
@@ -5954,6 +6049,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 076b1bac-6770-409e-9b79-85729f12eee8
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[3]:
@@ -5990,6 +6086,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 850cc5d0-397a-4ec0-91aa-427c9f75178c
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     hippo:name: Published Work Chapter 2
@@ -5997,6 +6094,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 73d6f447-8eca-443d-bb47-4e15d9d7bb3a
   /published-work-test-document:
     /published-work-test-document[1]:
       /website:friendlyurls:
@@ -6035,6 +6133,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: 336f268b-93d0-4907-80b6-96691b35591a
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6090,6 +6189,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: 032505ff-283b-485a-b191-d8b5d95f092b
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6145,6 +6245,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: e09a0e9a-874c-4b5f-920a-fc61c2e98ccd
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6166,6 +6267,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 19dc07e8-c8bf-4bb3-9514-10e3f87c2a8a
   /roadmap-test-document:
     /content:
       /content[1]:
@@ -6196,6 +6298,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmap
+        jcr:uuid: 59bf35d2-76e0-40da-a866-23227915e59b
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6230,6 +6333,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:roadmap
+        jcr:uuid: b93f49c2-99ca-4452-934a-78379b898905
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6264,6 +6368,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmap
+        jcr:uuid: e3d81ca1-9c75-48b4-8123-c753eeabc567
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6273,6 +6378,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 6b88d6f4-d1e6-41dc-91a0-6bf33f0d3093
     /roadmap-item-1:
       /roadmap-item-1[1]:
         /website:effectivedate:
@@ -6337,6 +6443,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 7f823545-13df-4588-8d93-e3f593721112
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6408,6 +6515,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 00ae5031-23fe-42f2-9049-28ed1bd1132a
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6479,6 +6587,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 80e5e197-1277-4ba1-a601-b67c4966f47f
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6490,6 +6599,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: befe4e07-6339-4738-937f-0d9651cc8c9e
     /roadmap-item-2:
       /roadmap-item-2[1]:
         /website:effectivedate:
@@ -6556,6 +6666,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 09f7454c-1da9-4d80-9af7-9814b509fdc4
         website:markers:
         - business-capability
         - new-capability
@@ -6626,6 +6737,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 49018867-cc12-4a01-9fc1-c819097baf72
         website:markers:
         - business-capability
         - new-capability
@@ -6698,6 +6810,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 98f18b4f-dee3-4b2c-a0f0-43bf68e017f9
         website:markers:
         - business-capability
         - new-capability
@@ -6709,6 +6822,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: ea05e737-6aea-43f9-9d3f-000b64f2f75e
     /roadmap-item-3:
       /roadmap-item-3[1]:
         /website:effectivedate:
@@ -6774,6 +6888,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 7d48a3d0-b47e-46f8-89b8-3e0aa681a867
         website:markers:
         - business-capability
         - research-only
@@ -6843,6 +6958,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 18379472-0cf4-4483-b07f-29840743b1df
         website:markers:
         - business-capability
         - research-only
@@ -6914,6 +7030,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 5c32a7aa-7b88-40af-bf73-14dab150c9e8
         website:markers:
         - business-capability
         - research-only
@@ -6925,6 +7042,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 4d2e2e4a-9e6b-48eb-98f1-95a420f53878
     /roadmap-item-4:
       /roadmap-item-4[1]:
         /website:effectivedate:
@@ -6990,6 +7108,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: a7c82402-54e0-4581-9b8a-2fc54f4ce9c6
         website:markers:
         - business-capability
         - research-only
@@ -7059,6 +7178,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 7dfbed07-49d4-4515-9722-be8b26a34f11
         website:markers:
         - business-capability
         - research-only
@@ -7130,6 +7250,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 1a766507-ad59-404a-8d73-802a2c64295b
         website:markers:
         - business-capability
         - research-only
@@ -7141,6 +7262,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 940d457b-c0d7-44cf-b21c-f2e5b9b645bb
     /roadmap-item-5:
       /roadmap-item-5[1]:
         /website:effectivedate:
@@ -7206,6 +7328,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 1ba9d550-b18e-4a12-8a65-e1b6b9d57f7d
         website:markers:
         - business-capability
         - research-only
@@ -7276,6 +7399,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 066ca923-d587-4477-9920-cdc90a2be74d
         website:markers:
         - business-capability
         - research-only
@@ -7348,6 +7472,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: b93b2e51-b205-4393-8c13-64415e0d78f7
         website:markers:
         - business-capability
         - research-only
@@ -7360,6 +7485,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 7421c7a1-a308-490f-8b5a-c57358f8d8c4
     hippo:name: Roadmap test document
     hippostd:foldertype:
     - new-digital-website-folder
@@ -7371,6 +7497,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: d2262efd-ee37-44e1-bf3f-192455a423f2
   /service-test-document:
     /service-test-document[1]:
       /website:component:
@@ -7503,8 +7630,10 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: c9a0dca0-6b58-4ef3-a59a-be6b88c34f7e
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     /service-test-document[2]:
       /website:component:
@@ -7639,8 +7768,10 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:service
+      jcr:uuid: f81a31a3-16ac-4e58-818a-14fea50fb487
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     /service-test-document[3]:
       /website:component:
@@ -7775,8 +7906,10 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: f4be4941-e37a-41d3-8242-a997592ee599
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     hippo:name: Service test document
     hippo:versionHistory: 429a08e9-62a0-49fa-aed9-c8f156a1d80d
@@ -7839,6 +7972,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
+      jcr:uuid: e76355f5-6463-4c03-8329-63b6f8793317
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[2]:
@@ -7895,6 +8029,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:visualhub
+      jcr:uuid: 2dfa5be8-95b7-4909-8bbf-d171568f0269
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[3]:
@@ -7951,6 +8086,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
+      jcr:uuid: efb714ae-cdde-4522-b05e-dae974c8e437
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     hippo:name: Visual Hub test document
@@ -7960,6 +8096,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 74f20a7a-6bf8-481a-9a03-2bef5e6c9b4d
   hippo:name: Website Acceptance Tests
   hippostd:foldertype:
   - new-digital-website-folder
@@ -7971,3 +8108,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: 05979ddf-4644-48ea-9102-5af8cd880473

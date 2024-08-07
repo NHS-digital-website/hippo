@@ -27,6 +27,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
     private static final String APISPECIFICATION_NODE_NAME = "website:apispecification";
     private static final String GENERAL_NODE_NAME = "website:general";
+    private static final String SERVICE_NODE_NAME = "website:service";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -86,7 +87,8 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 */
                 Predicate<HippoDocumentBean> isLegalForSearch = doc ->
                     !((doc.getContentType().equals(APISPECIFICATION_NODE_NAME)
-                    || doc.getContentType().equals(GENERAL_NODE_NAME))
+                    || doc.getContentType().equals(GENERAL_NODE_NAME)
+                    || doc.getContentType().equals(SERVICE_NODE_NAME))
                     && (doc.getSingleProperty("website:showApiResult") == null
                     || doc.getSingleProperty("website:showApiResult").equals(false)));
                 List<HippoDocumentBean> documentList = resultSet.getDocuments().stream()
