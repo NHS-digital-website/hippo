@@ -16,7 +16,6 @@ import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @ParametersInfo(
@@ -25,9 +24,9 @@ import java.util.stream.Collectors;
 public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
-    private static final String APISPECIFICATION_NODE_NAME = "website:apispecification";
+    /*private static final String APISPECIFICATION_NODE_NAME = "website:apispecification";
     private static final String GENERAL_NODE_NAME = "website:general";
-    private static final String SERVICE_NODE_NAME = "website:service";
+    private static final String SERVICE_NODE_NAME = "website:service";*/
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -71,7 +70,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
 
-        Pageable<HippoDocumentBean> pageable = DefaultPagination.emptyCollection();
+        Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
         HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
         if (facetBean != null) {
@@ -85,7 +84,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 *  ----
                 *  So any of the documents that fill those conditions get filtered out
                 */
-                Predicate<HippoDocumentBean> isLegalForSearch = doc ->
+                /*Predicate<HippoDocumentBean> isLegalForSearch = doc ->
                     !((doc.getContentType().equals(APISPECIFICATION_NODE_NAME)
                     || doc.getContentType().equals(GENERAL_NODE_NAME)
                     || doc.getContentType().equals(SERVICE_NODE_NAME))
@@ -93,9 +92,10 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                     || doc.getSingleProperty("website:showApiResult").equals(false)));
                 List<HippoDocumentBean> documentList = resultSet.getDocuments().stream()
                     .filter(isLegalForSearch)
-                    .collect(Collectors.toList());
-                pageable = this.getPageableFactory().createPageable(documentList, this.getCurrentPage(request), paramInfo.getPageSize());
-                request.setAttribute("totalAvailable", documentList.size());
+                    .collect(Collectors.toList());*/
+                HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
+                pageable = this.getPageableFactory().createPageable(iterator, facetBean.getResultSet().getDocumentSize(), paramInfo.getPageSize(), this.getCurrentPage(request));
+                request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
             }
         }
         return (Pageable) pageable;

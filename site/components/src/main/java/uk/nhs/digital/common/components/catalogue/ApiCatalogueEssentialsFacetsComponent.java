@@ -16,7 +16,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import javax.jcr.RepositoryException;
 
 @ParametersInfo(
         type = EssentialsFacetsComponentInfo.class
@@ -170,16 +169,12 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         facetBean.getFolders().get(0).getFolders().parallelStream().forEach(folderBean ->
             {
                 FacetObject facetObject = new FacetObject(folderBean, folderBean.isLeaf(), ((HippoFacetNavigationBean) folderBean).getCount());
-                try {
-                    facetObject.calculateResultCountWithApiResultFilter();
-                    if (!facetObject.isEmpty()) {
-                        facetFilterMap.put(
-                            folderBean.getDisplayName(),
-                            facetObject
-                        );
-                    }
-                } catch (RepositoryException e) {
-                    log.warn("Error creating the facet filter map", e);
+                //facetObject.calculateResultCountWithApiResultFilter();
+                if (!facetObject.isEmpty()) {
+                    facetFilterMap.put(
+                        folderBean.getDisplayName(),
+                        facetObject
+                    );
                 }
             }
         );
