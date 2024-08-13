@@ -60,14 +60,16 @@ test.unit:
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Djava.locale.providers=COMPAT \
-		-Dcucumber.features="src/test/resources/features/site --tags ~@skip" \
+		-Dcucumber.options="src/test/resources/features/site" \
+        -Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
 ## Run acceptance tests against already running server (`make serve`) with playwright (visual test).
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Djava.locale.providers=COMPAT \
-		-Dcucumber.features="src/test/resources/features/site --tags ~@skip" \
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 
 # Updates snapshots for all tests tagged @snapshot
