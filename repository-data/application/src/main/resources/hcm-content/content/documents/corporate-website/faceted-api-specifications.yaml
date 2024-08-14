@@ -8,4 +8,8 @@
   hippofacnav:filters:
   - hippo:availability=live
   hippofacnav:limit: 250
+  hippofacnav:sortby:
+  - website:title
+  hippofacnav:sortorder:
+  - ascending
   jcr:primaryType: hippofacnav:facetnavigation
