@@ -89,7 +89,7 @@
                 <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
                     id="search-results-count"><#if totalAvailable?has_content> ${totalAvailable} <#else>0</#if>
                     results </h6>
-            </div>
+            </div> 
 
             <div class="nhsd-!t-padding-top-4"/>
 
