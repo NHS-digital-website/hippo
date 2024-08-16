@@ -63,7 +63,8 @@ test.wip:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dheadless=false \
-		-Dcucumber.options="src/test/resources/features --tags @WIP" \
+		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.filter.tags="@wip"
 
 
 ## Format YAML files, run after exporting to reduce changes
