@@ -89,12 +89,15 @@ jobs:
           MESSAGE: |
             Building the branch (${{ env.BRANCH }}).
 
+      - name: Determine the Supported Java Version
+        uses: ./.github/actions/br-supported-java-version
+        id: java_version
 
-      - name: Set up JDK 8
+      - name: Set up the JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
-          java-version: 8
+          java-version: ${{ steps.java_version.outputs.version }}
 
       - name: Setup Cache
         uses: ./.github/actions/build-cache
@@ -475,11 +478,15 @@ jobs:
           ref: ${{ env.BRANCH }}
           fetch-depth: 0 # Need all the tags for versioning
 
-      - name: Set up JDK 8
+      - name: Determine the Supported Java Version
+        uses: ./.github/actions/br-supported-java-version
+        id: java_version
+
+      - name: Set up the JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
-          java-version: 8
+          java-version: ${{ steps.java_version.outputs.version }}
 
       - name: Setup Cache
         uses: ./.github/actions/build-cache
