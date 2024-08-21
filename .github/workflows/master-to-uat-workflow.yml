@@ -60,11 +60,14 @@ jobs:
       #
       # Step 2
       #
-      - name: Set up JDK 8
+      - name: Determine the Supported Java Version
+        uses: ./.github/actions/br-supported-java-version
+        id: java_version
+      - name: Set up the JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
-          java-version: 8
+          java-version: ${{ steps.java_version.outputs.version }}
 
       #
       # Step 3
