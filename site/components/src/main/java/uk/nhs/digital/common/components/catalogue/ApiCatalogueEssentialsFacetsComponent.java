@@ -13,7 +13,7 @@ import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -34,7 +34,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         HippoFacetNavigationBean facetBean = request.getModel("facets");
 
         request.setModel("facets", facetBean);
-        ConcurrentHashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
+        HashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
@@ -47,7 +47,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-    private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, HashMap<String, List<Object>> facetBeanMap) {
         rawFilters.getSections().forEach(section -> {
             List<Runnable> deferredOperations = new ArrayList<>();
             AtomicInteger subSectionCounter = new AtomicInteger(0);
@@ -95,7 +95,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
-    private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, HashMap<String, List<Object>> facetBeanMap) {
         if (subSectionCounter.get() <= section.getAmountChildrenToShow()
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
             subsection.display();
@@ -112,7 +112,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
-    private void displaySecondLevelChildFilter(Subsection subsection, ConcurrentHashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
+    private void displaySecondLevelChildFilter(Subsection subsection, HashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
         subsection.getEntries().forEach(subsectionEntry -> {
             deferredOperations.add(subsectionEntry::display);
@@ -158,14 +158,14 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
 
-    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, ConcurrentHashMap<String, List<Object>> facetBeanMap) {
+    private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, HashMap<String, List<Object>> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
             .map(key -> facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
             .orElse(false);
     }
 
-    private ConcurrentHashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
-        ConcurrentHashMap<String, List<Object>> facetFilterMap = new ConcurrentHashMap();
+    private HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
+        HashMap<String, List<Object>> facetFilterMap = new HashMap<>();
         facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
             facetFilterMap.put(
                 ((HippoFacetNavigationBean) i).getDisplayName(),
