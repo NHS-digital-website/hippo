@@ -25,12 +25,17 @@ import uk.nhs.digital.ps.beans.HippoBeanHelper;
     type = EssentialsFacetsComponentInfo.class
 )
 public class SearchEssentialsFacetsComponent extends CommonComponent {
-    private static Logger log = LoggerFactory.getLogger(org.onehippo.cms7.essentials.components.EssentialsFacetsComponent.class);
+
+    private static Logger log = LoggerFactory.getLogger(SearchEssentialsFacetsComponent.class);
 
     public SearchEssentialsFacetsComponent() {
     }
 
     public void doBeforeRender(HstRequest request, HstResponse response) {
+
+        long startTime = System.currentTimeMillis();
+        log.debug("SearchEssentialsFacetsComponent - Start Time:" + startTime);
+
         super.doBeforeRender(request, response);
         EssentialsFacetsComponentInfo paramInfo = (EssentialsFacetsComponentInfo) this.getComponentParametersInfo(request);
         HstRequestContext context = request.getRequestContext();
@@ -53,6 +58,10 @@ public class SearchEssentialsFacetsComponent extends CommonComponent {
         request.setAttribute("query", queryParam);
         request.setModel("facets", hippoFacetNavigationBean);
         request.setAttribute("cparam", paramInfo);
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        log.info("End of method: doBeforeRender in SearchEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
     protected HippoFacetNavigationBean getFacetNavigationBean(HstRequestContext context, String path, String query) {

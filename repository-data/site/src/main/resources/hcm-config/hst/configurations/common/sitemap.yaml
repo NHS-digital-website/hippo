@@ -540,11 +540,11 @@ definitions:
       /search:
         /_any_:
           hst:componentconfigurationid: hst:pages/search
-          hst:relativecontentpath: facet/${1}
+          hst:relativecontentpath: faceted-search/${1}
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/search
         hst:refId: search
-        hst:relativecontentpath: facet
+        hst:relativecontentpath: faceted-search
         jcr:primaryType: hst:sitemapitem
       /services:
         /service-catalogue:

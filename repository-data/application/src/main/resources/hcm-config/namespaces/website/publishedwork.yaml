@@ -632,6 +632,7 @@ definitions:
             - ''
           common:searchRank: 6
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

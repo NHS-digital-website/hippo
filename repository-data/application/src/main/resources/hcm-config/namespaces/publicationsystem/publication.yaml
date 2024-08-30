@@ -539,6 +539,7 @@ definitions:
           common:orderedSearchDate: 62135726400000
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

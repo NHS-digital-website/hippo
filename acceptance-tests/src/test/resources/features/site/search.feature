@@ -30,18 +30,6 @@ Feature: Basic search
         Then I should see:
             | Pagination page | 1 |
 
-    Scenario: Search partial match (publication, dataset, series)
-        Given I navigate to the "home" page
-        When I search for "titleTestApric"
-        Then I should see 1 search results
-        And I can click on link "Publication fields titleTestApricots"
-        When I search for "titleTestPota"
-        Then I should see 1 search results
-        And I can click on link "dataset fields titleTestPotatoes"
-        When I search for "titleTestStrawb"
-        Then I should see 1 search results
-        And I can click on link "series fields titleTestStrawberries"
-
     Scenario: Publication searchable fields (title, summary, keyfacts)
         Given I navigate to the "home" page
         When I search for "titleTestApricots"
@@ -149,33 +137,32 @@ Feature: Basic search
             | Series / Collection ( ... |
             | Methodology ( ...         |
 
-    Scenario: Clicking on the 'All' tab displays the results page with full, unfiltered result set
+    Scenario: Navigating to the search page displays the results page with full, unfiltered result set list, sorted and relevance list updated to results
         Given I navigate to the "search" page
-        When I can click on the "All results" link
+        Then I should see the list with title "CATEGORY/TOPIC" including:
+            | Data and information ( ...         |
+            | Technology and Architecture ( ...            |
+            | Audiences ( ... |
+            | Service Types ( ...         |
+            | Service catalogue ( ...         |
+            | API and integration catalogue ( ...         |
+            | Content Types ( ...         |
+        When I search for "WeightSearchTerm"
+        Then I should see the weight search test results ordered by relevance
+        When I can click on the "Order by date" link
         Then I should see the list with title "DOCUMENT TYPE" including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
             | Methodology ( ...         |
-
-    Scenario: Clicking on the 'Data and Information' tab displays the results page with publications, data sets, series and methodologies
-        Given I navigate to the "search" page
-        When I can click on the "Data and Information results" link
+        Then I should see the weight search test results ordered by date
+        When I can click on the "Order by relevance" link
         Then I should see the list with title "DOCUMENT TYPE" including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
             | Methodology ( ...         |
-
-    Scenario: Clicking on the 'Systems and Services' tab displays the results
-        Given I navigate to the "search" page
-        When I can click on the "Systems and Services results" link
-        Then I can see the search description matching "\d+ results sorted by relevance\."
-
-     Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
-         Given I navigate to the "search" page
-         When I can click on the "News and Events results" link
-         Then I can see the search description matching "No results for filters"
+        Then I should see the weight search test results ordered by relevance
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
