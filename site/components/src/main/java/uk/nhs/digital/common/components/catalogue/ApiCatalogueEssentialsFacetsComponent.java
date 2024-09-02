@@ -76,8 +76,8 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
                     // Display child/second level child filter within subsection
                     displaySecondLevelChildFilter(subsection,facetBeanMap,subSectionCounter,section, display, deferredOperations);
 
-                    if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) && facetBeanMap.get(subsection.getTaxonomyKey()) != null
-                        && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).isLeaf(), true)) {
+                    if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap) && facetBeanMap.get(subsection.getTaxonomyKey()).get(1) != null
+                        && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
                         display.set(true);
                     }
                 }
@@ -103,7 +103,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             subsection.display();
         }
         if (isTaxonomyKeyPresentInFacet(subsection,facetBeanMap)
-            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).isLeaf(), true)) {
+            && Objects.equals(facetBeanMap.get(subsection.getTaxonomyKey()).get(1), true)) {
             section.expand();
         }
         if (isGrayedOutFilter(subsection)) {
@@ -137,7 +137,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             }
 
             if (isTaxonomyKeyPresentInFacet(subsectionEntry,facetBeanMap)
-                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).isLeaf(), true)) {
+                && Objects.equals(facetBeanMap.get(subsectionEntry.getTaxonomyKey()).get(1), true)) {
                 section.expand();
                 subsectionEntry.display();
                 display.set(true);
