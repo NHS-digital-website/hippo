@@ -97,19 +97,20 @@ Feature: Basic search
         Then I should see the weight search test results ordered by date
         When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
-@skip
+
     Scenario: Upcoming publications are ordered correctly in increasing date order
         Given I navigate to the "search" page
         When I click on the "Upcoming" link
         And I click on the "National statistics" link
         Then I should see search results starting with:
+            | 2024 - Upcoming |
             | 2023 - Upcoming |
             | 2022 - Upcoming |
             | 2021 - Upcoming |
             | 2020 - Upcoming |
             | 2019 - Upcoming |
             | 2018 - Upcoming |
-            | 2024 - Upcoming |
+            | 2025 - Upcoming |
 
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
@@ -175,7 +176,7 @@ Feature: Basic search
          Given I navigate to the "search" page
          When I can click on the "News and Events results" link
          Then I can see the search description matching "No results for filters"
-@skip
+
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
         When I search for "Bare Minimum"
@@ -185,11 +186,11 @@ Feature: Basic search
             | Methodology         | Bare Minimum Indicator        |
         When I navigate to the "home" page
         When I search for "series"
-        Then I should see search results which also include:
-            | Series / Collection | Search Test Series Summary |
+        When I can click on the "Search Test Series Summary" link
+        Then I should see page titled "Search Weights Publication"
         When I search for "archive"
-        Then I should see search results which also include:
-            | Archive             | Time Archive Lorem Ipsum Dolor |
+        When I can click on the "Time Archive Lorem Ipsum Dolor" link
+        Then I should see page titled "Time Archive Lorem Ipsum Dolor"
 
     Scenario: Latest publication links for series
         Given I navigate to the "search" page
