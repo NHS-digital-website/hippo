@@ -22,15 +22,11 @@ Feature: National Indicator summary page
         #Then I can see labelled element "calculation" with content "The numerator is divided by the denominator and multiplied by 100 to provide a pe"
         #Then I can see labelled element "caveats" with content "The patterns of providing care may vary between organisations in terms of hospital"
         #Then I can see labelled element "interpretations" with content "A high percentage of patients with stroke admitted to an acute stroke"
-@skip
-    Scenario: Indicator Summary Page - taxonomy links
+
+    Scenario: Indicator Summary Page
         Given I navigate to the "sample-indicator" page
         When I click on "Search for Cancer" button
-        Then I should see the list with title "CATEGORY/TOPIC" containing:
-            | Conditions ...                      |
-            | Social care ...                     |
         Given I navigate to the "sample-indicator" page
         When I click on "Search for Conditions" button
-        Then I should see the list with title "CATEGORY/TOPIC" including:
-            | Conditions ...                      |
-            | Workforce ...                       |
+        Given I navigate to the "sample-indicator" page
+        When I click on "Search for Data and information" button
