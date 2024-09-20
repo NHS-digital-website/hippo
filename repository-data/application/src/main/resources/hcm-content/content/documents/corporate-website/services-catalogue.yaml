@@ -90,6 +90,7 @@
           - ''
         common:searchRank: 6
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
@@ -206,6 +207,7 @@
           - ''
         common:searchRank: 6
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:retainable: false
@@ -324,6 +326,7 @@
           - ''
         common:searchRank: 6
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:retainable: false
@@ -425,6 +428,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:retainable: false
@@ -496,6 +500,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:retainable: false
@@ -568,6 +573,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft

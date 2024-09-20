@@ -264,6 +264,7 @@
       common:orderedSearchDate: -1896134400000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -304,6 +305,7 @@
       common:orderedSearchDate: -1896134400000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -346,6 +348,7 @@
       common:orderedSearchDate: -1896134400000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live

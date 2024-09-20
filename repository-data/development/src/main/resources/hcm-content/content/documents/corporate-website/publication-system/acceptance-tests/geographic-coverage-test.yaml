@@ -269,6 +269,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:retainable: false
@@ -306,6 +307,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
@@ -342,6 +344,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:retainable: false
@@ -490,6 +493,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -526,6 +530,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:retainable: false
@@ -564,6 +569,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:retainable: false
@@ -684,6 +690,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:retainable: false
@@ -723,6 +730,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
@@ -761,6 +769,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:retainable: false
@@ -821,6 +830,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:retainable: false
@@ -859,6 +869,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:retainable: false
@@ -898,6 +909,7 @@
         common:FacetType: series
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft

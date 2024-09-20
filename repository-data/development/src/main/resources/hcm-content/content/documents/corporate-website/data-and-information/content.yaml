@@ -94,6 +94,7 @@
         system in England.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: mashuk.reza
@@ -206,6 +207,7 @@
         system in England.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -320,6 +322,7 @@
         system in England.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published

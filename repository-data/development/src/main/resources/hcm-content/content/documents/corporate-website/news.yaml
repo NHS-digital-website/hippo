@@ -204,6 +204,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -261,6 +262,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: christopher.cox2
@@ -317,6 +319,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -385,6 +388,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -444,6 +448,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: christopher.cox2
@@ -502,6 +507,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -587,6 +593,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: christopher.cox2
@@ -660,6 +667,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -734,6 +742,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -816,6 +825,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -893,6 +903,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: christopher.cox2
@@ -969,6 +980,7 @@
           jcr:primaryType: hippogallerypicker:imagelink
         common:searchRank: 4
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1211,6 +1223,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: system
@@ -1435,6 +1448,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1660,6 +1674,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
