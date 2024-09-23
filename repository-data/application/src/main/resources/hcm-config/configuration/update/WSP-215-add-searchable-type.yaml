@@ -1,0 +1,31 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-215-add-searchable-type:
+      hipposys:batchsize: 10
+      hipposys:description: Set searchableType on the document types given.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:archive'
+        or @jcr:primaryType='publicationsystem:dataset' or @jcr:primaryType='publicationsystem:legacypublication'
+        or @jcr:primaryType='publicationsystem:publication' or @jcr:primaryType='publicationsystem:series'
+        or @jcr:primaryType='nationalindicatorlibrary:indicator' or @jcr:primaryType='website:general'
+        or @jcr:primaryType='website:hub' or @jcr:primaryType='website:visualhub'
+        or @jcr:primaryType='website:news' or @jcr:primaryType='website:event' or
+        @jcr:primaryType='website:service' or @jcr:primaryType='website:gdprsummary'
+        or @jcr:primaryType='website:gdprtransparency' or @jcr:primaryType='website:publishedwork'
+        or @jcr:primaryType='website:publishedworkchapter' or @jcr:primaryType='website:roadmap'
+        or @jcr:primaryType='website:roadmapitem' or @jcr:primaryType='website:componentlist'
+        or @jcr:primaryType='website:glossarylist' or @jcr:primaryType='website:cyberalert'
+        or @jcr:primaryType='website:blog' or @jcr:primaryType='website:bloghub' or
+        @jcr:primaryType='website:apimaster' or @jcr:primaryType='website:apiendpoint'
+        or @jcr:primaryType='website:apispecification' or @jcr:primaryType='website:person'
+        or @jcr:primaryType='website:businessunit' or @jcr:primaryType='website:orgstructure'
+        or @jcr:primaryType='website:feature' or @jcr:primaryType='website:feedhub')]
+      hipposys:script:
+        resource: /configuration/update/WSP-215-add-searchable-type.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo
