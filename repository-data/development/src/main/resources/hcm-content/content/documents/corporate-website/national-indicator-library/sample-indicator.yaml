@@ -120,6 +120,7 @@
     - Conditions
     - Cancer
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -263,6 +264,7 @@
     - Conditions
     - Cancer
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -408,6 +410,7 @@
     - Conditions
     - Cancer
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published

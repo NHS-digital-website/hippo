@@ -33,6 +33,7 @@
           \ processes and one-to-one catalysts.</p>"
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -81,6 +82,7 @@
           \ processes and one-to-one catalysts.</p>"
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -131,6 +133,7 @@
           \ processes and one-to-one catalysts.</p>"
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -179,6 +182,7 @@
             \n\r\nCredibly initiate.</p>"
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -216,6 +220,7 @@
             \n\r\nCredibly initiate.</p>"
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -255,6 +260,7 @@
             \n\r\nCredibly initiate.</p>"
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -346,6 +352,7 @@
             access to timely e-tailers with effective.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -417,6 +424,7 @@
             access to timely e-tailers with effective.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -490,6 +498,7 @@
             access to timely e-tailers with effective.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published

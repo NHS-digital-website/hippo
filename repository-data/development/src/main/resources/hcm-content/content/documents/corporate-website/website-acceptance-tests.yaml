@@ -102,6 +102,7 @@
           - Immune system disorders
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:state: unpublished
@@ -116,6 +117,7 @@
           - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:blog
+          jcr:uuid: 2ca50ff7-3117-4213-9dd2-a4e8555be306
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -228,6 +230,7 @@
           - Immune system disorders
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
@@ -241,6 +244,7 @@
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:blog
+          jcr:uuid: b7c77361-4367-419a-a8f1-c7f9be8f98d3
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -353,6 +357,7 @@
           - Immune system disorders
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:state: published
@@ -368,6 +373,7 @@
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:blog
+          jcr:uuid: dae5a04c-ef49-46f8-885e-7c3d38e0ff91
           website:authorjobtitle: Chief CEO
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
@@ -389,6 +395,7 @@
         - hippo:versionInfo
         - mix:referenceable
         jcr:primaryType: hippo:handle
+        jcr:uuid: 836b3924-4ad1-4315-b17d-8ea5da270444
       hippo:name: Blog subfolder
       hippostd:foldertype:
       - new-digital-website-folder
@@ -400,6 +407,7 @@
       - hippotranslation:translated
       - mix:versionable
       jcr:primaryType: hippostd:folder
+      jcr:uuid: 8dd6042a-b99d-4632-b761-d5d5bbcf34c3
     /blog-test-document-1:
       /blog-test-document-1[1]:
         /website:authordescription:
@@ -488,6 +496,7 @@
         - Breaks and fractures
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -503,6 +512,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: 7f6ac77e-f87b-4da3-9eeb-e7245c497461
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -603,6 +613,7 @@
         - Breaks and fractures
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -620,6 +631,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:blog
+        jcr:uuid: d40b4c60-9fbe-4d08-bb8e-e1756be4d6b6
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -720,6 +732,7 @@
         - Breaks and fractures
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -737,6 +750,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: cd8c465e-93bf-4347-bb17-2d82c1eda0a0
         website:authorjobtitle: Product lead
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
@@ -757,6 +771,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 5a86b8a5-35a8-4ff1-a354-dd351a12507b
     /blog-test-document-2:
       /blog-test-document-2[1]:
         /website:authordescription:
@@ -857,6 +872,7 @@
         - Immune system disorders
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -875,6 +891,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:blog
+        jcr:uuid: 5a497929-8eaa-4654-9fc4-d246209ac10a
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -989,6 +1006,7 @@
         - Immune system disorders
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -1006,6 +1024,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: e7956586-ae13-4ac2-a69f-b099488a66f9
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -1120,6 +1139,7 @@
         - Immune system disorders
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1139,6 +1159,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:blog
+        jcr:uuid: b41a8591-ea35-4502-88a9-ddc20aa73c7d
         website:authorjobtitle: Chief lead
         website:authorname: John Dory
         website:authororganisation: NHS Champs
@@ -1161,6 +1182,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 0a392f0e-4955-49fa-82f3-21062d5971d4
     /citizen-identity---the-evolution-of-username-password-security:
       /citizen-identity---the-evolution-of-username-password-security[1]:
         /website:component:
@@ -1305,6 +1327,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: catherine.farrell
@@ -1317,6 +1340,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 7ad23b9b-8e67-46ba-8b04-8fd7db290bcc
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
@@ -1467,6 +1491,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1481,6 +1506,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: f7e62322-127f-4d65-8584-a17c1fabd7af
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
@@ -1631,6 +1657,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1645,6 +1672,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 810a0678-9322-4f90-b55c-c03193c79463
         website:gossid: 0
         website:metadata: []
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
@@ -1659,6 +1687,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: e1805e5b-ab86-40c8-9524-710d25b2e7e0
     hippo:name: Blog
     hippostd:foldertype:
     - new-digital-website-folder
@@ -1670,6 +1699,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 68497719-63ef-4403-ab48-bf2787672ed1
   /cyber-alert:
     /cyber-alert-test-document-1:
       /cyber-alert-test-document-1[1]:
@@ -1774,6 +1804,7 @@
         - Maternal, infant and child health
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -1789,6 +1820,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 710555f4-62c5-46f7-9571-560e4ee94075
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -1907,6 +1939,7 @@
         - Maternal, infant and child health
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1924,6 +1957,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: c710b6ef-c6b7-4440-951c-261a4b8c82ac
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -2042,6 +2076,7 @@
         - Maternal, infant and child health
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -2059,6 +2094,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: f582e49e-f349-43ac-ac90-c0e1baf5a5a0
         publicationsystem:NominalDate: 2018-10-30T00:00:00Z
         website:category:
         - Trojan
@@ -2080,6 +2116,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: ff171cf8-7057-4692-a1a3-c4ffa70354e8
     /cyber-alert-test-document-2:
       /cyber-alert-test-document-2[1]:
         /website:cybercveidentifiers:
@@ -2163,6 +2200,7 @@
         - Respiratory system diseases and disorders
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -2179,6 +2217,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: a4c1c107-c241-4011-955a-625d8977ade1
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2279,6 +2318,7 @@
         - Respiratory system diseases and disorders
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -2294,6 +2334,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: eb92885c-92c5-4406-86b1-5d6f255f4adb
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2394,6 +2435,7 @@
         - Respiratory system diseases and disorders
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -2411,6 +2453,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:cyberalert
+        jcr:uuid: 4e1e2b35-fe8e-4809-8eca-28739a213a29
         publicationsystem:NominalDate: 2018-09-18T23:00:00Z
         website:category:
         - Ransomware
@@ -2434,6 +2477,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 74dfd434-dafe-47e5-a69b-6592f64b927c
     hippo:name: Cyber alert
     hippostd:foldertype:
     - new-translated-folder
@@ -2445,6 +2489,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: e382cdbd-477b-40f6-85d4-0cd8eb447b43
   /gdpr-summary-test-document:
     /gdpr-summary-test-document[1]:
       /website:body:
@@ -2470,6 +2515,7 @@
       common:FacetType: gdprsummary
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -2481,6 +2527,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: 2c651965-fb4c-4b07-8a4c-ec8a384eeaa6
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[2]:
@@ -2507,6 +2554,7 @@
       common:FacetType: gdprsummary
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -2520,6 +2568,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: b435d0c7-f620-4e73-b7a8-16ff7652ad2e
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[3]:
@@ -2546,6 +2595,7 @@
       common:FacetType: gdprsummary
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -2559,6 +2609,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
+      jcr:uuid: 1604ad9e-3b20-4970-9a5c-f6d4e6e836a5
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     hippo:name: GDPR Summary test document
@@ -2566,6 +2617,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: df5d4421-fb57-48c0-97aa-5f86065e2569
   /gdpr-transparency-test-document:
     /gdpr-transparency-test-document[1]:
       /website:friendlyurls:
@@ -2596,6 +2648,7 @@
       common:FacetType: gdprtransparency
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -2607,6 +2660,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: 7fa4583a-fb45-4e54-9e1b-68e3e4c0ba06
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2653,6 +2707,7 @@
       common:FacetType: gdprtransparency
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -2666,6 +2721,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: e7a814b3-bfc2-4236-879c-4ec5f30b40b4
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2712,6 +2768,7 @@
       common:FacetType: gdprtransparency
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -2725,6 +2782,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprtransparency
+      jcr:uuid: ccf6785b-8e1f-41ad-a660-abdebc211ef2
       website:assetrefnumber: IA111222333444555
       website:computerdecision: Computer says yes
       website:datacontroller: NHS Digital
@@ -2747,6 +2805,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: d6228509-517a-44ec-8e3e-04b5ff00fbe0
   /general:
     /with-side-navigation:
       /with-side-navigation[1]:
@@ -2874,6 +2933,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -2886,6 +2946,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 4feb5ff4-82b9-4935-8865-6a66c171f5e5
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
@@ -3018,6 +3079,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -3032,6 +3094,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: 44dc16c6-1db4-4f9d-b2e0-b8410e7e7f2b
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
@@ -3164,6 +3227,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -3178,6 +3242,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 53989994-405d-4063-ad4e-06994ce8b39d
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withNav
@@ -3192,6 +3257,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 3abbf298-2a4f-4d4c-8e22-679af429df07
     /without-side-navigation:
       /without-side-navigation[1]:
         /website:component:
@@ -3318,6 +3384,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -3331,6 +3398,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: 61499b86-d342-411f-924a-4589a90f77a8
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
@@ -3463,6 +3531,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -3475,6 +3544,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 4bab28b2-4f4c-42b7-a58e-76bca5a2abf8
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
@@ -3607,6 +3677,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -3621,6 +3692,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 35554c2a-09b5-4b7a-a198-62c085cef8d6
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNav
@@ -3635,6 +3707,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 22214b33-2877-47f1-9cb0-c1885fdeb2d7
     /without-side-navigation--wide:
       /without-side-navigation--wide[1]:
         /website:component:
@@ -3761,6 +3834,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -3774,6 +3848,7 @@
         - hippotaxonomy:classifiable
         - mix:versionable
         jcr:primaryType: website:general
+        jcr:uuid: d0bc817f-bcf7-4be4-a6b8-27a3395f6dd0
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
@@ -3906,6 +3981,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -3918,6 +3994,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: 74f0618e-75bb-4d0f-93b8-a9f712cea667
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
@@ -4050,6 +4127,7 @@
           - ''
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -4064,6 +4142,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:general
+        jcr:uuid: a7fba533-1613-4f71-870d-5fc0db8dfe61
         website:gossid: 0
         website:metadata: []
         website:navigationcontroller: withoutNavWide
@@ -4078,6 +4157,7 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 0e571b6b-9529-47b2-bcbb-15cffa66728a
     hippo:name: General
     hippostd:foldertype:
     - new-digital-website-folder
@@ -4089,6 +4169,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 915d1ee4-ab00-4760-be11-91dd5c02e423
   /general-test-document:
     /general-test-document[1]:
       /website:component:
@@ -4237,6 +4318,7 @@
         - ''
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -4250,6 +4332,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:general
+      jcr:uuid: d81e6448-88d3-479f-9872-4be5f6c8d600
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4406,6 +4489,7 @@
         - ''
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:retainable: false
@@ -4420,6 +4504,7 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:general
+      jcr:uuid: 1e596365-000a-4a0b-9a6b-a24007ec1bc5
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4576,6 +4661,7 @@
         - ''
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:retainable: false
@@ -4591,6 +4677,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:general
+      jcr:uuid: 6880ec20-9f5c-4984-92b6-6d1d6ba0f23d
       website:gossid: 0
       website:navigationcontroller: withNav
       website:noindexcontrol: false
@@ -4644,6 +4731,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -4655,6 +4743,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: 891161b3-e976-4794-b4de-1436cb4b9bdc
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4693,6 +4782,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -4706,6 +4796,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: 2af04e8b-cf19-4451-a549-70ed5597c3a2
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4744,6 +4835,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -4757,6 +4849,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:glossarylist
+      jcr:uuid: e2356074-5b82-4913-a079-1e1bfe1f5ca6
       website:indexpage: false
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
@@ -4767,6 +4860,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 825997c7-2058-4dc5-962a-8f4fc56b043a
   /hub-test-document:
     /hub-test-document[1]:
       /website:body:
@@ -4790,6 +4884,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -4802,6 +4897,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:hub
+      jcr:uuid: 258fe1ca-c0d9-4fd2-80b6-b0fcdac1f664
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4828,6 +4924,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -4842,6 +4939,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:hub
+      jcr:uuid: 9accc022-ed2f-4540-9f46-94a336d1c563
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4868,6 +4966,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -4882,6 +4981,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:hub
+      jcr:uuid: e4938170-bc25-4f52-bcaa-83a51ce2ce43
       website:gossid: 0
       website:listtitle: ''
       website:shortsummary: Browse our hub page
@@ -4891,6 +4991,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 19d803ec-b4c6-4f73-9b25-9bd49b886602
   /links-list-test-document:
     /links-list-test-document[1]:
       /website:body:
@@ -4911,6 +5012,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -4923,6 +5025,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:componentlist
+      jcr:uuid: 84e2195c-4456-490b-825d-e6915fe10df3
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -4946,6 +5049,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -4960,6 +5064,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:componentlist
+      jcr:uuid: daa1f308-90ad-4665-8c64-8e8eeea5f6ea
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -4983,6 +5088,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -4997,6 +5103,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:componentlist
+      jcr:uuid: bcaa3109-9c46-4100-93fe-3040b95d1c25
       website:anchor: false
       website:gossid: 0
       website:shortsummary: Browse our links list page
@@ -5006,6 +5113,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: f73d8b48-aad7-4b73-b53b-de9bff3c49f0
   /person-test-document:
     /person-test-document[1]:
       /website:biographies:
@@ -5075,6 +5183,7 @@
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -5087,6 +5196,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: eaaee2b4-333f-472c-a069-22e519fee2e0
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5158,6 +5268,7 @@
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -5172,6 +5283,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: 1ae8e555-eded-4559-8e6f-47802e83c905
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5243,6 +5355,7 @@
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -5257,6 +5370,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: 0f7a7977-009a-473e-b213-abe3d88ff0c8
       website:clinician: false
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -5267,6 +5381,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 7eb6c665-4168-4a6e-a633-941aff23d9e3
   /person-test-document-2:
     /person-test-document-2[1]:
       /website:biographies:
@@ -5334,6 +5449,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -5346,6 +5462,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: 71676405-eac9-4a9e-aba3-0eb6ecd45803
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5416,6 +5533,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -5430,6 +5548,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: 8972b8cf-23e9-4b91-86ad-28058d2dfd64
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5500,6 +5619,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -5514,6 +5634,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: dd3d1433-3c40-4c5b-ba30-f14b3cdcddff
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5525,6 +5646,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: be1cb4de-5867-44b0-9364-d394a25ea22b
   /person-test-document-3:
     /person-test-document-3[1]:
       /website:biographies:
@@ -5585,6 +5707,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -5597,6 +5720,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: cfe07009-9113-4f40-8fa6-142581f51694
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5660,6 +5784,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -5674,6 +5799,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:person
+      jcr:uuid: 4ba18cfa-ba14-455b-80a1-938b70258a54
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5737,6 +5863,7 @@
       common:FacetType: person
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -5751,6 +5878,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:person
+      jcr:uuid: 316811ec-8e03-4a7a-aaac-a953dfa2d501
       website:clinician: false
       website:seosummary: ''
       website:shortsummary: Some person short summary here lorem ipsum consectetur
@@ -5762,6 +5890,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 97630d10-e41a-4d47-8091-2d200593ef69
   /published-work-chapter-1:
     /published-work-chapter-1[1]:
       /website:friendlyurls:
@@ -5788,6 +5917,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -5799,6 +5929,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 72bb1d7b-0b9f-44a9-9c50-3aa9bc323065
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[2]:
@@ -5826,6 +5957,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -5839,6 +5971,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 7d768d7e-e28a-4eb7-bb60-98a7c6de1792
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[3]:
@@ -5866,6 +5999,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -5879,6 +6013,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 6abade98-59dc-45e2-b8cb-8983290b3c1d
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     hippo:name: Published Work Chapter 1
@@ -5886,6 +6021,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 7ed8fb5c-87a5-43e5-81c7-dfd408fcf0b6
   /published-work-chapter-2:
     /published-work-chapter-2[1]:
       /website:friendlyurls:
@@ -5908,6 +6044,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -5920,6 +6057,7 @@
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: f2b3c0f7-1dc6-4553-8c93-f91d7ffba883
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[2]:
@@ -5943,6 +6081,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -5954,6 +6093,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: a92061c7-1e12-4867-8fe7-a82d9f17ba60
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[3]:
@@ -5977,6 +6117,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -5990,6 +6131,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
+      jcr:uuid: 81ea1087-b573-48e0-be4d-6237919879a0
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     hippo:name: Published Work Chapter 2
@@ -5997,6 +6139,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 7e723fd6-d929-4a6b-a545-1646ba491068
   /published-work-test-document:
     /published-work-test-document[1]:
       /website:friendlyurls:
@@ -6024,6 +6167,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -6035,6 +6179,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: c707f6d2-6947-49c2-b910-0ac88c92cb03
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6077,6 +6222,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -6090,6 +6236,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: 19625168-f110-4a8c-a37e-d968595c7445
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6132,6 +6279,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -6145,6 +6293,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedwork
+      jcr:uuid: b4bdb77e-5a2f-4da2-be3d-4d166fbb9b83
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -6166,6 +6315,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 02e5608a-a9c9-4115-8b14-221bb5f3aee4
   /roadmap-test-document:
     /content:
       /content[1]:
@@ -6185,6 +6335,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -6196,6 +6347,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmap
+        jcr:uuid: b2dcddef-d8ea-4e2c-ac6c-c8fa8fcdb5e8
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6217,6 +6369,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -6230,6 +6383,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:roadmap
+        jcr:uuid: 0b3496c2-5fb9-4b58-ae87-923cc6e25d0f
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6251,6 +6405,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 5
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -6264,6 +6419,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmap
+        jcr:uuid: 4393dc68-9b37-46af-92d8-61a4dc5966dd
         website:granularity: Quarterly
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
@@ -6273,6 +6429,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 6dc2f154-5b1e-4f3e-af43-d9da5b154fd6
     /roadmap-item-1:
       /roadmap-item-1[1]:
         /website:effectivedate:
@@ -6326,6 +6483,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -6337,6 +6495,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 80355c5f-05b3-48f3-9809-42422c616f82
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6395,6 +6554,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -6408,6 +6568,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 965d5d33-5919-4c35-9f0f-c60404ced7f7
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6466,6 +6627,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -6479,6 +6641,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: bd00ca8a-8f19-4bad-aac1-c496bbbe3eae
         website:markers:
         - context-specific-stds
         - new-capability
@@ -6490,6 +6653,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 5473eaf6-7b52-424a-986a-773dc5d90812
     /roadmap-item-2:
       /roadmap-item-2[1]:
         /website:effectivedate:
@@ -6544,6 +6708,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -6556,6 +6721,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: a4736cac-721a-4b85-9b52-d68c7ec5c829
         website:markers:
         - business-capability
         - new-capability
@@ -6615,6 +6781,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -6626,6 +6793,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 71637d1b-9242-4a93-806b-439ae012d727
         website:markers:
         - business-capability
         - new-capability
@@ -6685,6 +6853,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -6698,6 +6867,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 6cc46c70-c246-43e4-9ce7-9c0f7f5a1830
         website:markers:
         - business-capability
         - new-capability
@@ -6709,6 +6879,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 87c3f759-c9fd-4eb8-bd6f-1cbdaed4603c
     /roadmap-item-3:
       /roadmap-item-3[1]:
         /website:effectivedate:
@@ -6762,6 +6933,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -6774,6 +6946,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 4b01b078-5689-4e6b-9679-cab0e6f476ce
         website:markers:
         - business-capability
         - research-only
@@ -6832,6 +7005,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -6843,6 +7017,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: c947a6a9-da66-410f-bfd3-3e91818639dc
         website:markers:
         - business-capability
         - research-only
@@ -6901,6 +7076,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -6914,6 +7090,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: bd5fca92-bd72-4bc7-adfb-3eb6a17322e5
         website:markers:
         - business-capability
         - research-only
@@ -6925,6 +7102,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: b4e10db1-6f80-4638-ab1c-a7a7585c8fcb
     /roadmap-item-4:
       /roadmap-item-4[1]:
         /website:effectivedate:
@@ -6978,6 +7156,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -6990,6 +7169,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 51a00287-f998-4470-a2b7-54812ef13949
         website:markers:
         - business-capability
         - research-only
@@ -7048,6 +7228,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -7059,6 +7240,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: a316ccfc-45ad-4d50-8a6b-a35d84a987c7
         website:markers:
         - business-capability
         - research-only
@@ -7117,6 +7299,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -7130,6 +7313,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 49b2c393-e11d-4361-99c9-b9d6e5e0c48c
         website:markers:
         - business-capability
         - research-only
@@ -7141,6 +7325,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 6992bcbe-7a2b-40e5-850a-8701c7e7997b
     /roadmap-item-5:
       /roadmap-item-5[1]:
         /website:effectivedate:
@@ -7194,6 +7379,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -7206,6 +7392,7 @@
         jcr:mixinTypes:
         - mix:versionable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: a033ee73-98e6-42d2-8fac-a6c3e042fa6d
         website:markers:
         - business-capability
         - research-only
@@ -7265,6 +7452,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -7276,6 +7464,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 942dcb1b-e454-4182-aa0e-c510ea5c31bc
         website:markers:
         - business-capability
         - research-only
@@ -7335,6 +7524,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -7348,6 +7538,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:roadmapitem
+        jcr:uuid: 3a555625-464b-454c-81db-82a5ba6413ba
         website:markers:
         - business-capability
         - research-only
@@ -7360,6 +7551,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 75734d69-26ae-4604-95c0-7812d3420e94
     hippo:name: Roadmap test document
     hippostd:foldertype:
     - new-digital-website-folder
@@ -7371,6 +7563,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 095ce6ad-fa56-4d1a-a7bb-d907de9e5927
   /service-test-document:
     /service-test-document[1]:
       /website:component:
@@ -7491,6 +7684,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -7503,6 +7697,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: 53dd6839-1da3-4af3-b2ca-dc048704b591
       website:gossid: 0
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
@@ -7625,6 +7820,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -7639,6 +7835,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:service
+      jcr:uuid: 228fb129-8201-4a3c-a1a8-e4d96779fec4
       website:gossid: 0
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
@@ -7761,6 +7958,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -7775,6 +7973,7 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: a2ecf1ef-96ba-49a2-81f2-673ee97baac6
       website:gossid: 0
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
@@ -7828,6 +8027,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -7839,6 +8039,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
+      jcr:uuid: bf132190-2bb6-41d8-a14c-e96008abc735
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[2]:
@@ -7882,6 +8083,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -7895,6 +8097,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:visualhub
+      jcr:uuid: 4c1632ea-b5d3-421c-9918-3f1e24f2e6da
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[3]:
@@ -7938,6 +8141,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -7951,6 +8155,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
+      jcr:uuid: e4813c1d-fc5d-429a-9941-f7ec28072e6b
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     hippo:name: Visual Hub test document
@@ -7960,6 +8165,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 1cf2f6b1-d041-43d4-89a6-ac78be59d664
   hippo:name: Website Acceptance Tests
   hippostd:foldertype:
   - new-digital-website-folder
@@ -7971,3 +8177,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: 4a05815e-8437-49c5-8b04-52895cc4a1f7

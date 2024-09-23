@@ -95,6 +95,7 @@
     - Infectious diseases
     common:searchRank: 3
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -220,6 +221,7 @@
     - Infectious diseases
     common:searchRank: 3
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -347,6 +349,7 @@
     - Infectious diseases
     common:searchRank: 3
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published

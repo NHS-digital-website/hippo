@@ -122,6 +122,7 @@
           efficient quality vectors.</p>
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -258,6 +259,7 @@
           efficient quality vectors.</p>
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -396,6 +398,7 @@
           efficient quality vectors.</p>
         jcr:primaryType: hippostd:html
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -475,6 +478,7 @@
             economically sound architectures.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -542,6 +546,7 @@
             economically sound architectures.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -611,6 +616,7 @@
             economically sound architectures.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -690,6 +696,7 @@
               than competitive results</p>
             jcr:primaryType: hippostd:html
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
@@ -760,6 +767,7 @@
               than competitive results</p>
             jcr:primaryType: hippostd:html
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:state: unpublished
@@ -832,6 +840,7 @@
               than competitive results</p>
             jcr:primaryType: hippostd:html
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:state: published
@@ -927,6 +936,7 @@
             systems.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -991,6 +1001,7 @@
             systems.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1057,6 +1068,7 @@
             systems.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1152,6 +1164,7 @@
             backend benefits.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -1227,6 +1240,7 @@
             backend benefits.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1304,6 +1318,7 @@
             backend benefits.</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1404,6 +1419,7 @@
           hippostd:content: <p>TT3</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -1485,6 +1501,7 @@
           hippostd:content: <p>TT3</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1568,6 +1585,7 @@
           hippostd:content: <p>TT3</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1666,6 +1684,7 @@
             <a href="http://digital.nhs.uk">plug-and-play services</a>. Uniquely seize</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -1742,6 +1761,7 @@
             <a href="http://digital.nhs.uk">plug-and-play services</a>. Uniquely seize</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -1820,6 +1840,7 @@
             <a href="http://digital.nhs.uk">plug-and-play services</a>. Uniquely seize</p>
           jcr:primaryType: hippostd:html
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published

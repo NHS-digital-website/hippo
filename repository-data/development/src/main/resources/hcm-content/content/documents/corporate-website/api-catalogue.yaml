@@ -347,6 +347,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -753,6 +754,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -1158,6 +1160,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -1410,6 +1413,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -1614,6 +1618,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -1817,6 +1822,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -2055,6 +2061,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -2278,6 +2285,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -2500,6 +2508,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -2626,6 +2635,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
@@ -2705,6 +2715,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:retainable: false
@@ -2786,6 +2797,7 @@
           jcr:primaryType: hippostd:html
         common:searchRank: 3
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:retainable: false
@@ -2982,6 +2994,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -3197,6 +3210,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -3411,6 +3425,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -3501,6 +3516,7 @@
           - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -3541,6 +3557,7 @@
           - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -3583,6 +3600,7 @@
           - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -3659,6 +3677,7 @@
           - In production (API)
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -3884,6 +3903,7 @@
           - In production (API)
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -4111,6 +4131,7 @@
           - In production (API)
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -4344,6 +4365,7 @@
           common:FacetType: apispecification
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -4723,6 +4745,7 @@
           common:FacetType: apispecification
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -5104,6 +5127,7 @@
           common:FacetType: apispecification
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -5565,6 +5589,7 @@
           - Document
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -5665,6 +5690,7 @@
           - Document
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -5766,6 +5792,7 @@
           - Document
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -5998,6 +6025,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -6238,6 +6266,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -6477,6 +6506,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -6581,6 +6611,7 @@
           - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -6717,6 +6748,7 @@
           - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -6854,6 +6886,7 @@
           - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -7132,6 +7165,7 @@
           - Draft (API standard)
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -7310,6 +7344,7 @@
           - Draft (API standard)
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -7487,6 +7522,7 @@
           - Draft (API standard)
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -7700,6 +7736,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -7888,6 +7925,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -8075,6 +8113,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -8178,6 +8217,7 @@
           - RESTful
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -9208,6 +9248,7 @@
           - RESTful
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -10239,6 +10280,7 @@
           - RESTful
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -11411,6 +11453,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - preview
             hippostd:state: unpublished
@@ -11611,6 +11654,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability: []
             hippostd:state: draft
             hippostdpubwf:createdBy: owain.davies1
@@ -11810,6 +11854,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - live
             hippostd:state: published
@@ -12347,6 +12392,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - preview
             hippostd:retainable: false
@@ -12877,6 +12923,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
@@ -13406,6 +13453,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - live
             hippostd:retainable: false
@@ -13622,6 +13670,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - preview
             hippostd:state: unpublished
@@ -13810,6 +13859,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability: []
             hippostd:state: draft
             hippostdpubwf:createdBy: owain.davies1
@@ -13997,6 +14047,7 @@
               - ''
             common:searchRank: 3
             common:searchable: true
+            common:searchableType: true
             hippo:availability:
             - live
             hippostd:state: published
@@ -14211,6 +14262,7 @@
           - Access to records
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -14434,6 +14486,7 @@
           - Access to records
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -14656,6 +14709,7 @@
           - Access to records
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -15178,6 +15232,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -15669,6 +15724,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -16159,6 +16215,7 @@
           - API service
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -16355,6 +16412,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -16511,6 +16569,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -16666,6 +16725,7 @@
           - API Standard
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -16945,6 +17005,7 @@
           - RESTful
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -17217,6 +17278,7 @@
           - RESTful
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -17488,6 +17550,7 @@
           - RESTful
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -17584,6 +17647,7 @@
           - NHS BSA
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -17761,6 +17825,7 @@
           - NHS BSA
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -17937,6 +18002,7 @@
           - NHS BSA
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -18218,6 +18284,7 @@
           - Outpatient
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -18272,6 +18339,7 @@
           - Outpatient
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -18327,6 +18395,7 @@
           - Outpatient
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft

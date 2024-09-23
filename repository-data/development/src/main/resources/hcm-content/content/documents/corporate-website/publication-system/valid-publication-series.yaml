@@ -12,6 +12,7 @@
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -45,6 +46,7 @@
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -80,6 +82,7 @@
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -119,6 +122,7 @@
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -152,6 +156,7 @@
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -187,6 +192,7 @@
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -226,6 +232,7 @@
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -259,6 +266,7 @@
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -294,6 +302,7 @@
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -333,6 +342,7 @@
       common:orderedSearchDate: 1452384000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -366,6 +376,7 @@
       common:orderedSearchDate: 1452384000000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -688,6 +699,7 @@
       common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -731,6 +743,7 @@
       common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -773,6 +786,7 @@
       common:orderedSearchDate: 1609459200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live
@@ -825,6 +839,7 @@
       common:orderedSearchDate: 1640995200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -868,6 +883,7 @@
       common:orderedSearchDate: 1640995200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -910,6 +926,7 @@
       common:orderedSearchDate: 1640995200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live
@@ -962,6 +979,7 @@
       common:orderedSearchDate: 1672531200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -1005,6 +1023,7 @@
       common:orderedSearchDate: 1672531200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -1047,6 +1066,7 @@
       common:orderedSearchDate: 1672531200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live
@@ -1099,6 +1119,7 @@
       common:orderedSearchDate: 1704067200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -1142,6 +1163,7 @@
       common:orderedSearchDate: 1704067200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -1184,6 +1206,7 @@
       common:orderedSearchDate: 1704067200000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live
@@ -1236,6 +1259,7 @@
       common:orderedSearchDate: -1735689600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - preview
@@ -1279,6 +1303,7 @@
       common:orderedSearchDate: -1735689600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability: []
       hippostd:retainable: false
@@ -1321,6 +1346,7 @@
       common:orderedSearchDate: -1735689600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       common:seosummarytext: ''
       hippo:availability:
       - live
@@ -1403,6 +1429,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -1475,6 +1502,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:retainable: false
@@ -1549,6 +1577,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:retainable: false

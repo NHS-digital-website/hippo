@@ -52,6 +52,7 @@
     common:SearchableTags:
     - NilTaxonomySearchTerm test
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -127,6 +128,7 @@
     common:SearchableTags:
     - NilTaxonomySearchTerm test
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -204,6 +206,7 @@
     common:SearchableTags:
     - NilTaxonomySearchTerm test
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published

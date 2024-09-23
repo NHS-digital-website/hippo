@@ -64,6 +64,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -142,6 +143,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -222,6 +224,7 @@
         jcr:primaryType: hippostd:html
       common:searchRank: 3
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published

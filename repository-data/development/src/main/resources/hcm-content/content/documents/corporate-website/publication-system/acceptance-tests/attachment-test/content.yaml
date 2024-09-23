@@ -41,6 +41,7 @@
     common:orderedSearchDate: 1513123200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -53,6 +54,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
+    jcr:uuid: 645b2d90-f56d-4fc2-93eb-85a968bd1989
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -104,6 +106,7 @@
     common:orderedSearchDate: 1513123200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -118,6 +121,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: publicationsystem:publication
+    jcr:uuid: ac6d589e-5bd7-4d26-ad1e-a5ac69c7f6df
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -169,6 +173,7 @@
     common:orderedSearchDate: 1513123200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published
@@ -183,6 +188,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
+    jcr:uuid: b040e92b-1f95-4a67-b6af-4383d2bc2cc2
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -196,3 +202,4 @@
   jcr:mixinTypes:
   - mix:referenceable
   jcr:primaryType: hippo:handle
+  jcr:uuid: c3db2d68-753f-4c2b-b5b1-e38cc92204ab
