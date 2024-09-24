@@ -5,6 +5,7 @@
     common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -45,6 +46,7 @@
     common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -59,6 +61,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: publicationsystem:publication
+    jcr:uuid: a0250e97-a933-47ad-bd55-3cdf8797c6fe
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -87,6 +90,7 @@
     common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published
@@ -101,6 +105,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
+    jcr:uuid: b33d0d32-1abf-4927-872c-0a1fc129dc17
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -127,3 +132,4 @@
   jcr:mixinTypes:
   - mix:referenceable
   jcr:primaryType: hippo:handle
+  jcr:uuid: 99992659-9945-41c1-a577-d6db8c192765
