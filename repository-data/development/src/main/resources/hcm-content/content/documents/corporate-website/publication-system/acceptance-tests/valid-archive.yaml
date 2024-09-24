@@ -6,6 +6,7 @@
       common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -31,6 +32,7 @@
       common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -58,6 +60,7 @@
       common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -91,6 +94,7 @@
       common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -116,6 +120,7 @@
       common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -143,6 +148,7 @@
       common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -176,6 +182,7 @@
       common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -201,6 +208,7 @@
       common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -228,6 +236,7 @@
       common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -260,6 +269,7 @@
       common:FacetType: series
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -292,6 +302,7 @@
       common:FacetType: series
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -326,6 +337,7 @@
       common:FacetType: series
       common:searchRank: 1
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published

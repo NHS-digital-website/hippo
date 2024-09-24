@@ -15,9 +15,7 @@ class SearchableType extends BaseNodeUpdateVisitor {
         // Query returns the variant nodes of the document
         // (which has the 3 variants)
         try {
-            if (node.hasNodes()) {
-                return updateNode(node)
-            }
+            return updateNode(node)
         } catch (e) {
             log.error("Failed to process record.", e)
         }

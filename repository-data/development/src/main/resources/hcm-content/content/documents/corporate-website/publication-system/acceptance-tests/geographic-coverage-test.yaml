@@ -4,6 +4,7 @@
     /british-isles[1]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -33,6 +34,7 @@
     /british-isles[2]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -64,6 +66,7 @@
     /british-isles[3]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -101,6 +104,7 @@
     /great-britain[1]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -128,6 +132,7 @@
     /great-britain[2]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -157,6 +162,7 @@
     /great-britain[3]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -193,6 +199,7 @@
       /other-combination[1]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -223,6 +230,7 @@
       /other-combination[2]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -395,6 +403,7 @@
     /other-combination[1]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -422,6 +431,7 @@
     /other-combination[2]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -451,6 +461,7 @@
     /other-combination[3]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -610,6 +621,7 @@
       /british-isles[1]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -642,6 +654,7 @@
       /british-isles[2]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -948,6 +961,7 @@
       /united-kingdom[1]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -979,6 +993,7 @@
       /united-kingdom[2]:
         common:orderedSearchDate: 1517184000000
         common:searchable: true
+        common:searchableType: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -1030,6 +1045,7 @@
     /united-kingdom[1]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -1058,6 +1074,7 @@
     /united-kingdom[2]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -1088,6 +1105,7 @@
     /united-kingdom[3]:
       common:orderedSearchDate: 1517184000000
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published

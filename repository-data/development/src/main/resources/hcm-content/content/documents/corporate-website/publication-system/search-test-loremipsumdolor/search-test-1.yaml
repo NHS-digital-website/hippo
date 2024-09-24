@@ -12,6 +12,7 @@
     common:orderedSearchDate: 1604707200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -51,6 +52,7 @@
     common:orderedSearchDate: 1604707200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -92,6 +94,7 @@
     common:orderedSearchDate: 1604707200000
     common:searchRank: 4
     common:searchable: true
+    common:searchableType: true
     hippo:availability:
     - live
     hippostd:state: published

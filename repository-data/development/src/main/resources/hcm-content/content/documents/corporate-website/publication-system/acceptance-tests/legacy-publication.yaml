@@ -5,6 +5,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -41,6 +42,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -79,6 +81,7 @@
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
+      common:searchableType: true
       hippo:availability:
       - live
       hippostd:state: published
