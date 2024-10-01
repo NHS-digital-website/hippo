@@ -5,14 +5,8 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.GeneralArticleComponent
         hst:parameternames:
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
-        - stripTagsContentRewriter
-        - stripTagsWithLinksContentRewriter
         hst:parametervalues:
-        - 'true'
-        - 'true'
-        - 'true'
         - 'true'
         hst:template: general-article
         jcr:primaryType: hst:component

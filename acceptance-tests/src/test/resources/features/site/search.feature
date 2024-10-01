@@ -63,7 +63,7 @@ Feature: Basic search
     Scenario: Indicator searchable fields (title, definition)
         Given I navigate to the "home" page
         When I search for "National Indicator"
-        Then I should see 3 search results
+        Then I should see 4 search results
         And I can click on link "National Indicator"
         When I search for "SearchableNationalIndicatorDefinition"
         Then I should see 1 search results
