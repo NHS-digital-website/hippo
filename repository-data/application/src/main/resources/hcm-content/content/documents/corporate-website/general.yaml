@@ -1,5 +1,466 @@
 ---
 /content/documents/corporate-website/general:
+  /nhs-spine-portal:
+    /nhs-spine-portal[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:body:
+          /deprecation-notice-chrome-extension:
+            hippo:docbase: a95c1fc7-1594-4150-b7e5-c168fc07a2d6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <p>The Google Chrome extension may stop working from 1 June 2024.&nbsp; If you have not done so already, please install NHS Credential Management.</p>
+
+            <p>For more information, read the&nbsp;<a href="deprecation-notice-chrome-extension">deprecation notice</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Important
+        website:heading: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li><a rel="noopener noreferrer" href="https://apply-for-care-identity.care-identity-service2.nhs.uk/authenticate" target="_blank">Apply for Care ID</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/prescriptionsadmin/" target="_blank">EPS Prescription tracker</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/nationalcarerecordsservice/" target="_blank">National Care Records Service (NCRS)</a></li>
+             <li><a rel="noopener noreferrer" href="https://manage-care-identities.care-identity-service2.nhs.uk/" target="_blank">Care Identity Management (CIM)</a></li>
+             <li><a rel="noopener noreferrer" href="https://uim.national.ncrs.nhs.uk/eprwebapp/" target="_blank">End Point Registration Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.national.ncrs.nhs.uk/dwpportal" target="_blank">Digital SR1 Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinereportingservice/" target="_blank">Spine Reporting Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinealertservice/" target="_blank">TES Alert Viewer</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/meshui/" target="_blank">MESH user interface</a></li>
+             <li><a rel="noopener noreferrer" href="https://moles.mesh.national.nhs.uk/" target="_blank">MESH Online Enquiry Service (MOLES)</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/demographicspineapplication/" target="_blank">Demographic Spine Application</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.nhs.net/Home/Login" target="_blank">NHSmail</a></li>
+             <li><a rel="noopener noreferrer" href="https://myidentity.nhs.net/landing" target="_blank">Link My NHS accounts</a>&nbsp;(connect your NHSmail account to your smartcard)&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: NHS applications
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>If you are using a smartcard, <a href="https://am.nhsidentity.spineservices.nhs.uk/openam/XUI/#/smartcardDiagnostics">check
+            your device is set up correctly</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Check your smartcard setup
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: oliver.guildford
+      hippostdpubwf:creationDate: 2023-08-29T13:04:41.111Z
+      hippostdpubwf:lastModificationDate: 2024-09-30T12:46:18.773Z
+      hippostdpubwf:lastModifiedBy: chris.lockie
+      hippotranslation:id: 97ca93d0-2a22-4f4c-af5e-49775c0703b3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:earlyaccesskey: ''
+      website:gossid: 0
+      website:metadata: []
+      website:navigationcontroller: withNav
+      website:noIndexControl: ''
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:searchTab: services
+      website:seosummarytext: <p>Spine supports the IT infrastructure for health and
+        social care in England, joining together over 44,000 healthcare IT systems
+        in 26,000 organisations.</p>
+      website:shortsummary: Spine supports the IT infrastructure for health and social
+        care in England, joining together over 44,000 healthcare IT systems in 26,000
+        organisations.
+      website:title: NHS Spine Portal
+      website:type: ''
+    /nhs-spine-portal[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:body:
+          /deprecation-notice-chrome-extension:
+            hippo:docbase: a95c1fc7-1594-4150-b7e5-c168fc07a2d6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <p>The Google Chrome extension may stop working from 1 June 2024.&nbsp; If you have not done so already, please install NHS Credential Management.</p>
+
+            <p>For more information, read the&nbsp;<a href="deprecation-notice-chrome-extension">deprecation notice</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Important
+        website:heading: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li><a rel="noopener noreferrer" href="https://apply-for-care-identity.care-identity-service2.nhs.uk/authenticate" target="_blank">Apply for Care ID</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/prescriptionsadmin/" target="_blank">EPS Prescription tracker</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/nationalcarerecordsservice/" target="_blank">National Care Records Service (NCRS)</a></li>
+             <li><a rel="noopener noreferrer" href="https://manage-care-identities.care-identity-service2.nhs.uk/" target="_blank">Care Identity Management (CIM)</a></li>
+             <li><a rel="noopener noreferrer" href="https://uim.national.ncrs.nhs.uk/eprwebapp/" target="_blank">End Point Registration Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.national.ncrs.nhs.uk/dwpportal" target="_blank">Digital SR1 Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinereportingservice/" target="_blank">Spine Reporting Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinealertservice/" target="_blank">TES Alert Viewer</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/meshui/" target="_blank">MESH user interface</a></li>
+             <li><a rel="noopener noreferrer" href="https://moles.mesh.national.nhs.uk/" target="_blank">MESH Online Enquiry Service (MOLES)</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/demographicspineapplication/" target="_blank">Demographic Spine Application</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.nhs.net/Home/Login" target="_blank">NHSmail</a></li>
+             <li><a rel="noopener noreferrer" href="https://myidentity.nhs.net/landing" target="_blank">Link My NHS accounts</a>&nbsp;(connect your NHSmail account to your smartcard)&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: NHS applications
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>If you are using a smartcard, <a href="https://am.nhsidentity.spineservices.nhs.uk/openam/XUI/#/smartcardDiagnostics">check
+            your device is set up correctly</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Check your smartcard setup
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: oliver.guildford
+      hippostdpubwf:creationDate: 2023-08-29T13:04:41.111Z
+      hippostdpubwf:lastModificationDate: 2024-09-30T12:47:09.726Z
+      hippostdpubwf:lastModifiedBy: chris.lockie
+      hippotranslation:id: 97ca93d0-2a22-4f4c-af5e-49775c0703b3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:earlyaccesskey: ''
+      website:gossid: 0
+      website:metadata: []
+      website:navigationcontroller: withNav
+      website:noIndexControl: ''
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:searchTab: services
+      website:seosummarytext: <p>Spine supports the IT infrastructure for health and
+        social care in England, joining together over 44,000 healthcare IT systems
+        in 26,000 organisations.</p>
+      website:shortsummary: Spine supports the IT infrastructure for health and social
+        care in England, joining together over 44,000 healthcare IT systems in 26,000
+        organisations.
+      website:title: NHS Spine Portal
+      website:type: ''
+    /nhs-spine-portal[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:leadimage:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:body:
+          /deprecation-notice-chrome-extension:
+            hippo:docbase: a95c1fc7-1594-4150-b7e5-c168fc07a2d6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <p>The Google Chrome extension may stop working from 1 June 2024.&nbsp; If you have not done so already, please install NHS Credential Management.</p>
+
+            <p>For more information, read the&nbsp;<a href="deprecation-notice-chrome-extension">deprecation notice</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Important
+        website:heading: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <ul>
+             <li><a rel="noopener noreferrer" href="https://apply-for-care-identity.care-identity-service2.nhs.uk/authenticate" target="_blank">Apply for Care ID</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/prescriptionsadmin/" target="_blank">EPS Prescription tracker</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/nationalcarerecordsservice/" target="_blank">National Care Records Service (NCRS)</a></li>
+             <li><a rel="noopener noreferrer" href="https://manage-care-identities.care-identity-service2.nhs.uk/" target="_blank">Care Identity Management (CIM)</a></li>
+             <li><a rel="noopener noreferrer" href="https://uim.national.ncrs.nhs.uk/eprwebapp/" target="_blank">End Point Registration Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.national.ncrs.nhs.uk/dwpportal" target="_blank">Digital SR1 Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinereportingservice/" target="_blank">Spine Reporting Service</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/spinealertservice/" target="_blank">TES Alert Viewer</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.spineservices.nhs.uk/meshui/" target="_blank">MESH user interface</a></li>
+             <li><a rel="noopener noreferrer" href="https://moles.mesh.national.nhs.uk/" target="_blank">MESH Online Enquiry Service (MOLES)</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal2.national.ncrs.nhs.uk/demographicspineapplication/" target="_blank">Demographic Spine Application</a></li>
+             <li><a rel="noopener noreferrer" href="https://portal.nhs.net/Home/Login" target="_blank">NHSmail</a></li>
+             <li><a rel="noopener noreferrer" href="https://myidentity.nhs.net/landing" target="_blank">Link My NHS accounts</a>&nbsp;(connect your NHSmail account to your smartcard)&nbsp;</li>
+            </ul>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: NHS applications
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: <p>If you are using a smartcard, <a href="https://am.nhsidentity.spineservices.nhs.uk/openam/XUI/#/smartcardDiagnostics">check
+            your device is set up correctly</a>.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:headinglevel: Main heading
+        website:numberedList: false
+        website:title: Check your smartcard setup
+        website:type: ''
+      /website:seosummary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>Spine supports the IT infrastructure for health and social
+          care in England, joining together over 44,000 healthcare IT systems in 26,000
+          organisations.</p>
+        jcr:primaryType: hippostd:html
+      /website:userContact:
+        /website:userContactnotes:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:userContact
+        website:userContactPhone: ''
+        website:userContactemail: hgfhfghfhf
+        website:userContactname: ''
+        website:userContactprimarycontact: false
+      /website:userNeed:
+        jcr:primaryType: website:userNeed
+        website:asA: ''
+        website:iNeedto: ''
+        website:soThat: ''
+      /website:userNeedandcontact:
+        /website:briefDescription:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:teampicker:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:userNeedandcontact
+        website:portfolioCode: ''
+        website:responsibleTeam: ''
+        website:userNeedismet:
+        - ''
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: oliver.guildford
+      hippostdpubwf:creationDate: 2023-08-29T13:04:41.111Z
+      hippostdpubwf:lastModificationDate: 2024-09-30T12:47:09.726Z
+      hippostdpubwf:lastModifiedBy: chris.lockie
+      hippostdpubwf:publicationDate: 2024-09-30T12:47:13.205Z
+      hippotranslation:id: 97ca93d0-2a22-4f4c-af5e-49775c0703b3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:earlyaccesskey: ''
+      website:gossid: 0
+      website:metadata: []
+      website:navigationcontroller: withNav
+      website:noIndexControl: ''
+      website:noindexcontrol: false
+      website:propmtuserorg: Do not prompt
+      website:searchTab: services
+      website:seosummarytext: <p>Spine supports the IT infrastructure for health and
+        social care in England, joining together over 44,000 healthcare IT systems
+        in 26,000 organisations.</p>
+      website:shortsummary: Spine supports the IT infrastructure for health and social
+        care in England, joining together over 44,000 healthcare IT systems in 26,000
+        organisations.
+      website:title: NHS Spine Portal
+      website:type: ''
+    hippo:name: NHS Spine Portal
+    hippo:versionHistory: b4f353c4-b9dc-4c66-8644-373dbc21c3b0
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: General
   hippostd:foldertype:
   - new-digital-website-folder
