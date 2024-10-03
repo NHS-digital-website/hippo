@@ -384,6 +384,13 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /developer:
         /api-catalogue:
+          /Alphabet:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/api-catalogue
+              hst:relativecontentpath: faceted-api-specifications/Alphabet/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            jcr:primaryType: hst:sitemapitem
           /Taxonomies:
             /_any_:
               hst:componentconfigurationid: hst:pages/api-catalogue
