@@ -32,14 +32,40 @@
                         </div>
                     </div>
                     <div class="search-results-heading__sort">
+
                         <label for="sortBy">Sort by:</label>
-                        <select id="sortBy" onChange="window.location.href=this.value" data-uipath="ps.search-results.sort-selector">
-                            <#assign sortLink = searchLink + query???then('?query=${query}&', '?') +'area=${area}&' + 'sort='>
-                            <option title="Order by date" value="${sortLink}date"
-                                    <#if sort?? && sort == 'date'>selected</#if>>Date</option>
-                            <option title="Order by relevance" value="${sortLink}relevance"
-                                    <#if sort?? && sort == 'relevance'>selected</#if>>Relevance</option>
+
+                        <select id="sortBy" data-uipath="ps.search-results.sort-selector">
+                            <option title="Order by date" value="date" <#if sort?? && sort == 'date'>selected</#if>>Date</option>
+                            <option title="Order by relevance" value="relevance" <#if sort?? && sort == 'relevance'>selected</#if>>Relevance</option>
                         </select>
+
+                        <script>
+                            // Function to update the URL based on the selected sorting option
+                            function updateSort() {
+
+                                // Get the current URL without the query parameters
+                                const currentUrl = new URL(window.location.href);
+
+                                // Get the selected value from the dropdown
+                                const sortBy = document.getElementById('sortBy').value;
+
+                                // Update the 'sort' query parameter based on the selection
+                                if (sortBy === 'relevance') {
+                                    // Remove the 'sort' parameter for relevance (default)
+                                    currentUrl.searchParams.delete('sort');
+                                } else {
+                                    // Set the 'sort' parameter for date sorting
+                                    currentUrl.searchParams.set('sort', sortBy);
+                                }
+
+                                // Redirect to the updated URL
+                                window.location.href = currentUrl.toString();
+                            }
+
+                            // Attach the function to the 'onChange' event of the dropdown
+                            document.getElementById('sortBy').addEventListener('change', updateSort);
+                        </script>
                     </div>
                 </div>
             </div>

@@ -364,6 +364,7 @@ definitions:
             jcr:primaryType: hippogallerypicker:imagelink
           common:searchRank: 4
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

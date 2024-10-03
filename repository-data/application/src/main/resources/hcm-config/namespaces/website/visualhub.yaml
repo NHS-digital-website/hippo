@@ -282,6 +282,7 @@ definitions:
             website:tilesectionheading: ''
           common:searchRank: 3
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

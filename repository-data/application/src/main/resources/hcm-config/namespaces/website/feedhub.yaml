@@ -232,6 +232,7 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

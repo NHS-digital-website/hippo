@@ -522,6 +522,7 @@ definitions:
           common:FacetType: series
           common:searchRank: 5
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

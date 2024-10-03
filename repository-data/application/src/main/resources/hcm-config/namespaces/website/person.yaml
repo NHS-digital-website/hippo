@@ -318,6 +318,7 @@ definitions:
           common:FacetType: person
           common:searchRank: 4
           common:searchable: true
+          common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

@@ -87,11 +87,18 @@ public class SearchComponent extends CommonComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
 
+        long startTime = System.currentTimeMillis();
+        LOGGER.debug("SearchComponent - Start Time:" + startTime);
+
         super.doBeforeRender(request, response);
 
         LOGGER.debug("SearchComponent doBeforeRender");
 
         doSearch(request, getComponentParametersInfo(request));
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        LOGGER.info("End of method: doBeforeRender in SearchComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
     private void doSearch(HstRequest request, EssentialsListComponentInfo paramInfo) {
