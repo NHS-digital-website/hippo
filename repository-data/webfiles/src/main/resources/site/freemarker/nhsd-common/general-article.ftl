@@ -35,10 +35,11 @@
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary.content?has_content />
-<#assign hasSectionContent = document.sections?has_content />
+<#assign documentSections = document.sections />
+<#assign hasSectionContent = documentSections?has_content />
 <#assign hasChildPages = childPages?has_content />
 <#assign hasHtmlCode = document.htmlCode?has_content />
-<#assign sectionTitlesFound = countSectionTitles(document.sections) />
+<#assign sectionTitlesFound = countSectionTitles(documentSections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 <#assign idsuffix = slugify(document.title) />
 <#assign navStatus = document.navigationController />
@@ -46,6 +47,9 @@
 <#assign custom_summary = document.summary />
 <#assign promptValue =document.propmtUserOrg[0] />
 <#assign downloadPrompt = (promptValue == 'Prompt on Download' || promptValue == 'Prompt all users') />
+<#assign latestNews = document.latestNews />
+<#assign relatedNews = document.relatedNews />
+<#assign relatedEvents = document.relatedEvents />
 
 <#-- Content Page Pixel -->
 <@contentPixel document.getCanonicalUUID() document.title></@contentPixel>
@@ -63,11 +67,11 @@
                 <div class="nhsd-t-col-xs-12 nhsd-t-col-s-3">
                     <!-- start sticky-nav -->
                     <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-                    <#if document.latestNews?has_content >
+                    <#if latestNews?has_content >
                         <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
                     </#if>
                     <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
-                    <#if document.relatedEvents?has_content >
+                    <#if relatedEvents?has_content >
                         <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
                     </#if>
                     <@stickyNavSections links></@stickyNavSections>
@@ -83,30 +87,30 @@
                     <@updateSection document.updates />
                 </#if>
 
-                <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' false />
+                <@latestblogs latestNews 'General' 'latest-news-' + idsuffix 'Latest news' false />
 
                 <#if hasSectionContent>
-                    <@sections sections=document.sections orgPrompt=downloadPrompt></@sections>
+                    <@sections sections=documentSections orgPrompt=downloadPrompt></@sections>
                 </#if>
 
-                <#if !document.latestNews?has_content && document.relatedNews?has_content>
+                <#if !latestNews?has_content && relatedNews?has_content>
                     <@fmt.message key="headers.related-news" var="relatedNewsHeader" />
                     <div id="${slugify(relatedNewsHeader)}">
                         <hr class="nhsd-a-horizontal-rule">
                         <h2 class="nhsd-t-heading-xl"
                             data-uipath="website.contentblock.section.title">${relatedNewsHeader}</h2>
-                        <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix "" />
+                        <@latestblogs relatedNews 'General' 'related-news-' + idsuffix "" />
                     </div>
                 </#if>
 
                 <#if hasChildPages>
-                    <#if (hasSectionContent && (document.latestNews?has_content || !document.relatedNews?has_content) ) >
+                    <#if (hasSectionContent && (latestNews?has_content || !relatedNews?has_content) ) >
                         <hr class="nhsd-a-horizontal-rule nhsd-!t-margin-bottom-6"/>
                     </#if>
                     <@furtherInformationSection childPages downloadPrompt></@furtherInformationSection>
                 </#if>
 
-                <@latestblogs document.relatedEvents 'General' 'events-' + idsuffix 'Forthcoming events' />
+                <@latestblogs relatedEvents 'General' 'events-' + idsuffix 'Forthcoming events' />
 
                 <div class="nhsd-t-body nhsd-!t-margin-bottom-8">
                     <@lastModified document.lastModified false></@lastModified>
