@@ -31,7 +31,6 @@ definitions:
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
       /sitemap-publication.xml:
-        hst:cacheable: true
         hst:componentconfigurationid: hst:components/forge-sitemapv2-publication-feed
         hst:hiddeninchannelmanager: true
         hst:refId: sitemap-publication
