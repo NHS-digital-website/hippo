@@ -20,6 +20,5 @@ definitions:
         - 'true'
         hst:template: search-results-layout
         jcr:primaryType: hst:component
-      hst:cacheable: true
       hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results
       jcr:primaryType: hst:component
