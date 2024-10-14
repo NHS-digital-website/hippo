@@ -140,13 +140,8 @@
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-cms</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-repository</artifactId>
-            <scope>compile</scope>
+            <artifactId>hippo-addon-urlrewriter-cms-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
