@@ -1346,6 +1346,7 @@
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       /citizen-identity---the-evolution-of-username-password-security[2]:
@@ -1512,6 +1513,7 @@
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       /citizen-identity---the-evolution-of-username-password-security[3]:
@@ -1678,6 +1680,7 @@
         website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
           Citizen Identity team’s work to ensure people can prove their identity when
           signing up for online services.
+        website:showApiResult: true
         website:title: Citizen Identity – the evolution of username password security
         website:type: ''
       hippo:name: Citizen Identity – the evolution of username password security
@@ -2952,6 +2955,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       /with-side-navigation[2]:
@@ -3100,6 +3104,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       /with-side-navigation[3]:
@@ -3248,6 +3253,7 @@
         website:navigationcontroller: withNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: With Side Navigation
         website:type: ''
       hippo:name: With Side Navigation
@@ -3404,6 +3410,7 @@
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       /without-side-navigation[2]:
@@ -3550,6 +3557,7 @@
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       /without-side-navigation[3]:
@@ -3698,6 +3706,7 @@
         website:navigationcontroller: withoutNav
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation
         website:type: ''
       hippo:name: Without Side Navigation
@@ -3854,6 +3863,7 @@
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       /without-side-navigation--wide[2]:
@@ -4000,6 +4010,7 @@
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       /without-side-navigation--wide[3]:
@@ -4148,6 +4159,7 @@
         website:navigationcontroller: withoutNavWide
         website:shortsummary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           In in magna ornare, condimentum eros sit amet, rhoncus libero.
+        website:showApiResult: true
         website:title: Without Side Navigation & Wide
         website:type: ''
       hippo:name: Without Side Navigation & Wide
@@ -4340,6 +4352,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     /general-test-document[2]:
@@ -4512,6 +4525,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     /general-test-document[3]:
@@ -4685,6 +4699,7 @@
       website:seosummarytext: SEO is good.  Some nice summary to help with Google
         rankings.
       website:shortsummary: General short summary to go here
+      website:showApiResult: true
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
@@ -7700,6 +7715,7 @@
       jcr:uuid: 53dd6839-1da3-4af3-b2ca-dc048704b591
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     /service-test-document[2]:
       /website:component:
@@ -7838,6 +7854,7 @@
       jcr:uuid: 228fb129-8201-4a3c-a1a8-e4d96779fec4
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     /service-test-document[3]:
       /website:component:
@@ -7976,6 +7993,7 @@
       jcr:uuid: a2ecf1ef-96ba-49a2-81f2-673ee97baac6
       website:gossid: 0
       website:shortsummary: Browse our service page
+      website:showApiResult: true
       website:title: Service AcceptanceTestDocument
     hippo:name: Service test document
     hippo:versionHistory: 429a08e9-62a0-49fa-aed9-c8f156a1d80d

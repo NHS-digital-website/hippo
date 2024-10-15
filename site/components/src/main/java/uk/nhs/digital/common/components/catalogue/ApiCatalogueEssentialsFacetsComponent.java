@@ -47,6 +47,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
+
     private Filters getFiltersBasedOnFacetResults(final Filters rawFilters, HashMap<String, List<Object>> facetBeanMap) {
         rawFilters.getSections().forEach(section -> {
             List<Runnable> deferredOperations = new ArrayList<>();
@@ -95,6 +96,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
+
     private void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, HashMap<String, List<Object>> facetBeanMap) {
         if (subSectionCounter.get() <= section.getAmountChildrenToShow()
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
@@ -111,6 +113,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
             subsection.setSelectable();
         }
     }
+
 
     private void displaySecondLevelChildFilter(Subsection subsection, HashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
@@ -157,6 +160,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     private boolean isApisFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
+
 
     private boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, HashMap<String, List<Object>> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())

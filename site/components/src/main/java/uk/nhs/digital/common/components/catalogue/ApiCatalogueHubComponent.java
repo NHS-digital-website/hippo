@@ -1,9 +1,6 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
-import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
-import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
+import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -67,6 +64,12 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
+    /* All documents with type apispecification or general or service that do not
+     *  have the field showApiResult set as True get removed from the bloom reach
+     * 'faceted-api-specification' facet.
+     *  ----
+     *  So any of the documents that fill those conditions get filtered out
+     */
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
 

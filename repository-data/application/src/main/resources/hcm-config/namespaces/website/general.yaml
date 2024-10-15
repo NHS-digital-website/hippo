@@ -263,6 +263,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyPlugin
             wicket.id: ${cluster.id}.field
+          /showApiResult:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Show as a result on the API and integration catalogue
+            field: showApiResult
+            hint: This field is only required if creating API and integration catalogue
+              content
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -423,6 +433,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /showApiResult:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:showApiResult
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /string:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -582,6 +600,7 @@ definitions:
           website:noindexcontrol: false
           website:propmtuserorg: Do not prompt
           website:shortsummary: ''
+          website:showApiResult: false
           website:title: ''
           website:type: ''
         jcr:primaryType: hipposysedit:prototypeset
