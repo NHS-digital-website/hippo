@@ -6,8 +6,10 @@ definitions:
       hst:parameternames:
       - breadcrumb-separator
       - breadcrumb-add-content-based
+      - breadcrumb-menus
       hst:parametervalues:
       - '>'
       - 'true'
+      - nhsd-main-nav
       hst:template: nhsd-breadcrumb
       jcr:primaryType: hst:component

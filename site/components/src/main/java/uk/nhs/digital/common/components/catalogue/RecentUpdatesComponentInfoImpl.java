@@ -1,6 +1,7 @@
 package uk.nhs.digital.common.components.catalogue;
 
 import org.hippoecm.hst.core.parameters.Parameter;
+import uk.nhs.digital.common.components.info.RecentUpdatesComponentInfo;
 
 class RecentUpdatesComponentInfoImpl implements RecentUpdatesComponentInfo {
 

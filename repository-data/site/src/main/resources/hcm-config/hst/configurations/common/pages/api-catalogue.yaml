@@ -3,23 +3,40 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/api-catalogue:
       /main:
+        /alphabet:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:template: catalogue-alphabet
+          jcr:primaryType: hst:component
         /banner:
           hst:referencecomponent: api-catlogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
-        /filters:
+        /facets:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
+          hst:parameternames:
+          - TaxonomyFiltersMappingDocumentPath
+          hst:parametervalues:
+          - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
-        hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
-        hst:parameternames:
-        - pageSize
-        - sortOrder
-        - showPagination
-        hst:parametervalues:
-        - '10'
-        - asc
-        - 'true'
-        hst:template: apicatalogue
+        /results:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
+          hst:parameternames:
+          - pageSize
+          - sortOrder
+          - showPagination
+          - TaxonomyFiltersMappingDocumentPath
+          hst:parametervalues:
+          - '10'
+          - asc
+          - 'true'
+          - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
+          hst:template: catalogue-results
+          jcr:primaryType: hst:component
+        /search:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
+          hst:template: catalogue-search
+          jcr:primaryType: hst:component
+        hst:template: catalogue-main
         jcr:primaryType: hst:component
       hst:cacheable: false
       hst:referencecomponent: hst:abstractpages/nhsd-apppage

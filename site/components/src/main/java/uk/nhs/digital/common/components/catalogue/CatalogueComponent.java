@@ -17,6 +17,15 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class CatalogueComponent extends ContentRewriterComponent {
+
+    private enum Param {
+        catalogueLinks,
+        filtersModel,
+        filter,
+        showRetired,
+        retiredFilterEnabled
+    }
+
     protected FacetNavHelper facetNavHelper;
 
     @Override
@@ -43,7 +52,7 @@ public class CatalogueComponent extends ContentRewriterComponent {
         return Optional.ofNullable(request.getRequestContext())
             .map(HstRequestContext::getBaseURL)
             .map(HstContainerURL::getParameterMap)
-            .map(parameterMap -> parameterMap.get(ServiceCatalogueComponent.Param.filter.name()))
+            .map(parameterMap -> parameterMap.get(Param.filter.name()))
             .map(Arrays::stream)
             .map(filterKeys -> filterKeys.collect(toList()))
             .orElse(Collections.emptyList());

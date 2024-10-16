@@ -1,7 +1,7 @@
 ---
-/content/documents/corporate-website/faceted-api-specifications:
-  hippo:docbase: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
-  hippo:name: API and integration catalogue
+/content/documents/corporate-website/faceted-service-catalogue:
+  hippo:docbase: e0d04061-9917-47c1-b3a2-d2326856d8af
+  hippo:name: Service Catalogue
   hippofacnav:facetnodenames:
   - Taxonomies
   - Alphabet
@@ -31,7 +31,7 @@
     {name: ''Z'', resolution: ''string'', lower: ''z'', upper: ''a''}]'
   hippofacnav:filters:
   - hippo:availability=live
-  - website:showApiResult=true
+  - jcr:primaryType=website:service
   hippofacnav:limit: 250
   hippofacnav:sortby:
   - website:title

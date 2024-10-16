@@ -96,8 +96,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-05-01T10:45:27.279Z
-        hippostdpubwf:lastModificationDate: 2024-05-02T09:36:31.014Z
+        hippostdpubwf:lastModificationDate: 2024-10-23T10:48:37.796Z
         hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - live
+        - retired_1
+        - deprecated_1
+        - secondary-care_1
         hippotranslation:id: 46a7ca13-5610-45cf-94cb-386281a8ef06
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -214,8 +219,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-05-01T10:45:27.279Z
-        hippostdpubwf:lastModificationDate: 2024-05-02T09:37:51.974Z
+        hippostdpubwf:lastModificationDate: 2024-10-23T13:11:37.706Z
         hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - live
+        - retired_1
+        - deprecated_1
+        - secondary-care_1
         hippotranslation:id: 46a7ca13-5610-45cf-94cb-386281a8ef06
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -333,9 +343,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-05-01T10:45:27.279Z
-        hippostdpubwf:lastModificationDate: 2024-05-02T09:37:51.974Z
+        hippostdpubwf:lastModificationDate: 2024-10-23T13:11:37.706Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-05-02T09:37:54.675Z
+        hippostdpubwf:publicationDate: 2024-10-23T13:11:43.223Z
+        hippotaxonomy:keys:
+        - live
+        - retired_1
+        - deprecated_1
+        - secondary-care_1
         hippotranslation:id: 46a7ca13-5610-45cf-94cb-386281a8ef06
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -358,7 +373,7 @@
           be available in all care settings.
         website:title: Booking and Referral Standard
       hippo:name: Booking and Referral Standard
-      hippo:versionHistory: 4dcd3a0d-b9df-470f-867e-e5ea2c9260b6
+      hippo:versionHistory: d6d9b947-5b62-4d30-808c-1bae6f551b45
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -610,3 +625,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: e0d04061-9917-47c1-b3a2-d2326856d8af

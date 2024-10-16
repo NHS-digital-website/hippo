@@ -1,7 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<#include "catalogue-functions.ftl">
 
 <#assign markdownDescription = "uk.nhs.digital.common.components.catalogue.FilterDescriptionDirective"?new() />
+<#assign responsive = true />
 
 <@hst.setBundle basename="month-names"/>
 
@@ -25,19 +27,19 @@
             <nav>
                 <#if filtersModel?? && facets1?has_content>
                     <#list filtersModel.sections as section>
-                        <#if section.displayed>
-                            <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
-                                <input
-                                    id="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                    class="section-folder"
-                                    type="checkbox"
-                                    aria-hidden="true"
-                                    <#if section.expanded>checked</#if>/>
-                                <div
-                                    class="nhsd-m-filter-menu-section__menu-button section-label-container">
-                                    <label
-                                        for="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                        class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
+                    <#if section.displayed>
+                        <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
+                            <input
+                                id="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                class="section-folder"
+                                type="checkbox"
+                                aria-hidden="true"
+                                <#if section.expanded>checked</#if>/>
+                            <div
+                                class="nhsd-m-filter-menu-section__menu-button section-label-container">
+                                <label
+                                    for="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                    class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
                                         <span
                                             class="nhsd-a-icon nhsd-a-icon--size-xxs">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +93,7 @@
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
+                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
                      <#if !filter.selectable >
                          <a aria-label="Filter by ${filter.displayName}"
                             href="${updatedLink}"
@@ -102,7 +104,7 @@
                     <#else>
                          <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox" disabled>
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
+                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
                         </a>
                      </#if>
                     <div class="checkmark"></div>
@@ -131,28 +133,6 @@
         </div>
     </#if>
 </#macro>
-
-<#function updateOrRemoveLinkWithTaxonomyPath link taxonomyPath>
-<#-- Split the link into base URL and query parameters -->
-    <#assign parts = link?split("?", 2)>
-    <#assign baseURL = parts[0]>
-    <#assign queryParams = parts[1]?if_exists>
-
-<#-- Check if the base URL contains the taxonomy path -->
-    <#if baseURL?contains(taxonomyPath)>
-    <#-- Remove the taxonomy path from the base URL -->
-        <#assign updatedBaseURL = baseURL?replace(taxonomyPath, "")>
-    <#else>
-    <#-- Append the taxonomy path to the base URL -->
-        <#assign updatedBaseURL = baseURL + taxonomyPath>
-    </#if>
-
-<#-- Reassemble the updated link with query parameters if they exist -->
-    <#assign updatedLink = updatedBaseURL + (queryParams?has_content?then("?" + queryParams, ""))>
-
-<#-- Output the updated link without escaping HTML special characters -->
-    <#return updatedLink?no_esc>
-</#function>
 
 <#function getBaseURL url>
     <#assign index = url?index_of("Taxonomies") />

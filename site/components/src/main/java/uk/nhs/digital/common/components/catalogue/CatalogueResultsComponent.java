@@ -1,6 +1,9 @@
 package uk.nhs.digital.common.components.catalogue;
 
-import org.hippoecm.hst.content.beans.standard.*;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
+import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
+import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -13,17 +16,17 @@ import org.onehippo.cms7.essentials.components.utils.SiteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
-import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
+import uk.nhs.digital.common.components.info.CatalogueResultsComponentInfo;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @ParametersInfo(
-    type = ApiCatalogueHubComponentInfo.class
+    type = CatalogueResultsComponentInfo.class
 )
-public class ApiCatalogueHubComponent extends EssentialsListComponent {
+public class CatalogueResultsComponent extends EssentialsListComponent {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(CatalogueResultsComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -33,28 +36,20 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         super.doBeforeRender(request, response);
 
-        ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+        CatalogueResultsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
+        CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
 
-        List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
+        List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
 
-        Optional<Section> status = sections.stream()
-            .filter(section -> "Status".equals(section.getDisplayName()))
-            .findFirst();
+        Map<String, Section> sectionEntries = sections.stream()
+            .flatMap(section -> section.getEntriesAndChildEntries().stream())
+            .collect(Collectors.toMap(
+                Section::getTaxonomyKey,
+                entry -> entry,
+                (existing, replacement) -> existing  // Keep the existing entry in case of duplicate keys, but
+            ));
 
-        status.ifPresent(section -> {
-            Map<String, Section> sectionMap = section.getEntries().stream()
-                .collect(Collectors.toMap(
-                    Section::getTaxonomyKey,
-                    entry -> entry
-                ));
-            request.setAttribute("apiStatusEntries", sectionMap);
-        });
-
-        List<Section> nonStatusSections = sections.stream()
-            .filter(section -> !"Status".equals(section.getDisplayName()))
-            .collect(Collectors.toList());
-
-        request.setAttribute("nonStatusSections", nonStatusSections);
+        request.setAttribute("sectionEntries", sectionEntries);
 
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));
@@ -64,18 +59,21 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-    /* All documents with type apispecification or general or service that do not
-     *  have the field showApiResult set as True get removed from the bloom reach
-     * 'faceted-api-specification' facet.
-     *  ----
-     *  So any of the documents that fill those conditions get filtered out
-     */
+
+
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
 
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
-        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+        String searchQuery = this.getSearchQuery(request);
+
+        if (searchQuery != null && !searchQuery.isEmpty()) {
+            searchQuery = "xpath(//*[jcr:contains(@website:title,'" + searchQuery + "') or jcr:contains(@website:shortsummary,'" + searchQuery + "')])";
+        }
+
+        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, searchQuery);
+
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
@@ -84,7 +82,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
             }
         }
-        return (Pageable) pageable;
+        return pageable;
     }
 
 }
