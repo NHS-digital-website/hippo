@@ -1,9 +1,5 @@
 const nhsdHiddenClass = 'nhsd-!t-display-hide';
 
-function hide(element) {
-    element.classList.add(nhsdHiddenClass);
-}
-
 function showFilterSubsections(element) {
     [...element.parentElement.children]
         .forEach((sibling) => {
@@ -13,7 +9,11 @@ function showFilterSubsections(element) {
         });
 }
 
-document.querySelectorAll('#show-more').forEach((element) => element.addEventListener('click', () => {
+function hide(element) {
+    element.classList.add(nhsdHiddenClass);
+}
+
+document.querySelectorAll('.show-more').forEach((element) => element.addEventListener('click', () => {
     showFilterSubsections(element);
     hide(element);
 }));

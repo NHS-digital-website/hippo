@@ -41,6 +41,7 @@
     website:rawMetadata:
     - ''
     website:shortsummary: Some short summary
+    website:showServiceResult: true
     website:title: Cyber Security Support Model
   /test-security-model[2]:
     /website:component:
@@ -85,6 +86,7 @@
     website:rawMetadata:
     - ''
     website:shortsummary: Some short summary
+    website:showServiceResult: true
     website:title: Cyber Security Support Model
   /test-security-model[3]:
     /website:component:
@@ -129,6 +131,7 @@
     website:rawMetadata:
     - ''
     website:shortsummary: Some short summary
+    website:showServiceResult: true
     website:title: Cyber Security Support Model
   hippo:versionHistory: 584fc59c-1aca-4555-8f58-5e61fe87824d
   jcr:mixinTypes:
