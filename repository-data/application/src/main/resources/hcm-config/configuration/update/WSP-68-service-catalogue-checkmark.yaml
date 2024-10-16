@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-68-service-catalogue-checkmark:
+      hipposys:batchsize: 10
+      hipposys:description: Set showInServiceCatalogue on the document types given.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website/services//*[@jcr:primaryType='website:service']
+      hipposys:script:
+        resource: /configuration/update/WSP-68-service-catalogue-checkmark.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo
