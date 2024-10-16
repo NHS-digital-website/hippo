@@ -1,0 +1,26 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/service-catalogue2:
+      /main:
+        /banner:
+          hst:referencecomponent: service-catalogue-homepage/banner
+          jcr:primaryType: hst:containercomponentreference
+        /filters:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
+          hst:template: catalogue-facet
+          jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
+        hst:parameternames:
+        - pageSize
+        - sortOrder
+        - showPagination
+        hst:parametervalues:
+        - '10'
+        - asc
+        - 'true'
+        hst:template: apicatalogue
+        jcr:primaryType: hst:component
+      hst:cacheable: false
+      hst:referencecomponent: hst:abstractpages/nhsd-apppage
+      jcr:primaryType: hst:component
