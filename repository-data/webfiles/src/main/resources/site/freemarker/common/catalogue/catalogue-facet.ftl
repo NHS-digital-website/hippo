@@ -13,7 +13,7 @@
                     <span class="filter-head__title">Filters</span>
                 </h2>
                 <@hst.renderURL fullyQualified=true var="link" />
-                <#assign baseURL = getBaseURL(link) />
+                <#assign baseURL = removeFromURL("Taxonomies" removeFromURL("Alphabet" link)) />
                 <span class="nhsd-t-body">
                     <a class="nhsd-a-link nhsd-!t-padding-0" href="${baseURL}"
                        title="Reset filters">
@@ -154,8 +154,8 @@
     <#return updatedLink?no_esc>
 </#function>
 
-<#function getBaseURL url>
-    <#assign index = url?index_of("Taxonomies") />
+<#function removeFromURL name url>
+    <#assign index = url?index_of(name) />
     <#assign index1 = url?index_of("?") />
     <#if index != -1>
         <#return url[0..(index - 2)] />

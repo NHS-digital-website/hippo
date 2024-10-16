@@ -32,8 +32,39 @@
         </div>
     </div>
 
+
     <div class="nhsd-t-row">
 
+        <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
+
+        <!-- Group Documents by Initial Letter -->
+        <#assign groupedDocuments = {} />
+        <#list pageable.items as document>
+            <#assign title = document.title?upper_case />
+            <#if title?has_content>
+                <#assign firstLetter = title[0]>
+                <#if !firstLetter?matches("[A-Z]")>
+                    <#assign firstLetter = "others" />
+                </#if>
+            <#-- Ensure that groupedDocuments[firstLetter] exists as a list -->
+                <#if groupedDocuments[firstLetter]?exists>
+                    <!-- If it exists, create a new list by adding the new document -->
+                    <#assign temp = groupedDocuments[firstLetter] + [document] />
+                <#else>
+                    <!-- If it doesn't exist, initialize a new list with the current document -->
+                    <#assign temp = [document] />
+                </#if>
+
+                <!-- Update the groupedDocuments with the new list -->
+                <#assign groupedDocuments = groupedDocuments + { (firstLetter): temp } />
+
+            </#if>
+        </#list>
+
+        <div class="nhsd-t-col-12 nhsd-!t-margin-bottom-5">
+            <h2 id="side-az-nav-heading" class="nhsd-t-heading-xs">Quick navigation</h2>
+            <@hst.include ref="alphabet" />
+        </div>
         <div
             class="nhsd-t-col-xs-12 nhsd-t-col-s-12 nhsd-t-col-m-12 nhsd-t-col-l-3 nhsd-!t-margin-bottom-4">
             <@hst.include ref="filters" />
@@ -89,149 +120,172 @@
                 <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
                     id="search-results-count"><#if totalAvailable?has_content> ${totalAvailable} <#else>0</#if>
                     results </h6>
-            </div> 
+            </div>
 
             <div class="nhsd-!t-padding-top-4"/>
 
             <#if totalAvailable?has_content>
                 <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
-                    <#list pageable.items as document>
-                        <div class="nhsd-t-flex-item--grow">
-                            <div data-api-catalogue-entry="">
+                    <div data-letter-section>
+                        <#-- <#list pageable.items as document>-->
+                        <#list lettersOfTheAlphabet as letter>
+                            <#if groupedDocuments[letter]??>
 
-                                <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
-                                    <#assign entry = apiStatusEntries["apis_1"]>
-                                </#if>
+                                <div id="${slugify(letter)}" class="nhsd-t-flex"
+                                     data-uipath="website.glossary.list">
 
-                                <#if apiStatusEntries["api-standards"]?? && apiStatusEntries["api-standards"]?has_content>
-                                    <#assign entry1 = apiStatusEntries["api-standards"]>
-                                </#if>
-
-                                <#assign nonstatusentry = {}>
-
-                                <#if entry?? && entry?has_content>
-                                    <@hst.renderURL fullyQualified=true var="link" />
-                                    <#list document.keys as key>
-                                        <#assign keyExists = false>
-                                        <#list entry.entries as subEntry>
-                                            <#if subEntry.taxonomyKey == key>
-                                                <#assign keyExists = true>
-                                                <#assign taxonomyPath = "/Taxonomies/${key}">
-                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                                                <#if link?contains(taxonomyPath)>
-                                                    <a title="Remove ${subEntry.displayName} filter"
-                                                       href="${updatedLink}"
-                                                       style="line-height:1; text-decoration:none"
-                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
-                                                <#else>
-                                                    <a title="Filter by ${subEntry.displayName}"
-                                                       href="${updatedLink}"
-                                                       style="line-height:1; text-decoration:none"
-                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
-                                                </#if>
+                                    <div class="nhsd-!t-margin-right-5">
+                                    <span
+                                        class="nhsd-a-character-block nhsd-a-character-block--large nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">${letter}</span>
+                                    </div>
+                                    <div class="nhsd-t-flex-item--grow">
+                                        <#assign matchesFound = 0/>
+                                        <#list groupedDocuments[letter] as document>
+                                            <#assign matchesFound++ />
+                                            <#if matchesFound gt 1>
+                                                <hr class="nhsd-a-horizontal-rule"/>
                                             </#if>
-                                        </#list>
-                                        <#if !keyExists>
-                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
-                                        </#if>
-                                    </#list>
-                                </#if>
 
-                                <#if entry1?? && entry1?has_content>
-                                    <@hst.renderURL fullyQualified=true var="link" />
-                                    <#list document.keys as key>
-                                        <#assign keyExists = false>
-                                        <#list entry1.entries as subEntry>
-                                            <#if subEntry.taxonomyKey == key>
-                                                <#assign keyExists = true>
-                                                <#assign taxonomyPath = "/Taxonomies/${key}">
-                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                                                <#if link?contains(taxonomyPath)>
-                                                    <a title="Remove ${subEntry.displayName} filter"
-                                                       href="${updatedLink}"
-                                                       style="line-height:1; text-decoration:none"
-                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
-                                                <#else>
-                                                    <a title="Filter by ${subEntry.displayName}"
-                                                       href="${updatedLink}"
-                                                       style="line-height:1; text-decoration:none"
-                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                            <div data-api-catalogue-entry="">
+
+                                                <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
+                                                    <#assign entry = apiStatusEntries["apis_1"]>
                                                 </#if>
-                                            </#if>
-                                        </#list>
-                                        <#if !keyExists>
-                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
-                                        </#if>
-                                    </#list>
-                                </#if>
 
-                                <@hst.link hippobean=document var="link1"/>
-
-                                <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1"
-                                    id="${document.title?lower_case?replace(" ", "-")}">
-                                    <#if link1?has_content>
-                                        <a href="${link1}" class="nhsd-a-link"
-                                           data-filterable>${document.title}</a>
-                                    <#else>
-                                        ${document.title}
-                                    </#if>
-                                </h2>
-
-                                <p class="nhsd-t-body"
-                                   data-filterable="">${document.shortsummary}</p>
-
-                                <#list document.keys as key>
-                                    <#if nonstatusentry[key]?exists>
-                                        <#assign displayName = key />
-                                        <#assign isTaxonomyFilterMappingTag = false />
-                                        <#list nonStatusSections as section>
-
-                                            <#list section.entries as subEntry>
-                                                <#if subEntry.taxonomyKey == key>
-                                                    <#assign displayName = subEntry.displayName />
-                                                    <#assign isTaxonomyFilterMappingTag = true />
+                                                <#if apiStatusEntries["api-standards"]?? && apiStatusEntries["api-standards"]?has_content>
+                                                    <#assign entry1 = apiStatusEntries["api-standards"]>
                                                 </#if>
-                                                <#list subEntry.entries as innersubEntry>
-                                                    <#if innersubEntry.taxonomyKey == key>
-                                                        <#assign displayName = innersubEntry.displayName />
-                                                        <#assign isTaxonomyFilterMappingTag = true />
+
+                                                <#assign nonstatusentry = {}>
+
+                                                <#if entry?? && entry?has_content>
+                                                    <@hst.renderURL fullyQualified=true var="link" />
+                                                    <#list document.keys as key>
+                                                        <#assign keyExists = false>
+                                                        <#list entry.entries as subEntry>
+                                                            <#if subEntry.taxonomyKey == key>
+                                                                <#assign keyExists = true>
+                                                                <#assign taxonomyPath = "/Taxonomies/${key}">
+                                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                                                                <#if link?contains(taxonomyPath)>
+                                                                    <a title="Remove ${subEntry.displayName} filter"
+                                                                       href="${updatedLink}"
+                                                                       style="line-height:1; text-decoration:none"
+                                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                                <#else>
+                                                                    <a title="Filter by ${subEntry.displayName}"
+                                                                       href="${updatedLink}"
+                                                                       style="line-height:1; text-decoration:none"
+                                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                                </#if>
+                                                            </#if>
+                                                        </#list>
+                                                        <#if !keyExists>
+                                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
+                                                        </#if>
+                                                    </#list>
+                                                </#if>
+
+                                                <#if entry1?? && entry1?has_content>
+                                                    <@hst.renderURL fullyQualified=true var="link" />
+                                                    <#list document.keys as key>
+                                                        <#assign keyExists = false>
+                                                        <#list entry1.entries as subEntry>
+                                                            <#if subEntry.taxonomyKey == key>
+                                                                <#assign keyExists = true>
+                                                                <#assign taxonomyPath = "/Taxonomies/${key}">
+                                                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                                                                <#if link?contains(taxonomyPath)>
+                                                                    <a title="Remove ${subEntry.displayName} filter"
+                                                                       href="${updatedLink}"
+                                                                       style="line-height:1; text-decoration:none"
+                                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                                <#else>
+                                                                    <a title="Filter by ${subEntry.displayName}"
+                                                                       href="${updatedLink}"
+                                                                       style="line-height:1; text-decoration:none"
+                                                                       class="nhsd-a-tag nhsd-a-tag--bg-${subEntry.highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${subEntry.displayName}</a>
+                                                                </#if>
+                                                            </#if>
+                                                        </#list>
+                                                        <#if !keyExists>
+                                                            <#assign nonstatusentry = nonstatusentry + { (key): key }>
+                                                        </#if>
+                                                    </#list>
+                                                </#if>
+
+                                                <@hst.link hippobean=document var="link1"/>
+
+                                                <h2 class="nhsd-t-heading-xs nhsd-!t-margin-top-1 nhsd-!t-margin-bottom-1"
+                                                    id="${document.title?lower_case?replace(" ", "-")}">
+                                                    <#if link1?has_content>
+                                                        <a href="${link1}"
+                                                           class="nhsd-a-link"
+                                                           data-filterable>${document.title}</a>
+                                                    <#else>
+                                                        ${document.title}
+                                                    </#if>
+                                                </h2>
+
+                                                <p class="nhsd-t-body"
+                                                   data-filterable="">${document.shortsummary}</p>
+
+                                                <#list document.keys as key>
+                                                    <#if nonstatusentry[key]?exists>
+                                                        <#assign displayName = key />
+                                                        <#assign isTaxonomyFilterMappingTag = false />
+                                                        <#list nonStatusSections as section>
+
+                                                            <#list section.entries as subEntry>
+                                                                <#if subEntry.taxonomyKey == key>
+                                                                    <#assign displayName = subEntry.displayName />
+                                                                    <#assign isTaxonomyFilterMappingTag = true />
+                                                                </#if>
+                                                                <#list subEntry.entries as innersubEntry>
+                                                                    <#if innersubEntry.taxonomyKey == key>
+                                                                        <#assign displayName = innersubEntry.displayName />
+                                                                        <#assign isTaxonomyFilterMappingTag = true />
+                                                                    </#if>
+                                                                </#list>
+                                                            </#list>
+
+                                                        </#list>
+
+                                                        <#if isTaxonomyFilterMappingTag>
+                                                            <@hst.renderURL fullyQualified=true var="link" />
+                                                            <#assign taxonomyPath = "/Taxonomies/${key}" />
+                                                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+
+                                                            <#if link?contains(taxonomyPath)>
+                                                                <a title="Remove ${key} filter"
+                                                                   href="${updatedLink}"
+                                                                   style="line-height:1; text-decoration:none"
+                                                                   class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
+                                                            <#else>
+                                                                <a title="Filter by key ${key}"
+                                                                   href="${updatedLink}"
+                                                                   style="line-height:1; text-decoration:none"
+                                                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
+                                                            </#if>
+                                                        </#if>
                                                     </#if>
                                                 </#list>
-                                            </#list>
-
+                                            </div>
                                         </#list>
-
-                                        <#if isTaxonomyFilterMappingTag>
-                                            <@hst.renderURL fullyQualified=true var="link" />
-                                            <#assign taxonomyPath = "/Taxonomies/${key}" />
-                                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-
-                                            <#if link?contains(taxonomyPath)>
-                                                <a title="Remove ${key} filter"
-                                                   href="${updatedLink}"
-                                                   style="line-height:1; text-decoration:none"
-                                                   class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
-                                            <#else>
-                                                <a title="Filter by key ${key}"
-                                                   href="${updatedLink}"
-                                                   style="line-height:1; text-decoration:none"
-                                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
-                                            </#if>
-                                        </#if>
-                                    </#if>
-                                </#list>
-
-                            </div>
-                        </div>
-
-                        <hr class="nhsd-a-horizontal-rule">
-                    </#list>
+                                    </div>
+                                </div>
+                                <hr class="nhsd-a-horizontal-rule">
+                            </#if>
+                        </#list>
+                    </div>
                 </div>
 
                 <#if document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
                     <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
                 </#if>
             </#if>
+
+
         </div>
 
         <#if totalAvailable?has_content>
@@ -293,5 +347,4 @@
 <#-- Output the updated URL -->
     <#return urlWithQueryParams?no_esc>
 </#function>
-
 
