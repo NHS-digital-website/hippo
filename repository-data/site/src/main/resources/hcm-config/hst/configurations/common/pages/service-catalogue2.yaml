@@ -4,6 +4,7 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/service-catalogue2:
       /main:
         /alphabet:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
           hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
         /banner:
