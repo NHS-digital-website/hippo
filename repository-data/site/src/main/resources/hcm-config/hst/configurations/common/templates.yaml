@@ -65,11 +65,20 @@ definitions:
       /catalogue:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue.ftl
         jcr:primaryType: hst:template
+      /catalogue-alphabet:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-alphabet.ftl
+        jcr:primaryType: hst:template
       /catalogue-facet:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-facet.ftl
         jcr:primaryType: hst:template
       /catalogue-main:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-main.ftl
+        jcr:primaryType: hst:template
+      /catalogue-results:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-results.ftl
+        jcr:primaryType: hst:template
+      /catalogue-search:
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-search.ftl
         jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl

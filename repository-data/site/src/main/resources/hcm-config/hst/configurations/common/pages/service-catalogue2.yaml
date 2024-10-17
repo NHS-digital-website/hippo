@@ -3,12 +3,21 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/service-catalogue2:
       /main:
+        /alphabet:
+          hst:template: catalogue-alphabet
+          jcr:primaryType: hst:component
         /banner:
           hst:referencecomponent: service-catalogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
-        /filters:
+        /facets:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
           hst:template: catalogue-facet
+          jcr:primaryType: hst:component
+        /results:
+          hst:template: catalogue-results
+          jcr:primaryType: hst:component
+        /search:
+          hst:template: catalogue-search
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
         hst:parameternames:
@@ -19,7 +28,7 @@ definitions:
         - '10'
         - asc
         - 'true'
-        hst:template: apicatalogue
+        hst:template: service-catalogue
         jcr:primaryType: hst:component
       hst:cacheable: false
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
