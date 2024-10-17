@@ -18,6 +18,7 @@ definitions:
           hst:template: catalogue-results
           jcr:primaryType: hst:component
         /search:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
           hst:template: catalogue-search
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
