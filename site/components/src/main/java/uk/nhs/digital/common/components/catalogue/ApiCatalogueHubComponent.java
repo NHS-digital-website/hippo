@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
+    public static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -36,7 +37,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         super.doBeforeRender(request, response);
 
-        ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+        ApiCatalogueFilterManager apiCatalogueFilterManager = getFilterManager();
 
         List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
 
@@ -82,6 +83,10 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
             }
         }
         return (Pageable) pageable;
+    }
+
+    protected ApiCatalogueFilterManager getFilterManager() {
+        return new ApiCatalogueFilterManager(TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH);
     }
 
 }

@@ -1,0 +1,10 @@
+---
+/content/documents/administration/website/service-catalogue:
+  hippo:name: Service catalogue
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

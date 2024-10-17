@@ -12,10 +12,14 @@ import javax.jcr.Session;
 public class ApiCatalogueFilterManager {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueFilterManager.class);
-    private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
+    private final String documentPath;
+
+    public ApiCatalogueFilterManager(String documentPath) {
+        this.documentPath = documentPath;
+    }
 
     public Filters getRawFilters(HstRequest request) {
-        return rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+        return rawFilters(sessionFrom(request), this.documentPath, log);
     }
 
     private Session sessionFrom(final HstRequest request) {

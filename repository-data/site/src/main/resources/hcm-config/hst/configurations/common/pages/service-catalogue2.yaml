@@ -15,21 +15,21 @@ definitions:
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
         /results:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
+          hst:parameternames:
+          - pageSize
+          - sortOrder
+          - showPagination
+          hst:parametervalues:
+          - '10'
+          - asc
+          - 'true'
           hst:template: catalogue-results
           jcr:primaryType: hst:component
         /search:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
           hst:template: catalogue-search
           jcr:primaryType: hst:component
-        hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
-        hst:parameternames:
-        - pageSize
-        - sortOrder
-        - showPagination
-        hst:parametervalues:
-        - '10'
-        - asc
-        - 'true'
         hst:template: service-catalogue
         jcr:primaryType: hst:component
       hst:cacheable: false
