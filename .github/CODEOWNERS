@@ -1,0 +1,2 @@
+# This will restrict approvals on the entire repository to the "pr-approves" team
+* @NHS-digital-website/pr-approves
