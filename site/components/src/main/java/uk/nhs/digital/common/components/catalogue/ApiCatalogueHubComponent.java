@@ -18,44 +18,44 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-@ParametersInfo(
-    type = ApiCatalogueHubComponentInfo.class
-)
+@ParametersInfo(type = ApiCatalogueHubComponentInfo.class)
 public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
 
+    private ApiCatalogueFilterManager apiCatalogueFilterManager;
+
+    public void setApiCatalogueFilterManager(ApiCatalogueFilterManager apiCatalogueFilterManager) {
+        this.apiCatalogueFilterManager = apiCatalogueFilterManager;
+    }
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
-
         long startTime = System.currentTimeMillis();
         log.debug("Start Time:" + startTime);
 
         super.doBeforeRender(request, response);
 
-        ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+        // This is to create the object at first time when the object is not created through junit.
+        if (apiCatalogueFilterManager == null) {
+            apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+        }
 
         List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
 
-        Optional<Section> status = sections.stream()
-            .filter(section -> "Status".equals(section.getDisplayName()))
-            .findFirst();
+        Optional<Section> status = sections.stream().filter(section -> "Status".equals(section.getDisplayName())).findFirst();
 
         status.ifPresent(section -> {
-            Map<String, Section> sectionMap = section.getEntries().stream()
-                .collect(Collectors.toMap(
-                    Section::getTaxonomyKey,
-                    entry -> entry
-                ));
+            Map<String, Section> sectionMap = section.getEntries().stream().collect(Collectors.toMap(Section::getTaxonomyKey, entry -> entry));
             request.setAttribute("apiStatusEntries", sectionMap);
         });
 
-        List<Section> nonStatusSections = sections.stream()
-            .filter(section -> !"Status".equals(section.getDisplayName()))
-            .collect(Collectors.toList());
+        List<Section> nonStatusSections = sections.stream().filter(section -> !"Status".equals(section.getDisplayName())).collect(Collectors.toList());
 
         request.setAttribute("nonStatusSections", nonStatusSections);
 
@@ -64,15 +64,16 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+        log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at {} ms. Duration: {} ms", endTime, duration);
     }
 
     @Override
-    protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
-
+    public Pageable<HippoBean> doFacetedSearch(HstRequest request, EssentialsListComponentInfo paramInfo, HippoBean scope) {
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+
         HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
@@ -81,7 +82,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
             }
         }
-        return (Pageable) pageable;
+        return pageable;
     }
 
 }

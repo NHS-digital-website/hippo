@@ -18,7 +18,7 @@ public class ApiCatalogueFilterManager {
         return rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
     }
 
-    private Session sessionFrom(final HstRequest request) {
+    Session sessionFrom(final HstRequest request) {
         try {
             return request.getRequestContext().getSession();
         } catch (final RepositoryException e) {
@@ -26,7 +26,7 @@ public class ApiCatalogueFilterManager {
         }
     }
 
-    private Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
+    protected Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
         try {
             return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
                 .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
@@ -36,7 +36,7 @@ public class ApiCatalogueFilterManager {
         return Filters.emptyInstance();
     }
 
-    private Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
+    protected Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
 
         try {
             return CatalogueContext.catalogueRepository(session, taxonomyFilters).taxonomyFiltersMapping();
