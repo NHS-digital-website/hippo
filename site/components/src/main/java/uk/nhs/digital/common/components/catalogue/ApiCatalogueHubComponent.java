@@ -37,9 +37,9 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         super.doBeforeRender(request, response);
 
-        ApiCatalogueFilterManager apiCatalogueFilterManager = getFilterManager();
+        CatalogueFilterManager catalogueFilterManager = getFilterManager();
 
-        List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
+        List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
 
         Optional<Section> status = sections.stream()
             .filter(section -> "Status".equals(section.getDisplayName()))
@@ -85,8 +85,8 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         return (Pageable) pageable;
     }
 
-    protected ApiCatalogueFilterManager getFilterManager() {
-        return new ApiCatalogueFilterManager(TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH);
+    protected CatalogueFilterManager getFilterManager() {
+        return new CatalogueFilterManager(TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH);
     }
 
 }

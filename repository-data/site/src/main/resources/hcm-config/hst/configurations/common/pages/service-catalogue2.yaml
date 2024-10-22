@@ -11,7 +11,11 @@ definitions:
           hst:referencecomponent: service-catalogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
         /facets:
-          hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
+          hst:parameternames:
+          - TaxonomyFiltersMappingDocumentPath
+          hst:parametervalues:
+          - /content/documents/administration/website/service-catalogue/taxonomy-filters-mapping
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
         /results:

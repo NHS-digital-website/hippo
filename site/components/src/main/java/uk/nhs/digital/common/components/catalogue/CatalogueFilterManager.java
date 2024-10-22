@@ -9,12 +9,12 @@ import java.util.Optional;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-public class ApiCatalogueFilterManager {
+public class CatalogueFilterManager {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueFilterManager.class);
+    private static final Logger log = LoggerFactory.getLogger(CatalogueFilterManager.class);
     private final String documentPath;
 
-    public ApiCatalogueFilterManager(String documentPath) {
+    public CatalogueFilterManager(String documentPath) {
         this.documentPath = documentPath;
     }
 
