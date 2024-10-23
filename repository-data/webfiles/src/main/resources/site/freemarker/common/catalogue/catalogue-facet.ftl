@@ -25,19 +25,19 @@
             <nav>
                 <#if filtersModel?? && facets1?has_content>
                     <#list filtersModel.sections as section>
-                    <#if section.displayed>
-                        <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
-                            <input
-                                id="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                class="section-folder"
-                                type="checkbox"
-                                aria-hidden="true"
-                                <#if section.expanded>checked</#if>/>
-                            <div
-                                class="nhsd-m-filter-menu-section__menu-button section-label-container">
-                                <label
-                                    for="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                    class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
+                        <#if section.displayed>
+                            <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
+                                <input
+                                    id="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                    class="section-folder"
+                                    type="checkbox"
+                                    aria-hidden="true"
+                                    <#if section.expanded>checked</#if>/>
+                                <div
+                                    class="nhsd-m-filter-menu-section__menu-button section-label-container">
+                                    <label
+                                        for="<#if responsive>responsive_</#if>toggler_${section.key}"
+                                        class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
                                         <span
                                             class="nhsd-a-icon nhsd-a-icon--size-xxs">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -50,25 +50,25 @@
                                                     d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
                                             </svg>
                                         </span>
-                                    <span
-                                        class="<#if !responsive>filter-category-label__text</#if>nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
-                                </label>
-                            </div>
-                            <div class="section-entries nhsd-!t-margin-top-2">
-                                <#list section.entries as filter>
-                                    <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
-                                </#list>
-                                 <#if section.showMoreIndc>
-                                <div class="nhsd-m-filter-menu-section"
-                                     id="show-more">
-                                    <a class="nhsd-a-link--col-dark-grey">show
-                                        more...</a>
+                                        <span
+                                            class="<#if !responsive>filter-category-label__text</#if>nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
+                                    </label>
                                 </div>
-                                </#if>
+                                <div class="section-entries nhsd-!t-margin-top-2">
+                                    <#list section.entries as filter>
+                                        <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
+                                    </#list>
+                                    <#if section.showMoreIndc>
+                                        <div class="nhsd-m-filter-menu-section"
+                                             id="show-more">
+                                            <a class="nhsd-a-link--col-dark-grey">show
+                                                more...</a>
+                                        </div>
+                                    </#if>
+                                </div>
                             </div>
-                        </div>
-                        <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
-                   </#if>
+                            <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
+                        </#if>
                     </#list>
                 </#if>
             </nav>
@@ -93,18 +93,18 @@
                     <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
                     <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
                      <#if !filter.selectable >
-                        <a aria-label="Filter by ${filter.displayName}"
-                           href="${updatedLink}"
-                           class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                         <a aria-label="Filter by ${filter.displayName}"
+                            href="${updatedLink}"
+                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][2]}) </span>
                         </a>
                     <#else>
-                        <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                         <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox" disabled>
                             <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
                         </a>
-                    </#if>
+                     </#if>
                     <div class="checkmark"></div>
                 </label>
                 <@filterDescription filter.description()!"" responsive/>
@@ -116,10 +116,10 @@
             <div class="nhsd-m-filter-menu-section__option-group">
                 <#list filter.entries as filter>
                     <@filterTemplate filter filtersModel facets1 section nextLevel responsive></@filterTemplate>
-    </#list>
+                </#list>
             </div>
         </#if>
-</#if>
+    </#if>
 
 </#macro>
 

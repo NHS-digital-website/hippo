@@ -7,6 +7,7 @@
   - hippotaxonomy:keys
   hippofacnav:filters:
   - hippo:availability=live
+  - website:showApiResult=true
   hippofacnav:limit: 250
   hippofacnav:sortby:
   - website:title
