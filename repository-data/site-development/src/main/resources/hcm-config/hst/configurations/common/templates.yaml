@@ -8,9 +8,6 @@ definitions:
       /macro-test-page:
         hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-page.ftl
         jcr:primaryType: hst:template
-      /service-catalogue:
-        hst:renderpath: webfile:/freemarker/common/catalogue/service-catalogue.ftl
-        jcr:primaryType: hst:template
       /static-ui:
         hst:renderpath: webfile:/freemarker/common/static-ui/index.ftl
         jcr:primaryType: hst:template

@@ -36,7 +36,7 @@ definitions:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
           hst:template: catalogue-search
           jcr:primaryType: hst:component
-        hst:template: service-catalogue
+        hst:template: catalogue-main
         jcr:primaryType: hst:component
       hst:cacheable: false
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
