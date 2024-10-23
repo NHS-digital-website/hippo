@@ -15,12 +15,12 @@
             <div class="nhsd-t-flex-item--grow">
                 <div data-api-catalogue-entry="">
 
-                    <#if apiStatusEntries["apis_1"]?? && apiStatusEntries["apis_1"]?has_content>
-                        <#assign entry = apiStatusEntries["apis_1"]>
+                    <#if statusEntries["apis_1"]?? && statusEntries["apis_1"]?has_content>
+                        <#assign entry = statusEntries["apis_1"]>
                     </#if>
 
-                    <#if apiStatusEntries["api-standards"]?? && apiStatusEntries["api-standards"]?has_content>
-                        <#assign entry1 = apiStatusEntries["api-standards"]>
+                    <#if statusEntries["api-standards"]?? && statusEntries["api-standards"]?has_content>
+                        <#assign entry1 = statusEntries["api-standards"]>
                     </#if>
 
                     <#assign nonstatusentry = {}>

@@ -42,8 +42,10 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
 
         List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
 
+        String statusGroupName = parameterInfo.getTaxonomyStatusGroupName();
+
         Optional<Section> status = sections.stream()
-            .filter(section -> "Status".equals(section.getDisplayName()))
+            .filter(section -> statusGroupName.equals(section.getDisplayName()))
             .findFirst();
 
         status.ifPresent(section -> {
@@ -52,11 +54,11 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
                     Section::getTaxonomyKey,
                     entry -> entry
                 ));
-            request.setAttribute("apiStatusEntries", sectionMap);
+            request.setAttribute("statusEntries", sectionMap);
         });
 
         List<Section> nonStatusSections = sections.stream()
-            .filter(section -> !"Status".equals(section.getDisplayName()))
+            .filter(section -> !statusGroupName.equals(section.getDisplayName()))
             .collect(Collectors.toList());
 
         request.setAttribute("nonStatusSections", nonStatusSections);

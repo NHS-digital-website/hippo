@@ -16,11 +16,13 @@ definitions:
         - sortOrder
         - showPagination
         - TaxonomyFiltersMappingDocumentPath
+        - TaxonomyStatusGroupName
         hst:parametervalues:
         - '10'
         - asc
         - 'true'
         - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
+        - Status
         hst:template: apicatalogue
         jcr:primaryType: hst:component
       hst:cacheable: false
