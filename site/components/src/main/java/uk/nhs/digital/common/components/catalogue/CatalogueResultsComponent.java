@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 public class CatalogueResultsComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(CatalogueResultsComponent.class);
-    // public static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -40,28 +39,26 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
         CatalogueResultsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
         CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
 
-        List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
+        /*List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
+        Map<String, Section> sectionEntries = sections.stream()
+            .collect(Collectors.toMap(
+                Section::getTaxonomyKey,
+                entry -> entry
+            ));
+        request.setAttribute("sectionEntries", sectionEntries);*/
 
-        String statusGroupName = parameterInfo.getTaxonomyStatusGroupName();
+        List<Section> sections = Optional.ofNullable(catalogueFilterManager.getRawFilters(request))
+            .map(e -> e.getSections())
+            .orElse(Collections.emptyList());
 
-        Optional<Section> status = sections.stream()
-            .filter(section -> statusGroupName.equals(section.getDisplayName()))
-            .findFirst();
+        Map<String, Section> sectionEntries = sections.stream()
+            .flatMap(section -> section.getEntries().stream())
+            .collect(Collectors.toMap(
+                Section::getTaxonomyKey,
+                entry -> entry
+            ));
 
-        status.ifPresent(section -> {
-            Map<String, Section> sectionMap = section.getEntries().stream()
-                .collect(Collectors.toMap(
-                    Section::getTaxonomyKey,
-                    entry -> entry
-                ));
-            request.setAttribute("statusEntries", sectionMap);
-        });
-
-        List<Section> nonStatusSections = sections.stream()
-            .filter(section -> !statusGroupName.equals(section.getDisplayName()))
-            .collect(Collectors.toList());
-
-        request.setAttribute("nonStatusSections", nonStatusSections);
+        request.setAttribute("sectionEntries", sectionEntries);
 
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));
