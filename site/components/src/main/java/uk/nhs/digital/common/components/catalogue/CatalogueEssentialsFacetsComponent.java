@@ -8,6 +8,7 @@ import org.onehippo.cms7.essentials.components.EssentialsFacetsComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
+import uk.nhs.digital.common.components.info.CatalogueEssentialsFacetsComponentInfo;
 
 @ParametersInfo(
         type = CatalogueEssentialsFacetsComponentInfo.class

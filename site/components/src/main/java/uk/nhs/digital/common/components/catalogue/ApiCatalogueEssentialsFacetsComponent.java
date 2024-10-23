@@ -5,12 +5,13 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsFacetsComponent;
-import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
+import uk.nhs.digital.common.components.info.CatalogueEssentialsFacetsComponentInfo;
+import uk.nhs.digital.common.components.info.CatalogueResultsComponentInfo;
 
 import java.util.*;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ParametersInfo(
-        type = EssentialsFacetsComponentInfo.class
+        type = CatalogueEssentialsFacetsComponentInfo.class
 )
 public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsComponent {
 
@@ -37,7 +38,8 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         HashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
-        CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(ApiCatalogueHubComponent.TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH);
+        CatalogueResultsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
+        CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
         Filters rawFilters = catalogueFilterManager.getRawFilters(request);
 
         request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));

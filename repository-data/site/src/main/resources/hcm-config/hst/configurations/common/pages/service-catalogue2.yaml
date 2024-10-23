@@ -24,10 +24,12 @@ definitions:
           - pageSize
           - sortOrder
           - showPagination
+          - TaxonomyFiltersMappingDocumentPath
           hst:parametervalues:
           - '10'
           - asc
           - 'true'
+          - /content/documents/administration/website/service-catalogue/taxonomy-filters-mapping
           hst:template: catalogue-results
           jcr:primaryType: hst:component
         /search:

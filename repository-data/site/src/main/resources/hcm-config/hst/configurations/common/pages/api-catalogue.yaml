@@ -10,15 +10,17 @@ definitions:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
-        hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueHubComponent
+        hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
         hst:parameternames:
         - pageSize
         - sortOrder
         - showPagination
+        - TaxonomyFiltersMappingDocumentPath
         hst:parametervalues:
         - '10'
         - asc
         - 'true'
+        - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
         hst:template: apicatalogue
         jcr:primaryType: hst:component
       hst:cacheable: false

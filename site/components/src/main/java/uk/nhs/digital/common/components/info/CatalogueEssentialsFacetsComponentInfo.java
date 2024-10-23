@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.components.catalogue;
+package uk.nhs.digital.common.components.info;
 
 import org.hippoecm.hst.core.parameters.Parameter;
 import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
