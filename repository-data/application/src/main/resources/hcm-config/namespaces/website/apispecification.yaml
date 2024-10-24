@@ -99,6 +99,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /showApiResult:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Show as a result on the API and integration catalogue
+            field: showApiResult
+            hint: This field is only required if creating API and integration catalogue
+              content
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -137,6 +147,14 @@ definitions:
             hipposysedit:type: String
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /showApiResult:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:showApiResult
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
           /specification_id:
             hipposysedit:mandatory: false
@@ -179,87 +197,14 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-        /hipposysedit:nodetype[2]:
-          /enable_rapidoc:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:enable_rapidoc
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
-          /json:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:json
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
-          /seosummary:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seosummary
-            hipposysedit:primary: false
-            hipposysedit:type: website:seoSummary
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /shortsummary:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /specification_id:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:specification_id
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          - hippotaxonomy:classifiable
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -282,39 +227,7 @@ definitions:
           website:json: ''
           website:seosummary: ''
           website:shortsummary: ''
-          website:specification_id: ''
-          website:summary: ''
-          website:title: ''
-        /hipposysedit:prototype[2]:
-          /website:seosummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:summary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          common:FacetType: apispecification
-          common:searchRank: 5
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2020-04-29T08:12:46.842Z
-          hippostdpubwf:lastModificationDate: 2020-04-29T08:12:46.842Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - hippostd:publishableSummary
-          - hippostd:relaxed
-          - hippostdpubwf:document
-          - hippotaxonomy:classifiable
-          - hippotranslation:translated
-          - mix:referenceable
-          jcr:primaryType: nt:unstructured
-          website:enable_rapidoc: true
-          website:json: ''
-          website:seosummary: ''
-          website:shortsummary: ''
+          website:showApiResult: false
           website:specification_id: ''
           website:summary: ''
           website:title: ''
