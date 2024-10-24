@@ -21,6 +21,8 @@ import uk.nhs.digital.common.components.info.CatalogueResultsComponentInfo;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Collections.emptyList;
+
 @ParametersInfo(
     type = CatalogueResultsComponentInfo.class
 )
@@ -39,23 +41,14 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
         CatalogueResultsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
         CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
 
-        /*List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
-        Map<String, Section> sectionEntries = sections.stream()
-            .collect(Collectors.toMap(
-                Section::getTaxonomyKey,
-                entry -> entry
-            ));
-        request.setAttribute("sectionEntries", sectionEntries);*/
-
-        List<Section> sections = Optional.ofNullable(catalogueFilterManager.getRawFilters(request))
-            .map(e -> e.getSections())
-            .orElse(Collections.emptyList());
+        List<Section> sections = catalogueFilterManager.getRawFilters(request).getSections();
 
         Map<String, Section> sectionEntries = sections.stream()
-            .flatMap(section -> section.getEntries().stream())
+            .flatMap(section -> section.getEntriesAndChildEntries().stream())
             .collect(Collectors.toMap(
                 Section::getTaxonomyKey,
-                entry -> entry
+                entry -> entry,
+                (existing, replacement) -> existing  // Keep the existing entry in case of duplicate keys, but
             ));
 
         request.setAttribute("sectionEntries", sectionEntries);
@@ -67,6 +60,8 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
         long duration = endTime - startTime;
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
+
+
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
