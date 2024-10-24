@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<#include "./catalogue-functions.ftl">
 
 <div class="nhsd-t-row nhsd-!t-padding-top-1">
     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"

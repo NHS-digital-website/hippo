@@ -1,7 +1,7 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
-      jcr:primaryType: hst:templates
       /404:
         hst:renderpath: webfile:/freemarker/common/404.ftl
         jcr:primaryType: hst:template
@@ -422,3 +422,4 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates
