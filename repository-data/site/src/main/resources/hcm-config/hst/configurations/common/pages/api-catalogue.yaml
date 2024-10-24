@@ -3,6 +3,10 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/api-catalogue:
       /main:
+        /alphabet:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:template: alphabet-list
+          jcr:primaryType: hst:component
         /banner:
           hst:referencecomponent: api-catlogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
