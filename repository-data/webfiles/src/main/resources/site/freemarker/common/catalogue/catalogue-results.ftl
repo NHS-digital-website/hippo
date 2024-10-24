@@ -13,6 +13,7 @@
     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
         <#list pageable.items as document>
             <div class="nhsd-t-flex-item--grow" data-api-catalogue-entry>
+
                 <#if sectionEntries?? && sectionEntries?has_content>
                     <@hst.renderURL fullyQualified=true var="link" />
                     <#list document.keys as key>
@@ -49,43 +50,20 @@
                 <p class="nhsd-t-body" data-filterable="">${document.shortsummary}</p>
 
                 <#list document.keys as key>
-                    <p>${key}</p>
-                    <#if nonstatusentry[key]?exists>
-                        <#assign displayName = key />
-                        <#assign isTaxonomyFilterMappingTag = false />
-                        <#list nonStatusSections as section>
-
-                            <#list section.entries as subEntry>
-                                <#if subEntry.taxonomyKey == key>
-                                    <#assign displayName = subEntry.displayName />
-                                    <#assign isTaxonomyFilterMappingTag = true />
-                                </#if>
-                                <#list subEntry.entries as innersubEntry>
-                                    <#if innersubEntry.taxonomyKey == key>
-                                        <#assign displayName = innersubEntry.displayName />
-                                        <#assign isTaxonomyFilterMappingTag = true />
-                                    </#if>
-                                </#list>
-                            </#list>
-
-                        </#list>
-
-                        <#if isTaxonomyFilterMappingTag>
-                            <@hst.renderURL fullyQualified=true var="link" />
-                            <#assign taxonomyPath = "/Taxonomies/${key}" />
-                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-
-                            <#if link?contains(taxonomyPath)>
-                                <a title="Remove ${key} filter"
-                                   href="${updatedLink}"
-                                   style="line-height:1; text-decoration:none"
-                                   class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
-                            <#else>
-                                <a title="Filter by key ${key}"
-                                   href="${updatedLink}"
-                                   style="line-height:1; text-decoration:none"
-                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${displayName}</a>
-                            </#if>
+                    <#if sectionEntries[key]?has_content && !sectionEntries[key].highlight?has_content>
+                        <@hst.renderURL fullyQualified=true var="link" />
+                        <#assign taxonomyPath = "/Taxonomies/${key}" />
+                        <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                        <#if link?contains(taxonomyPath)>
+                            <a title="Remove ${key} filter"
+                               href="${updatedLink}"
+                               style="line-height:1; text-decoration:none"
+                               class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                        <#else>
+                            <a title="Filter by key ${key}"
+                               href="${updatedLink}"
+                               style="line-height:1; text-decoration:none"
+                               class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
                         </#if>
                     </#if>
                 </#list>

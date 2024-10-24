@@ -1,15 +1,12 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
+      jcr:primaryType: hst:templates
       /404:
         hst:renderpath: webfile:/freemarker/common/404.ftl
         jcr:primaryType: hst:template
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
-        jcr:primaryType: hst:template
-      /apicatalogue:
-        hst:renderpath: webfile:/freemarker/common/catalogue/apicatalogue.ftl
         jcr:primaryType: hst:template
       /apiendpoint-article:
         hst:renderpath: webfile:/freemarker/common/apiendpoint-article.ftl
@@ -61,9 +58,6 @@ definitions:
         jcr:primaryType: hst:template
       /case-study:
         hst:renderpath: webfile:/freemarker/common/case-study.ftl
-        jcr:primaryType: hst:template
-      /catalogue:
-        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue.ftl
         jcr:primaryType: hst:template
       /catalogue-alphabet:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-alphabet.ftl
@@ -428,4 +422,3 @@ definitions:
       /white-space:
         hst:renderpath: webfile:/freemarker/common/white-space.ftl
         jcr:primaryType: hst:template
-      jcr:primaryType: hst:templates
