@@ -592,7 +592,7 @@ definitions:
           /Taxonomies:
             /_any_:
               hst:componentconfigurationid: hst:pages/service-catalogue2
-              hst:relativecontentpath: faceted-api-specifications/Taxonomies/${1}
+              hst:relativecontentpath: faceted-service-catalogue/Taxonomies/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
             jcr:primaryType: hst:sitemapitem
