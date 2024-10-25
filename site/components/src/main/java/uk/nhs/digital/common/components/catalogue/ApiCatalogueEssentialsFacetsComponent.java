@@ -38,7 +38,6 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         request.setModel("facets1", facetBeanMap);
 
         ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
-
         Filters rawFilters = apiCatalogueFilterManager.getRawFilters(request);
 
         request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));

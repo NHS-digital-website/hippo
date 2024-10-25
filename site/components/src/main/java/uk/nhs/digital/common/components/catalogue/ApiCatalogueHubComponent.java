@@ -18,7 +18,9 @@ import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@ParametersInfo(type = ApiCatalogueHubComponentInfo.class)
+@ParametersInfo(
+    type = ApiCatalogueHubComponentInfo.class
+)
 public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
