@@ -11,7 +11,6 @@ import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
 import uk.nhs.digital.common.components.info.CatalogueEssentialsFacetsComponentInfo;
-import uk.nhs.digital.common.components.info.CatalogueResultsComponentInfo;
 
 import java.util.*;
 import java.util.HashMap;
