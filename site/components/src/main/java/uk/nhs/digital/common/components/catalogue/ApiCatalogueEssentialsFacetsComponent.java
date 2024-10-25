@@ -39,7 +39,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         HashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
-        CatalogueResultsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
+        CatalogueEssentialsFacetsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
         CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
         Filters rawFilters = catalogueFilterManager.getRawFilters(request);
 

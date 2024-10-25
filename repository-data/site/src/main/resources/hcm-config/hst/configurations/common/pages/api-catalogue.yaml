@@ -11,7 +11,7 @@ definitions:
           hst:referencecomponent: api-catlogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
         /facets:
-          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.ApiCatalogueEssentialsFacetsComponent
           hst:parameternames:
           - TaxonomyFiltersMappingDocumentPath
           hst:parametervalues:
