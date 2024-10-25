@@ -18,9 +18,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.info.ApiCatalogueHubComponentInfo;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @ParametersInfo(type = ApiCatalogueHubComponentInfo.class)
@@ -28,10 +26,10 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
 
-    private ApiCatalogueFilterManager apiCatalogueFilterManager;
+    private ApiCatalogueFilterManager testableApiCatalogueFilterManager;
 
     public void setApiCatalogueFilterManager(ApiCatalogueFilterManager apiCatalogueFilterManager) {
-        this.apiCatalogueFilterManager = apiCatalogueFilterManager;
+        this.testableApiCatalogueFilterManager = apiCatalogueFilterManager;
     }
 
     @Override
@@ -41,22 +39,27 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         super.doBeforeRender(request, response);
 
-        // This is to create the object at first time when the object is not created through junit.
-        if (apiCatalogueFilterManager == null) {
-            apiCatalogueFilterManager = new ApiCatalogueFilterManager();
-        }
+        ApiCatalogueFilterManager apiCatalogueFilterManager = Optional.ofNullable(this.testableApiCatalogueFilterManager)
+            .orElse(new ApiCatalogueFilterManager());
 
         List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
 
-        Optional<Section> status = sections.stream().filter(section -> "Status".equals(section.getDisplayName())).findFirst();
+        Optional<Section> status = sections.stream()
+            .filter(section -> "Status".equals(section.getDisplayName()))
+            .findFirst();
 
         status.ifPresent(section -> {
-            Map<String, Section> sectionMap = section.getEntries().stream().collect(Collectors.toMap(Section::getTaxonomyKey, entry -> entry));
+            Map<String, Section> sectionMap = section.getEntries().stream()
+                .collect(Collectors.toMap(
+                    Section::getTaxonomyKey,
+                    entry -> entry
+                ));
             request.setAttribute("apiStatusEntries", sectionMap);
         });
 
-        List<Section> nonStatusSections = sections.stream().filter(section -> !"Status".equals(section.getDisplayName())).collect(Collectors.toList());
-
+        List<Section> nonStatusSections = sections.stream()
+            .filter(section -> !"Status".equals(section.getDisplayName()))
+            .collect(Collectors.toList());
         request.setAttribute("nonStatusSections", nonStatusSections);
 
         request.setAttribute("requestContext", request.getRequestContext());
@@ -68,7 +71,8 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
     }
 
     @Override
-    public Pageable<HippoBean> doFacetedSearch(HstRequest request, EssentialsListComponentInfo paramInfo, HippoBean scope) {
+    protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
+
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
 
@@ -82,7 +86,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
                 request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
             }
         }
-        return pageable;
+        return (Pageable) pageable;
     }
 
 }

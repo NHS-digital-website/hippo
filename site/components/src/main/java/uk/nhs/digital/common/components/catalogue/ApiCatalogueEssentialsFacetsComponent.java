@@ -48,7 +48,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         log.info("End of method: doBeforeRender in ApiCatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-    protected Filters getFiltersBasedOnFacetResults(final Filters rawFilters, HashMap<String, List<Object>> facetBeanMap) {
+    Filters getFiltersBasedOnFacetResults(final Filters rawFilters, HashMap<String, List<Object>> facetBeanMap) {
         if (rawFilters != null) {
             rawFilters.getSections().forEach(section -> {
                 List<Runnable> deferredOperations = new ArrayList<>();
@@ -92,13 +92,13 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         return rawFilters;
     }
 
-    protected void displayShowMoreButton(AtomicInteger subSectionCounter, Section section) {
+    void displayShowMoreButton(AtomicInteger subSectionCounter, Section section) {
         if (subSectionCounter.get() >= section.getAmountChildrenToShow() && section.getHideChildren()) {
             section.setShowMoreIndc(true);
         }
     }
 
-    protected void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, HashMap<String, List<Object>> facetBeanMap) {
+    void displayFirstLevelParentFilter(AtomicInteger subSectionCounter, Section section, Subsection subsection, HashMap<String, List<Object>> facetBeanMap) {
         if (subSectionCounter.get() <= section.getAmountChildrenToShow()
             || section.getAmountChildrenToShow() == 0 && !section.getHideChildren()) {
             subsection.display();
@@ -115,7 +115,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         }
     }
 
-    protected void displaySecondLevelChildFilter(Subsection subsection, HashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
+    void displaySecondLevelChildFilter(Subsection subsection, HashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
         subsection.getEntries().forEach(subsectionEntry -> {
             deferredOperations.add(subsectionEntry::display);
@@ -146,28 +146,28 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
         });
     }
 
-    protected boolean isExceptionalFilter(Subsection subsection) {
+    boolean isExceptionalFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1")
             || subsection.getTaxonomyKey().equalsIgnoreCase("api-standards")
             || subsection.getTaxonomyKey().equalsIgnoreCase("medication-management");
     }
 
-    protected boolean isGrayedOutFilter(Subsection subsection) {
+    boolean isGrayedOutFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("api-standards")
             || subsection.getTaxonomyKey().equalsIgnoreCase("medication-management");
     }
 
-    protected boolean isApisFilter(Subsection subsection) {
+    boolean isApisFilter(Subsection subsection) {
         return subsection.getTaxonomyKey().equalsIgnoreCase("apis_1");
     }
 
-    protected boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, HashMap<String, List<Object>> facetBeanMap) {
+    boolean isTaxonomyKeyPresentInFacet(Subsection subsectionEntry, HashMap<String, List<Object>> facetBeanMap) {
         return Optional.ofNullable(subsectionEntry.getTaxonomyKey())
             .map(key -> facetBeanMap.containsKey(key) && !facetBeanMap.get(key).isEmpty())
             .orElse(false);
     }
 
-    protected HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
+    HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
         HashMap<String, List<Object>> facetFilterMap = new HashMap<>();
         if (facetBean.getFolders().size() > 0) {
             facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->

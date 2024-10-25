@@ -26,7 +26,7 @@ public class ApiCatalogueFilterManager {
         }
     }
 
-    protected Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
+    Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
         try {
             return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
                 .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
@@ -36,7 +36,7 @@ public class ApiCatalogueFilterManager {
         return Filters.emptyInstance();
     }
 
-    protected Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
+    Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
 
         try {
             return CatalogueContext.catalogueRepository(session, taxonomyFilters).taxonomyFiltersMapping();
