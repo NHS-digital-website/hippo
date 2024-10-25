@@ -12,11 +12,4 @@ public interface CatalogueResultsComponentInfo extends EssentialsListComponentIn
     )
     String getTaxonomyFilterMappingDocumentPath();
 
-    @Parameter(
-        name = "TaxonomyStatusGroupName",
-        required = true,
-        displayName = "The label used in the Taxonomy Filter Mapping Document used to denote status"
-    )
-    String getTaxonomyStatusGroupName();
-
 }

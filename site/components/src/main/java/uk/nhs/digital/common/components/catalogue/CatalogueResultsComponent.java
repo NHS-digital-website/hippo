@@ -21,8 +21,6 @@ import uk.nhs.digital.common.components.info.CatalogueResultsComponentInfo;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Collections.emptyList;
-
 @ParametersInfo(
     type = CatalogueResultsComponentInfo.class
 )
