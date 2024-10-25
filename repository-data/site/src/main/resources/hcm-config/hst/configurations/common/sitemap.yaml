@@ -555,33 +555,6 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /services:
         /service-catalogue:
-          /_any_:
-            /_index_:
-              hst:cacheable: true
-              hst:componentconfigurationmappingnames:
-              - website:service
-              hst:componentconfigurationmappingvalues:
-              - hst:pages/service
-              hst:relativecontentpath: ${parent}/content
-              jcr:primaryType: hst:sitemapitem
-            hst:cacheable: true
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:recentupdates
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/recent-updates
-            hst:relativecontentpath: ${parent}/${1}
-            jcr:primaryType: hst:sitemapitem
-          /_index_:
-            hst:componentconfigurationid: hst:pages/service-catalogue
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:cacheable: false
-          hst:relativecontentpath: services-catalogue
-          jcr:primaryType: hst:sitemapitem
-        /service-catalogue2:
           /Alphabet:
             /_any_:
               hst:componentconfigurationid: hst:pages/service-catalogue2

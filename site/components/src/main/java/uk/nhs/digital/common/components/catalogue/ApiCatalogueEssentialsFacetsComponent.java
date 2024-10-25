@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+// CPD-OFF
 @ParametersInfo(
         type = CatalogueEssentialsFacetsComponentInfo.class
 )
@@ -178,3 +179,4 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     }
 
 }
+// CPD-ON

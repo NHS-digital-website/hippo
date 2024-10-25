@@ -10,6 +10,10 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.info.CatalogueEssentialsFacetsComponentInfo;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 @ParametersInfo(
         type = CatalogueEssentialsFacetsComponentInfo.class
 )
@@ -28,6 +32,9 @@ public class CatalogueEssentialsFacetsComponent extends EssentialsFacetsComponen
         HippoFacetNavigationBean facetBean = request.getModel("facets");
         request.setModel("facets", facetBean);
 
+        HashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
+        request.setModel("facets1", facetBeanMap);
+
         CatalogueEssentialsFacetsComponentInfo parameterInfo = this.getComponentParametersInfo(request);
         CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
         Filters rawFilters = catalogueFilterManager.getRawFilters(request);
@@ -36,5 +43,17 @@ public class CatalogueEssentialsFacetsComponent extends EssentialsFacetsComponen
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         log.debug("End of method: doBeforeRender in CatalogueEssentialsFacetsComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+
+    }
+
+    private HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
+        HashMap<String, List<Object>> facetFilterMap = new HashMap<>();
+        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
+            facetFilterMap.put(
+                ((HippoFacetNavigationBean) i).getDisplayName(),
+                Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf(),((HippoFacetNavigationBean) i).getCount()})
+            )
+        );
+        return facetFilterMap;
     }
 }

@@ -25,7 +25,7 @@
 
             <nav>
                 <#if filtersModel?? && facets1?has_content>
-                    <#list filtersModel.sections as section>
+                    <#list filtersModel.sections as section>here
                     <#if section.displayed>
                         <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
                             <input
