@@ -557,14 +557,14 @@ definitions:
         /service-catalogue:
           /Alphabet:
             /_any_:
-              hst:componentconfigurationid: hst:pages/service-catalogue2
+              hst:componentconfigurationid: hst:pages/service-catalogue
               hst:relativecontentpath: faceted-service-catalogue/Alphabet/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
             jcr:primaryType: hst:sitemapitem
           /Taxonomies:
             /_any_:
-              hst:componentconfigurationid: hst:pages/service-catalogue2
+              hst:componentconfigurationid: hst:pages/service-catalogue
               hst:relativecontentpath: faceted-service-catalogue/Taxonomies/${1}
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
@@ -601,10 +601,10 @@ definitions:
             hst:relativecontentpath: services/service-catalogue/${1}
             jcr:primaryType: hst:sitemapitem
           /_index_:
-            hst:componentconfigurationid: hst:pages/service-catalogue2
+            hst:componentconfigurationid: hst:pages/service-catalogue
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/service-catalogue2
+          hst:componentconfigurationid: hst:pages/service-catalogue
           hst:relativecontentpath: faceted-service-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub

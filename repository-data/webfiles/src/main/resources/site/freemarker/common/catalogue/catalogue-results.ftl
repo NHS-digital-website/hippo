@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<#include "../../nhsd-common/macro/pagination.ftl">
 <#include "./catalogue-functions.ftl">
 
 <div class="nhsd-t-row nhsd-!t-padding-top-1">
@@ -74,7 +75,14 @@
         </#list>
     </div>
 
+    <#if totalAvailable?has_content>
+        <#if pageable?? && pageable.total gt 0>
+            <@pagination />
+        </#if>
+    </#if>
+
     <#if document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
         <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
     </#if>
+
 </#if>
