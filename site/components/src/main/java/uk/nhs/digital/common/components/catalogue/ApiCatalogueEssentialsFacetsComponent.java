@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ParametersInfo(
-        type = EssentialsFacetsComponentInfo.class
+    type = EssentialsFacetsComponentInfo.class
 )
 public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsComponent {
 
@@ -117,6 +117,7 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
 
     void displaySecondLevelChildFilter(Subsection subsection, HashMap<String, List<Object>> facetBeanMap, AtomicInteger subSectionCounter, Section section,
                                           AtomicBoolean display, List<Runnable> deferredOperations) {
+
         subsection.getEntries().forEach(subsectionEntry -> {
             deferredOperations.add(subsectionEntry::display);
 
@@ -181,5 +182,4 @@ public class ApiCatalogueEssentialsFacetsComponent extends EssentialsFacetsCompo
     }
 
 }
-
 
