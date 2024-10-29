@@ -391,6 +391,7 @@
             including their Summary Care Record (SCR), with the Access Control Service.</p>
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -760,7 +761,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-07-17T11:05:47.859Z
+          hippostdpubwf:lastModificationDate: 2024-08-07T14:58:11.144Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - community-health-care
@@ -797,6 +798,7 @@
             including their Summary Care Record (SCR), with the Access Control Service.</p>
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -1205,6 +1207,7 @@
             including their Summary Care Record (SCR), with the Access Control Service.</p>
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -1232,6 +1235,286 @@
         - mix:referenceable
         jcr:primaryType: hippo:handle
         jcr:uuid: 8ca5f6f2-4cb1-4665-9545-7b3265aa52df
+      /test-service-document:
+        /test-service-document[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:seosummary:
+            hippostd:content: Test Service Document6
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Test Service Document4</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>Test Service Document1</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - Test Service Document2
+          common:FullTaxonomy:
+          - draft
+          - api-standards
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Draft (API standard)
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-07T14:25:16.765Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:00:50.405Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys:
+          - draft
+          hippotranslation:id: 3b7996cb-27ff-489f-95ff-6fdb0a7e25b1
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:service
+          jcr:uuid: d8b94cac-39b5-4117-ae66-67c7d18e4d8f
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:shortsummary: Test Service Document5
+          website:showApiResult: false
+          website:title: Test Service Document3
+        /test-service-document[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:seosummary:
+            hippostd:content: Test Service Document6
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Test Service Document4</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>Test Service Document1</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - Test Service Document2
+          common:FullTaxonomy:
+          - draft
+          - api-standards
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Draft (API standard)
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-07T14:25:16.765Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:00:56.127Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys:
+          - draft
+          hippotranslation:id: 3b7996cb-27ff-489f-95ff-6fdb0a7e25b1
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          jcr:uuid: 70244b04-9fb8-4acb-b90b-ee83d0fe2673
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:shortsummary: Test Service Document5
+          website:showApiResult: false
+          website:title: Test Service Document3
+        /test-service-document[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:seosummary:
+            hippostd:content: Test Service Document6
+            jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: <p>Test Service Document4</p>
+            jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: <p>Test Service Document1</p>
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - Test Service Document2
+          common:FullTaxonomy:
+          - draft
+          - api-standards
+          - api-catalogue
+          - status
+          common:SearchableTags:
+          - Draft (API standard)
+          common:searchRank: 6
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-07T14:25:16.765Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:00:56.127Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-08-08T12:00:59.011Z
+          hippotaxonomy:keys:
+          - draft
+          hippotranslation:id: 3b7996cb-27ff-489f-95ff-6fdb0a7e25b1
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: website:service
+          jcr:uuid: ba2304de-da0a-4a60-b01e-1f9473bd288b
+          website:earlyaccesskey: ''
+          website:gossid: 0
+          website:htmlCode: ''
+          website:metadata: []
+          website:navigationcontroller: withNav
+          website:noIndexControl: ''
+          website:noindexcontrol: false
+          website:rawMetadata:
+          - ''
+          website:shortsummary: Test Service Document5
+          website:showApiResult: false
+          website:title: Test Service Document3
+        hippo:name: Test Service Document
+        hippo:versionHistory: 742e3052-6848-4303-925b-bd710020f806
+        jcr:mixinTypes:
+        - hippo:named
+        - hippo:versionInfo
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+        jcr:uuid: 7f8bb67f-04a9-4f85-99ad-feb0fec4a883
       hippo:name: Access Control Service HL7 V3
       hippostd:foldertype:
       - new-translated-folder
@@ -1445,6 +1728,7 @@
           website:shortsummary: API standards to send and receive Clinical Document
             Architecture (CDA) messages and share information in a clinically safe
             way.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -1649,6 +1933,7 @@
           website:shortsummary: API standards to send and receive Clinical Document
             Architecture (CDA) messages and share information in a clinically safe
             way.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -1855,6 +2140,7 @@
           website:shortsummary: API standards to send and receive Clinical Document
             Architecture (CDA) messages and share information in a clinically safe
             way.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -2097,6 +2383,7 @@
           website:shortsummary: The Child Screening Domain Message Specification supports
             the Child Screening Report - A CDA document containing child screening
             information. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - key-care-information
@@ -2320,6 +2607,7 @@
           website:shortsummary: The Child Screening Domain Message Specification supports
             the Child Screening Report - A CDA document containing child screening
             information. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - key-care-information
@@ -2545,6 +2833,7 @@
           website:shortsummary: The Child Screening Domain Message Specification supports
             the Child Screening Report - A CDA document containing child screening
             information. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - key-care-information
@@ -3033,6 +3322,7 @@
           website:shortsummary: Send a CDA document containing Crisis Care Extract
             information supporting the sharing of care plans for urgent and emergency
             care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - hospital
           - general-practice
@@ -3248,6 +3538,7 @@
           website:shortsummary: Send a CDA document containing Crisis Care Extract
             information supporting the sharing of care plans for urgent and emergency
             care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - hospital
           - general-practice
@@ -3465,6 +3756,7 @@
           website:shortsummary: Send a CDA document containing Crisis Care Extract
             information supporting the sharing of care plans for urgent and emergency
             care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - hospital
           - general-practice
@@ -3538,6 +3830,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
+          website:showApiResult: true
           website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
@@ -3581,6 +3874,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
+          website:showApiResult: true
           website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
@@ -3624,6 +3918,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
+          website:showApiResult: true
           website:specification_id: '123456'
           website:summary: ''
           website:title: Deprecated API
@@ -3872,6 +4167,7 @@
           website:seosummary: ''
           website:shortsummary: Generate an electronic signature using your NHS CIS2
             Authenticator.
+          website:showApiResult: true
           website:specification_id: '232323'
           website:summary: ''
           website:title: Digital Signature Service API
@@ -4100,6 +4396,7 @@
           website:seosummary: ''
           website:shortsummary: Generate an electronic signature using your NHS CIS2
             Authenticator.
+          website:showApiResult: true
           website:specification_id: '232323'
           website:summary: ''
           website:title: Digital Signature Service API
@@ -4328,6 +4625,7 @@
           website:seosummary: ''
           website:shortsummary: Generate an electronic signature using your NHS CIS2
             Authenticator.
+          website:showApiResult: true
           website:specification_id: '232323'
           website:summary: ''
           website:title: Digital Signature Service API
@@ -4730,6 +5028,7 @@
           website:seosummary: ''
           website:shortsummary: Allow Digital Staff Passport to access employee information
             in your system.2
+          website:showApiResult: true
           website:specification_id: hello-world
           website:summary: ''
           website:title: Digital Staff Passport API standard
@@ -5112,6 +5411,7 @@
           website:seosummary: ''
           website:shortsummary: Allow Digital Staff Passport to access employee information
             in your system.2
+          website:showApiResult: true
           website:specification_id: hello-world
           website:summary: ''
           website:title: Digital Staff Passport API standard
@@ -5494,6 +5794,7 @@
           website:seosummary: ''
           website:shortsummary: Allow Digital Staff Passport to access employee information
             in your system.2
+          website:showApiResult: true
           website:specification_id: hello-world
           website:summary: ''
           website:title: Digital Staff Passport API standard
@@ -5615,6 +5916,7 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - audiences
           - document
@@ -5717,6 +6019,7 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - audiences
           - document
@@ -5819,6 +6122,7 @@
             with any mapped taxonomy tags
           website:shortsummary: General document, not API Specification, not tagged
             with any mapped taxonomy tags
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - audiences
           - document
@@ -6069,6 +6373,7 @@
           website:shortsummary: Inform Public Health England (PHE) that a notifiable
             disease has been diagnosed in a patient, using our Health Protection Electronic
             Notification (HPEN) API. Includes PHE's response message.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - general-practice
           - api-service
@@ -6309,6 +6614,7 @@
           website:shortsummary: Inform Public Health England (PHE) that a notifiable
             disease has been diagnosed in a patient, using our Health Protection Electronic
             Notification (HPEN) API. Includes PHE's response message.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - general-practice
           - api-service
@@ -6551,6 +6857,7 @@
           website:shortsummary: Inform Public Health England (PHE) that a notifiable
             disease has been diagnosed in a patient, using our Health Protection Electronic
             Notification (HPEN) API. Includes PHE's response message.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - general-practice
           - api-service
@@ -6603,12 +6910,16 @@
           - security
           - patient-communication
           - reference-data
+          - document
+          - content-type
+          - data_1
+          - api-catalogue
           - tests-and-diagnostics
           common:SearchableTags:
-          - Patient communication
+          - Tests and Diagnostics
+          - Patient Communication
           - Reference data
           - Security
-          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
@@ -6618,7 +6929,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:06:30.944Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - reference-data
@@ -6725,6 +7036,7 @@
             {"type": "string", "example": "Hello user!"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
@@ -6740,12 +7052,16 @@
           - security
           - patient-communication
           - reference-data
+          - document
+          - content-type
+          - data_1
+          - api-catalogue
           - tests-and-diagnostics
           common:SearchableTags:
-          - Patient communication
+          - Tests and Diagnostics
+          - Patient Communication
           - Reference data
           - Security
-          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
@@ -6755,9 +7071,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:35.943Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:06:30.944Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-02-06T16:43:39.061Z
+          hippostdpubwf:publicationDate: 2024-08-08T12:06:37.877Z
           hippotaxonomy:keys:
           - reference-data
           - security
@@ -6863,6 +7179,7 @@
             {"type": "string", "example": "Hello user!"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
@@ -6878,12 +7195,16 @@
           - security
           - patient-communication
           - reference-data
+          - document
+          - content-type
+          - data_1
+          - api-catalogue
           - tests-and-diagnostics
           common:SearchableTags:
-          - Patient communication
+          - Tests and Diagnostics
+          - Patient Communication
           - Reference data
           - Security
-          - Tests and diagnostics
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
@@ -6892,7 +7213,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
-          hippostdpubwf:lastModificationDate: 2024-02-06T16:43:19.435Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T12:06:00.639Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - reference-data
@@ -6999,11 +7320,12 @@
             {"type": "string", "example": "Hello user!"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 325169-DISABLED
           website:summary: ''
           website:title: Hello World API
         hippo:name: Hello World API
-        hippo:versionHistory: ff9b8fc2-5fcf-4a10-8c1d-b85186efe7fa
+        hippo:versionHistory: e526a551-9186-409e-81b6-b7fe853108d6
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -7197,6 +7519,7 @@
             discharge and transfer (ADT) of a patient, or CDA messaging.</p>
           website:shortsummary: API standards for a set of messaging components using
             HL7 V2 and HL7 V3.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-standard
           - messaging-standards
@@ -7375,6 +7698,7 @@
             discharge and transfer (ADT) of a patient, or CDA messaging.</p>
           website:shortsummary: API standards for a set of messaging components using
             HL7 V2 and HL7 V3.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-standard
           - messaging-standards
@@ -7555,6 +7879,7 @@
             discharge and transfer (ADT) of a patient, or CDA messaging.</p>
           website:shortsummary: API standards for a set of messaging components using
             HL7 V2 and HL7 V3.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-standard
           - messaging-standards
@@ -7766,6 +8091,7 @@
             (LRA) for use in health and social care.</p>
           website:shortsummary: API standards for a Logical Record Architecture (LRA)
             for use in health and social care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -7954,6 +8280,7 @@
             (LRA) for use in health and social care.</p>
           website:shortsummary: API standards for a Logical Record Architecture (LRA)
             for use in health and social care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -8144,6 +8471,7 @@
             (LRA) for use in health and social care.</p>
           website:shortsummary: API standards for a Logical Record Architecture (LRA)
             for use in health and social care.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - messaging-standards
           - api-standard
@@ -9200,6 +9528,7 @@
           website:shortsummary: Transfer messages and large files securely across
             health and social care organisations using the Message Exchange for Social
             Care and Health (MESH) API.
+          website:showApiResult: true
           website:specification_id: '357490'
           website:summary: ''
           website:title: Message Exchange for Social Care and Health (MESH) API
@@ -10232,6 +10561,7 @@
           website:shortsummary: Transfer messages and large files securely across
             health and social care organisations using the Message Exchange for Social
             Care and Health (MESH) API.
+          website:showApiResult: true
           website:specification_id: '357490'
           website:summary: ''
           website:title: Message Exchange for Social Care and Health (MESH) API
@@ -11265,6 +11595,7 @@
           website:shortsummary: Transfer messages and large files securely across
             health and social care organisations using the Message Exchange for Social
             Care and Health (MESH) API.
+          website:showApiResult: true
           website:specification_id: '357490'
           website:summary: ''
           website:title: Message Exchange for Social Care and Health (MESH) API
@@ -11477,6 +11808,7 @@
             website:shortsummary: The MESH client is an application installed on your
               server. It allows files to be sent between MESH mailboxes in different
               organisations.
+            website:showApiResult: true
             website:title: MESH client guide
             website:type: ''
           /content[2]:
@@ -11677,6 +12009,7 @@
             website:shortsummary: The MESH client is an application installed on your
               server. It allows files to be sent between MESH mailboxes in different
               organisations.
+            website:showApiResult: true
             website:title: MESH client guide
             website:type: ''
           /content[3]:
@@ -11879,6 +12212,7 @@
             website:shortsummary: The MESH client is an application installed on your
               server. It allows files to be sent between MESH mailboxes in different
               organisations.
+            website:showApiResult: true
             website:title: MESH client guide
             website:type: ''
           hippo:name: MESH Client Guide
@@ -12419,6 +12753,7 @@
               mailbox.</p>
             website:shortsummary: This guide leads you through configuring your service
               and understanding the key user journeys needed to use your MESH mailbox.
+            website:showApiResult: true
             website:title: MESH client reference guide
             website:type: ''
           /mesh-client---reference-guide[2]:
@@ -12949,6 +13284,7 @@
               mailbox.</p>
             website:shortsummary: This guide leads you through configuring your service
               and understanding the key user journeys needed to use your MESH mailbox.
+            website:showApiResult: true
             website:title: MESH client reference guide
             website:type: ''
           /mesh-client---reference-guide[3]:
@@ -13481,6 +13817,7 @@
               mailbox.</p>
             website:shortsummary: This guide leads you through configuring your service
               and understanding the key user journeys needed to use your MESH mailbox.
+            website:showApiResult: true
             website:title: MESH client reference guide
             website:type: ''
           hippo:name: MESH client - reference guide
@@ -13692,6 +14029,7 @@
               which allows users to send and receive messages from their MESH mailbox.</p>
             website:shortsummary: The MESH user interface is a simple client which
               allows users to send and receive messages from their MESH mailbox.
+            website:showApiResult: true
             website:title: MESH user interface
             website:type: ''
           /content[2]:
@@ -13880,6 +14218,7 @@
               which allows users to send and receive messages from their MESH mailbox.</p>
             website:shortsummary: The MESH user interface is a simple client which
               allows users to send and receive messages from their MESH mailbox.
+            website:showApiResult: true
             website:title: MESH user interface
             website:type: ''
           /content[3]:
@@ -14070,6 +14409,7 @@
               which allows users to send and receive messages from their MESH mailbox.</p>
             website:shortsummary: The MESH user interface is a simple client which
               allows users to send and receive messages from their MESH mailbox.
+            website:showApiResult: true
             website:title: MESH user interface
             website:type: ''
           hippo:name: MESH User Interface (UI)
@@ -14232,26 +14572,26 @@
           - demographics
           common:SearchableTags:
           - Injury
-          - Accident and Emergency
           - Mental health
+          - Accident and Emergency
           - Social care
           - '111'
           - Key Care Information
           - Ambulance
           - Transport/Infrastructure
-          - General practice
           - Community health
+          - General practice
           - Hospital
           - Outpatient
-          - A&E
           - Maternity
+          - A&E
           - OUH
-          - Out-of-hours
-          - Eyecare
           - Urgent and Emergency Care
+          - Eyecare
+          - Out-of-hours
           - Internet facing
-          - NHS 111
           - UI integration
+          - NHS 111
           - Demographic
           - In production (API)
           - Patient-facing
@@ -14269,8 +14609,8 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-01-22T11:15:23.674Z
-          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:09:25.743Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - ui-integration
           - access-to-records_1
@@ -14315,6 +14655,7 @@
             Care Records Service (NCRS) to quickly and easily view patient records.
           website:shortsummary: Integrate point-of-care applications with the National
             Care Records Service (NCRS) to quickly and easily view patient records.
+          website:showApiResult: false
           website:taxonomyClassificationField:
           - ui-integration
           - access-to-records_1
@@ -14456,26 +14797,26 @@
           - demographics
           common:SearchableTags:
           - Injury
-          - Accident and Emergency
           - Mental health
+          - Accident and Emergency
           - Social care
           - '111'
           - Key Care Information
           - Ambulance
           - Transport/Infrastructure
-          - General practice
           - Community health
+          - General practice
           - Hospital
           - Outpatient
-          - A&E
           - Maternity
+          - A&E
           - OUH
-          - Out-of-hours
-          - Eyecare
           - Urgent and Emergency Care
+          - Eyecare
+          - Out-of-hours
           - Internet facing
-          - NHS 111
           - UI integration
+          - NHS 111
           - Demographic
           - In production (API)
           - Patient-facing
@@ -14490,10 +14831,11 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-01-22T11:12:26.798Z
-          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:13:04.108Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - ui-integration
           - access-to-records_1
@@ -14538,6 +14880,7 @@
             Care Records Service (NCRS) to quickly and easily view patient records.
           website:shortsummary: Integrate point-of-care applications with the National
             Care Records Service (NCRS) to quickly and easily view patient records.
+          website:showApiResult: false
           website:taxonomyClassificationField:
           - ui-integration
           - access-to-records_1
@@ -14679,26 +15022,26 @@
           - demographics
           common:SearchableTags:
           - Injury
-          - Accident and Emergency
           - Mental health
+          - Accident and Emergency
           - Social care
           - '111'
           - Key Care Information
           - Ambulance
           - Transport/Infrastructure
-          - General practice
           - Community health
+          - General practice
           - Hospital
           - Outpatient
-          - A&E
           - Maternity
+          - A&E
           - OUH
-          - Out-of-hours
-          - Eyecare
           - Urgent and Emergency Care
+          - Eyecare
+          - Out-of-hours
           - Internet facing
-          - NHS 111
           - UI integration
+          - NHS 111
           - Demographic
           - In production (API)
           - Patient-facing
@@ -14716,9 +15059,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-01-22T11:15:23.674Z
-          hippostdpubwf:lastModifiedBy: tony.heap
-          hippostdpubwf:publicationDate: 2024-01-22T11:15:27.020Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:09:25.743Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-08-08T11:09:37.775Z
           hippotaxonomy:keys:
           - ui-integration
           - access-to-records_1
@@ -14763,6 +15106,7 @@
             Care Records Service (NCRS) to quickly and easily view patient records.
           website:shortsummary: Integrate point-of-care applications with the National
             Care Records Service (NCRS) to quickly and easily view patient records.
+          website:showApiResult: false
           website:taxonomyClassificationField:
           - ui-integration
           - access-to-records_1
@@ -14779,7 +15123,7 @@
           website:title: National Care Records Service integration
           website:type: ''
         hippo:name: National Care Records Service integration
-        hippo:versionHistory: 2b471127-2423-4d4d-9429-44adec9325c8
+        hippo:versionHistory: c1552c56-34dc-4b82-a21f-4b589c017a2f
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -15228,8 +15572,8 @@
           - STU3
           - NEMS
           - Messaging
-          - Uses digital onboarding
           - API service
+          - Uses digital onboarding
           common:searchRank: 3
           common:searchable: true
           common:searchableType: true
@@ -15239,8 +15583,8 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-03-06T14:00:29.283Z
-          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:17:05.560Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - fhir
           - messaging-standards
@@ -15276,6 +15620,7 @@
           website:shortsummary: Publish and subscribe to patient-centric healthcare
             event messages with the National Events Management Service (NEMS) FHIR
             API. This national service is implemented on the NHS Spine. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - fhir
           - messaging-standards
@@ -15720,8 +16065,8 @@
           - STU3
           - NEMS
           - Messaging
-          - Uses digital onboarding
           - API service
+          - Uses digital onboarding
           common:searchRank: 3
           common:searchable: true
           common:searchableType: true
@@ -15730,8 +16075,8 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-03-06T13:58:35.207Z
-          hippostdpubwf:lastModifiedBy: tony.heap
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:16:58.424Z
+          hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - fhir
           - messaging-standards
@@ -15767,6 +16112,7 @@
           website:shortsummary: Publish and subscribe to patient-centric healthcare
             event messages with the National Events Management Service (NEMS) FHIR
             API. This national service is implemented on the NHS Spine. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - fhir
           - messaging-standards
@@ -16211,8 +16557,8 @@
           - STU3
           - NEMS
           - Messaging
-          - Uses digital onboarding
           - API service
+          - Uses digital onboarding
           common:searchRank: 3
           common:searchable: true
           common:searchableType: true
@@ -16222,9 +16568,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-03-06T14:00:29.283Z
-          hippostdpubwf:lastModifiedBy: tony.heap
-          hippostdpubwf:publicationDate: 2024-03-06T14:00:43.289Z
+          hippostdpubwf:lastModificationDate: 2024-08-08T11:17:05.560Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-08-08T11:17:08.626Z
           hippotaxonomy:keys:
           - fhir
           - messaging-standards
@@ -16260,6 +16606,7 @@
           website:shortsummary: Publish and subscribe to patient-centric healthcare
             event messages with the National Events Management Service (NEMS) FHIR
             API. This national service is implemented on the NHS Spine. 
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - fhir
           - messaging-standards
@@ -16277,7 +16624,7 @@
           website:title: National Events Management Service - FHIR API
           website:type: ''
         hippo:name: National Events Management Service - FHIR API
-        hippo:versionHistory: 4fd7f77f-7687-4e24-a8f6-444919bbee4e
+        hippo:versionHistory: 28748dc3-646b-4101-8b95-51c7cfdefad2
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -16439,6 +16786,7 @@
             risk mitigation.</p>
           website:shortsummary: Submit a hazard and risk log to demonstrate your risk
             mitigation.
+          website:showApiResult: true
           website:taxonomyClassificationField: []
           website:title: NEMS FHIR API onboarding support information
           website:type: ''
@@ -16595,6 +16943,7 @@
             risk mitigation.</p>
           website:shortsummary: Submit a hazard and risk log to demonstrate your risk
             mitigation.
+          website:showApiResult: true
           website:taxonomyClassificationField: []
           website:title: NEMS FHIR API onboarding support information
           website:type: ''
@@ -16753,6 +17102,7 @@
             risk mitigation.</p>
           website:shortsummary: Submit a hazard and risk log to demonstrate your risk
             mitigation.
+          website:showApiResult: true
           website:taxonomyClassificationField: []
           website:title: NEMS FHIR API onboarding support information
           website:type: ''
@@ -17041,6 +17391,7 @@
             Office 365, use EWS Managed API 2.0, not EWS.&nbsp;</p>'
           website:shortsummary: Integrate with NHSmail using these native Microsoft
             Exchange APIs.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-service
           - central
@@ -17313,6 +17664,7 @@
             Office 365, use EWS Managed API 2.0, not EWS.&nbsp;</p>'
           website:shortsummary: Integrate with NHSmail using these native Microsoft
             Exchange APIs.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-service
           - central
@@ -17587,6 +17939,7 @@
             Office 365, use EWS Managed API 2.0, not EWS.&nbsp;</p>'
           website:shortsummary: Integrate with NHSmail using these native Microsoft
             Exchange APIs.
+          website:showApiResult: true
           website:taxonomyClassificationField:
           - api-service
           - central
@@ -17794,6 +18147,7 @@
             NHS England and Wales. Always 10 digits and must be a [valid NHS Number](https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp).","type":"string","pattern":"^\\d{10}$","example":"9000000009"},"deathDateTime":{"type":"string","format":"date-time","example":"2021-04-22T10:00:00+00:00"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
@@ -17971,6 +18325,7 @@
             NHS England and Wales. Always 10 digits and must be a [valid NHS Number](https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp).","type":"string","pattern":"^\\d{10}$","example":"9000000009"},"deathDateTime":{"type":"string","format":"date-time","example":"2021-04-22T10:00:00+00:00"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
@@ -18150,6 +18505,7 @@
             NHS England and Wales. Always 10 digits and must be a [valid NHS Number](https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp).","type":"string","pattern":"^\\d{10}$","example":"9000000009"},"deathDateTime":{"type":"string","format":"date-time","example":"2021-04-22T10:00:00+00:00"}}}}}}'
           website:seosummary: ''
           website:shortsummary: API specification tagged with mapped taxonomy tags
+          website:showApiResult: true
           website:specification_id: 320396-DISABLED
           website:summary: ''
           website:title: Personal Demographics Service - FHIR API
@@ -18309,6 +18665,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
+          website:showApiResult: true
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
@@ -18365,6 +18722,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
+          website:showApiResult: true
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
@@ -18419,6 +18777,7 @@
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
+          website:showApiResult: true
           website:specification_id: '654321'
           website:summary: ''
           website:title: Retired API
