@@ -18,23 +18,25 @@
 
                 <#if sectionEntries?? && sectionEntries?has_content>
                     <@hst.renderURL fullyQualified=true var="link" />
-                    <#list document.keys as key>
-                        <#if sectionEntries[key]?has_content && sectionEntries[key].highlight?has_content>
-                            <#assign taxonomyPath = "/Taxonomies/${key}">
-                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                            <#if link?contains(taxonomyPath)>
-                                <a title="Remove ${sectionEntries[key].displayName} filter"
-                                   href="${updatedLink}"
-                                   style="line-height:1; text-decoration:none"
-                                   class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
-                            <#else>
-                                <a title="Filter by ${subEntry.displayName}"
-                                   href="${updatedLink}"
-                                   style="line-height:1; text-decoration:none"
-                                   class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                    <#if document.keys?has_content>
+                        <#list document.keys as key>
+                            <#if sectionEntries[key]?has_content && sectionEntries[key].highlight?has_content>
+                                <#assign taxonomyPath = "/Taxonomies/${key}">
+                                <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                                <#if link?contains(taxonomyPath)>
+                                    <a title="Remove ${sectionEntries[key].displayName} filter"
+                                       href="${updatedLink}"
+                                       style="line-height:1; text-decoration:none"
+                                       class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                                <#else>
+                                    <a title="Filter by ${subEntry.displayName}"
+                                       href="${updatedLink}"
+                                       style="line-height:1; text-decoration:none"
+                                       class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                                </#if>
                             </#if>
-                        </#if>
-                    </#list>
+                        </#list>
+                    </#if>
                 </#if>
 
                 <@hst.link hippobean=document var="link1"/>
@@ -51,24 +53,26 @@
 
                 <p class="nhsd-t-body" data-filterable="">${document.shortsummary}</p>
 
-                <#list document.keys as key>
-                    <#if sectionEntries[key]?has_content && !sectionEntries[key].highlight?has_content>
-                        <@hst.renderURL fullyQualified=true var="link" />
-                        <#assign taxonomyPath = "/Taxonomies/${key}" />
-                        <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                        <#if link?contains(taxonomyPath)>
-                            <a title="Remove ${key} filter"
-                               href="${updatedLink}"
-                               style="line-height:1; text-decoration:none"
-                               class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
-                        <#else>
-                            <a title="Filter by key ${key}"
-                               href="${updatedLink}"
-                               style="line-height:1; text-decoration:none"
-                               class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                <#if document.keys?has_content>
+                    <#list document.keys as key>
+                        <#if sectionEntries[key]?has_content && !sectionEntries[key].highlight?has_content>
+                            <@hst.renderURL fullyQualified=true var="link" />
+                            <#assign taxonomyPath = "/Taxonomies/${key}" />
+                            <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
+                            <#if link?contains(taxonomyPath)>
+                                <a title="Remove ${key} filter"
+                                   href="${updatedLink}"
+                                   style="line-height:1; text-decoration:none"
+                                   class="nhsd-a-tag filter-tag-yellow-highlight nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                            <#else>
+                                <a title="Filter by key ${key}"
+                                   href="${updatedLink}"
+                                   style="line-height:1; text-decoration:none"
+                                   class="nhsd-a-tag nhsd-a-tag--bg-light-grey nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
+                            </#if>
                         </#if>
-                    </#if>
-                </#list>
+                    </#list>
+                </#if>
             </div>
 
             <hr class="nhsd-a-horizontal-rule">
@@ -81,7 +85,7 @@
         </#if>
     </#if>
 
-    <#if document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
+    <#if document?? && document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
         <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
     </#if>
 

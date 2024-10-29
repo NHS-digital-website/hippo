@@ -1,3 +1,6 @@
+<#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
+
 <div class="nhsd-t-float-left">
     <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-2">Search</h6>
 </div>
@@ -15,7 +18,7 @@
                 autocomplete="off"
                 placeholder="What are you looking for today?"
                 aria-label="Keywords"
-                value="${query}"
+                value="${(query)!}"
             />
             <span class="nhsd-t-form-control__button">
                 <button class="nhsd-a-button nhsd-a-button--circle"
