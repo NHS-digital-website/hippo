@@ -25,15 +25,21 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
     private static final Logger log = LoggerFactory.getLogger(ApiCatalogueHubComponent.class);
 
+    private ApiCatalogueFilterManager testableApiCatalogueFilterManager;
+
+    public void setApiCatalogueFilterManager(ApiCatalogueFilterManager apiCatalogueFilterManager) {
+        this.testableApiCatalogueFilterManager = apiCatalogueFilterManager;
+    }
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
-
         long startTime = System.currentTimeMillis();
         log.debug("Start Time:" + startTime);
 
         super.doBeforeRender(request, response);
 
-        ApiCatalogueFilterManager apiCatalogueFilterManager = new ApiCatalogueFilterManager();
+        ApiCatalogueFilterManager apiCatalogueFilterManager = Optional.ofNullable(this.testableApiCatalogueFilterManager)
+            .orElse(new ApiCatalogueFilterManager());
 
         List<Section> sections = apiCatalogueFilterManager.getRawFilters(request).getSections();
 
@@ -53,7 +59,6 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
         List<Section> nonStatusSections = sections.stream()
             .filter(section -> !"Status".equals(section.getDisplayName()))
             .collect(Collectors.toList());
-
         request.setAttribute("nonStatusSections", nonStatusSections);
 
         request.setAttribute("requestContext", request.getRequestContext());
@@ -61,7 +66,7 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
+        log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at {} ms. Duration: {} ms", endTime, duration);
     }
 
     /* All documents with type apispecification or general or service that do not
@@ -75,7 +80,9 @@ public class ApiCatalogueHubComponent extends EssentialsListComponent {
 
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+
         HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
