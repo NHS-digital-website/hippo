@@ -29,7 +29,7 @@
                                        style="line-height:1; text-decoration:none"
                                        class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>
                                 <#else>
-                                    <a title="Filter by ${subEntry.displayName}"
+                                    <a title="Filter by ${sectionEntries[key].displayName}"
                                        href="${updatedLink}"
                                        style="line-height:1; text-decoration:none"
                                        class="nhsd-a-tag nhsd-a-tag--bg-${sectionEntries[key].highlight} nhsd-!t-margin-top-3 nhsd-!t-margin-bottom-1">${sectionEntries[key].displayName}</a>

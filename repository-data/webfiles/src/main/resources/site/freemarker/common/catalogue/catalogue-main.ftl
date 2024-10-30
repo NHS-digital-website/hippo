@@ -12,12 +12,12 @@
     </div>
 
     <div class="nhsd-t-row">
-        <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
+        <div class="nhsd-t-col-l-3 nhsd-t-col-m-12">
             <@hst.include ref='facets'/>
         </div>
         <div class="nhsd-t-col-l-9 nhsd-t-col-m-12">
             <div class="nhsd-t-row">
-                <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0">
+                <div class="nhsd-t-col-l-8 nhsd-!t-padding-left-0 nhsd-!t-padding-bottom-1 nhsd-!t-padding-top-l-4">
                     <@hst.include ref='search'/>
                 </div>
 

@@ -11,7 +11,7 @@ import javax.jcr.Session;
 
 public class CatalogueFilterManager {
 
-    private static final Logger log = LoggerFactory.getLogger(CatalogueFilterManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(CatalogueFilterManager.class);
     private final String documentPath;
 
     public CatalogueFilterManager(String documentPath) {
@@ -19,7 +19,7 @@ public class CatalogueFilterManager {
     }
 
     public Filters getRawFilters(HstRequest request) {
-        return rawFilters(sessionFrom(request), this.documentPath, log);
+        return rawFilters(sessionFrom(request), this.documentPath);
     }
 
     private Session sessionFrom(final HstRequest request) {
@@ -30,9 +30,9 @@ public class CatalogueFilterManager {
         }
     }
 
-    private Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
+    private Filters rawFilters(Session session, String taxonomyFilters) {
         try {
-            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
+            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters)
                 .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
         } catch (final Exception e) {
             logger.error("Failed to generate Filters model.", e);
@@ -40,7 +40,7 @@ public class CatalogueFilterManager {
         return Filters.emptyInstance();
     }
 
-    private Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
+    private Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters) {
 
         try {
             return CatalogueContext.catalogueRepository(session, taxonomyFilters).taxonomyFiltersMapping();

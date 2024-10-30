@@ -8,7 +8,7 @@
     <div class="nhsd-t-form-control">
         <@hst.renderURL fullyQualified=true var="searchUrlLink" />
         <form
-            action="${searchUrlLink}<#if showRetired>?&showRetired</#if>"
+            action="${searchUrlLink}"
             method="get">
             <input
                 class="nhsd-t-form-input"

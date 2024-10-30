@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<nav class="nhsd-m-character-block-list ${ariaLabel}">
+<nav class="nhsd-m-character-block-list">
     <ul data-uipath="website.glossary.az-nav">
         <#if facets??>
             <#list facets.folders as facetValue>

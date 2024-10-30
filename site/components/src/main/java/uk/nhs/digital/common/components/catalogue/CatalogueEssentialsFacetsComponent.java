@@ -31,8 +31,6 @@ public class CatalogueEssentialsFacetsComponent extends EssentialsFacetsComponen
 
         super.doBeforeRender(request, response);
         HippoFacetNavigationBean facetBean = request.getModel("facets");
-
-        request.setModel("facets", facetBean);
         HashMap<String, List<Object>> facetBeanMap = getFacetFilterMap(facetBean);
         request.setModel("facets1", facetBeanMap);
 
