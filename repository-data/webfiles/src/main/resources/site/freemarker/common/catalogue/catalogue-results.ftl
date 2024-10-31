@@ -4,16 +4,35 @@
 <#include "./catalogue-functions.ftl">
 
 <div class="nhsd-t-row nhsd-!t-padding-top-1">
-    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0"
-        id="search-results-count"><#if totalAvailable?has_content> ${totalAvailable} <#else>0</#if>
-        results </h6>
+    <h6 class="nhsd-t-heading-xs nhsd-!t-margin-bottom-0" id="search-results-count">
+        <#if totalAvailable?has_content>${totalAvailable} <#else>0</#if> results
+    </h6>
 </div>
 
-<div class="nhsd-!t-padding-top-4"/>
+<div class="nhsd-!t-padding-top-4"></div>
 
 <#if totalAvailable?has_content>
+
     <div id="list-page-results-list" class="nhsd-!t-margin-bottom-9">
+        <#assign currentLetter = "">
+
         <#list pageable.items as document>
+            <#-- Extract the first letter of the current document title -->
+            <#assign firstLetter = document.title?substring(0, 1)?upper_case>
+
+            <#-- Check if this first letter is different from the currentLetter -->
+            <#if firstLetter != currentLetter>
+                <#-- Update currentLetter and add the letter marker -->
+                <#assign currentLetter = firstLetter>
+                <div id="${currentLetter?lower_case}" class="nhsd-t-flex" data-uipath="website.glossary.list">
+                    <div class="nhsd-!t-margin-right-5">
+                        <span class="nhsd-a-character-block nhsd-a-character-block--large nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
+                            ${currentLetter}
+                        </span>
+                    </div>
+                    <div class="nhsd-t-flex-item--grow">
+            </#if>
+
             <div class="nhsd-t-flex-item--grow" data-api-catalogue-entry>
 
                 <#if sectionEntries?? && sectionEntries?has_content>
@@ -76,17 +95,22 @@
             </div>
 
             <hr class="nhsd-a-horizontal-rule">
+
+            <#-- Add pagination only after the last item, but with the correct possion relative to the letter flex -->
+            <#if document?is_last>
+                <#if totalAvailable?has_content && pageable?? && pageable.total gt 0>
+                    <div class="pagination-container nhsd-!t-margin-top-9">
+                        <@pagination />
+                    </div>
+                </#if>
+            </#if>
+
+            <#-- Check if the next item has a different starting letter, or if this is the last item -->
+            <#if document?is_last || pageable.items[document?index + 1].title?substring(0, 1)?upper_case != currentLetter>
+                    </div> <!-- Close nhsd-t-flex-item--grow -->
+                </div> <!-- Close nhsd-t-flex -->
+            </#if>
         </#list>
     </div>
-
-    <#if totalAvailable?has_content>
-        <#if pageable?? && pageable.total gt 0>
-            <@pagination />
-        </#if>
-    </#if>
-
-    <#if document?? && document.entriesFooterContentTitle?has_content?? && document.entriesFooterContentBody?has_content??>
-        <@entriesFooter document.entriesFooterContentTitle document.entriesFooterContentBody/>
-    </#if>
 
 </#if>

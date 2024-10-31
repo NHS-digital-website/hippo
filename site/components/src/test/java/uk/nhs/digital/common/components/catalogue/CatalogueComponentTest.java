@@ -1,8 +1,6 @@
 package uk.nhs.digital.common.components.catalogue;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
@@ -13,7 +11,6 @@ import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static uk.nhs.digital.test.TestLogger.LogAssertor.error;
 
-import com.google.common.collect.ImmutableSet;
 import org.hippoecm.hst.container.ModifiableRequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstParameterInfoProxyFactoryImpl;
@@ -47,16 +44,16 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RunWith(PowerMockRunner.class)
-@PrepareOnlyThisForTest({CatalogueContext.class, ServiceCatalogueComponent.class})
-public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
+@PrepareOnlyThisForTest({CatalogueContext.class, CatalogueComponent.class})
+public class CatalogueComponentTest extends MockitoSessionTestBase {
 
     @Rule
-    public TestLoggerRule logger = TestLoggerRule.targeting(ServiceCatalogueComponent.class);
+    public TestLoggerRule logger = TestLoggerRule.targeting(CatalogueComponent.class);
 
     private static final String REQUEST_ATTR_RESULTS = "catalogueLinks";
     private static final String REQUEST_ATTR_FILTERS = "filtersModel";
 
-    private ServiceCatalogueComponent serviceCatalogueComponent;
+    private CatalogueComponent catalogueComponent;
 
     @Mock private ComponentManager componentManager;
     @Mock private CatalogueRepository catalogueRepository;
@@ -93,7 +90,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
         irrelevantResponse = new MockHstResponse();
 
-        serviceCatalogueComponent = new ServiceCatalogueComponent();
+        catalogueComponent = new CatalogueComponent();
 
         request.getRequestContext().setModel("facetsNavHelper", facetNavHelper);
         when(facetNavHelper.getAllTags()).thenReturn(allTags());
@@ -105,7 +102,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
         // when
         when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
-        serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+        catalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
@@ -136,7 +133,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
 
         // when
         when(expectedFiltersFromFactory.initialisedWith(any(), any())).thenReturn(expectedFiltersFromFactory);
-        serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+        catalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
@@ -161,7 +158,7 @@ public class ServiceCatalogueComponentTest extends MockitoSessionTestBase {
         given(filtersFactory.filtersFromMappingYaml(any(String.class))).willThrow(new RuntimeException("Invalid YAML."));
 
         // when
-        serviceCatalogueComponent.doBeforeRender(request, irrelevantResponse);
+        catalogueComponent.doBeforeRender(request, irrelevantResponse);
 
         // then
         final List<?> actualResults = (List<?>) request.getAttribute(REQUEST_ATTR_RESULTS);
