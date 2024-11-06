@@ -1,6 +1,7 @@
 ---
 /content/documents/corporate-website/faceted-api-specifications:
   hippo:docbase: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
+  hippo:name: API and integration catalogue
   hippofacnav:facetnodenames:
   - Taxonomies
   - Alphabet
@@ -35,4 +36,6 @@
   - website:title
   hippofacnav:sortorder:
   - ascending
+  jcr:mixinTypes:
+  - hippo:named
   jcr:primaryType: hippofacnav:facetnavigation

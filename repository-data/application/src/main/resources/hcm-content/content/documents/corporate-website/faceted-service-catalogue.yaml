@@ -1,6 +1,7 @@
 ---
 /content/documents/corporate-website/faceted-service-catalogue:
   hippo:docbase: e0d04061-9917-47c1-b3a2-d2326856d8af
+  hippo:name: Service Catalogue
   hippofacnav:facetnodenames:
   - Taxonomies
   - Alphabet
@@ -36,4 +37,6 @@
   - website:title
   hippofacnav:sortorder:
   - ascending
+  jcr:mixinTypes:
+  - hippo:named
   jcr:primaryType: hippofacnav:facetnavigation

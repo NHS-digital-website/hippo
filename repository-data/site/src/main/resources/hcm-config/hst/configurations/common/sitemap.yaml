@@ -441,7 +441,6 @@ definitions:
           hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
-        hst:relativecontentpath: developer
         jcr:primaryType: hst:sitemapitem
       /error:
         /404:
@@ -608,7 +607,6 @@ definitions:
           hst:relativecontentpath: faceted-service-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
-        hst:relativecontentpath: nhsd-services-hub
         jcr:primaryType: hst:sitemapitem
       /supplementary-info:
         hst:componentconfigurationid: hst:pages/supplementaryinformation
