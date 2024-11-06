@@ -66,7 +66,14 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
 
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
-        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+        String searchQuery = this.getSearchQuery(request);
+
+        if (searchQuery != null && !searchQuery.isEmpty()) {
+            searchQuery = "xpath(//*[jcr:contains(@website:title,'" + searchQuery + "') or jcr:contains(@website:shortsummary,'" + searchQuery + "')])";
+        }
+
+        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, searchQuery);
+
         if (facetBean != null) {
             HippoResultSetBean resultSet = facetBean.getResultSet();
             if (resultSet != null) {
