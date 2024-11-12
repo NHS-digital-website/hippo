@@ -270,6 +270,9 @@ definitions:
             field: showApiResult
             hint: This field is only required if creating API and integration catalogue
               content
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /showServiceResult:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -446,6 +449,9 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:showApiResult
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /showServiceResult:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
