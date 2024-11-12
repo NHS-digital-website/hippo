@@ -31,7 +31,7 @@
     {name: ''Z'', resolution: ''string'', lower: ''z'', upper: ''a''}]'
   hippofacnav:filters:
   - hippo:availability=live
-  - jcr:primaryType=website:service
+  - website:showServiceResult=true
   hippofacnav:limit: 250
   hippofacnav:sortby:
   - website:title
