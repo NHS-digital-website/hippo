@@ -123,6 +123,7 @@
           for patients, healthcare workers and carers. It allows relevant information
           to be shared quickly, safely and in a format that is useful. It will eventually
           be available in all care settings.
+        website:showServiceResult: true
         website:title: Booking and Referral Standard
       /content[2]:
         /website:component:
@@ -247,6 +248,7 @@
           for patients, healthcare workers and carers. It allows relevant information
           to be shared quickly, safely and in a format that is useful. It will eventually
           be available in all care settings.
+        website:showServiceResult: true
         website:title: Booking and Referral Standard
       /content[3]:
         /website:component:
@@ -371,6 +373,7 @@
           for patients, healthcare workers and carers. It allows relevant information
           to be shared quickly, safely and in a format that is useful. It will eventually
           be available in all care settings.
+        website:showServiceResult: true
         website:title: Booking and Referral Standard
       hippo:name: Booking and Referral Standard
       hippo:versionHistory: d6d9b947-5b62-4d30-808c-1bae6f551b45
