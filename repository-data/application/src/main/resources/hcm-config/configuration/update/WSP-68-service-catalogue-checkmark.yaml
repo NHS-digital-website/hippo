@@ -8,8 +8,8 @@ definitions:
       hipposys:loglevel: DEBUG
       hipposys:logtarget: REPOSITORY
       hipposys:parameters: '{}'
-      hipposys:query: /jcr:root/content/documents/corporate-website/services//*[(@jcr:primaryType='publicationsystem:archive'
-        or @jcr:primaryType='publicationsystem:dataset')]
+      hipposys:query: /jcr:root/content/documents/corporate-website/services//*[(@jcr:primaryType='website:general'
+        or @jcr:primaryType='website:service')]
       hipposys:script:
         resource: /configuration/update/WSP-68-service-catalogue-checkmark.groovy
         type: string
