@@ -29,12 +29,12 @@ class ServiceCatalogueCheckmark extends BaseNodeUpdateVisitor {
         def path = n.getPath()
 
         def nodeType = n.getPrimaryNodeType().getName()
-        if (n.hasProperty("common:showServiceResult")) {
-            log.info("Skipped - Adding common:showServiceResult to node: " + path + " => current node type: " + nodeType)
+        if (n.hasProperty("website:showServiceResult")) {
+            log.info("Skipped - Adding website:showServiceResult to node: " + path + " => current node type: " + nodeType)
             return false
         } else {
-            log.info("Success - Adding common:showServiceResult to node: " + path + " => current node type: " + nodeType)
-            n.setProperty("common:showServiceResult", true)
+            log.info("Success - Adding website:showServiceResult to node: " + path + " => current node type: " + nodeType)
+            n.setProperty("website:showServiceResult", true)
             return true
         }
     }
