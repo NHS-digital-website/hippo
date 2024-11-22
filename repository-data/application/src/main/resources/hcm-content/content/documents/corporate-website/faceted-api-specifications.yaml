@@ -32,7 +32,7 @@
   hippofacnav:filters:
   - hippo:availability=live
   - website:showApiResult=true
-  hippofacnav:limit: 250
+  hippofacnav:limit: 100
   hippofacnav:sortby:
   - website:title
   hippofacnav:sortorder:

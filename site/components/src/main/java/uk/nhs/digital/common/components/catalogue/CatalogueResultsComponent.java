@@ -79,7 +79,7 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
             if (resultSet != null) {
                 HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
                 pageable = this.getPageableFactory().createPageable(iterator, facetBean.getResultSet().getDocumentSize(), paramInfo.getPageSize(), this.getCurrentPage(request));
-                request.setAttribute("totalAvailable", facetBean.getResultSet().getDocumentSize());
+                request.setAttribute("totalAvailable", facetBean.getCount());
             }
         }
         return pageable;

@@ -405,3 +405,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: fd593b84-0c8d-4f4d-8a8d-849666eed5ae
