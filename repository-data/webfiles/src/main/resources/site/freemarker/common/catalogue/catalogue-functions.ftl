@@ -2,6 +2,12 @@
 <#include "../../include/imports.ftl">
 
 <#function updateOrRemoveLinkWithTaxonomyPath link taxonomyPath>
+
+    <#-- Ensure the link doesn't end with a trailing slash -->
+    <#if link?ends_with("/")>
+        <#assign link = link[0..<link?length-1]>
+    </#if>
+
     <#-- Split the link into base URL and query parameters -->
     <#assign parts = link?split("?", 2)>
     <#assign baseURL = parts[0]>
