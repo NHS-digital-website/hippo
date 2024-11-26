@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.7.13</version>
+        <version>15.3.0</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -80,8 +80,8 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <bloomreach.version>14.7.13</bloomreach.version>
-        <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
+        <bloomreach.version>${hippo.release.version}</bloomreach.version>
+        <bloomreach.essential.dashboard>${hippo.release.version}</bloomreach.essential.dashboard>
         <h2.database.version>2.1.214</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -149,6 +149,9 @@
         <forge.resetpassword.version>5.0</forge.resetpassword.version>
         <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
+        <!--***START temporary override of versions*** -->
+        <!-- ***END temporary override of versions*** -->
+
         <!-- Built-in caches use ecache v2.x.
         Custom caching that needs durable on-disk caching uses v3.x
         due to insufficient support for on-disk caching in v2.x. -->
@@ -174,7 +177,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>1.2.6</cucumber.version>
+        <cucumber.version>7.14.0</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
@@ -188,7 +191,8 @@
         <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
-        <jackson-coreutils.version>1.8</jackson-coreutils.version>
+        <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
@@ -202,7 +206,7 @@
         <log4j.version>2.17.2</log4j.version>
         <logback.version>1.2.11</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
-        <maven-enforcer.version>3.0.0</maven-enforcer.version>
+        <maven-enforcer.version>3.3.0</maven-enforcer.version>
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
         <maven-frontend.version>1.15.0</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
@@ -218,8 +222,6 @@
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.1.1</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <snakeyaml.version>1.30</snakeyaml.version>
-        <spring.version>5.3.22</spring.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
@@ -974,7 +976,7 @@
                         <reactorModuleConvergence/>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
-                            <version>[1.8.0,1.8.1)</version>
+                            <version>[11,)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
                             <!-- Any Maven 3 version is allowed -->
@@ -1052,6 +1054,31 @@
                     <groupId>com.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>runtime</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.pitest</groupId>
@@ -1323,6 +1350,31 @@
             <id>dist-with-development-data</id>
             <dependencies>
                 <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
                     <scope>provided</scope>
@@ -1390,6 +1442,31 @@
         <profile>
             <id>dist</id>
             <dependencies>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>provided</scope>
+                </dependency>
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
