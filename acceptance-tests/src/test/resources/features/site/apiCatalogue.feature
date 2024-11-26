@@ -1,5 +1,18 @@
 Feature: API Catalogue in Developer hub
 
+    Scenario: API Catalogue renders all results in A- Z style
+        Given I navigate to "Static API Catalogue" page
+        Then I should see page titled "API and integration catalogue"
+        And I can see labelled element "document.title" with content "API and integration catalogue"
+        And I should see the "Alphabetical navigation" list containing:
+            | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+        And the index is rendered with entries:
+            | text | href  | aria-label                                    |
+            | A    | #a    | Jump to articles starting with the letter 'A' |
+            | G    | #g    | Jump to articles starting with the letter 'G' |
+            | H    | #h    | Jump to articles starting with the letter 'H' |
+            | P    | #p    | Jump to articles starting with the letter 'P' |
+
     Scenario: API Catalogue renders all results when no filters applied
         Given I navigate to "Static API Catalogue" page
         Then I should see page titled "API and integration catalogue"
