@@ -61,8 +61,7 @@
                                         <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
                                     </#list>
                                     <#if section.showMoreIndc>
-                                        <div class="nhsd-m-filter-menu-section"
-                                             id="show-more">
+                                        <div class="nhsd-m-filter-menu-section show-more">
                                             <a class="nhsd-a-link--col-dark-grey">show
                                                 more...</a>
                                         </div>
@@ -79,6 +78,9 @@
     </div>
     <div class="nhsd-t-body nhsd-!t-display-hide nhsd-!t-display-l-show"><a
             class="nhsd-a-link" href="#">Back to top</a></div>
+
+    <script src="<@hst.webfile path="/catalogue/catalogue.js"/>"></script>
+
 </div>
 
 <#macro filterTemplate filter filtersModel facets1 section indentationLevel=0 responsive=false>
