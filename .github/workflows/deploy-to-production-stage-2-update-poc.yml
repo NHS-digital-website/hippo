@@ -1,0 +1,141 @@
+name: Deploy to Production - Stage 2 update PoC
+
+on:
+  # Hotfix Deployment
+  repository_dispatch:
+    types:
+      - slack-deploy-hotfix-command-odv2
+  # A Normal Deployment
+  schedule:
+    # Runs at 12:05pm GMT weekdays
+    - cron: "5 12 * * 1-5"
+
+env:
+  PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
+  TARGET: "production"
+  SLACK_CHANNEL: "C0353KHFXNJ"
+
+jobs:
+
+  # For Hotfix Deployment Only
+  integrity:
+    name: Slack Integrity Check
+    # Only runs for SLACK Command (hotfix)
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: (github.event_name != 'schedule')
+    steps:
+      # Validate that the command is called from deployment-od2-prod
+      - name: Checking source
+        uses: actions/github-script@v7
+        env:
+          CHANNEL_ID: ${{ github.event.client_payload.data.channel_id }}
+        if: ${{ env.CHANNEL_ID !='C0353KHFXNJ' }}
+        with:
+          script: |
+            core.setFailed('Caller source not verified!')
+
+      #
+      # Validate that the origin is from Slack
+      # See: https://api.slack.com/authentication/verifying-requests-from-slack
+      #
+      - name: Validate Origin
+        uses: actions/github-script@v7
+        env:
+          AGENT: ${{ github.event.client_payload.integrity.agent }}
+          BODY: ${{ github.event.client_payload.integrity.body }}
+          TIMESTAMP: ${{ github.event.client_payload.integrity.timestamp }}
+          SIGNATURE: ${{ github.event.client_payload.integrity.signature }}
+          SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+        with:
+          script: |
+            if(!`${process.env.AGENT}`.startsWith("Slackbot")){
+                core.setFailed("User agent mismatch.")
+            } else {
+                const base = `v0:${process.env.TIMESTAMP}:${process.env.BODY}`
+                const hash = require('crypto').createHmac('sha256', `${process.env.SIGNING_SECRET}`).update(base).digest("hex")
+                if(`${process.env.SIGNATURE}` !== `v0=${hash}`) {
+                  core.setFailed("The origin integrity check failed.")
+                }
+            }
+
+
+  # For Hotfix Deployment Only
+  update-tag-hotfix:
+    runs-on: ubuntu-latest
+    name: Move tag uat to rc for Hotfix
+    # Only runs for SLACK Command (hotfix)
+    needs: integrity
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      # If this fails on GitHub for a permissions issues (that may seem unrelated) run the failing command
+      # on your DevOps laptop. Then rerun the failed job.
+      - name: Tagging the build
+        run: |
+          make git.update-environment-tag ENV=rc VERSION=uat
+
+
+  check-changes:
+    name: Check for Code Changes
+    runs-on: ubuntu-latest
+    needs: [update-tag-hotfix,integrity]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      - name: Check for Changes and Exit if None
+        id: check_changes
+        run: |
+          if [ "$(git log prd..rc)" != "" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected. Skipping deployment."
+            exit 0
+          fi
+        outputs:
+          changes: ${{ steps.check_changes.outputs.changes }}
+
+      - name: Notify No Changes Detected
+        if: ${{ steps.check_changes.outputs.changes == 'false' }}
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
+          TITLE: ":zzz: No code changes detected."
+          MESSAGE: |
+            Today's deployment skipped.
+
+
+  prepare-prod-deployment:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
+    needs: check-changes
+    steps:
+      - name: Test
+        run: |
+          echo "This job run"
+
+
+
+  post-deployment:
+    needs: prepare-prod-deployment
+    if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
+    timeout-minutes: 60
+    name: Updating Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: |
+          echo "This job run"
