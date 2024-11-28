@@ -92,13 +92,23 @@
 
             <span class="nhsd-a-checkbox">
                 <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
-                    <@hst.renderURL fullyQualified=true var="link" />
-                    <#assign taxonomyPath = "/Taxonomies/${filter.taxonomyKey}">
-                    <#assign updatedLink = updateOrRemoveLinkWithTaxonomyPath(link, taxonomyPath) />
-                    <input onclick="window.location='${updatedLink}'" type="checkbox" <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
+
+                    <#assign isFacetSelected = (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1])>
+                    <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][0]?has_content>
+                        <#assign facetBean = facets1[filter.taxonomyKey][0]>
+                    </#if>
+
+                    <#-- Check if the facet is selected -->
+                    <#if isFacetSelected>
+                        <@hst.facetnavigationlink var="facetLink" remove=facetBean current=facetBean />
+                    <#else>
+                        <@hst.link var="facetLink" hippobean=facetBean />
+                    </#if>
+
+                    <input onclick="window.location='${facetLink}'" type="checkbox" <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
                      <#if !filter.selectable >
                          <a aria-label="Filter by ${filter.displayName}"
-                            href="${updatedLink}"
+                            href="${facetLink}"
                             class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
                             <input type="checkbox">
                                 <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][2]}) </span>
