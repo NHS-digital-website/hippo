@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "catalogue-functions.ftl">
 
 <#assign markdownDescription = "uk.nhs.digital.common.components.catalogue.FilterDescriptionDirective"?new() />
 <#assign responsive = true />
