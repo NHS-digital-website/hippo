@@ -52,7 +52,7 @@ public class CatalogueEssentialsFacetsComponent extends EssentialsFacetsComponen
 
     }
 
-    private HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
+    static HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
         HashMap<String, List<Object>> facetFilterMap = new HashMap<>();
         facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
             facetFilterMap.put(

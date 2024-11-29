@@ -24,12 +24,14 @@ definitions:
           - pageSize
           - sortOrder
           - showPagination
-          - TaxonomyFiltersMappingDocumentPath
+          - taxonomyFiltersMappingDocumentPath
+          - facetsName
           hst:parametervalues:
           - '10'
           - asc
           - 'true'
           - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
+          - faceted-api-specifications
           hst:template: catalogue-results
           jcr:primaryType: hst:component
         /search:
