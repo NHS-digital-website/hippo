@@ -85,6 +85,9 @@ jobs:
     name: Check for Code Changes
     runs-on: ubuntu-latest
     needs: [update-tag-hotfix,integrity]
+    outputs:
+      changes: ${{ steps.check_changes.outputs.changes }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -101,8 +104,6 @@ jobs:
             echo "No changes detected. Skipping deployment."
             exit 0
           fi
-        outputs:
-          changes: ${{ steps.check_changes.outputs.changes }}
 
       - name: Notify No Changes Detected
         if: ${{ steps.check_changes.outputs.changes == 'false' }}
