@@ -31,7 +31,7 @@
         </#if>
     </#if>
 
-    <#if document.class.name?contains("FeedHub")>
+    <#if (document.class.name?contains("FeedHub"))!false>
         <div class="nhsd-t-body nhsd-!t-margin-top-6 nhsd-!t-margin-bottom-0"
              data-uipath="document.ctabutton">
             <#if document.ctabutton?? && document.ctabutton.items[0]?has_content>

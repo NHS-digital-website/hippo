@@ -141,6 +141,14 @@ definitions:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /service-catalogue-homepage:
+        /banner:
+          .meta:residual-child-node-category: content
+          hst:label: Banner
+          hst:lastmodified: 2024-07-15T15:32:03.200Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /servicepage:
         /servicepage-bottom:
           .meta:residual-child-node-category: content
