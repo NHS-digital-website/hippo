@@ -84,6 +84,7 @@ jobs:
   check-changes:
     name: Check for Code Changes
     runs-on: ubuntu-latest
+    if: ${{ !failure() }}
     needs: [update-tag-hotfix,integrity]
     outputs:
       changes: ${{ steps.check_changes.outputs.changes }}
