@@ -5,14 +5,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.hst.util.PathUtils;
 import org.onehippo.cms7.essentials.components.EssentialsFacetsComponent;
+import org.onehippo.cms7.essentials.components.info.EssentialsFacetsComponentInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@ParametersInfo(
+    type = EssentialsFacetsComponentInfo.class
+)
 public class FilteredEssentialsFacetsComponent extends EssentialsFacetsComponent {
 
     private static final Logger log = LoggerFactory.getLogger(FilteredEssentialsFacetsComponent.class);
