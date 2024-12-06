@@ -4,7 +4,7 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/api-catalogue:
       /main:
         /alphabet:
-          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsFacetsComponent
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.FilteredEssentialsFacetsComponent
           hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
         /banner:
