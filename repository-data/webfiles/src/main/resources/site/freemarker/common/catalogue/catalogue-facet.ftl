@@ -100,8 +100,11 @@
                     <#-- Check if the facet is selected -->
                     <#if isFacetSelected>
                         <@hst.facetnavigationlink var="facetLink" remove=facetBean current=facetBean />
+
                     <#else>
-                        <@hst.link var="facetLink" hippobean=facetBean />
+                        <@hst.link var="facetLink" hippobean=facetBean>
+                            <@hst.param name="query" value="${query}" />
+                        </@hst.link>
                     </#if>
 
                     <input onclick="window.location='${facetLink}'" type="checkbox" <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
