@@ -2,6 +2,7 @@ package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.facetnavigation.AbstractHippoFacetChildNavigation;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.onehippo.forge.breadcrumb.components.BreadcrumbProvider;
@@ -42,16 +43,48 @@ public class CustomBreadcrumbProvider  extends BreadcrumbProvider {
 
             HippoBean currentItemBean = currentBean;
             for (int i = 0; i < steps; i++) {
-                BreadcrumbItem item = getBreadcrumbItem(request, currentItemBean);
-                if (item != null) {
-                    items.add(item);
-                }
+                addBreadcrumbItem(items, currentItemBean, request);
                 currentItemBean = currentItemBean.getParentBean();
             }
         }
     }
+
+    @Override
+    protected void addAncestorBasedParentItems(final List<BreadcrumbItem> items, final HippoBean currentBean,
+                                               final HippoBean ancestorBean, final HstRequest request) {
+
+        HippoBean currentItemBean = currentBean;
+        while (!currentItemBean.isSelf(ancestorBean)) {
+            addBreadcrumbItem(items, currentItemBean, request);
+            currentItemBean = currentItemBean.getParentBean();
+        }
+    }
+
+    @Override
+    protected void addContentBasedItems(final List<BreadcrumbItem> items, HippoBean currentBean,
+                                        final ResolvedSiteMapItem currentSmi,
+                                        final HstRequest request) {
+
+        final HippoBean siteContentBean = request.getRequestContext().getSiteContentBaseBean();
+
+        HippoBean bean = currentBean;
+
+        // go up to until site content base bean
+        while (!bean.isSelf(siteContentBean)) {
+            addBreadcrumbItem(items, bean, request);
+            bean = bean.getParentBean();
+        }
+    }
+
+    private void addBreadcrumbItem(final List<BreadcrumbItem> items, final HippoBean currentBean,
+                                   final HstRequest request) {
+        //ignore any child facets, we only want to show the root facet
+        if (!(currentBean instanceof AbstractHippoFacetChildNavigation)) {
+            final BreadcrumbItem item = getBreadcrumbItem(request, currentBean);
+            if (item != null && item.getLink() != null && !item.getLink().isNotFound()) {
+                items.add(item);
+            }
+        }
+    }
+
 }
-
-
-
-

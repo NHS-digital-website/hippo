@@ -6,6 +6,7 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import uk.nhs.digital.common.beans.RecentUpdates;
+import uk.nhs.digital.common.components.info.RecentUpdatesComponentInfo;
 
 @ParametersInfo(
     type = RecentUpdatesComponentInfo.class
