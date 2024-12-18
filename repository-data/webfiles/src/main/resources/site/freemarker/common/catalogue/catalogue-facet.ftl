@@ -132,6 +132,7 @@
     </#if>
 </#macro>
 
+
 <#function updateOrRemoveLinkWithTaxonomyPath link taxonomyPath>
 <#-- Split the link into base URL and query parameters -->
     <#assign parts = link?split("?", 2)>
