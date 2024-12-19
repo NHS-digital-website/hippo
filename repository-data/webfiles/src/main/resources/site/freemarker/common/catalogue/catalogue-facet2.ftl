@@ -52,6 +52,15 @@
     </#if>
 </#function>
 
+<#-- Helper function to decide if an element should be hidden -->
+<#function shouldHide(childrenToShowCounter, section, checked)>
+    <#if (!checked && childrenToShowCounter lte 0 && section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)>
+        <#return true>
+    <#else>
+        <#return false>
+    </#if>
+</#function>
+
 <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
     <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
         <div style="padding-bottom: 2.5rem">
@@ -126,7 +135,7 @@
 
                                         <#if facetFilterMap[subsection.taxonomyKey]?? || (subsection.entries?has_content && !nestedSkipped)>
                                             <#assign showMoreCounter = showMoreCounter + 1>
-                                            <div class="section-label-container <#if childrenToShowCounter lte 0 && (section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)>nhsd-!t-display-hide</#if>">
+                                            <div class="section-label-container <#if shouldHide(childrenToShowCounter, section, checked)>nhsd-!t-display-hide</#if>">
                                                 <span class="nhsd-a-checkbox">
                                                     <#-- Check if the facet is selected -->
                                                     <#if facetFilterMap[subsection.taxonomyKey]??>
@@ -195,7 +204,7 @@
                                                                 </@hst.link>
                                                             </#if>
 
-                                                            <div class="section-label-container <#if childrenToShowCounter lte 0 && (section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)>nhsd-!t-display-hide</#if>">
+                                                            <div class="section-label-container <#if shouldHide(childrenToShowCounter, section, checked)>nhsd-!t-display-hide</#if>">
                                                                 <span class="nhsd-a-checkbox">
                                                                     <label class="filter-label ">
                                                                         <input
