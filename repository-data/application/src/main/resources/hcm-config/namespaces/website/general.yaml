@@ -273,6 +273,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /showServiceResult:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Show as a result on the Service catalogue
+            field: showServiceResult
+            hint: This field is only required if creating a document for the Service
+              catalogue. The document must also be on the /services path (i.e. within
+              the Services folder).
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -441,6 +452,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
+          /showServiceResult:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:showServiceResult
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /string:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -601,6 +620,7 @@ definitions:
           website:propmtuserorg: Do not prompt
           website:shortsummary: ''
           website:showApiResult: false
+          website:showServiceResult: false
           website:title: ''
           website:type: ''
         jcr:primaryType: hipposysedit:prototypeset

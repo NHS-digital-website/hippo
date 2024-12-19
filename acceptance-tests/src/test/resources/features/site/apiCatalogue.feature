@@ -12,7 +12,7 @@ Feature: API Catalogue in Developer hub
 
     Scenario: API Catalogue renders filtered results when filters applied
         Given I navigate to "Static API Catalogue" page
-        When I click on the label for "toggler_integration-type"
+        When I click on the label for "responsive_toggler_integration-type"
         And I can see the following links:
             | text                                     | href                                                                   |
             | Access Control Service HL7 V3 API | /site/developer/api-catalogue/access-control-service-hl7-v3 |
@@ -21,7 +21,7 @@ Feature: API Catalogue in Developer hub
 
     Scenario: API Catalogue renders filtered results when filters applied via taxonomy tag
         Given I navigate to "Static API Catalogue" page
-        When I click on the label for "toggler_integration-type"
+        When I click on the label for "responsive_toggler_integration-type"
         And I can see the following links:
             | text                                     | href                                                                   |
             | Access Control Service HL7 V3 API | /site/developer/api-catalogue/access-control-service-hl7-v3 |
