@@ -37,6 +37,8 @@ public class CatalogueEssentialsFacetsComponent extends FilteredEssentialsFacets
         CatalogueFilterManager catalogueFilterManager = new CatalogueFilterManager(parameterInfo.getTaxonomyFilterMappingDocumentPath());
         Filters rawFilters = catalogueFilterManager.getRawFilters(request);
 
+        request.setAttribute("filters", rawFilters);
+
         request.setAttribute("filtersModel",getFiltersBasedOnFacetResults(rawFilters,facetBeanMap));
 
         long endTime = System.currentTimeMillis();
