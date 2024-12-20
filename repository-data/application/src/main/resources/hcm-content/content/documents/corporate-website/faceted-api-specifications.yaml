@@ -35,6 +35,8 @@
   hippofacnav:limit: 100
   hippofacnav:sortby:
   - website:title
+  hippofacnav:sortfunction:
+  - lower-case
   hippofacnav:sortorder:
   - ascending
   jcr:mixinTypes:
