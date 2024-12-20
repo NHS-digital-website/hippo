@@ -2,43 +2,102 @@
 <#include "../../include/imports.ftl">
 
 <#assign markdownDescription = "uk.nhs.digital.common.components.catalogue.FilterDescriptionDirective"?new() />
-<#assign responsive = true />
 
-<@hst.setBundle basename="month-names"/>
+<#-- Helper fuction to determine if all items in the subsections and the nested subsections are skipped -->
+<#function isSkipped(entries)>
+    <#local result = true>
+    <#list entries as entry>
+        <#if facetFilterMap[entry.taxonomyKey]??>
+        <#-- If we find something in facetFilterMap for this entry, it's not skipped -->
+            <#local result = false>
+            <#break>
+        <#elseif entry.entries?has_content>
+        <#-- If nested entries are not skipped, then this isn't skipped -->
+            <#if !isSkipped(entry.entries)>
+                <#local result = false>
+                <#break>
+            </#if>
+        </#if>
+    </#list>
+    <#return result>
+</#function>
+
+<#-- Helper fuction to determine if any item in the subsections and nested subsections are checked -->
+<#function hasChecked(entries)>
+    <#list entries as entry>
+    <#-- Check if facetFilterMap[entry.taxonomyKey] exists and has a truthy second element -->
+        <#if (facetFilterMap[entry.taxonomyKey]?? && facetFilterMap[entry.taxonomyKey][1])>
+            <#return true>
+        <#elseif entry.entries?has_content>
+        <#-- Recursively check nested entries -->
+            <#if hasChecked(entry.entries)>
+                <#return true>
+            </#if>
+        </#if>
+    </#list>
+    <#-- If no conditions matched, return false -->
+    <#return false>
+</#function>
+
+<#-- Helper funciton to strip all filters from the URL -->
+<#function getBaseURL url>
+    <#assign index = url?index_of("Taxonomies") />
+    <#assign index1 = url?index_of("?") />
+    <#if index != -1>
+        <#return url[0..(index - 2)] />
+    <#elseif index1 != -1>
+        <#return url[0..(index1 - 1)] />
+    <#else>
+        <#return url />
+    </#if>
+</#function>
+
+<#-- Helper function to decide if an element should be hidden -->
+<#function shouldHide(childrenToShowCounter, section, checked)>
+    <#if (!checked && childrenToShowCounter lte 0 && section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)>
+        <#return true>
+    <#else>
+        <#return false>
+    </#if>
+</#function>
 
 <div class="nhsd-!t-display-sticky nhsd-!t-display-sticky--offset-2">
     <div class="nhsd-a-box nhsd-a-box--border-grey nhsd-!t-margin-right-3 nhsd-!t-margin-bottom-5 nhsd-api-catalogue__scrollable-component">
         <div style="padding-bottom: 2.5rem">
             <div style="justify-content: space-between" class="nhsd-t-row">
+
                 <h2 class="nhsd-t-heading-xs">
                     <span class="filter-head__title">Filters</span>
                 </h2>
-                <@hst.renderURL fullyQualified=true var="link" />
-                <#assign baseURL = getBaseURL(link) />
+
+
                 <span class="nhsd-t-body">
-                    <a class="nhsd-a-link nhsd-!t-padding-0" href="${baseURL}"
-                       title="Reset filters">
+                    <@hst.renderURL fullyQualified=true var="link" />
+                    <#assign baseURL = getBaseURL(link) />
+                    <a class="nhsd-a-link nhsd-!t-padding-0" href="${baseURL}" title="Reset filters">
                         Reset filters
                     </a>
                 </span>
             </div>
 
             <nav>
-                <#if filtersModel?? && facets1?has_content>
-                    <#list filtersModel.sections as section>
-                    <#if section.displayed>
-                        <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
-                            <input
-                                id="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                class="section-folder"
-                                type="checkbox"
-                                aria-hidden="true"
-                                <#if section.expanded>checked</#if>/>
-                            <div
-                                class="nhsd-m-filter-menu-section__menu-button section-label-container">
-                                <label
-                                    for="<#if responsive>responsive_</#if>toggler_${section.key}"
-                                    class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
+                <#if filters?has_content>
+                    <#list filters.sections as section>
+                        <#assign skipped = isSkipped(section.entries)>
+                        <#if !skipped>
+                            <div> <#-- the div separates sections so that CSS sibling selectors '~' only target elements within one section. -->
+                                <#assign checked = hasChecked(section.entries)>
+                                <input
+                                    id="responsive_toggler_${section.key}"
+                                    class="section-folder"
+                                    type="checkbox"
+                                    aria-hidden="true"
+                                    <#if checked || (section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)>checked</#if>
+                                />
+                                <div class="nhsd-m-filter-menu-section__menu-button section-label-container">
+                                    <label
+                                        for="responsive_toggler_${section.key}"
+                                        class="filter-category-label <#if section.description()??>filter-category-label__described</#if> nhsd-m-filter-menu-section__heading-text">
                                         <span
                                             class="nhsd-a-icon nhsd-a-icon--size-xxs">
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -51,111 +110,148 @@
                                                     d="M8,12L1,5.5L2.5,4L8,9.2L13.5,4L15,5.5L8,12z"></path>
                                             </svg>
                                         </span>
-                                        <span
-                                            class="<#if !responsive>filter-category-label__text</#if>nhsd-t-body-s <#if section.expanded>selected</#if>">${section.displayName}</span>
+                                        <span class="filter-category-label__text nhsd-t-body-s">${section.displayName}</span>
                                     </label>
-                                </div>
-                                <div class="section-entries nhsd-!t-margin-top-2">
-                                    <#list section.entries as filter>
-                                        <@filterTemplate filter filtersModel facets1 section 0 responsive></@filterTemplate>
-                                    </#list>
-                                    <#if section.showMoreIndc>
-                                        <div class="nhsd-m-filter-menu-section show-more">
-                                            <a class="nhsd-a-link--col-dark-grey">show
-                                                more...</a>
+                                    <#if section.description()??>
+                                        <div class="section-label-description">
+                                           <@markdownDescription description=section.description() />
                                         </div>
                                     </#if>
                                 </div>
-                            </div>
+
+                                <div class="section-entries nhsd-!t-margin-top-2">
+
+                                    <#-- Initialize counters -->
+                                    <#assign childrenToShowCounter = (section.amountChildrenToShow?? && section.amountChildrenToShow gt 0)?then(section.amountChildrenToShow, 0) />
+                                    <#assign showMoreCounter = 0>
+
+                                    <#-- Loop through subsections -->
+                                    <#list section.entries as subsection>
+
+                                        <#assign nestedSkipped = true />
+                                        <#if subsection.entries?has_content>
+                                            <#assign nestedSkipped = isSkipped(subsection.entries)>
+                                        </#if>
+
+                                        <#if facetFilterMap[subsection.taxonomyKey]?? || (subsection.entries?has_content && !nestedSkipped)>
+                                            <#assign showMoreCounter = showMoreCounter + 1>
+                                            <div class="section-label-container <#if shouldHide(childrenToShowCounter, section, checked)>nhsd-!t-display-hide</#if>">
+                                                <span class="nhsd-a-checkbox">
+                                                    <#-- Check if the facet is selected -->
+                                                    <#if facetFilterMap[subsection.taxonomyKey]??>
+                                                        <#assign facetBean = facetFilterMap[subsection.taxonomyKey][0]>
+                                                        <#if facetFilterMap[subsection.taxonomyKey][1]>
+                                                            <@hst.facetnavigationlink var="facetLink" remove=facetBean current=facetBean />
+                                                        <#else>
+                                                            <@hst.link var="facetLink" hippobean=facetBean>
+                                                                <@hst.param name="query" value="${query}" />
+                                                            </@hst.link>
+                                                        </#if>
+                                                        <label class="filter-label <#if subsection.description()??>filter-label__described</#if>">
+                                                            <input
+                                                                onclick="window.location = '${facetLink}'"
+                                                                type="checkbox"
+                                                                 <#if facetFilterMap[subsection.taxonomyKey][1]>checked</#if>
+                                                            >
+                                                            <a aria-label="Filter by ${subsection.displayName}"
+                                                               href="${facetLink}"
+                                                               class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if facetFilterMap[subsection.taxonomyKey][1]>selected</#if> <#if subsection.entries?has_content>nhsd-!t-font-weight-bold</#if>">
+                                                                <input type="checkbox">
+                                                                <span class="filter-label__text">${subsection.displayName} (${facetFilterMap[subsection.taxonomyKey][2]})</span>
+                                                                <#assign childrenToShowCounter = childrenToShowCounter - 1 />
+                                                            </a>
+                                                            <div class="checkmark"></div>
+                                                        </label>
+                                                        <#if subsection.description()??>
+                                                            <div class="section-label-description">
+                                                                <@markdownDescription description=subsection.description() />
+                                                            </div>
+                                                        </#if>
+                                                    <#else>
+                                                        <div class="section-label-container ">
+                                                            <label class="filter-label ">
+                                                                <input type="checkbox" disabled>
+                                                                     <span class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s nhsd-!t-font-weight-bold">
+                                                                        <input type="checkbox" disabled>
+                                                                        <span class="filter-label__text">${subsection.displayName}</span>
+                                                                    </span>
+                                                                <div class="checkmark"></div>
+                                                            </label>
+                                                            <#if subsection.description()??>
+                                                                <div class="section-label-description">
+                                                                    <@markdownDescription description=subsection.description() />
+                                                                </div>
+                                                            </#if>
+                                                        </div>
+                                                    </#if>
+                                                </span>
+                                            </div>
+
+                                            <#-- If there are further nested entries, display them -->
+                                            <#if subsection.entries?has_content>
+                                                <div class="nhsd-m-filter-menu-section__option-group">
+                                                    <#list subsection.entries as nestedSubsection>
+                                                        <#if facetFilterMap[nestedSubsection.taxonomyKey]??>
+                                                            <#assign showMoreCounter = showMoreCounter + 1>
+
+                                                            <#-- Check if the facet is selected -->
+                                                            <#assign facetBean = facetFilterMap[nestedSubsection.taxonomyKey][0]>
+                                                            <#if facetFilterMap[nestedSubsection.taxonomyKey][1]>
+                                                                <@hst.facetnavigationlink var="facetLink" remove=facetBean current=facetBean />
+                                                            <#else>
+                                                                <@hst.link var="facetLink" hippobean=facetBean>
+                                                                    <@hst.param name="query" value="${query}" />
+                                                                </@hst.link>
+                                                            </#if>
+
+                                                            <div class="section-label-container <#if shouldHide(childrenToShowCounter, section, checked)>nhsd-!t-display-hide</#if>">
+                                                                <span class="nhsd-a-checkbox">
+                                                                    <label class="filter-label ">
+                                                                        <input
+                                                                            onclick="window.location = '${facetLink}'"
+                                                                            type="checkbox"
+                                                                            <#if facetFilterMap[nestedSubsection.taxonomyKey][1]>checked</#if>
+                                                                        >
+                                                                            <a aria-label="Filter by ${nestedSubsection.displayName}"
+                                                                               href="${facetLink}"
+                                                                               class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if facetFilterMap[nestedSubsection.taxonomyKey][1]>selected</#if>">
+                                                                                <input type="checkbox">
+                                                                                <span class="filter-label__text">${nestedSubsection.displayName} (${facetFilterMap[nestedSubsection.taxonomyKey][2]})</span>
+                                                                                <#assign childrenToShowCounter = childrenToShowCounter - 1 />
+                                                                            </a>
+                                                                        <div class="checkmark"></div>
+                                                                    </label>
+                                                                    <#if nestedSubsection.description()??>
+                                                                        <div class="section-label-description">
+                                                                           <@markdownDescription description=nestedSubsection.description() />
+                                                                        </div>
+                                                                    </#if>
+                                                                </span>
+                                                            </div>
+                                                        </#if>
+                                                    </#list>
+                                                </div>
+                                            </#if>
+                                        </#if>
+                                        <#if subsection?is_last>
+                                            <#if !checked &&  section.amountChildrenToShow?? && section.amountChildrenToShow gt 0 && section.amountChildrenToShow lt showMoreCounter>
+                                                <div class="nhsd-m-filter-menu-section show-more">
+                                                    <a class="nhsd-a-link--col-dark-grey">show more...</a>
+                                                </div>
+                                            </#if>
+                                        </#if>
+                                    </#list>
+                                </div>
+                            </div><!-- end new div -->
                             <hr class="nhsd-a-horizontal-rule nhsd-a-horizontal-rule--size-s">
                         </#if>
                     </#list>
+                <#else>
+                    <p>No filters available.</p>
                 </#if>
             </nav>
-
         </div>
     </div>
-    <div class="nhsd-t-body nhsd-!t-display-hide nhsd-!t-display-l-show"><a
-            class="nhsd-a-link" href="#">Back to top</a></div>
-
-    <script src="<@hst.webfile path="/catalogue/catalogue.js"/>"></script>
-
 </div>
 
-<#macro filterTemplate filter filtersModel facets1 section indentationLevel=0 responsive=false>
-    <@hst.link var="baseUrl"/>
-
-    <#if (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey]?exists) || (filter.taxonomyKey == "apis_1" || filter.taxonomyKey == "api-standards" || filter.taxonomyKey == "medication-management")>
-
-        <div class="section-label-container <#if !filter.isDisplayed()>nhsd-!t-display-hide</#if>"><#-- This div is needed to add vertical spacing between checkboxes -->
-
-            <span class="nhsd-a-checkbox">
-                <label class="filter-label <#if filter.description()??>filter-label__described</#if>">
-
-                    <#assign isFacetSelected = (facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1])>
-                    <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][0]?has_content>
-                        <#assign facetBean = facets1[filter.taxonomyKey][0]>
-                    </#if>
-
-                    <#-- Check if the facet is selected -->
-                    <#if isFacetSelected>
-                        <@hst.facetnavigationlink var="facetLink" remove=facetBean current=facetBean />
-
-                    <#else>
-                        <@hst.link var="facetLink" hippobean=facetBean>
-                            <@hst.param name="query" value="${query}" />
-                        </@hst.link>
-                    </#if>
-
-                    <input onclick="window.location='${facetLink}'" type="checkbox" <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][1]>checked</#if> <#if filter.selectable>disabled</#if> >
-                     <#if !filter.selectable >
-                         <a aria-label="Filter by ${filter.displayName}"
-                            href="${facetLink}"
-                            class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.selected>selected</#if> <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                            <input type="checkbox">
-                                <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} (${facets1[filter.taxonomyKey][2]}) </span>
-                        </a>
-                    <#else>
-                         <a class="nhsd-a-checkbox__label nhsd-!t-margin-bottom-0 nhsd-t-body-s <#if filter.entries?has_content>nhsd-!t-font-weight-bold</#if>">
-                            <input type="checkbox" disabled>
-                            <span class="<#if !responsive>filter-label__text</#if>">${filter.displayName} <#if facets1[filter.taxonomyKey]?has_content && facets1[filter.taxonomyKey][2] != "0">(${facets1[filter.taxonomyKey][2]})</#if></span>
-                        </a>
-                     </#if>
-                    <div class="checkmark"></div>
-                </label>
-                <@filterDescription filter.description()!"" responsive/>
-            </span>
-        </div>
-
-        <#local nextLevel = indentationLevel + 1>
-        <#if filter.entries?has_content>
-            <div class="nhsd-m-filter-menu-section__option-group">
-                <#list filter.entries as filter>
-                    <@filterTemplate filter filtersModel facets1 section nextLevel responsive></@filterTemplate>
-                </#list>
-            </div>
-        </#if>
-    </#if>
-
-</#macro>
-
-
-<#macro filterDescription description responsive>
-    <#if description?? && !responsive>
-        <div class="section-label-description">
-            <@markdownDescription description=description/>
-        </div>
-    </#if>
-</#macro>
-
-<#function getBaseURL url>
-    <#assign index = url?index_of("Taxonomies") />
-    <#assign index1 = url?index_of("?") />
-    <#if index != -1>
-        <#return url[0..(index - 2)] />
-    <#elseif index1 != -1>
-        <#return url[0..(index1 - 1)] />
-    <#else>
-        <#return url />
-    </#if>
-</#function>
+<script src="<@hst.webfile path="/catalogue/catalogue.js"/>"></script>

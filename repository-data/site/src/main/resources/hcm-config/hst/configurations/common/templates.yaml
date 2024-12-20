@@ -63,7 +63,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-alphabet.ftl
         jcr:primaryType: hst:template
       /catalogue-facet:
-        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-facet2.ftl
+        hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-facet.ftl
         jcr:primaryType: hst:template
       /catalogue-main:
         hst:renderpath: webfile:/freemarker/common/catalogue/catalogue-main.ftl
