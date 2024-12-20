@@ -80,12 +80,49 @@ jobs:
         run: |
           make git.update-environment-tag ENV=rc VERSION=uat
 
+
+  check-changes:
+    name: Check for Code Changes
+    runs-on: ubuntu-latest
+    if: ${{ !failure() }}
+    needs: [update-tag-hotfix,integrity]
+    outputs:
+      changes: ${{ steps.check_changes.outputs.changes }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need all the tags for versioning
+          ref: master
+
+      - name: Check for Changes and Exit if None
+        id: check_changes
+        run: |
+          if [ "$(git log prd..rc)" != "" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected. Skipping deployment."
+            exit 0
+          fi
+
+      - name: Notify No Changes Detected
+        if: ${{ steps.check_changes.outputs.changes == 'false' }}
+        uses: ./.github/actions/slack-message
+        with:
+          SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+          SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
+          TITLE: ":zzz: No code changes detected."
+          MESSAGE: |
+            Today's deployment skipped.
+
+
   prepare-prod-deployment:
     name: Deploy to Production
     runs-on: ubuntu-latest
     timeout-minutes: 85
-    if: ${{ !failure() }}
-    needs: [update-tag-hotfix,integrity]
+    if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
+    needs: check-changes
     steps:
       #
       # Step 1
@@ -200,7 +237,7 @@ jobs:
 
   post-deployment:
     needs: prepare-prod-deployment
-    if: ${{ !failure() }}
+    if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
     timeout-minutes: 60
     name: Updating Tag
     runs-on: ubuntu-latest
