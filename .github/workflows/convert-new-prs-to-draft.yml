@@ -1,29 +1,22 @@
-name: Convert new PRs to Draft
+name: Convert new PRs to draft
 
 on:
   pull_request:
     types: [opened]
 
 jobs:
-  convert-to-draft:
+  convert:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - name: Convert to Draft if it's not already
+      - name: Convert to draft
         uses: actions/github-script@v6
         with:
           script: |
-            const pullNumber = context.payload.pull_request.number;
-            const isDraft = context.payload.pull_request.draft;
-
-            if (!isDraft) {
-              // Use GitHub REST API to update the pull request to draft
-              await github.rest.pulls.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: pullNumber,
-                draft: true
-              });
-              core.info(`PR #${pullNumber} has been converted to Draft.`);
-            } else {
-              core.info(`PR #${pullNumber} is already Draft.`);
-            }
+            const prNumber = context.payload.pull_request.number;
+            await github.request('POST /repos/{owner}/{repo}/pulls/{pull_number}/convert-to-draft', {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
