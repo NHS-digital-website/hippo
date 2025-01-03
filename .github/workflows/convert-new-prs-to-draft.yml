@@ -7,8 +7,8 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Convert to draft
         run: |
