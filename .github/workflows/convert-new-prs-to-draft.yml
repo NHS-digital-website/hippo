@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Convert to draft
         run: |
-          gh pr ready ${context.payload.pull_request.number} --undo
+          gh pr ready ${{context.payload.pull_request.number}} --undo
