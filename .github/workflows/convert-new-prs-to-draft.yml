@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Convert to draft
         run: |
-          gh pr ready ${{ github.event.pull_request.number }} --undo
+          gh pr ready ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --undo 
