@@ -11,12 +11,5 @@ jobs:
       pull-requests: write
     steps:
       - name: Convert to draft
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            await github.request('POST /repos/{owner}/{repo}/pulls/{pull_number}/convert-to-draft', {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: prNumber
-            });
+        run: |
+          gh pr ready ${context.payload.pull_request.number} --undo
