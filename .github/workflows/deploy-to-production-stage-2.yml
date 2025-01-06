@@ -22,7 +22,7 @@ jobs:
     name: Slack Integrity Check
     # Only runs for SLACK Command (hotfix)
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 1
     if: (github.event_name != 'schedule')
     steps:
@@ -63,7 +63,7 @@ jobs:
 
   # For Hotfix Deployment Only
   update-tag-hotfix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Move tag uat to rc for Hotfix
     # Only runs for SLACK Command (hotfix)
     needs: integrity
@@ -83,7 +83,7 @@ jobs:
 
   check-changes:
     name: Check for Code Changes
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ !failure() }}
     needs: [update-tag-hotfix,integrity]
     outputs:
@@ -119,7 +119,7 @@ jobs:
 
   prepare-prod-deployment:
     name: Deploy to Production
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 85
     if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
     needs: check-changes
@@ -240,7 +240,7 @@ jobs:
     if: ${{ needs.check-changes.outputs.changes == 'true' && !failure() }}
     timeout-minutes: 60
     name: Updating Tag
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
