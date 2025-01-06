@@ -8,7 +8,7 @@ on:
 jobs:
   CalcVersion:
     name: Update Distribution Version Number
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 90
     env:
       ENV: uat
@@ -41,7 +41,7 @@ jobs:
   build:
     name: Build Distribution For BR Cloud
     needs: CalcVersion
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 90
     env:
       ENV: uat
@@ -99,7 +99,7 @@ jobs:
   deployment:
     name: Deploy Distribution to UAT
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
 
       - name: Checkout
