@@ -58,7 +58,6 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
             ));
 
         request.setAttribute("sectionEntries", sectionEntries);
-
         request.setAttribute("requestContext", request.getRequestContext());
         request.setAttribute("currentQuery", Optional.ofNullable(getAnyParameter(request, "query")).orElse(""));
 
@@ -73,7 +72,10 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
         log.info("End of method: doBeforeRender in ApiCatalogueHubComponent  at " + endTime + " ms. Duration: " + duration + " ms");
     }
 
-
+    @Override
+    protected CatalogueResultsComponentInfo getComponentParametersInfo(HstRequest request) {
+        return (CatalogueResultsComponentInfo) super.getComponentParametersInfo(request);
+    }
 
     @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
@@ -99,7 +101,7 @@ public class CatalogueResultsComponent extends EssentialsListComponent {
         return pageable;
     }
 
-    private HippoFacetNavigationBean getFacetNavigationBean(HstRequestContext context, String path, String query) {
+    HippoFacetNavigationBean getFacetNavigationBean(HstRequestContext context, String path, String query) {
         if (Strings.isNullOrEmpty(path)) {
             log.warn("Facetpath was empty {}", path);
             return null;

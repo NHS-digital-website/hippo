@@ -18,11 +18,11 @@ public class CatalogueFilterManager {
         this.documentPath = documentPath;
     }
 
-    public Filters getRawFilters(HstRequest request) {
+    Filters getRawFilters(HstRequest request) {
         return rawFilters(sessionFrom(request), this.documentPath);
     }
 
-    private Session sessionFrom(final HstRequest request) {
+    Session sessionFrom(final HstRequest request) {
         try {
             return request.getRequestContext().getSession();
         } catch (final RepositoryException e) {
@@ -30,7 +30,7 @@ public class CatalogueFilterManager {
         }
     }
 
-    private Filters rawFilters(Session session, String taxonomyFilters) {
+    Filters rawFilters(Session session, String taxonomyFilters) {
         try {
             return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters)
                 .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
@@ -40,7 +40,7 @@ public class CatalogueFilterManager {
         return Filters.emptyInstance();
     }
 
-    private Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters) {
+    Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters) {
 
         try {
             return CatalogueContext.catalogueRepository(session, taxonomyFilters).taxonomyFiltersMapping();
