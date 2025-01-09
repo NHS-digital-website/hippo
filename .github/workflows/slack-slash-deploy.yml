@@ -10,7 +10,7 @@ jobs:
 
   integrity:
     name: Slack Integrity Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 1
 
     steps:
@@ -43,7 +43,7 @@ jobs:
   build:
     name: Build Commit
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 90
     env:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
@@ -154,7 +154,7 @@ jobs:
     name: Upload Build to BR Cloud ODv2
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
       BRANCH: ${{ github.event.client_payload.data.text }}
@@ -474,7 +474,7 @@ jobs:
   test_report:
     name: Create Test Report
     needs: integrity
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 90
     env:
       PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
