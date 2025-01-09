@@ -43,12 +43,14 @@ public class CatalogueEssentialsFacetsComponent extends FilteredEssentialsFacets
 
     static HashMap<String, List<Object>> getFacetFilterMap(HippoFacetNavigationBean facetBean) {
         HashMap<String, List<Object>> facetFilterMap = new HashMap<>();
-        facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
-            facetFilterMap.put(
-                ((HippoFacetNavigationBean) i).getDisplayName(),
-                Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf(),((HippoFacetNavigationBean) i).getCount()})
-            )
-        );
+        if (facetBean != null && facetBean.getFolders().size() > 0) {
+            facetBean.getFolders().get(0).getFolders().parallelStream().forEach(i ->
+                facetFilterMap.put(
+                    ((HippoFacetNavigationBean) i).getDisplayName(),
+                    Arrays.asList(new Object[]{(HippoFacetNavigationBean) i, i.isLeaf(), ((HippoFacetNavigationBean) i).getCount()})
+                )
+            );
+        }
         return facetFilterMap;
     }
 
