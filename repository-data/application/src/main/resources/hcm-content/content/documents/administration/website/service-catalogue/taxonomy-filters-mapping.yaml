@@ -1,0 +1,247 @@
+---
+/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping:
+  /taxonomy-filters-mapping[1]:
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: rafal.kocinski
+    hippostdpubwf:creationDate: 2021-04-13T11:41:30.496Z
+    hippostdpubwf:lastModificationDate: 2024-05-14T14:47:32.860Z
+    hippostdpubwf:lastModifiedBy: vinodkumar.narayanan1
+    hippotranslation:id: 3e88e96d-9b67-415e-bad8-6121b4298a57
+    hippotranslation:locale: document-type-locale
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:taxonomymapping
+    website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
+      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
+      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
+      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
+      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
+      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
+      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
+      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
+      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
+      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
+      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
+      \ patient-information-and-demographics\r\n        displayName: Patient information\
+      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
+      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
+      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
+      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
+      \n      displayName: Population health and proactive care\r\n      entries:\r\
+      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
+      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
+      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
+      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
+      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
+      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
+      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
+      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
+      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
+      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
+      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
+      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
+      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
+      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
+      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
+      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
+      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
+      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
+      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
+      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
+      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
+      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
+      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
+      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
+      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
+      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
+      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
+      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
+      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
+      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
+      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
+      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
+      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
+      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
+      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
+      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
+      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
+      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
+      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
+      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
+      \n      displayName: Closed programme\r\n      highlight: light-purple"
+  /taxonomy-filters-mapping[2]:
+    common:searchable: true
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostd:transferable: false
+    hippostdpubwf:createdBy: rafal.kocinski
+    hippostdpubwf:creationDate: 2021-04-13T11:41:30.496Z
+    hippostdpubwf:lastModificationDate: 2024-10-17T12:33:23.890Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 3e88e96d-9b67-415e-bad8-6121b4298a57
+    hippotranslation:locale: document-type-locale
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:taxonomymapping
+    website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
+      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
+      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
+      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
+      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
+      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
+      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
+      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
+      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
+      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
+      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
+      \ patient-information-and-demographics\r\n        displayName: Patient information\
+      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
+      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
+      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
+      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
+      \n      displayName: Population health and proactive care\r\n      entries:\r\
+      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
+      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
+      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
+      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
+      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
+      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
+      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
+      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
+      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
+      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
+      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
+      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
+      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
+      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
+      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
+      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
+      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
+      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
+      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
+      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
+      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
+      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
+      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
+      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
+      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
+      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
+      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
+      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
+      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
+      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
+      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
+      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
+      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
+      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
+      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
+      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
+      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
+      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
+      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
+      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
+      \n      displayName: Closed programme\r\n      highlight: light-purple"
+  /taxonomy-filters-mapping[3]:
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: rafal.kocinski
+    hippostdpubwf:creationDate: 2021-04-13T11:41:30.496Z
+    hippostdpubwf:lastModificationDate: 2024-05-14T14:47:32.860Z
+    hippostdpubwf:lastModifiedBy: vinodkumar.narayanan1
+    hippostdpubwf:publicationDate: 2024-05-14T14:47:38.539Z
+    hippotranslation:id: 3e88e96d-9b67-415e-bad8-6121b4298a57
+    hippotranslation:locale: document-type-locale
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:taxonomymapping
+    website:text: "sections:\r\n\r\n  - displayName: Business function\r\n    defaultExpanded:\
+      \ true\r\n    hideChildren: true\r\n    amountChildrenToShow: 2\r\n    entries:\r\
+      \n    - taxonomyKey: direct-care\r\n      displayName: Direct care\r\n     \
+      \ entries:\r\n      - taxonomyKey: appointments,-bookings,-referrals\r\n   \
+      \     displayName: Appointments, bookings, referrals\r\n      - taxonomyKey:\
+      \ care-records\r\n        displayName: Care records\r\n      - taxonomyKey:\
+      \ citizen-health\r\n        displayName: Citizen health\r\n      - taxonomyKey:\
+      \ genomics\r\n        displayName: Genomics\r\n      - taxonomyKey: gp-data\r\
+      \n        displayName: GP data\r\n      - taxonomyKey: gp-registration\r\n \
+      \       displayName: GP registration\r\n      - taxonomyKey: interoperability_2\r\
+      \n        displayName: Interoperability\r\n      - taxonomyKey: maternity-and-child-health\r\
+      \n        displayName: Maternity and child health\r\n      - taxonomyKey: medications\r\
+      \n        displayName: Medications and prescriptions\r\n      - taxonomyKey:\
+      \ patient-information-and-demographics\r\n        displayName: Patient information\
+      \ and demographics\r\n      - taxonomyKey: radiology\r\n        displayName:\
+      \ Radiology\r\n      - taxonomyKey: registers\r\n        displayName: Registers\r\
+      \n      - taxonomyKey: staff-and-citizen-identity\r\n        displayName: Staff\
+      \ and citizen identity\r\n    - taxonomyKey: population-health-and-proactive-care\r\
+      \n      displayName: Population health and proactive care\r\n      entries:\r\
+      \n      - taxonomyKey: screening_2\r\n        displayName: Screening\r\n   \
+      \   - taxonomyKey: vaccinations\r\n        displayName: Vaccinations\r\n   \
+      \ - taxonomyKey: planning,-oversight-and-service-improvement\r\n      displayName:\
+      \ Planning, oversight and service improvement\r\n    - taxonomyKey: research-and-innovation\r\
+      \n      displayName: Research and innovation\r\n    - taxonomyKey: digital-transformation\r\
+      \n      displayName: Digital transformation\r\n    - taxonomyKey: core-infrastructure-and-productivity-tools\r\
+      \n      displayName: Core infrastructure and productivity tools\r\n    - taxonomyKey:\
+      \ standards_2\r\n      displayName: Standards\r\n\r\n  - displayName: Care setting\r\
+      \n    defaultExpanded: true\r\n    hideChildren: true\r\n    amountChildrenToShow:\
+      \ 2\r\n    entries:\r\n      - taxonomyKey: general-practice_1\r\n        displayName:\
+      \ General practice\r\n      - taxonomyKey: secondary-care_1\r\n        displayName:\
+      \ Secondary care\r\n      - taxonomyKey: urgent-and-emergency-care_1\r\n   \
+      \     displayName: Urgent and emergency care\r\n      - taxonomyKey: pharmacy_1\r\
+      \n        displayName: Pharmacy\r\n      - taxonomyKey: dentistry\r\n      \
+      \  displayName: Dentistry\r\n      - taxonomyKey: social-care\r\n        displayName:\
+      \ Social care\r\n      - taxonomyKey: community-health-care\r\n        displayName:\
+      \ Community health\r\n      - taxonomyKey: hospital\r\n        displayName:\
+      \ Hospital\r\n      - taxonomyKey: maternity\r\n        displayName: Maternity\r\
+      \n      - taxonomyKey: mental-health\r\n        displayName: Mental health\r\
+      \n      - taxonomyKey: patient-citizen\r\n        displayName: Patient-facing\r\
+      \n      - taxonomyKey: transport-infrastructure\r\n        displayName: Transport\
+      \ / infrastructure\r\n\r\n  - displayName: National usage policy\r\n    entries:\r\
+      \n    - taxonomyKey: mandated\r\n      displayName: Mandated\r\n    - taxonomyKey:\
+      \ recommended\r\n      displayName: Recommended\r\n    - taxonomyKey: optional\r\
+      \n      displayName: Optional\r\n\r\n  - displayName: Users\r\n    entries:\r\
+      \n    - taxonomyKey: health-and-care-workers\r\n      displayName: Health and\
+      \ care workers\r\n    - taxonomyKey: patients\r\n      displayName: Patients\r\
+      \n    - taxonomyKey: transformation-teams\r\n      displayName: Transformation\
+      \ teams\r\n     \r\n  - displayName: Type\r\n    description: For type definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#service-types).\r\
+      \n    entries:\r\n    - taxonomyKey: digital-service\r\n      displayName: Service\r\
+      \n    - taxonomyKey: service-group\r\n      displayName: Service group\r\n \
+      \   - taxonomyKey: programme\r\n      displayName: Programme\r\n\r\n  - displayName:\
+      \ Features\r\n    entries:\r\n    - taxonomyKey: improved-service-page\r\n \
+      \     displayName: Improved service page\r\n      highlight: light-amber\r\n\
+      \      \r\n  - displayName: Status\r\n    description: For status definitions,\
+      \ see our [reference guide](https://digital.nhs.uk/services/reference-guide#status).\r\
+      \n    entries:\r\n    - taxonomyKey: in-development_1\r\n      displayName:\
+      \ In development\r\n    - taxonomyKey: live\r\n      displayName: Live\r\n \
+      \   - taxonomyKey: deprecated_1\r\n      displayName: Deprecated\r\n      highlight:\
+      \ light-red\r\n    - taxonomyKey: retired_1\r\n      displayName: Retired\r\n\
+      \      highlight: light-purple\r\n    - taxonomyKey: has-active-roadmap\r\n\
+      \      displayName: Has active roadmap\r\n    - taxonomyKey: active-programme\r\
+      \n      displayName: Active programme\r\n    - taxonomyKey: closed-programme\r\
+      \n      displayName: Closed programme\r\n      highlight: light-purple"
+  hippo:name: Taxonomy Filters Mapping
+  hippo:versionHistory: 5b17a784-ded7-4f4e-acea-7d15075b88ba
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
