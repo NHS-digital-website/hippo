@@ -10,12 +10,12 @@ import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtil
 import static uk.nhs.digital.common.components.catalogue.filters.FiltersTestUtils.subsection;
 
 import com.google.common.collect.ImmutableList;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.CatalogueLink;
 import uk.nhs.digital.common.components.catalogue.FacetNavHelper;
@@ -24,6 +24,7 @@ import uk.nhs.digital.website.beans.Internallink;
 import java.util.*;
 
 @RunWith(PowerMockRunner.class)
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "com.sun.org.apache.xalan.*", "javax.xml.*", "org.xml.*", "org.w3c.*"})
 public class FiltersAndLinksTests {
 
     @Mock private FacetNavHelper facetNavHelper;
