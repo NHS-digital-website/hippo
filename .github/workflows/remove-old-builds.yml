@@ -15,7 +15,7 @@ jobs:
 
   remove-old-distributions:
     name: Remove Old distribution Ids
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 5
 
     steps:
