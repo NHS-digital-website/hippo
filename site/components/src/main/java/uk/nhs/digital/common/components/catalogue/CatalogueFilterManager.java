@@ -18,7 +18,7 @@ public class CatalogueFilterManager {
         this.documentPath = documentPath;
     }
 
-    Filters getRawFilters(HstRequest request) {
+    public Filters getRawFilters(HstRequest request) {
         return rawFilters(sessionFrom(request), this.documentPath);
     }
 
