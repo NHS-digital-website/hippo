@@ -17,7 +17,7 @@
           ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
+      website:cveidentifier: CVE-2020-1472
       website:cvestatus: Master
     /website:indicatorscompromise:
       hippostd:content: <p>slow machine performance.</p>
@@ -143,7 +143,7 @@
           ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
+      website:cveidentifier: CVE-2020-1472
       website:cvestatus: Master
     /website:indicatorscompromise:
       hippostd:content: <p>slow machine performance.</p>
@@ -271,7 +271,7 @@
           ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: website:cybercveidentifier
-      website:cveidentifier: CVE-2018-UGVBA
+      website:cveidentifier: CVE-2020-1472
       website:cvestatus: Master
     /website:indicatorscompromise:
       hippostd:content: <p>slow machine performance.</p>
