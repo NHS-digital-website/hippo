@@ -1,0 +1,28 @@
+name: Pull Request to Draft Guard
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Convert to draft
+        run: |
+          gh pr ready ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --undo
+
+      - name: Add Instructional Comment
+        run: |
+          gh pr review ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --comment \
+            --body-file ".github/messages/pr-process-instructions.md"
