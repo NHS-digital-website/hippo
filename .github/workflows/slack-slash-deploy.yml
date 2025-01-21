@@ -407,13 +407,17 @@ jobs:
                   "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }},
                   "role": "file",
                   "newFilename": "brc-mail-smtp.properties"
-                },
-                {
-                  "appConfigFileId": ${{ steps.digital-new-relic.outputs.id }},
-                  "role": "systemproperty"
                 }
               ]
             };
+
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.digital-new-relic.outputs.id  }}))
+            {
+              args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.digital-new-relic.outputs.id  }},
+                "role": "systemproperty"
+              })
+            }
 
             if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.platform-properties.outputs.id }}))
             {
