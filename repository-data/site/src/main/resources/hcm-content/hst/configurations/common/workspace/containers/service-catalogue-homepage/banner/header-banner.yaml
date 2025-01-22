@@ -1,0 +1,30 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/service-catalogue-homepage/banner/header-banner:
+  hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Header
+  hst:parameternames:
+  - button2url
+  - colour
+  - button1text
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - banner
+  - digiblockposition
+  - button2text
+  - alignment
+  - height
+  - button1url
+  hst:parametervalues:
+  - ''
+  - Light Grey
+  - ''
+  - 'off'
+  - banners/service-catalogue-banner
+  - Left & Right
+  - ''
+  - Left
+  - Responsive height
+  - ''
+  hst:template: header-banner
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
