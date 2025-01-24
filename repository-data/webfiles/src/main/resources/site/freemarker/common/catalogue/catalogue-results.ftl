@@ -99,6 +99,7 @@
         <#-- Add pagination only after the last item, but with the correct possion relative to the letter flex -->
             <#if document?is_last>
                 <#if totalAvailable?has_content && pageable?? && pageable.total gt 0>
+                    <@hst.include ref="footer"/>
                     <div class="pagination-container nhsd-!t-margin-top-9">
                         <@pagination />
                     </div>
@@ -113,4 +114,9 @@
         </#list>
     </div>
 
+</#if>
+
+<#-- Check if pageable.items is empty -->
+<#if pageable.items?size == 0>
+    <@hst.include ref="footer"/>
 </#if>

@@ -8,7 +8,7 @@ definitions:
           hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
         /banner:
-          hst:referencecomponent: api-catlogue-homepage/banner
+          hst:referencecomponent: api-catalogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
         /facets:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
@@ -19,6 +19,9 @@ definitions:
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
         /results:
+          /footer:
+            hst:referencecomponent: api-catalogue-homepage/footer
+            jcr:primaryType: hst:containercomponentreference
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
           hst:parameternames:
           - pageSize
