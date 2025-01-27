@@ -13,7 +13,7 @@ definitions:
         /footer:
           .meta:residual-child-node-category: content
           hippo:identifier: ce73e206-fb26-4ef5-8304-6127ff1c6245
-          hst:label: Banner
+          hst:label: Footer
           hst:lastmodified: 2025-01-22T11:25:35.177Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
