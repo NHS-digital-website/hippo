@@ -5,7 +5,6 @@ definitions:
       /api-catlogue-homepage:
         /banner:
           .meta:residual-child-node-category: content
-          hippo:identifier: ce73e206-fb26-4ef5-8304-6127ff1c6245
           hst:label: Banner
           hst:lastmodified: 2024-07-15T15:32:03.200Z
           hst:xtype: hst.vbox
@@ -20,19 +19,16 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /cyber-security-homepage:
         /banner:
-          hippo:identifier: d693a03e-af50-40bf-9db8-3ec16f6a4295
           hst:label: Banner
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: e6eafe81-061d-45ff-8a00-683b15469169
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /homepage:
         /homepage-blog:
           .meta:residual-child-node-category: content
-          hippo:identifier: 804d3df3-46a5-435a-9a9e-f1cfeab0d1fc
           hst:label: Blog
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
@@ -40,28 +36,24 @@ definitions:
           jcr:primaryType: hst:containercomponentfolder
         /homepage-center:
           .meta:residual-child-node-category: content
-          hippo:identifier: f6f7b96e-b829-45c4-a2fd-58ea587ee7f8
           hst:label: Data and Information
           hst:lastmodified: 2018-02-21T10:59:17.217Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-center-2:
           .meta:residual-child-node-category: content
-          hippo:identifier: f3033c36-8600-4a7a-b013-553a404d0111
           hst:label: Systems and Services
           hst:lastmodified: 2018-02-27T18:40:30.862Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-information:
           .meta:residual-child-node-category: content
-          hippo:identifier: 68291719-33fc-4344-abf9-d1b5019d16cc
           hst:label: How we use your information
           hst:lastmodified: 2018-02-21T11:03:27.706Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-top:
           .meta:residual-child-node-category: content
-          hippo:identifier: ffdc9d8f-ccfd-4865-9e41-9e50070979a8
           hst:label: Top
           hst:lastmodified: 2018-02-05T20:39:14.327Z
           hst:xtype: HST.vBox
@@ -69,12 +61,10 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /news-hub:
         /banner:
-          hippo:identifier: 917a0573-57fb-4d3b-957d-09e12459d9f8
           hst:label: Banner
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: 21aabef6-9a5f-447e-9786-da9a02682ed2
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
@@ -82,7 +72,6 @@ definitions:
       /newshubpage:
         /newshubpage-right:
           .meta:residual-child-node-category: content
-          hippo:identifier: a32c540b-a841-4a0d-b905-a044f910d8da
           hst:label: News page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
@@ -90,96 +79,78 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-about-us-hub:
         /banner:
-          hippo:identifier: 6b9ecd4f-7de2-4d05-b4bd-eba9e643a3b7
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: 024bbcd4-6cba-47e3-96db-47c146a940c4
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-coronavirus:
         /banner:
-          hippo:identifier: 8eaafe3d-ca0d-4810-9be4-116adfe73fc0
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: a0cbe895-92ba-487c-b11b-44c16a0447fa
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-cyber-hub:
         /banner:
-          hippo:identifier: f7b8a573-0930-40e8-95e4-70e904aa309c
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: a1d51f83-ad4e-497c-b9a9-209ae764bca4
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-data-hub:
         /banner:
-          hippo:identifier: 992ed0be-bea8-4c86-920b-417ed778d0ce
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: 02f45e92-48e0-49a9-8a04-4ca56dc79f37
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-developer-hub:
         /banner:
-          hippo:identifier: e8fb6ff0-646c-4a9f-b25e-9e534c63000f
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: c6b838f3-d545-4ab3-8dfa-0d8d07c6e7b4
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
         /banner:
-          hippo:identifier: 7d9bdc07-3d8d-41b0-9bc4-2c903952a649
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-1:
-          hippo:identifier: 4a39091d-e150-4b5d-ade9-1c0e366af476
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-2:
-          hippo:identifier: c049fd98-5dd1-44a9-ba4b-cf8b2599edf8
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-3:
-          hippo:identifier: c9a595e3-079c-4160-aaaa-38bde1cc36e5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-4:
-          hippo:identifier: 14720881-2d7c-461a-8681-c66f43d3ca0d
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
-          hippo:identifier: 4fff9164-53b7-4fca-ae90-f94092aead46
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-news:
         /main:
-          hippo:identifier: cbc98f72-dbdd-4a12-b1eb-dca4fae84d38
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /service-catalogue-homepage:
         /banner:
           .meta:residual-child-node-category: content
-          hippo:identifier: ce73e206-fb26-4ef5-8304-6127ff1c6245
           hst:label: Banner
           hst:lastmodified: 2024-07-15T15:32:03.200Z
           hst:xtype: hst.vbox
@@ -195,14 +166,12 @@ definitions:
       /servicepage:
         /servicepage-bottom:
           .meta:residual-child-node-category: content
-          hippo:identifier: 01c55f8b-9362-41ee-93c7-ed3d44b0c176
           hst:label: Service page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /servicepage-top:
           .meta:residual-child-node-category: content
-          hippo:identifier: 88b8e5d6-3b84-4120-82d3-a244c4f7178c
           hst:label: Service page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
@@ -210,7 +179,6 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /sign-up:
         /form:
-          hippo:identifier: adf91949-ad4a-40bc-98b7-415789527dfb
           hst:label: Form
           hst:lastmodified: 2022-06-20T11:55:08.546Z
           hst:xtype: hst.vbox
