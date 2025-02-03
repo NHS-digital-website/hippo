@@ -2,7 +2,7 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
-      /api-catlogue-homepage:
+      /api-catalogue-homepage:
         /banner:
           .meta:residual-child-node-category: content
           hst:label: Banner
