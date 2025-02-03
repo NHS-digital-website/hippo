@@ -52,7 +52,7 @@
 <#assign hasTopics = document.keys?? && document.keys?has_content />
 <#assign hasCVE = document.cveIdentifiers?? && document.cveIdentifiers?has_content />
 <#assign hasAcknowledgement = document.cyberAcknowledgements?? && document.cyberAcknowledgements?has_content />
-<#assign cveUrl = "https://cve.mitre.org/cgi-bin/cvename.cgi?name=" />
+<#assign cveUrl = "https://www.cve.org/CVERecord?id=" />
 
 
 <#assign links = [] />

@@ -1,0 +1,21 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/adult-psychiatric-morbidity-survey-author:
+      hipposys:description: Can only create and edit documents in statistical/adult-psychiatric-morbidity-survey/
+        folder
+      hipposys:members:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.channel.viewer
+        - xm.cms.user
+        - xm.content.user
+      jcr:primaryType: hipposys:group
