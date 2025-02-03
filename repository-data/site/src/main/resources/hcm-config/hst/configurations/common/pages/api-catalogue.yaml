@@ -8,7 +8,7 @@ definitions:
           hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
         /banner:
-          hst:referencecomponent: api-catlogue-homepage/banner
+          hst:referencecomponent: api-catalogue-homepage/banner
           jcr:primaryType: hst:containercomponentreference
         /facets:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
@@ -18,6 +18,9 @@ definitions:
           - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
+        /footer:
+          hst:referencecomponent: api-catalogue-homepage/footer
+          jcr:primaryType: hst:containercomponentreference
         /results:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
           hst:parameternames:
