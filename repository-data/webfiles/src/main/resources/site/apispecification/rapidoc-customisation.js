@@ -157,6 +157,24 @@
         });
     }
 
+    function navigateToAnchorWithOffset() {
+        const anchorId = window.location.hash;
+        if (anchorId) {
+            setTimeout(() => {
+                rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
+                const escapedId = CSS.escape(anchorId.substring(1));
+                const targetElement = rapiDocEl.querySelector(`#${escapedId}`);
+                if (targetElement) {
+                    // Adjust the scroll position with an offset to bring the element into full view
+                    const offset = 20;
+                    const elementPosition = targetElement.getBoundingClientRect().top
+                        + window.scrollY - offset;
+                    window.scrollTo({ top: elementPosition });
+                }
+            }, 100);
+        }
+    }
+
     function customiseRapiDoc() {
         rapiDocEl = document.getElementById('rapi-doc-spec').shadowRoot;
         makeTablesResponsive();
@@ -164,6 +182,7 @@
         highlightNavbarOnScroll();
         addSecNavEventInLeftNav('nav-bar-h2', 'section-nav-event');
         addSecNavEventInLeftNav('nav-bar-path', 'section-nav-event');
+        navigateToAnchorWithOffset();
     }
 
     document.addEventListener('DOMContentLoaded', () => {

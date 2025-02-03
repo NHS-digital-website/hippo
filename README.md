@@ -1,4 +1,4 @@
-# NHS Digital Website - Hippo CMS
+# NHS Digital Website - Hippo CMS 
 
 [![Build Status][build-status]][travis-project-page]
 
@@ -8,7 +8,7 @@
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
 
-## Repository Persistence
+## Repository Persistence 
 
 Set `REPO_PATH = -Drepo.path=storage` in `env.mk` to preserve your local docs between `make serve` sessions.
 This creates `storage` directory within the project directory, that contains your local CMS database.

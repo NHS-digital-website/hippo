@@ -158,7 +158,7 @@
         Consult https://googlechromelabs.github.io/chrome-for-testing/
         to find the right ChromeDriver version to use with the current browser version,
         -->
-        <chromedriver.version>131.0.6778.85</chromedriver.version>
+        <chromedriver.version>131.0.6778.108</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -204,7 +204,7 @@
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.0.0</maven-enforcer.version>
         <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
-        <maven-frontend.version>1.15.0</maven-frontend.version>
+        <maven-frontend.version>1.15.1</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>

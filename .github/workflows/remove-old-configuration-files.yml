@@ -8,7 +8,7 @@ on:
 jobs:
   remove-old-configuration:
     name: Remove Old Configuration Files
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 5
 
     steps:

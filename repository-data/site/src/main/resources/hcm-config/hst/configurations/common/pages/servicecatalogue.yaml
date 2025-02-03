@@ -3,20 +3,43 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/service-catalogue:
       /main:
-        /catalogue:
-          hst:componentclassname: uk.nhs.digital.common.components.catalogue.ServiceCatalogueComponent
-          hst:template: catalogue
+        /alphabet:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.FilteredEssentialsFacetsComponent
+          hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
+        /banner:
+          hst:referencecomponent: service-catalogue-homepage/banner
+          jcr:primaryType: hst:containercomponentreference
         /facets:
-          .meta:order-before: catalogue
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueEssentialsFacetsComponent
           hst:parameternames:
-          - facetPath
+          - TaxonomyFiltersMappingDocumentPath
           hst:parametervalues:
-          - faceted-services
-          hst:suppresswastemessage: true
+          - /content/documents/administration/website/service-catalogue/taxonomy-filters-mapping
+          hst:template: catalogue-facet
+          jcr:primaryType: hst:component
+        /results:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
+          hst:parameternames:
+          - pageSize
+          - sortOrder
+          - showPagination
+          - taxonomyFiltersMappingDocumentPath
+          - facetsName
+          hst:parametervalues:
+          - '10'
+          - asc
+          - 'true'
+          - /content/documents/administration/website/service-catalogue/taxonomy-filters-mapping
+          - faceted-service-catalogue
+          hst:template: catalogue-results
+          jcr:primaryType: hst:component
+        /search:
+          hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
+          hst:template: catalogue-search
           jcr:primaryType: hst:component
         hst:template: catalogue-main
         jcr:primaryType: hst:component
+      hst:cacheable: false
       hst:referencecomponent: hst:abstractpages/nhsd-apppage
       jcr:primaryType: hst:component
