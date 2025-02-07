@@ -1,9 +1,9 @@
-import $ from "jquery";
+import $ from 'jquery';
 
-import "jquery-ui/ui/widgets/datepicker";
-import addValidate from "./jquery-validate-1.1.2";
-import hippoValidate from "./jquery-hippo-validate";
-import {qsa} from "../utils/utils";
+import 'jquery-ui/ui/widgets/datepicker';
+import addValidate from './jquery-validate-1.1.2';
+import hippoValidate from './jquery-hippo-validate';
+import { qsa } from '../utils/utils';
 
 addValidate($);
 hippoValidate($);
@@ -107,18 +107,14 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                         params[fieldName] = '';
                     }
                 }
-            } else if (dateFieldId.indexOf('__DD') !== -1) {
+            } else if (dateFieldId && dateFieldId.indexOf('__DD') !== -1) {
                 dd = $(this).val() ? $(this).val() : 0;
-            } else if (dateFieldId.indexOf('__MM') !== -1) {
+            } else if (dateFieldId && dateFieldId.indexOf('__MM') !== -1) {
                 mm = $(this).val() ? $(this).val() : 0;
-            } else if (dateFieldId.indexOf('__YYYY') !== -1) {
+            } else if (dateFieldId && dateFieldId.indexOf('__YYYY') !== -1) {
                 yyyy = $(this).val() ? $(this).val() : 0;
             } else if (fieldType === 'hidden') {
-                if (dd !== 0 || mm !== 0 || yyyy !== 0) {
-                    params[fieldName] = dd + '-' + mm + '-' + yyyy;
-                }else{
-                    params[fieldName] ="";
-                }
+                params[fieldName] = field.val() || "";
             } else {
                 params[fieldName] = $(this).val();
             }
