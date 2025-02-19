@@ -5,10 +5,8 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.intranet.components.NewsInternalComponent
         hst:parameternames:
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         hst:parametervalues:
-        - 'true'
         - 'true'
         hst:template: news
         jcr:primaryType: hst:component
