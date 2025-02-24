@@ -15,7 +15,7 @@ This creates `storage` directory within the project directory, that contains you
 The directory is ignored by git, so you're not risking committing it by accident. If you need to start with
 clean slate, simply delete the directory and it will be recreated on the next run.
 
-## API Catalogue Heavy Content Cache 
+## API Catalogue Heavy Content Cache
 
 To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
 your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
