@@ -21,3 +21,4 @@ definitions:
       targeting:consentCookieValue: allowed
       targeting:cookiesHttpOnly: true
       targeting:disabled: false
+      targeting:visitorCookieName: _visitor
