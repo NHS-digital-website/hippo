@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>15.3.0</version>
+        <version>15.3.2</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -136,18 +136,16 @@
         <hippo.environment></hippo.environment>
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
-        <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
-
+        <forge.folderctxmenus.version>6.0.0</forge.folderctxmenus.version>
+        <bloomreach.forge.ipfilter.version>4.0.0</bloomreach.forge.ipfilter.version>
         <bloomreach.inference-engine.version>4.1.0</bloomreach.inference-engine.version>
+        <bloomreach.forge.feed.version>7.0.0</bloomreach.forge.feed.version>
+        <bloomreach.text-search-replace.version>3.0.1</bloomreach.text-search-replace.version>
+        <forge.resetpassword.version>6.0.0</forge.resetpassword.version>
+        <bloomreach.forge.sitemapv2.version>3.0.0</bloomreach.forge.sitemapv2.version>
 
         <commonmark.version>0.18.2</commonmark.version>
-
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
-        <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
-        <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
-        <forge.resetpassword.version>5.0</forge.resetpassword.version>
-        <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
         <!-- Built-in caches use ecache v2.x.
         Custom caching that needs durable on-disk caching uses v3.x
@@ -169,7 +167,6 @@
         <commons-codec.version>1.15</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
@@ -576,11 +573,6 @@
                 <artifactId>wiremock-jre8</artifactId>
                 <version>${wiremock.version}</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-fileupload</groupId>
-                <artifactId>commons-fileupload</artifactId>
-                <version>${commons-fileupload.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
