@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+            <@hst.include ref="footer"/>
         </div>
     </div>
 </div>
