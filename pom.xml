@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>15.3.2</version>
+        <version>15.7.1</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -187,12 +187,10 @@
         <httpcore.version>4.4.15</httpcore.version>
         <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
         <snakeyaml.version>1.33</snakeyaml.version>
-        <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
-        <javax.mail.version>1.4.7</javax.mail.version>
+        <jackson-dataformat-xml.version>2.17.1</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
-        <joda-time.version>2.10.14</joda-time.version>
+        <joda-time.version>2.12.7</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
-        <json.version>20220320</json.version>
         <jsp-api.version>2.2</jsp-api.version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
@@ -220,11 +218,9 @@
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
         <taglibs-standard.version>1.2.5</taglibs-standard.version>
-        <tika-core.version>1.28.4</tika-core.version>
         <versions-maven.version>2.10.0</versions-maven.version>
         <webdriverextensions-maven.version>3.4.0</webdriverextensions-maven.version>
         <wiremock.version>2.35.0</wiremock.version>
-        <woodstox.version>4.2.1</woodstox.version>
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>
 
@@ -320,9 +316,9 @@
             </dependency>
 
             <dependency>
-                <groupId>javax.mail</groupId>
-                <artifactId>mail</artifactId>
-                <version>${javax.mail.version}</version>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>jakarta.mail</artifactId>
+                <version>${jakarta.mail-api.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -607,7 +603,7 @@
             <dependency>
                 <groupId>org.apache.tika</groupId>
                 <artifactId>tika-core</artifactId>
-                <version>${tika-core.version}</version>
+                <version>${tika.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
             <dependency>
@@ -623,7 +619,6 @@
             <dependency>
                 <groupId>org.codehaus.woodstox</groupId>
                 <artifactId>stax2-api</artifactId>
-                <version>${woodstox.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -674,7 +669,7 @@
             <dependency>
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
-                <version>${json.version}</version>
+                <version>${org.json.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-pool</groupId>
