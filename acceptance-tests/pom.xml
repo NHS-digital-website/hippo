@@ -139,10 +139,6 @@
             <artifactId>hippo-configuration-management-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-shared-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-api</artifactId>
         </dependency>
@@ -381,20 +377,6 @@
 
         <profile>
             <id>acceptance-test-hippo</id>
-            <properties>
-                <!-- Elastic search to do with relevance -->
-                <es.tcpPort>9300</es.tcpPort>
-                <es.path>${project.build.directory}/storage</es.path>
-                <es.skip.start>false</es.skip.start>
-                <targeting.truncate>true</targeting.truncate>
-                <es.httpPort>9200</es.httpPort>
-                <targeting.bootstrap>false</targeting.bootstrap>
-
-                <!-- H2 also for relevance -->
-                <sql.driver>org.h2.Driver</sql.driver>
-                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
-                <sql.username>sa</sql.username>
-            </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -442,11 +424,6 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -622,11 +599,6 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
                                         <groupId>org.apache.geronimo.specs</groupId>
                                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                                         <classpath>extra</classpath>
@@ -674,36 +646,6 @@
                                 </dependencies>
 
                             </container>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.alexcojocaru</groupId>
-                        <artifactId>elasticsearch-maven-plugin</artifactId>
-                        <version>${maven.plugin.elasticsearch.version}</version>
-                        <executions>
-                            <execution>
-                                <id>start-elasticsearch</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>runforked</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-elasticsearch</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <clusterName>esDevCluster</clusterName>
-                            <httpPort>${es.httpPort}</httpPort>
-                            <transportPort>${es.tcpPort}</transportPort>
-                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
-                            <keepExistingData>true</keepExistingData>
-                            <timeout>60</timeout>
-                            <skip>${es.skip.start}</skip>
                         </configuration>
                     </plugin>
 

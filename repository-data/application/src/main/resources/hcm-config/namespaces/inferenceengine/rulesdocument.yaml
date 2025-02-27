@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:namespaces/inferenceengine/rulesdocument/hipposysedit:nodetype/hipposysedit:nodetype/id:
-      hipposysedit:validators:
-      - required
-    /hippo:namespaces/inferenceengine/rulesdocument/hipposysedit:nodetype/hipposysedit:nodetype/title:
-      hipposysedit:validators:
-      - required
