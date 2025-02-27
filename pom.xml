@@ -138,7 +138,6 @@
 
         <forge.folderctxmenus.version>6.0.0</forge.folderctxmenus.version>
         <bloomreach.forge.ipfilter.version>4.0.0</bloomreach.forge.ipfilter.version>
-        <bloomreach.inference-engine.version>4.1.0</bloomreach.inference-engine.version>
         <bloomreach.forge.feed.version>7.0.0</bloomreach.forge.feed.version>
         <bloomreach.text-search-replace.version>3.0.1</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>6.0.0</forge.resetpassword.version>
@@ -269,12 +268,6 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-shared-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -722,37 +715,6 @@
                 <version>${forge.folderctxmenus.version}</version>
             </dependency>
 
-            <!-- Inference Rule Engine -->
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-core</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-plugin</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-repository</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-data-collector</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-collector-plugin</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.netflix.hystrix</groupId>
                 <artifactId>hystrix-javanica</artifactId>
@@ -1011,15 +973,6 @@
                 <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
                 <!--<repo.bootstrap>true</repo.bootstrap>-->
                 <brc.appconfigpath>conf</brc.appconfigpath>
-                <es.tcpPort>9300</es.tcpPort>
-                <es.path>${project.build.directory}/storage</es.path>
-                <es.skip.start>false</es.skip.start>
-                <targeting.truncate>true</targeting.truncate>
-                <es.httpPort>9200</es.httpPort>
-                <targeting.bootstrap>false</targeting.bootstrap>
-                <sql.driver>org.h2.Driver</sql.driver>
-                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
-                <sql.username>sa</sql.username>
             </properties>
             <dependencies>
                 <dependency>
@@ -1032,11 +985,6 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -1239,11 +1187,6 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
                                         <groupId>com.splunk.logging</groupId>
                                         <artifactId>splunk-library-javalogging</artifactId>
                                         <classpath>shared</classpath>
@@ -1265,36 +1208,6 @@
                                     </dependency>
                                 </dependencies>
                             </container>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.alexcojocaru</groupId>
-                        <artifactId>elasticsearch-maven-plugin</artifactId>
-                        <version>${maven.plugin.elasticsearch.version}</version>
-                        <executions>
-                            <execution>
-                                <id>start-elasticsearch</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>runforked</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-elasticsearch</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <clusterName>esDevCluster</clusterName>
-                            <httpPort>${es.httpPort}</httpPort>
-                            <transportPort>${es.tcpPort}</transportPort>
-                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
-                            <keepExistingData>true</keepExistingData>
-                            <timeout>60</timeout>
-                            <skip>${es.skip.start}</skip>
                         </configuration>
                     </plugin>
                 </plugins>
