@@ -236,12 +236,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-site-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
             <groupId>org.onehippo.cms7.hst.client-modules</groupId>
             <artifactId>hst-google-analytics-hst</artifactId>
         </dependency>
