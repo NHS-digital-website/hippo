@@ -170,7 +170,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>7.14.0</cucumber.version>
+        <cucumber.version>7.21.1</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
@@ -203,7 +203,7 @@
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
-        <maven-surefire.version>3.0.0-M6</maven-surefire.version>
+        <maven-surefire.version>3.5.2</maven-surefire.version>
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>2.7.0</okio.version>
@@ -211,7 +211,8 @@
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
-        <selenium.version>4.1.1</selenium.version>
+        <selenium.version>4.29.0</selenium.version>
+        <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <slf4j.version>1.7.36</slf4j.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>

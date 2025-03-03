@@ -35,13 +35,11 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>datatable</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -72,7 +70,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.49.0</version>
+            <version>${microsoft-playwright.version}</version>
             <scope>test</scope>
         </dependency>
 
