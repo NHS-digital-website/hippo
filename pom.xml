@@ -151,12 +151,6 @@
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
 
-        <!--
-        Consult https://googlechromelabs.github.io/chrome-for-testing/
-        to find the right ChromeDriver version to use with the current browser version,
-        -->
-        <chromedriver.version>135.0.7049.95</chromedriver.version>
-
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
         <awaitility.version>4.2.0</awaitility.version>
@@ -170,7 +164,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>7.14.0</cucumber.version>
+        <cucumber.version>7.21.1</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
@@ -198,12 +192,13 @@
         <logback.version>1.2.11</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.3.0</maven-enforcer.version>
-        <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
+        <maven-failsafe.version>3.5.2</maven-failsafe.version>
         <maven-frontend.version>1.15.1</maven-frontend.version>
+        <maven-jacoco.version>0.8.12</maven-jacoco.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
-        <maven-surefire.version>3.0.0-M6</maven-surefire.version>
+        <maven-surefire.version>3.5.2</maven-surefire.version>
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>2.7.0</okio.version>
@@ -211,7 +206,8 @@
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
-        <selenium.version>4.1.1</selenium.version>
+        <selenium.version>4.29.0</selenium.version>
+        <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <slf4j.version>1.7.36</slf4j.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>

@@ -60,7 +60,7 @@ test.unit:
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
 		-Dcucumber.features="src/test/resources/features/site" \
-		-Dcucumber.filter.tags="~@skip" \
+		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
 ## Run acceptance tests against already running server (`make serve`) with playwright (visual test).
