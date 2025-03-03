@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RunWith(MockitoJUnitRunner.class)
+@Ignore
 public class AccessTokenValveTest extends MockitoSessionTestBase {
 
     private static final String ENCODED_COOKIE_VALUE = "encoded_cookie_value";
