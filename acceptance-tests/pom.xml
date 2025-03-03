@@ -35,13 +35,11 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>datatable</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -72,7 +70,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.49.0</version>
+            <version>${microsoft-playwright.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -329,47 +327,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-
-                    <plugin>
-                        <!-- Automatically downloads and installs Chromederiver binaries within a temporary project
-                        space so that they don't have to be deployed manually. Since April 2019 the latest recognised version from
-                        https://github.com/webdriverextensions/webdriverextensions-maven-plugin-repository/blob/master/repository-3.0.json
-                        is Chromedriver 2.45 (compatible with Chrome v70-72).  However, the latest Chrome version is now v74, and
-                        therefore incompatible with 2.45.
-                        As per https://github.com/webdriverextensions/webdriverextensions-maven-plugin#installing-a-driver-from-an-url
-                        an exact version of Chromedriver needs to be specified from a URL.  The disadvantage with this approach is it is
-                        now platform specific (i.e. linux), but impact is minimal since developers and deployment pipeline all use linux
-                        If running acceptance tests on MacOs or Windows, please update the below locally to test, but do not commit changes.
-                         -->
-                        <groupId>com.github.webdriverextensions</groupId>
-                        <artifactId>webdriverextensions-maven-plugin</artifactId>
-                        <version>${webdriverextensions-maven.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>install-drivers</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <drivers>
-                                <driver>
-                                    <name>chromedriver</name>
-                                    <platform>linux</platform>
-                                    <bit>64</bit>
-                                    <version>${chromedriver.version}</version>
-                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/linux64/chromedriver-linux64.zip</url>
-                                </driver>
-                                <driver>
-                                    <name>chromedriver</name>
-                                    <platform>mac</platform>
-                                    <bit>64</bit>
-                                    <version>${chromedriver.version}</version>
-                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/mac-x64/chromedriver-mac-x64.zip</url>
-                                </driver>
-                            </drivers>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>

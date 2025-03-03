@@ -117,7 +117,7 @@ Feature: Faceted search
             | Published ( ... |
             | Upcoming ( ...  |
         When I click on the "Upcoming" button
-        And I click the button named "next"
+        And I click on the "Next" button
         Then I can click on the "Upcoming Publication" link
 
     Scenario: Facet Category tree drill down

@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.agent</artifactId>
-            <version>0.8.10</version>
+            <version>${maven-jacoco.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -390,18 +390,30 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire.version}</version>
+                <configuration>
+                    <argLine>@{argLine}</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
+                <version>${maven-jacoco.version}</version>
+                <configuration>
+                    <destFile>${project.build.directory}/jacoco.exec</destFile>
+                </configuration>
                 <executions>
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
