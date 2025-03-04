@@ -1,0 +1,55 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/main/cardlist:
+      hst:componentclassname: uk.nhs.digital.common.components.CardListComponent
+      hst:label: Card List
+      hst:parameternames:
+      - template
+      - buttonIconLink
+      - button2Link
+      - Card10
+      - Card11
+      - Card12
+      - Card9
+      - Card8
+      - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+      - button1Title
+      - Card5
+      - header
+      - Card4
+      - Card7
+      - button2Title
+      - Card6
+      - Card1
+      - introduction
+      - button1Link
+      - Card3
+      - buttonIconLink2
+      - Card2
+      hst:parametervalues:
+      - Grey
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - 'off'
+      - ''
+      - ''
+      - Latest blogs
+      - website-acceptance-tests/blog/blog-subfolder/blog-test-document-3
+      - ''
+      - ''
+      - ''
+      - website-acceptance-tests/blog/blog-test-document-1
+      - ''
+      - ''
+      - website-acceptance-tests/blog/citizen-identity---the-evolution-of-username-password-security
+      - ''
+      - website-acceptance-tests/blog/blog-test-document-2
+      hst:template: cardlist
+      hst:xtype: hst.item
+      jcr:primaryType: hst:containeritemcomponent
