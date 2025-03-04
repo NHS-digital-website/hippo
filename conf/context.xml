@@ -18,7 +18,13 @@
          see: https://www.onehippo.org/library/development/create-a-selenium-test-case.html -->
     <Parameter name="output-wicketpaths" value="true"/>
 
-    <Resource name="mail/Session" auth="Container" type="javax.mail.Session" mail.smtp.host="localhost" mail.smtp.port="2525"/>
+    <!-- Local developer email -->
+    <Resource name="mail/NHSMail"
+              auth="Container"
+              type="javax.mail.Session"
+              mail.smtp.host="localhost"
+              mail.smtp.port="2525"
+    />
 
     <!-- The onDemand servers contain the following configuration settings.  To change these values, contact BloomReach support  -->
     <!--<Resource name="mail/Session" auth="Container" type="javax.mail.Session"
