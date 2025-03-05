@@ -98,8 +98,7 @@ public class AcceptanceTestConfiguration {
                                                final AcceptanceTestProperties acceptanceTestProperties) {
 
         return new WebDriverProvider(webDriverServiceProvider,
-            acceptanceTestProperties.isHeadlessMode(),
-            acceptanceTestProperties.getDownloadDir()
+            acceptanceTestProperties.isHeadlessMode()
         );
     }
 

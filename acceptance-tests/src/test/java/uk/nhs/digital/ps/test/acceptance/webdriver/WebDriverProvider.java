@@ -8,11 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 
-import java.nio.file.Path;
 import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-//import java.util.concurrent.TimeUnit;
 
 /**
  * Manages WebDriver (the client component of the WebDriver).
@@ -34,21 +30,13 @@ public class WebDriverProvider {
      */
     private final boolean isHeadlessMode;
 
-    /**
-     * Location that the web browser will be downloading content into.
-     */
-    private final Path downloadDirectory;
-
-
     private WebDriver webDriver;
 
 
     public WebDriverProvider(final WebDriverServiceProvider webDriverServiceProvider,
-                             final boolean isHeadlessMode,
-                             final Path downloadDirectory) {
+                             final boolean isHeadlessMode) {
         this.webDriverServiceProvider = webDriverServiceProvider;
         this.isHeadlessMode = isHeadlessMode;
-        this.downloadDirectory = downloadDirectory;
     }
 
     public WebDriver getWebDriver() {
@@ -69,13 +57,9 @@ public class WebDriverProvider {
     public void initialise() {
 
         final ChromeOptions chromeOptions = new ChromeOptions();
-
-        final Map<String, Object> chromePrefs = new HashMap<>();
-        log.info("Setting WebDriver download directory to '{}'.", downloadDirectory);
-        chromePrefs.put("download.default_directory", downloadDirectory.toAbsolutePath().toString());
-
-        chromeOptions.setExperimentalOption("prefs", chromePrefs);
         chromeOptions.addArguments("window-size=1920,1080");
+        //workaround for "DevToolsActivePort not found" error
+        chromeOptions.addArguments("--remote-debugging-pipe");
 
         log.info("Configuring WebDriver to run in {} mode.", isHeadlessMode ? "headless" : "full, graphical");
 
@@ -122,15 +106,7 @@ public class WebDriverProvider {
 
         final ChromeOptions chromeOptions = new ChromeOptions();
 
-        final Map<String, Object> chromePrefs = new HashMap<>();
-        chromePrefs.put(
-            "download.default_directory",
-            downloadDirectory.toAbsolutePath().toString() + "/" + sessionSpecificDownloadDirectoryName
-        );
-        chromeOptions.setExperimentalOption("prefs", chromePrefs);
-
         final ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
-
         chromeDriver.manage().timeouts().implicitlyWait(Duration.ofMinutes(5));
 
         return chromeDriver;

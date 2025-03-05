@@ -151,12 +151,6 @@
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
 
-        <!--
-        Consult https://googlechromelabs.github.io/chrome-for-testing/
-        to find the right ChromeDriver version to use with the current browser version,
-        -->
-        <chromedriver.version>133.0.6943.141</chromedriver.version>
-
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
         <awaitility.version>4.2.0</awaitility.version>
@@ -198,7 +192,7 @@
         <logback.version>1.2.11</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.3.0</maven-enforcer.version>
-        <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
+        <maven-failsafe.version>3.5.2</maven-failsafe.version>
         <maven-frontend.version>1.15.1</maven-frontend.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
