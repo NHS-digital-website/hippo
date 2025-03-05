@@ -181,6 +181,7 @@
         <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
         <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-dataformat-xml.version>2.17.1</jackson-dataformat-xml.version>
+        <jacoco.version>0.8.12</jacoco.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
         <joda-time.version>2.12.7</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
