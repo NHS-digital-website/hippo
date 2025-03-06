@@ -175,8 +175,8 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-hst</artifactId>
-            <scope>compile</scope>
+            <artifactId>hippo-addon-urlrewriter-site-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
 
         <dependency>
@@ -236,12 +236,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-site-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
             <groupId>org.onehippo.cms7.hst.client-modules</groupId>
             <artifactId>hst-google-analytics-hst</artifactId>
         </dependency>
@@ -286,7 +280,7 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>4.3.1</version>
+            <version>${jedis.verison}</version>
         </dependency>
 
     </dependencies>

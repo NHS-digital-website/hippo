@@ -134,7 +134,6 @@
 
         <!-- project logging -->
         <Logger name="uk.nhs.digital.ps" level="info"/>
-        <Logger name="com.onehippo.cms7.targeting" level="warn"/>
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
         <!-- IP Filter logging -->

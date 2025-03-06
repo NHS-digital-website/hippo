@@ -1,8 +1,0 @@
----
-definitions:
-  config:
-    /targeting:targeting/targeting:collectors/inferenceRulesVisitorInterestType:
-      inference.rules.disabled: 'false'
-      inference.rules.id: rules.visitor.interest.type
-      jcr:primaryType: targeting:collector
-      targeting:className: com.onehippo.cms7.inference.engine.datacollector.InferenceRulesCollector
