@@ -1,33 +1,20 @@
----
 /content/documents/corporate-website/banners:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: bae25325-c84f-4795-970a-8c525d8ee86e
+  hippo:name: Banners
+  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
+  hippotranslation:id: 8c8f82ad-0d84-4954-9a9b-afefdb94b00c
+  hippotranslation:locale: en
   /api-catalogue-banner:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 981f9425-01ed-42fe-840c-cbd7a1728aec
+    hippo:versionHistory: 2a43438f-96a7-4309-ad79-d3a70035c44b
     /api-catalogue-banner[1]:
-      /website:content:
-        hippostd:content: |-
-          <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
-
-          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
-
-          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
-        jcr:primaryType: hippostd:html
-      /website:image:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
-      /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        jcr:primaryType: hippo:mirror
-      /website:seoSummary:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
-      /website:seosummary:
-        hippostd:content: All our available APIs are listed here. Search through the
-          catalogue to find the API you need, read its specifications and documentation,
-          understand the process and the tools you need, start to develop your software
-          and connect to NHS England services.
-        jcr:primaryType: hippostd:html
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 821d5a6a-a8e3-48bf-a0e1-38bc9384ea7d
       common:searchable: true
       hippo:availability: []
       hippo:related___pathreference: []
@@ -40,40 +27,39 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
       website:title: API and integration catalogue
-    /api-catalogue-banner[2]:
       /website:content:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
 
           <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
 
           <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
-        jcr:primaryType: hippostd:html
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: All our available APIs are listed here. Search through the
           catalogue to find the API you need, read its specifications and documentation,
           understand the process and the tools you need, start to develop your software
           and connect to NHS England services.
-        jcr:primaryType: hippostd:html
+    /api-catalogue-banner[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 19e0e970-08e3-4e92-82a5-bfb94cfa2900
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -83,41 +69,39 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: website:bannerdocument
       website:title: API and integration catalogue
-    /api-catalogue-banner[3]:
       /website:content:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
 
           <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
 
           <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
-        jcr:primaryType: hippostd:html
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: All our available APIs are listed here. Search through the
           catalogue to find the API you need, read its specifications and documentation,
           understand the process and the tools you need, start to develop your software
           and connect to NHS England services.
-        jcr:primaryType: hippostd:html
+    /api-catalogue-banner[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4cf2319b-2f11-4f2a-91a3-7705ee471bd3
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: published
@@ -128,76 +112,80 @@
       hippostdpubwf:publicationDate: 2024-07-15T15:10:42.984Z
       hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
       website:title: API and integration catalogue
-    hippo:versionHistory: 2a43438f-96a7-4309-ad79-d3a70035c44b
-    jcr:mixinTypes:
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /api-catalogue-footer-banner:
-    /api-catalogue-footer-banner[1]:
       /website:content:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
+          <p>These are the APIs and integrations which are currently available, or in development, from NHS England and associated organisations. It includes&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#apis">APIs</a>&nbsp;as well as&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#api-standards">API standards</a>&nbsp;defined by us. For other data standards, see the&nbsp;<a href="https://data.standards.nhs.uk/">NHS Data Standards Directory</a>.</p>
+
           <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
 
           <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
-        jcr:primaryType: hippostd:html
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: All our available APIs are listed here. Search through the
+          catalogue to find the API you need, read its specifications and documentation,
+          understand the process and the tools you need, start to develop your software
+          and connect to NHS England services.
+  /api-catalogue-footer-banner:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: fcb27deb-2aef-43be-9cac-8a203d37ca41
+    hippo:name: api-catalogue-footer-banner
+    hippo:versionHistory: afd41398-6e95-4727-a70a-153a8a04ac8e
+    /api-catalogue-footer-banner[1]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 36ec3691-ad5b-4088-9d39-094669c22961
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-22T11:30:38.763Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:59.164Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:versionable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    /api-catalogue-footer-banner[2]:
+      website:title: Further help and support
       /website:content:
-        hippostd:content: |-
-          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
-
-          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /api-catalogue-footer-banner[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: fb78b9b0-48c5-4fac-bb71-835965c2a56b
       common:searchable: true
       hippo:availability: []
       hippo:related___pathreference: []
@@ -205,89 +193,82 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-22T11:29:49.456Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:31.573Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    /api-catalogue-footer-banner[3]:
+      website:title: Further help and support
       /website:content:
-        hippostd:content: |-
-          <p>First time here? Check out&nbsp;<a href="https://digital.nhs.uk/developer/getting-started">getting started with our APIs</a>.</p>
-
-          <p>Not sure which API fits your use case? See if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide that helps.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /api-catalogue-footer-banner[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a489a1cc-667c-4aad-a516-e9dc3d07bbd8
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-22T11:30:38.763Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:59.164Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-01-22T11:30:40.816Z
+      hippostdpubwf:publicationDate: 2025-03-06T13:09:01.379Z
       hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    hippo:name: api-catalogue-footer-banner
-    hippo:versionHistory: b7034427-4bc7-4fd8-9c99-57cb9b9ae3fb
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /service-catalogue-banner:
-    /service-catalogue-banner[1]:
+      website:title: Further help and support
       /website:content:
-        hippostd:content: |-
-          <p>Find national digital services and programmes for health and social care in England.</p>
-
-          <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: ''
-        jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: |-
-          <p>Find national digital services and programmes for health and social care in England.</p>
-
-          <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
+  /service-catalogue-banner:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 3bdf777d-0768-42bc-912a-5f3e4cc6e461
+    hippo:name: service-catalogue-banner
+    hippo:versionHistory: d8e9d1eb-bcf8-4d51-8c81-1054b83e5758
+    /service-catalogue-banner[1]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 9861388f-3602-4688-b5a1-10a5fa497579
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -297,35 +278,35 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:versionable
-      jcr:primaryType: website:bannerdocument
       website:title: Service catalogue
-    /service-catalogue-banner[2]:
       /website:content:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>Find national digital services and programmes for health and social care in England.</p>
 
           <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
-        jcr:primaryType: hippostd:html
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>Find national digital services and programmes for health and social care in England.</p>
 
           <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
-        jcr:primaryType: hippostd:html
+    /service-catalogue-banner[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9e3b363d-09ae-4c35-b3d1-3d65c14713d7
       common:searchable: true
       hippo:availability: []
       hippo:related___pathreference: []
@@ -337,38 +318,37 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
       website:title: Service catalogue
-    /service-catalogue-banner[3]:
       /website:content:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>Find national digital services and programmes for health and social care in England.</p>
 
           <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
-        jcr:primaryType: hippostd:html
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
-        hippostd:content: ''
         jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /website:seosummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: |-
           <p>Find national digital services and programmes for health and social care in England.</p>
 
           <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
-        jcr:primaryType: hippostd:html
+    /service-catalogue-banner[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e0a332ea-0ce2-4b5e-81ae-962a74a35d7c
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: published
@@ -379,142 +359,146 @@
       hippostdpubwf:publicationDate: 2025-01-24T16:41:50.475Z
       hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
       website:title: Service catalogue
-    hippo:name: service-catalogue-banner
-    hippo:versionHistory: d8e9d1eb-bcf8-4d51-8c81-1054b83e5758
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /service-catalogue-footer-banner:
-    /service-catalogue-footer-banner[1]:
       /website:content:
-        hippostd:content: <p>Try using our&nbsp;<a href="https://digital.nhs.uk/search">site
-          wide search</a>.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: ''
-        jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
+  /service-catalogue-footer-banner:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: fd818c85-58dc-4fc3-a0d8-fb622999312c
+    hippo:name: service-catalogue-footer-banner
+    hippo:versionHistory: 4bcdadab-de2c-454e-85eb-09256f7ce582
+    /service-catalogue-footer-banner[1]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 93148074-c4de-4cf6-a60e-84f963d688b0
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-17T15:16:33.432Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:32.284Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:versionable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    /service-catalogue-footer-banner[2]:
+      website:title: Continue your search
       /website:content:
-        hippostd:content: <p>Try using our&nbsp;<a href="https://digital.nhs.uk/search">site
-          wide search</a>.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+
+          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: ''
-        jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
+    /service-catalogue-footer-banner[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e706fe17-4353-40bb-a2fb-1332645d80c9
       common:searchable: true
       hippo:availability: []
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-21T10:32:46.049Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:20.759Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    /service-catalogue-footer-banner[3]:
+      website:title: Continue your search
       /website:content:
-        hippostd:content: <p>Try using our&nbsp;<a href="https://digital.nhs.uk/search">site
-          wide search</a>.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+
+          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
       /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:link:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: ''
-        jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
         jcr:primaryType: hippostd:html
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
+    /service-catalogue-footer-banner[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 75296348-ceb3-4ff0-a006-39900d6de90d
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-01-17T15:16:33.432Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:32.284Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-01-17T15:16:35.755Z
+      hippostdpubwf:publicationDate: 2025-03-06T13:09:34.498Z
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:bannerdocument
-      website:title: Didn't find what you were looking for?
-    hippo:name: service-catalogue-footer-banner
-    hippo:versionHistory: 19810742-b2ea-4e10-ba5d-5144298b5bf5
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  hippo:name: Banners
-  hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
-  hippotranslation:id: 8c8f82ad-0d84-4954-9a9b-afefdb94b00c
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+      website:title: Continue your search
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+
+          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:seoSummary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /website:seosummary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
