@@ -74,16 +74,9 @@ test.site-running:
 test.update-snapshots:
 	cd ../acceptance-tests/src/test/node && npm run update-snapshots
 
-## Run tests for cms only, without development data
-test.cms:
-	mvn clean verify $(MVN_OPTS) --quiet \
-		-Dcucumber.options="src/test/resources/features/cms" \
-		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
-
 ## Run BDD tests
 test.e2e:
 	$(MAKE) test.site
-	$(MAKE) test.cms
 
 ## Build distribution package
 build:

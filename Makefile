@@ -23,24 +23,8 @@ init: .git/.local-hooks-installed
 ## Clean, build and start local hippo
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
-	mvn clean verify $(MVN_OPTS) \
-	-Djava.locale.providers=COMPAT \
-	-am -DskipTests=true \
-	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
-	$(MAKE) run
-
-serve.tests.enhance: essentials/target/essentials.war
-	mvn clean verify $(MVN_OPTS) \
-	-Djava.locale.providers=COMPAT \
-	-am -DskipTests=false \
-	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
-	$(MAKE) run
-
-## Clean, build and start local hippo
-# Clean and recompile only modules that we do customise.
-# Warning: Experimental. Requires Maven v3+
-serve.enhance: essentials/target/essentials.war
 	mvn -T 1C clean verify $(MVN_OPTS) \
+	-Djava.locale.providers=COMPAT \
 	-am -DskipTests=true \
 	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
 	$(MAKE) run
