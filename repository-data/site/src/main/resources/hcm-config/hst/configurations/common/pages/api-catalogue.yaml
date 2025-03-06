@@ -18,10 +18,10 @@ definitions:
           - /content/documents/administration/website/developer-hub/taxonomy-filters-mapping
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
-        /footer:
-          hst:referencecomponent: api-catalogue-homepage/footer
-          jcr:primaryType: hst:containercomponentreference
         /results:
+          /footer:
+            hst:referencecomponent: api-catalogue-homepage/footer
+            jcr:primaryType: hst:containercomponentreference
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
           hst:parameternames:
           - pageSize
