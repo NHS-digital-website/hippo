@@ -179,14 +179,16 @@
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
         <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
-        <snakeyaml.version>1.33</snakeyaml.version>
         <jackson-dataformat-xml.version>2.17.1</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
+        <jedis.verison>4.3.1</jedis.verison>
         <joda-time.version>2.12.7</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
         <jsp-api.version>2.2</jsp-api.version>
+        <jsonwebtoken-version>0.11.5</jsonwebtoken-version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
+        <kotlin.version>1.4.10</kotlin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <log4j.version>2.17.2</log4j.version>
         <logback.version>1.2.11</logback.version>
@@ -199,6 +201,7 @@
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
         <maven-surefire.version>3.5.2</maven-surefire.version>
+        <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>2.7.0</okio.version>
@@ -207,8 +210,8 @@
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.29.0</selenium.version>
-        <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <slf4j.version>1.7.36</slf4j.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
@@ -218,8 +221,6 @@
         <wiremock.version>2.35.0</wiremock.version>
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>
-
-        <kotlin.version>1.4.10</kotlin.version>
     </properties>
 
     <repositories>

@@ -610,14 +610,6 @@
 
             </build>
         </profile>
-
-        <profile>
-            <!-- We want to run CMS tests without development data-->
-            <id>acceptance-without-development-data</id>
-            <properties>
-                <development-module-deploy-dir>temp</development-module-deploy-dir>
-            </properties>
-        </profile>
     </profiles>
 
 </project>
