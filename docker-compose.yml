@@ -1,0 +1,17 @@
+# This docker-compose file is intended for development use only.
+# It sets up the development environment with two services:
+# 1. A test SMTP server (Slurper-to-Go) for email development and testing purposes.
+
+version: '3.8' # Specifies the version of Docker Compose.
+
+services:
+
+  # Slurper-to-Go Service (SMTP Testing Tool)
+  slurper-to-go:
+    image: geoffhayward/slurper-to-go
+    container_name: slurper-to-go
+    ports:
+      - "8081:8080"
+      - "8085:8085"
+      - "2525:2500"
+    restart: unless-stopped
