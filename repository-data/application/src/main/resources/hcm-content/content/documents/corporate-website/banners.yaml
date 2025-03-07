@@ -393,10 +393,8 @@
   /service-catalogue-footer-banner:
     /service-catalogue-footer-banner[1]:
       /website:content:
-        hippostd:content: |-
-          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
-
-          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -421,7 +419,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:32.284Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:44.826Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
@@ -431,10 +429,8 @@
       website:title: Continue your search
     /service-catalogue-footer-banner[2]:
       /website:content:
-        hippostd:content: |-
-          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
-
-          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -458,7 +454,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:20.759Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:39.403Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
@@ -468,10 +464,8 @@
       website:title: Continue your search
     /service-catalogue-footer-banner[3]:
       /website:content:
-        hippostd:content: |-
-          <p>If you did not find what you are looking for, try using our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
-
-          <p>Also agree re too many links in the top header but will leave that for Alison to review when she starts in a couple of weeks.&nbsp;</p>
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -496,9 +490,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2025-03-06T13:09:32.284Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:44.826Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-03-06T13:09:34.498Z
+      hippostdpubwf:publicationDate: 2025-03-07T10:39:47.123Z
       hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -506,7 +500,7 @@
       jcr:primaryType: website:bannerdocument
       website:title: Continue your search
     hippo:name: service-catalogue-footer-banner
-    hippo:versionHistory: 4bcdadab-de2c-454e-85eb-09256f7ce582
+    hippo:versionHistory: f1181535-cd74-4ff5-840d-17ff6e85897b
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo
