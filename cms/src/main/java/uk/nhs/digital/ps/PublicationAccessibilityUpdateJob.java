@@ -57,14 +57,13 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                 }
 
                 Calendar nominalDate = pubNode.getProperty("publicationsystem:NominalDate").getDate();
-                boolean isToday = isTodayDate(nominalDate);
-                boolean isPast930 = isPastNineThirty(nominalDate);
+                boolean hasReleaseTimePassed = hasReleaseTimePassed(nominalDate);
 
-                LOGGER.debug("NominalDate={}. isTodayDate={} isPastNineThirty={}",
-                    nominalDate.getTime(), isToday, isPast930);
+                LOGGER.debug("NominalDate={}. asReleaseTimePassed={}",
+                    nominalDate.getTime(), hasReleaseTimePassed);
 
                 // If the publication is for today and we've passed the release time
-                if (isToday && isPast930) {
+                if (hasReleaseTimePassed) {
                     LOGGER.info("Updating accessibility for publication node: {}", pubNode.getPath());
 
                     // Acquire an editable instance of the document
@@ -100,20 +99,17 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
         }
     }
 
-    public boolean isTodayDate(Calendar publicationDate) {
-        LocalDate nominalDate = publicationDate.toInstant().atZone(LONDON_ZONE_ID).toLocalDate();
-        LocalDate currentDate = LocalDate.now(LONDON_ZONE_ID);
-        return currentDate.isEqual(nominalDate);
-    }
-
-    private boolean isPastNineThirty(Calendar publicationDate) {
-        LocalDateTime publicationDateTime = publicationDate.toInstant()
-            .atZone(LONDON_ZONE_ID).toLocalDateTime()
-            .withHour(HOUR_OF_PUBLICATION_RELEASE)
-            .withMinute(MINUTE_OF_PUBLICATION_RELEASE)
+    private boolean hasReleaseTimePassed(Calendar publicationDate) {
+        // “Nominal date’s 09:30” in London time
+        LocalDateTime nominalReleaseTime = publicationDate
+            .toInstant()
+            .atZone(LONDON_ZONE_ID)
+            .toLocalDateTime()
+            .withHour(HOUR_OF_PUBLICATION_RELEASE)   // 9
+            .withMinute(MINUTE_OF_PUBLICATION_RELEASE)  // 30
             .withSecond(0);
 
-        LocalDateTime currentDateTime = LocalDateTime.now(LONDON_ZONE_ID);
-        return currentDateTime.isAfter(publicationDateTime);
+        // true if we've passed that date and 09:30
+        return LocalDateTime.now(LONDON_ZONE_ID).isAfter(nominalReleaseTime);
     }
 }
