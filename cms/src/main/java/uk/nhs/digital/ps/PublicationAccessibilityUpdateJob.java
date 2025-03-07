@@ -49,10 +49,10 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
             // Loop through the nodes
             while (nodeItr.hasNext()) {
                 Node pubNode = nodeItr.nextNode();
-                LOGGER.debug("Checking publication node at path: {}", pubNode.getPath());
+                LOGGER.info("Checking publication node at path: {}", pubNode.getPath());
 
                 if (!pubNode.hasProperty("publicationsystem:NominalDate")) {
-                    LOGGER.warn("Skipping node {} as it has no publicationsystem:NominalDate property.", pubNode.getPath());
+                    LOGGER.info("Skipping node {} as it has no publicationsystem:NominalDate property.", pubNode.getPath());
                     continue;
                 }
 
@@ -60,7 +60,7 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                 boolean isToday = isTodayDate(nominalDate);
                 boolean isPast930 = isPastNineThirty(nominalDate);
 
-                LOGGER.debug("NominalDate={}. isTodayDate={} isPastNineThirty={}",
+                LOGGER.info("NominalDate={}. isTodayDate={} isPastNineThirty={}",
                     nominalDate.getTime(), isToday, isPast930);
 
                 // If the publication is for today and we've passed the release time
@@ -70,7 +70,7 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                     // Acquire an editable instance of the document
                     Node documentNode = documentManager.obtainEditableDocument(pubNode.getParent().getPath()).getNode(session);
                     JcrUtils.ensureIsCheckedOut(documentNode);
-                    LOGGER.debug(" Updating the Accessibility for  " + pubNode.getPath());
+                    LOGGER.info(" Updating the Accessibility for  " + pubNode.getPath());
 
                     // Update properties
                     documentNode.setProperty("publicationsystem:PubliclyAccessible", true);
@@ -89,7 +89,7 @@ public class PublicationAccessibilityUpdateJob implements RepositoryJob {
                         LOGGER.error("Failed to publish node {} due to: {}", pubNode.getPath(), publishEx.getMessage(), publishEx);
                     }
                 } else {
-                    LOGGER.debug("No update required for node {}. Either not today or before the release time.", pubNode.getPath());
+                    LOGGER.info("No update required for node {}. Either not today or before the release time.", pubNode.getPath());
                 }
             }
         } catch (Exception e) {
