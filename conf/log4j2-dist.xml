@@ -75,8 +75,7 @@
                 level="info"/>
 
         <!-- temp -->
-        <Logger name="uk.nhs.digital.ps.PublicationAccessibilityUpdateJob "
-                level="debug"/>
+        <Logger name="uk.nhs.digital.ps.PublicationAccessibilityUpdateJob" level="debug"/>
 
         <!-- Site logging -->
         <Logger name="org.hippoecm.hst" level="warn"/>
