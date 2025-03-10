@@ -356,6 +356,12 @@ jobs:
         env:
           TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
+      - name: Get latest New Relic properties File
+        id: digital-new-relic
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "${{ env.TARGET }}-new-relic-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
       #
       # Request deployment from ODv2
       #
@@ -404,6 +410,14 @@ jobs:
                 }
               ]
             };
+
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.digital-new-relic.outputs.id  }}))
+            {
+              args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.digital-new-relic.outputs.id  }},
+                "role": "systemproperty"
+              })
+            }
 
             if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(${{ steps.platform-properties.outputs.id }}))
             {
