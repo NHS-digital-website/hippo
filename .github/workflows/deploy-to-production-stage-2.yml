@@ -98,8 +98,13 @@ jobs:
 
       - name: Check for Changes and Exit if None
         id: check_changes
+        env:
+          SHOULD_RUN_ANYWAY: ${{ !contains(vars.SHOULD_RUN_ANYWAY_MODE, false) }}
         run: |
-          if [ "$(git log prd..rc)" != "" ]; then
+          if [ "$SHOULD_RUN_ANYWAY" = "true" ]; then
+            echo "Forced run. Overriding changes check."
+            echo "changes=true" >> $GITHUB_OUTPUT
+          elif [ "$(git log prd..rc)" != "" ]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "No changes detected. Skipping deployment."
