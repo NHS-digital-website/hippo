@@ -18,7 +18,7 @@
         <#else>
         <div class="article-header__detail-lines">
         </#if>
-
+    <#if section.heading?? && section.heading?has_content>
         <#if section.headingLevel == 'Main heading'>
             <#assign mainHeadingTag = "h" + mainHeadingLevel />
             <${mainHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${mainHeadingTag}>
@@ -27,6 +27,7 @@
             <#assign subHeadingTag = "h" + subHeadingLevel />
             <${subHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${subHeadingTag}>
         </#if>
+    </#if>
 
         <div data-uipath="website.contentblock.download.description"><@hst.html hippohtml=section.description contentRewriter=gaContentRewriter /></div>
 
