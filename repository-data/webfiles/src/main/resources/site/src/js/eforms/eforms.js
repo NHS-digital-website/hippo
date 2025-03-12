@@ -114,7 +114,11 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             } else if (dateFieldId && dateFieldId.indexOf('__YYYY') !== -1) {
                 yyyy = $(this).val() ? $(this).val() : 0;
             } else if (fieldType === 'hidden') {
-                params[fieldName] = field.val() || "";
+                if (dd !== 0 || mm !== 0 || yyyy !== 0) {
+                    params[fieldName] = dd + '-' + mm + '-' + yyyy;
+                }else{
+                    params[fieldName] ="";
+                }
             } else {
                 params[fieldName] = $(this).val();
             }
