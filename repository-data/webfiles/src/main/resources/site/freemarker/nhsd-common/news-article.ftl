@@ -154,7 +154,7 @@
                     <#if hasSectionContent>
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <p class="nhsd-t-heading-xl">Related pages</p>
+                    <h2 class="nhsd-t-heading-xl">Related pages</h2>
                     <div class="nhsd-t-grid nhsd-t-grid--nested nhsd-!t-margin-bottom-2">
                         <div class="nhsd-t-row">
                             <div class="nhsd-t-col">
@@ -169,7 +169,7 @@
                 </#if>
 
                 <#if hasEditorsNotes>
-                    <p class="nhsd-t-heading-xl">Notes for editors</p>
+                    <h2 class="nhsd-t-heading-xl">Notes for editors</h2>
                     <ol class="nhsd-t-list nhsd-t-list--number">
                         <#list document.notesforeditors.htmlnotes as note>
                             <#if note.content?has_content>
@@ -184,7 +184,7 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div itemprop="backstory">
-                        <p class="nhsd-t-heading-xl">Back story</p>
+                        <h2 class="nhsd-t-heading-xl">Back story</h2>
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.news.backstory">
                             <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
                         </div>

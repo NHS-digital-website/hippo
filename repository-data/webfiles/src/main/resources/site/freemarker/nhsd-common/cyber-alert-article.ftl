@@ -177,7 +177,7 @@
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasSummaryContent>
                     <div id="${slugify(summaryHeader)}">
-                        <p class="nhsd-t-heading-xl">${summaryHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${summaryHeader}</h2>
 
                         <div data-uipath="website.publishedwork.summary">
                             <@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/>
@@ -194,7 +194,7 @@
                     <#assign platformTextList = [] />
 
                     <div id="${slugify(affectedPlatformsHeader)}">
-                        <p class="nhsd-t-heading-xl">${affectedPlatformsHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${affectedPlatformsHeader}</h2>
                         <p class="nhsd-t-body">The following platforms are known to be affected:</p>
 
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
@@ -285,7 +285,7 @@
                     </#if>
 
                     <div id="${slugify(threatDetailsHeader)}">
-                        <p class="nhsd-t-heading-xl">${threatDetailsHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${threatDetailsHeader}</h2>
                         <@sections document.sections></@sections>
                     </div>
                 </#if>
@@ -299,7 +299,7 @@
                     </#if>
 
                     <div id="${slugify(threatUpdatesHeader)}">
-                        <p class="nhsd-t-heading-xl">${threatUpdatesHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${threatUpdatesHeader}</h2>
 
                         <div class="nhsd-m-table nhsd-t-body">
                             <table data-responsive>
@@ -337,7 +337,7 @@
                     </#if>
 
                     <div id="${slugify(remediationIntroHeader)}">
-                        <p class="nhsd-t-heading-xl">${remediationIntroHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${remediationIntroHeader}</h2>
                         <@hst.html hippohtml=document.remediationIntro contentRewriter=brContentRewriter/>
                     </div>
                 </#if>
@@ -354,7 +354,7 @@
                     </#if>
 
                     <div id="${slugify(remediationStepsHeader)}">
-                        <p class="nhsd-t-heading-xl">${remediationStepsHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${remediationStepsHeader}</h2>
 
                         <div class="nhsd-m-table nhsd-t-body">
                             <table data-responsive>
@@ -395,7 +395,7 @@
                     </#if>
 
                     <div id="${slugify(indicatorsOfCompromiseHeader)}">
-                        <p class="nhsd-t-heading-xl">${indicatorsOfCompromiseHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${indicatorsOfCompromiseHeader}</h2>
                         <@sections document.indicatorsCompromise></@sections>
                     </div>
                 </#if>
@@ -413,7 +413,7 @@
                     </#if>
 
                     <div id="${slugify(ncscLinkHeader)}">
-                        <p class="nhsd-t-heading-xl">${ncscLinkHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${ncscLinkHeader}</h2>
                         <a class="nhsd-a-link" href="${document.ncscLink}">
                             ${document.ncscLink}
                         </a>
@@ -434,7 +434,7 @@
                     </#if>
 
                     <div id="${slugify(sourceOfUpdateHeader)}">
-                        <p class="nhsd-t-heading-xl">${sourceOfUpdateHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${sourceOfUpdateHeader}</h2>
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.sourceOfThreatUpdates as item>
                                 <li>
@@ -462,7 +462,7 @@
                     </#if>
 
                     <div id="${slugify(servicesHeader)}">
-                        <p class="nhsd-t-heading-xl">${servicesHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${servicesHeader}</h2>
                         <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--loose">
                             <#list document.services as item>
                                 <@hst.link hippobean=item var="serviceLink"/>
@@ -493,7 +493,7 @@
                     </#if>
 
                     <div id="${slugify(cveHeader)}">
-                        <p class="nhsd-t-heading-xl">${cveHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${cveHeader}</h2>
 
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
                             <div class="nhsd-t-row">
@@ -552,7 +552,7 @@
                     </#if>
 
                     <div id="${slugify(acknowledgementHeader)}">
-                        <p class="nhsd-t-heading-xl">${acknowledgementHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${acknowledgementHeader}</h2>
 
                         <div class="nhsd-t-grid nhsd-t-grid--nested">
                             <div class="nhsd-t-row nhsd-t-row--centred">
