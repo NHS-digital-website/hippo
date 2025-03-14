@@ -58,11 +58,14 @@ public class RemoteContentServiceTest {
 
     }
 
-    @Autowired
     private RemoteContentService testRemoteContentService;
+    private ResourceResolver testResourceResolver;
 
     @Autowired
-    private ResourceResolver testResourceResolver;
+    public RemoteContentServiceTest(RemoteContentService testRemoteContentService, ResourceResolver testResourceResolver) {
+        this.testRemoteContentService = testRemoteContentService;
+        this.testResourceResolver = testResourceResolver;
+    }
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089);

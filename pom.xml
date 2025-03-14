@@ -192,7 +192,6 @@
         <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
-        <joda-time.version>2.10.14</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
         <json.version>20220320</json.version>
         <jsp-api.version>2.2</jsp-api.version>
@@ -673,12 +672,6 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda-time.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
