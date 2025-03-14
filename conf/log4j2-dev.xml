@@ -147,7 +147,6 @@
 
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
-        <Logger name="com.onehippo.cms7.targeting" level="warn"/>
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
         <!-- Search Logging -->

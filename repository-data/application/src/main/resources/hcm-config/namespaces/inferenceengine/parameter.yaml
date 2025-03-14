@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:namespaces/inferenceengine/parameter/hipposysedit:nodetype/hipposysedit:nodetype/name:
-      hipposysedit:validators:
-      - required

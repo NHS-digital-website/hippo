@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.agent</artifactId>
-            <version>0.8.10</version>
+            <version>${maven-jacoco.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -140,13 +140,8 @@
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-cms</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-repository</artifactId>
-            <scope>compile</scope>
+            <artifactId>hippo-addon-urlrewriter-cms-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
@@ -201,41 +196,7 @@
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-cms-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-bundle-collectors</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-lucene-export</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-            <artifactId>relevance-inference-engine-core</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-            <artifactId>relevance-inference-engine-data-collector</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-            <artifactId>relevance-inference-engine-plugin</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-            <artifactId>relevance-inference-engine-collector-plugin</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-            <artifactId>relevance-inference-engine-repository</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
@@ -391,18 +352,18 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
-            <version>0.11.5</version>
+            <version>${jsonwebtoken-version}</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
-            <version>0.11.5</version>
+            <version>${jsonwebtoken-version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
-            <version>0.11.5</version>
+            <version>${jsonwebtoken-version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
@@ -429,18 +390,30 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire.version}</version>
+                <configuration>
+                    <argLine>@{argLine}</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
+                <version>${maven-jacoco.version}</version>
+                <configuration>
+                    <destFile>${project.build.directory}/jacoco.exec</destFile>
+                </configuration>
                 <executions>
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>

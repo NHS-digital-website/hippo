@@ -1,5 +1,0 @@
----
-definitions:
-  config:
-    /targeting:targeting/targeting:collectors/doccreatedby:
-      .meta:delete: true
