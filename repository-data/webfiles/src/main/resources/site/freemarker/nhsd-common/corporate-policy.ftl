@@ -125,7 +125,7 @@
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasSummaryContent>
                     <div id="${slugify('Summary')}">
-                        <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                        <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></h2>
                         <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
                     </div>
                 </#if>
@@ -136,7 +136,7 @@
                     </#if>
                     <div id="highlightsection"
                          class="article-section--highlighted">
-                        <p class="nhsd-t-heading-xl">${document.highlightSection.hightlightsTitle}</p>
+                        <h2 class="nhsd-t-heading-xl">${document.highlightSection.hightlightsTitle}</h2>
                         <@sections document.highlightSection.hightlightSection></@sections>
                     </div>
                 </#if>

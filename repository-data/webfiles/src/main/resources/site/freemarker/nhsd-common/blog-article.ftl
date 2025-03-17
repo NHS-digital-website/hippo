@@ -264,7 +264,7 @@
 
                 <#if hasBackstory>
                     <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-m">Back story</p>
+                        <h4 class="nhsd-t-heading-m">Back story</h4>
                         <div data-uipath="website.blog.backstory"><@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter /></div>
                     </div>
                 </#if>
@@ -276,7 +276,7 @@
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" aria-label="">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                             <div class="nhsd-m-contact-us__content">
-                                <p class="nhsd-t-heading-m">Contact Us</p>
+                                <h4 class="nhsd-t-heading-m">Contact Us</h4>
                                 <div data-uipath="website.blog.contactus">
                                     <@hst.html hippohtml=document.contactDetails contentRewriter=brContentRewriter/>
                                 </div>
@@ -290,7 +290,7 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-xl" >Related subjects</p>
+                        <h2 class="nhsd-t-heading-xl" >Related subjects</h2>
                         <#list document.relatedSubjects as item>
                             <@hst.link hippobean=item var="relatedSubjectLink"/>
                             <div class="nhsd-!t-margin-bottom-1" itemprop="about" itemscope itemtype="http://schema.org/CreativeWork">
@@ -317,7 +317,7 @@
                 </div>
 
                 <#if hasAuthors>
-                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
+                    <h2 class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </h2>
                     <div class="nhsd-o-gallery">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
                             <div class="nhsd-t-row nhsd-o-gallery__items">

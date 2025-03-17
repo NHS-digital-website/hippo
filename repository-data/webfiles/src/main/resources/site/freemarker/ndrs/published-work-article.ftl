@@ -133,7 +133,7 @@
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
                 <#if hasSummaryContent>
                     <div id="${slugify('Summary')}">
-                        <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                        <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></h2>
                         <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
                     </div>
                 </#if>
@@ -143,7 +143,7 @@
                         <hr class="nhsd-a-horizontal-rule"/>
                     </#if>
 
-                    <p class="nhsd-t-heading-xl">${document.highlightsTitle}</p>
+                    <h2 class="nhsd-t-heading-xl">${document.highlightsTitle}</h2>
                     <@hst.html hippohtml=document.highlightsContent contentRewriter=brContentRewriter/>
                 </#if>
 
@@ -159,7 +159,7 @@
 
                     <div class="nhsd-!t-margin-bottom-6"
                          id="about-this-publication">
-                        <p class="nhsd-t-heading-xl">${aboutThisPublicationHeader}</p>
+                        <h2 class="nhsd-t-heading-xl">${aboutThisPublicationHeader}</h2>
 
                         <#if document.isbn?has_content>
                             <p class="nhsd-t-heading-s"><@fmt.message key="labels.isbn" /></p>
@@ -179,7 +179,7 @@
                     </#if>
 
                     <div class="nhsd-!t-margin-bottom-6" id="resources">
-                        <p class="nhsd-t-heading-xl"><@fmt.message key="labels.resources"/></p>
+                        <h2 class="nhsd-t-heading-xl"><@fmt.message key="labels.resources"/></h2>
                         <div class="nhsd-t-grid">
                             <div class="nhsd-t-row">
                                 <div class="nhsd-t-col">
