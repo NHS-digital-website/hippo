@@ -8,7 +8,7 @@
     </h6>
 </div>
 
-<div class="nhsd-!t-padding-top-4"></div>
+<div class="nhsd-!t-padding-top-1"></div>
 
 <#if totalAvailable?has_content>
 
@@ -114,4 +114,9 @@
         </#list>
     </div>
 
+</#if>
+
+<#-- Check if pageable.items is empty -->
+<#if pageable.items?size == 0>
+    <@hst.include ref="footer"/>
 </#if>
