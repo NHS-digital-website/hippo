@@ -8,7 +8,7 @@
     </h6>
 </div>
 
-<div class="nhsd-!t-padding-top-1"></div>
+<div class="nhsd-!t-padding-top-4"></div>
 
 <#if totalAvailable?has_content>
 
