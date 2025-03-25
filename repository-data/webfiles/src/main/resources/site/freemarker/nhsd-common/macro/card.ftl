@@ -21,7 +21,7 @@
         </#if>
 
         <#if cardProperties.link?has_content>
-            <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" ${cardProperties.title?has_content?then("aria-label='About NHS Digital'", "")?no_esc}>
+            <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange">
         </#if>
             <div class="nhsd-a-box nhsd-a-box--bg-${bgColor} ${borderColor?has_content?then("nhsd-a-box--border-" + borderColor, "")}">
                 <#if cardProperties.image?has_content>
