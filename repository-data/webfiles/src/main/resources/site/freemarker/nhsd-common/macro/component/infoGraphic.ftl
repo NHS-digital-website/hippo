@@ -39,15 +39,15 @@
             </#if>
 
             <div class="nhsd-m-infographic__headline-box">
-                <p class="nhsd-t-heading-l nhsd-t-word-break">
+                <h3 class="nhsd-t-heading-l nhsd-t-word-break">
                     ${graphic.headline}
-                </p>
+                </h3>
             </div>
             <#if graphic.explanatoryLine?has_content>
                 <div class="nhsd-m-infographic__explanatory-line-box">
-                    <p class="nhsd-t-heading-m nhsd-t-word-break">
+                    <h4 class="nhsd-t-heading-m nhsd-t-word-break">
                         <@hst.html hippohtml=graphic.explanatoryLine contentRewriter=stripTagsWithLinksContentRewriter/>
-                    </p>
+                    </h4>
                 </div>
             </#if>
             <#if graphic.qualifyingInformation?has_content>

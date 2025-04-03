@@ -158,7 +158,7 @@
                     </#if>
 
                     <div id="resources">
-                        <p class="nhsd-t-heading-xl">Resources</p>
+                        <h2 class="nhsd-t-heading-xl">Resources</h2>
                         <#list document.extAttachments as attachment>
                             <#--  Download macro cannot be used due to different yaml config -->
                             <#assign iconTypeFromMime = getFormatByMimeType("${attachment.resource.mimeType?lower_case}") />
