@@ -277,6 +277,8 @@ git rebase -i origin/master
 git push origin DW-0000-feature // again - might need to force push
 ```
 
+Further instructions about the [PR process](.github/messages/pr-process-instructions.md) are printed into the PR's comments on GH shortly after a new PR is opened.
+
 ## Automated Acceptance Tests
 
 Automated acceptance tests ensure that the implementation meets functional criteria specified in the requirements.

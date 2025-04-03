@@ -136,6 +136,137 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /service-catalogue-banner:
+    /service-catalogue-banner[1]:
+      /website:content:
+        hippostd:content: <p>We deliver systems and services to the NHS and the wider
+          health and social care sector which help providers deliver better care.
+          Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: NHS Digital deliver systems and services to the NHS and
+          the wider health and social care sector which help providers deliver better
+          care. Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-10-16T14:35:11.455Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:bannerdocument
+      website:title: Systems and services
+    /service-catalogue-banner[2]:
+      /website:content:
+        hippostd:content: <p>We deliver systems and services to the NHS and the wider
+          health and social care sector which help providers deliver better care.
+          Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: NHS Digital deliver systems and services to the NHS and
+          the wider health and social care sector which help providers deliver better
+          care. Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-10-16T14:33:24.747Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Systems and services
+    /service-catalogue-banner[3]:
+      /website:content:
+        hippostd:content: <p>We deliver systems and services to the NHS and the wider
+          health and social care sector which help providers deliver better care.
+          Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: NHS Digital deliver systems and services to the NHS and
+          the wider health and social care sector which help providers deliver better
+          care. Our information, data, and IT systems help health professionals, commissioners,
+          analysts and managers give the best outcomes for patients.
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2024-10-16T14:35:11.455Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-10-16T14:35:17.995Z
+      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Systems and services
+    hippo:name: service-catalogue-banner
+    hippo:versionHistory: 9583a2f0-4af0-4722-a46d-9efc397e5d5a
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Banners
   hippostd:foldertype:
   - new-digital-website-folder

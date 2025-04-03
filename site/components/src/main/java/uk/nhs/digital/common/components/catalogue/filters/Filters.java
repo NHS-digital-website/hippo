@@ -63,12 +63,7 @@ public class Filters implements Walkable {
             .collect(toList());
     }
 
-    public List<String> selectedFiltersKeysMinusCollection(final List<String> filterKey) {
-        return selectedFiltersKeys().stream()
-            .filter(key -> !filterKey.contains(key))
-            .collect(toList());
-    }
-
+    // Also invoked from the template.
     public List<String> selectedFiltersKeysPlus(final String filterKey) {
         final List<String> selectedFilterKeys = new ArrayList<>(selectedFiltersKeys());
         selectedFilterKeys.add(filterKey);
@@ -79,12 +74,6 @@ public class Filters implements Walkable {
     // Also invoked from the template.
     public List<String> selectedFiltersKeys() {
         return this.selectedFiltersKeys;
-    }
-
-    // Also invoked from the template.
-    public boolean selectedFiltersContain(final String filterKey) {
-        final HashSet<String> selectedFilterKeys = new HashSet<>(selectedFiltersKeys());
-        return selectedFilterKeys.parallelStream().anyMatch(key -> key.equals(filterKey));
     }
 
     public boolean isHighlighted(final String displayName) {

@@ -9,16 +9,20 @@ import java.util.Optional;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-public class ApiCatalogueFilterManager {
+public class CatalogueFilterManager {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiCatalogueFilterManager.class);
-    private static final String TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH = "/content/documents/administration/website/developer-hub/taxonomy-filters-mapping";
+    private static final Logger logger = LoggerFactory.getLogger(CatalogueFilterManager.class);
+    private final String documentPath;
 
-    public Filters getRawFilters(HstRequest request) {
-        return rawFilters(sessionFrom(request), TAXONOMY_FILTERS_MAPPING_DOCUMENT_PATH, log);
+    public CatalogueFilterManager(String documentPath) {
+        this.documentPath = documentPath;
     }
 
-    private Session sessionFrom(final HstRequest request) {
+    public Filters getRawFilters(HstRequest request) {
+        return rawFilters(sessionFrom(request), this.documentPath);
+    }
+
+    Session sessionFrom(final HstRequest request) {
         try {
             return request.getRequestContext().getSession();
         } catch (final RepositoryException e) {
@@ -26,9 +30,9 @@ public class ApiCatalogueFilterManager {
         }
     }
 
-    private Filters rawFilters(Session session, String taxonomyFilters, Logger logger) {
+    Filters rawFilters(Session session, String taxonomyFilters) {
         try {
-            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters, logger)
+            return taxonomyKeysToFiltersMappingYaml(session, taxonomyFilters)
                 .map(mappingYaml -> CatalogueContext.filtersFactory().filtersFromMappingYaml(mappingYaml)).orElse(Filters.emptyInstance());
         } catch (final Exception e) {
             logger.error("Failed to generate Filters model.", e);
@@ -36,7 +40,7 @@ public class ApiCatalogueFilterManager {
         return Filters.emptyInstance();
     }
 
-    private Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters, Logger logger) {
+    Optional<String> taxonomyKeysToFiltersMappingYaml(final Session session, String taxonomyFilters) {
 
         try {
             return CatalogueContext.catalogueRepository(session, taxonomyFilters).taxonomyFiltersMapping();
