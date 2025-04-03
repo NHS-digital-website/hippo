@@ -25,9 +25,9 @@
     <div class="nhsd-m-nav-block ${isDarkMolecule} ${classes}" id="${id}">
         <#if hasLink>
             <#if item.internal?has_content>
-                <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
+                <a href="<@hst.link hippobean=item.internal/>" class="nhsd-a-box-link ${isYellowLink}">
             <#else>
-                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}" aria-label="${label}">
+                <a href="${item.external}" class="nhsd-a-box-link ${isYellowLink}">
             </#if>
         </#if>
         <div class="nhsd-a-box nhsd-a-box--bg-${colVarWithYellowCheck}">
