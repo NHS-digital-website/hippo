@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<#-- <#include "app-layout-head.ftl"> -->
 <#include "../nhsd-homepage-head.ftl">
 
 <body class="debugs">

@@ -7,7 +7,8 @@
 
 <html lang="en">
   <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" async></script>
+      <!-- Cookiebot must be the very first script -->
+      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" type="text/javascript"></script>
 
       <!-- Google Tag Manager -->
       <script>(function (w, d, s, l, i) {

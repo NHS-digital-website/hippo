@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <head>
-    <!-- Google Tag Manager -->
+    <!-- Cookiebot must be the very first script -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" type="text/javascript"></script>
+
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -8,16 +10,17 @@
                     new Date().getTime(), event: 'gtm.js'
             });
             var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
+
+    <!-- Google Tag Manager -->
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
     <!-- End Google Tag Manager -->
 
 
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

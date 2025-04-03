@@ -6,6 +6,9 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
+    <!-- Cookiebot must be the very first script -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" type="text/javascript"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ8GJKH035"></script>
     <script>
@@ -15,7 +18,6 @@
 
         gtag('config', 'G-WZ8GJKH035');
     </script>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
     <!-- Begin Constant Contact Active Forms -->
     <script> var _ctct_m = "93d2e771bce26a23dadb40486223f483"; </script>
     <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>

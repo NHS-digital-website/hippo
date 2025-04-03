@@ -4,6 +4,9 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
+    <!-- Cookiebot must be the very first script -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" type="text/javascript"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFB0ZQ0CHQ"></script>
     <script>
@@ -13,7 +16,6 @@
 
         gtag('config', 'G-NFB0ZQ0CHQ');
     </script>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
