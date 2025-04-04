@@ -12,7 +12,6 @@
 <#include "./macro/heroes/hero.ftl">
 <#include "./macro/heroes/hero-options.ftl">
 <#include "macro/contentPixel.ftl">
-<#import "app-layout-head.ftl" as alh>
 
 <@hst.headContribution category="metadata">
     <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>

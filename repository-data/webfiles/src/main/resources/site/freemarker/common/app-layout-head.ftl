@@ -20,8 +20,6 @@
     })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
     <!-- End Google Tag Manager -->
 
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
