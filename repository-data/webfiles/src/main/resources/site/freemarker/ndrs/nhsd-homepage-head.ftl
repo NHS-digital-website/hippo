@@ -6,9 +6,6 @@
 <@fmt.message key="design-system.url" var="designSystemUrl" />
 
 <head>
-    <!-- Cookiebot must be the very first script -->
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" type="text/javascript"></script>
-
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
