@@ -142,6 +142,7 @@
         <bloomreach.text-search-replace.version>3.0.1</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>6.0.0</forge.resetpassword.version>
         <bloomreach.forge.sitemapv2.version>3.0.0</bloomreach.forge.sitemapv2.version>
+        <content-exim.version>5.0.1</content-exim.version>
 
         <commonmark.version>0.18.2</commonmark.version>
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
@@ -163,7 +164,6 @@
         <commons-io.version>2.11.0</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
-        <content-exim.version>4.0.1</content-exim.version>
         <cucumber.version>7.21.1</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
