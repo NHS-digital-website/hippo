@@ -8,7 +8,7 @@
 
     <article class="nhsd-m-card">
         <#if cardProperties.link?has_content>
-            <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange" ${cardProperties.title?has_content?then("aria-label=\"About NHS Digital\"", "")}>
+            <a href="${cardProperties.link}" class="nhsd-a-box-link nhsd-a-box-link--focus-orange">
         </#if>
             <div class="nhsd-a-box nhsd-a-box--bg-${bgColor} ${borderColor?has_content?then("nhsd-a-box--border-" + borderColor, "")}">
                 <div class="nhsd-m-card__content_container">

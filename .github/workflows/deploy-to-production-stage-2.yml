@@ -7,8 +7,8 @@ on:
       - slack-deploy-hotfix-command-odv2
   # A Normal Deployment
   schedule:
-    # Runs at 12:05pm GMT weekdays
-    - cron: "5 12 * * 1-5"
+    # Runs at 12:05pm BST weekdays
+    - cron: "5 11 * * 1-5"
 
 env:
   PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
@@ -98,8 +98,13 @@ jobs:
 
       - name: Check for Changes and Exit if None
         id: check_changes
+        env:
+          SHOULD_RUN_ANYWAY: ${{ !contains(vars.SHOULD_RUN_ANYWAY_MODE, false) }}
         run: |
-          if [ "$(git log prd..rc)" != "" ]; then
+          if [ "$SHOULD_RUN_ANYWAY" = "true" ]; then
+            echo "Forced run. Overriding changes check."
+            echo "changes=true" >> $GITHUB_OUTPUT
+          elif [ "$(git log prd..rc)" != "" ]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "No changes detected. Skipping deployment."
