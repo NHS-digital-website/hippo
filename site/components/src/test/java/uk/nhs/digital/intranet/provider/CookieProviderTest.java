@@ -4,6 +4,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import jakarta.servlet.http.Cookie;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,8 +14,6 @@ import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
-
-import javax.servlet.http.Cookie;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CookieProviderTest extends MockitoSessionTestBase {

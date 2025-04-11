@@ -26,14 +26,14 @@
 1. Create settings.xml file for your Bloomreach creds:
 
 		$ touch ~/.m2/settings.xml
-	
+
 2. And add your auth details as below:
 
 ```XML
 <settings>
  <servers>
    <server>
-     <id>hippo-maven2-enterprise</id>
+     <id>bloomreach-maven2-enterprise</id>
      <username>USERNAME</username>
      <password>PASSWORD</password>
    </server>

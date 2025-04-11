@@ -1,5 +1,6 @@
 package uk.nhs.digital.arc.storage;
 
+import jakarta.ws.rs.core.MediaType;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +12,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
-import javax.ws.rs.core.MediaType;
 
 /**
  * The S3 implementation of the {@link ArcStorageManager} interface used for

@@ -15,13 +15,13 @@
     -->
 
     <!-- Enable this to let wicket output a wicketpath attribute for elements,
-         see: https://www.onehippo.org/library/development/create-a-selenium-test-case.html -->
+         see: https://xmdocumentation.bloomreach.com/library/development/create-a-selenium-test-case.html -->
     <Parameter name="output-wicketpaths" value="true"/>
 
     <!-- Local developer email -->
     <Resource name="mail/NHSMail"
               auth="Container"
-              type="javax.mail.Session"
+              type="jakarta.mail.Session"
               mail.smtp.host="localhost"
               mail.smtp.port="2525"
     />

@@ -1,7 +1,7 @@
 <settings>
     <servers>
         <server>
-            <id>hippo-maven2-enterprise</id>
+            <id>bloomreach-maven2-enterprise</id>
             <username>${env.HIPPO_MAVEN_USERNAME}</username>
             <password>${env.HIPPO_MAVEN_PASSWORD}</password>
         </server>
@@ -15,7 +15,7 @@
             </activation>
             <repositories>
                 <repository>
-                    <id>hippo-maven2-enterprise</id>
+                    <id>bloomreach-maven2-enterprise</id>
                     <name>Bloomreach Maven 2 Enterprise</name>
                     <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
                     <releases>
@@ -26,7 +26,7 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>hippo-maven2-enterprise</id>
+                    <id>bloomreach-maven2-enterprise</id>
                     <name>Bloomreach Maven 2 Enterprise</name>
                     <url>https://maven.bloomreach.com/repository/maven2/</url>
                     <snapshots>

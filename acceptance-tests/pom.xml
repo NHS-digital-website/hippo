@@ -106,7 +106,7 @@
         shared/lib and common/lib, respectively.
 
         The dependencies enumerated here are then referenced in 'container > dependencies' configuration of the
-        cargo-maven2-plugin below, to ensure that they are available to all deployed applications.
+        cargo-maven3-plugin below, to ensure that they are available to all deployed applications.
         -->
 
         <!-- Dependencies shared by all the applications, but not exposed to the server (shared-lib-component.xml,
@@ -164,10 +164,21 @@
             <artifactId>geronimo-jta_1.1_spec</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>jakarta.mail</artifactId>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>jakarta.mail</groupId>
+            <artifactId>jakarta.mail-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-activation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-mail</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -398,7 +409,7 @@
                     applications into it prior to running the tests. -->
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
-                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>acceptance-test-app-start</id>
@@ -566,8 +577,23 @@
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.sun.mail</groupId>
-                                        <artifactId>jakarta.mail</artifactId>
+                                        <groupId>jakarta.activation</groupId>
+                                        <artifactId>jakarta.activation-api</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>jakarta.mail</groupId>
+                                        <artifactId>jakarta.mail-api</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.eclipse.angus</groupId>
+                                        <artifactId>angus-activation</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.eclipse.angus</groupId>
+                                        <artifactId>angus-mail</artifactId>
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
