@@ -36,7 +36,8 @@ public class DoctypeDetector {
             if (node.getNodes() != null && node.getNodes().hasNext()) {
                 Node nodeToCheck = node.getNodes().nextNode();
 
-                return checkAgainst.equals(nodeToCheck.getProperty("common:FacetType").getString())
+                return nodeToCheck.hasProperty("common:FacetType")
+                    && checkAgainst.equals(nodeToCheck.getProperty("common:FacetType").getString())
                     && isLocation(node);
             }
         } catch (RepositoryException e) {

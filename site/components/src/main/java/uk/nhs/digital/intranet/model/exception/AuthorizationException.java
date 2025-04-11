@@ -1,17 +1,17 @@
 package uk.nhs.digital.intranet.model.exception;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 
 public class AuthorizationException extends Exception {
 
-    private final HttpStatus statusCode;
+    private final HttpStatusCode statusCode;
 
-    public AuthorizationException(final HttpStatus statusCode, final Throwable cause) {
+    public AuthorizationException(final HttpStatusCode statusCode, final Throwable cause) {
         super(cause);
         this.statusCode = statusCode;
     }
 
-    public HttpStatus getStatusCode() {
+    public HttpStatusCode getStatusCode() {
         return statusCode;
     }
 }

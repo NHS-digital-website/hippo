@@ -90,16 +90,20 @@
             <artifactId>ehcache</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-spec</artifactId>
+            <groupId>jakarta.servlet.jsp</groupId>
+            <artifactId>jakarta.servlet.jsp-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-impl</artifactId>
+            <groupId>com.bloomreach.xm</groupId>
+            <artifactId>taglibs-standard-spec-jakarta</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.bloomreach.xm</groupId>
+            <artifactId>taglibs-standard-impl-jakarta</artifactId>
         </dependency>
         <dependency>
             <groupId>xalan</groupId>
@@ -175,8 +179,8 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-urlrewriter-module-hst</artifactId>
-            <scope>compile</scope>
+            <artifactId>hippo-addon-urlrewriter-site-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
 
         <dependency>
@@ -228,22 +232,17 @@
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security.oauth</groupId>
+                    <artifactId>spring-security-oauth2</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-hst</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-site-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.client-modules</groupId>
-            <artifactId>hst-google-analytics-hst</artifactId>
         </dependency>
 
         <dependency>
@@ -286,7 +285,7 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>4.3.1</version>
+            <version>${jedis.verison}</version>
         </dependency>
 
     </dependencies>
@@ -310,7 +309,7 @@
         <plugins>
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
+                <artifactId>cargo-maven3-plugin</artifactId>
                 <configuration>
                     <configuration>
                         <type>runtime</type>
@@ -346,6 +345,23 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire.version}</version>
+                <configuration>
+                    <argLine>
+                        <!-- these are for tests -->
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                        --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+                        --add-opens java.base/java.util=ALL-UNNAMED
+                        --add-opens java.base/java.util.stream=ALL-UNNAMED
+                        --add-opens java.base/java.time=ALL-UNNAMED
+                        --add-opens java.base/sun.util.calendar=ALL-UNNAMED
+                    </argLine>
+                </configuration>
             </plugin>
 
         </plugins>

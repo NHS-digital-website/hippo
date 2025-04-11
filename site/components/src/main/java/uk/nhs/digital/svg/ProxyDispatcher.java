@@ -1,5 +1,10 @@
 package uk.nhs.digital.svg;
 
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,10 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Enumeration;
 import javax.net.ssl.HttpsURLConnection;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class ProxyDispatcher extends HttpServlet {
 
