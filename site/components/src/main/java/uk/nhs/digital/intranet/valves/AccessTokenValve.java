@@ -1,5 +1,7 @@
 package uk.nhs.digital.intranet.valves;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
@@ -14,8 +16,6 @@ import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
 
 import java.util.*;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 
 public class AccessTokenValve extends AbstractOrderableValve {
 

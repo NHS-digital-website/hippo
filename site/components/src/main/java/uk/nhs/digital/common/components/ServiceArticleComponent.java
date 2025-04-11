@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -7,8 +8,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyProcessor;
 import uk.nhs.digital.website.beans.Service;
-
-import javax.servlet.http.HttpServletRequest;
 
 public class ServiceArticleComponent extends DocumentChildComponent {
 
