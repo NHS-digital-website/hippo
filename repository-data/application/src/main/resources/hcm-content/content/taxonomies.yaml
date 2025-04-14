@@ -15240,10 +15240,11 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2018-02-19T16:55:09.240Z
-      hippostdpubwf:lastModificationDate: 2024-03-20T11:45:58.886Z
-      hippostdpubwf:lastModifiedBy: matthew.firth
+      hippostdpubwf:lastModificationDate: 2024-12-12T12:07:19.872Z
+      hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales:
       - en
       jcr:mixinTypes:

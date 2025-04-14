@@ -11,10 +11,6 @@ public class ApiSpecification extends CommonFieldsBean {
         return getSingleProperty("website:specification_id");
     }
 
-    public Boolean getEnableRapiDoc() {
-        return getSingleProperty("website:enable_rapidoc");
-    }
-
     public String getHtml() {
         return getSingleProperty("website:html");
     }
