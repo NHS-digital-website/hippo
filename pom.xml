@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>16.2.0</version>
+        <version>16.3.0</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -152,17 +152,17 @@
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
 
-        <aspectweaver.version>1.9.22.1</aspectweaver.version>
+        <aspectweaver.version>1.9.23</aspectweaver.version>
         <awaitility.version>4.2.1</awaitility.version>
         <aws-java-sdk.version>1.12.218</aws-java-sdk.version>
         <aws.sdk-bom.version>2.16.1</aws.sdk-bom.version>
         <batik.version>1.14</batik.version>
-        <commons-codec.version>1.16.1</commons-codec.version>
+        <commons-codec.version>1.18.0</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-io.version>2.16.1</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
-        <commons.version>3.14.0</commons.version>
+        <commons.version>3.17.0</commons.version>
         <cucumber.version>7.21.1</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
@@ -178,7 +178,7 @@
         <httpclient.version>4.5.14</httpclient.version>
         <httpcore.version>4.4.16</httpcore.version>
         <jackson-coreutils.version>2.0</jackson-coreutils.version>
-        <jackson-dataformat-xml.version>2.18.2</jackson-dataformat-xml.version>
+        <jackson-dataformat-xml.version>2.18.3</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
         <jedis.verison>4.3.1</jedis.verison>
         <joda-time.version>2.12.7</joda-time.version>
