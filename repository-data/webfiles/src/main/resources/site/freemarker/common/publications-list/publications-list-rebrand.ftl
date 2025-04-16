@@ -29,7 +29,7 @@
                                             <#assign pubdate = nomimaldate.dayOfMonth + " " + nomimaldate.month +" "+ nomimaldate.year?c/>
                                         </#if>
                                         <span class="nhsd-m-card__date"><time class="cta__meta" datetime="${pubdate?date?iso_utc}">${pubdate?date}</time></span>
-                                        <h1 class="nhsd-t-heading-s">${item.title}</h1>
+                                        <h5 class="nhsd-t-heading-s">${item.title}</h5>
                                     </div>
 
                                     <div class="nhsd-m-card__button-box">

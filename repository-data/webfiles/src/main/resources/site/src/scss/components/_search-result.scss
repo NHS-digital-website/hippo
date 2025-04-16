@@ -16,7 +16,7 @@
     .search-results-heading__subcopy,
     .search-results-heading__sort {
         display: inline-block;
-        
+
         @include core-font(14);
     }
 
@@ -28,6 +28,11 @@
         .search-results-heading__sort {
             float: right;
         }
+    }
+
+    select:focus {
+        border: 1px solid #ffb81c;
+        outline: 2px solid #ffb81c;
     }
 }
 
