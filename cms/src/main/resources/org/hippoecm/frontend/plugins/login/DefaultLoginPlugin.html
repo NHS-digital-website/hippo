@@ -1,9 +1,44 @@
 <html xmlns:wicket="http://wicket.apache.org/">
 <wicket:head>
     <link rel="stylesheet" type="text/css" href="skin/custom-login.css"/>
+    <style>
+        .login-background {
+            display: none;
+        }
+
+        .alert-banner {
+            width: 100%;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .alert-banner-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .alert-banner-body {
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+    </style>
 </wicket:head>
 <body>
 <wicket:extend>
+    <div wicket:id="alertBanner" class="alert-banner">
+        <h2 wicket:id="alertBannerMessageTitle"></h2>
+        <p wicket:id="alertBannerMessageBody"></p>
+    </div>
     <script src="skin/custom-login.js"></script>
 </wicket:extend>
 </body>
