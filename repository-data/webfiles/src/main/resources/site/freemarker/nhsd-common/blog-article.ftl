@@ -345,7 +345,7 @@
                                                     </#if>
                                                         <div class="nhsd-m-card__content_container">
                                                             <div class="nhsd-m-card__content-box">
-                                                                <h1 class="nhsd-t-heading-s">${author.title}</h1>
+                                                                <h5 class="nhsd-t-heading-s">${author.title}</h5>
                                                                 <span class="nhsd-m-card__date">
                                                                     <#if author.roles.firstprimaryrole?has_content >
                                                                         ${author.roles.firstprimaryrole}, ${author.roles.primaryroleorg}
