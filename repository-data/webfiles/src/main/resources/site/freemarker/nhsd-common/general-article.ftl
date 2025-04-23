@@ -128,9 +128,9 @@
 
     <@modal 'track-download-modal' { "mandatory": true }>
     <#if promptValue == 'Prompt all users'>
-        <h1 class="nhsd-t-heading-m">${modalAllUsersHeader}</h1>
+        <h4 class="nhsd-t-heading-m">${modalAllUsersHeader}</h4>
     <#else>
-        <h1 class="nhsd-t-heading-m">${modalDownloadHeader}</h1>
+        <h4 class="nhsd-t-heading-m">${modalDownloadHeader}</h4>
     </#if>
         <p class="nhsd-t-body">${modalIntro}</p>
 
