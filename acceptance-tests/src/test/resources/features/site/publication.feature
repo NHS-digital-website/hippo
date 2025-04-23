@@ -112,3 +112,8 @@ Feature: Ensure publication page displays required fields.
         When I navigate to the "Geographic Coverage - Other combination" page
         Then I should also see:
             | Publication Geographic Coverage | England, Northern Ireland, Republic of Ireland |
+
+    @WIP
+    Scenario: Check all header tags has the correct classes
+        Given I navigate to the "bare minimum publication" page
+        Then all elements with header classes should match their tag levels

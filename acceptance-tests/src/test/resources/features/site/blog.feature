@@ -28,8 +28,4 @@ Feature: Ensure Blog page displays required fields.
     @WIP
     Scenario: Check there is only one h1 per page
         Given I navigate to the "Blog test document 1" page
-        Then I should see 1 h1 header
-    @WIP
-    Scenario: Check all header tags has the correct classes
-        Given I navigate to the "Blog test document 1" page
-        Then all elements with header classes should match their tag levels
+        Then I should see 1 h1 header    

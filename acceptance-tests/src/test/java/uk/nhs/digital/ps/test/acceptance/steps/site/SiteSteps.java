@@ -37,6 +37,7 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -627,32 +628,31 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenElementsWithHeaderClassesMatchTags() {
         // Define expected tag for each class
         Map<String, String> classToTagMap = new HashMap<>();
-        classToTagMap.put("nhsd-t-heading-xl", "h2");
-        classToTagMap.put("nhsd-t-heading-l", "h3");
-        classToTagMap.put("nhsd-t-heading-m", "h4");
-        classToTagMap.put("nhsd-t-heading-s", "h5");
-        classToTagMap.put("nhsd-t-heading-xs", "h6");
+        classToTagMap.put("h2","nhsd-t-heading-xl");
+        classToTagMap.put("h3","nhsd-t-heading-l");
+        classToTagMap.put("h4","nhsd-t-heading-m");
+        classToTagMap.put("h5","nhsd-t-heading-s");
 
         List<String> mismatches = new ArrayList<>();
         
         for (Map.Entry<String, String> entry : classToTagMap.entrySet()) {
-            String className = entry.getKey();       // e.g., "nhsd-t-heading-xl"
-            String headerTag = entry.getValue();   // e.g., "h2"
+            String className = entry.getValue();       // e.g., "nhsd-t-heading-xl"
+            String headerTag = entry.getKey();   // e.g., "h2"
     
             // Find all elements that have this class (using CSS selector)
-            List<WebElement> elements = sitePage.findElementsByClass(className);
+            List<WebElement> elements = sitePage.findElementsByTag(headerTag);
 
             if (elements.isEmpty()) {
                 continue; 
             }
     
             for (WebElement element : elements) {
-                String actualTag = element.getTagName().toLowerCase();
+                String classes = element.getAttribute("class");
     
-                if (!actualTag.equals(headerTag)) {
+                if (classes != null && Arrays.asList(classes.split("\\s+")).contains(className)) {
                     mismatches.add(String.format(
-                        "Element with class '%s' should be <%s> but is <%s>",
-                        className, headerTag, actualTag
+                        "Element with tag '%s' should have the class <%s>",
+                        headerTag, className
                     ));
                 }
             }
