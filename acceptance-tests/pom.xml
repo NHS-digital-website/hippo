@@ -473,6 +473,8 @@
                                         -Xmx1024m
                                         -Duser.timezone=Europe/London
                                         -Dfile.encoding=UTF-8
+                                        <!-- for freemarker & taxonomy related errors -->
+                                        --add-opens=java.base/java.util=ALL-UNNAMED
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug

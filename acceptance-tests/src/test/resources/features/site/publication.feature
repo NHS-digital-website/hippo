@@ -6,7 +6,7 @@ Feature: Ensure publication page displays required fields.
         And I should also see:
             | Publication Summary                   | Etiam vitae tincidunt lectus. Nulla posuere ultricies ...         |
             | Publication Key Facts                 | Cras eget elementum erat. Aliquam ornare urna ut ligula ...       |
-            | Publication Date Range                | 10 Feb 2015 to 15 Sep 2016                                        |
+            | Publication Date Range                | 10 Feb 2015 to 15 Sept 2016                                        |
             | Publication Date                      | 10 Oct 2016                                                       |
 
     Scenario: Check coverage date range when dates are equal
