@@ -25,7 +25,6 @@ Feature: Ensure Blog page displays required fields.
         When I can click on the "Blog AcceptanceTestDocument 3" link
         Then I should see blog page titled "Blog AcceptanceTestDocument 3"
 
-    @WIP
     Scenario: Check there is only one h1 per page
         Given I navigate to the "Blog test document 1" page
-        Then I should see 1 h1 header    
+        Then I should see 1 h1 header
