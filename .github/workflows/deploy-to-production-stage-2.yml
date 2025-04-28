@@ -229,10 +229,8 @@ jobs:
           -w "\n%{http_code}" -S)
 
           code=$(echo "$response" | tail -n 1)
-          response_body=$(echo "$response" | sed '$d')
-          echo "Response Body: $(<response_body.txt)"
-          echo "HTTP Status: $code"
 
+          echo "$response" | sed '$d'
           echo "code=$code" >> $GITHUB_OUTPUT
         env:
           DISTRIBUTION: ${{ steps.prod-distribution-ids.outputs.prodDistId }}
