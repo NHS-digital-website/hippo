@@ -2,7 +2,9 @@
 definitions:
   config:
     /hippo:configuration/hippo:frontend/login/login/loginPage:
-      selectable.timezones:
-      - Europe/London
+      message.body: We have had to imposes a content freeze.
+      message.title: Important
+      plugin.class: uk.nhs.digital.CustomLoginPlugin
+      show.message: false
       show.timezones: true
       signin.form.autocomplete: false
