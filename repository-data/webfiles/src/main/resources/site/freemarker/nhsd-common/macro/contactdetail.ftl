@@ -8,7 +8,7 @@
     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6" ${schemaOrg?has_content?then('itemscope itemtype="https://schema.org/'+schemaOrg+'"', '')?no_esc}>
       <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
         <div class="nhsd-m-contact-us__content">
-          <h4 class="nhsd-t-heading-m">${title}</h4>
+          <p class="nhsd-t-heading-m">${title}</p>
 
           <#assign rendername=name /><#if contactdetails != '' && contactdetails.name?has_content><#assign rendername=contactdetails.name /></#if>
           <#assign renderemail=email /><#if contactdetails != '' && contactdetails.emailaddress?has_content><#assign renderemail=contactdetails.emailaddress /></#if>

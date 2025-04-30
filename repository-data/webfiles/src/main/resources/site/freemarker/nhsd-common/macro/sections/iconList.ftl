@@ -9,7 +9,7 @@
                 <#if section.headingLevel == 'Main heading'>
                     <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.iconlist.title">${section.title}</h2>
                 <#else>
-                    <h3 class="nhsd-t-heading-l" data-uipath="website.contentblock.iconlist.title">${section.title}</h3>
+                    <p class="nhsd-t-heading-l" data-uipath="website.contentblock.iconlist.title">${section.title}</p>
                 </#if>
             </#if>
 

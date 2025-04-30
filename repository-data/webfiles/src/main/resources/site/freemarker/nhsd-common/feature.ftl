@@ -197,7 +197,7 @@
                     </#if>
                     <div>
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue nhsd-!t-margin-bottom-6" data-uipath="website.feature.backstory">
-                            <h4 class="nhsd-t-heading-m">Back story</h4>
+                            <p class="nhsd-t-heading-m">Back story</p>
                             <@hst.html hippohtml=document.backstory contentRewriter=brContentRewriter />
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                     <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6">
                         <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                             <div class="nhsd-m-contact-us__content">
-                                <h4 class="nhsd-t-heading-m">Contact Us</h4>
+                                <p class="nhsd-t-heading-m">Contact Us</p>
                                 <div data-uipath="website.feature.contactus">
                                     <@hst.html hippohtml=document.contactDetails contentRewriter=brContentRewriter/>
                                 </div>
