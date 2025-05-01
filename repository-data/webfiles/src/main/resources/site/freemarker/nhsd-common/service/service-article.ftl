@@ -140,7 +140,7 @@
                 </#if>
 
                 <#if hasSectionContent>
-                    <@sections document.sections></@sections>
+                    <@sections document.sections document.htmlCode></@sections>
                 </#if>
 
                 <#if hasContactDetailsContent>

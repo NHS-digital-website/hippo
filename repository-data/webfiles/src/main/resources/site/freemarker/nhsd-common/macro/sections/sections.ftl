@@ -25,14 +25,17 @@
 <#include "../component/infoGraphic.ftl">
 <#include "imageModule.ftl">
 <#include "visualisationSection.ftl">
-
+<#include "../../macro/component/skipLink.ftl">
 
 <!-- Set up equation support from mathjax -->
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
-<#macro sections sections mainHeadingLevel=2 wrap=false padSections=false orgPrompt=false>
+<#macro sections sections rawHtmlCode mainHeadingLevel=2 wrap=false padSections=false orgPrompt=false>
     <#assign numberedListCount=0 />
     <#assign isPreviousEmphasisBox = false />
+    <#assign totalSections = sections?size />
+    <#assign seventyFivePercentIndex = (totalSections * 0.75)?int />
+
     <#list sections as section>
         <#if wrap>
         <div>
@@ -103,8 +106,12 @@
             <#elseif section.sectionType == 'visualisation'>
                 <@visualisationSection section=section />
             </#if>
+            <#-- Insert skipLink when reaching 75% of the sections -->
+            <#if section?index == seventyFivePercentIndex && rawHtmlCode?has_content>
+                <@skipLink anchorTo="qdiv" label="'Help us improve' survey" />
+            </#if>
         <#if wrap>
-        </div>
+            </div>
         </#if>
     </#list>
 </#macro>
