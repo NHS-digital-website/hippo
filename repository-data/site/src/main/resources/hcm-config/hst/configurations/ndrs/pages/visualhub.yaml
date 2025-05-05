@@ -5,10 +5,8 @@ definitions:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.ContentRewriterComponent
         hst:parameternames:
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         hst:parametervalues:
-        - 'true'
         - 'true'
         hst:template: visual-hub
         jcr:primaryType: hst:component

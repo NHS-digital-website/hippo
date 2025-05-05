@@ -382,7 +382,6 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 userHitSubmit = false;
                 reset();
                 showSuccessMessage();
-                logGoogleAnalyticsEvent('Form submit','Form', window.location);
             },
             error: function (response) {
                 // do something with the response

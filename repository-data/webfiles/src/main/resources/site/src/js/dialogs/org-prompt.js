@@ -1,5 +1,4 @@
 import cookies from '../utils/cookies';
-
 // Do we need to open modal on page load?
 if (window.openOrgTrackingModal && !isOrgSet()) nhsd('#track-download-modal').trigger('modal-open');
 
@@ -14,8 +13,6 @@ function trackOrgDownload(downloadUrl) {
     const organisation = cookies.get('organisation');
 
     // Tracking code
-    window.logGoogleAnalyticsEvent('Download attachment', organisation, downloadUrl);
-
     window.dataLayer.push({
         'event': 'download_attachment',
         'file': downloadUrl,

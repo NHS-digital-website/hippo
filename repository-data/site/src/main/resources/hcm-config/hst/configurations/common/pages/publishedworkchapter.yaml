@@ -6,13 +6,11 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.PublishedWorkLinkedBeansComponent
         hst:parameternames:
         - linkPath
-        - googleAnalyticsContentRewriter
         - brandRefreshContentRewriter
         - stripTagsContentRewriter
         - stripTagsWithLinksContentRewriter
         hst:parametervalues:
         - website:links/@hippo:docbase
-        - 'true'
         - 'true'
         - 'true'
         - 'true'
