@@ -148,7 +148,7 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div id="${slugify('Contact details')}">
-                        <p class="nhsd-t-heading-xl"><@fmt.message key="headers.contact-details" /></p>
+                        <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.contact-details" /></h2>
                         <div class="nhsd-m-contact-us nhsd-!t-margin-bottom-6">
                             <div class="nhsd-a-box nhsd-a-box--bg-light-blue-10">
                                 <div class="nhsd-m-contact-us__content">
