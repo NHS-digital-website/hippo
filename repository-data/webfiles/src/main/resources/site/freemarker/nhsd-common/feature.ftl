@@ -224,7 +224,7 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-xl">Related subjects</p>
+                        <h2 class="nhsd-t-heading-xl">Related subjects</h2>
                         <#list document.relatedSubjects as item>
                             <@hst.link hippobean=item var="relatedSubjectLink"/>
                             <div class="nhsd-!t-margin-bottom-1" itemprop="isBasedOn" itemscope itemtype="http://schema.org/Product">
@@ -250,7 +250,7 @@
                     </#if>
 
                     <#if hasAuthors>
-	                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
+	                    <h2 class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </h2>
 	                    <div class="nhsd-o-gallery">
 	                        <div class="nhsd-t-grid nhsd-!t-no-gutters">
 	                            <div class="nhsd-t-row nhsd-o-gallery__items">
@@ -261,7 +261,7 @@
 	                        </div>
 	                    </div>
 	                <#elseif document.authorName?has_content>
-	                	<p class="nhsd-t-heading-xl"> Author</p>
+	                	<h2 class="nhsd-t-heading-xl"> Author</h2>
 				        <#assign authorValue>
 				            ${document.authorName}<#if document.authorJobTitle?has_content>, ${document.authorJobTitle}</#if><#if document.authororganisation?has_content>, ${document.authororganisation}</#if>
 				        </#assign>
@@ -275,7 +275,7 @@
                     <#if !hasRelatedSubjects && !hasSectionContent >
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
-                    <p class="nhsd-t-heading-xl">Share this page</p>
+                    <h2 class="nhsd-t-heading-xl">Share this page</h2>
 
                     <div class="nhsd-t-grid nhsd-!t-margin-bottom-4 nhsd-!t-no-gutters">
                         <@shareThisPage "Facebook" facebookUrl facebookIconPath />
