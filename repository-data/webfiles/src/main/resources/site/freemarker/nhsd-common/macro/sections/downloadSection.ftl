@@ -17,12 +17,13 @@
     <#else>
         <div class="${(section.headingLevel == 'Main heading')?then('article-section navigationMarker', 'article-header__detail-lines navigationMarker-sub')} nhsd-!t-margin-bottom-6">
     </#if>
+    <#if section.heading?? && section.heading?has_content>
         <#if section.headingLevel == 'Main heading'>
             <h2 class="nhsd-t-heading-xl" data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
             <h3 class="nhsd-t-heading-l" data-uipath="website.contentblock.download.title">${section.heading}</h3>
         </#if>
-
+    </#if>    
         <div data-uipath="website.contentblock.download.description">
             <@hst.html hippohtml=section.description contentRewriter=brContentRewriter />
         </div>
