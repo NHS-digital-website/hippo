@@ -39,7 +39,7 @@ import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({HstServices.class, SiteUtils.class, ContentBeanUtils.class, RequestContextProvider.class, ParametersInfoUtils.class, PathUtils.class})
-@PowerMockIgnore("javax.management.*")
+@PowerMockIgnore({"javax.management.*", "com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*"})
 public class CatalogueResultsComponentTest {
 
     @Mock

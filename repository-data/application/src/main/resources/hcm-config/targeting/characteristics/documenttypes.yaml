@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /targeting:targeting/targeting:characteristics/documenttypes/hasseendoctyoeservicedatasetgdpr-d815fc31:
-      jcr:primaryType: targeting:targetgroup
-      targeting:name: Dataset-GDPRtrans
-      targeting:propertynames:
-      - publicationsystem:dataset
-      - website:gdprtransparency

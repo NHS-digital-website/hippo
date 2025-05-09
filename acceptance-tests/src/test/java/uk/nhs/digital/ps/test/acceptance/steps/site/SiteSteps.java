@@ -16,10 +16,10 @@ import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
@@ -37,6 +37,7 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
@@ -224,7 +225,7 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should (?:also )?see elements with ui path:?$")
     public void thenIShouldAlsoSeeWithUiPath(final DataTable pageSections) throws Throwable {
         String uiPath = null;
-        for (List<String> contentData : pageSections.raw()) {
+        for (List<String> contentData : pageSections.cells()) {
             uiPath = contentData.get(0);
             WebElement pageElement = sitePage.findElementWithUiPath(uiPath);
 
@@ -240,7 +241,7 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should (?:also )?see:?$")
     public void thenIShouldAlsoSee(final DataTable pageSections) throws Throwable {
         String elementName = null;
-        for (List<String> elementsContent : pageSections.raw()) {
+        for (List<String> elementsContent : pageSections.cells()) {
             elementName = elementsContent.get(0);
             WebElement pageElement = sitePage.findPageElement(elementName);
 
@@ -256,7 +257,7 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should not see:?$")
     public void thenIShouldNotSee(final DataTable pageSections) throws Throwable {
         String elementName = null;
-        for (List<String> elementsContent : pageSections.raw()) {
+        for (List<String> elementsContent : pageSections.cells()) {
             elementName = elementsContent.get(0);
             WebElement pageElement = sitePage.findPageElement(elementName);
 
@@ -274,7 +275,7 @@ public class SiteSteps extends AbstractSpringSteps {
             .filter(StringUtils::isNotBlank)
             .collect(toList());
 
-        for (List<String> elementItem : elementItems.raw()) {
+        for (List<String> elementItem : elementItems.cells()) {
             String expectedItemText = elementItem.get(0);
 
             assertThat("Page contains " + itemName + " item with text: " + expectedItemText,
@@ -289,7 +290,7 @@ public class SiteSteps extends AbstractSpringSteps {
 
         assertNotNull("I should find page element: " + pageElementName, pageElement);
 
-        for (List<String> elementItem : elementItems.raw()) {
+        for (List<String> elementItem : elementItems.cells()) {
             String expectedItemText = elementItem.get(0);
 
             assertThat("Page element " + pageElementName + " contain item with text: " + expectedItemText,
@@ -356,7 +357,7 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I (?:can|should) see elements with attributes:")
     public void thenIShouldSeeMultipleElementsWithAttributes(final DataTable elementAttributes) throws Throwable {
-        final List<List<String>> rawElementItems = elementAttributes.raw();
+        final List<List<String>> rawElementItems = elementAttributes.cells();
         List<String> keys = rawElementItems.get(0);
         for (int i = 1; i < rawElementItems.size(); i++) {
             List<String> elementItem = rawElementItems.get(i);
@@ -393,7 +394,7 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should(?: also)? see multiple \"([^\"]+)\" with:")
     public void thenIShouldSeeMultipleItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
 
-        final List<List<String>> rawElementItems = elementItems.raw();
+        final List<List<String>> rawElementItems = elementItems.cells();
         for (int i = 0; i < rawElementItems.size(); i++) {
             List<String> elementItem = rawElementItems.get(i);
             WebElement pageElement = sitePage.findPageElement(pageElementName, i);
@@ -409,7 +410,7 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
-    @Then("I can download(?: following files)?:")
+    @Then("I can download following files:")
     public void thenICanDownload(final DataTable downloadTitles) throws Throwable {
         for (List<String> downloadLink : downloadTitles.asLists(String.class)) {
             String linkText = downloadLink.get(0);
@@ -502,6 +503,12 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including):$")
     public void thenIShouldSeeTheListWith(String title, String qualifier, DataTable listItems) throws Throwable {
         List<String> items = listItems.asList(String.class);
+        listMatchesItems(qualifier, items, sitePage.findPageElement(title));
+    }
+
+    @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including) \"([A-Z,]*)\"$")
+    public void thenIShouldSeeTheListWithAlphabet(String title, String qualifier, String alphabet) throws Throwable {
+        List<String> items = Arrays.asList(alphabet.split(","));
         listMatchesItems(qualifier, items, sitePage.findPageElement(title));
     }
 
