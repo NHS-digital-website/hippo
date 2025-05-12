@@ -2,8 +2,6 @@
 <#include "../include/imports.ftl">
 <#include "../nhsd-common/macro/toolkit/organisms/global-footer.ftl">
 
-<#assign ga=JspTaglibs ["http://www.onehippo.org/jsp/google-analytics"] >
-
 <@nhsdGlobalFooter>
 <div class="nhsd-t-grid nhsd-t-grid--nested">
     <div class="nhsd-t-row">

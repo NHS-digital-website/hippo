@@ -7,8 +7,8 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNull;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.hamcrest.Matcher;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

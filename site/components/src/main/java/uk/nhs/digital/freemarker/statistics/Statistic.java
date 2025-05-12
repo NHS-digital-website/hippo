@@ -1,9 +1,8 @@
 package uk.nhs.digital.freemarker.statistics;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlAccessorType(XmlAccessType.FIELD)
