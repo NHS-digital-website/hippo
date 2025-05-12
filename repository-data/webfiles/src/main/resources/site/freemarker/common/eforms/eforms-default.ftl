@@ -78,7 +78,7 @@
                                     <#assign groupCssClassName = "eforms-fieldgroup oneline">
                                 </#if>
 
-                                <fieldset name="${fieldItem.fieldNamePrefix!}" class="${groupCssClassName!}">
+                                <fieldset name="${fieldItem.fieldNamePrefix!}" class="${groupCssClassName!}" <#if fieldItem.hint??>aria-describedby="${fieldItem.fieldNamePrefix!}-hint"</#if>>
                                     <#if fieldItem.label?has_content>
                                         <legend class="eforms-fieldgroupname">${fieldItem.label}</legend>
                                     </#if>
@@ -87,7 +87,7 @@
                                         <@fieldRenderer.renderField field=fieldItemInGroup error=fieldError />
                                     </#list>
                                     <#if fieldItem.hint??>
-                                        <span class="eforms-hint">${fieldItem.hint}</span>
+                                        <span class="eforms-hint" id="${fieldItem.fieldNamePrefix!}-hint">${fieldItem.hint}</span>
                                     </#if>
                                 </fieldset>
                             <#else>
