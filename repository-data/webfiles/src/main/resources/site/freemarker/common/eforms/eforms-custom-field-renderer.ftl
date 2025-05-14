@@ -33,7 +33,8 @@
     <#elseif field.type == "textfield">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="off" value="${field.value!}"
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="${autocompleteValue}" value="${field.value!}"
             <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
@@ -41,7 +42,8 @@
     <#elseif field.type == "custompostcodefield">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="off" value="${field.value!}"/>
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="${autocompleteValue}" value="${field.value!}"/>
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
