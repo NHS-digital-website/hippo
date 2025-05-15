@@ -17,4 +17,9 @@ public class CustomPostcodeFieldBean extends AbstractFieldBean {
     public FieldType getType() {
         return FieldType.TEXT;
     }
+
+    @Override
+    public String getAutocomplete() {
+        return getSingleProperty("autocomplete");
+    }
 }
