@@ -7717,6 +7717,10 @@ ol {
     text-transform: none
 }
 
+.eforms-errors__list a{
+ color: #da291c;
+}
+
 @media (min-width: 925px) {
     .eforms-field__error-message {
         font-size: 16px;
