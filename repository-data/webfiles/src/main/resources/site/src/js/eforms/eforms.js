@@ -17,6 +17,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     var $previousButton = $('#previousPageButton');
     var $nextButton = $('#nextPageButton');
     var $errorWarning = $('#feedbackPanel');
+    var $errorWarningText = $('#feedbackPanelText');
     var $successMessage = $('.eforms-success-box');
 
     var valid = false;
@@ -386,8 +387,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             },
             error: function (response) {
                 // do something with the response
-                $(window).scrollTop($errorWarning.offset().top);
                 $errorWarning.show();
+                $(window).scrollTop($errorWarning.offset().top);
                 $form.removeClass('disabled');
 
                 grecaptcha.reset();
@@ -408,11 +409,22 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         if (errors) {
             $errorWarning.show();
 
+            var $errors = $('#errorList');
+            $errors.empty();
+            var $errorList = $('<ul class="eforms-errors__list"></ul>');
+
             for (var r in errors) {
+                var message = errors[r].localizedMessage;
                 var input = $form.find('[name="' + r + '"]');
                 var isMultiField = (input.attr('type') == 'checkbox' || input.attr('type') == 'radio');
 
                 if (input.length > 0) {
+                    var inputId = input.attr('id');
+
+                    $errorList.append(
+                        '<li><a href="#' + inputId + '">' + message + '</a></li>'
+                    );
+
                     var eformsField = input.parent();
 
                     if (isMultiField) {
@@ -422,7 +434,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                     var errorField = eformsField.find('.eforms-field__error-message');
 
                     eformsField.addClass('eforms-field--invalid');
-                    errorField.html(errors[r].localizedMessage);
+                    errorField.html(message);
                     errorField.removeClass('visually-hidden');
 
                     if (isMultiField) {
@@ -430,6 +442,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                     }
                 }
             }
+
+            $errors.append($errorList);
         }
     }
 

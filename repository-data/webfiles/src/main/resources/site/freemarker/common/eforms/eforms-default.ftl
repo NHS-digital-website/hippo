@@ -31,8 +31,10 @@
     <#assign style="">
 </#if>
 
-<div id="feedbackPanel" class="nojs-error callout callout--alert eform-errors" style="${style}">
-    <p><@fmt.message key="texts.errors-found"/></p>
+<div id="feedbackPanel" class="nojs-error callout callout--alert eform-errors" aria-live="polite" role="alert" style="${style}">
+    <p id="feedbackText" ><@fmt.message key="texts.errors-found"/></p>
+    <div id="errorList">
+    </div>
 </div>
 
 
