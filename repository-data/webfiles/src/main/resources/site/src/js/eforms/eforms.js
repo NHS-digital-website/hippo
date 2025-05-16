@@ -361,7 +361,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 var errorObject = JSON.parse(response.responseText.replace(/&quot;/g, '"').replace(/&#39;/g, '\''));
 
                 showErrors(errorObject);
-                $(window).scrollTop($errorWarning.offset().top);
+                $errorWarning.focus();
 
                 if (typeof errorCallback === 'function') {
                     errorCallback();
@@ -388,7 +388,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             error: function (response) {
                 // do something with the response
                 $errorWarning.show();
-                $(window).scrollTop($errorWarning.offset().top);
+                $errorWarning.focus();
                 $form.removeClass('disabled');
 
                 grecaptcha.reset();
