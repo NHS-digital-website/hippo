@@ -311,6 +311,7 @@
           - under-review-for-deprecation
           - retired
           - hospital
+          - referrals-and-bookings
           - in-production
           - mental-health
           - apis_1
@@ -327,6 +328,7 @@
           - status
           common:SearchableTags:
           - OUH
+          - Referrals and Bookings
           - Urgent and Emergency Care
           - Out-of-hours
           - Mental health
@@ -354,7 +356,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-07-17T11:06:19.190Z
+          hippostdpubwf:lastModificationDate: 2024-12-13T12:11:20.829Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - community-health-care
@@ -374,6 +376,7 @@
           - in-production
           - under-review-for-deprecation
           - retired
+          - referrals-and-bookings
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -392,6 +395,7 @@
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
           website:showApiResult: true
+          website:showServiceResult: false
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -719,6 +723,7 @@
           - under-review-for-deprecation
           - retired
           - hospital
+          - referrals-and-bookings
           - in-production
           - mental-health
           - apis_1
@@ -735,6 +740,7 @@
           - status
           common:SearchableTags:
           - OUH
+          - Referrals and Bookings
           - Urgent and Emergency Care
           - Out-of-hours
           - Mental health
@@ -759,9 +765,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-08-07T14:58:11.144Z
+          hippostdpubwf:lastModificationDate: 2024-12-13T12:13:00.157Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - community-health-care
@@ -781,6 +788,7 @@
           - in-production
           - under-review-for-deprecation
           - retired
+          - referrals-and-bookings
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -799,6 +807,7 @@
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
           website:showApiResult: true
+          website:showServiceResult: false
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -1126,6 +1135,7 @@
           - under-review-for-deprecation
           - retired
           - hospital
+          - referrals-and-bookings
           - in-production
           - mental-health
           - apis_1
@@ -1142,6 +1152,7 @@
           - status
           common:SearchableTags:
           - OUH
+          - Referrals and Bookings
           - Urgent and Emergency Care
           - Out-of-hours
           - Mental health
@@ -1169,9 +1180,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: owain.davies1
           hippostdpubwf:creationDate: 2020-02-06T14:36:28.220Z
-          hippostdpubwf:lastModificationDate: 2024-07-17T11:06:19.190Z
+          hippostdpubwf:lastModificationDate: 2024-12-13T12:11:20.829Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-07-17T11:06:21.254Z
+          hippostdpubwf:publicationDate: 2024-12-13T12:11:24.142Z
           hippotaxonomy:keys:
           - community-health-care
           - hospital
@@ -1190,6 +1201,7 @@
           - in-production
           - under-review-for-deprecation
           - retired
+          - referrals-and-bookings
           hippotranslation:id: 00bc8da2-9815-45dc-8c45-ec03013e9241
           hippotranslation:locale: en
           jcr:mixinTypes:
@@ -1208,6 +1220,7 @@
           website:shortsummary: Manage patient consent to share their information,
             including their Summary Care Record (SCR), with the Access Control Service.
           website:showApiResult: true
+          website:showServiceResult: false
           website:taxonomyClassificationField:
           - community-health-care
           - hospital
@@ -1228,7 +1241,7 @@
           website:title: Access Control Service HL7 V3 API
           website:type: ''
         hippo:name: Access Control Service HL7 V3 API
-        hippo:versionHistory: c4f6bf2f-9d53-428d-ab6a-7283a2f9915d
+        hippo:versionHistory: 003cdc68-1be1-49c8-bbb0-64e613053d03
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -3826,7 +3839,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3870,7 +3882,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3914,7 +3925,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3978,7 +3988,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
-          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:10.032Z
+          hippostdpubwf:lastModificationDate: 2025-03-24T12:19:37.330Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - prescribing
@@ -3990,7 +4000,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: f681988e-762e-4fb3-8eba-4f090fb84954
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4206,7 +4215,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
-          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
+          hippostdpubwf:lastModificationDate: 2025-03-24T12:19:43.472Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys:
           - prescribing
@@ -4219,7 +4228,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1b3e2ca4-4cb1-435d-a070-a19e0c62bc75
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4435,9 +4443,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
-          hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
+          hippostdpubwf:lastModificationDate: 2025-03-24T12:19:43.472Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-07-29T15:31:34.870Z
+          hippostdpubwf:publicationDate: 2025-03-24T12:19:45.588Z
           hippotaxonomy:keys:
           - prescribing
           - in-production
@@ -4448,7 +4456,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: ec5d7105-29fd-4d87-a90f-4601a4837b33
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4630,7 +4637,7 @@
           website:summary: ''
           website:title: Digital Signature Service API
         hippo:name: Digital Signature Service API
-        hippo:versionHistory: ff1f422d-96a9-4694-9f2f-158271e55dc2
+        hippo:versionHistory: 3b0cb95a-67c7-4a89-8605-7a445514f6a9
         jcr:mixinTypes:
         - hippo:named
         - hippo:versionInfo
@@ -4678,7 +4685,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7ced5001-3227-478e-b011-e194918b0c56
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -5061,7 +5067,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 93ff5589-874d-4519-b006-ce34f116193d
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -5444,7 +5449,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 18dc0290-75e4-4b1e-9ddd-a8951c1027c6
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -6943,7 +6947,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -7086,7 +7089,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -7227,7 +7229,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -8571,7 +8572,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 8c410b7d-2b51-433a-8f27-a96fb8bcc1cf
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -9604,7 +9604,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 01f1f27f-4f76-46b3-8c72-ae7a71d4be5d
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -10638,7 +10637,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: b73953e6-ba71-45ba-a525-d7319feb29df
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -18021,7 +18019,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c95a8c2-84e0-47e3-bead-9bcf9bf213ec
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18199,7 +18196,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 4048b040-273c-4755-b2ce-c7684010e5df
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18379,7 +18375,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2d43e2cb-78a6-4983-90a4-3ce2478b31c6
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18661,7 +18656,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -18718,7 +18712,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -18773,7 +18766,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
