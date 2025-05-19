@@ -24,6 +24,7 @@ import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
 import org.hippoecm.repository.api.Document;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,10 +55,9 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
-
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromProxygenJob.class, ApplicationSecrets.class, JcrRowUtils.class})
-@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "com.sun.org.apache.xalan.*", "javax.xml.*", "org.xml.*", "org.w3c.*"})
 public class ApiSpecSyncFromProxygenJobIntegrationTest {
 
     private static final String PROPERTY_NAME_WEBSITE_JSON = "website:json";

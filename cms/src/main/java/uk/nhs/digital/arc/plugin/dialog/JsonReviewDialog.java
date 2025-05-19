@@ -64,7 +64,7 @@ public class JsonReviewDialog extends Dialog<Void> {
     }
 
     @Override
-    public IModel getTitle() {
+    public IModel<String> getTitle() {
         return new StringResourceModel(dialogTitle, this);
     }
 

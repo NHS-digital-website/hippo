@@ -15,6 +15,10 @@ import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomInt;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
 
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Before;
@@ -31,10 +35,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.function.Consumer;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.WriteListener;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class S3ConnectorValveTest {
 

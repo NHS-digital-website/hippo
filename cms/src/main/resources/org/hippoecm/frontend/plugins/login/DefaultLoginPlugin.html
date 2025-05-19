@@ -1,6 +1,7 @@
 <html xmlns:wicket="http://wicket.apache.org/">
 <wicket:head>
-    <link rel="stylesheet" type="text/css" href="skin/custom-login.css"/>
+    <title wicket:id="pageTitle">[ Login ]</title>
+    <link wicket:id="faviconLink" rel="shortcut icon" type="image/png"/>
     <style>
         .login-background {
             display: none;
@@ -33,13 +34,12 @@
 
     </style>
 </wicket:head>
-<body>
 <wicket:extend>
     <div wicket:id="alertBanner" class="alert-banner">
         <h2 wicket:id="alertBannerMessageTitle"></h2>
         <p wicket:id="alertBannerMessageBody"></p>
     </div>
-    <script src="skin/custom-login.js"></script>
+    <script type="text/javascript" src="skin/js/login.js"></script>
+    <link rel="stylesheet" media="screen" type="text/css" href="skin/login.css"/>
 </wicket:extend>
-</body>
 </html>
