@@ -17,6 +17,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     var $previousButton = $('#previousPageButton');
     var $nextButton = $('#nextPageButton');
     var $errorWarning = $('#feedbackPanel');
+    var $errorWarningText = $('#feedbackText');
     var $successMessage = $('.eforms-success-box');
 
     var valid = false;
@@ -147,7 +148,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         var lastIndex = subject.indexOf(search, position);
 
         return lastIndex !== -1 && lastIndex === position;
-    }
+    }    
 
     // <#-- real-time ajax-based single field validation -->
     var fields = $('.eforms-field *:input');
@@ -360,8 +361,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 var errorObject = JSON.parse(response.responseText.replace(/&quot;/g, '"').replace(/&#39;/g, '\''));
 
                 showErrors(errorObject);
-                $(window).scrollTop($errorWarning.offset().top);
-
+                $errorWarningText.focus();
+                
                 if (typeof errorCallback === 'function') {
                     errorCallback();
                 }
@@ -386,8 +387,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             },
             error: function (response) {
                 // do something with the response
-                $(window).scrollTop($errorWarning.offset().top);
                 $errorWarning.show();
+                $errorWarningText.focus();
                 $form.removeClass('disabled');
 
                 grecaptcha.reset();
@@ -408,11 +409,27 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         if (errors) {
             $errorWarning.show();
 
+            var $errorList = $('#errorList');
+            $errorList.empty();
+            var isFirstError = true;
+
             for (var r in errors) {
+                var message = errors[r].localizedMessage;
                 var input = $form.find('[name="' + r + '"]');
                 var isMultiField = (input.attr('type') == 'checkbox' || input.attr('type') == 'radio');
 
                 if (input.length > 0) {
+                    var inputId = input.attr('id');
+                    
+                    if (isFirstError){
+                        $errorList.append(
+                        '<li><a id="firstError" href="#' + inputId + '">' + message + '</a></li>');
+                        isFirstError = false;
+                    }else{
+                        $errorList.append(
+                        '<li><a href="#' + inputId + '">' + message + '</a></li>');
+                    } 
+
                     var eformsField = input.parent();
 
                     if (isMultiField) {
@@ -422,7 +439,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                     var errorField = eformsField.find('.eforms-field__error-message');
 
                     eformsField.addClass('eforms-field--invalid');
-                    errorField.html(errors[r].localizedMessage);
+                    errorField.html(message);
                     errorField.removeClass('visually-hidden');
 
                     if (isMultiField) {
@@ -430,6 +447,9 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                     }
                 }
             }
+
+            $errorWarning.append($errorList);
+            $('#firstError').focus();
         }
     }
 
@@ -550,5 +570,5 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 timepicker:(`${dateformat}`.indexOf('HH:mm') >= 0)
             });
         })
-    }
+    }   
 }
