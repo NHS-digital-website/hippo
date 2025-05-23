@@ -17,7 +17,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
     var $previousButton = $('#previousPageButton');
     var $nextButton = $('#nextPageButton');
     var $errorWarning = $('#feedbackPanel');
-    var $errorWarningText = $('#feedbackPanelText');
+    var $errorWarningText = $('#feedbackText');
     var $successMessage = $('.eforms-success-box');
 
     var valid = false;
@@ -148,7 +148,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         var lastIndex = subject.indexOf(search, position);
 
         return lastIndex !== -1 && lastIndex === position;
-    }
+    }    
 
     // <#-- real-time ajax-based single field validation -->
     var fields = $('.eforms-field *:input');
@@ -361,8 +361,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 var errorObject = JSON.parse(response.responseText.replace(/&quot;/g, '"').replace(/&#39;/g, '\''));
 
                 showErrors(errorObject);
-                $errorWarning.focus();
-
+                $errorWarningText.focus();
+                
                 if (typeof errorCallback === 'function') {
                     errorCallback();
                 }
@@ -388,7 +388,7 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
             error: function (response) {
                 // do something with the response
                 $errorWarning.show();
-                $errorWarning.focus();
+                $errorWarningText.focus();
                 $form.removeClass('disabled');
 
                 grecaptcha.reset();
@@ -409,9 +409,9 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
         if (errors) {
             $errorWarning.show();
 
-            var $errors = $('#errorList');
-            $errors.empty();
-            var $errorList = $('<ul class="eforms-errors__list"></ul>');
+            var $errorList = $('#errorList');
+            $errorList.empty();
+            var isFirstError = true;
 
             for (var r in errors) {
                 var message = errors[r].localizedMessage;
@@ -420,10 +420,15 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
                 if (input.length > 0) {
                     var inputId = input.attr('id');
-
-                    $errorList.append(
-                        '<li><a href="#' + inputId + '">' + message + '</a></li>'
-                    );
+                    
+                    if (isFirstError){
+                        $errorList.append(
+                        '<li><a id="firstError" href="#' + inputId + '">' + message + '</a></li>');
+                        isFirstError = false;
+                    }else{
+                        $errorList.append(
+                        '<li><a href="#' + inputId + '">' + message + '</a></li>');
+                    } 
 
                     var eformsField = input.parent();
 
@@ -443,7 +448,8 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 }
             }
 
-            $errors.append($errorList);
+            $errorWarning.append($errorList);
+            $('#firstError').focus();
         }
     }
 
@@ -564,5 +570,5 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
                 timepicker:(`${dateformat}`.indexOf('HH:mm') >= 0)
             });
         })
-    }
+    }   
 }
