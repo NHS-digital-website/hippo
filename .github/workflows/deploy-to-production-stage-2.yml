@@ -7,8 +7,8 @@ on:
       - slack-deploy-hotfix-command-odv2
   # A Normal Deployment
   schedule:
-    # Runs at 12:05pm GMT weekdays
-    - cron: "5 12 * * 1-5"
+    # Runs at 12:05pm BST weekdays
+    - cron: "5 11 * * 1-5"
 
 env:
   PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
@@ -98,8 +98,13 @@ jobs:
 
       - name: Check for Changes and Exit if None
         id: check_changes
+        env:
+          SHOULD_RUN_ANYWAY: ${{ !contains(vars.SHOULD_RUN_ANYWAY_MODE, false) }}
         run: |
-          if [ "$(git log prd..rc)" != "" ]; then
+          if [ "$SHOULD_RUN_ANYWAY" = "true" ]; then
+            echo "Forced run. Overriding changes check."
+            echo "changes=true" >> $GITHUB_OUTPUT
+          elif [ "$(git log prd..rc)" != "" ]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "No changes detected. Skipping deployment."
@@ -216,12 +221,14 @@ jobs:
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
-          code=$(curl -i \
+          response=$(curl -i \
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
           -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
-          -o /dev/null -w '%{http_code}\n' -s)
+          -w "\n%{http_code}" -S)
+          code=$(echo "$response" | tail -n 1)
+          echo "$response" | sed '$d'
           echo "code=$code" >> $GITHUB_OUTPUT
         env:
           DISTRIBUTION: ${{ steps.prod-distribution-ids.outputs.prodDistId }}

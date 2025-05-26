@@ -16,9 +16,6 @@
         })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script>
     <!-- End Google Tag Manager -->
 
-
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" async></script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">

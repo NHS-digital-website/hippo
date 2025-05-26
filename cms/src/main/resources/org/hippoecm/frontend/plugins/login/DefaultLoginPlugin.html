@@ -1,13 +1,47 @@
-<!--
-  Copyright 2016-2022 Hippo B.V. (http://www.onehippo.com)
--->
 <html xmlns:wicket="http://wicket.apache.org/">
 <wicket:head>
     <title wicket:id="pageTitle">[ Login ]</title>
     <link wicket:id="faviconLink" rel="shortcut icon" type="image/png"/>
+    <link rel="stylesheet" type="text/css" href="skin/custom-login.css"/>
+    <style>
+        .login-background {
+            display: none;
+        }
+
+        .alert-banner {
+            width: 100%;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .alert-banner-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .alert-banner-body {
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+    </style>
 </wicket:head>
+<body>
 <wicket:extend>
-    <script type="text/javascript" src="skin/js/login.js"></script>
-    <link rel="stylesheet" media="screen" type="text/css" href="skin/login.css"/>
+    <div wicket:id="alertBanner" class="alert-banner">
+        <h2 wicket:id="alertBannerMessageTitle"></h2>
+        <p wicket:id="alertBannerMessageBody"></p>
+    </div>
+    <script src="skin/custom-login.js"></script>
 </wicket:extend>
+</body>
 </html>
