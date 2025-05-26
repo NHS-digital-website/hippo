@@ -15,13 +15,6 @@ definitions:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:virtualhost
             /hst:root:
-              /gdpr:
-                .meta:residual-child-node-category: content
-                hst:ismapped: false
-                hst:namedpipeline: TargetingRestApiPipeline
-                hst:types:
-                - rest
-                jcr:primaryType: hst:mount
               /ndrs:
                 .meta:residual-child-node-category: content
                 hst:homepage: root
@@ -50,13 +43,6 @@ definitions:
               jcr:primaryType: hst:mount
             /www:
               /hst:root:
-                /gdpr:
-                  .meta:residual-child-node-category: content
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types:
-                  - rest
-                  jcr:primaryType: hst:mount
                 hst:mountpoint: /hst:hst/hst:sites/common
                 hst:nochannelinfo: true
                 jcr:primaryType: hst:mount
