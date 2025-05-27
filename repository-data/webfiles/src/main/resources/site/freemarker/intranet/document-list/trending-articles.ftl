@@ -39,7 +39,7 @@
                                             <@trendingArticleDate trending=trending/>
 
                                             <#if trending.title?? && trending.title?has_content>
-                                                <h1 class="nhsd-t-heading-s">${trending.title}</h1>
+                                                <h5 class="nhsd-t-heading-s">${trending.title}</h5>
                                             </#if>
 
                                             <@trendingArticleShortSummary trending=trending index=trending?index/>

@@ -32,7 +32,7 @@
                     </div>
                     </#if>
                     <div class="nhsd-m-card__content-box">
-                        <h1 class="nhsd-t-heading-s">${cardProps.title}</h1>
+                        <h5 class="nhsd-t-heading-s">${cardProps.title}</h5>
                         <#if cardProps.shortsummary?has_content>
                             <p class="nhsd-t-body-s">${cardProps.shortsummary}</p>
                         </#if>

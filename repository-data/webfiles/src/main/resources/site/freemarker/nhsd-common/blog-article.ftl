@@ -290,7 +290,7 @@
                         <hr class="nhsd-a-horizontal-rule" />
                     </#if>
                     <div class="nhsd-!t-margin-bottom-6">
-                        <p class="nhsd-t-heading-xl" >Related subjects</p>
+                        <h2 class="nhsd-t-heading-xl" >Related subjects</h2>
                         <#list document.relatedSubjects as item>
                             <@hst.link hippobean=item var="relatedSubjectLink"/>
                             <div class="nhsd-!t-margin-bottom-1" itemprop="about" itemscope itemtype="http://schema.org/CreativeWork">
@@ -317,7 +317,7 @@
                 </div>
 
                 <#if hasAuthors>
-                    <p class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </p>
+                    <h2 class="nhsd-t-heading-xl"> Author<#if document.authors?size gt 1 >s</#if> </h2>
                     <div class="nhsd-o-gallery">
                         <div class="nhsd-t-grid nhsd-!t-no-gutters">
                             <div class="nhsd-t-row nhsd-o-gallery__items">
@@ -345,7 +345,7 @@
                                                     </#if>
                                                         <div class="nhsd-m-card__content_container">
                                                             <div class="nhsd-m-card__content-box">
-                                                                <h1 class="nhsd-t-heading-s">${author.title}</h1>
+                                                                <h5 class="nhsd-t-heading-s">${author.title}</h5>
                                                                 <span class="nhsd-m-card__date">
                                                                     <#if author.roles.firstprimaryrole?has_content >
                                                                         ${author.roles.firstprimaryrole}, ${author.roles.primaryroleorg}

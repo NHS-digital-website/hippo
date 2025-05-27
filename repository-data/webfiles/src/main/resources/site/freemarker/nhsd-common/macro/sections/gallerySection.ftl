@@ -44,7 +44,7 @@
                     <div class="nhsd-m-card__content_container">
                       <div class="nhsd-m-card__content-box">
                         <#if galleryItem.title?has_content>
-                          <h1 class="nhsd-t-heading-s">${galleryItem.title}</h1>
+                          <h5 class="nhsd-t-heading-s">${galleryItem.title}</h5>
                         </#if>
                         <#if galleryItem.description.content?has_content>
                           <@hst.html hippohtml=galleryItem.description contentRewriter=brContentRewriter />

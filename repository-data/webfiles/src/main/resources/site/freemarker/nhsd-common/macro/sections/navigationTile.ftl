@@ -85,7 +85,7 @@
                         </span>
                     </#if>
 
-                    <p class="nhsd-t-heading-xl nhsd-t-word-break">${tile.title}</p>
+                    <h2 class="nhsd-t-heading-xl nhsd-t-word-break">${tile.title}</h2>
 
                     <#if tile.description?has_content>
                         <p class="nhsd-t-body nhsd-t-word-break">${tile.description}</p>

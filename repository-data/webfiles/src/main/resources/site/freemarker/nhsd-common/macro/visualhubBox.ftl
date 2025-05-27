@@ -31,7 +31,7 @@
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-card__content_container">
                     <div class="nhsd-m-card__content-box">
-                        <h1 class="nhsd-t-heading-s">${title}</h1>
+                        <h5 class="nhsd-t-heading-s">${title}</h5>
                         <p class="nhsd-t-body-s">${summary}</p>
                     </div>
                     <div class="nhsd-m-card__button-box">
