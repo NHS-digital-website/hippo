@@ -11,7 +11,6 @@
 <#include "../macro/latestblogs.ftl">
 <#include "../macro/updateSection.ftl">
 <#include "../macro/contentPixel.ftl">
-<#import "../app-layout-head.ftl" as alh>
 <#include "../macro/heroes/hero.ftl">
 <#include "../macro/heroes/hero-options.ftl">
 

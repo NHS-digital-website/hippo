@@ -190,5 +190,13 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.id(id));
     }
 
+    public List<WebElement> findElementsByClass(String className) {
+        return helper.findOptionalElements(By.cssSelector("." + className));
+    }
+
+    public List<WebElement> findElementsByTag(String tagName) {
+        return helper.findOptionalElements(By.tagName(tagName));
+    }
+
 
 }
