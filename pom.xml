@@ -159,7 +159,6 @@
         to find the right ChromeDriver version to use with the current browser version,
         -->
         <chromedriver.version>135.0.7049.95</chromedriver.version>
-
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
         <awaitility.version>4.2.0</awaitility.version>
