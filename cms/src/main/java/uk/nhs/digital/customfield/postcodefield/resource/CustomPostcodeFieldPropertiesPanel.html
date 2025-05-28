@@ -5,7 +5,15 @@
       lang="en">
 
 <wicket:extend>
-
+  <div class="hippo-form-field">
+    <label for="autocomplete">Autocomplete:</label>
+    <select wicket:id="autocomplete" id="autocomplete">
+      <option>off</option>
+      <option>on</option>
+      <option>postal-code</option>
+    </select>
+    <span class="hippo-form-field-description">Controls the browser's autocomplete behavior for this field.</span>
+  </div>
 </wicket:extend>
 
 </html>
