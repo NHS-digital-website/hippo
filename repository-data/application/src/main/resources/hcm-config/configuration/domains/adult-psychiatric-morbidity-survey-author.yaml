@@ -44,7 +44,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value:  	/content/gallery/publicationsystem/apms-2023-24
+          hipposys:value: s/content/gallery/publicationsystem/apms-2023-24
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain
