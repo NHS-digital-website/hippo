@@ -7,7 +7,7 @@
 <div class="nhsd-m-emphasis-box" id="entriesFooter">
     <div class="nhsd-a-box nhsd-a-box--border-grey">
         <div class="nhsd-m-emphasis-box__content-box">
-            <h1 class="nhsd-t-heading-s nhsd-t-word-break">${banner.title}</h1>
+            <h5 class="nhsd-t-heading-s nhsd-t-word-break">${banner.title}</h5>
             <@hst.html var="htmlSummary" hippohtml=heroOptions.summary />
             ${htmlSummary?no_esc}
         </div>
