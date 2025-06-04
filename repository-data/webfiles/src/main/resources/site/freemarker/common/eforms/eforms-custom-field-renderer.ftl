@@ -175,7 +175,7 @@
             </ul>
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
-        </div>
+        </fieldset>
     <#elseif field.type == "checkboxgroup">
         <fieldset class="${fieldClassName}">
             <legend class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></legend>
