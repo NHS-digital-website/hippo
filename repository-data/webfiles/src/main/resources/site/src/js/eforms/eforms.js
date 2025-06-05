@@ -399,9 +399,23 @@ export default function (formName, formConditions, validationUrl, submissionUrl)
 
     /* Show success message and hide everything else*/
     function showSuccessMessage() {
-        $successMessage.removeClass('visually-hidden');
-        $successMessage.removeClass('nhsd-t-sr-only');
-        $form.remove();
+
+        // Fetch handle the template
+        var template = document.getElementById('form-success-template');
+        if (!$form || !template) {
+            return; // guard—DOM not found
+        }
+
+        // Clone the inert template (DocumentFragment)
+        var frag = template.content.cloneNode(true);
+        var banner = frag.querySelector('#form-status');
+
+        // Swap the form out, insert the banner in the same place
+        $form.replaceWith(frag);
+
+        setTimeout(() => {
+            requestAnimationFrame(() => banner.focus());
+        }, 200);
     }
 
     /* Show the error messages */

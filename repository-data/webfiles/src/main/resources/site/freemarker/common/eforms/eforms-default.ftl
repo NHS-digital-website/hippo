@@ -45,14 +45,23 @@
     <p class="eforms-intro">${formIntro}</p>
 </#if>
 
-<#assign className = (processDone! == "true")?then("eforms-success-box", "eforms-success-box visually-hidden nhsd-t-sr-only") />
-<div class="${className}">
-    <span class="eforms-success-box__title">Form submitted successfully</span>
+<!-- Success‑message template (is out of the DOM until needed) -->
+<template id="form-success-template">
+    <div
+        id="form-status"
+        class="eforms-success-box"
+        role="alert"
+        aria-atomic="true"
+    >
+        <span class="eforms-success-box__title">Form submitted successfully</span>
+        <#if afterProcessSuccessText?has_content>
+            <br aria-hidden="true">
+            <br aria-hidden="true">
+            ${afterProcessSuccessText?replace("<br />", " ")}
+        </#if>
+    </div>
+</template>
 
-    <#if afterProcessSuccessText?has_content>
-        <p>${afterProcessSuccessText?replace("<br />", " ")}</p>
-    </#if>
-</div>
 
 <#if maxFormSubmissionsReached?has_content>
     <#if maxFormSubmissionsReachedText?has_content>
@@ -80,7 +89,7 @@
                                     <#assign groupCssClassName = "eforms-fieldgroup oneline">
                                 </#if>
 
-                                <fieldset name="${fieldItem.fieldNamePrefix!}" class="${groupCssClassName!}">
+                                <fieldset name="${fieldItem.fieldNamePrefix!}" class="${groupCssClassName!}" <#if fieldItem.hint??>aria-describedby="${fieldItem.fieldNamePrefix!}-hint"</#if>>
                                     <#if fieldItem.label?has_content>
                                         <legend class="eforms-fieldgroupname">${fieldItem.label}</legend>
                                     </#if>
@@ -89,7 +98,7 @@
                                         <@fieldRenderer.renderField field=fieldItemInGroup error=fieldError />
                                     </#list>
                                     <#if fieldItem.hint??>
-                                        <span class="eforms-hint">${fieldItem.hint}</span>
+                                        <span class="eforms-hint" id="${fieldItem.fieldNamePrefix!}-hint">${fieldItem.hint}</span>
                                     </#if>
                                 </fieldset>
                             <#else>

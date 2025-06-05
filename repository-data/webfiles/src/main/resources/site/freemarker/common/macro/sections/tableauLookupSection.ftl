@@ -18,13 +18,13 @@
             <form action="javascript:void(0);">
                 <div class="eforms-field" style="max-width: 300px">
                     <label for="${divId}-postcode" class="eforms-label"><@fmt.message key="postcode-label"/><span class="eforms-req"></span></label>
-                    <input type="text" id="${divId}-postcode" />
+                    <input type="text" id="${divId}-postcode" aria-describedby="${divId}-postcode-hint" />
                     <div id="${divId}-postcode-validation-message" class="eforms-field__error-message visually-hidden" aria-live="polite"></div>
-                    <span class="eforms-hint"><@fmt.message key="postcode-hint"/></span>
+                    <span class="eforms-hint" id="${divId}-postcode-hint"><@fmt.message key="postcode-hint"/></span>
                 </div>
                 <div class="eforms-field" style="max-width: 300px">
                     <label for="${divId}-distance" class="eforms-label"><@fmt.message key="distance-label"/><span class="eforms-req"></span></label>
-                    <select id="${divId}-distance" style="margin-top: 8px;">
+                    <select id="${divId}-distance" style="margin-top: 8px;" aria-describedby="${divId}-distance-hint">
                         <option value="1">1 mile</option>
                         <option value="2">2 miles</option>
                         <option selected value="3">3 miles</option>
@@ -36,7 +36,7 @@
                         <option value="9">9 miles</option>
                         <option value="10">10 miles</option>
                     </select>
-                    <span class="eforms-hint"><@fmt.message key="distance-hint"/></span>
+                    <span class="eforms-hint" id="${divId}-distance-hint"><@fmt.message key="distance-hint"/></span>
                 </div>
                 <div class="eforms-buttons">
                     <input class="button" type="submit" value="Go" onclick="lookup()"/>
