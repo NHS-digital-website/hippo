@@ -115,12 +115,12 @@ public class SeriesHighchartsXlsxInputParserTest {
         List<Series> series = chart.getSeries();
         assertThat(series, hasSize(2));
 
-        Series first = series.get(0);
+        Series<Point> first = series.get(0);
         assertEquals("Measure", first.getName());
         assertThat(getValues(first, Point::getY), contains(43d, 57d, 65d, 67d, 44d, 34d, 23d, 6d));
         assertThat(getValues(first, Point::getName), categoriesExpected);
 
-        Series second = series.get(1);
+        Series<Point> second = series.get(1);
         assertEquals("100.0", second.getName());
         assertThat(getValues(second, Point::getY), contains(57d, 43d, 35d, 33d, 56d, 66d, 77d, 94d));
         assertThat(getValues(second, Point::getName), categoriesExpected);
@@ -151,7 +151,7 @@ public class SeriesHighchartsXlsxInputParserTest {
         List<Series> series = chart.getSeries();
         assertThat("Pie only has one series", series, hasSize(1));
 
-        Series first = series.get(0);
+        Series<Point> first = series.get(0);
         assertEquals("Measure", first.getName());
         assertThat(getValues(first, Point::getY), contains(43d, 57d, 65d, 67d, 44d, 34d, 23d, 6d));
         assertThat(getValues(first, Point::getName), contains("75.0", "65.0", "55 to 64", "45 to 54", "35 to 44", "25 to 34", "16 to 24", "Under 16"));

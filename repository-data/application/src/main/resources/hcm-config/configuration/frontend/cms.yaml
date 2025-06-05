@@ -332,29 +332,3 @@ definitions:
       minimallength: 12
     /hippo:configuration/hippo:frontend/cms/cms-static/root:
       max.inactive.interval.minutes: '420'
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/characteristic-documenttype:
-      characteristic: documenttypes
-      collector: documenttypes
-      jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.common.relevance.DocumentTypeCharacteristicPlugin
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/characteristic-inferenceRulesVisitorInterestType:
-      characteristic: inferenceRulesVisitorInterestType
-      collector: inferenceRulesVisitorInterestType
-      jcr:primaryType: frontend:plugin
-      plugin.class: com.onehippo.cms7.inference.engine.collectorplugin.InferenceRulesCharacteristicPlugin
-      visitor.characteristic.visible: true
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-inferenceRulesVisitorInterestType:
-      .meta:order-before: characteristic-inferenceRulesVisitorInterestType
-      characteristic: inferenceRulesVisitorInterestType
-      collector: inferenceRulesVisitorInterestType
-      jcr:primaryType: frontend:plugin
-      plugin.class: com.onehippo.cms7.inference.engine.collectorplugin.InferenceRulesCollectorPlugin
-      visitor.characteristic.visible: true
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-pageviews:
-      characteristic: pageviews
-      collector: pageviews
-      jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.common.relevance.PageViewsCollectorPlugin
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/experience-optimizer-perspective:
-      targeting.rest.url: /_targeting
-      update.default.on: true

@@ -5,13 +5,6 @@ definitions:
       .meta:residual-child-node-category: content
       /hst:root:
         .meta:residual-child-node-category: content
-        /gdpr:
-          .meta:residual-child-node-category: content
-          hst:ismapped: false
-          hst:namedpipeline: TargetingRestApiPipeline
-          hst:types:
-          - rest
-          jcr:primaryType: hst:mount
         /restapi:
           hst:alias: restapi
           hst:ismapped: false

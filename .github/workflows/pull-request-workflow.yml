@@ -81,7 +81,7 @@ jobs:
         with:
           name: cucumber-report
           path: |
-            acceptance-tests/target/cucumber-reports/*
+            acceptance-tests/target/cucumber-report.html
 
       # Step 9
       # Store coverage results as an artifact
