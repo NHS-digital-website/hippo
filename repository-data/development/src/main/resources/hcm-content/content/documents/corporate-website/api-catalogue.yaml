@@ -3826,7 +3826,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3870,7 +3869,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 13d79e83-9924-4cb6-b062-9dc871c9ee44
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3914,7 +3912,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Deprecated API
@@ -3990,7 +3987,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: f681988e-762e-4fb3-8eba-4f090fb84954
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4219,7 +4215,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1b3e2ca4-4cb1-435d-a070-a19e0c62bc75
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4448,7 +4443,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: ec5d7105-29fd-4d87-a90f-4601a4837b33
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.0","x-nhs-api-spec-guid":"a062e39c-b843-4833-8d24-8fc1434900a0","info":{"title":"Digital
             Signature Service API","version":"{VERSION}","contact":{"name":"Digital
             Signature Service API","url":"https://digital.nhs.uk/developer/help-and-support","email":"api.management@nhs.net"},"description":"##
@@ -4678,7 +4672,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7ced5001-3227-478e-b011-e194918b0c56
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -5061,7 +5054,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 93ff5589-874d-4519-b006-ce34f116193d
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -5444,7 +5436,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 18dc0290-75e4-4b1e-9ddd-a8951c1027c6
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.3","info":{"title":"Digital Staff Passport
             API","description":"## Overview\nUse this API standard to build an API
             that [Digital Staff Passport (DSP)](https://digital.nhs.uk/services/digital-staff-passport)
@@ -6943,7 +6934,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -7086,7 +7076,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -7227,7 +7216,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
-          website:enable_rapidoc: false
           website:json: '{"openapi": "3.0.0", "info": {"version": "v1.0.318-alpha",
             "title": "Hello World API", "description": "## Overview \nUse this API
             alongside our  [tutorials](https://digital.nhs.uk/developer/guides-and-documentation/tutorials)
@@ -8571,7 +8559,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 8c410b7d-2b51-433a-8f27-a96fb8bcc1cf
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -9604,7 +9591,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 01f1f27f-4f76-46b3-8c72-ae7a71d4be5d
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -10638,7 +10624,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: b73953e6-ba71-45ba-a525-d7319feb29df
-          website:enable_rapidoc: true
           website:json: '{"openapi":"3.0.2","info":{"contact":{"email":"ssd.nationalservicedesk@nhs.net","name":"National
             Service Desk"},"description":"## Overview\n\nYou interact with MESH by
             making calls to this API from your application.\n\nWith the API, you can:\n\n-
@@ -18021,7 +18006,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c95a8c2-84e0-47e3-bead-9bcf9bf213ec
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18199,7 +18183,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 4048b040-273c-4755-b2ce-c7684010e5df
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18379,7 +18362,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2d43e2cb-78a6-4983-90a4-3ce2478b31c6
-          website:enable_rapidoc: false
           website:json: '{"openapi":"3.0.0","info":{"version":"v1.2.29-beta","title":"Personal
             Demographics Service (FHIR) API","description":"## Overview\nUse this
             API to access the [Personal Demographics Service (PDS)](https://digital.nhs.uk/services/demographics)\n\n##
@@ -18661,7 +18643,6 @@
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -18718,7 +18699,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
@@ -18773,7 +18753,6 @@
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa
-          website:enable_rapidoc: false
           website:json: ''
           website:seosummary: ''
           website:shortsummary: Retired API
