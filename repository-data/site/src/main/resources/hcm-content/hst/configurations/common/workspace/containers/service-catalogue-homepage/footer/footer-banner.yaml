@@ -1,0 +1,14 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/service-catalogue-homepage/footer/footer-banner:
+  hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Footer
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - banner
+  hst:parametervalues:
+  - 'off'
+  - banners/service-catalogue-footer-banner
+  hst:template: footer-banner
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

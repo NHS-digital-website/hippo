@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
+      /footer-banner:
+        hst:renderpath: webfile:/freemarker/common/footer-banner.ftl
+        jcr:primaryType: hst:template
       /macro-test-layout:
         hst:renderpath: webfile:/freemarker/nhsd-common/tests/macro-test-layout.ftl
         jcr:primaryType: hst:template
