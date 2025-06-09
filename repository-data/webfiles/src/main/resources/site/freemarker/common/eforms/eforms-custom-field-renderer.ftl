@@ -33,7 +33,8 @@
     <#elseif field.type == "textfield">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="off" value="${field.value!}"
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <input type="${((field.autocomplete?default(""))?lower_case == "email")?then("email", "text")}" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="${autocompleteValue}" value="${field.value!}"
             <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> aria-describedby="${field.formRelativeUniqueName}-hint" />
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
@@ -41,7 +42,8 @@
     <#elseif field.type == "custompostcodefield">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="off" value="${field.value!}" aria-describedby="${field.formRelativeUniqueName}-hint"/>
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="${autocompleteValue}" value="${field.value!}" aria-describedby="${field.formRelativeUniqueName}-hint"/>
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
         </div>
@@ -111,7 +113,8 @@
     <#elseif field.type == "textarea">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <textarea name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" autocomplete="off" class="${field.styleClass!}"
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <textarea name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" autocomplete="${autocompleteValue}" class="${field.styleClass!}"
             cols="${field.cols}" rows="${field.rows}"
             <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if>
             aria-describedby="${field.formRelativeUniqueName}-hint">${field.value!}</textarea>
@@ -121,7 +124,8 @@
     <#elseif field.type == "dropdown">
         <div class="${fieldClassName}">
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <select name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" aria-describedby="${field.formRelativeUniqueName}-hint">
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <select name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="${autocompleteValue}" aria-describedby="${field.formRelativeUniqueName}-hint">
                 <#list field.options as option>
                 <option value="${option.value!}" <#if option.selected>selected="selected"</#if>>${option.text!}</option>
                 </#list>
@@ -147,7 +151,8 @@
             </#if>
 
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="date ${field.styleClass!}" value="${value!}" autocomplete="off" aria-describedby="${field.formRelativeUniqueName}-hint" />
+            <#assign autocompleteValue = field.autocomplete?default('off')>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="date ${field.styleClass!}" value="${value!}" autocomplete="${autocompleteValue}" aria-describedby="${field.formRelativeUniqueName}-hint" />
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
         </div>
