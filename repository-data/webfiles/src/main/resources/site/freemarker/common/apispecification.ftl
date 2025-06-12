@@ -5,7 +5,7 @@
 <#include "../nhsd-common/macro/heroes/hero-options.ftl">
 <#include "../nhsd-common/macro/component/lastModified.ftl">
 
-<#if document?? && (document.enableRapiDoc!isDevEnv!false)>
+<#if document??>
     <#include "../common/macro/metaTags.ftl">
     <@metaTags></@metaTags>
 
@@ -106,42 +106,6 @@
         </div>
     </div>
 
-<#elseif document?? >
-    <#assign isTryItNow = hstRequestContext.servletRequest.parameterMap?keys?seq_contains("tryitnow")>
-    <#if isTryItNow >
-
-        <#include "api-try-it-now.ftl">
-
-    <#else>
-        <#assign renderHtml = "uk.nhs.digital.common.components.apispecification.ApiSpecificationRendererDirective"?new() />
-
-        <#-- Add meta tags -->
-        <#include "../common/macro/metaTags.ftl">
-        <@metaTags></@metaTags>
-
-        <article itemscope>
-
-            <@hero getExtendedHeroOptions(document) />
-            <div class="nhsd-t-grid nhsd-!t-margin-top-6">
-                <div class="nhsd-t-row">
-                    <@renderHtml specificationJson=document.json path=path documentHandleUuid=document.getCanonicalHandleUUID()/>
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-4">
-                    </div>
-                    <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
-                        <@lastModified document.lastPublicationDate></@lastModified>
-                    </div>
-                </div>
-            </div>
-
-        </article>
-
-        <script>
-            // used in function tryEndpointNow from apispecification.js
-            <@hst.renderURL var="tryItNowUrl"/>
-            const tryEndpointNowBaseUrl = '${tryItNowUrl}';
-        </script>
-        <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"></script>
-    </#if>
 </#if>
 
 <#function getExtendedHeroOptions document>
