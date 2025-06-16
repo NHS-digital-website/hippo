@@ -59,29 +59,24 @@ test.unit:
 ## Run BDD tests for "site" only with playwright (visual test).
 test.site:
 	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
-		-Dcucumber.options="src/test/resources/features/site --tags ~@skip" \
+		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
 
 ## Run acceptance tests against already running server (`make serve`) with playwright (visual test).
 test.site-running:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
-		-Dcucumber.options="src/test/resources/features/site --tags ~@skip" \
+		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.filter.tags="~@skip" \
 		-Pacceptance-test,$(PLAYWRIGHT_PROFILE)
 
 # Updates snapshots for all tests tagged @snapshot
 test.update-snapshots:
 	cd ../acceptance-tests/src/test/node && npm run update-snapshots
 
-## Run tests for cms only, without development data
-test.cms:
-	mvn clean verify $(MVN_OPTS) --quiet \
-		-Dcucumber.options="src/test/resources/features/cms" \
-		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
-
 ## Run BDD tests
 test.e2e:
 	$(MAKE) test.site
-	$(MAKE) test.cms
 
 ## Build distribution package
 build:

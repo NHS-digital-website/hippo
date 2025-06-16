@@ -39,7 +39,6 @@ definitions:
         - /ping/.*
         - ^/_rp/.*
         - ^/_cmsinternal/.*
-        - ^/_targeting/.*
         - ^/webfiles/.*
         - ^/binaries/.*
         - ^/images/.*
@@ -74,7 +73,6 @@ definitions:
         - /ping/.*
         - ^/_rp/.*
         - ^/_cmsinternal/.*
-        - ^/_targeting/.*
         - ^/webfiles/.*
         - ^/binaries/.*
         - ^/images/.*
@@ -109,7 +107,6 @@ definitions:
         - /ping/.*
         - ^/_rp/.*
         - ^/_cmsinternal/.*
-        - ^/_targeting/.*
         - ^/webfiles/.*
         - ^/binaries/.*
         - ^/images/.*
@@ -144,7 +141,6 @@ definitions:
         - /ping/.*
         - ^/_rp/.*
         - ^/_cmsinternal/.*
-        - ^/_targeting/.*
         - ^/webfiles/.*
         - ^/binaries/.*
         - ^/images/.*

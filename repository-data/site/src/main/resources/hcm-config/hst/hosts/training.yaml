@@ -9,13 +9,6 @@ definitions:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:virtualhost
             /hst:root:
-              /gdpr:
-                .meta:residual-child-node-category: content
-                hst:ismapped: false
-                hst:namedpipeline: TargetingRestApiPipeline
-                hst:types:
-                - rest
-                jcr:primaryType: hst:mount
               /ndrs:
                 .meta:residual-child-node-category: content
                 hst:homepage: root
