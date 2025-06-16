@@ -2,11 +2,18 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
-      /api-catlogue-homepage:
+      /api-catalogue-homepage:
         /banner:
           .meta:residual-child-node-category: content
           hst:label: Banner
           hst:lastmodified: 2024-07-15T15:32:03.200Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        /footer:
+          .meta:residual-child-node-category: content
+          hippo:identifier: ce73e206-fb26-4ef5-8304-6127ff1c6245
+          hst:label: Footer
+          hst:lastmodified: 2025-01-22T11:25:35.177Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
@@ -146,6 +153,13 @@ definitions:
           .meta:residual-child-node-category: content
           hst:label: Banner
           hst:lastmodified: 2024-07-15T15:32:03.200Z
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        /footer:
+          .meta:residual-child-node-category: content
+          hippo:identifier: ce73e206-fb26-4ef5-8304-6127ff1c6245
+          hst:label: Footer
+          hst:lastmodified: 2025-01-22T11:25:35.177Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder

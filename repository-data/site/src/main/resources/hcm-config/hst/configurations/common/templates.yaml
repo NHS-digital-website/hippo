@@ -158,6 +158,9 @@ definitions:
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
         jcr:primaryType: hst:template
+      /footer-banner:
+        hst:renderpath: webfile:/freemarker/common/footer-banner.ftl
+        jcr:primaryType: hst:template
       /gdpr-article:
         hst:renderpath: webfile:/freemarker/common/gdpr-article.ftl
         jcr:primaryType: hst:template
