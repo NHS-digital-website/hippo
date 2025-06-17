@@ -152,8 +152,8 @@
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
         </div>
     <#elseif field.type == "radiogroup">
-        <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+        <fieldset class="${fieldClassName}">
+            <legend class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></legend>
             <ul class="radiogroup">
                 <#list field.fields as radio>
                 <li>
@@ -175,10 +175,10 @@
             </ul>
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
-        </div>
+        </fieldset>
     <#elseif field.type == "checkboxgroup">
-        <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+        <fieldset class="${fieldClassName}">
+            <legend class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></legend>
             <ul class="checkboxgroup">
                 <#list field.fields as checkbox>
                 <li>
@@ -202,7 +202,7 @@
             </ul>
             <@renderError errorMessage = error />
             <span class="eforms-hint" id="${field.formRelativeUniqueName}-hint">${field.hint!}</span>
-        </div>
+        </fieldset>
     <#elseif field.type == "likert">
         <div class="${fieldClassName}">
             <input type="hidden" name="${field.formRelativeUniqueName}"/>

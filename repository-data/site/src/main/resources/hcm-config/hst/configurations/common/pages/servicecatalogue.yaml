@@ -19,6 +19,9 @@ definitions:
           hst:template: catalogue-facet
           jcr:primaryType: hst:component
         /results:
+          /footer:
+            hst:referencecomponent: service-catalogue-homepage/footer
+            jcr:primaryType: hst:containercomponentreference
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueResultsComponent
           hst:parameternames:
           - pageSize

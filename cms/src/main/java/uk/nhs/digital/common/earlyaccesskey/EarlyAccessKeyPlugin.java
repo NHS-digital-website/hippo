@@ -77,8 +77,8 @@ public class EarlyAccessKeyPlugin extends PropertyFieldPlugin {
 
     private AjaxButton getGenerateButton(JcrPropertyValueModel model, Item item) {
         AjaxButton generate = new AjaxButton("generate") {
-            @Override
-            protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
+
+            protected void onSubmit(AjaxRequestTarget target) {
                 try {
                     model.getJcrPropertymodel().getProperty()
                         .setValue(generateKey());
@@ -94,8 +94,7 @@ public class EarlyAccessKeyPlugin extends PropertyFieldPlugin {
 
     private AjaxButton getDeleteButton(JcrPropertyValueModel model, Item item) {
         AjaxButton delete = new AjaxButton("delete") {
-            @Override
-            public void onSubmit(AjaxRequestTarget target, Form<?> form) {
+            public void onSubmit(AjaxRequestTarget target) {
                 try {
                     model.getJcrPropertymodel().getProperty().setValue("");
                     target.add(item);
