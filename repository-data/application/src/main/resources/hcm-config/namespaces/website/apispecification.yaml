@@ -49,15 +49,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /enable_rapidoc:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Enable RapiDoc
-            field: enable_rapidoc
-            hint: Click to use the new RapiDoc renderer for this API specification
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /summary:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
@@ -122,14 +113,6 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /enable_rapidoc:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:enable_rapidoc
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-            jcr:primaryType: hipposysedit:field
           /json:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -233,7 +216,6 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
-          website:enable_rapidoc: true
           website:json: ''
           website:seosummary: ''
           website:shortsummary: ''
