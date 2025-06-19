@@ -41,7 +41,7 @@ public class ResourceUploadPlugin extends RenderPlugin {
         super(context, config);
         mode = IEditor.Mode.fromString(config.getString("mode"), IEditor.Mode.EDIT);
         add(createFileUploadPanel());
-        add(new EventStoppingBehavior("onclick"));
+        add(new EventStoppingBehavior("click"));
     }
 
     private FileUploadPanel createFileUploadPanel() {

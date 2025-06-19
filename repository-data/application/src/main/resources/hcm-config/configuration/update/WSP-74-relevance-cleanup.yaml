@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-74-relevance-cleanup:
+      hipposys:batchsize: 100
+      hipposys:description: Remove unused gdpr mounts
+      hipposys:dryrun: false
+      hipposys:loglevel: INFO
+      hipposys:parameters: ''
+      hipposys:query: //element(*, hst:mount)[@hst:namedpipeline = 'TargetingRestApiPipeline']
+      hipposys:script:
+        resource: /configuration/update/WSP-74-relevance-cleanup.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo

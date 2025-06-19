@@ -1,17 +1,10 @@
 package uk.nhs.digital.ps.test.acceptance.webdriver;
 
-import static java.nio.file.Files.isDirectory;
-
 import org.openqa.selenium.chrome.ChromeDriverService;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Manages WebDriver service (the server component of WebDriver).
@@ -24,15 +17,6 @@ import java.util.Map;
  */
 public class WebDriverServiceProvider {
 
-    /**
-     * Location where the WebDriver is installed by {@code webdriverextensions-maven-plugin},
-     * relative to the directory of the current working directory (i.e. that of current Maven module).
-     */
-    private static final String WEB_DRIVER_LOCATION = "drivers";
-
-    private final Map<String, String> driverMap = createDriverMap();
-
-
     private ChromeDriverService chromeDriverService;
 
     /**
@@ -44,7 +28,6 @@ public class WebDriverServiceProvider {
     public void initialise() {
         chromeDriverService = new ChromeDriverService.Builder()
             .usingAnyFreePort()
-            .usingDriverExecutable(getChromedriverFileLocation())
             .build();
 
         try {
@@ -65,39 +48,6 @@ public class WebDriverServiceProvider {
     }
 
     /**
-     * Resolves actual name of the web driver file downloaded. {@code webdriverextensions-maven-plugin}
-     * downloads the driver binary files and saves them in files named after specific driver type,
-     * and OS. Since there are many OSs used within the team, we cannot be sure what the actual file
-     * name will end up to be, and so, we need to resolve it dynamically.
-     *
-     * @return Actual name of the downloaded WebDriver binary file.
-     */
-    private File getChromedriverFileLocation() {
-
-        final Path webDriverLocationPath = Paths.get(WEB_DRIVER_LOCATION).toAbsolutePath();
-
-        if (!isDirectory(webDriverLocationPath)) {
-            throw new IllegalStateException("Expected to find a directory with downloaded web driver binaries at "
-                + webDriverLocationPath);
-        }
-
-        final File[] candidateFiles = webDriverLocationPath.toFile().listFiles((dir, name) -> !name.endsWith(".version"));
-
-        if (candidateFiles == null) {
-            throw new IllegalStateException("Expected at least one web driver binary file to be available in " + webDriverLocationPath);
-        }
-
-        final String os = System.getProperty("os.name");
-
-        for (File file : candidateFiles) {
-            if (file.getName().contains(driverMap.get(os))) {
-                return new File(file, "chromedriver");
-            }
-        }
-        return null;
-    }
-
-    /**
      * @return URL at which the WebDriver service is available to the WebDriver client.
      */
     URL getUrl() {
@@ -111,12 +61,5 @@ public class WebDriverServiceProvider {
         }
 
         return chromeDriverService;
-    }
-
-    private Map<String, String> createDriverMap() {
-        Map<String, String> driverMap = new HashMap<>();
-        driverMap.put("Mac OS X", "mac");
-        driverMap.put("Linux", "linux");
-        return driverMap;
     }
 }

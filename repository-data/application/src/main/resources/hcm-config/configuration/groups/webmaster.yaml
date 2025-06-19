@@ -8,4 +8,3 @@ definitions:
         type: string
         value:
         - editor
-        - hippo-relevance

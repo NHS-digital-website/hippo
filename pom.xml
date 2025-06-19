@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.7.13</version>
+        <version>15.7.1</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -80,8 +80,8 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <bloomreach.version>14.7.13</bloomreach.version>
-        <bloomreach.essential.dashboard>14.6.0</bloomreach.essential.dashboard>
+        <bloomreach.version>${hippo.release.version}</bloomreach.version>
+        <bloomreach.essential.dashboard>${hippo.release.version}</bloomreach.essential.dashboard>
         <h2.database.version>2.1.214</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -136,29 +136,21 @@
         <hippo.environment></hippo.environment>
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
-        <bloomreach.forge.ipfilter.version>3.1.0</bloomreach.forge.ipfilter.version>
-
-        <bloomreach.inference-engine.version>4.1.0</bloomreach.inference-engine.version>
+        <forge.folderctxmenus.version>6.0.0</forge.folderctxmenus.version>
+        <bloomreach.forge.ipfilter.version>4.0.0</bloomreach.forge.ipfilter.version>
+        <bloomreach.forge.feed.version>7.0.0</bloomreach.forge.feed.version>
+        <bloomreach.text-search-replace.version>3.0.1</bloomreach.text-search-replace.version>
+        <forge.resetpassword.version>6.0.0</forge.resetpassword.version>
+        <bloomreach.forge.sitemapv2.version>3.0.0</bloomreach.forge.sitemapv2.version>
+        <content-exim.version>5.0.1</content-exim.version>
 
         <commonmark.version>0.18.2</commonmark.version>
-
         <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
-        <bloomreach.forge.feed.version>6.0.0</bloomreach.forge.feed.version>
-        <bloomreach.text-search-replace.version>2.1.0</bloomreach.text-search-replace.version>
-        <forge.resetpassword.version>5.0</forge.resetpassword.version>
-        <bloomreach.forge.sitemapv2.version>2.0.7</bloomreach.forge.sitemapv2.version>
 
         <!-- Built-in caches use ecache v2.x.
         Custom caching that needs durable on-disk caching uses v3.x
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
-
-        <!--
-        Consult https://googlechromelabs.github.io/chrome-for-testing/
-        to find the right ChromeDriver version to use with the current browser version,
-        -->
-        <chromedriver.version>135.0.7049.95</chromedriver.version>
 
         <annotation-api.version>1.3.2</annotation-api.version>
         <aspectweaver.version>1.9.9.1</aspectweaver.version>
@@ -169,12 +161,10 @@
         <commons-codec.version>1.15</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
-        <content-exim.version>4.0.1</content-exim.version>
-        <cucumber.version>1.2.6</cucumber.version>
+        <cucumber.version>7.21.1</cucumber.version>
         <directory-maven.version>1.0</directory-maven.version>
         <easymock.version>4.3</easymock.version>
         <findbugs.version>3.0.2</findbugs.version>
@@ -188,27 +178,30 @@
         <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.15</httpcore.version>
-        <jackson-coreutils.version>1.8</jackson-coreutils.version>
-        <jackson-dataformat-xml.version>2.13.4</jackson-dataformat-xml.version>
-        <javax.mail.version>1.4.7</javax.mail.version>
+        <jackson-coreutils.version>2.15.2</jackson-coreutils.version>
+        <jackson-dataformat-xml.version>2.17.1</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
-        <joda-time.version>2.10.14</joda-time.version>
+        <jedis.verison>4.3.1</jedis.verison>
+        <joda-time.version>2.12.7</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
-        <json.version>20220320</json.version>
         <jsp-api.version>2.2</jsp-api.version>
+        <jsonwebtoken-version>0.11.5</jsonwebtoken-version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
+        <kotlin.version>1.4.10</kotlin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <log4j.version>2.17.2</log4j.version>
         <logback.version>1.2.11</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
-        <maven-enforcer.version>3.0.0</maven-enforcer.version>
-        <maven-failsafe.version>3.0.0-M6</maven-failsafe.version>
+        <maven-enforcer.version>3.3.0</maven-enforcer.version>
+        <maven-failsafe.version>3.5.2</maven-failsafe.version>
         <maven-frontend.version>1.15.1</maven-frontend.version>
+        <maven-jacoco.version>0.8.12</maven-jacoco.version>
         <maven-jxr.version>3.2.0</maven-jxr.version>
         <maven-pmd.version>3.16.0</maven-pmd.version>
         <maven-resources.version>3.2.0</maven-resources.version>
-        <maven-surefire.version>3.0.0-M6</maven-surefire.version>
+        <maven-surefire.version>3.5.2</maven-surefire.version>
+        <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>2.7.0</okio.version>
@@ -216,23 +209,18 @@
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
-        <selenium.version>4.1.1</selenium.version>
+        <selenium.version>4.29.0</selenium.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <snakeyaml.version>1.30</snakeyaml.version>
-        <spring.version>5.3.22</spring.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
         <system-rules.version>1.19.0</system-rules.version>
         <taglibs-standard.version>1.2.5</taglibs-standard.version>
-        <tika-core.version>1.28.4</tika-core.version>
         <versions-maven.version>2.10.0</versions-maven.version>
         <webdriverextensions-maven.version>3.4.0</webdriverextensions-maven.version>
         <wiremock.version>2.35.0</wiremock.version>
-        <woodstox.version>4.2.1</woodstox.version>
         <xalan.version>2.7.2</xalan.version>
         <xml-apis.version>2.0.2</xml-apis.version>
-
-        <kotlin.version>1.4.10</kotlin.version>
     </properties>
 
     <repositories>
@@ -281,12 +269,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-shared-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.splunk.logging</groupId>
             <artifactId>splunk-library-javalogging</artifactId>
             <scope>provided</scope>
@@ -324,9 +306,9 @@
             </dependency>
 
             <dependency>
-                <groupId>javax.mail</groupId>
-                <artifactId>mail</artifactId>
-                <version>${javax.mail.version}</version>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>jakarta.mail</artifactId>
+                <version>${jakarta.mail-api.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -579,11 +561,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>commons-fileupload</groupId>
-                <artifactId>commons-fileupload</artifactId>
-                <version>${commons-fileupload.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
                 <version>${findbugs.version}</version>
@@ -616,7 +593,7 @@
             <dependency>
                 <groupId>org.apache.tika</groupId>
                 <artifactId>tika-core</artifactId>
-                <version>${tika-core.version}</version>
+                <version>${tika.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
             <dependency>
@@ -632,7 +609,6 @@
             <dependency>
                 <groupId>org.codehaus.woodstox</groupId>
                 <artifactId>stax2-api</artifactId>
-                <version>${woodstox.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -683,7 +659,7 @@
             <dependency>
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
-                <version>${json.version}</version>
+                <version>${org.json.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-pool</groupId>
@@ -734,37 +710,6 @@
                 <groupId>org.onehippo.forge.folderctxmenus</groupId>
                 <artifactId>folderctxmenus-frontend</artifactId>
                 <version>${forge.folderctxmenus.version}</version>
-            </dependency>
-
-            <!-- Inference Rule Engine -->
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-core</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-plugin</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-repository</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-data-collector</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
-                <artifactId>relevance-inference-engine-collector-plugin</artifactId>
-                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
@@ -974,7 +919,7 @@
                         <reactorModuleConvergence/>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
-                            <version>[1.8.0,1.8.1)</version>
+                            <version>[11,)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
                             <!-- Any Maven 3 version is allowed -->
@@ -1025,15 +970,6 @@
                 <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
                 <!--<repo.bootstrap>true</repo.bootstrap>-->
                 <brc.appconfigpath>conf</brc.appconfigpath>
-                <es.tcpPort>9300</es.tcpPort>
-                <es.path>${project.build.directory}/storage</es.path>
-                <es.skip.start>false</es.skip.start>
-                <targeting.truncate>true</targeting.truncate>
-                <es.httpPort>9200</es.httpPort>
-                <targeting.bootstrap>false</targeting.bootstrap>
-                <sql.driver>org.h2.Driver</sql.driver>
-                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
-                <sql.username>sa</sql.username>
             </properties>
             <dependencies>
                 <dependency>
@@ -1049,15 +985,35 @@
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
-                    <groupId>com.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
                     <scope>provided</scope>
                     <version>1.16.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>runtime</scope>
                 </dependency>
             </dependencies>
             <build>
@@ -1228,11 +1184,6 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
                                         <groupId>com.splunk.logging</groupId>
                                         <artifactId>splunk-library-javalogging</artifactId>
                                         <classpath>shared</classpath>
@@ -1254,36 +1205,6 @@
                                     </dependency>
                                 </dependencies>
                             </container>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.alexcojocaru</groupId>
-                        <artifactId>elasticsearch-maven-plugin</artifactId>
-                        <version>${maven.plugin.elasticsearch.version}</version>
-                        <executions>
-                            <execution>
-                                <id>start-elasticsearch</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>runforked</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-elasticsearch</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <clusterName>esDevCluster</clusterName>
-                            <httpPort>${es.httpPort}</httpPort>
-                            <transportPort>${es.tcpPort}</transportPort>
-                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
-                            <keepExistingData>true</keepExistingData>
-                            <timeout>60</timeout>
-                            <skip>${es.skip.start}</skip>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -1362,6 +1283,31 @@
                     <artifactId>okhttp</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <defaultGoal>validate</defaultGoal>
@@ -1413,6 +1359,31 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.bind</groupId>
+                    <artifactId>jakarta.xml.bind-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.xml.ws</groupId>
+                    <artifactId>jakarta.xml.ws-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>

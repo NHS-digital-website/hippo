@@ -11,7 +11,6 @@ import org.apache.wicket.request.resource.ResourceStreamResource;
 import org.apache.wicket.util.lang.Bytes;
 import org.apache.wicket.util.resource.AbstractResourceStream;
 import org.apache.wicket.util.resource.ResourceStreamNotFoundException;
-import org.apache.wicket.util.time.Duration;
 import org.hippoecm.frontend.model.IModelReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
@@ -27,6 +26,7 @@ import uk.nhs.digital.externalstorage.s3.S3File;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.Duration;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
@@ -122,7 +122,7 @@ public class ImageDisplayPlugin extends RenderPlugin<Node> {
                 );
             }
         };
-        resourceStreamResource.setCacheDuration(Duration.NONE);
+        resourceStreamResource.setCacheDuration(Duration.ZERO);
         resourceStreamResource.setFileName(metadata.getFileName());
         resourceStreamResource.setContentDisposition(ContentDisposition.ATTACHMENT);
 
