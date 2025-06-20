@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/AMP-1596-Enable-rapidoc-field-remover:
+      hipposys:batchsize: 100
+      hipposys:description: |
+        Removes field `enable_rapidoc` from existing documents of type `website:apispecification` (all variants).
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//element(*, website:apispecification)
+      hipposys:script:
+        resource: /configuration/update/AMP-1596-Enable-rapidoc-field-remover.groovy
+        type: string
+      hipposys:throttle: 2000
+      jcr:primaryType: hipposys:updaterinfo
