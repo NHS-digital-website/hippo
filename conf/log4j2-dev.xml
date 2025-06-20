@@ -149,6 +149,10 @@
         <Logger name="uk.nhs.digital" level="debug" />
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
+        <!-- IP Filter logging -->
+        <Logger name="org.bloomreach.forge.ipfilter" level="debug"/>
+        <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter" level="debug"/>
+
         <!-- Search Logging -->
         <Logger name="uk.nhs.digital.common.components.SearchComponent" level="info"/>
 

@@ -137,9 +137,9 @@
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>
 
         <!-- IP Filter logging -->
-        <Logger name="org.bloomreach.forge.ipfilter" level="warn"/>
+        <Logger name="org.bloomreach.forge.ipfilter" level="debug"/>
         <Logger name="org.onehippo.forge.ipfilter.common.BaseIpFilter"
-                level="warn"/>
+                level="debug"/>
 
         <!-- Search Logging -->
         <Logger name="uk.nhs.digital.common.components.SearchComponent"
