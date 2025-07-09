@@ -6,7 +6,7 @@ Using a modern deterministic build process, we can make use of powerful static a
 ## Use Manifest files to bypass Bloomreach's cache breaking
 Bloomreach currently serves static files from within a cache-busting folder, i.e. `/site/webfiles/1591372284699/dist/nhsd-priority-scripts.bundle.js` and `/site/webfiles/1591372284699/dist/nhsuk.css`. The long number will regenerate every time the site is built. That means that a deploy will break all cached files, even if the contents have not changed.
 
-It is possible to bypass this, and to fetch webfiles directly. https://documentation.bloomreach.com/14/library/concepts/web-files/web-files-stable-urls.html discusses how to access the files directly. In this case, the file hash could be attached to the filename directly, such as `nhsd-priority-scripts.205199ab45963f6a62ec.bundle.js`. To pass that hash to the Freemaker template, an intermediate `manifest.json` file could be created, with the following specification:
+It is possible to bypass this, and to fetch webfiles directly. https://xmdocumentation.bloomreach.com/library/concepts/web-files/web-files-stable-urls.html discusses how to access the files directly. In this case, the file hash could be attached to the filename directly, such as `nhsd-priority-scripts.205199ab45963f6a62ec.bundle.js`. To pass that hash to the Freemaker template, an intermediate `manifest.json` file could be created, with the following specification:
 
 ```json
 {

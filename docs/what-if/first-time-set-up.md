@@ -2,15 +2,15 @@
 
 **You'll need to follow the following steps to be able to run the project**
 
-1. Install Java SDK 1.8 (please note that the project won't work with newer versions!)
+1. Install Java SDK 11
 2. Install Maven
-3. Set up authentication with Bloomreach experience
+3. Set up authentication with Bloomreach Experience Manager 15
 4. Clone the project repo from Github
 
 ## 1. Install Java SDK
 
-1. Download and install the JavaSDK 1.8 [from here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-2. Set up the `JAVA_HOME` environment variable in Terminal (or add it to your bash probile file)
+1. Download and install the Java SDK 11 [from here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use OpenJDK 11 via your package manager.
+2. Set up the `JAVA_HOME` environment variable in Terminal (or add it to your bash profile)
 
 		export JAVA_HOME=/Library/Java/JavaVirtualMachines/[YOUR_JDK_VERSION]/Contents/Home
 
@@ -21,12 +21,12 @@
 
 		export PATH=$PATH:~/.mvn/bin
 
-## 3. Authenticate with Bloomreach Experience
+## 3. Authenticate with Bloomreach Experience Manager 15
 
-1. Create settings.xml file for your Bloomreach creds:
+1. Create settings.xml file for your Bloomreach 15 credentials:
 
 		$ touch ~/.m2/settings.xml
-	
+
 2. And add your auth details as below:
 
 ```XML

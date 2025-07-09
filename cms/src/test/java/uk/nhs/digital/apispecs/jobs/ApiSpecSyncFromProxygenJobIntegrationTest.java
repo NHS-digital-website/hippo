@@ -203,7 +203,7 @@ public class ApiSpecSyncFromProxygenJobIntegrationTest {
             .withProperty(PARAM_PROXYGEN_OAUTH_PRIVATE_KEY, PROXYGEN_TEST_PRIVATE_KEY)
             .withProperty(PARAM_PROXYGEN_OAUTH_KID, PROXYGEN_OAUTH_KID);
 
-        // See https://documentation.bloomreach.com/14/library/concepts/crisp-api/unit-testing.html
+        // See https://xmdocumentation.bloomreach.com/library/concepts/crisp-api/unit-testing.html
 
         final ClassPathXmlApplicationContext crispApiSpringApplicationContext = new ClassPathXmlApplicationContext();
         crispApiSpringApplicationContext.setEnvironment(crispApiSpringApplicationContextEnvironment);
