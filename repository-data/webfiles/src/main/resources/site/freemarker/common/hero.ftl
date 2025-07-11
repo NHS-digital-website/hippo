@@ -61,7 +61,7 @@
             <#assign button = {
                 "text": linkLabel,
                 "src": link,
-                "srText": document.external?has_content?then(srOnlyLinkText, '')
+                "srText": document.external?has_content?string(srOnlyLinkText, '')
             }/>
             <#assign heroOptions += {
                 "buttons": [button]
