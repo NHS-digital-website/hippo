@@ -15,12 +15,6 @@ This creates `storage` directory within the project directory, that contains you
 The directory is ignored by git, so you're not risking committing it by accident. If you need to start with
 clean slate, simply delete the directory and it will be recreated on the next run.
 
-## API Catalogue Heavy Content Cache
-
-To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
-your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
-E.g. `docker start hippo-redis || docker run -d --name hippo-redis -p 6379:6379 redis`.
-
 ## Key Maven Build Operations
 
 This project uses [Maven] 3+ as its build system. Unless stated otherwise, instructions below assume that Maven commands
@@ -295,7 +289,7 @@ tests in the system. In such a case, you can speed up improve your change-the-te
 running selected Cucumber scenario(s) rather than all.
 
 To do that:
-- tag selected scenario(s) with a [custom tag][Gherkin tags] `@WIP`, placing it in the line directly preceding
+- tag selected scenario(s) with a [custom tag][Gherkin tags] `@wip`, placing it in the line directly preceding
   the scenario.
 - run `make test.wip` this will run only the scenarios you have tagged.
 

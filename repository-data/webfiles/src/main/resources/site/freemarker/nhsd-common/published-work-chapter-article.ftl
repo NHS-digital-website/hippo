@@ -12,7 +12,6 @@
 <#include "./macro/heroes/hero.ftl">
 <#include "./macro/heroes/hero-options.ftl">
 <#include "macro/contentPixel.ftl">
-<#import "app-layout-head.ftl" as alh>
 
 <@hst.headContribution category="metadata">
     <meta name="robots" content="${document.noIndexControl?then("noindex","index")}"/>
@@ -142,7 +141,7 @@
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8 ${renderNav?then('nhsd-t-off-s-1', '')}">
                 <#if hasSummaryContent>
                     <div id="${slugify('Summary')}">
-                        <p class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></p>
+                        <h2 class="nhsd-t-heading-xl"><@fmt.message key="headers.summary"/></h2>
                         <div data-uipath="website.publishedworkchapter.summary"><@hst.html hippohtml=document.summary contentRewriter=brContentRewriter/></div>
                     </div>
                 </#if>

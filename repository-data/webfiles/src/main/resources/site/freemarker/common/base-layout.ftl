@@ -7,8 +7,6 @@
 
 <html lang="en">
   <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5f472a90-947a-46c9-974b-88076109c473" data-blockingmode="auto" async></script>
-
       <!-- Google Tag Manager -->
       <script>(function (w, d, s, l, i) {
               w[l] = w[l] || [];

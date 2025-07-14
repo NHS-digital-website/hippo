@@ -35,6 +35,11 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>datatable</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -65,7 +70,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.49.0</version>
+            <version>${microsoft-playwright.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -132,10 +137,6 @@
             <artifactId>hippo-configuration-management-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-shared-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-api</artifactId>
         </dependency>
@@ -163,8 +164,8 @@
             <artifactId>geronimo-jta_1.1_spec</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
         </dependency>
 
     </dependencies>
@@ -327,67 +328,12 @@
                             </execution>
                         </executions>
                     </plugin>
-
-                    <plugin>
-                        <!-- Automatically downloads and installs Chromederiver binaries within a temporary project
-                        space so that they don't have to be deployed manually. Since April 2019 the latest recognised version from
-                        https://github.com/webdriverextensions/webdriverextensions-maven-plugin-repository/blob/master/repository-3.0.json
-                        is Chromedriver 2.45 (compatible with Chrome v70-72).  However, the latest Chrome version is now v74, and
-                        therefore incompatible with 2.45.
-                        As per https://github.com/webdriverextensions/webdriverextensions-maven-plugin#installing-a-driver-from-an-url
-                        an exact version of Chromedriver needs to be specified from a URL.  The disadvantage with this approach is it is
-                        now platform specific (i.e. linux), but impact is minimal since developers and deployment pipeline all use linux
-                        If running acceptance tests on MacOs or Windows, please update the below locally to test, but do not commit changes.
-                         -->
-                        <groupId>com.github.webdriverextensions</groupId>
-                        <artifactId>webdriverextensions-maven-plugin</artifactId>
-                        <version>${webdriverextensions-maven.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>install-drivers</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <drivers>
-                                <driver>
-                                    <name>chromedriver</name>
-                                    <platform>linux</platform>
-                                    <bit>64</bit>
-                                    <version>${chromedriver.version}</version>
-                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/linux64/chromedriver-linux64.zip</url>
-                                </driver>
-                                <driver>
-                                    <name>chromedriver</name>
-                                    <platform>mac</platform>
-                                    <bit>64</bit>
-                                    <version>${chromedriver.version}</version>
-                                    <url>https://storage.googleapis.com/chrome-for-testing-public/${chromedriver.version}/mac-x64/chromedriver-mac-x64.zip</url>
-                                </driver>
-                            </drivers>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
 
         <profile>
             <id>acceptance-test-hippo</id>
-            <properties>
-                <!-- Elastic search to do with relevance -->
-                <es.tcpPort>9300</es.tcpPort>
-                <es.path>${project.build.directory}/storage</es.path>
-                <es.skip.start>false</es.skip.start>
-                <targeting.truncate>true</targeting.truncate>
-                <es.httpPort>9200</es.httpPort>
-                <targeting.bootstrap>false</targeting.bootstrap>
-
-                <!-- H2 also for relevance -->
-                <sql.driver>org.h2.Driver</sql.driver>
-                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
-                <sql.username>sa</sql.username>
-            </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -435,11 +381,6 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -615,11 +556,6 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.onehippo.cms7</groupId>
-                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
                                         <groupId>org.apache.geronimo.specs</groupId>
                                         <artifactId>geronimo-jta_1.1_spec</artifactId>
                                         <classpath>extra</classpath>
@@ -630,8 +566,8 @@
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>javax.mail</groupId>
-                                        <artifactId>mail</artifactId>
+                                        <groupId>com.sun.mail</groupId>
+                                        <artifactId>jakarta.mail</artifactId>
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
@@ -669,48 +605,10 @@
                             </container>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>com.github.alexcojocaru</groupId>
-                        <artifactId>elasticsearch-maven-plugin</artifactId>
-                        <version>${maven.plugin.elasticsearch.version}</version>
-                        <executions>
-                            <execution>
-                                <id>start-elasticsearch</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>runforked</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-elasticsearch</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <clusterName>esDevCluster</clusterName>
-                            <httpPort>${es.httpPort}</httpPort>
-                            <transportPort>${es.tcpPort}</transportPort>
-                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
-                            <keepExistingData>true</keepExistingData>
-                            <timeout>60</timeout>
-                            <skip>${es.skip.start}</skip>
-                        </configuration>
-                    </plugin>
 
                 </plugins>
 
             </build>
-        </profile>
-
-        <profile>
-            <!-- We want to run CMS tests without development data-->
-            <id>acceptance-without-development-data</id>
-            <properties>
-                <development-module-deploy-dir>temp</development-module-deploy-dir>
-            </properties>
         </profile>
     </profiles>
 

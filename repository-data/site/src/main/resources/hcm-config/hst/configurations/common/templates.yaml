@@ -17,9 +17,6 @@ definitions:
       /apispecification:
         hst:renderpath: webfile:/freemarker/common/apispecification.ftl
         jcr:primaryType: hst:template
-      /apitryitnow:
-        hst:renderpath: webfile:/freemarker/common/api-try-it-now.ftl
-        jcr:primaryType: hst:template
       /apitryitnow-oauth-redirect:
         hst:renderpath: webfile:/freemarker/common/api-try-it-now-oauth-redirect.ftl
         jcr:primaryType: hst:template
@@ -157,6 +154,9 @@ definitions:
         jcr:primaryType: hst:template
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
+        jcr:primaryType: hst:template
+      /footer-banner:
+        hst:renderpath: webfile:/freemarker/common/footer-banner.ftl
         jcr:primaryType: hst:template
       /gdpr-article:
         hst:renderpath: webfile:/freemarker/common/gdpr-article.ftl

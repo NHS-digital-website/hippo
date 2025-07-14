@@ -24,6 +24,7 @@ init: .git/.local-hooks-installed
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
 	mvn -T 1C clean verify $(MVN_OPTS) \
+	-Djava.locale.providers=COMPAT \
 	-am -DskipTests=true \
 	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
 	$(MAKE) run
@@ -46,7 +47,8 @@ test.wip:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dheadless=false \
-		-Dcucumber.options="src/test/resources/features --tags @WIP" \
+		-Dcucumber.features="src/test/resources/features/site" \
+		-Dcucumber.filter.tags="@wip"
 
 
 ## Format YAML files, run after exporting to reduce changes

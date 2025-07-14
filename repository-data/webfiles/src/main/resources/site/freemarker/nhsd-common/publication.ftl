@@ -176,6 +176,7 @@
                     <#if !document.class?contains('PublicationPage')>
                         <#assign hasSectionContent = document.sections?has_content />
                         <#if hasSectionContent>
+                            <@fmt.message key="headers.highlights" var="highlightsHeader" />
                             <div class="article-section" id="highlights">
                                 <h2>${highlightsHeader}</h2>
                                 <@sections document.sections></@sections>

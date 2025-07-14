@@ -4,8 +4,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.startsWith;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.Then;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
 import org.hamcrest.Matcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ServicePage;
@@ -28,7 +28,7 @@ public class ServiceSteps extends AbstractSpringSteps {
     @Then("^I should (?:also )?see following items in service page:?$")
     public void thenIShouldAlsoSee(final DataTable pageSections) throws Throwable {
         String elementName = null;
-        for (List<String> elementsContent : pageSections.raw()) {
+        for (List<String> elementsContent : pageSections.cells()) {
             elementName = elementsContent.get(0);
 
             assertThat("Page element " + elementName + " should contain ...",

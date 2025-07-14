@@ -10,7 +10,7 @@ Feature: S3 integration performance
     # Scenarios in this file are intended to only run in ad-hoc performance tests rather
     # than regularly, say as part of regular builds.
     #
-    # Typically they would be run individually, using @WIP tag.
+    # Typically they would be run individually, using @wip tag.
 
     # With many stable, slow, downloads, not saturating the pool -
     # does the application respond to other requests?
