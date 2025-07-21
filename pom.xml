@@ -125,13 +125,6 @@
         <devzone.apispec.sync.apigee.daily-cron-expression></devzone.apispec.sync.apigee.daily-cron-expression>
         <devzone.apispec.sync.proxygen.daily-cron-expression></devzone.apispec.sync.proxygen.daily-cron-expression>
         <devzone.apispec.sync.nightly-cron-expression></devzone.apispec.sync.nightly-cron-expression>
-        <!-- Custom on-disk page caching properties -->
-        <siteCache.cacheManager.diskStorePath></siteCache.cacheManager.diskStorePath>
-        <siteCache.heavyContentPageCache.maxMegabytesLocalDisk></siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
-        <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts></siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
-        <siteCache.heavyContentPageCache.timeToIdle></siteCache.heavyContentPageCache.timeToIdle>
-        <siteCache.heavyContentPageCache.type></siteCache.heavyContentPageCache.type>
-        <siteCache.heavyContentPageCache.redisUrl></siteCache.heavyContentPageCache.redisUrl>
 
         <hippo.environment></hippo.environment>
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
@@ -1157,13 +1150,6 @@
                                     <devzone.apispec.sync.apigee.daily-cron-expression>${devzone.apispec.sync.apigee.daily-cron-expression}</devzone.apispec.sync.apigee.daily-cron-expression>
                                     <devzone.apispec.sync.proxygen.daily-cron-expression>${devzone.apispec.sync.proxygen.daily-cron-expression}</devzone.apispec.sync.proxygen.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
-                                    <!-- Custom on-disk page caching properties -->
-                                    <siteCache.cacheManager.diskStorePath>${siteCache.cacheManager.diskStorePath}</siteCache.cacheManager.diskStorePath>
-                                    <siteCache.heavyContentPageCache.maxMegabytesLocalDisk>${siteCache.heavyContentPageCache.maxMegabytesLocalDisk}</siteCache.heavyContentPageCache.maxMegabytesLocalDisk>
-                                    <siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>${siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts}</siteCache.heavyContentPageCache.diskContentSurvivesJvmRestarts>
-                                    <siteCache.heavyContentPageCache.timeToIdle>${siteCache.heavyContentPageCache.timeToIdle}</siteCache.heavyContentPageCache.timeToIdle>
-                                    <siteCache.heavyContentPageCache.type>${siteCache.heavyContentPageCache.type}</siteCache.heavyContentPageCache.type>
-                                    <siteCache.heavyContentPageCache.redisUrl>${siteCache.heavyContentPageCache.redisUrl}</siteCache.heavyContentPageCache.redisUrl>
                                     <hippo.environment>${hippo.environment}</hippo.environment>
 
                                 </systemProperties>

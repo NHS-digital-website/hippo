@@ -1,12 +1,12 @@
 package uk.nhs.digital.customfield;
 
-import com.onehippo.cms7.eforms.hst.model.AbstractField;
 import com.onehippo.cms7.eforms.hst.model.Form;
+import com.onehippo.cms7.eforms.hst.model.TextField;
 import uk.nhs.digital.customfield.validation.PostcodeRule;
 import uk.nhs.digital.website.beans.CustomPostcodeFieldBean;
 
 
-public class CustomPostcodeField extends AbstractField {
+public class CustomPostcodeField extends TextField {
 
     public CustomPostcodeField(CustomPostcodeFieldBean bean, Form form) {
         super(bean, form);
