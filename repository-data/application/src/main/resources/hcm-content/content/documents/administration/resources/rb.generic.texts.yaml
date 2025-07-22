@@ -26,7 +26,7 @@
     - This is an example text
     - Close menu
     - Close search
-    - (external link, opens in a new tab)
+    - external link, opens in a new tab
   /rb.generic.texts[2]:
     hippo:availability:
     - preview
@@ -55,7 +55,7 @@
     - This is an example text
     - Close menu
     - Close search
-    - (external link, opens in a new tab)
+    - external link, opens in a new tab
   /rb.generic.texts[3]:
     hippo:availability:
     - live
@@ -84,7 +84,7 @@
     - This is an example text
     - Close menu
     - Close search
-    - (external link, opens in a new tab)
+    - external link, opens in a new tab
   hippo:name: Texts
   hippo:versionHistory: e5b44efe-cbc4-46f1-8b1c-d5ebb5641398
   jcr:mixinTypes:
