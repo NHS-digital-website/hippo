@@ -27,6 +27,8 @@
 
                 <li class="nhsd-t-body-s">
                     <#if hasLink>
+                        <#assign cookieBot =""/>     
+                        <#assign externalLinkAttr =""/>
                         <#assign cookieBot = item.external?starts_with("javascript:") />
                         <#if item.external?has_content && !cookieBot>
                             <#assign externalLinkAttr>target="_blank" rel="external"</#assign>
