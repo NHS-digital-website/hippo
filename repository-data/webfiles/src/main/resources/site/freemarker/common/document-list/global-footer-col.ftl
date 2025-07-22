@@ -30,13 +30,12 @@
                         <#assign cookieBot =""/>     
                         <#assign externalLinkAttr =""/>
                         <#assign cookieBot = item.external?starts_with("javascript:") />
-                        <#if item.external?has_content && !cookieBot>
+                        <#if item.external?has_content>
                             <#assign externalLinkAttr>target="_blank" rel="external"</#assign>
                         </#if>
-                        *******
-                        ${externalLinkAttr}
-                        *******
-                        <#if item.internal?has_content>
+                        <#if cookieBot==true>
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="#" onclick="${item.external}">
+                        <#elseif item.internal?has_content>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link hippobean=item.internal/>">
                         <#else>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${item.external}" ${externalLinkAttr}>
