@@ -19,14 +19,14 @@
     resourcebundle:id: rb.generic.texts
     resourcebundle:keys:
     - texts.example
-    - text.sr-only-link
     - text.close-menu
     - text.close-search
+    - text.sr-only-link
     resourcebundle:messages:
     - This is an example text
-    - (external link, opens in a new tab)
     - Close menu
     - Close search
+    - (external link, opens in a new tab)
   /rb.generic.texts[2]:
     hippo:availability:
     - preview
@@ -48,14 +48,14 @@
     resourcebundle:id: rb.generic.texts
     resourcebundle:keys:
     - texts.example
-    - text.sr-only-link
     - text.close-menu
     - text.close-search
+    - text.sr-only-link
     resourcebundle:messages:
     - This is an example text
-    - (external link, opens in a new tab)
     - Close menu
     - Close search
+    - (external link, opens in a new tab)
   /rb.generic.texts[3]:
     hippo:availability:
     - live
@@ -77,14 +77,14 @@
     resourcebundle:id: rb.generic.texts
     resourcebundle:keys:
     - texts.example
-    - text.sr-only-link
     - text.close-menu
     - text.close-search
+    - text.sr-only-link
     resourcebundle:messages:
     - This is an example text
-    - (external link, opens in a new tab)
     - Close menu
     - Close search
+    - (external link, opens in a new tab)
   hippo:name: Texts
   hippo:versionHistory: e5b44efe-cbc4-46f1-8b1c-d5ebb5641398
   jcr:mixinTypes:
