@@ -29,7 +29,7 @@
                     <#if hasLink>
                         <#assign cookieBot = item.external?starts_with("javascript:") />
                         <#if item.external?has_content && !cookieBot>
-                            <#assign externalLinkAttr>target="_blank" rel="external"</#assign>
+                            <#assign externalLinkAttr>rel="external"</#assign>
                         </#if>
 
                         <#if item.internal?has_content>
