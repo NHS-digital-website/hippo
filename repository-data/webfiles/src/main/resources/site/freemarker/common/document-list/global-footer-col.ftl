@@ -31,12 +31,13 @@
                         <#if item.external?has_content && !cookieBot>
                             <#assign externalLinkAttr>rel="external"</#assign>
                         </#if>
-
+                        **************test starts************
                         <#if item.internal?has_content>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link hippobean=item.internal/>">
                         <#else>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${item.external}" ${externalLinkAttr}>
                         </#if>
+                        **************test ends************
                     </#if>
                     ${label}
                     <#if item.external?has_content>
