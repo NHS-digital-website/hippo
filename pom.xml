@@ -911,7 +911,7 @@
                     <rules>
                         <reactorModuleConvergence/>
                         <requireJavaVersion>
-                            <!-- Any Java 8 version is allowed -->
+                            <!-- Any Java 11 version is allowed -->
                             <version>[11,)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
