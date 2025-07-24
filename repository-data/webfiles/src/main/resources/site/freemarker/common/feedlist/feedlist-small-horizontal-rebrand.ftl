@@ -54,7 +54,6 @@
                         <#if hasSecondaryButton>
                             <a class="nhsd-a-button nhsd-a-button--outline" href="${secondaryButtonDestination}">
                                 <span class="nhsd-a-button__label">${secondaryButtonText}</span>
-                                <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                             </a>
                         </#if>
                     </nav>
