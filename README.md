@@ -1,6 +1,6 @@
-# NHS Digital Website - Hippo CMS
+# NHS Digital Website - Bloomreach Experience Manager
 
-[![Build Status][build-status]][travis-project-page]
+This project runs on **Java 11** and **Bloomreach Experience Manager 15**.
 
 * To setup this project run `make init` (Optional, as can hinder development).
 * To run an initial build of all modules run `mvn clean verify` (only need to do this once).
@@ -14,12 +14,6 @@ Set `REPO_PATH = -Drepo.path=storage` in `env.mk` to preserve your local docs be
 This creates `storage` directory within the project directory, that contains your local CMS database.
 The directory is ignored by git, so you're not risking committing it by accident. If you need to start with
 clean slate, simply delete the directory and it will be recreated on the next run.
-
-## API Catalogue Heavy Content Cache
-
-To cache the API Catalogue specs with Redis during development, set `SITE_CACHE_HEAVY_TYPE = redis` in
-your `env.mk`. Then start a Redis instance on the default port (6379) or set `SITE_CACHE_HEAVY_REDIS_URL`.
-E.g. `docker start hippo-redis || docker run -d --name hippo-redis -p 6379:6379 redis`.
 
 ## Key Maven Build Operations
 
@@ -59,23 +53,23 @@ mode by adding parameter `-Dheadless=false` in the command line.
 [Profile][Maven profiles] `acceptance-test` activates the tests themselves, while `acceptance-test-hippo` ensures
 automatic startup and shutdown of the application.
 
-<a name="run-hippo-standalone">**Standalone Hippo instance**:</a>
+<a name="run-bloomreach-standalone">**Standalone Bloomreach instance**:</a>
 
 ```
 mvn verify
 mvn -Pcargo.run
 ```
 
-This will run Hippo in a standalone mode, useful during development and manual tests. The first line runs unit tests and
+This will run Bloomreach in a standalone mode, useful during development and manual tests. The first line runs unit tests and
 packages the application and the second one starts it.
 
 Once the aplication has started, the console will display message `Press Ctrl-C to stop the Cargo container...`. You can
-then access Hippo CMS by navigating to `http://localhost:8080/cms` in your web browser.
+then access Bloomreach by navigating to `http://localhost:8080/cms` in your web browser.
 
 You can stop the server by following the aforementioned message and hitting `Ctrl-C` in the terminal window where you
-started Hippo.
+started Bloomreach.
 
-**Acceptance tests against standalone Hippo instance**
+**Acceptance tests against standalone Bloomreach instance**
 
 In cases where you only edit code of the acceptance tests (rather than production code), usually a lot of time can
 be saved by keeping an instance of the application running in the background and execute acceptance tests repeatedly,
@@ -106,7 +100,7 @@ You can run the formatter manually by running `make format-yaml`.
 ## Updating versions
 
 Periodically the versions of the dependencies we use should be updated to the latest versions, in order to
-ensure we have the latest bug fixes and security patches. For the same reason, the version of Hippo that we
+ensure we have the latest bug fixes and security patches. For the same reason, the version of Bloomreach that we
 use as the parent pom should be updated whenever there is a new release.
 
 To update versions automatically we use the [maven versions plugin](http://www.mojohaus.org/versions-maven-plugin/).
@@ -121,15 +115,15 @@ in the pom.
 
 However, if it fails, you will need to manually update the versions.
 
-### Potential issues when upgrading Hippo version
+### Potential issues when upgrading Bloomreach version
 
 This section should be kept up to date with all known changes we have made to the code base which require
-consideration when changing parent Hippo version.
+consideration when changing parent Bloomreach version.
 
 #### Document Workflow
 
-We have our own version of the Hippo document workflow which is a copy of the out of the box workflow with
-some customizations to meet our requirements. When changing hippo version there may be changes to the
+We have our own version of the Bloomreach document workflow which is a copy of the out of the box workflow with
+some customizations to meet our requirements. When changing Bloomreach version there may be changes to the
 document workflow which we need to implement in our forked version.
 
 The original workflow can be sound in the sources jar:
@@ -295,7 +289,7 @@ tests in the system. In such a case, you can speed up improve your change-the-te
 running selected Cucumber scenario(s) rather than all.
 
 To do that:
-- tag selected scenario(s) with a [custom tag][Gherkin tags] `@WIP`, placing it in the line directly preceding
+- tag selected scenario(s) with a [custom tag][Gherkin tags] `@wip`, placing it in the line directly preceding
   the scenario.
 - run `make test.wip` this will run only the scenarios you have tagged.
 
@@ -304,7 +298,7 @@ before pushing your changes to the central repo.
 
 ## More details
 
-This Maven project has been generated using the official [Hippo Maven project archetype] v12.1.0.
+This Maven project has been generated using the official [Bloomreach Maven project archetype] v12.1.0.
 
 Most of the project's structure has been retained with the few custom modifications described in the sections above
 but you can find more details in the original README files auto-generated by the archetype:
@@ -329,7 +323,7 @@ answer in [What If section][what if]
 [original top-level readme]:        HIPPO.md
 [original repository-data readme]:  repository-data/README.md
 [what if]:                          docs/what-if.md
-[Hippo Maven project archetype]:    https://www.onehippo.org/12/trails/getting-started/creating-a-project.html
+[Bloomreach Maven project archetype]:    https://www.onehippo.org/12/trails/getting-started/creating-a-project.html
 [BDD]:                              https://en.wikipedia.org/wiki/Behavior-driven_development
 [IDE]:                              https://en.wikipedia.org/wiki/Integrated_development_environment
 [IntelliJ]:                         https://www.jetbrains.com/idea/

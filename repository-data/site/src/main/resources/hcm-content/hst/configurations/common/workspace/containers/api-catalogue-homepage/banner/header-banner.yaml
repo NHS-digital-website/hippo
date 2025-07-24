@@ -1,5 +1,5 @@
 ---
-/hst:hst/hst:configurations/common/hst:workspace/hst:containers/api-catlogue-homepage/banner/header-banner:
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/api-catalogue-homepage/banner/header-banner:
   hst:componentclassname: uk.nhs.digital.common.components.HeaderComponent
   hst:iconpath: images/essentials/catalog-component-icons/banner.png
   hst:label: Header

@@ -16,7 +16,6 @@ definitions:
         value:
         - xm.channel.user
         - xm.cms.user
-        - xm.targeting.editor
         - xm.channel.webmaster
         - xm.channel.admin
         - xm.content.editor

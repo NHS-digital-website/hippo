@@ -33,9 +33,10 @@
       hippo:related___pathreference: []
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-01-22T11:29:40.641Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0870d135-334f-4433-b967-97373ab1b7e2
       hippotranslation:locale: en
@@ -136,13 +137,13 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /service-catalogue-banner:
-    /service-catalogue-banner[1]:
+  /api-catalogue-footer-banner:
+    /api-catalogue-footer-banner[1]:
       /website:content:
-        hippostd:content: <p>We deliver systems and services to the NHS and the wider
-          health and social care sector which help providers deliver better care.
-          Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.</p>
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -157,10 +158,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: NHS Digital deliver systems and services to the NHS and
-          the wider health and social care sector which help providers deliver better
-          care. Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.
+        hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
@@ -170,20 +168,20 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2024-10-16T14:35:11.455Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:59.164Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:bannerdocument
-      website:title: Systems and services
-    /service-catalogue-banner[2]:
+      website:title: Further help and support
+    /api-catalogue-footer-banner[2]:
       /website:content:
-        hippostd:content: <p>We deliver systems and services to the NHS and the wider
-          health and social care sector which help providers deliver better care.
-          Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.</p>
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -198,10 +196,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: NHS Digital deliver systems and services to the NHS and
-          the wider health and social care sector which help providers deliver better
-          care. Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.
+        hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
@@ -210,20 +205,20 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2024-10-16T14:33:24.747Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:31.573Z
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:bannerdocument
-      website:title: Systems and services
-    /service-catalogue-banner[3]:
+      website:title: Further help and support
+    /api-catalogue-footer-banner[3]:
       /website:content:
-        hippostd:content: <p>We deliver systems and services to the NHS and the wider
-          health and social care sector which help providers deliver better care.
-          Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.</p>
+        hippostd:content: |-
+          <p><a href="https://digital.nhs.uk/developer/getting-started">Get started with our APIs</a>&nbsp;- find out what we offer and how you can connect.</p>
+
+          <p>If you're not sure which API fits your use case, see if we have a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/building-healthcare-software">building healthcare software</a>&nbsp;guide&nbsp;that can help.</p>
         jcr:primaryType: hippostd:html
       /website:image:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -238,10 +233,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /website:seosummary:
-        hippostd:content: NHS Digital deliver systems and services to the NHS and
-          the wider health and social care sector which help providers deliver better
-          care. Our information, data, and IT systems help health professionals, commissioners,
-          analysts and managers give the best outcomes for patients.
+        hippostd:content: ''
         jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
@@ -251,17 +243,264 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
-      hippostdpubwf:lastModificationDate: 2024-10-16T14:35:11.455Z
+      hippostdpubwf:lastModificationDate: 2025-03-06T13:08:59.164Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-10-16T14:35:17.995Z
+      hippostdpubwf:publicationDate: 2025-03-06T13:09:01.379Z
+      hippotranslation:id: fe39f156-26c0-411d-8303-962796df58ff
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Further help and support
+    hippo:name: api-catalogue-footer-banner
+    hippo:versionHistory: afd41398-6e95-4727-a70a-153a8a04ac8e
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /service-catalogue-banner:
+    /service-catalogue-banner[1]:
+      /website:content:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-01-24T16:41:48.166Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:bannerdocument
+      website:title: Service catalogue
+    /service-catalogue-banner[2]:
+      /website:content:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-01-24T16:41:27.667Z
+      hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:bannerdocument
-      website:title: Systems and services
+      website:title: Service catalogue
+    /service-catalogue-banner[3]:
+      /website:content:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;<a href="https://digital.nhs.uk/services/national-technology-resources-for-integrated-care-systems">National technology resources for Integrated Care Systems</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: |-
+          <p>Find national digital services and programmes for health and social care in England.</p>
+
+          <p>For other national resources, see&nbsp;National technology resources for Integrated Care Systems.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-01-24T16:41:48.166Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-01-24T16:41:50.475Z
+      hippotranslation:id: 7a3931cb-7495-4ac5-8eb0-cac350023c9b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Service catalogue
     hippo:name: service-catalogue-banner
-    hippo:versionHistory: 9583a2f0-4af0-4722-a46d-9efc397e5d5a
+    hippo:versionHistory: d8e9d1eb-bcf8-4d51-8c81-1054b83e5758
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /service-catalogue-footer-banner:
+    /service-catalogue-footer-banner[1]:
+      /website:content:
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:44.826Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:bannerdocument
+      website:title: Continue your search
+    /service-catalogue-footer-banner[2]:
+      /website:content:
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:39.403Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Continue your search
+    /service-catalogue-footer-banner[3]:
+      /website:content:
+        hippostd:content: <p>If you did not find what you are looking for, try using
+          our&nbsp;<a href="https://digital.nhs.uk/search">site wide search</a>.</p>
+        jcr:primaryType: hippostd:html
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:link:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      /website:seoSummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: <p>Try using our&nbsp;site wide search.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-07-15T15:09:44.665Z
+      hippostdpubwf:lastModificationDate: 2025-03-07T10:39:44.826Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-03-07T10:39:47.123Z
+      hippotranslation:id: f92fd7d3-09eb-4cd7-ab66-2f60c7cad97f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:bannerdocument
+      website:title: Continue your search
+    hippo:name: service-catalogue-footer-banner
+    hippo:versionHistory: f1181535-cd74-4ff5-840d-17ff6e85897b
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

@@ -20,7 +20,6 @@
                 <include>org.apache.logging.log4j:log4j-api</include>
                 <include>org.apache.logging.log4j:log4j-core</include>
                 <include>org.onehippo.cms7:hippo-addon-crisp-api</include>
-                <include>com.onehippo.cms7:hippo-addon-targeting-shared-api</include>
 
                 <include>org.jetbrains.kotlin:kotlin-stdlib</include>
                 <include>com.splunk.logging:splunk-library-javalogging</include>

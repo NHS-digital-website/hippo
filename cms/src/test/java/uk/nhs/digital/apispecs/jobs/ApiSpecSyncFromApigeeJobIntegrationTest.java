@@ -24,6 +24,7 @@ import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
 import org.hippoecm.repository.api.Document;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -55,10 +56,9 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
-
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, JcrNodeUtils.class, ApiSpecSyncFromApigeeJob.class, ApplicationSecrets.class, JcrRowUtils.class})
-@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*", "com.sun.org.apache.xerces.*", "com.sun.org.apache.xalan.*", "javax.xml.*", "org.xml.*", "org.w3c.*"})
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private static final String PROPERTY_NAME_WEBSITE_JSON = "website:json";
@@ -94,9 +94,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     private String apigeeSingleSpecUrlTemplate;
     private String oauthTokenUrl;
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
-    @Rule public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
+    @Rule
+    public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
 
     // JCR repo access
     private Session session;
@@ -184,7 +186,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
             .withProperty(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN, OAUTH_BASIC_AUTH_TOKEN)
             .withProperty(PARAM_APIGEE_OAUTH_OTPKEY, OAUTH_OTP_KEY);
 
-        // See https://documentation.bloomreach.com/14/library/concepts/crisp-api/unit-testing.html
+        // See https://xmdocumentation.bloomreach.com/library/concepts/crisp-api/unit-testing.html
 
         final ClassPathXmlApplicationContext crispApiSpringApplicationContext = new ClassPathXmlApplicationContext();
         crispApiSpringApplicationContext.setEnvironment(crispApiSpringApplicationContextEnvironment);
@@ -277,7 +279,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
         // @formatter:off
         final String apigeeOauth2AccessTokenRequestBodyRegex =
-                  "grant_type=password"
+            "grant_type=password"
                 + "&username=" + OAUTH_USERNAME
                 + "&password=" + OAUTH_PASSWORD
                 + "&mfa_token=\\d+";
