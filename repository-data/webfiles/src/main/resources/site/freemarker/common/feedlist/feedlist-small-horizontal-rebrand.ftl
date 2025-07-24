@@ -49,7 +49,6 @@
                         <#if hasPrimaryButton>
                             <a class="nhsd-a-button " href="${buttonDestination}">
                                 <span class="nhsd-a-button__label">${buttonText}</span>
-                                <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                             </a>
                         </#if>
                         <#if hasSecondaryButton>
