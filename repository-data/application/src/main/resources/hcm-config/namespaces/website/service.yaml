@@ -76,6 +76,18 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /seosummary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount_modified,autogrow,wysiwygarea'',
+                contentsCss: ''ckeditor/plugins/wordcount_modified/css/wordcount.css'',
+                wordcount_modified: { showParagraphs: false, showWordCount: false,
+                showCharCount: true, countSpacesAsChars: true, maxCharCount: 320,
+                warnOnLimitOnly: true, hardLimit: false, showProgressBar: true, absoluteMinimumThreshold:
+                10, minimumThreshold: 160, optimumMinimumThreshold: 230, optimumMaximumThreshold:
+                300}, autoGrow_onStartup: true, autoGrow_maxHeight: 100, enterMode:
+                2, autoParagraph: false , disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
             caption: SEO Summary
             field: seosummary
             hint: ''
@@ -459,7 +471,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: website:seoSummary
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /seosummarytext:
             hipposysedit:mandatory: false
