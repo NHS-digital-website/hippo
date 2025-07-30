@@ -91,7 +91,7 @@ Feature: Basic search
         When I click on the "Upcoming" link
         And I click on the "National statistics" link
         Then I should see search results starting with:
-            | 2025 - Upcoming |
+            | <upcoming_year> - Upcoming |
 
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
