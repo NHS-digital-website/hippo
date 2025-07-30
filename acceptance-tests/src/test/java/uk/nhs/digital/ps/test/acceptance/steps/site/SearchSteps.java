@@ -23,9 +23,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.SearchResultWidget;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class SearchSteps extends AbstractSpringSteps {
@@ -82,13 +80,9 @@ public class SearchSteps extends AbstractSpringSteps {
         assertThat("Correct result count found", searchPage.getResultCount(), startsWith(count));
     }
 
-
     @Then("^I should see search results starting with:$")
     public void thenIShouldSeeSearchResultsStartingWith(DataTable searchResults) throws Throwable {
-        List<String> expected = searchResults.asList(String.class).stream()
-            .map(s -> s.replace("<upcoming_year>", String.valueOf(LocalDate.now().plusYears(1).getYear())))
-            .collect(Collectors.toList());
-        assertSearchResultsStartWith(expected);
+        assertSearchResultsStartWith(searchResults.asList(String.class));
     }
 
     @Then("^I should see search results which also include:$")
