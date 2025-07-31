@@ -34,7 +34,7 @@
                             <#assign externalLinkAttr>target="_blank" rel="external"</#assign>
                         </#if>
                         <#if cookieBot==true>
-                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="#" onclick="${item.external}">
+                            <a class="nhsd-a-link nhsd-a-link--col-dark-grey" onclick="${item.external}">
                         <#elseif item.internal?has_content>
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link hippobean=item.internal/>">
                         <#else>
