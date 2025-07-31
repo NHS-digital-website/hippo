@@ -91,6 +91,7 @@ Feature: Basic search
         When I click on the "Upcoming" link
         And I click on the "National statistics" link
         Then I should see search results starting with:
+            | 2026 - Upcoming |
             | 2025 - Upcoming |
             | 2024 - Upcoming |
             | 2023 - Upcoming |
