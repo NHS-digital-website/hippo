@@ -91,8 +91,16 @@ Feature: Basic search
         When I click on the "Upcoming" link
         And I click on the "National statistics" link
         Then I should see search results starting with:
+            | 2025 - Upcoming |
+            | 2024 - Upcoming |
+            | 2023 - Upcoming |
+            | 2022 - Upcoming |
+            | 2021 - Upcoming |
+            | 2020 - Upcoming |
+            | 2019 - Upcoming |
+            | 2018 - Upcoming |
             | 2026 - Upcoming |
-
+            
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
         Then I can see the search description matching "\d+ results sorted by relevance\."
