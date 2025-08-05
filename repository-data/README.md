@@ -19,7 +19,7 @@ when deploying the application locally (-Pcargo.run), but not included when buil
 -Pdist-with-development-data. You can add repository data into the development module by moving YAML
 sources, or by configuring auto-export to export certain repository paths to the development module.
 
-This module also provides [updater scripts](https://documentation.bloomreach.com/14/library/concepts/update/updater-scripts.html). To run any of them, access http://localhost:8080/cms/systemupdater with the application running locally.
+This module also provides [updater scripts](https://xmdocumentation.bloomreach.com/library/concepts/update/updater-scripts.html). To run any of them, access http://localhost:8080/cms/systemupdater with the application running locally.
 ApiSpecificationRenderer is one such script, helping to shorten development cycle when making changes to the logic of rendering API specifications, where it allows to quickly see their effect without having to restart the application.
 
 The *webfiles* module is intended to contribute webfiles (only) to the repository data. Like the
