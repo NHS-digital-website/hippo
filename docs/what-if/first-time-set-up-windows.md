@@ -116,7 +116,7 @@ sudp apt install maven
 
 To install Maven.
 
-Then create a file named `./m2/settings.xml` with your Bloomreach credentials.
+Then create a file named `~/.m2/settings.xml` with your Bloomreach credentials.
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -192,22 +192,22 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 To install NVM itself.
 
 ```bash
-nvm install 14.17.3
+nvm install 22.18.0
 ```
 
 This is the version of Node.js that the project uses to build the front end assets.
 
 ```bash
-nvm use 14.17.3
+nvm use 22.18.0
 ```
 
-This sets the version of Node.js to 14.17.3 in the current shell.
+This sets the version of Node.js to 22.18.0 in the current shell.
 
 ```bash
-nvm alias default 14.17.3
+nvm alias default 22.18.0
 ```
 
-This sets the default version of Node.js to 14.17.3 when you open a new shell.
+This sets the default version of Node.js to 22.18.0 when you open a new shell.
 
 ### 5. Clone the project
 
