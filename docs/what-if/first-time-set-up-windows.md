@@ -256,3 +256,11 @@ IntelliJ IDEA lets you create and open projects in the WSL file system, run, and
 3. Once the project opens, you can set the JDK. IntelliJ should offer the WSL JDK.
 4. You can now run `make serve` in the terminal and debug set up a remote debugger on port 8000.
 5. You can get to `http://localhost:8000/site` from a web browser running on Windows.
+
+## Testing guide
+
+Before executing make test.site-running, run the following command once to install Playwright:
+
+```bash
+mvn verify -f acceptance-tests/pom.xml -Pplaywright-install
+```
