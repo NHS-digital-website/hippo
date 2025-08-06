@@ -16,7 +16,9 @@ PLAYWRIGHT_PROFILE = playwright-install,playwright-test
 endif
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
-SHELL := env PATH=$(PATH) /bin/bash
+export PATH
+SHELL := /bin/bash
+.SHELLFLAGS := -eu -o pipefail -c
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
 MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS} --global-settings "$(PWD)/../.mvn.settings.xml"
