@@ -281,13 +281,6 @@
             <groupId>uk.nhs.digital</groupId>
             <artifactId>website-toolbox</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>${jedis.verison}</version>
-        </dependency>
-
     </dependencies>
 
 

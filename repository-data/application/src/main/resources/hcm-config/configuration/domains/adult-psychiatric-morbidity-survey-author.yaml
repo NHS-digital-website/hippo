@@ -2,6 +2,15 @@
 definitions:
   config:
     /hippo:configuration/hippo:domains/adult-psychiatric-morbidity-survey-author:
+      /assets-apms-2023-2024:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/assets/website-assets/publications/apms-2023-4
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /author:
         hipposys:groups:
           .meta:add-new-system-values: true
@@ -11,6 +20,15 @@ definitions:
           - adult-psychiatric-morbidity-survey-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
+      /images-apms-2023-2024:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/website/publications/statistical/adult-psychiatric-morbidity-survey-2023-24
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /readwrite:
         hipposys:groups:
           .meta:add-new-system-values: true

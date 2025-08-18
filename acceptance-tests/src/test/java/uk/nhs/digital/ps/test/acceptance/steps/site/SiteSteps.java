@@ -39,7 +39,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 
@@ -619,5 +621,51 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("I can see the entries footer")
     public void thenICanSeeTheEntriesFooter() {
         assertNotNull("Element is present", sitePage.findCssClass("nhsd-a-box--border-grey"));
+    }
+
+    @Then("^I should see (\\d+) (h[1-6]) headers?$")
+    public void thenIShouldSeeHeaderCount(int expectedCount, String headerTag) {
+        List<WebElement> headers = sitePage.findElementsByTag(headerTag);
+        assertThat("Expected number of <" + headerTag + "> tags", headers.size(), is(expectedCount));
+    }
+
+
+    @Then("^all elements with header classes should match their tag levels$")
+    public void thenElementsWithHeaderClassesMatchTags() {
+        // Define expected tag for each class
+        Map<String, String> classToTagMap = new HashMap<>();
+        classToTagMap.put("h2","nhsd-t-heading-xl");
+        classToTagMap.put("h3","nhsd-t-heading-l");
+        classToTagMap.put("h4","nhsd-t-heading-m");
+        classToTagMap.put("h5","nhsd-t-heading-s");
+
+        List<String> mismatches = new ArrayList<>();
+        
+        for (Map.Entry<String, String> entry : classToTagMap.entrySet()) {
+            String className = entry.getValue();       // e.g., "nhsd-t-heading-xl"
+            String headerTag = entry.getKey();   // e.g., "h2"
+    
+            // Find all elements that have this class (using CSS selector)
+            List<WebElement> elements = sitePage.findElementsByTag(headerTag);
+
+            if (elements.isEmpty()) {
+                continue; 
+            }
+    
+            for (WebElement element : elements) {
+                String classes = element.getAttribute("class");
+    
+                if (classes != null && Arrays.asList(classes.split("\\s+")).contains(className)) {
+                    mismatches.add(String.format(
+                        "Element with tag '%s' should have the class <%s>",
+                        headerTag, className
+                    ));
+                }
+            }
+        }
+        // Fail if there were any mismatches
+        if (!mismatches.isEmpty()) {
+            throw new AssertionError("Header mismatches found:\n" + String.join("\n", mismatches));
+        }
     }
 }

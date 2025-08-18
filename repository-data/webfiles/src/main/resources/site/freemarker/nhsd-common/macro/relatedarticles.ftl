@@ -14,7 +14,7 @@
 <#macro relatedarticles articles articleType showDates=true idsuffix='id' title='Related documents' showSummary=false>
     <#if articles?has_content && isAnyNotPersonDoctype(articles) >
         <div id="related-articles-${slugify(idsuffix)}">
-            <p class="nhsd-t-heading-xl">${title}</p>
+            <h2 class="nhsd-t-heading-xl">${title}</h2>
 
             <ul class="nhsd-t-list nhsd-t-list--bullet nhsd-t-list--links">
                 <#list articles as article>
