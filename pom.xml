@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>16.3.0</version>
+        <version>16.4.1</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -135,6 +135,7 @@
         <bloomreach.text-search-replace.version>4.0.0</bloomreach.text-search-replace.version>
         <forge.resetpassword.version>7.0.0</forge.resetpassword.version>
         <bloomreach.forge.sitemapv2.version>4.0.0</bloomreach.forge.sitemapv2.version>
+        <bloomreach.forge.breadcrumb.version>6.0.0</bloomreach.forge.breadcrumb.version>
         <content-exim.version>6.0.1</content-exim.version>
 
         <commonmark.version>0.18.2</commonmark.version>
@@ -145,13 +146,13 @@
         due to insufficient support for on-disk caching in v2.x. -->
         <ehcache3.version>3.9.9</ehcache3.version>
 
-        <aspectweaver.version>1.9.23</aspectweaver.version>
+        <aspectweaver.version>1.9.24</aspectweaver.version>
         <awaitility.version>4.2.1</awaitility.version>
         <aws-java-sdk.version>1.12.218</aws-java-sdk.version>
         <aws.sdk-bom.version>2.16.1</aws.sdk-bom.version>
         <batik.version>1.14</batik.version>
         <commons-codec.version>1.18.0</commons-codec.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-io.version>2.16.1</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
@@ -162,27 +163,25 @@
         <findbugs.version>3.0.2</findbugs.version>
         <gmavenplus.version>3.0.2</gmavenplus.version>
         <googleauth.version>1.5.0</googleauth.version>
-        <groovy.version>3.0.21</groovy.version>
+        <groovy.version>3.0.25</groovy.version>
         <gson.version>2.11.0</gson.version>
         <hamcrest.version>2.2</hamcrest.version>
         <hamcrest.version>2.2</hamcrest.version>
         <handlebars.version>4.3.0</handlebars.version>
-        <hippo.forge.breadcrumb.version>3.0.0</hippo.forge.breadcrumb.version>
         <httpclient.version>4.5.14</httpclient.version>
         <httpcore.version>4.4.16</httpcore.version>
         <jackson-coreutils.version>2.0</jackson-coreutils.version>
-        <jackson-dataformat-xml.version>2.18.3</jackson-dataformat-xml.version>
+        <jackson-dataformat-xml.version>2.19.1</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
         <jedis.verison>4.3.1</jedis.verison>
-        <joda-time.version>2.12.7</joda-time.version>
+        <joda-time.version>2.14.0</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
         <jsonwebtoken-version>0.11.5</jsonwebtoken-version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
         <kotlin.version>1.8.21</kotlin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-        <log4j.version>2.23.1</log4j.version>
-        <logback.version>1.2.11</logback.version>
+        <logback.version>1.5.18</logback.version>
         <maven-chckstyle.version>3.1.1</maven-chckstyle.version>
         <maven-enforcer.version>3.4.1</maven-enforcer.version>
         <maven-failsafe.version>3.5.2</maven-failsafe.version>
@@ -202,7 +201,6 @@
         <plexus-utils.version>3.5.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
         <selenium.version>4.29.0</selenium.version>
-        <slf4j.version>1.7.36</slf4j.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <swagger-codegen.version>1.0.32</swagger-codegen.version>
         <swagger-core.version>1.6.6</swagger-core.version>
@@ -304,9 +302,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.onehippo.forge</groupId>
+                <groupId>org.bloomreach.forge.breadcrumb</groupId>
                 <artifactId>breadcrumb</artifactId>
-                <version>${hippo.forge.breadcrumb.version}</version>
+                <version>${bloomreach.forge.breadcrumb.version}</version>
             </dependency>
 
             <dependency>
@@ -472,7 +470,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-ext</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${slf4j2.version}</version>
             </dependency>
 
             <dependency>
@@ -1220,7 +1218,7 @@
             <dependencies>
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <artifactId>log4j-slf4j2-impl</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -1303,7 +1301,7 @@
             <dependencies>
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <artifactId>log4j-slf4j2-impl</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
