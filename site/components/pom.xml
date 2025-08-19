@@ -184,7 +184,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.onehippo.forge</groupId>
+            <groupId>org.bloomreach.forge.breadcrumb</groupId>
             <artifactId>breadcrumb</artifactId>
         </dependency>
 
