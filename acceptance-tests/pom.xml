@@ -535,7 +535,7 @@
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
 
                                     <!-- prefer modern CLDR locale provider -->
-                                    <java.locale.providers>CLDR,COMPAT</java.locale.providers>
+                                    <java.locale.providers>CLDR</java.locale.providers>
                                 </systemProperties>
 
                                 <dependencies>
