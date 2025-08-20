@@ -41,7 +41,7 @@ jobs:
       - name: Set up the JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
+          distribution: 'openjdk'
           java-version: ${{ steps.java_version.outputs.version }}
 
       # Step 5
