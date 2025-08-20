@@ -1139,6 +1139,8 @@
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
                                     <hippo.environment>${hippo.environment}</hippo.environment>
 
+                                    <!-- prefer modern CLDR locale provider -->
+                                    <java.locale.providers>CLDR,COMPAT</java.locale.providers>
                                 </systemProperties>
                                 <dependencies>
                                     <dependency>

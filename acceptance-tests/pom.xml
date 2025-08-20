@@ -533,6 +533,9 @@
                                     <devzone.apispec.sync.apigee.daily-cron-expression>${devzone.apispec.sync.apigee.daily-cron-expression}</devzone.apispec.sync.apigee.daily-cron-expression>
                                     <devzone.apispec.sync.proxygen.daily-cron-expression>${devzone.apispec.sync.proxygen.daily-cron-expression}</devzone.apispec.sync.proxygen.daily-cron-expression>
                                     <devzone.apispec.sync.nightly-cron-expression>${devzone.apispec.sync.nightly-cron-expression}</devzone.apispec.sync.nightly-cron-expression>
+
+                                    <!-- prefer modern CLDR locale provider -->
+                                    <java.locale.providers>CLDR,COMPAT</java.locale.providers>
                                 </systemProperties>
 
                                 <dependencies>
