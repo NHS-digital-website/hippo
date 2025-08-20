@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -12,8 +13,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.earlyaccesskey.EarlyAccessKeyProcessor;
 import uk.nhs.digital.website.beans.Publishedwork;
 import uk.nhs.digital.website.beans.Publishedworkchapter;
-
-import javax.servlet.http.HttpServletRequest;
 
 public class PublishedWorkLinkedBeansComponent extends ContentRewriterComponent {
 

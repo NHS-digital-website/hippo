@@ -33,7 +33,7 @@
 <settings>
  <servers>
    <server>
-     <id>hippo-maven2-enterprise</id>
+     <id>bloomreach-maven2-enterprise</id>
      <username>USERNAME</username>
      <password>PASSWORD</password>
    </server>

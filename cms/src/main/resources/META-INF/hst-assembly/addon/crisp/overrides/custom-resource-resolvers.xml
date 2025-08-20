@@ -6,77 +6,89 @@
 
     <import resource="classpath:META-INF/hst-assembly/addon/crisp/overrides/application-secrets.xml"/>
 
+    <!-- Apigee config -->
+
+    <!-- Google Authenticator for TOTP -->
+    <bean id="googleAuthenticator" class="com.warrenstrange.googleauth.GoogleAuthenticator"/>
+
+    <!-- Java Clock instance -->
+    <bean id="systemClock" class="java.time.Clock" factory-method="systemDefaultZone"/>
+
+    <!-- RestTemplate for token provider -->
+    <bean id="apigeeTokenProviderRestTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <!-- Token provider -->
+    <bean id="apigeeTokenProvider" class="uk.nhs.digital.apispecs.services.auth.ApigeeOAuth2TokenProvider">
+        <constructor-arg ref="googleAuthenticator"/>
+        <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_OTPKEY')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN')}"/>
+        <constructor-arg ref="systemClock"/>
+        <constructor-arg ref="apigeeTokenProviderRestTemplate"/>
+    </bean>
+
+    <!-- Interceptor that injects the Bearer token into outgoing requests -->
+    <bean id="apigeeBearerTokenInterceptor" class="uk.nhs.digital.apispecs.services.auth.ApigeeBearerTokenInterceptor">
+        <constructor-arg ref="apigeeTokenProvider"/>
+        <constructor-arg value="#{applicationSecrets.getValue('devzone.apigee.oauth.token.url')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_USERNAME')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_PASSWORD')}"/>
+    </bean>
+
+    <!-- RestTemplate with Bearer token interceptor -->
+    <bean id="apigeeOAuthRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="interceptors">
+            <list>
+                <ref bean="apigeeBearerTokenInterceptor"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- CRISP resource resolver configuration using the custom RestTemplate with Bearer token interceptor -->
     <bean id="apigeeManagementApi"
           parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
         <property name="cacheEnabled" value="false"/>
-        <property name="restTemplate">
-            <bean class="org.springframework.security.oauth2.client.OAuth2RestTemplate">
-                <constructor-arg>
-                    <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails">
-                        <property name="clientAuthenticationScheme" value="form"/>
-                        <property name="grantType" value="password"/>
-                        <property name="accessTokenUri" value="#{applicationSecrets.getValue('devzone.apigee.oauth.token.url')}"/>
-                        <property name="username" value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_USERNAME')}"/>
-                        <property name="password" value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_PASSWORD')}"/>
-                    </bean>
-                </constructor-arg>
-                <constructor-arg>
-                    <bean class="org.springframework.security.oauth2.client.DefaultOAuth2ClientContext">
-                        <constructor-arg>
-                            <bean class="org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest"/>
-                        </constructor-arg>
-                    </bean>
-                </constructor-arg>
+        <property name="restTemplate" ref="apigeeOAuthRestTemplate"/>
+    </bean>
 
-                <property name="accessTokenProvider">
-                    <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider">
-                        <property name="tokenRequestEnhancer">
-                            <bean class="uk.nhs.digital.apispecs.services.auth.ApigeeAccessTokenRequestOneTimePasswordEnhancer">
-                                <constructor-arg>
-                                    <bean class="com.warrenstrange.googleauth.GoogleAuthenticator"/>
-                                </constructor-arg>
-                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_OTPKEY')}"/>
-                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN')}"/>
-                                <constructor-arg>
-                                    <bean class="java.time.Clock" factory-method="systemDefaultZone"/>
-                                </constructor-arg>
-                            </bean>
-                        </property>
-                    </bean>
-                </property>
-            </bean>
+    <!-- end of Apigee config -->
+
+    <!-- Proxygen config -->
+
+    <!-- RestTemplate for token provider -->
+    <bean id="proxygenTokenProviderRestTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <!-- JWT token provider -->
+    <bean id="proxygenTokenProvider" class="uk.nhs.digital.apispecs.services.auth.ProxygenJwtTokenProvider">
+        <constructor-arg value="#{applicationSecrets.getValueChained('devzone.proxygen.oauth.privateKey')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_PROXYGEN_OAUTH_CLIENT_ID')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.aud.url')}"/>
+        <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.kid')}"/>
+        <constructor-arg ref="proxygenTokenProviderRestTemplate"/>
+    </bean>
+
+    <!-- Interceptor that injects the Bearer token into outgoing requests -->
+    <bean id="proxygenBearerTokenInterceptor" class="uk.nhs.digital.apispecs.services.auth.ProxygenBearerTokenInterceptor">
+        <constructor-arg ref="proxygenTokenProvider"/>
+        <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.token.url')}"/>
+    </bean>
+
+    <!-- RestTemplate that includes the Bearer token interceptor -->
+    <bean id="proxygenRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="interceptors">
+            <list>
+                <ref bean="proxygenBearerTokenInterceptor"/>
+            </list>
         </property>
     </bean>
 
-
+    <!-- CRISP configuration using the JWT-enabled RestTemplate -->
     <bean id="proxygenApi"
           parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
         <property name="cacheEnabled" value="false"/>
-        <property name="restTemplate">
-            <bean class="org.springframework.security.oauth2.client.OAuth2RestTemplate">
-                <constructor-arg>
-                    <bean class="org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails">
-                        <property name="clientAuthenticationScheme" value="form"/>
-                        <property name="grantType" value="client_credentials"/>
-                        <property name="accessTokenUri" value="#{applicationSecrets.getValue('devzone.proxygen.oauth.token.url')}"/>
-                    </bean>
-                </constructor-arg>
-
-                <property name="accessTokenProvider">
-                    <bean class="org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsAccessTokenProvider">
-                        <property name="authenticationHandler">
-                            <bean class="uk.nhs.digital.apispecs.services.auth.ProxygenJwtClientAuthenticationHandler">
-                                <constructor-arg value="#{applicationSecrets.getValueChained('devzone.proxygen.oauth.privateKey')}"/>
-                                <constructor-arg value="#{applicationSecrets.getValue('DEVZONE_PROXYGEN_OAUTH_CLIENT_ID')}"/>
-                                <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.aud.url')}"/>
-                                <constructor-arg value="#{applicationSecrets.getValue('devzone.proxygen.oauth.kid')}"/>
-                            </bean>
-                        </property>
-                    </bean>
-                </property>
-            </bean>
-        </property>
+        <property name="restTemplate" ref="proxygenRestTemplate"/>
     </bean>
+
+    <!-- end of Proxygen config -->
 </beans>

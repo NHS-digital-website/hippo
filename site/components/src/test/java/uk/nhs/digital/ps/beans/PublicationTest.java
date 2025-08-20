@@ -10,7 +10,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.beans.PublicationBase.EARLY_ACCESS_KEY_QUERY_PARAM;
 import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
@@ -18,6 +17,7 @@ import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDat
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.manager.ObjectConverter;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -52,8 +52,6 @@ import java.time.ZonedDateTime;
 import java.util.*;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.servlet.http.HttpServletRequest;
-
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "javax.management.*", "javax.script.*"})
