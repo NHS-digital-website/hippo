@@ -79,9 +79,10 @@
                 </#if>
 
                 <#if hasLink && hasLabel>
+                    <#assign exceptionLink = "digital.nhs.uk/search?" />
                     <span class="nhsd-a-button ${isDarkButton}">
                         <span class="nhsd-a-button__label">${item.label}</span>
-                        <#if item.external?has_content>
+                        <#if item.external?has_content && !item.external?contains(exceptionLink)>
                             <span class="nhsd-t-sr-only">${srOnlyLinkText}</span>
                         </#if>
                     </span>
