@@ -47,4 +47,13 @@ definitions:
           hipposys:value: /content/documents/corporate-website/publication-system/statistical/adult-psychiatric-morbidity-survey/survey-of-mental-health-and-wellbeing-england-2023-24
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
+      /part-2-survey-mental-health-2023-2024:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system/statistical/adult-psychiatric-morbidity-survey/part-2-survey-of-mental-health-and-wellbeing-england-2023-24
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain
