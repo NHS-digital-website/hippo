@@ -1,8 +1,9 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      jcr:primaryType: hst:containercomponentfolder
       /api-catalogue-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           .meta:residual-child-node-category: content
           hst:label: Banner
@@ -16,8 +17,8 @@ definitions:
           hst:lastmodified: 2025-01-22T11:25:35.177Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /cyber-security-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.vbox
@@ -25,8 +26,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /homepage-blog:
           .meta:residual-child-node-category: content
           hst:label: Blog
@@ -58,8 +59,8 @@ definitions:
           hst:lastmodified: 2018-02-05T20:39:14.327Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /news-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.vbox
@@ -68,16 +69,16 @@ definitions:
           hst:label: Main
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /newshubpage:
+        jcr:primaryType: hst:containercomponentfolder
         /newshubpage-right:
           .meta:residual-child-node-category: content
           hst:label: News page container
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-about-us-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -85,8 +86,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-coronavirus:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -94,8 +95,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-cyber-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -103,8 +104,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-data-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -112,8 +113,8 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-developer-hub:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           hst:label: Banner
           hst:xtype: hst.nomarkup
@@ -121,34 +122,45 @@ definitions:
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
+          hippo:identifier: e82810bf-b54a-4490-a78e-8a3f24cc05fa
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-1:
+          hippo:identifier: 66372d13-a5d6-42d7-a71c-47139e2449c5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-2:
+          hippo:identifier: 13685a83-18e2-4d2e-8041-a45dfdcb41fa
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-3:
+          hippo:identifier: 280fdb43-5ef2-4f7c-8f17-870fefb35ab8
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-4:
+          hippo:identifier: b026cb89-f757-471a-8a1f-3de4947f9214
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: ec348440-ddd7-4dc8-87c5-9e1555162938
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
+        /banner-selected:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:containercomponent
+          hippo:identifier: 66372d13-a5d6-42d7-a71c-47139e2449c5
+          hst:xtype: hst.vbox
       /nhsd-news:
+        jcr:primaryType: hst:containercomponentfolder
         /main:
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /service-catalogue-homepage:
+        jcr:primaryType: hst:containercomponentfolder
         /banner:
           .meta:residual-child-node-category: content
           hst:label: Banner
@@ -162,8 +174,8 @@ definitions:
           hst:lastmodified: 2025-01-22T11:25:35.177Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /servicepage:
+        jcr:primaryType: hst:containercomponentfolder
         /servicepage-bottom:
           .meta:residual-child-node-category: content
           hst:label: Service page container
@@ -176,12 +188,10 @@ definitions:
           hst:lastmodified: 2019-07-29T17:00:23.293Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
       /sign-up:
+        jcr:primaryType: hst:containercomponentfolder
         /form:
           hst:label: Form
           hst:lastmodified: 2022-06-20T11:55:08.546Z
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
-        jcr:primaryType: hst:containercomponentfolder
-      jcr:primaryType: hst:containercomponentfolder

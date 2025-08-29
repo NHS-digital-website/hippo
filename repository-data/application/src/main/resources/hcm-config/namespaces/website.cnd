@@ -57,6 +57,9 @@
 [website:award] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:bannerTargeted] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:bannercontrol] > hippo:compound, hippostd:relaxed
   orderable
 
