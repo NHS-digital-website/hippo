@@ -8,6 +8,9 @@ This project runs on **Java 11** and **Bloomreach Experience Manager 15**.
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
 
+* For first-time project setup on macOS/Linux, see [What If I want to run the project for the first time](docs/what-if/first-time-set-up.md).
+* For first-time project setup on Windows, see [What If I want to run the project for the first time on Windows](docs/what-if/first-time-set-up-windows.md).
+
 ## Repository Persistence
 
 Set `REPO_PATH = -Drepo.path=storage` in `env.mk` to preserve your local docs between `make serve` sessions.
