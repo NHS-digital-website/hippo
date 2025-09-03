@@ -63,9 +63,9 @@ public class ApiSpecificationPublicationService {
     }
 
     private void save(final ApiSpecificationImportMetadata localSpecsMetadata) {
-        log.info("Saving API Specification import metadata: start: {}", localSpecsMetadata);
+        log.debug("Saving API Specification import metadata: start: {}", localSpecsMetadata);
         apiSpecificationImportMetadataRepository.save(localSpecsMetadata);
-        log.info("Saving API Specification import metadata: done.");
+        log.debug("Saving API Specification import metadata: done.");
     }
 
     private ApiSpecificationImportMetadata apiSpecificationImportMetadata() {
@@ -197,7 +197,7 @@ public class ApiSpecificationPublicationService {
 
         log.debug("Retrieving API Specification statuses from remote repository: start.");
         final List<OpenApiSpecification> openApiSpecifications = remoteSpecRepository.apiSpecificationStatuses();
-        log.info("Retrieving API Specification statuses from remote repository: found {} entries", openApiSpecifications.size());
+        log.debug("Retrieving API Specification statuses from remote repository: found {} entries", openApiSpecifications.size());
 
         return openApiSpecifications;
     }
