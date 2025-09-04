@@ -25,7 +25,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
 
-        log.debug("API Specifications sync from Apigee: start.");
+        log.info("API Specifications sync from Apigee: start.");
 
         Session session = null;
 
@@ -52,7 +52,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
             apiSpecificationPublicationService.syncEligibleSpecifications();
 
-            log.debug("API Specifications sync from Apigee: done.");
+            log.info("API Specifications sync from Apigee: done.");
 
         } catch (final Exception ex) {
             log.error("Failed to sync specifications from Apigee.", ex);

@@ -26,7 +26,7 @@ public class ApiSpecSyncFromProxygenJob implements RepositoryJob {
     @Override
     public void execute(final RepositoryJobExecutionContext context) {
 
-        log.debug("API Specifications sync from Proxygen: start.");
+        log.info("API Specifications sync from Proxygen: start.");
 
         Session session = null;
 
@@ -53,7 +53,7 @@ public class ApiSpecSyncFromProxygenJob implements RepositoryJob {
 
             apiSpecificationPublicationService.syncEligibleSpecifications();
 
-            log.debug("API Specifications sync from proxygen: done.");
+            log.info("API Specifications sync from proxygen: done.");
 
         } catch (final Exception ex) {
             log.error("Failed to sync specifications from proxygen.", ex);
