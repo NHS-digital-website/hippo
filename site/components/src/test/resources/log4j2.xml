@@ -47,6 +47,10 @@
       <!-- Search Logging -->
       <Logger name="uk.nhs.digital.common.components.SearchComponent" level="info"/>
 
+      <!-- ApiSpecSyncFromProxygenJob Logging -->
+      <Logger name="uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromProxygenJob" level="info"/>
+      <Logger name="uk.nhs.digital.apispecs.ApiSpecificationPublicationService" level="info"/>
+
     <Root level="warn">
       <AppenderRef ref="console"/>
     </Root>
