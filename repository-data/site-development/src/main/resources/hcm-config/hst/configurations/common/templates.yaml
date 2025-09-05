@@ -50,3 +50,6 @@ definitions:
       /targeted-banner:
         hst:renderpath: webfile:/freemarker/common/targeted-banner.ftl
         jcr:primaryType: hst:template
+      /targetedBanner:
+        hst:renderpath: webfile:/freemarker/common/targetedBanner.ftl
+        jcr:primaryType: hst:template

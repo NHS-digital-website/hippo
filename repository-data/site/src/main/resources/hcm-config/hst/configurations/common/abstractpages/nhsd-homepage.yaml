@@ -1,15 +1,11 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/nhsd-homepage:
-      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
-      hst:template: nhsd-homepage-layout
-      jcr:primaryType: hst:component
       /breadcrumb:
         hst:referencecomponent: hst:components/nhsd-breadcrumb
         jcr:primaryType: hst:component
       /footer:
-        hst:template: global-footer
-        jcr:primaryType: hst:component
         /footer-col-1:
           hst:referencecomponent: nhsd-homepage/footer-col-1
           jcr:primaryType: hst:containercomponentreference
@@ -22,19 +18,30 @@ definitions:
         /footer-col-4:
           hst:referencecomponent: nhsd-homepage/footer-col-4
           jcr:primaryType: hst:containercomponentreference
+        hst:template: global-footer
+        jcr:primaryType: hst:component
       /ie-banner:
         hst:componentclassname: uk.nhs.digital.common.components.IeBanner
         hst:template: nhsd-ie-banner
         jcr:primaryType: hst:component
       /main-nav:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
-        hst:parameternames: [selectedMenu, level, menu]
-        hst:parametervalues: ['on', '1', nhsd-main-nav]
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - nhsd-main-nav
         hst:template: nhsd-main-nav
         jcr:primaryType: hst:component
       /targeted-banner:
+        /banner-selected:
+          hst:referencecomponent: nhsd-homepage/banner-selected
+          jcr:primaryType: hst:containercomponentreference
         hst:template: targeted-banner
         jcr:primaryType: hst:component
-        /banner-selected:
-          jcr:primaryType: hst:containercomponentreference
-          hst:referencecomponent: nhsd-homepage/banner-selected
+      hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
+      hst:template: nhsd-homepage-layout
+      jcr:primaryType: hst:component
