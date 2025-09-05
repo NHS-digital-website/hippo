@@ -36,5 +36,11 @@ definitions:
         - nhsd-main-nav
         hst:template: nhsd-main-nav
         jcr:primaryType: hst:component
+      /targeted-banner:
+        /banner-selected:
+          hst:referencecomponent: nhsd-homepage/banner-selected
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: targeted-banner
+        jcr:primaryType: hst:component
       hst:template: nhsd-app-layout
       jcr:primaryType: hst:component
