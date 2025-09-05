@@ -101,6 +101,7 @@ Feature: Basic search
             | 2018 - Upcoming |
             | 2026 - Upcoming |
 
+
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
         Then I can see the search description matching "\d+ results sorted by relevance\."
