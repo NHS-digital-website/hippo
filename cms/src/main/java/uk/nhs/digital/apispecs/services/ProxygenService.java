@@ -38,6 +38,11 @@ public class ProxygenService extends RemoteSpecService {
                 .map(resource, ProxygenOpenApiSpecifications.class)
                 .getContents()
                 .stream()
+                .peek(proxygenOpenApiSpecification ->
+                    log.info("Proxygen Remote SpecId: {}, LastModified: {}",
+                        proxygenOpenApiSpecification.getSpecId(),
+                        proxygenOpenApiSpecification.getLastModified())
+                )
                 .map(proxygenOpenApiSpecification -> new OpenApiSpecification(proxygenOpenApiSpecification.getSpecId(), proxygenOpenApiSpecification.getLastModified()))
                 .peek(openApiSpecification -> openApiSpecification.setService(this))
                 .collect(toList())

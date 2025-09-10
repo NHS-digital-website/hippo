@@ -38,6 +38,11 @@ public class ApigeeService extends RemoteSpecService {
                 .map(resource, OpenApiSpecifications.class)
                 .getContents()
                 .stream()
+                .peek(openApiSpecification ->
+                    log.info("Apigee Remote SpecId: {}, LastModified: {}",
+                        openApiSpecification.getId(),
+                        openApiSpecification.getModified())
+                )
                 .peek(openApiSpecification -> openApiSpecification.setService(this))
                 .collect(toList())
         );
