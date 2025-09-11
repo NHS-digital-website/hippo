@@ -25,6 +25,19 @@ public class FilteredEssentialsFacetsComponent extends EssentialsFacetsComponent
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        EssentialsFacetsComponentInfo paramInfo = getComponentParametersInfo(request);
+        String facetPath = paramInfo.getFacetPath();
+
+        if (facetPath != null) {
+            HippoFacetNavigationBean facetNavBean =
+                request.getRequestContext()
+                    .getSiteContentBaseBean()
+                    .getBean(facetPath, HippoFacetNavigationBean.class);
+
+            if (facetNavBean != null) {
+                request.setAttribute("alphabetFacets", facetNavBean);
+            }
+        }
     }
 
     @Override
