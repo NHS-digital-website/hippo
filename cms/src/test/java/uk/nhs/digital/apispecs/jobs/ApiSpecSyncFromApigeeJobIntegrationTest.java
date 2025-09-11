@@ -186,7 +186,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
             .withProperty(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN, OAUTH_BASIC_AUTH_TOKEN)
             .withProperty(PARAM_APIGEE_OAUTH_OTPKEY, OAUTH_OTP_KEY);
 
-        // See https://documentation.bloomreach.com/14/library/concepts/crisp-api/unit-testing.html
+        // See https://xmdocumentation.bloomreach.com/library/concepts/crisp-api/unit-testing.html
 
         final ClassPathXmlApplicationContext crispApiSpringApplicationContext = new ClassPathXmlApplicationContext();
         crispApiSpringApplicationContext.setEnvironment(crispApiSpringApplicationContextEnvironment);

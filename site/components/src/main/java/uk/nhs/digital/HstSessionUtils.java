@@ -16,9 +16,9 @@ import javax.jcr.Session;
  * <p>
  * References:
  * <ul>
- * <li><a href="https://documentation.bloomreach.com/14/library/concepts/web-application/retrieving-a-pooled-session.html">Delivery tier: Retrieving a pooled session</a>
+ * <li><a href="https://xmdocumentation.bloomreach.com/library/concepts/web-application/retrieving-a-pooled-session.html">Delivery tier: Retrieving a pooled session</a>
  * </li>
- * <li><a href="https://documentation.bloomreach.com/14/library/concepts/security/hst-users.html">Delivery tier: Delivery Tier Users</a></li>
+ * <li><a href="https://xmdocumentation.bloomreach.com/library/concepts/security/hst-users.html">Delivery tier: Delivery Tier Users</a></li>
  * </ul>
  */
 public class HstSessionUtils {
