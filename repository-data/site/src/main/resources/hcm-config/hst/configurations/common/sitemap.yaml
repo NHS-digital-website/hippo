@@ -438,6 +438,7 @@ definitions:
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/api-catalogue
+          hst:refId: api-catalogue
           hst:relativecontentpath: faceted-api-specifications
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-developer-hub
@@ -604,6 +605,7 @@ definitions:
             hst:relativecontentpath: ${parent}/content
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/service-catalogue
+          hst:refId: service-catalogue
           hst:relativecontentpath: faceted-service-catalogue
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/nhsd-services-hub
