@@ -55,6 +55,8 @@ public class ApplicationSecrets {
     }
 
     public String getValue(String key) {
+        log.info("java home: " + getProperty("java.home"));
+        log.info("java version: " + getProperty("java.version"));
         String value = this.getValueImpl(key, () ->
             log.warn("The key/value (or address of a remote value) for '"
                 + key
