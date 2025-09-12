@@ -2,6 +2,8 @@ package uk.nhs.digital.intranet.rest;
 
 import static org.mockito.Mockito.*;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +15,6 @@ import uk.nhs.digital.intranet.model.exception.AuthorizationException;
 import uk.nhs.digital.intranet.provider.AuthorizationProvider;
 import uk.nhs.digital.intranet.provider.CookieProvider;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AuthenticationResourceTest extends MockitoSessionTestBase {

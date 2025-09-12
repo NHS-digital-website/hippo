@@ -100,7 +100,7 @@
         <Logger name="freemarker" level="error"/>
         <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" level="error"/>
         <Logger name="org.apache.cxf" level="error"/>
-        <Logger name="javax.ws.rs.core" level="error"/>
+        <Logger name="jakarta.ws.rs.core" level="error"/>
         <Logger name="org.apache.commons.pool" level="error"/>
         <Logger name="org.apache.commons.beanutils" level="error"/>
 
