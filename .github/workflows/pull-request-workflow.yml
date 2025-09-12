@@ -15,6 +15,7 @@ jobs:
     env:
       HIPPO_MAVEN_PASSWORD: ${{ secrets.HIPPO_MAVEN_PASSWORD }}
       HIPPO_MAVEN_USERNAME: ${{ secrets.HIPPO_MAVEN_USERNAME }}
+      JAVA_TOOL_OPTIONS: "-Djava.locale.providers=CLDR,COMPAT"
 
     steps:
 
