@@ -29,7 +29,7 @@
                 </#if>
                     <div class="nhsd-m-card nhsd-m-card--full-height nhsd-!t-margin-top-1">
                     <@hst.link hippobean=latest var="link"/>
-                        <a href="${link}" class="nhsd-a-box-link" aria-label="${latest.title}" title="${latest.title}">
+                        <a href="${link}" class="nhsd-a-box-link" title="${latest.title}">
                             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                                 <#assign image = '' />
                                 <#assign alttext = '' />
