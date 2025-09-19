@@ -30,7 +30,7 @@
                                             <span class="nhsd-a-icon nhsd-a-icon--size-l nhsd-a-icon--col-dark-grey">
                                                 <#if socialMediaLink.icon == "other" >
                                                     <@hst.link hippobean=socialMediaLink.linkIcon var="iconLink" />
-                                                    <img src="${iconLink}">
+                                                    <img src="${iconLink}" alt="">
                                                 <#else>
                                                     <#assign svg = getRemoteSvg(socialMediaLink.icon) />
                                                     ${svg.data?no_esc}
