@@ -53,6 +53,8 @@
     <Loggers>
 
         <!-- CMS logging -->
+        <Logger name="org.apache.wicket" level="warn" />
+        <Logger name="org.onehippo.forge.resetpassword" level="debug" />
         <Logger name="org.apache" level="error"/>
         <Logger name="org.hippoecm" level="error"/>
         <Logger name="com.onehippo" level="error"/>
