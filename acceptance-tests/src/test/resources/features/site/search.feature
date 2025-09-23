@@ -86,6 +86,7 @@ Feature: Basic search
         When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
 
+
     Scenario: Upcoming publications are ordered correctly in increasing date order
         Given I navigate to the "search" page
         When I click on the "Upcoming" link
