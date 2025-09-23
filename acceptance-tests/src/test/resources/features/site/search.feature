@@ -100,6 +100,14 @@ Feature: Basic search
             | 2020 - Upcoming |
             | 2019 - Upcoming |
             | 2018 - Upcoming |
+            | 2025 - Upcoming |
+            | 2024 - Upcoming |
+            | 2023 - Upcoming |
+            | 2022 - Upcoming |
+            | 2021 - Upcoming |
+            | 2020 - Upcoming |
+            | 2019 - Upcoming |
+            | 2018 - Upcoming |
             | 2026 - Upcoming |
 
 
