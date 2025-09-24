@@ -26,7 +26,6 @@ public class TargetedBannerComponent extends EssentialsDocumentComponent {
             if (targetedBanner.getTargetPaths().stream().anyMatch(path -> {
                 String normalizedPath = path.replaceAll("^/|/$", "").replaceAll("(/?\\*)$","(/.*)?");
                 String regex = "^" + normalizedPath.replace(".", "\\.") + "$";
-                System.out.println("Matching currentPath '" + currentPath + "' against regex '" + regex + "' and matches?'" + currentPath.matches(regex) + "'" );
                 
                 return currentPath.matches(regex);
             })) {
