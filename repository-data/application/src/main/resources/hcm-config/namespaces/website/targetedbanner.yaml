@@ -1,20 +1,27 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/targetedbanner:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /targetPaths:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Target paths
             field: string
             hint: "Enter the paths where you want to show the banner. '/*' indicates\
@@ -23,15 +30,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /contentBanner:
-            caption: Content banner
-            field: html
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               ckeditor.config.appended.json: '{   "removePlugins": "codemirror",   "extraPlugins":
                 "sourcearea",   "toolbar": [     ["Source", "-", "Format", "-", "Bold",
@@ -41,17 +40,15 @@ definitions:
                 }, { name: ''list'' }, { name: ''insert'' },{name: ''source''} ] ,
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
+            caption: Content banner
+            field: html
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 87a3c4ba-2248-4547-b627-9b0cf0eac446
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 7082969e-d095-453d-bcf8-08d27a89321d
           /html:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -59,7 +56,8 @@ definitions:
             hipposysedit:path: website:contentBanner
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /string:
             hipposysedit:mandatory: false
@@ -69,9 +67,24 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /website:contentBanner:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -81,10 +94,13 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes:
+          - mix:referenceable
           jcr:primaryType: website:targetedbanner
-          website:targetPaths: ['']
-          jcr:uuid: da543024-9553-439e-8fee-8d79ad10443c
-          /website:contentBanner:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
+          website:targetPaths:
+          - ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
