@@ -1069,6 +1069,8 @@
                                         -Dfile.encoding=UTF-8
                                         <!-- for freemarker & taxonomy related errors -->
                                         --add-opens=java.base/java.util=ALL-UNNAMED
+                                        <!-- disabling folder performance improvement -->
+                                        -Drepository.folderworkflow.set.hasfolders.property=false
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
