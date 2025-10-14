@@ -26,7 +26,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.common.components.catalogue.filters.Filters;
 import uk.nhs.digital.common.components.catalogue.filters.Section;
 import uk.nhs.digital.common.components.catalogue.filters.Subsection;
-import uk.nhs.digital.common.components.info.CatalogueEssentialsFacetsComponentInfo;
+import uk.nhs.digital.common.components.info.CatalogueSearchComponentInfo;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -78,14 +78,21 @@ public class CatalogueSearchComponentTest {
         // Arrange
         String mockQueryValue = "testQuery";
 
-        when(SiteUtils.getAnyParameter(eq("query"), eq(request), eq(catalogueSearchComponent)))
-            .thenReturn(mockQueryValue);
+        when(SiteUtils.getAnyParameter(eq("query"), eq(request), any())).thenReturn(mockQueryValue);
+
+        CatalogueSearchComponentInfo mockInfo = mock(CatalogueSearchComponentInfo.class);
+        when(mockInfo.getCatalogueSitemapRefId()).thenReturn("someRefId");
+
+        CatalogueSearchComponentTest1 testComponent = new CatalogueSearchComponentTest1();
+        testComponent.setMockInfo(mockInfo);
 
         // Act
-        catalogueSearchComponent.doBeforeRender(request, response);
+        testComponent.doBeforeRender(request, response);
 
         // Assert
         verify(request).setAttribute("query", mockQueryValue);
+
+        verify(request).setAttribute("catalogueSitemapRefId", "someRefId");
 
         // Clean up static mocking
         Mockito.clearAllCaches();
