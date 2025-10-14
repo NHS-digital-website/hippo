@@ -228,25 +228,22 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
 
-    public List<Dataset> getDatasets() throws HstComponentException {
+    public List<Dataset> getDatasets() {
         assertPropertyPermitted(PropertyKeys.DATASETS);
 
-        HstQueryResult hstQueryResult;
         try {
-            hstQueryResult = HstQueryBuilder.create(getParentBean())
+            HstQueryResult hstQueryResult = HstQueryBuilder.create(getParentBean())
                 .ofTypes(Dataset.class)
                 .build()
                 .execute();
+
+            ArrayList<Dataset> hippoBeans = Lists.newArrayList((Iterator) hstQueryResult.getHippoBeans());
+            hippoBeans.sort(DocumentTitleComparator.COMPARATOR);
+            return hippoBeans;
         } catch (QueryException queryException) {
-            log.error("Failed to find datasets for publication " + getCanonicalPath(), queryException);
-            throw new HstComponentException(
-                "Failed to find datasets for publication " + getCanonicalPath(), queryException);
+            log.warn("Failed to find datasets for publication {}", getCanonicalPath(), queryException);
+            return Collections.emptyList();
         }
-
-        ArrayList<Dataset> hippoBeans = Lists.newArrayList((Iterator) hstQueryResult.getHippoBeans());
-        hippoBeans.sort(DocumentTitleComparator.COMPARATOR);
-
-        return hippoBeans;
     }
 
     /**
