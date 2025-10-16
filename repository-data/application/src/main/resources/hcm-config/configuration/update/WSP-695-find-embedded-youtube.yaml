@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-695-find-embedded-youtube:
+      hipposys:batchsize: 10
+      hipposys:description: Looks for embedded youtube videos and logs the path of
+        the document.
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//element(*, hippo:handle)
+      hipposys:script:
+        resource: /configuration/update/WSP-695-find-embedded-youtube.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
