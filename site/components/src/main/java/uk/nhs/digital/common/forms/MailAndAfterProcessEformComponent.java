@@ -4,6 +4,7 @@ import com.onehippo.cms7.eforms.hst.behaviors.*;
 import com.onehippo.cms7.eforms.hst.components.*;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -11,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import javax.servlet.http.HttpServletResponse;
 
 public class MailAndAfterProcessEformComponent extends EformComponent {
 
