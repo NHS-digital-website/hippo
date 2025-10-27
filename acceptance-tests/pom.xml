@@ -106,7 +106,7 @@
         shared/lib and common/lib, respectively.
 
         The dependencies enumerated here are then referenced in 'container > dependencies' configuration of the
-        cargo-maven2-plugin below, to ensure that they are available to all deployed applications.
+        cargo-maven3-plugin below, to ensure that they are available to all deployed applications.
         -->
 
         <!-- Dependencies shared by all the applications, but not exposed to the server (shared-lib-component.xml,
@@ -143,7 +143,7 @@
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -164,10 +164,21 @@
             <artifactId>geronimo-jta_1.1_spec</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>jakarta.mail</artifactId>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>jakarta.mail</groupId>
+            <artifactId>jakarta.mail-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-activation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.angus</groupId>
+            <artifactId>angus-mail</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -340,7 +351,7 @@
             <dependencies>
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <artifactId>log4j-slf4j2-impl</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -398,7 +409,7 @@
                     applications into it prior to running the tests. -->
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
-                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>acceptance-test-app-start</id>
@@ -462,6 +473,8 @@
                                         -Xmx1024m
                                         -Duser.timezone=Europe/London
                                         -Dfile.encoding=UTF-8
+                                        <!-- disabling folder performance improvement -->
+                                        -Drepository.folderworkflow.set.hasfolders.property=false
                                     </cargo.jvmargs>
                                     <cargo.start.jvmargs>
                                         -Xdebug
@@ -566,8 +579,23 @@
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>com.sun.mail</groupId>
-                                        <artifactId>jakarta.mail</artifactId>
+                                        <groupId>jakarta.activation</groupId>
+                                        <artifactId>jakarta.activation-api</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>jakarta.mail</groupId>
+                                        <artifactId>jakarta.mail-api</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.eclipse.angus</groupId>
+                                        <artifactId>angus-activation</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.eclipse.angus</groupId>
+                                        <artifactId>angus-mail</artifactId>
                                         <classpath>extra</classpath>
                                     </dependency>
                                     <dependency>
@@ -592,7 +620,7 @@
                                     </dependency>
                                     <dependency>
                                         <groupId>org.apache.logging.log4j</groupId>
-                                        <artifactId>log4j-slf4j-impl</artifactId>
+                                        <artifactId>log4j-slf4j2-impl</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>

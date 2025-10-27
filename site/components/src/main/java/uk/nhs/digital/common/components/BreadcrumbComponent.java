@@ -1,13 +1,12 @@
 package uk.nhs.digital.common.components;
 
+import jakarta.servlet.ServletContext;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
 import org.onehippo.forge.breadcrumb.components.BreadcrumbProvider;
-
-import javax.servlet.ServletContext;
 
 public class BreadcrumbComponent extends BaseHstComponent {
 

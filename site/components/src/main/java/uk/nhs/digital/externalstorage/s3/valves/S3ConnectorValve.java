@@ -1,5 +1,6 @@
 package uk.nhs.digital.externalstorage.s3.valves;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerException;
@@ -9,7 +10,6 @@ import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import javax.servlet.http.HttpServletResponse;
 
 public class S3ConnectorValve extends AbstractOrderableValve {
 

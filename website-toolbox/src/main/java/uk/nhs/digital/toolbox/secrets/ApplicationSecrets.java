@@ -3,6 +3,7 @@ package uk.nhs.digital.toolbox.secrets;
 import static java.lang.System.getProperty;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import com.google.common.base.Strings;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 
@@ -64,6 +65,9 @@ public class ApplicationSecrets {
 
     public String getFromFile(final String filename) {
         String baseDir = getProperty("catalina.base");
+        if (Strings.isNullOrEmpty(baseDir)) {
+            return null;
+        }
         try {
             String data = new String(Files.readAllBytes(Paths.get(baseDir, "conf", filename)));
             return data;

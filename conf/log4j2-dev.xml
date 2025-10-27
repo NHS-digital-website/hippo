@@ -104,7 +104,7 @@
         </Logger>
 
         <Logger name="org.apache.cxf" level="warn"/>
-        <Logger name="javax.ws.rs.core" level="warn"/>
+        <Logger name="jakarta.ws.rs.core" level="warn"/>
         <Logger name="org.apache.commons.pool" level="warn"/>
         <Logger name="org.apache.commons.beanutils" level="warn"/>
 

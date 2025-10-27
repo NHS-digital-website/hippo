@@ -1,9 +1,10 @@
 package uk.nhs.digital.externalstorage.s3;
 
+import jakarta.xml.bind.DatatypeConverter;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.function.Supplier;
-import javax.xml.bind.DatatypeConverter;
 
 public class S3ObjectKeyGenerator {
 

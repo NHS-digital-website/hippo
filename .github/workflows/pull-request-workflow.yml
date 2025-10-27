@@ -41,8 +41,13 @@ jobs:
       - name: Set up the JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
+          distribution: 'temurin'
           java-version: ${{ steps.java_version.outputs.version }}
+      - name: Verify active JVM
+        run: |
+          which java
+          java -version
+          echo "JAVA_HOME is $JAVA_HOME"
 
       # Step 5
       - name: Setup Cache
