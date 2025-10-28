@@ -8,8 +8,6 @@
 </head>
 <body>
 <h1>Server error</h1>
-<% out.println("<!-- An unexcepted error occurred. The name of the exception is:"); %>
-<%= exception %>
-<% out.println("-->"); %>
+<p>An unexpected error occurred.</p>
 </body>
 </html>
