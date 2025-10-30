@@ -47,3 +47,9 @@ definitions:
       /static-ui-supplementary-info-hub:
         hst:renderpath: webfile:/freemarker/common/static-ui/supplementary-info-hub-page.ftl
         jcr:primaryType: hst:template
+      /targeted-banner:
+        hst:renderpath: webfile:/freemarker/common/targeted-banner.ftl
+        jcr:primaryType: hst:template
+      /targetedBanner:
+        hst:renderpath: webfile:/freemarker/common/targetedBanner.ftl
+        jcr:primaryType: hst:template
