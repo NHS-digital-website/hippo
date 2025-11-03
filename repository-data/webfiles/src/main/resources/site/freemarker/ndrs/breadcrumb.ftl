@@ -18,7 +18,7 @@
                         <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="<@hst.link siteMapItemRefId='root'/>">NDRS</a>
                         <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />
                     </li>
-                    <#if breadcrumb.clinicalIndicator>
+                    <#if breadcrumb.clinicalIndicator?? && breadcrumb.clinicalIndicator>
                         <li class="nhsd-m-breadcrumbs__item">
                             <a class="nhsd-a-link nhsd-a-link--col-dark-grey" href="${cilink}">Data and information</a>
                             <@buildInlineSvg "chevron-right" "xxs", "nhsd-a-icon--col-dark-grey" />

@@ -11,7 +11,7 @@ definitions:
           - facets
           hst:template: facets
           jcr:primaryType: hst:component
-        hst:componentclassname: uk.nhs.digital.common.components.SearchComponent2
+        hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
         hst:parameternames:
         - pageSize
         - showPagination

@@ -1,0 +1,94 @@
+---
+/content/documents/administration/resources/ndrs.website.labels:
+  /ndrs.website.labels[1]:
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-12-17T13:43:24.773Z
+    hippostdpubwf:lastModificationDate: 2025-12-19T14:43:17.396Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ndrs.website.labels
+    resourcebundle:keys:
+    - labels.general
+    - search-banner.placeholder
+    - search-banner.buttonLabel
+    - search-banner.title
+    resourcebundle:messages:
+    - General Page
+    - NDRS Search
+    - Search
+    - NDRS Search
+  /ndrs.website.labels[2]:
+    hippo:availability:
+    - preview
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-12-17T13:43:24.773Z
+    hippostdpubwf:lastModificationDate: 2025-12-19T14:45:38.870Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ndrs.website.labels
+    resourcebundle:keys:
+    - labels.general
+    - search-banner.placeholder
+    - search-banner.buttonLabel
+    - search-banner.title
+    resourcebundle:messages:
+    - General Page
+    - NDRS Search
+    - Search
+    - NDRS Search
+  /ndrs.website.labels[3]:
+    hippo:availability:
+    - live
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-12-17T13:43:24.773Z
+    hippostdpubwf:lastModificationDate: 2025-12-19T14:45:38.870Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-12-19T14:45:40.386Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: ndrs.website.labels
+    resourcebundle:keys:
+    - labels.general
+    - search-banner.placeholder
+    - search-banner.buttonLabel
+    - search-banner.title
+    resourcebundle:messages:
+    - General Page
+    - NDRS Search
+    - Search
+    - NDRS Search
+  hippo:name: NDRS Website Labels
+  hippo:versionHistory: 55466766-0f64-4eca-84f6-5232c3695631
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

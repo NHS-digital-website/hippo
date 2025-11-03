@@ -31,10 +31,9 @@
     <#if facets??>
         <div class="filter">
             <div class="filter-head">
-                <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
+                <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true />
                 <span class="filter-head__title">Filter by:</span>
-                <a class="filter-head__reset button button--tiny"
-                   href="${searchLink}" title="Reset">Reset</a>
+                <a class="filter-head__reset button button--tiny" href="${searchLink}" title="Reset">Reset</a>
             </div>
             <#list facets.folders as facet>
                 <#if facet.folders?has_content>
