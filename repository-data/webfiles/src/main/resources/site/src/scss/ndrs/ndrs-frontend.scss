@@ -1077,6 +1077,10 @@ strong {
 .nhsd-t-grid a {
   color: #218183;
 }
+.nhsd-t-grid a.filter-head__reset,
+.nhsd-t-grid a.filter-head__reset:visited {
+  color: #ffffff;
+}
 .nhsd-t-grid a:hover {
   box-shadow: 0 0 0 3px #87d8dd;
   outline: 0;
@@ -3119,6 +3123,32 @@ table {
   background-color: transparent !important;
   background: transparent !important;
 }
+section.search-banner {
+    background: #218183 !important;
+}
+section.search-banner .search-banner__button {
+  background-color: #ffffff !important;
+  border: 2px solid transparent;
+  border-radius: 999px !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: #1d6162 !important;
+  font-size: 18px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+section.search-banner .search-banner__button:hover {
+  background-color: #e6f6f7 !important;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.18);
+  color: #0f4648 !important;
+}
+section.search-banner .search-banner__button:focus {
+  outline: 3px solid #87d8dd;
+  outline-offset: 3px;
+}
+section.search-banner .search-banner__button:active {
+  background-color: #d0ebeb !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 .search-banner__input {
   background-color: #ffffff !important;
   border: 1px solid #d8dde0 !important;
@@ -3556,4 +3586,9 @@ a.CybotCookiebotDialogDetailBodyContentIABv2Tab:hover {
 a.CybotCookiebotDialogDetailBodyContentTabsItemSelected:focus,
 a.CybotCookiebotDialogDetailBodyContentTabsItemSelected:hover {
   box-shadow: 0 0 0 0 #87d8dd !important;
+}
+
+.search-results-heading select:focus {
+    border: 1px solid #87d8dd;
+    outline: 3px solid #87d8dd;
 }
