@@ -7,8 +7,8 @@ on:
       - slack-deploy-hotfix-command-odv2
   # A Normal Deployment
   schedule:
-    # Runs at 12:05pm BST weekdays
-    - cron: "5 11 * * 1-5"
+    # Runs at 12:05pm GMT weekdays
+    - cron: "5 12 * * 1-5"
 
 env:
   PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
