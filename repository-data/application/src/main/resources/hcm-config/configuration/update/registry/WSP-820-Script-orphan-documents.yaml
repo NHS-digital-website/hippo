@@ -1,0 +1,45 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-820 Script orphan documents:
+      hipposys:batchsize: 10
+      hipposys:description: Detect orphan documents
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//element(*, hippo:document)[@hippostd:state='published']
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport javax.jcr.query.Query\r\nimport javax.jcr.Node\r\nimport javax.jcr.Session\r\
+        \nimport javax.jcr.RepositoryException\r\nimport org.hippoecm.repository.api.HippoSession\r\
+        \nimport org.hippoecm.repository.api.HippoNodeType\r\n\r\nclass FindOrphanedDocumentsUpdater\
+        \ extends BaseNodeUpdateVisitor {\r\n\r\n    private String contentRoot =\
+        \ \"/content/documents/corporate-website\"\r\n    private String siteBaseURL\
+        \ = \"https://www.example.com\"  // <-- Change to your site\r\n\r\n    boolean\
+        \ doUpdate(Node publishedVariant) {\r\n        if (!publishedVariant.isNodeType(\"\
+        hippo:document\")) {\r\n          log.warn(\"No document type\")\r\n     \
+        \   return false\r\n      }\r\n\r\n      String targetUUID = publishedVariant.getParent().getIdentifier()\r\
+        \n      Node handle = publishedVariant.getParent() // parent is the hippo:handle\r\
+        \n      String path = handle.getPath()\r\n      \r\n        \r\n      // Get\
+        \ session\r\n      HippoSession hippoSession = publishedVariant.session\r\n\
+        \      def queryMgr = hippoSession.workspace.queryManager\r\n      String\
+        \ contentRoot = \"/content/documents/corporate-website\"\r\n        \r\n \
+        \     log.warn(\"Node UUID ${targetUUID}\")\r\n  \r\n      // Check incoming\
+        \ references\r\n      String mirrorXPath = \"/jcr:root${contentRoot}//element(*,\
+        \ hippo:mirror)[@hippo:docbase='${targetUUID}']\"\r\n      String facetXPath\
+        \  = \"/jcr:root${contentRoot}//element(*, hippo:facetselect)[@hippo:docbase='${targetUUID}']\"\
+        \r\n  \r\n      def hasMirror = queryMgr.createQuery(mirrorXPath, Query.XPATH).execute()\r\
+        \n      def hasFacet  = queryMgr.createQuery(facetXPath, Query.XPATH).execute()\r\
+        \n      \r\n        //log.warn(\" Node UUID ${targetUUID} Has mirror ${hasMirror.nodes.hasNext()}\
+        \ and facet ${hasFacet.nodes.hasNext()}\")\r\n  \r\n      if (!hasMirror.nodes.hasNext()\
+        \ && !hasFacet.nodes.hasNext()) {\r\n          // No references found → orphaned\r\
+        \n              log.info(\"🕵️ Orphaned published document: ${publishedVariant.path}\"\
+        )\r\n  \r\n              // Optional: mark the node\r\n              if (!publishedVariant.hasProperty(\"\
+        website:orphaned\")) {\r\n                  publishedVariant.setProperty(\"\
+        website:orphaned\", true)\r\n                  log.info(\"→ Flagged ${publishedVariant.path}\
+        \ as orphaned\")\r\n                  return true\r\n              }\r\n \
+        \     }\r\n  \r\n      return false\r\n    }\r\n\r\n    boolean undoUpdate(Node\
+        \ node) {\r\n        if (node.hasProperty(\"website:orphaned\")) {\r\n   \
+        \         node.getProperty(\"website:orphaned\").remove()\r\n            return\
+        \ true\r\n        }\r\n        return false\r\n    }\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
