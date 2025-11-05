@@ -2,3 +2,12 @@
 update ocassionally */
 
 @import "vendor/eforms/index";
+
+
+.eforms-errors__list a{
+    color:#da291c;
+}
+
+#feedbackPanel:focus{
+    outline: none !important; 
+}
