@@ -6,19 +6,20 @@
 </div>
 <div class=" nhsd-!t-padding-0 nhsd-!t-margin-bottom-2">
     <div class="nhsd-t-form-control">
-        <@hst.renderURL fullyQualified=true var="searchUrlLink" />
+        <@hst.renderURL fullyQualified=false var="searchUrlLink" />
+        <#assign refId = catalogueSitemapRefId!'catalogue' />
+        <@hst.link var="searchAction" siteMapItemRefId=refId
+        navigationStateful=false />
         <form
-            action="${searchUrlLink}"
-            method="get">
-            <input
-                class="nhsd-t-form-input"
-                type="text"
-                id="catalogue-search-bar-input"
-                name="query"
-                autocomplete="off"
-                placeholder="What are you looking for today?"
-                aria-label="Keywords"
-                value="${(query)!}"
+            action="${searchAction}" method="get" role="search">
+            <input class="nhsd-t-form-input"
+                   type="text"
+                   id="catalogue-search-bar-input"
+                   name="query"
+                   autocomplete="off"
+                   placeholder="What are you looking for today?"
+                   aria-label="Keywords"
+                   value="${(query)!}"
             />
             <span class="nhsd-t-form-control__button">
                 <button class="nhsd-a-button nhsd-a-button--circle"

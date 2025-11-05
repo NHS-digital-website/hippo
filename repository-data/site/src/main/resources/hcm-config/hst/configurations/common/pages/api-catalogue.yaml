@@ -5,6 +5,10 @@ definitions:
       /main:
         /alphabet:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.FilteredEssentialsFacetsComponent
+          hst:parameternames:
+          - facetPath
+          hst:parametervalues:
+          - faceted-api-specifications
           hst:template: catalogue-alphabet
           jcr:primaryType: hst:component
         /banner:
@@ -39,6 +43,10 @@ definitions:
           jcr:primaryType: hst:component
         /search:
           hst:componentclassname: uk.nhs.digital.common.components.catalogue.CatalogueSearchComponent
+          hst:parameternames:
+          - catalogueSitemapRefId
+          hst:parametervalues:
+          - api-catalogue
           hst:template: catalogue-search
           jcr:primaryType: hst:component
         hst:template: catalogue-main
