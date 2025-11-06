@@ -16,7 +16,9 @@ PLAYWRIGHT_PROFILE = playwright-install,playwright-test
 endif
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
-SHELL := env PATH=$(PATH) /bin/bash
+export PATH
+SHELL := /bin/bash
+.SHELLFLAGS := -eu -o pipefail -c
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
 MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS} --global-settings "$(PWD)/../.mvn.settings.xml"
@@ -58,7 +60,7 @@ test.unit:
 
 ## Run BDD tests for "site" only with playwright (visual test).
 test.site:
-	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Dcucumber.features="src/test/resources/features/site" \
 		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
