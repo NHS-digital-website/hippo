@@ -486,7 +486,7 @@
                                 </deployable>
                             </deployables>
                             <container>
-                                <timeout>240000</timeout>
+                                <timeout>600000</timeout>
                                 <zipUrlInstaller>
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
