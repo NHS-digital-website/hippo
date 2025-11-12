@@ -22,6 +22,8 @@
 
         <@mergerBanner />
 
+        <@hst.include ref= "targeted-banner"/>
+
         <@globalHeader true/>
 
         <@hst.include ref="breadcrumb"/>

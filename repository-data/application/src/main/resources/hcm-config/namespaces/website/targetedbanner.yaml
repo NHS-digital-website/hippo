@@ -1,0 +1,106 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/targetedbanner:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /targetPaths:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Target paths
+            field: string
+            hint: "Enter the paths where you want to show the banner. '/*' indicates\
+              \ subpages will show the banner too. \r\nCorrect examples: cyber/*,\
+              \ cyber, /*, cyber/services"
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /contentBanner:
+            /cluster.options:
+              ckeditor.config.appended.json: '{   "removePlugins": "codemirror",   "extraPlugins":
+                "sourcearea",   "toolbar": [     ["Source", "-", "Format", "-", "Bold",
+                "Italic", "Underline"],     ["Link", "Unlink", "BulletedList", "NumberedList"]   ],   "format_tags":
+                "p;h2;h3;h4" }'
+              ckeditor.config.overlayed.json: '{toolbarGroups: [ { name: ''basicstyles''
+                }, { name: ''list'' }, { name: ''insert'' },{name: ''source''} ] ,
+                disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Content banner
+            field: html
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /html:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:contentBanner
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:targetPaths
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:contentBanner:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2025-09-01T14:11:45.002Z
+          hippostdpubwf:lastModificationDate: 2025-09-01T14:11:45.002Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:targetedbanner
+          website:targetPaths:
+          - ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
