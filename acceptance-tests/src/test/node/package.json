@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@cucumber/pretty-formatter": "^1.0.0",
+    "@playwright/test": "^1.54.2",
     "@types/chai": "^4.3.3",
     "@types/pixelmatch": "^5.2.4",
     "@types/pngjs": "^6.0.1",
