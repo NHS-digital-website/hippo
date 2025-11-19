@@ -1,0 +1,35 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-821 Orphan images:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: true
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content//element(*, hippogallery:imageset)
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport javax.jcr.Session\r\
+        \nimport javax.jcr.query.Query\r\n\r\n/**\r\n * Detect orphan hippogallery:imageset\
+        \ and hippogallery:asset nodes\r\n */\r\nclass DetectOrphanMedia extends BaseNodeUpdateVisitor\
+        \ {\r\n\r\n    Set<String> referencedDocbases = [] as Set\r\n\r\n    @Override\r\
+        \n    void initialize(Session session) {\r\n        log.info(\"=== Initializing:\
+        \ collecting all docbase references ===\")\r\n\r\n        // Query all nodes\
+        \ that have hippo:docbase\r\n        def q = session.workspace.queryManager.createQuery(\r\
+        \n            \"/jcr:root/content//*[@hippo:docbase]\",\r\n            Query.XPATH\r\
+        \n        )\r\n        def result = q.execute()\r\n\r\n        def iter =\
+        \ result.nodes\r\n        while (iter.hasNext()) {\r\n            Node n =\
+        \ iter.nextNode()\r\n            try {\r\n                referencedDocbases\
+        \ << n.getProperty(\"hippo:docbase\").string\r\n            } catch (RepositoryException\
+        \ e) {\r\n              log.warn(\"Could not read common:searchable for ${e.message}\"\
+        )\r\n            }\r\n        }\r\n\r\n        log.info(\"Collected ${referencedDocbases.size()}\
+        \ docbase references.\")\r\n    }\r\n\r\n    @Override\r\n    boolean doUpdate(Node\
+        \ node) {\r\n\r\n        def path = node.path\r\n        def type = node.primaryNodeType.name\r\
+        \n        def parent = node.getParent()\r\n        def uuid = parent.identifier\r\
+        \n\r\n        if (!referencedDocbases.contains(uuid)) {\r\n            log.info(\
+        \ \"ORPHAN, ${path}, (${type}), [${uuid}]\")\r\n        }\r\n\r\n        return\
+        \ false\r\n    }\r\n\r\n    @Override\r\n    boolean undoUpdate(Node node)\
+        \ {\r\n        return false\r\n    }\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
