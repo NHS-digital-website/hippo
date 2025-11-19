@@ -60,7 +60,7 @@ $code-background: black;
     }
 
     .code-content {
-        margin: 0;
+        margin: 0; 
 
         //style of scrollbar for firefox 64+
         .scrollbar {
@@ -154,7 +154,7 @@ $code-background: black;
                     .hljs-selector-class,
                     .hljs-regexp,
                     .hljs-deletion{
-                        color:#eaeaea
+                        color:#d54e53
                     }
                     .hljs-number,
                     .hljs-built_in,
@@ -164,24 +164,24 @@ $code-background: black;
                     .hljs-params,
                     .hljs-meta,
                     .hljs-link{
-                        color:#eaeaea
+                        color:#e78c45
                     }
                     .hljs-attribute{
-                        color:#eaeaea
+                        color:#e7c547
                     }
                     .hljs-string,
                     .hljs-symbol,
                     .hljs-bullet,
                     .hljs-addition{
-                        color:#eaeaea
+                        color:#b9ca4a
                     }
                     .hljs-title,
                     .hljs-section{
-                        color:#eaeaea
+                        color:#7aa6da
                     }
                     .hljs-keyword,
                     .hljs-selector-tag{
-                        color:#eaeaea
+                        color:#c397d8
                     }
                     .hljs{
                         background:$code-background;
