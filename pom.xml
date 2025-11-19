@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>15.7.1</version>
+        <version>15.7.3</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -154,7 +154,7 @@
         <commons-codec.version>1.15</commons-codec.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-io.version>2.11.0</commons-io.version>
+        <commons-io.version>2.16.1</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.12.0</commons.version>
         <cucumber.version>7.21.1</cucumber.version>
@@ -175,13 +175,13 @@
         <jackson-dataformat-xml.version>2.17.1</jackson-dataformat-xml.version>
         <jcr-mock.version>1.6.0</jcr-mock.version>
         <jedis.verison>4.3.1</jedis.verison>
-        <joda-time.version>2.12.7</joda-time.version>
+        <joda-time.version>2.13.0</joda-time.version>
         <json-simple.verison>1.1.1</json-simple.verison>
         <jsp-api.version>2.2</jsp-api.version>
         <jsonwebtoken-version>0.11.5</jsonwebtoken-version>
         <junit-dataprovider.version>1.13.1</junit-dataprovider.version>
         <junit.version>4.13.2</junit.version>
-        <kotlin.version>1.4.10</kotlin.version>
+        <kotlin.version>1.8.21</kotlin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <log4j.version>2.17.2</log4j.version>
         <logback.version>1.2.11</logback.version>
@@ -198,7 +198,7 @@
         <mokito.version>3.12.4</mokito.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>2.7.0</okio.version>
-        <okhttp.version>4.9.3</okhttp.version>
+        <okhttp.version>4.12.0</okhttp.version>
         <plexus-component.version>2.1.0</plexus-component.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <powermock.version>2.0.9</powermock.version>
