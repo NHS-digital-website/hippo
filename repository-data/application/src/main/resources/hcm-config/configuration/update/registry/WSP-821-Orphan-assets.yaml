@@ -1,7 +1,7 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:update/hippo:registry/WSP-821 Orphan assets:
-      jcr:primaryType: hipposys:updaterinfo
       hipposys:batchsize: 10
       hipposys:description: ''
       hipposys:dryrun: true
@@ -33,3 +33,4 @@ definitions:
         \        }\r\n\r\n        return false\r\n    }\r\n\r\n    @Override\r\n \
         \   boolean undoUpdate(Node node) {\r\n        return false\r\n    }\r\n}"
       hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
