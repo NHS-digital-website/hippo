@@ -16,7 +16,7 @@ definitions:
       list.page.size: '20'
       list.view.size: '20'
     /hippo:configuration/hippo:frontend/cms/cms-services/assetProcessorService:
-      plugin.class: uk.nhs.digital.common.galleryprocessors.MyNullGalleryProcessorPlugin
+      plugin.class: uk.nhs.digital.common.galleryprocessors.CustomGalleryProcessorPlugin
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extension.mimetype.allowed.mappings:
       - .csv,text/csv
@@ -323,6 +323,7 @@ definitions:
       - svg
       max.height: 1650
       max.width: 2540
+      svg.scripts.enabled: false
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb

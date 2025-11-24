@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:workflows/gallery/image-gallery/frontend:renderer:
+      svg.scripts.enabled: false

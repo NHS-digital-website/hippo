@@ -8,6 +8,8 @@ Ensure that Node/NPM is installed locally
 make frontend
 ```
 
+> The Maven build now downloads its own copy of Node into `repository-data/webfiles/.node/<version>`. If you previously had `repository-data/webfiles/node` on disk (from an older build) remove that directory before running `npm install` or the Maven frontend tasks, otherwise npm may fail with `Class extends value undefined is not a constructor or null` when it loads `fs-minipass`.
+
 ## How it works
 
 The following build process happens via `frontend-maven-plugin` during the Maven
