@@ -73,7 +73,7 @@ Run the following commands:
 
 ```bash
 sudo apt update
-sudo apt intall zip
+sudo apt install zip
 ```
 
 To install SDKMAN prerequisites tools.
@@ -111,7 +111,7 @@ sudo apt update
 To install update apt.
 
 ```bash
-sudp apt install maven
+sudo apt install maven
 ```
 
 To install Maven.
@@ -180,7 +180,7 @@ Run the following commands:
 # Note you can skip these command as you
 # should have already run these command in step 2.
 sudo apt update
-sudo apt intall zip
+sudo apt install zip
 ```
 
 To install NVM prerequisites tools.
@@ -228,7 +228,7 @@ cd hippo
 This will change your current directory to the project directory.
 
 ```bash
-mvn veify -DskipTests
+mvn verify -DskipTests
 ```
 
 This will get all the dependencies and verify that you're good to go.
@@ -238,7 +238,7 @@ This will get all the dependencies and verify that you're good to go.
 Install Make, as the project uses Make for running the `Makefile` scripts.
 
 ```bash
-apt get install make
+sudo apt get install make
 ```
 
 This will install Make.
