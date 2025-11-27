@@ -668,4 +668,15 @@ public class SiteSteps extends AbstractSpringSteps {
             throw new AssertionError("Header mismatches found:\n" + String.join("\n", mismatches));
         }
     }
+
+
+    @Then("^I should see banner$")
+    public void thenIShouldSeeBanner() throws Throwable {
+        assertNotNull("Can see banner", sitePage.findElementWithID("banner-selected"));
+    }
+
+    @Then("^I should not see banner$")
+    public void thenIShouldNotSeeBanner() throws Throwable {
+        assertNull("Can not see banner", sitePage.findOptionalElementByID("banner-selected"));
+    }
 }
