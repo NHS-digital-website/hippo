@@ -1,0 +1,49 @@
+title = "Hippo – Gitleaks configuration"
+
+###############################################################################
+# Extend the official default rules (AWS keys, generic API keys, OAuth tokens,
+# Base64 blobs, JWTs, private keys, etc.).
+###############################################################################
+[extend]
+useDefault = true
+
+
+
+###############################################################################
+# GLOBAL ALLOWLIST
+#
+# These rules define what is *not* considered a leak in this project.
+# They only apply to documentation or known-safe patterns.
+###############################################################################
+[allowlist]
+
+# ---------------------------------------------------------------------------
+# 1. Ignore documentation files that contain example strings, narratives, or
+#    teaching material that *looks* secret but is harmless.
+# ---------------------------------------------------------------------------
+paths = [
+    '''^docs/gitleaks\.md$''',
+    '''^.gitleaksignore$''',
+]
+
+
+
+# ---------------------------------------------------------------------------
+# If you ever need to include **dummy keys** or **example tokens** in
+# documentation or test fixtures, add their patterns here.
+#
+# Anything listed in this allow-list is treated as safe and will NOT trigger
+# GitLeaks — but the real detection rules remain fully active.
+#
+# Use this section for:
+#   • fake API keys in Markdown docs
+#   • sample configuration values
+#   • illustrative “token”-looking strings used in tutorials
+#
+# Do NOT use this to hide real secrets — this is only for clearly fake,
+# deliberately-crafted example patterns.
+# ---------------------------------------------------------------------------
+regexes = [
+    '''dummy_[a-z_]+_token''',
+]
+
