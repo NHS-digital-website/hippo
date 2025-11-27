@@ -8003,6 +8003,82 @@
     - mix:referenceable
     jcr:primaryType: hippo:handle
     jcr:uuid: 80a4ccfe-4d19-43d8-ac48-f1a8a5b4cb5c
+  /targetbannertest:
+    /targetbannertest[1]:
+      /website:contentBanner:
+        hippostd:content: <p>This is a test for the banner with a<a href="http://google.com">
+          link</a></p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-10-23T14:06:22.662Z
+      hippostdpubwf:lastModificationDate: 2025-10-23T14:06:22.662Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 315858c4-be6c-4900-abfb-98e49efb79f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:targetedbanner
+      jcr:uuid: 247e9510-0b72-4c84-9450-edfffc5f49bc
+      website:targetPaths:
+      - /website-acceptance-tests/general/*
+    /targetbannertest[2]:
+      /website:contentBanner:
+        hippostd:content: <p>This is a test for the banner with a<a href="http://google.com">
+          link</a></p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-10-23T14:06:22.662Z
+      hippostdpubwf:lastModificationDate: 2025-10-23T14:08:35.690Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 315858c4-be6c-4900-abfb-98e49efb79f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:targetedbanner
+      jcr:uuid: 103699d5-63d1-4e6e-912a-3a0ffc1973e9
+      website:targetPaths:
+      - /website-acceptance-tests/general/*
+    /targetbannertest[3]:
+      /website:contentBanner:
+        hippostd:content: <p>This is a test for the banner with a<a href="http://google.com">
+          link</a></p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-10-23T14:06:22.662Z
+      hippostdpubwf:lastModificationDate: 2025-10-23T14:08:35.690Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-10-23T14:08:40.673Z
+      hippotranslation:id: 315858c4-be6c-4900-abfb-98e49efb79f0
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:targetedbanner
+      jcr:uuid: d6ea24ab-082c-43f0-8d62-fceb26cebe17
+      website:targetPaths:
+      - /website-acceptance-tests/general/*
+    hippo:name: targetBannerTest
+    hippo:versionHistory: 3445c112-4ba0-411e-b035-c27d44e2cb06
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+    jcr:uuid: 4e027886-6c68-42f6-a27c-4d2a0ee1fe45
   /visual-hub-test-document:
     /visual-hub-test-document[1]:
       /website:additionalinformation:
