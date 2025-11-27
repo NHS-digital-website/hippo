@@ -18,6 +18,7 @@ target
 /essentials/overlays/
 /storage
 /repository-data/webfiles/node
+/repository-data/webfiles/.node/
 /repository-data/webfiles/node_modules
 /repository-data/webfiles/src/main/resources/site/dist
 
