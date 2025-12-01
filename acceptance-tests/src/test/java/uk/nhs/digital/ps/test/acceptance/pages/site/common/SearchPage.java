@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
@@ -34,7 +35,10 @@ public class SearchPage extends AbstractSitePage {
     }
 
     public String getResultDescription() {
-        return helper.findElement(By.xpath("//*[@data-uipath='ps.search-results.description']")).getText();
+        By descriptionSelector = By.xpath("//*[@data-uipath='ps.search-results.description']");
+        return helper.waitForElementUntil(
+            ExpectedConditions.visibilityOfElementLocated(descriptionSelector)
+        ).getText();
     }
 
     public WebElement findSearchResults() {
