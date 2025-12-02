@@ -7,6 +7,10 @@
 <@fmt.message key="text.close-search" var="closeSearch" />
 
 <#macro globalHeader enableHr>
+    <#local searchEnabled = true>
+    <#if enableSearch??>
+        <#local searchEnabled = enableSearch>
+    </#if>
     <header id="header">
         <div class="nhsd-o-global-header" id="nhsd-global-header">
             <div class="nhsd-t-grid">
@@ -22,7 +26,7 @@
                             </div>
                             <div class="nhsd-o-global-header__menu" id="nhsd-global-header__menu">
                             <nav>
-                                <div class="column <#if !enableSearch>column--81-25</#if> column--reset">
+                                <div class="column <#if !searchEnabled>column--81-25</#if> column--reset">
                                     <div class="main-nav__menu">
                                         <@hst.include ref="top-menu"/>
                                     </div>
@@ -58,9 +62,9 @@
                                     <polygon fill="#FFFFFF"  points="36.8 3.56 30.48 33.22 20.57 33.22 14.33 12.7 14.25 12.7 10.1 33.22 2.58 33.22 8.95 3.56 18.9 3.56 25.01 24.13 25.09 24.13 29.28 3.56 36.8 3.56"/>
                                 </svg>
 
-                                <a class="nhsd-a-button nhsd-a-button--circle" id="nhsd-global-header__search-button" aria-label="Open search" aria-controls="nhsd-global-header__search" aria-expanded="false" href="${searchLink}">
-                                    <@buildInlineSvg "search" "s"/>
-                                </a>
+
+                                <@hst.include ref="menu-button"/>
+
                                 <button class="nhsd-a-button nhsd-o-global-header__menu-button" id="nhsd-global-header__menu-button" type="button" aria-controls="nhsd-global-header__menu" aria-expanded="false">
                                     <span class="nhsd-a-button__label">Menu</span>
                                     <span class="nhsd-a-icon nhsd-a-icon--size-s">
@@ -71,6 +75,7 @@
                                         </svg>
                                     </span>
                                 </button>
+
                             </nav>
                             <div class="nhsd-o-global-header__search" id="nhsd-global-header__search">
                                 <div class="nhsd-o-global-header__search-background"></div>
