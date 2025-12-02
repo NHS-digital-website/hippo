@@ -198,5 +198,8 @@ public class SitePage extends AbstractSitePage {
         return helper.findOptionalElements(By.tagName(tagName));
     }
 
+    public WebElement findOptionalElementByID(String idName) {
+        return helper.findOptionalElement(By.id(idName));
+    }
 
 }
