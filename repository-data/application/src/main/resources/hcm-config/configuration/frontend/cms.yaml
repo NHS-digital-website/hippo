@@ -323,7 +323,6 @@ definitions:
       - svg
       max.height: 1650
       max.width: 2540
-      svg.scripts.enabled: false
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb
