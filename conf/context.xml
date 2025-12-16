@@ -40,6 +40,6 @@
               mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory"
               mail.debug="<*** true (on DEV) or false (other servers) ***>"  />
      -->
-    <!-- WSP-612 - Settings samesite from default Lax to Strict -->
-    <CookieProcessor sameSiteCookies="strict" />
+    <!-- WSP-612 - Settings samesite from default Lax to Strict -->    
+    <CookieProcessor className="org.apache.tomcat.util.http.Rfc6265CookieProcessor" sameSiteCookies="strict" />
 </Context>
