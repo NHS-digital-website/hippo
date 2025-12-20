@@ -20,13 +20,12 @@ public class TargetedBannerComponent extends EssentialsDocumentComponent {
         if (targetedBanner != null) {
 
             // Get the current page path
-            String currentPath = "/" + request.getRequestContext().getResolvedSiteMapItem().getPathInfo();
+            String currentPath = request.getRequestContext().getResolvedSiteMapItem().getPathInfo();
         
             // Find the first banner targeting this path
             if (targetedBanner.getTargetPaths().stream().anyMatch(path -> {
-                String normalizedPath = path.replace(".", "\\.").replaceAll("^/|/$", "").replaceAll("(/?\\*)$","(/.*)?");
+                String normalizedPath = path.length() <= 2 ? "(.*)?" : path.replace(".", "\\.").replaceAll("^/|/$", "").replaceAll("(/?\\*)$","(/.*)?");
                 String regex = "^" + normalizedPath + "$";
-
                 return currentPath.matches(regex);
             })) {
 
