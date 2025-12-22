@@ -28,7 +28,7 @@ public class TargetedBanner extends BaseDocument {
 
 
     @HippoEssentialsGenerated(internalName = "website:contentBanner")
-    public String getcontentBanner() {
+    public String getContentBanner() {
         return getSingleProperty("website:contentBanner");
     }
 
