@@ -14,7 +14,7 @@ public class TargetedBannerComponent extends EssentialsDocumentComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
-
+    
         final TargetedBanner targetedBanner = request.getModel("document");
 
         if (targetedBanner != null) {
@@ -29,7 +29,7 @@ public class TargetedBannerComponent extends EssentialsDocumentComponent {
                 return currentPath.matches(regex);
             })) {
 
-                request.setAttribute("banner", targetedBanner); 
+                request.setAttribute("banner", targetedBanner.getContentBanner()); 
             }
         }
     }
