@@ -28,7 +28,6 @@ public class TargetedBannerComponent extends EssentialsDocumentComponent {
                 String regex = "^" + normalizedPath + "$";
                 return currentPath.matches(regex);
             })) {
-
                 request.setAttribute("banner", targetedBanner.getContentBanner()); 
             }
         }
