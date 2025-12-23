@@ -41,7 +41,7 @@ definitions:
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Content banner
-            field: html
+            field: contentBanner
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -49,7 +49,7 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /html:
+          /contentBanner:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
