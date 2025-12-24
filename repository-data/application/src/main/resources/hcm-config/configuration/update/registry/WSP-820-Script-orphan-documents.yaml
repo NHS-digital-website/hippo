@@ -1,4 +1,3 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:update/hippo:registry/WSP-820 Script orphan documents:
@@ -15,36 +14,37 @@ definitions:
         \nimport org.hippoecm.repository.api.HippoNodeType\r\n\r\nclass FindOrphanedDocumentsUpdater\
         \ extends BaseNodeUpdateVisitor {\r\n\r\n    private String contentRoot =\
         \ \"/content/documents/corporate-website\"\r\n\r\n    boolean doUpdate(Node\
-        \ publishedVariant) {\r\n      if (!publishedVariant.isNodeType(\"hippo:document\"\
-        )) {\r\n        log.warn(\"No document type\")\r\n        return false\r\n\
-        \      }\r\n\r\n      String targetUUID = publishedVariant.getParent().getIdentifier()\r\
-        \n      Node handle = publishedVariant.getParent() // parent is the hippo:handle\r\
-        \n      String handlePath = handle.getPath()\r\n        \r\n      // Get session\r\
-        \n      HippoSession hippoSession = publishedVariant.session\r\n      def\
-        \ queryMgr = hippoSession.workspace.queryManager\r\n      String contentRoot\
-        \ = \"/content/documents/corporate-website\"\r\n        \r\n      log.warn(\"\
-        Node UUID ${targetUUID}\")\r\n  \r\n      // Check incoming references\r\n\
-        \      String mirrorXPath = \"/jcr:root${contentRoot}//element(*, hippo:mirror)[@hippo:docbase='${targetUUID}']\"\
-        \r\n      String facetXPath  = \"/jcr:root${contentRoot}//element(*, hippo:facetselect)[@hippo:docbase='${targetUUID}']\"\
-        \r\n  \r\n      def hasMirror = queryMgr.createQuery(mirrorXPath, Query.XPATH).execute()\r\
-        \n      def hasFacet  = queryMgr.createQuery(facetXPath, Query.XPATH).execute()\r\
-        \n      \r\n      // Build a user-friendly URL\r\n      String relativeURL\
-        \ = handlePath.replace(contentRoot, \"\")\r\n  \r\n      if (!hasMirror.nodes.hasNext()\
-        \ && !hasFacet.nodes.hasNext()) {\r\n              // Check if common:searchable\
-        \ exists\r\n          boolean isSearchable = false\r\n          if (publishedVariant.hasProperty(\"\
-        common:searchable\")) {\r\n              try {\r\n              \tisSearchable\
-        \ = publishedVariant.getProperty(\"common:searchable\").getBoolean()\r\n \
-        \             } catch (RepositoryException e) {\r\n              \tlog.warn(\"\
-        Could not read common:searchable for ${publishedVariant.path}: ${e.message}\"\
-        )\r\n              }\r\n          }\r\n          \r\n          // No references\
-        \ found → orphaned\r\n          log.info(\"Orphaned published document, ${relativeURL},\
-        \ ${isSearchable}\")\r\n\r\n          // Optional: mark the node\r\n     \
-        \     if (!publishedVariant.hasProperty(\"website:orphaned\")) {\r\n     \
-        \         publishedVariant.setProperty(\"website:orphaned\", true)\r\n   \
-        \           return true\r\n          }\r\n        }\r\n  \r\n      return\
-        \ false\r\n    }\r\n\r\n    boolean undoUpdate(Node node) {\r\n        if\
-        \ (node.hasProperty(\"website:orphaned\")) {\r\n            node.getProperty(\"\
-        website:orphaned\").remove()\r\n            return true\r\n        }\r\n \
-        \       return false\r\n    }\r\n}"
+        \ node) {\r\n       if (!node.isNodeType(\"hippo:document\")) {\r\n      \
+        \      log.warn(\"No document type\")\r\n            return false\r\n    \
+        \    }\r\n\r\n        if (node.isNodeType(\"publicationsystem:publicationPage\"\
+        )) {\r\n            log.warn(\"Orphaned published document, Publication page\
+        \ type, Publication page type\")\r\n            return false\r\n        }\r\
+        \n      \r\n\r\n        String targetUUID = node.getParent().getIdentifier()\r\
+        \n        Node handle = node.getParent() // parent is the hippo:handle\r\n\
+        \        String handlePath = handle.getPath()\r\n\r\n        // Get session\r\
+        \n        HippoSession hippoSession = node.session\r\n        def queryMgr\
+        \ = hippoSession.workspace.queryManager\r\n        String contentRoot = \"\
+        /content/documents/corporate-website\"\r\n\r\n        // Check incoming references\r\
+        \n        String mirrorXPath = \"/jcr:root${contentRoot}//element(*, hippo:mirror)[@hippo:docbase='${targetUUID}']\"\
+        \r\n        String facetXPath = \"/jcr:root${contentRoot}//element(*, hippo:facetselect)[@hippo:docbase='${targetUUID}']\"\
+        \r\n\r\n        def hasMirror = queryMgr.createQuery(mirrorXPath, Query.XPATH).execute()\r\
+        \n        def hasFacet = queryMgr.createQuery(facetXPath, Query.XPATH).execute()\r\
+        \n\r\n\r\n        // Build a user-friendly URL\r\n        String relativeURL\
+        \ = handlePath.replace(contentRoot, \"\")\r\n\r\n\r\n        if (!hasMirror.nodes.hasNext()\
+        \ && !hasFacet.nodes.hasNext()) {\r\n\r\n            // Check if common:searchable\
+        \ exists\r\n            boolean isSearchable = false\r\n            if (node.hasProperty(\"\
+        common:searchable\")) {\r\n                try {\r\n                    isSearchable\
+        \ = node.getProperty(\"common:searchable\").getBoolean()\r\n             \
+        \   } catch (RepositoryException e) {\r\n                    log.warn(\"Could\
+        \ not read common:searchable for ${node.path}: ${e.message}\")\r\n       \
+        \         }\r\n            }\r\n\r\n            // No references found → orphaned\r\
+        \n            log.info(\"Orphaned published document, ${relativeURL}, ${isSearchable}\"\
+        )\r\n\r\n            if (!node.hasProperty(\"website:orphaned\")) {\r\n  \
+        \              node.setProperty(\"website:orphaned\", true)\r\n          \
+        \      log.info(\"Orphaned: ${node.path} \")\r\n                return true\r\
+        \n            }\r\n        }\r\n\r\n        return false\r\n    }\r\n\r\n\
+        \    boolean undoUpdate(Node node) {\r\n        if (node.hasProperty(\"website:orphaned\"\
+        )) {\r\n            node.getProperty(\"website:orphaned\").remove()\r\n  \
+        \          return true\r\n        }\r\n        return false\r\n    }\r\n}"
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo
