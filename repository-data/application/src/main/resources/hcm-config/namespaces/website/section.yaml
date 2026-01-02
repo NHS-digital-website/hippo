@@ -43,7 +43,7 @@ definitions:
               ckeditor.config.appended.json: '{mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
-                false}'
+                false,  "removeButtons": "Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Content
             field: html
@@ -126,6 +126,54 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /headinglevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headinglevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /html:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:html
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /numberedList:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:numberedList
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
@@ -135,6 +183,17 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /hipposysedit:prototype[2]:
+          /website:html:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: nt:unstructured
           website:headinglevel: Main heading
           website:numberedList: false
           website:title: ''
