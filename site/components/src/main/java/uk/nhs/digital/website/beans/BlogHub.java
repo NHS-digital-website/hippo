@@ -66,7 +66,7 @@ public class BlogHub extends CommonFieldsBean {
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
-        if (folder==null) return;
+        if (folder == null) return;
         
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Blog.class)
@@ -87,7 +87,7 @@ public class BlogHub extends CommonFieldsBean {
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
-        if (folder==null) return;
+        if (folder == null) return;
         
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Feature.class)
