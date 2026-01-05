@@ -9,6 +9,7 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.Collections;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:bloghub")
@@ -66,7 +67,7 @@ public class BlogHub extends CommonFieldsBean {
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
-        if (folder == null) return;
+        if (folder == null) { return Collections.emptyList(); }
         
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Blog.class)
@@ -87,7 +88,7 @@ public class BlogHub extends CommonFieldsBean {
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
-        if (folder == null) return;
+        if (folder == null) { return Collections.emptyList(); }
         
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Feature.class)
