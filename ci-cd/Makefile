@@ -60,7 +60,7 @@ test.unit:
 
 ## Run BDD tests for "site" only with playwright (visual test).
 test.site:
-	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Dcucumber.features="src/test/resources/features/site" \
 		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
