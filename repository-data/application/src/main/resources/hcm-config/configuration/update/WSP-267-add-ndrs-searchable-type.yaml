@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-267-add-ndrs-searchable-type:
+      hipposys:batchsize: 10
+      hipposys:description: Adds common:searchableNdrsType=true on NDRS General/Published
+        Work documents so the search facet can target them explicitly.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: '{}'
+      hipposys:path: /content/documents/corporate-website/ndrs
+      hipposys:script:
+        resource: WSP-267-add-ndrs-searchable-type.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
