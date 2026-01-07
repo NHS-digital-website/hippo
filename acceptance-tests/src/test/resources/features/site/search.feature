@@ -92,13 +92,9 @@ Feature: Basic search
         When I click on the "Upcoming" link
         And I click on the "National statistics" link
         Then I should see search results starting with:
-<<<<<<< HEAD
             | 2027 - Upcoming |
-=======
-            | 2026 - Upcoming |
 
->>>>>>> c8d5fdfe1 ([WSP-798] Test site cucumber)
-
+    
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
         Then I can see the search description matching "\d+ results sorted by relevance\."
