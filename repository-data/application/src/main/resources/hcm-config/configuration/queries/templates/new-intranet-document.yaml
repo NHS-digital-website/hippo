@@ -28,4 +28,5 @@ definitions:
         or @jcr:primaryType='website:location' or @jcr:primaryType='website:general'
         or @jcr:primaryType='website:person' or @jcr:primaryType='website:calltoaction'
         or @jcr:primaryType='website:video' or @jcr:primaryType='website:componentlist'
-        or @jcr:primaryType='website:calltoactionrich' or @jcr:primaryType='website:bannerdocument']
+        or @jcr:primaryType='website:calltoactionrich' or @jcr:primaryType='website:bannerdocument'
+        or @jcr:primaryType='website:targetedbanner']
