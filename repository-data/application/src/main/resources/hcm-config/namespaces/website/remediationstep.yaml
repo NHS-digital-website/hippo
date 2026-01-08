@@ -35,9 +35,13 @@ definitions:
             wicket.id: ${cluster.id}.right
           /step:
             /cluster.options:
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, stylesSet:
+                ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, removeButtons:"Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Step
             field: step
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item

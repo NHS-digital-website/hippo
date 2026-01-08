@@ -544,11 +544,17 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /publicationsystem:KeyFactsHead:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /publicationsystem:KeyFactsTail:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /publicationsystem:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           common:FacetType: publication
-          common:orderedSearchDate: 62135726400000
+          common:orderedSearchDate: -62135726400000
           common:searchRank: 3
           common:searchable: true
           common:searchableType: true
@@ -573,7 +579,6 @@ definitions:
           publicationsystem:Title: ''
           publicationsystem:earlyaccesskey: ''
           publicationsystem:manifestLocation: ''
-          publicationsystem:publicationtier: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
