@@ -12052,7 +12052,7 @@ html.nhsd-no-js .nhsd-o-global-header__menu-button {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: unset;
   -webkit-box-orient: vertical;
   -webkit-box-pack: end;
 }
