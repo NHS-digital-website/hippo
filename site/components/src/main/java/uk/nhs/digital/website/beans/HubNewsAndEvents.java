@@ -62,7 +62,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     public List<HippoBean> getLatestBlog() throws QueryException {
 
-        final int sizeLimit = 200;
+        final int sizeLimit = 10;
         HstRequestContext requestContext = RequestContextProvider.get();
         HippoBean scope = requestContext.getSiteContentBaseBean();
         if (scope == null) { return Collections.emptyList(); }
@@ -80,7 +80,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     public List<HippoBean> getLatestNewsArticles() throws QueryException {
 
-        final int sizeLimit = 200;
+        final int sizeLimit = 10;
         HstRequestContext requestContext = RequestContextProvider.get();
         HippoBean scope = requestContext.getSiteContentBaseBean().getBean("news/latest-news");
         if (scope == null) { return Collections.emptyList(); }
