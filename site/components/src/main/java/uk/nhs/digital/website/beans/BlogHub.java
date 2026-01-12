@@ -63,7 +63,7 @@ public class BlogHub extends CommonFieldsBean {
 
     public List<Blog> getLatestBlogs() throws QueryException {
 
-        final int sizeLimit = 200;
+        final int sizeLimit = 125;
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
@@ -84,7 +84,7 @@ public class BlogHub extends CommonFieldsBean {
 
     public List<Blog> getLatestFeatures() throws QueryException {
 
-        final int sizeLimit = 200;
+        final int sizeLimit = 125;
 
         HippoBean folder = getCanonicalBean().getParentBean();
 
