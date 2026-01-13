@@ -7,6 +7,7 @@ This project runs on **Java 11** and **Bloomreach Experience Manager 15**.
 * To start local server `make serve`.
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
+* To understand our GitLeaks secret-scanning workflow, see [GitLeaks rollout notes](docs/gitleaks.md).
 
 * For first-time project setup on macOS/Linux, see [What If I want to run the project for the first time](docs/what-if/first-time-set-up.md).
 * For first-time project setup on Windows, see [What If I want to run the project for the first time on Windows](docs/what-if/first-time-set-up-windows.md).
