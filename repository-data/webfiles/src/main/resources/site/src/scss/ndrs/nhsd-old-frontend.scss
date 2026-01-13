@@ -10984,7 +10984,7 @@ html:not(.nhsd-no-js) .nhsd-m-filter-menu-section__accordion-heading .nhsd-a-men
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: unset;
   -webkit-box-orient: vertical;
   -webkit-box-pack: end;
 }
