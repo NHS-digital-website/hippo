@@ -27,7 +27,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Description
             field: content
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
