@@ -110,7 +110,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Highlights content
             field: highlightsContent
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
