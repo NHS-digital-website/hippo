@@ -24,7 +24,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: User Needs and Contact Details
             field: userNeedandcontact
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
