@@ -526,9 +526,6 @@ definitions:
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:severitystatuschanges:
-            jcr:primaryType: website:severitystatuschange
-            website:date: 0001-01-01T12:00:00Z
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
