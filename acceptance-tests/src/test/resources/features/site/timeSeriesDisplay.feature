@@ -47,7 +47,7 @@ Feature: Display of publications forming a series
         Then I should see headers:
             | Latest statistics     |
             | Past publications     |
-            | Resources |
+            | Upcoming publications |
         When I navigate to the "series with publication with datasets" page
         Then I should see header:
             | Latest statistics     |
