@@ -14,9 +14,11 @@ import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
+import uk.nhs.digital.common.components.info.FeedHubComponentInfo;
 import uk.nhs.digital.common.enums.Region;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 import uk.nhs.digital.ps.beans.RestrictableDate;
@@ -34,18 +36,16 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@ParametersInfo(type = FeedHubComponentInfo.class)
 public class FeedHubComponent extends ContentRewriterComponent {
-    List<Map> filters;
-    Map<String, String[]> filterValues;
-    Map<String, String> topicMap;
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
 
-        filters = new ArrayList<>();
-        filterValues = new HashMap<>();
-        topicMap = new HashMap<>();
+        List<Map> filters = new ArrayList<>();
+        Map<String, String[]> filterValues = new HashMap<>();
+        Map<String, String> topicMap = new HashMap<>();
 
         String[] yearParams = getPublicRequestParameters(request, "year");
         filterValues.put("year", yearParams);
@@ -86,8 +86,11 @@ public class FeedHubComponent extends ContentRewriterComponent {
             request.setAttribute("activeFilters", activeFilters);
         }
 
+        FeedHubComponentInfo info = getComponentParametersInfo(request);
+        int limit = info.getLimit();
+
         try {
-            List<HippoBean> feed = getFeed(request, queryText, sort);
+            List<HippoBean> feed = getFeed(request, queryText, sort, limit, filterValues);
             request.setAttribute("feed", feed);
             Pageable<HippoBean> pagedFeed = pageResults(feed, request);
             request.setAttribute("pageable", pagedFeed);
@@ -97,19 +100,19 @@ public class FeedHubComponent extends ContentRewriterComponent {
 
             switch (feedHub.getFeedType()) {
                 case "News":
-                    getNewsFilters(feed);
+                    getNewsFilters(feed, filters);
                     break;
                 case "Supplementary information":
-                    getSupInfoFilters(feed, filterValues);
+                    getSupInfoFilters(feed, filterValues, filters);
                     break;
                 case "Events":
-                    getEventFilters(feed, filterValues);
+                    getEventFilters(feed, filterValues, filters);
                     break;
                 case "Cyber Alerts":
-                    getCyberAlertFilters(feed, filterValues);
+                    getCyberAlertFilters(feed, filterValues, filters);
                     break;
                 case "Series":
-                    getSeriesFilters(feed);
+                    topicMap = getSeriesFilters(feed, filterValues, filters);
                     request.setAttribute("topicMap", topicMap);
                     break;
                 default:
@@ -120,7 +123,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         }
     }
 
-    private void getNewsFilters(List<HippoBean> newsFeed) throws QueryException {
+    private void getNewsFilters(List<HippoBean> newsFeed, List<Map> filters) throws QueryException {
         Map<String, Long> yearFilters = newsFeed.stream()
             .map(e -> (News) e)
             .map(News::getPublisheddatetime)
@@ -129,17 +132,17 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
     }
 
-    private void getSupInfoFilters(List<HippoBean> supInfoFeed, Map<String, String[]> filterValues) throws QueryException {
+    private void getSupInfoFilters(List<HippoBean> supInfoFeed, Map<String, String[]> filterValues, List<Map> filters) throws QueryException {
         Map<String, Long> yearFilters = supInfoFeed.stream()
             .map(e -> (SupplementaryInformation) e)
             .map(SupplementaryInformation::getPublishedDate)
             .map(e -> e != null ? String.valueOf(e.get(Calendar.YEAR)) : "Unknown")
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = supInfoFeed.stream()
@@ -149,11 +152,11 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .map(e -> new SimpleDateFormat("MMMMM").format(e.getTime()))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
     }
 
-    private void getEventFilters(List<HippoBean> eventFeed, Map<String, String[]> filterValues) throws QueryException {
+    private void getEventFilters(List<HippoBean> eventFeed, Map<String, String[]> filterValues, List<Map> filters) throws QueryException {
         Map<String, Long> yearFilters = eventFeed.stream()
             .map(e -> (Event) e)
             .flatMap(e -> e.getEvents().parallelStream()
@@ -162,7 +165,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .distinct())
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = eventFeed.stream()
@@ -173,7 +176,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                     .distinct())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
 
         Map<String, Long> typeFilters = eventFeed.stream()
@@ -181,10 +184,10 @@ public class FeedHubComponent extends ContentRewriterComponent {
             .flatMap(e -> Arrays.stream(e.getType()))
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Type", "type[]", typeFilters);
+        addFilter("Type", "type[]", typeFilters, filters);
     }
 
-    private void getCyberAlertFilters(List<HippoBean> cyberFeed, Map<String, String[]> filterValues) throws QueryException {
+    private void getCyberAlertFilters(List<HippoBean> cyberFeed, Map<String, String[]> filterValues, List<Map> filters) throws QueryException {
         Map<String, Long> severityFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
             .map(CyberAlert::getSeverity)
@@ -192,7 +195,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Severity", "severity", severityFilters);
+        addFilter("Severity", "severity", severityFilters, filters);
 
         Map<String, Long> yearFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
@@ -202,7 +205,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Year", "year", yearFilters);
+        addFilter("Year", "year", yearFilters, filters);
 
         if (yearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = cyberFeed.stream()
@@ -212,7 +215,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .distinct()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
 
         Map<String, Long> typeFilters = cyberFeed.stream()
@@ -222,7 +225,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Type", "type[]", typeFilters);
+        addFilter("Type", "type[]", typeFilters, filters);
 
         Map<String, Long> cyberSeverityFilters = cyberFeed.stream()
             .map(e -> (CyberAlert) e)
@@ -231,10 +234,10 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Severity", "severity", cyberSeverityFilters);
+        addFilter("Severity", "severity", cyberSeverityFilters, filters);
     }
 
-    private void getSeriesFilters(List<HippoBean> seriesFeed) throws QueryException {
+    private Map<String, String> getSeriesFilters(List<HippoBean> seriesFeed, Map<String, String[]> filterValues, List<Map> filters) throws QueryException {
         Map<String, Long> seriesYearFilters = seriesFeed.stream()
             .filter(x -> x instanceof Series && ((Series) x).getPublicationDates() != null && ((Series) x).getPublicationDates().size() > 0)
             .map(e -> (Series) e)
@@ -244,7 +247,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Year", "year", seriesYearFilters);
+        addFilter("Year", "year", seriesYearFilters, filters);
 
         if (seriesYearFilters.size() > 0 && filterValues.get("year").length > 0) {
             Map<String, Long> monthFilters = seriesFeed.stream()
@@ -254,7 +257,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 .map(date -> date.get(0).getMonth().toString())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-            addFilter("Month", "month", monthFilters);
+            addFilter("Month", "month", monthFilters, filters);
         }
 
         Map<String, Long> seriesTaxFilters = seriesFeed.stream()
@@ -265,9 +268,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Topic", "topic[]", seriesTaxFilters);
-
-        topicMap = HippoBeanHelper.getTaxonomyKeysAndNames(seriesTaxFilters.keySet().toArray(new String[seriesTaxFilters.size()]));
+        addFilter("Topic", "topic[]", seriesTaxFilters, filters);
 
         Map<String, Long> seriesInfoFilters = seriesFeed.stream()
             .filter(e -> e instanceof Series && ((Series) e).getInformationType() != null)
@@ -277,7 +278,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Information type", "information[]", seriesInfoFilters);
+        addFilter("Information type", "information[]", seriesInfoFilters, filters);
 
         Map<String, Long> seriesAreaFilters = seriesFeed.stream()
             .filter(e -> e instanceof Series && ((Series) e).getGeographicCoverage() != null)
@@ -285,7 +286,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
             .flatMap(e -> Arrays.stream(e.getGeographicCoverage()))
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        addFilter("Geographical area", "area[]", seriesAreaFilters);
+        addFilter("Geographical area", "area[]", seriesAreaFilters, filters);
 
         Map<String, Long> seriesGranularityFilters = seriesFeed.stream()
             .filter(e -> e instanceof Series && ((Series) e).getGranularity() != null)
@@ -295,15 +296,16 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 Function.identity(), Collectors.counting()
             ));
 
-        addFilter("Geographical granularity", "granularity[]", seriesGranularityFilters);
+        addFilter("Geographical granularity", "granularity[]", seriesGranularityFilters, filters);
 
         Map<String, Long> upcomingFilters = new HashMap<>();
         upcomingFilters.put("Upcomming publications", -1L);
 
-        addFilter("Upcoming publications", "upcoming", upcomingFilters);
+        addFilter("Upcoming publications", "upcoming", upcomingFilters, filters);
+        return HippoBeanHelper.getTaxonomyKeysAndNames(seriesTaxFilters.keySet().toArray(new String[seriesTaxFilters.size()]));
     }
 
-    private <T extends HippoBean> List<T> getFeed(HstRequest request, String queryText, String sort) throws QueryException {
+    private <T extends HippoBean> List<T> getFeed(HstRequest request, String queryText, String sort, int limit, Map<String, String[]> filterValues) throws QueryException {
         final HstRequestContext context = request.getRequestContext();
         FeedHub feedHub = (FeedHub) context.getContentBean();
         HippoBean folder = feedHub.getParentBean();
@@ -440,7 +442,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 }
 
                 if (filterValues.get("granularity[]").length > 0) {
-                    String[]geoGran = filterValues.get("granularity[]");
+                    String[] geoGran = filterValues.get("granularity[]");
                     for (String granularity : geoGran) {
                         constraints.add(constraint("publicationsystem:Granularity").equalTo(granularity));
                     }
@@ -500,7 +502,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
             }
         }
 
-        HstQueryBuilder query = HstQueryBuilder.create(folder);
+        HstQueryBuilder query = HstQueryBuilder.create(folder)
+            .limit(limit);
 
         query.where(and(constraints.toArray(new Constraint[0]))).ofTypes(feedClass);
 
@@ -599,7 +602,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         return null;
     }
 
-    private void addFilter(String filterName, String filterKey, Map<String, Long> filterValues) {
+    private void addFilter(String filterName, String filterKey, Map<String, Long> filterValues, List<Map> filters) {
         if (filterValues.size() == 0) {
             return;
         }
@@ -617,7 +620,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
     }
 
     private Pageable<HippoBean> pageResults(List<HippoBean> feed, HstRequest request) {
-        int pageSize = 20;
+        FeedHubComponentInfo info = getComponentParametersInfo(request);
+        int pageSize = info.getLimit() > 0 ? info.getLimit() : 20;
         int page = getAnyIntParameter(request, "page", 1);
 
         return getPageableFactory().createPageable(
