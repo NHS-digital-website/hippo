@@ -491,6 +491,9 @@
 [website:tableauLookup] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:targetedbanner] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:taxonomymapping] > common:basedocument, hippostd:relaxed, hippotranslation:translated
   orderable
 
