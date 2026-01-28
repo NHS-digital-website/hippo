@@ -1,5 +1,6 @@
 include ../vars.mk
 
+REPO_ROOT := $(abspath $(PWD)/..)
 BUILD_DIR ?= ../../ps-build
 ENV ?= tst
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
@@ -7,6 +8,9 @@ RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((+
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
+
+GITLEAKS_IMAGE ?= zricethezav/gitleaks:latest
+GITLEAKS_REPORT ?= $(PWD)/target/gitleaks-report.sarif
 
 CI ?= false
 
@@ -60,7 +64,7 @@ test.unit:
 
 ## Run BDD tests for "site" only with playwright (visual test).
 test.site:
-	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml --quiet \
+	mvn clean verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Dcucumber.features="src/test/resources/features/site" \
 		-Dcucumber.filter.tags="not @skip" \
 		-Pacceptance-test-hippo,acceptance-test,$(PLAYWRIGHT_PROFILE)
@@ -136,6 +140,19 @@ check.yaml:
 	else \
 		echo "No YAML changes."; \
 	fi
+
+## Scan the repository for leaked secrets using GitLeaks
+check.gitleaks:
+	@command -v docker >/dev/null || (echo "Docker is required to run GitLeaks" && exit 1)
+	@mkdir -p $(dir $(GITLEAKS_REPORT))
+	rm -f $(GITLEAKS_REPORT)
+	docker run --rm -v $(REPO_ROOT):/repo $(GITLEAKS_IMAGE) \
+		git \
+		--log-opts="--all" \
+		--report-format=sarif \
+		--report-path=/repo/ci-cd/target/gitleaks-report.sarif \
+		/repo
+	@echo "GitLeaks report written to $(GITLEAKS_REPORT)"
 
 ## Clean up
 clean:

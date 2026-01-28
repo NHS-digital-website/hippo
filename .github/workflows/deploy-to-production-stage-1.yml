@@ -4,8 +4,8 @@ name: Deploy to Production - Stage 1
 
 on:
   schedule:
-    # Runs at 4pm BMT weekdays
-    - cron: "0 16 * * 1-5"
+    # Runs at 4pm UTC Mon-Wed,Fri
+    - cron: "0 16 * * 1-3,5"
 
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"
@@ -50,7 +50,7 @@ jobs:
           SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
           TITLE: ":clock1: Scheduled Deploying to Production"
           MESSAGE: |
-            Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}
+            Release to production has been scheduled at 11:55am on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}
 
       - name: Slack message (Job failed message)
         if: ${{ failure() }}

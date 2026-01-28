@@ -36,6 +36,12 @@ definitions:
         - nhsd-main-nav
         hst:template: nhsd-main-nav
         jcr:primaryType: hst:component
+      /targeted-banner:
+        /banner-selected:
+          hst:referencecomponent: nhsd-homepage/banner-selected
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: targeted-banner
+        jcr:primaryType: hst:component
       hst:componentclassname: uk.nhs.digital.common.components.MetaTagsComponent
       hst:template: nhsd-homepage-layout
       jcr:primaryType: hst:component
