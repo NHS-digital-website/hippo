@@ -9,6 +9,7 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.Collections;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:bloghub")
@@ -62,12 +63,17 @@ public class BlogHub extends CommonFieldsBean {
 
     public List<Blog> getLatestBlogs() throws QueryException {
 
+        final int sizeLimit = 125;
+
         HippoBean folder = getCanonicalBean().getParentBean();
 
+        if (folder == null) { return Collections.emptyList(); }
+        
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Blog.class)
             .where(constraint("jcr:uuid").notEqualTo(this.getIdentifier()))
             .orderByDescending("website:dateofpublication")
+            .limit(sizeLimit)
             .build()
             .execute()
             .getHippoBeans();
@@ -78,12 +84,17 @@ public class BlogHub extends CommonFieldsBean {
 
     public List<Blog> getLatestFeatures() throws QueryException {
 
+        final int sizeLimit = 125;
+
         HippoBean folder = getCanonicalBean().getParentBean();
 
+        if (folder == null) { return Collections.emptyList(); }
+        
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Feature.class)
             .where(constraint("jcr:uuid").notEqualTo(this.getIdentifier()))
             .orderByDescending("website:dateofpublication")
+            .limit(sizeLimit)
             .build()
             .execute()
             .getHippoBeans();
