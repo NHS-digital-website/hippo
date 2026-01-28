@@ -1,9 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/searchTabsComponent.ftl">
 
 <div class="article article--search-results" aria-label="Search Results" role="search">
-    <div class="grid-wrapper grid-wrapper--article">
+    <div class="nhsd-t-grid">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div>
@@ -15,9 +14,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="column column--two-thirds page-block page-block--main">
-                <@searchTabsComponent contentNames=hstResponseChildContentNames></@searchTabsComponent>
                 <#include "searchresults.ftl">
             </div>
         </div>

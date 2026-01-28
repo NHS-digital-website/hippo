@@ -9,11 +9,12 @@
 <@metaTags></@metaTags>
 
 <#-- Search Page Pixel -->
+<#assign queryValue = query!''>
 <script>
-    if ("${query}"){
+    if ("${queryValue}"){
         var br_data = br_data || {};
         br_data.ptype = "search";
-        br_data.search_term = "${query}";
+        br_data.search_term = "${queryValue}";
     }
 </script>
 
@@ -79,7 +80,7 @@
             </#if>
         <#elseif query?has_content>
             <div class="search-results-heading no-border">
-                <h1 class="search-results-heading__title" data-uipath="ps.search-results.description">No results for: ${query}</h1>
+                <h1 class="search-results-heading__title" data-uipath="ps.search-results.description">No results for: ${queryValue}</h1>
             </div>
         <#else>
             <div class="search-results-heading no-border">

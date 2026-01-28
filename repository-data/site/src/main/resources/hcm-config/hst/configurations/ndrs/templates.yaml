@@ -72,7 +72,7 @@ definitions:
         hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
         jcr:primaryType: hst:template
       /facets:
-        hst:renderpath: webfile:/freemarker/common/facets.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/facets.ftl
         jcr:primaryType: hst:template
       /feedlist:
         hst:renderpath: webfile:/freemarker/common/feedlist.ftl
@@ -110,11 +110,20 @@ definitions:
       /ndrs-abstract-layout:
         hst:renderpath: webfile:/freemarker/ndrs/layout/ndrs-abstract-layout.ftl
         jcr:primaryType: hst:template
+      /ndrs-abstract-layout-search:
+        hst:renderpath: webfile:/freemarker/ndrs/layout/ndrs-abstract-layout-search.ftl
+        jcr:primaryType: hst:template
+      /ndrs-global-header-menu-button:
+        hst:renderpath: webfile:/freemarker/ndrs/global-header-menu-button.ftl
+        jcr:primaryType: hst:template
       /ndrs-homepage:
         hst:renderpath: webfile:/freemarker/ndrs/home.ftl
         jcr:primaryType: hst:template
       /ndrs-hub-page:
         hst:renderpath: webfile:/freemarker/ndrs/ndrs-hub-page.ftl
+        jcr:primaryType: hst:template
+      /ndrs-searchbar:
+        hst:renderpath: webfile:/freemarker/ndrs/ndrs-searchbar.ftl
         jcr:primaryType: hst:template
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
@@ -138,13 +147,10 @@ definitions:
         hst:renderpath: webfile:/freemarker/ndrs/published-work-chapter-article.ftl
         jcr:primaryType: hst:template
       /search-results-layout:
-        hst:renderpath: webfile:/freemarker/common/search-results-layout.ftl
+        hst:renderpath: webfile:/freemarker/ndrs/search-results-layout.ftl
         jcr:primaryType: hst:template
       /searchbanner:
         hst:renderpath: webfile:/freemarker/common/search-banner.ftl
-        jcr:primaryType: hst:template
-      /searchtabs:
-        hst:renderpath: webfile:/freemarker/common/searchtabs.ftl
         jcr:primaryType: hst:template
       /service-list:
         hst:renderpath: webfile:/freemarker/common/service-list.ftl
