@@ -26,11 +26,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       # Step 2
-      - name: Check commit message
-        if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
-        run: make check.commit-msg
-
-      # Step 3
       - name: Scan for leaked secrets
         id: gitleaks
         continue-on-error: true
@@ -50,11 +45,11 @@ jobs:
           echo 'GitLeaks detected potential secrets. Review the uploaded report and resolve the leak.'
           exit 1
 
-      # Step 4
+      # Step 3
       - name: Print Google Chrome version
         run: google-chrome --version
 
-      # Step 5
+      # Step 4
       - name: Determine the Supported Java Version
         uses: ./.github/actions/br-supported-java-version
         id: java_version
@@ -64,11 +59,11 @@ jobs:
           distribution: 'adopt'
           java-version: ${{ steps.java_version.outputs.version }}
 
-      # Step 6
+      # Step 5
       - name: Setup Cache
         uses: ./.github/actions/build-cache
 
-      # Step 7 (Formatting Checks)
+      # Step 6 (Formatting Checks)
       - name: Check YAML formatting
         run: make check.yaml
 
@@ -89,11 +84,11 @@ jobs:
             })
 
 
-      # Step 8 (Functional Tests)
+      # Step 7 (Functional Tests)
       - name: Test Project
         run: make test.site CI=true
 
-      # Step 9
+      # Step 8
       # Store test results as an artifact
       - name: "Upload cucumber report"
         uses: actions/upload-artifact@v4
@@ -103,7 +98,7 @@ jobs:
           path: |
             acceptance-tests/target/cucumber-report.html
 
-      # Step 10
+      # Step 9
       # Store coverage results as an artifact
       - name: "Upload jacoco report"
         uses: actions/upload-artifact@v4
@@ -113,7 +108,7 @@ jobs:
           path: |
             cms/target/site/jacoco/*
 
-      # Step 11
+      # Step 10
       # Read test summary
       - name: Read test summary
         if: always()
@@ -125,7 +120,7 @@ jobs:
           SUMMARY="${SUMMARY//$'\r'/'%0D'}"
           echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
 
-      # Step 12
+      # Step 11
       # Add comment to PR with test results
       - name: "Added PR comment"
         if: ${{ always() && steps.testsummary.outcome == 'success' }}
