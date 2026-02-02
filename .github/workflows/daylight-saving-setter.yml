@@ -1,0 +1,33 @@
+name: DAYLIGHT SAVINGS CHECKER
+
+on:
+  schedule:
+    - cron: "0 0 1 4,11 *"
+
+  # Allows you to run this workflow manually from the Actions tab if needed in emergencies
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # set the environment variables
+      - name: SET BST ENV VAR
+        run: echo "BST_ENV_VAR=$(TZ='Europe/London' date)" >> $GITHUB_ENV
+      - name: SET UTC ENV VAR
+        run: echo "UTC_ENV_VAR=$(date)" >> $GITHUB_ENV
+
+      # Runs DAYLIGHT SAVING FALSE
+      - name: IT IS NOT DAYLIGHT SAVING
+        if: ${{ env.BST_ENV_VAR == env.UTC_ENV_VAR }}
+        run: |
+          curl -L -X PUT -H "Accept: application/vnd.github+json" -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/NHS-digital-website/hippo/actions/workflows/#TODO/disable
+          curl -L -X PUT -H "Accept: application/vnd.github+json" -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/NHS-digital-website/hippo/actions/workflows/#TODO/enable
+
+      # Runs DAYLIGHT SAVING TRUE
+      - name: IT IS DAYLIGHT SAVING
+        if: ${{ env.BST_ENV_VAR != env.UTC_ENV_VAR }}
+        run: |
+          curl -L -X PUT -H "Accept: application/vnd.github+json" -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/NHS-digital-website/hippo/actions/workflows/#TODO/enable
+          curl -L -X PUT -H "Accept: application/vnd.github+json" -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/NHS-digital-website/hippo/actions/workflows/#TODO/disable
