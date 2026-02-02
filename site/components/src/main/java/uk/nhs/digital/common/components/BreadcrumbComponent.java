@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 
 public class BreadcrumbComponent extends BaseHstComponent {
 
+    // Single provider instance created during init() and reused safely across threads by HST
     private CustomBreadcrumbProvider customBreadcrumbProvider;
 
     @Override
