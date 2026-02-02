@@ -30,8 +30,7 @@ import java.util.*;
 )
 public class EventsComponent extends EssentialsEventsComponent {
 
-    private static Logger log = LoggerFactory.getLogger(EventsComponent.class);
-    private ComponentHelper componentHelper = new ComponentHelper();
+    private static final Logger LOG = LoggerFactory.getLogger(EventsComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -48,7 +47,7 @@ public class EventsComponent extends EssentialsEventsComponent {
         String[] selectedTypes = getPublicRequestParameters(request, "type");
         request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
         request.setAttribute("selectedYear", DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR)));
-        request.setAttribute("years", componentHelper.years());
+        request.setAttribute("years", ComponentHelper.years());
     }
 
     @Override
@@ -60,7 +59,7 @@ public class EventsComponent extends EssentialsEventsComponent {
             filter.addEqualTo("website:display", true);
             filters.add(filter);
         } catch (FilterException var7) {
-            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
+            LOG.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
         }
 
         //fetching the selected types from the request
@@ -71,7 +70,7 @@ public class EventsComponent extends EssentialsEventsComponent {
                 try {
                     filter.addEqualTo("@website:type", type);
                 } catch (FilterException filterException) {
-                    log.warn("Errors while adding event type filter {}", filterException);
+                    LOG.warn("Errors while adding event type filter {}", filterException);
                 }
             }
             filters.add(filter);
