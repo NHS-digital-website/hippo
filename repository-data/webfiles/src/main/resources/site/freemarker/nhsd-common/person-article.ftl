@@ -36,7 +36,8 @@
 <#assign personMainNameAndPostnominals = personMainName />
 <#assign renderNav = document.biographies?has_content || document.roles?has_content || document.responsibilities?has_content  />
 <#assign idsuffix = slugify(personMainName) />
-<#assign hasBusinessUnits = document.businessUnits?? && document.businessUnits?has_content/>
+<#assign personBusinessUnits = businessUnits![] />
+<#assign hasBusinessUnits = personBusinessUnits?has_content/>
 
 <#assign notSuppress = !(document.lawfulbasises?has_content && document.lawfulbasises.suppressdata?has_content && suppressdata[document.lawfulbasises.suppressdata] == suppressdata['suppress-data']) />
 
