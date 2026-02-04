@@ -52,8 +52,14 @@ public class CoverageDatesFormatterDirective extends DateFormatterDirective {
         environment.getOut().append(result);
     }
 
-    private String formatSchemaFormat(Date start, Date end) {
-        return ISO_FORMAT.format(start) + "/" + ISO_FORMAT.format(end);
+    private String formatSchemaFormat(final Date start, final Date end) {
+        String result;
+        if (start != null && end != null) {
+            result = ISO_FORMAT.format(start) + "/" + ISO_FORMAT.format(end);
+        }  else {
+            result = "";
+        }
+        return result;
     }
 
     private String formatCoverageDates(final Date start, final Date end) {
