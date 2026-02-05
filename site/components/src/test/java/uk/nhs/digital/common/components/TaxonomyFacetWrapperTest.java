@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.capitalize;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.empty;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
@@ -63,6 +64,18 @@ public class TaxonomyFacetWrapperTest {
         assertTaxonomyChildFacets(taxonomy2Children, "Taxonomy 2 2", "Taxonomy 2 2 1", "Taxonomy 2 2 2");
     }
 
+    @Test
+    public void ignoresTaxonomyFacetWhenParentFacetIsMissing() {
+        HippoFolderBean taxonomy1 = mockTaxonomyFacetBean("taxonomy_1");
+        HippoFolderBean orphanedTaxonomyChild = mockTaxonomyFacetBean("taxonomy_1_2_1");
+        given(taxonomyFacet.getFolders()).willReturn(Arrays.asList(taxonomy1, orphanedTaxonomyChild));
+
+        List<TaxonomyFacet> rootTaxonomyFacets = new TaxonomyFacetWrapper(taxonomy, facetBean).getRootTaxonomyFacets();
+
+        assertTaxonomyFacets(rootTaxonomyFacets, "Taxonomy 1");
+        assertThat("Orphaned taxonomy facet is ignored.", getChildren(rootTaxonomyFacets, "Taxonomy 1"), empty());
+    }
+
     private Category mockCategory(String key) {
         Category category = mock(Category.class);
 
@@ -87,23 +100,32 @@ public class TaxonomyFacetWrapperTest {
     }
 
     private List<HippoFolderBean> createTaxonomyFacetBeans() {
-        return Arrays.asList(
-            mockTaxonomyFacetBean("taxonomy_1"),
+        HippoFolderBean taxonomy1 = mockTaxonomyFacetBean(
+            "taxonomy_1",
             mockTaxonomyFacetBean("taxonomy_1_1"),
-            mockTaxonomyFacetBean("taxonomy_1_2"),
-            mockTaxonomyFacetBean("taxonomy_1_2_1"),
-            mockTaxonomyFacetBean("taxonomy_1_2_2"),
-            mockTaxonomyFacetBean("taxonomy_2"),
-            mockTaxonomyFacetBean("taxonomy_2_1"),
-            mockTaxonomyFacetBean("taxonomy_2_2"),
-            mockTaxonomyFacetBean("taxonomy_2_2_1"),
-            mockTaxonomyFacetBean("taxonomy_2_2_2")
+            mockTaxonomyFacetBean(
+                "taxonomy_1_2",
+                mockTaxonomyFacetBean("taxonomy_1_2_1"),
+                mockTaxonomyFacetBean("taxonomy_1_2_2"))
         );
+
+        HippoFolderBean taxonomy2 = mockTaxonomyFacetBean(
+            "taxonomy_2",
+            mockTaxonomyFacetBean("taxonomy_2_1"),
+            mockTaxonomyFacetBean(
+                "taxonomy_2_2",
+                mockTaxonomyFacetBean("taxonomy_2_2_1"),
+                mockTaxonomyFacetBean("taxonomy_2_2_2"))
+        );
+
+        return Arrays.asList(taxonomy1, taxonomy2);
     }
 
-    private HippoFolderBean mockTaxonomyFacetBean(String taxonomyKey) {
+    private HippoFolderBean mockTaxonomyFacetBean(String taxonomyKey, HippoFolderBean... children) {
         HippoFolderBean bean = mock(HippoFolderBean.class);
         given(bean.getName()).willReturn(taxonomyKey);
+        List<HippoFolderBean> childFolders = children.length == 0 ? Collections.emptyList() : Arrays.asList(children);
+        given(bean.getFolders()).willReturn(childFolders);
         return bean;
     }
 
