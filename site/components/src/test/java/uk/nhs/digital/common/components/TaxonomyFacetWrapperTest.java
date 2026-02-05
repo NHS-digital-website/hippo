@@ -87,23 +87,32 @@ public class TaxonomyFacetWrapperTest {
     }
 
     private List<HippoFolderBean> createTaxonomyFacetBeans() {
-        return Arrays.asList(
-            mockTaxonomyFacetBean("taxonomy_1"),
+        HippoFolderBean taxonomy1 = mockTaxonomyFacetBean(
+            "taxonomy_1",
             mockTaxonomyFacetBean("taxonomy_1_1"),
-            mockTaxonomyFacetBean("taxonomy_1_2"),
-            mockTaxonomyFacetBean("taxonomy_1_2_1"),
-            mockTaxonomyFacetBean("taxonomy_1_2_2"),
-            mockTaxonomyFacetBean("taxonomy_2"),
-            mockTaxonomyFacetBean("taxonomy_2_1"),
-            mockTaxonomyFacetBean("taxonomy_2_2"),
-            mockTaxonomyFacetBean("taxonomy_2_2_1"),
-            mockTaxonomyFacetBean("taxonomy_2_2_2")
+            mockTaxonomyFacetBean(
+                "taxonomy_1_2",
+                mockTaxonomyFacetBean("taxonomy_1_2_1"),
+                mockTaxonomyFacetBean("taxonomy_1_2_2"))
         );
+
+        HippoFolderBean taxonomy2 = mockTaxonomyFacetBean(
+            "taxonomy_2",
+            mockTaxonomyFacetBean("taxonomy_2_1"),
+            mockTaxonomyFacetBean(
+                "taxonomy_2_2",
+                mockTaxonomyFacetBean("taxonomy_2_2_1"),
+                mockTaxonomyFacetBean("taxonomy_2_2_2"))
+        );
+
+        return Arrays.asList(taxonomy1, taxonomy2);
     }
 
-    private HippoFolderBean mockTaxonomyFacetBean(String taxonomyKey) {
+    private HippoFolderBean mockTaxonomyFacetBean(String taxonomyKey, HippoFolderBean... children) {
         HippoFolderBean bean = mock(HippoFolderBean.class);
         given(bean.getName()).willReturn(taxonomyKey);
+        List<HippoFolderBean> childFolders = children.length == 0 ? Collections.emptyList() : Arrays.asList(children);
+        given(bean.getFolders()).willReturn(childFolders);
         return bean;
     }
 
