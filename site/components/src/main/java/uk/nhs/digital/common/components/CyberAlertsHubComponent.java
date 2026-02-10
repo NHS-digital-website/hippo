@@ -23,8 +23,26 @@ public class CyberAlertsHubComponent extends EssentialsListComponent {
         // Get the total results before the facet limit is applied.
         EssentialsListComponentInfo paramInfo = this.getComponentParametersInfo(request);
         HippoBean scope = this.getSearchScope(request, paramInfo.getPath());
-        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+        if (scope == null) {
+            // No valid scope; avoid exceptions and default to 0 results
+            request.setAttribute("totalAvailable", 0);
+            return;
+        }
+        String relPath;
+        try {
+            relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+        } catch (StringIndexOutOfBoundsException e) {
+            request.setAttribute("totalAvailable", 0);
+            return;
+        }
+        if (relPath == null || relPath.isEmpty()) {
+            request.setAttribute("totalAvailable", 0);
+            return;
+        }
         HippoFacetNavigationBean facetNavigationBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
-        request.setAttribute("totalAvailable", facetNavigationBean.getCount().intValue());
+        request.setAttribute("totalAvailable",
+            facetNavigationBean != null && facetNavigationBean.getCount() != null
+                ? facetNavigationBean.getCount().intValue()
+                : 0);
     }
 }
