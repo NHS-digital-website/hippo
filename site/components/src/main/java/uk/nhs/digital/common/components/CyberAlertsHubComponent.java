@@ -28,7 +28,18 @@ public class CyberAlertsHubComponent extends EssentialsListComponent {
             request.setAttribute("totalAvailable", 0);
             return;
         }
-        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+        String relPath;
+        try {
+            relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+        } catch (StringIndexOutOfBoundsException e) {
+            // log.warn("Unable to compute relPath for scope {}", scope.getPath(), e);
+            request.setAttribute("totalAvailable", 0);
+            return;
+        }
+        if (relPath == null || relPath.isEmpty()) {
+            request.setAttribute("totalAvailable", 0);
+            return;
+        }
         HippoFacetNavigationBean facetNavigationBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
         request.setAttribute("totalAvailable",
             facetNavigationBean != null && facetNavigationBean.getCount() != null
