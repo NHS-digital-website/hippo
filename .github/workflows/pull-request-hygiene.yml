@@ -1,0 +1,54 @@
+name: Pull Request Hygiene
+
+
+on:
+  pull_request:
+    branches:
+      - master
+      - christmas-*
+      - freeze-trunk-*
+
+jobs:
+  pr-hygiene:
+    name: "Validate PR hygiene"
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Ensure single commit per ticket
+        if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const commitCount = context.payload.pull_request.commits;
+            if (commitCount <= 1) {
+              core.info(`PR has ${commitCount} commit(s). Nothing to do.`);
+              return;
+            }
+
+            const readmeUrl = `${context.payload.repository.html_url}/blob/${context.payload.pull_request.base.ref}/README.md#branching-strategy`;
+            const commentBody = [
+              `This pull request currently has **${commitCount} commits**.`,
+              'Please squash the commits down to a single commit before attempting to merge again.',
+              `See the guidance in the [README](${readmeUrl}).`
+            ].join('\n\n');
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+            core.setFailed('Multiple commits detected; squash into a single commit before merging.');
+
+      - name: Check commit message
+        if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
+        run: make check.commit-msg
