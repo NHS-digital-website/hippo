@@ -41,6 +41,12 @@ To run:
 mvn test
 ```
 
+**Single module or test class**:
+``` shell
+mvn -pl site/components -am test -Dtest=PublicationComponentTest -Dsurefire.failIfNoSpecifiedTests=false
+```
+Use `-pl <module>` to run only the module that contains the code under test, `-am` to build required dependencies, and `-Dtest=<ClassName>` to limit execution to a specific test class. Keeping `-Dsurefire.failIfNoSpecifiedTests=false` avoids failures when the matcher doesn’t find any tests (common when rearranging packages), so you can drop it once you are confident about the class name.
+
 **Full suite of tests**:
 ``` shell
 mvn verify -Pacceptance-test-hippo,acceptance-test
