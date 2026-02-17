@@ -32,7 +32,6 @@ public class CyberAlertsHubComponent extends EssentialsListComponent {
         try {
             relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
         } catch (StringIndexOutOfBoundsException e) {
-            // log.warn("Unable to compute relPath for scope {}", scope.getPath(), e);
             request.setAttribute("totalAvailable", 0);
             return;
         }
