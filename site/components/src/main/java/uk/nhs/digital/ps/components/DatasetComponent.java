@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.components;
 
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -15,7 +16,15 @@ public class DatasetComponent extends EssentialsContentComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
-        Dataset dataset = (Dataset) ctx.getContentBean();
+        final HippoBean bean = ctx != null ? ctx.getContentBean() : null;
+
+        // If the bean is not a Dataset, do nothing (exit early).
+        if (!(bean instanceof Dataset)) {
+            return;
+        }
+
+        // Original logic continues here for Dataset
+        final Dataset dataset = (Dataset) bean;
 
         if (dataset != null && !dataset.isPubliclyAccessible()) {
             try {
