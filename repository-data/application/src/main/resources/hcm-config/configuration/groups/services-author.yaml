@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/services-author:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Users of the services folders who are authors
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: []
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.cms.user, xm.dashboard.user, xm.channel.viewer, xm.project.viewer,
+          xm.content.user, xm.form.user, xm.report.user]

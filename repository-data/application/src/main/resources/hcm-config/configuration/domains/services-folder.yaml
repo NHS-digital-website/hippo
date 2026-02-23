@@ -1,0 +1,63 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/services-folder:
+      jcr:primaryType: hipposys:domain
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [services-author]
+        hipposys:role: author
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.default-user.author
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [services-editor]
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.default-user.editor
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [services-author, services-editor]
+        hipposys:role: readwrite
+      /services-folder:
+        jcr:primaryType: hipposys:domainrule
+        /node-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/services
+      /services-images:
+        jcr:primaryType: hipposys:domainrule
+        /node-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/website/services
+      /services-assets:
+        jcr:primaryType: hipposys:domainrule
+        /node-by-uuid:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/assets/website-assets/services
