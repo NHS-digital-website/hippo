@@ -1,17 +1,24 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:groups/services-editor:
-      jcr:primaryType: hipposys:group
       hipposys:description: Users of the services folders who are editors
       hipposys:members:
-        .meta:category: system
         .meta:add-new-system-values: true
+        .meta:category: system
         type: string
         value: []
       hipposys:securityprovider: internal
       hipposys:userroles:
-        .meta:category: system
         .meta:add-new-system-values: true
+        .meta:category: system
         type: string
-        value: [xm.cms.user, xm.dashboard.user, xm.channel.viewer, xm.project.viewer,
-          xm.content.user, xm.form.user, xm.report.user]
+        value:
+        - xm.cms.user
+        - xm.dashboard.user
+        - xm.channel.viewer
+        - xm.project.viewer
+        - xm.content.user
+        - xm.form.user
+        - xm.report.user
+      jcr:primaryType: hipposys:group
