@@ -8,7 +8,7 @@ definitions:
           hst:parameternames:
           - facetPath
           hst:parametervalues:
-          - facets
+          - faceted-search
           hst:template: facets
           jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
