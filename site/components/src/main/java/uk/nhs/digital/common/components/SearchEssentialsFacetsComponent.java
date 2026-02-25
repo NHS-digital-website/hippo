@@ -20,8 +20,21 @@ public class SearchEssentialsFacetsComponent extends EssentialsFacetsComponent {
         super.doBeforeRender(request, response);
 
         HippoFacetNavigationBean hippoFacetNavigationBean = request.getModel("facets");
+        if (hippoFacetNavigationBean == null) {
+            // Avoid taxonomy lookup and let the template render without facets
+            request.setAttribute("taxonomy", null);
+            return;
+        }
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+        if (taxonomyManager == null) {
+            request.setAttribute("taxonomy", null);
+            return;
+        }
         Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.PUBLICATION_TAXONOMY);
+        if (taxonomy == null) {
+            request.setAttribute("taxonomy", null);
+            return;
+        }
         TaxonomyFacetWrapper taxonomyWrapper = hippoFacetNavigationBean == null ? null : new TaxonomyFacetWrapper(taxonomy, hippoFacetNavigationBean);
         request.setAttribute("taxonomy", taxonomyWrapper);
     }
