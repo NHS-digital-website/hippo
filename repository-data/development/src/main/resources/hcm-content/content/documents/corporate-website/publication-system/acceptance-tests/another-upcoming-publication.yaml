@@ -4,25 +4,22 @@
     /published-upcoming-publication[1]:
       common:FacetType: publication
       common:FullTaxonomy:
-      - falls
-      - infectious-diseases
+      - people-and-places
+      - data-and-information
       - workforce
-      - conditions
-      - accidents-and-injuries
       common:SearchableTags:
-      - Falls
-      - Infectious diseases
       - Workforce
-      common:orderedSearchDate: -1496275200000
+      common:orderedSearchDate: 1750204800000
       common:searchRank: 4
       common:searchable: true
       common:searchableType: true
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2026-03-27T10:47:28.121Z
+      hippostdpubwf:lastModifiedBy: system
       hippotaxonomy:keys:
       - falls
       - infectious-diseases
@@ -42,32 +39,30 @@
         Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
         sit amet efficitur urna.
       publicationsystem:NominalDate: 2025-06-18T00:00:00Z
-      publicationsystem:PubliclyAccessible: false
+      publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published Upcoming Publication summary.
       publicationsystem:Title: Published Upcoming Publication
+      publicationsystem:earlyaccesskey: ''
     /published-upcoming-publication[2]:
       common:FacetType: publication
       common:FullTaxonomy:
-      - falls
-      - infectious-diseases
+      - people-and-places
+      - data-and-information
       - workforce
-      - conditions
-      - accidents-and-injuries
       common:SearchableTags:
-      - Falls
-      - Infectious diseases
       - Workforce
-      common:orderedSearchDate: -1496275200000
+      common:orderedSearchDate: 1750204800000
       common:searchRank: 4
       common:searchable: true
       common:searchableType: true
       hippo:availability:
       - preview
+      hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2026-03-27T10:47:28.611Z
+      hippostdpubwf:lastModifiedBy: system
       hippotaxonomy:keys:
       - falls
       - infectious-diseases
@@ -88,33 +83,31 @@
         Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
         sit amet efficitur urna.
       publicationsystem:NominalDate: 2025-06-18T00:00:00Z
-      publicationsystem:PubliclyAccessible: false
+      publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published Upcoming Publication summary.
       publicationsystem:Title: Published Upcoming Publication
+      publicationsystem:earlyaccesskey: ''
     /published-upcoming-publication[3]:
       common:FacetType: publication
       common:FullTaxonomy:
-      - falls
-      - infectious-diseases
+      - people-and-places
+      - data-and-information
       - workforce
-      - conditions
-      - accidents-and-injuries
       common:SearchableTags:
-      - Falls
-      - Infectious diseases
       - Workforce
-      common:orderedSearchDate: -1496275200000
+      common:orderedSearchDate: 1750204800000
       common:searchRank: 4
       common:searchable: true
       common:searchableType: true
       hippo:availability:
       - live
+      hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-02T14:22:48.368Z
+      hippostdpubwf:lastModificationDate: 2026-03-27T10:47:28.611Z
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2026-03-27T10:47:28.786Z
       hippotaxonomy:keys:
       - falls
       - infectious-diseases
@@ -134,10 +127,13 @@
         Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
         sit amet efficitur urna.
       publicationsystem:NominalDate: 2025-06-18T00:00:00Z
-      publicationsystem:PubliclyAccessible: false
+      publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published Upcoming Publication summary.
       publicationsystem:Title: Published Upcoming Publication
+      publicationsystem:earlyaccesskey: ''
+    hippo:versionHistory: 33ad6695-a5be-4db8-80bb-41ba2c999e14
     jcr:mixinTypes:
+    - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
   hippo:name: Another Upcoming Publication
