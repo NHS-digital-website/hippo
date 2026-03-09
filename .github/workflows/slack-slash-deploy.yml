@@ -356,6 +356,12 @@ jobs:
         env:
           TARGET: ${{ fromJson(steps.find-target.outputs.result).name }}
 
+      - name: Get latest Non Production Safegards File
+        id: non-production-safegards
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq -r ' . | map( select( .name | startswith( "non-production-safegards-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
       #
       # Request deployment from ODv2
       #
@@ -411,6 +417,14 @@ jobs:
                 "appConfigFileId": ${{ steps.platform-properties.outputs.id }},
                 "role": "file",
                 "newFilename": "platform.properties"
+              })
+            }
+
+            if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(`${{ steps.non-production-safegards.outputs.id }}`))
+            {
+              args.appConfigFileRoles.push({
+                "appConfigFileId": ${{ steps.non-production-safegards.outputs.id }},
+                "role": "systemproperty"
               })
             }
             core.setOutput("deployment_args", args);
