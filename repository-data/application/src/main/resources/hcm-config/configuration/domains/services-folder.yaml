@@ -1,0 +1,68 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/services-folder:
+      /author:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - services-author
+        hipposys:role: author
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.default-user.author
+        jcr:primaryType: hipposys:authrole
+      /editor:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - services-editor
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.default-user.editor
+        jcr:primaryType: hipposys:authrole
+      /readwrite:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - services-author
+          - services-editor
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      /services-assets:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/assets/website-assets/services
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /services-folder:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/services
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /services-images:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/website/services
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain
