@@ -37,11 +37,19 @@ public class CiBreadcrumbComponent extends BaseHstComponent {
     }
 
     private boolean isStatisticalPublication(HstRequest request) {
-        if (!request.getRequestContext().getContentBean().getPath().startsWith("/content/documents/corporate-website/publication-system/statistical/")) {
+        if (request == null || request.getRequestContext() == null) {
             return false;
         }
 
-        HippoBean currentDocumentBean = request.getRequestContext().getContentBean();
+        final HippoBean currentDocumentBean = request.getRequestContext().getContentBean();
+        if (currentDocumentBean == null) {
+            return false;
+        }
+
+        final String path = currentDocumentBean.getPath();
+        if (path == null || !path.startsWith("/content/documents/corporate-website/publication-system/statistical/")) {
+            return false;
+        }
 
         for (Class<?> publicationType : publicationTypes) {
             if (publicationType.isInstance(currentDocumentBean)) {
