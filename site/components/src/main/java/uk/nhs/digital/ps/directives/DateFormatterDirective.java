@@ -6,9 +6,10 @@ import freemarker.core.Environment;
 import freemarker.template.*;
 
 import java.io.IOException;
-import java.time.ZoneId;
+import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
@@ -27,10 +28,9 @@ public class DateFormatterDirective implements TemplateDirectiveModel {
     public static final TimeZone TIME_ZONE = TimeZone.getTimeZone("Europe/London");
 
     private static final String PARAM_NAME = "date";
-
-    private static final DateTimeFormatter DATE_FORMAT =
-        DateTimeFormatter.ofPattern("dd MMM yyyy")
-            .withZone(ZoneId.of("Europe/London"));
+    protected static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
+        .ofPattern("dd MMM yyyy", Locale.UK)
+        .withZone(TIME_ZONE.toZoneId());
 
     @Override
     public void execute(Environment environment, Map parameters, TemplateModel[] templateModels,
@@ -49,7 +49,7 @@ public class DateFormatterDirective implements TemplateDirectiveModel {
         if (dateToFormat == null) {
             return "";
         }
-        return DATE_FORMAT.format(dateToFormat.toInstant());
+        return DATE_FORMAT.format(Instant.ofEpochMilli(dateToFormat.getTime()));
     }
 
     protected Date getValueAsDate(final Map parameters, final String paramName) {
