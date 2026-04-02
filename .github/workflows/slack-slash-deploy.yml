@@ -420,10 +420,12 @@ jobs:
               })
             }
 
-            if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(`${{ steps.non-production-safegards.outputs.id }}`))
+            const safeguardsId = "${{ steps.non-production-safegards.outputs.id }}";
+
+            if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(safeguardsId))
             {
               args.appConfigFileRoles.push({
-                "appConfigFileId": ${{ steps.non-production-safegards.outputs.id }},
+                "appConfigFileId": safeguardsId,
                 "role": "systemproperty"
               })
             }
