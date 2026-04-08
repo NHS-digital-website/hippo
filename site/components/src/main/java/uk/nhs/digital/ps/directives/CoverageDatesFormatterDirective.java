@@ -8,7 +8,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Map;
 
@@ -28,12 +28,9 @@ public class CoverageDatesFormatterDirective extends DateFormatterDirective {
     private static final String END_PARAM_NAME = "end";
     private static final String SNAPSHOT_WORDING = "Snapshot on ";
 
-    private static final SimpleDateFormat ISO_FORMAT;
-
-    static {
-        ISO_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-        ISO_FORMAT.setTimeZone(TIME_ZONE);
-    }
+    private static final DateTimeFormatter ISO_FORMAT =
+        DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            .withZone(TIME_ZONE.toZoneId());
 
     @Override
     public void execute(Environment environment, Map parameters, TemplateModel[] templateModels,
@@ -45,15 +42,18 @@ public class CoverageDatesFormatterDirective extends DateFormatterDirective {
         final Date start = getValueAsDate(parameters, START_PARAM_NAME);
         final Date end = getValueAsDate(parameters, END_PARAM_NAME);
 
-        boolean schemaFormat = parameters.containsKey("schemaFormat");
-
-        final String result = schemaFormat ? formatSchemaFormat(start, end) : formatCoverageDates(start, end);
-
-        environment.getOut().append(result);
+        // ✅ Null / default-date guard for start
+        if (isInvalidDate(start) || isInvalidDate(end)) {
+            environment.getOut().append("");
+        } else {
+            final boolean schemaFormat = parameters.containsKey("schemaFormat");
+            final String result = schemaFormat ? formatSchemaFormat(start, end) : formatCoverageDates(start, end);
+            environment.getOut().append(result);
+        }
     }
 
     private String formatSchemaFormat(Date start, Date end) {
-        return ISO_FORMAT.format(start) + "/" + ISO_FORMAT.format(end);
+        return ISO_FORMAT.format(start.toInstant()) + "/" + ISO_FORMAT.format(end.toInstant());
     }
 
     private String formatCoverageDates(final Date start, final Date end) {
@@ -62,5 +62,12 @@ public class CoverageDatesFormatterDirective extends DateFormatterDirective {
         } else {
             return format("{0} to {1}", formatDate(start), formatDate(end)); // Range date
         }
+    }
+
+    private boolean isInvalidDate(Date date) {
+        if (date == null) {
+            return true;
+        }
+        return date.getTime() <= 0;
     }
 }
