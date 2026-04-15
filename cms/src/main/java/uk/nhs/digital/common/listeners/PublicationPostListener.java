@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.listeners;
 
+
 import org.hippoecm.repository.api.HippoNode;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
@@ -27,9 +28,10 @@ public class PublicationPostListener implements DaemonModule {
     }
 
     private void addTierLevelToNode(HippoWorkflowEvent event) {
-
+        Session newSession = null;
         try {
-            final HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
+            newSession = session.impersonate(new SimpleCredentials(session.getUserID(), new char[0]));
+            final HippoNode handle = (HippoNode) newSession.getNodeByIdentifier(event.subjectId());
             if (handle.hasNodes()) {
                 final NodeIterator nodeIterator = handle.getNodes();
                 while (nodeIterator.hasNext()) {
@@ -37,7 +39,7 @@ public class PublicationPostListener implements DaemonModule {
                     if (node.getPath().contains(WEBSITE_PUBLICATION_SYSTEM)
                         && node.getPrimaryNodeType().getName().equals("publicationsystem:publication")) {
                         //Get the ier from the series from the parent node
-                        String pubTier = session
+                        String pubTier = newSession
                             .getWorkspace()
                             .getQueryManager()
                             .createQuery(JCR_ROOT
@@ -54,7 +56,7 @@ public class PublicationPostListener implements DaemonModule {
                     } else if (node.getPath().contains(WEBSITE_PUBLICATION_SYSTEM)
                         && node.getPrimaryNodeType().getName().equals(PUBLICATION_SERIES)) {
                         String pubTier = node.getProperty(PUBLICATION_TIER).getValue().getString();
-                        NodeIterator nodeItr = session
+                        NodeIterator nodeItr = newSession
                             .getWorkspace()
                             .getQueryManager()
                             .createQuery(JCR_ROOT
@@ -69,9 +71,13 @@ public class PublicationPostListener implements DaemonModule {
                     }
                 }
             }
-            //session.save();
+            //newSession.save();
         } catch (RepositoryException ex) {
             LOGGER.warn("An error occurred while handling the post publish event ", ex);
+        } finally {
+            if (newSession != null) {
+                newSession.logout();
+            }
         }
     }
 
