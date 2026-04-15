@@ -6,6 +6,7 @@ import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.*;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -31,8 +32,11 @@ public class ProcessSearch {
      * @param session The current session
      */
     public void processPreReleaseContentSearch(HippoWorkflowEvent event, Session session) {
+        Session newSession = null;
         try {
-            final HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
+            
+            newSession = session.impersonate(new SimpleCredentials(session.getUserID(), new char[0]));
+            final HippoNode handle = (HippoNode) newSession.getNodeByIdentifier(event.subjectId());
             if (handle.hasNodes()) {
                 final NodeIterator nodeIterator = handle.getNodes();
                 while (nodeIterator.hasNext()) {
@@ -52,9 +56,13 @@ public class ProcessSearch {
                     }
                 }
             }
-            session.save();
+            newSession.save();
         } catch (RepositoryException ex) {
             LOGGER.warn("An error occurred while handling the post publish event ", ex);
+        } finally {
+            if (newSession != null) {
+                newSession.logout();
+            }
         }
     }
 }
