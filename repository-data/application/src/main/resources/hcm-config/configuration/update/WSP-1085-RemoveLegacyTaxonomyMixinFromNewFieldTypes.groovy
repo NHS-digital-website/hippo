@@ -4,6 +4,8 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 import org.onehippo.taxonomy.api.TaxonomyNodeTypes
 
 import javax.jcr.Node
+import javax.jcr.Property
+import javax.jcr.Value
 
 /**
  * Removes the legacy hippotaxonomy:classifiable mixin from document variants
@@ -14,9 +16,10 @@ class RemoveLegacyTaxonomyMixinFromNewFieldTypes extends BaseNodeUpdateVisitor {
 
     private static final String CLASSIFIABLE_MIXIN =
         TaxonomyNodeTypes.NODETYPE_HIPPOTAXONOMY_CLASSIFIABLE
+    private static final String JCR_MIXIN_TYPES_PROPERTY = "jcr:mixinTypes"
 
     boolean doUpdate(Node node) {
-        if (!node.isNodeType(CLASSIFIABLE_MIXIN)) {
+        if (!hasDirectMixin(node, CLASSIFIABLE_MIXIN)) {
             log.debug("Skipping {} because the legacy taxonomy mixin is already absent", node.getPath())
             return false
         }
@@ -35,6 +38,21 @@ class RemoveLegacyTaxonomyMixinFromNewFieldTypes extends BaseNodeUpdateVisitor {
     }
 
     boolean skipCheckoutNodes() {
+        return false
+    }
+
+    private boolean hasDirectMixin(Node node, String mixinName) {
+        if (!node.hasProperty(JCR_MIXIN_TYPES_PROPERTY)) {
+            return false
+        }
+
+        Property mixinTypes = node.getProperty(JCR_MIXIN_TYPES_PROPERTY)
+        for (Value value : mixinTypes.getValues()) {
+            if (mixinName == value.getString()) {
+                return true
+            }
+        }
+
         return false
     }
 }

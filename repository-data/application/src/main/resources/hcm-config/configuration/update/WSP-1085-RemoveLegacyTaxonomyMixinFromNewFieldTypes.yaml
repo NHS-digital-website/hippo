@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:update/hippo:registry/Remove legacy taxonomy mixin from remodeled taxonomy field types:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085 Remove legacy taxonomy mixin from remodeled taxonomy field types:
       hipposys:batchsize: 10
       hipposys:description: Remove hippotaxonomy:classifiable from legacy-only document
         types that will keep using hippotaxonomy:keys as the taxonomy field path after
@@ -26,7 +26,7 @@ definitions:
         or (@jcr:primaryType='website:supplementaryinformation') or (@jcr:primaryType='website:team')
         or (@jcr:primaryType='website:video')]
       hipposys:script:
-        resource: /configuration/update/RemoveLegacyTaxonomyMixinFromNewFieldTypes.groovy
+        resource: /configuration/update/WSP-1085-RemoveLegacyTaxonomyMixinFromNewFieldTypes.groovy
         type: string
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo

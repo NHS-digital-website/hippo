@@ -5,6 +5,8 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 import org.onehippo.taxonomy.api.TaxonomyNodeTypes
 
 import javax.jcr.Node
+import javax.jcr.Property
+import javax.jcr.Value
 
 /**
  * Migrates legacy taxonomy data from hippotaxonomy:keys into the existing
@@ -19,6 +21,7 @@ class MigrateLegacyTaxonomyToClassificationField extends BaseNodeUpdateVisitor {
     private static final String LEGACY_KEYS_PROPERTY = "hippotaxonomy:keys"
     private static final String CLASSIFIABLE_MIXIN =
         TaxonomyNodeTypes.NODETYPE_HIPPOTAXONOMY_CLASSIFIABLE
+    private static final String JCR_MIXIN_TYPES_PROPERTY = "jcr:mixinTypes"
 
     private static final Map<String, String> TARGET_PROPERTY_BY_PRIMARY_TYPE = [
         "nationalindicatorlibrary:indicator"    : "common:taxonomyClassificationField",
@@ -72,7 +75,7 @@ class MigrateLegacyTaxonomyToClassificationField extends BaseNodeUpdateVisitor {
                 LEGACY_KEYS_PROPERTY, node.getPath())
         }
 
-        if (node.isNodeType(CLASSIFIABLE_MIXIN)) {
+        if (hasDirectMixin(node, CLASSIFIABLE_MIXIN)) {
             log.info("Removing legacy taxonomy mixin from {}", node.getPath())
             node.removeMixin(CLASSIFIABLE_MIXIN)
             changed = true
@@ -90,6 +93,21 @@ class MigrateLegacyTaxonomyToClassificationField extends BaseNodeUpdateVisitor {
     }
 
     boolean skipCheckoutNodes() {
+        return false
+    }
+
+    private boolean hasDirectMixin(Node node, String mixinName) {
+        if (!node.hasProperty(JCR_MIXIN_TYPES_PROPERTY)) {
+            return false
+        }
+
+        Property mixinTypes = node.getProperty(JCR_MIXIN_TYPES_PROPERTY)
+        for (Value value : mixinTypes.getValues()) {
+            if (mixinName == value.getString()) {
+                return true
+            }
+        }
+
         return false
     }
 }

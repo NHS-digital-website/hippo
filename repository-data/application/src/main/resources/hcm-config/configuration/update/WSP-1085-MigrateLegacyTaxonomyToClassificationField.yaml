@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:update/hippo:registry/Migrate legacy taxonomy to taxonomyClassificationField:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085 Migrate legacy taxonomy to taxonomyClassificationField:
       hipposys:batchsize: 10
       hipposys:description: Migrate legacy taxonomy keys into taxonomyClassificationField
         for the document types that already define the newer taxonomy-backed field,
@@ -18,7 +18,7 @@ definitions:
         or (@jcr:primaryType='website:news') or (@jcr:primaryType='website:publishedwork')
         or (@jcr:primaryType='website:publishedworkchapter') or (@jcr:primaryType='website:service')]
       hipposys:script:
-        resource: /configuration/update/MigrateLegacyTaxonomyToClassificationField.groovy
+        resource: /configuration/update/WSP-1085-MigrateLegacyTaxonomyToClassificationField.groovy
         type: string
       hipposys:throttle: 1000
       jcr:primaryType: hipposys:updaterinfo
