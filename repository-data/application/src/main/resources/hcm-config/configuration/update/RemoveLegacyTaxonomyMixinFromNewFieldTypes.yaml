@@ -1,0 +1,32 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Remove legacy taxonomy mixin from remodeled taxonomy field types:
+      hipposys:batchsize: 10
+      hipposys:description: Remove hippotaxonomy:classifiable from legacy-only document
+        types that will keep using hippotaxonomy:keys as the taxonomy field path after
+        remodeling to the new taxonomy field.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='intranet:newsinternal')
+        or (@jcr:primaryType='intranet:task') or (@jcr:primaryType='publicationsystem:archive')
+        or (@jcr:primaryType='publicationsystem:series') or (@jcr:primaryType='website:apiendpoint')
+        or (@jcr:primaryType='website:apispecification') or (@jcr:primaryType='website:businessunit')
+        or (@jcr:primaryType='website:casestudy') or (@jcr:primaryType='website:categorylist')
+        or (@jcr:primaryType='website:componentlist') or (@jcr:primaryType='website:corporatepolicy')
+        or (@jcr:primaryType='website:definedterms') or (@jcr:primaryType='website:feature')
+        or (@jcr:primaryType='website:feedhub') or (@jcr:primaryType='website:generalnonsearch')
+        or (@jcr:primaryType='website:glossarylist') or (@jcr:primaryType='website:graphicblock')
+        or (@jcr:primaryType='website:group') or (@jcr:primaryType='website:hubnewsandevents')
+        or (@jcr:primaryType='website:jobrole') or (@jcr:primaryType='website:organisation')
+        or (@jcr:primaryType='website:orgstructure') or (@jcr:primaryType='website:platform')
+        or (@jcr:primaryType='website:policypage') or (@jcr:primaryType='website:projectupdate')
+        or (@jcr:primaryType='website:signup') or (@jcr:primaryType='website:socialmedialink')
+        or (@jcr:primaryType='website:supplementaryinformation') or (@jcr:primaryType='website:team')
+        or (@jcr:primaryType='website:video')]
+      hipposys:script:
+        resource: /configuration/update/RemoveLegacyTaxonomyMixinFromNewFieldTypes.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

@@ -1,0 +1,24 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migrate legacy taxonomy to taxonomyClassificationField:
+      hipposys:batchsize: 10
+      hipposys:description: Migrate legacy taxonomy keys into taxonomyClassificationField
+        for the document types that already define the newer taxonomy-backed field,
+        then remove the legacy property and classifiable mixin.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='nationalindicatorlibrary:indicator')
+        or (@jcr:primaryType='publicationsystem:dataset') or (@jcr:primaryType='publicationsystem:legacypublication')
+        or (@jcr:primaryType='publicationsystem:publication') or (@jcr:primaryType='website:apimaster')
+        or (@jcr:primaryType='website:blog') or (@jcr:primaryType='website:bloghub')
+        or (@jcr:primaryType='website:cyberalert') or (@jcr:primaryType='website:event')
+        or (@jcr:primaryType='website:general') or (@jcr:primaryType='website:hub')
+        or (@jcr:primaryType='website:news') or (@jcr:primaryType='website:publishedwork')
+        or (@jcr:primaryType='website:publishedworkchapter') or (@jcr:primaryType='website:service')]
+      hipposys:script:
+        resource: /configuration/update/MigrateLegacyTaxonomyToClassificationField.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
