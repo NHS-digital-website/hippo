@@ -9,8 +9,8 @@ import javax.jcr.Value
 
 /**
  * Removes the legacy hippotaxonomy:classifiable mixin from document variants
- * that will continue to store taxonomy selections in hippotaxonomy:keys when
- * remodeled to the 15.3 taxonomy field.
+ * after taxonomy selections have been migrated from hippotaxonomy:keys to the
+ * new taxonomyClassificationField property used by the 15.3 taxonomy field.
  */
 class RemoveLegacyTaxonomyMixinFromNewFieldTypes extends BaseNodeUpdateVisitor {
 

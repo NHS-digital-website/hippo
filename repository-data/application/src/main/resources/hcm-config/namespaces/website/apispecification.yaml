@@ -28,16 +28,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /classifiable:
+          /taxonomyClassificationField:
             /cluster.options:
-              caption: Keys
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
-            essentials-taxonomy-name: publication_taxonomy
-            hint: One of more topics that describe the subject matter of the API
+            caption: Taxonomy - Used for Search (Do Not Edit)
+            field: taxonomyClassificationField
+            hint: ''
+            hipposys:userrole: xm.default-user.webmaster
             jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /specification_id:
             /cluster.options:
@@ -169,6 +169,12 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: website:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
+            jcr:primaryType: hipposysedit:field
+            taxonomy.name: publication_taxonomy
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -184,7 +190,6 @@ definitions:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -214,7 +219,6 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
           website:json: ''
           website:seosummary: ''
@@ -222,6 +226,7 @@ definitions:
           website:showApiResult: false
           website:specification_id: ''
           website:summary: ''
+          website:taxonomyClassificationField: []
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

@@ -29,6 +29,7 @@ class MigrateLegacyTaxonomyToClassificationField extends BaseNodeUpdateVisitor {
         "publicationsystem:legacypublication"   : "common:taxonomyClassificationField",
         "publicationsystem:publication"         : "common:taxonomyClassificationField",
         "website:apimaster"                     : "website:taxonomyClassificationField",
+        "website:apispecification"              : "website:taxonomyClassificationField",
         "website:blog"                          : "website:taxonomyClassificationField",
         "website:bloghub"                       : "website:taxonomyClassificationField",
         "website:cyberalert"                    : "website:taxonomyClassificationField",
