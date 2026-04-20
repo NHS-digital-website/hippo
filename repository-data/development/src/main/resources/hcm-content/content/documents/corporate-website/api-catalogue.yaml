@@ -3800,15 +3800,12 @@
             hippostd:content: <p>Deprecated API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - a-e
-          - acceptance-tests
-          common:SearchableTags:
-          - A&E
-          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - a-e
+          - acceptance-tests
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -3816,13 +3813,9 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2024-06-11T09:58:13.516Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - a-e
-          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 0ae87fe0-5073-4d6a-b74a-3b92ab6c1989
@@ -3841,15 +3834,12 @@
             hippostd:content: <p>Deprecated API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - a-e
-          - acceptance-tests
-          common:SearchableTags:
-          - A&E
-          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - a-e
+          - acceptance-tests
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -3858,13 +3848,9 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2024-06-11T09:59:28.681Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - a-e
-          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: website:apispecification
@@ -3884,15 +3870,12 @@
             hippostd:content: <p>Deprecated API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - a-e
-          - acceptance-tests
-          common:SearchableTags:
-          - A&E
-          - Acceptance Tests
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - a-e
+          - acceptance-tests
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -3902,13 +3885,9 @@
           hippostdpubwf:lastModificationDate: 2024-06-11T09:59:28.681Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2024-06-11T09:59:30.710Z
-          hippotaxonomy:keys:
-          - a-e
-          - acceptance-tests
           hippotranslation:id: 859358a6-aeba-42d9-ab09-1847a8c12338
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7a5a9719-bb4a-44ce-a108-88442f64094f
@@ -3954,22 +3933,12 @@
               Authenticator.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - in-production
-          - pharmacy
-          - prescribing
-          - apis_1
-          - api-catalogue
-          - status
-          common:SearchableTags:
-          - Prescribing
-          - Prescription
-          - In production (API)
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - prescribing
+          - in-production
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -3977,13 +3946,9 @@
           hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
           hippostdpubwf:lastModificationDate: 2024-07-29T15:31:10.032Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - prescribing
-          - in-production
           hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: f681988e-762e-4fb3-8eba-4f090fb84954
@@ -4180,22 +4145,12 @@
               Authenticator.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - in-production
-          - pharmacy
-          - prescribing
-          - apis_1
-          - api-catalogue
-          - status
-          common:SearchableTags:
-          - Prescribing
-          - Prescription
-          - In production (API)
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - prescribing
+          - in-production
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -4204,13 +4159,9 @@
           hippostdpubwf:creationDate: 2024-07-29T15:29:23.404Z
           hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - prescribing
-          - in-production
           hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: website:apispecification
@@ -4408,22 +4359,12 @@
               Authenticator.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - in-production
-          - pharmacy
-          - prescribing
-          - apis_1
-          - api-catalogue
-          - status
-          common:SearchableTags:
-          - Prescribing
-          - Prescription
-          - In production (API)
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - prescribing
+          - in-production
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -4433,13 +4374,9 @@
           hippostdpubwf:lastModificationDate: 2024-07-29T15:31:33.088Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2024-07-29T15:31:34.870Z
-          hippotaxonomy:keys:
-          - prescribing
-          - in-production
           hippotranslation:id: 5788086a-ddc1-4e8f-a0ab-ba9f8926a31a
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: ec5d7105-29fd-4d87-a90f-4601a4837b33
@@ -4668,7 +4605,6 @@
           hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 7ced5001-3227-478e-b011-e194918b0c56
@@ -5049,7 +4985,6 @@
           hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: website:apispecification
@@ -5432,7 +5367,6 @@
           hippotranslation:id: 235da6d2-3485-416d-8f99-d8708707eb99
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 18dc0290-75e4-4b1e-9ddd-a8951c1027c6
@@ -6897,23 +6831,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - security
-          - patient-communication
-          - reference-data
-          - document
-          - content-type
-          - data_1
-          - api-catalogue
-          - tests-and-diagnostics
-          common:SearchableTags:
-          - Tests and Diagnostics
-          - Patient Communication
-          - Reference data
-          - Security
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -6922,15 +6847,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2024-08-08T12:06:30.944Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - reference-data
-          - security
-          - patient-communication
-          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 607371a0-af66-4242-82a0-a1bb2634c42e
@@ -7038,23 +6957,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - security
-          - patient-communication
-          - reference-data
-          - document
-          - content-type
-          - data_1
-          - api-catalogue
-          - tests-and-diagnostics
-          common:SearchableTags:
-          - Tests and Diagnostics
-          - Patient Communication
-          - Reference data
-          - Security
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -7064,15 +6974,9 @@
           hippostdpubwf:lastModificationDate: 2024-08-08T12:06:30.944Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2024-08-08T12:06:37.877Z
-          hippotaxonomy:keys:
-          - reference-data
-          - security
-          - patient-communication
-          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: a0efc7d4-f0ca-47bc-a5ea-ff63b0170430
@@ -7180,23 +7084,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - security
-          - patient-communication
-          - reference-data
-          - document
-          - content-type
-          - data_1
-          - api-catalogue
-          - tests-and-diagnostics
-          common:SearchableTags:
-          - Tests and Diagnostics
-          - Patient Communication
-          - Reference data
-          - Security
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - reference-data
+          - security
+          - patient-communication
+          - tests-and-diagnostics
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -7204,15 +7099,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2024-08-08T12:06:00.639Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - reference-data
-          - security
-          - patient-communication
-          - tests-and-diagnostics
           hippotranslation:id: 87313450-63ab-4686-9c62-37f459de6762
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c9917f5-4cdc-44b1-8f02-1105b0f9f0ea
@@ -8502,38 +8391,20 @@
               Social Care and Health (MESH) API.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - standard
-          - rest
-          - in-production
-          - technology-and-architecture
-          - apis_1
-          - api-catalogue
-          - api-service
-          - uses-digital-onboarding
-          - central
-          - transport-infrastructure
-          - standards_1
-          - messaging-standards
-          - uses-oas
-          - internet-facing
-          - mesh
-          - status
-          common:SearchableTags:
-          - REST
-          - Uses OAS
-          - In production (API)
-          - Internet facing
-          - Transport/Infrastructure
-          - MESH
-          - Messaging
-          - Central
-          - Uses digital onboarding
-          - API service
-          - RESTful
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - messaging-standards
+          - mesh
+          - api-service
+          - central
+          - transport-infrastructure
+          - internet-facing
+          - uses-oas
+          - in-production
+          - rest
+          - uses-digital-onboarding
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -8541,21 +8412,9 @@
           hippostdpubwf:creationDate: 2020-10-26T16:48:01.818Z
           hippostdpubwf:lastModificationDate: 2024-01-31T15:55:29.546Z
           hippostdpubwf:lastModifiedBy: system
-          hippotaxonomy:keys:
-          - messaging-standards
-          - mesh
-          - api-service
-          - central
-          - transport-infrastructure
-          - internet-facing
-          - uses-oas
-          - in-production
-          - rest
-          - uses-digital-onboarding
           hippotranslation:id: 60538d7b-3c32-4a89-a305-d66e5c7a4bf1
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 8c410b7d-2b51-433a-8f27-a96fb8bcc1cf
@@ -9533,38 +9392,20 @@
               Social Care and Health (MESH) API.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - standard
-          - rest
-          - in-production
-          - technology-and-architecture
-          - apis_1
-          - api-catalogue
-          - api-service
-          - uses-digital-onboarding
-          - central
-          - transport-infrastructure
-          - standards_1
-          - messaging-standards
-          - uses-oas
-          - internet-facing
-          - mesh
-          - status
-          common:SearchableTags:
-          - REST
-          - Uses OAS
-          - In production (API)
-          - Internet facing
-          - Transport/Infrastructure
-          - MESH
-          - Messaging
-          - Central
-          - Uses digital onboarding
-          - API service
-          - RESTful
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - messaging-standards
+          - mesh
+          - api-service
+          - central
+          - transport-infrastructure
+          - internet-facing
+          - uses-oas
+          - in-production
+          - rest
+          - uses-digital-onboarding
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -9573,21 +9414,9 @@
           hippostdpubwf:creationDate: 2020-10-26T16:48:01.818Z
           hippostdpubwf:lastModificationDate: 2024-01-31T15:55:30.237Z
           hippostdpubwf:lastModifiedBy: system
-          hippotaxonomy:keys:
-          - messaging-standards
-          - mesh
-          - api-service
-          - central
-          - transport-infrastructure
-          - internet-facing
-          - uses-oas
-          - in-production
-          - rest
-          - uses-digital-onboarding
           hippotranslation:id: 60538d7b-3c32-4a89-a305-d66e5c7a4bf1
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 01f1f27f-4f76-46b3-8c72-ae7a71d4be5d
@@ -10565,38 +10394,20 @@
               Social Care and Health (MESH) API.</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - standard
-          - rest
-          - in-production
-          - technology-and-architecture
-          - apis_1
-          - api-catalogue
-          - api-service
-          - uses-digital-onboarding
-          - central
-          - transport-infrastructure
-          - standards_1
-          - messaging-standards
-          - uses-oas
-          - internet-facing
-          - mesh
-          - status
-          common:SearchableTags:
-          - REST
-          - Uses OAS
-          - In production (API)
-          - Internet facing
-          - Transport/Infrastructure
-          - MESH
-          - Messaging
-          - Central
-          - Uses digital onboarding
-          - API service
-          - RESTful
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - messaging-standards
+          - mesh
+          - api-service
+          - central
+          - transport-infrastructure
+          - internet-facing
+          - uses-oas
+          - in-production
+          - rest
+          - uses-digital-onboarding
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -10606,21 +10417,9 @@
           hippostdpubwf:lastModificationDate: 2024-01-31T15:55:30.237Z
           hippostdpubwf:lastModifiedBy: system
           hippostdpubwf:publicationDate: 2024-01-31T15:55:30.542Z
-          hippotaxonomy:keys:
-          - messaging-standards
-          - mesh
-          - api-service
-          - central
-          - transport-infrastructure
-          - internet-facing
-          - uses-oas
-          - in-production
-          - rest
-          - uses-digital-onboarding
           hippotranslation:id: 60538d7b-3c32-4a89-a305-d66e5c7a4bf1
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: b73953e6-ba71-45ba-a525-d7319feb29df
@@ -17965,27 +17764,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - nhs-bsa
-          - national-health-service
-          - outpatients
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - api-owner
-          - status
-          common:SearchableTags:
-          - APIs
-          - Inpatient
-          - Outpatient
-          - NHS BSA
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - inpatients
+          - outpatients
+          - apis_1
+          - nhs-bsa
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -17994,15 +17780,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2024-07-16T08:46:27.552Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
-          - apis_1
-          - nhs-bsa
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 1c95a8c2-84e0-47e3-bead-9bcf9bf213ec
@@ -18143,27 +17923,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - nhs-bsa
-          - national-health-service
-          - outpatients
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - api-owner
-          - status
-          common:SearchableTags:
-          - APIs
-          - Inpatient
-          - Outpatient
-          - NHS BSA
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - inpatients
+          - outpatients
+          - apis_1
+          - nhs-bsa
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -18171,15 +17938,9 @@
           hippostdpubwf:creationDate: 2021-02-26T14:57:40.102Z
           hippostdpubwf:lastModificationDate: 2024-07-16T08:46:12.276Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
-          - apis_1
-          - nhs-bsa
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 4048b040-273c-4755-b2ce-c7684010e5df
@@ -18320,27 +18081,14 @@
             hippostd:content: <p>API specification tagged with mapped taxonomy tags</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - inpatients
-          - nhs-bsa
-          - national-health-service
-          - outpatients
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - api-owner
-          - status
-          common:SearchableTags:
-          - APIs
-          - Inpatient
-          - Outpatient
-          - NHS BSA
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - inpatients
+          - outpatients
+          - apis_1
+          - nhs-bsa
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -18350,15 +18098,9 @@
           hippostdpubwf:lastModificationDate: 2024-07-16T08:46:27.552Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2024-07-16T08:46:30.122Z
-          hippotaxonomy:keys:
-          - inpatients
-          - outpatients
-          - apis_1
-          - nhs-bsa
           hippotranslation:id: 3ed96582-6590-4fe0-909a-a827b2943b80
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2d43e2cb-78a6-4983-90a4-3ce2478b31c6
@@ -18603,26 +18345,14 @@
             hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - service-types
-          - national-health-service
-          - outpatients
-          - implementing-digital
-          - retired
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - status
-          common:SearchableTags:
-          - Implementing Digital
-          - Retired (API)
-          - Outpatient
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - demographics_2
+          - implementing-digital
+          - outpatients
+          - retired
           hippo:availability:
           - preview
           hippostd:retainable: false
@@ -18631,15 +18361,9 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2024-07-17T11:04:12.490Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - demographics_2
-          - implementing-digital
-          - outpatients
-          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:versionable
           jcr:primaryType: website:apispecification
           jcr:uuid: 35740aaf-5539-48c0-8c3b-eb7dfa8ed500
@@ -18658,26 +18382,14 @@
             hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - service-types
-          - national-health-service
-          - outpatients
-          - implementing-digital
-          - retired
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - status
-          common:SearchableTags:
-          - Implementing Digital
-          - Retired (API)
-          - Outpatient
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - demographics_2
+          - implementing-digital
+          - outpatients
+          - retired
           hippo:availability:
           - live
           hippostd:retainable: false
@@ -18687,15 +18399,9 @@
           hippostdpubwf:lastModificationDate: 2024-07-17T11:04:12.490Z
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2024-07-17T11:04:15.338Z
-          hippotaxonomy:keys:
-          - demographics_2
-          - implementing-digital
-          - outpatients
-          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 2c9a1cd5-1003-4005-bf9c-8b6c90e00e6a
@@ -18714,26 +18420,14 @@
             hippostd:content: <p>Retired API</p>
             jcr:primaryType: hippostd:html
           common:FacetType: apispecification
-          common:FullTaxonomy:
-          - health-services
-          - data-and-information
-          - service-types
-          - national-health-service
-          - outpatients
-          - implementing-digital
-          - retired
-          - apis_1
-          - hospital
-          - api-catalogue
-          - secondary-care
-          - status
-          common:SearchableTags:
-          - Implementing Digital
-          - Retired (API)
-          - Outpatient
           common:searchRank: 5
           common:searchable: true
           common:searchableType: true
+          common:taxonomyClassificationField:
+          - demographics_2
+          - implementing-digital
+          - outpatients
+          - retired
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
@@ -18741,15 +18435,9 @@
           hippostdpubwf:creationDate: 2021-08-19T08:14:40.319Z
           hippostdpubwf:lastModificationDate: 2024-07-17T11:03:58.603Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys:
-          - demographics_2
-          - implementing-digital
-          - outpatients
-          - retired
           hippotranslation:id: cdd1314d-d105-439c-9ede-111f7fd1de96
           hippotranslation:locale: en
           jcr:mixinTypes:
-          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: website:apispecification
           jcr:uuid: 435208ba-4e25-477c-a518-477123ed2efa

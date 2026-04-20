@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085-Remove-api-specification-legacy-taxonomy-keys:
+      hipposys:batchsize: 10
+      hipposys:description: Remove hippotaxonomy:keys only from doctypes that have
+        been explicitly verified as safe to migrate fully to the new taxonomy field.
+        This updater is currently scoped only to website:apispecification and is intended
+        to run after taxonomy values have been migrated.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='website:apispecification')]
+      hipposys:script:
+        resource: /configuration/update/WSP-1085-RemoveApiSpecificationLegacyTaxonomyKeys.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

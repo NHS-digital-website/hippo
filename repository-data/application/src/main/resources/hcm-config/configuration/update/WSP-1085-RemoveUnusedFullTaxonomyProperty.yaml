@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085-Remove-unused-common-FullTaxonomy-property:
+      hipposys:batchsize: 10
+      hipposys:description: Remove common:FullTaxonomy only from doctypes that have
+        been explicitly verified as safe to drop this derived property from. Add a
+        doctype to this query only after confirming common:FullTaxonomy is not used
+        for it in site code.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='website:apispecification')]
+      hipposys:script:
+        resource: /configuration/update/WSP-1085-RemoveUnusedFullTaxonomyProperty.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085-Remove-api-specification-classifiable-mixin:
+      hipposys:batchsize: 10
+      hipposys:description: Remove hippotaxonomy:classifiable only from doctypes that
+        have been explicitly verified as safe to migrate away from the legacy mixin-backed
+        taxonomy field. This updater is currently scoped only to website:apispecification.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='website:apispecification')]
+      hipposys:script:
+        resource: /configuration/update/WSP-1085-RemoveApiSpecificationClassifiableMixin.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

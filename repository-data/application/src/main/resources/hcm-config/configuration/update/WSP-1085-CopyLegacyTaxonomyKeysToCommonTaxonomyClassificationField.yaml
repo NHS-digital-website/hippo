@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1085-Copy-legacy-taxonomy-keys-to-common-taxonomyClassificationField:
+      hipposys:batchsize: 10
+      hipposys:description: Copy hippotaxonomy:keys into common:taxonomyClassificationField
+        only for doctypes that have been explicitly verified to use the shared common
+        taxonomy field. Add a doctype to this query only after confirming its namespace
+        definition stores taxonomy in common:taxonomyClassificationField.
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents//*[(@jcr:primaryType='website:apispecification')]
+      hipposys:script:
+        resource: /configuration/update/WSP-1085-CopyLegacyTaxonomyKeysToCommonTaxonomyClassificationField.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

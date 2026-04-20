@@ -28,16 +28,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /classifiable:
+          /taxonomyClassificationField:
             /cluster.options:
-              caption: Keys
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
-            essentials-taxonomy-name: publication_taxonomy
-            hint: One of more topics that describe the subject matter of the API
+            caption: Keys
+            field: taxonomyClassificationField
+            hint: ''
             jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            plugin.class: org.onehippo.taxonomy.plugin.TaxonomyFieldPlugin
             wicket.id: ${cluster.id}.field
           /specification_id:
             /cluster.options:
@@ -169,6 +168,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: common:taxonomyClassificationField
+            hipposysedit:primary: false
+            hipposysedit:type: Taxonomy
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -184,7 +191,6 @@ definitions:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -214,7 +220,6 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          - hippotaxonomy:classifiable
           jcr:primaryType: website:apispecification
           website:json: ''
           website:seosummary: ''
