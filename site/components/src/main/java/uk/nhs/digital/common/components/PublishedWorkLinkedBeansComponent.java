@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -41,7 +42,16 @@ public class PublishedWorkLinkedBeansComponent extends ContentRewriterComponent 
             //linked documents will contain the publishedworkflow document containing all the chapters
             HstQueryResult linkedDocuments = linkedBeanQuery.execute();
             hstRequest.setAttribute("linkeddocuments", linkedDocuments);
-            Publishedwork publishedworkDocument = (Publishedwork) linkedDocuments.getHippoBeans().nextHippoBean();
+
+            HippoBeanIterator hippoBeans = linkedDocuments.getHippoBeans();
+            if (!hippoBeans.hasNext()) {
+                log.warn("No Publishedwork parent found for chapter {} using linkPath {}",
+                    publishedWorkChapter != null ? publishedWorkChapter.getPath() : "unknown", linkPath);
+                return;
+            }
+
+            // We have at least one result (limit = 1), safe to read the first one
+            Publishedwork publishedworkDocument = (Publishedwork) hippoBeans.nextHippoBean();
             checkInvalidEarlyAccessKey(hstRequest, hstResponse, publishedworkDocument, httpServletRequest);
         } catch (QueryException queryException) {
             log.warn("QueryException ", queryException);
