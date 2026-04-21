@@ -29,7 +29,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({SearchEssentialsFacetsComponent.class, EssentialsFacetsComponent.class})
+@PrepareForTest({SearchEssentialsFacetsComponent.class, EssentialsFacetsComponent.class, TaxonomyFacetWrapper.class})
 @PowerMockIgnore({"javax.management.*", "javax.net.ssl.*", "javax.xml.*", "org.xml.*", "com.sun.org.apache.xerces.*"})
 public class SearchEssentialsFacetsComponentTest {
 
@@ -39,12 +39,23 @@ public class SearchEssentialsFacetsComponentTest {
     private MockHstRequestContext requestContext;
     private ComponentManager originalComponentManager;
 
-    @Mock private ComponentManager componentManager;
-    @Mock private TaxonomyManager taxonomyManager;
-    @Mock private Taxonomies taxonomies;
-    @Mock private Taxonomy taxonomy;
-    @Mock private TaxonomyFacetWrapper taxonomyFacetWrapper;
-    @Mock private HippoFacetNavigationBean facetNavigationBean;
+    @Mock
+    private ComponentManager componentManager;
+
+    @Mock
+    private TaxonomyManager taxonomyManager;
+
+    @Mock
+    private Taxonomies taxonomies;
+
+    @Mock
+    private Taxonomy taxonomy;
+
+    @Mock
+    private TaxonomyFacetWrapper taxonomyFacetWrapper;
+
+    @Mock
+    private HippoFacetNavigationBean facetNavigationBean;
 
     @Before
     public void setUp() {
@@ -75,6 +86,7 @@ public class SearchEssentialsFacetsComponentTest {
     public void setsTaxonomyAttributeWhenFacetDataAvailable() throws Exception {
         request.setModel("facets", facetNavigationBean);
         when(taxonomies.getTaxonomy(HippoBeanHelper.PUBLICATION_TAXONOMY)).thenReturn(taxonomy);
+
         PowerMockito.whenNew(TaxonomyFacetWrapper.class)
             .withArguments(taxonomy, facetNavigationBean)
             .thenReturn(taxonomyFacetWrapper);
@@ -85,7 +97,7 @@ public class SearchEssentialsFacetsComponentTest {
     }
 
     @Test
-    public void handlesMissingTaxonomyGracefully() throws Exception {
+    public void handlesMissingTaxonomyGracefully() {
         request.setModel("facets", facetNavigationBean);
         when(taxonomies.getTaxonomy(HippoBeanHelper.PUBLICATION_TAXONOMY)).thenReturn(null);
 
@@ -95,12 +107,27 @@ public class SearchEssentialsFacetsComponentTest {
     }
 
     @Test
-    public void handlesMissingTaxonomyManagerGracefully() throws Exception {
+    public void handlesMissingTaxonomyManagerGracefully() {
         request.setModel("facets", facetNavigationBean);
         when(componentManager.getComponent(TaxonomyManager.class.getName())).thenReturn(null);
 
         component.doBeforeRender(request, response);
 
+        assertNull(request.getAttribute("taxonomy"));
+    }
+
+    @Test
+    public void shouldShortCircuitDoBeforeRenderForUnsupportedQuery() {
+        String uuidQuery = "4799a2eb-ed65-4635-ba0c-20df4d3dcfbd";
+
+        request.setAttribute("sanitizedSearchQueryDone", Boolean.TRUE);
+        request.setAttribute("sanitizedSearchQuery", uuidQuery);
+        request.setAttribute("unsupportedSearchQuery", Boolean.TRUE);
+
+        component.doBeforeRender(request, response);
+
+        assertSame(uuidQuery, request.getAttribute("query"));
+        assertNull(request.getModel("facets"));
         assertNull(request.getAttribute("taxonomy"));
     }
 
