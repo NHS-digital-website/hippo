@@ -68,7 +68,30 @@ public class SearchComponent extends EssentialsListComponent {
      */
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
+
+        // ✅ Guard: invalid scope
+        if (scope == null) {
+            LOGGER.warn("Search scope is null, skipping faceted search");
+            return pageable;
+        }
+
+        // ✅ Guard: no sitemap context (resource / invalid request)
+        if (request.getRequestContext().getResolvedSiteMapItem() == null) {
+            LOGGER.warn("ResolvedSiteMapItem is null, skipping faceted search");
+            return pageable;
+        }
+
         String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+
+        // ✅ Guard: invalid relative path (root cause of bitIndex < 0)
+        if (Strings.isNullOrEmpty(relPath)) {
+            LOGGER.warn(
+                "Relative path is null or empty for scope {}, skipping faceted search",
+                scope.getPath()
+            );
+            return pageable;
+        }
+
         HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
 
         if (facetBean != null) {
