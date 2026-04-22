@@ -2,7 +2,6 @@ package uk.nhs.digital.common.components;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -42,6 +41,9 @@ public class SearchComponentTest {
      * doFacetedSearch – defensive guards
      * --------------------------------------------------------- */
 
+    /**
+     * Guard 1: scope == null
+     */
     @Test
     public void shouldReturnEmptyPageableWhenScopeIsNull() {
         Pageable<HippoBean> result =
@@ -51,6 +53,9 @@ public class SearchComponentTest {
         assertSame(DefaultPagination.emptyCollection(), result);
     }
 
+    /**
+     * Guard 2: ResolvedSiteMapItem == null
+     */
     @Test
     public void shouldReturnEmptyPageableWhenResolvedSiteMapItemIsNull() {
         HippoBean scope = mock(HippoBean.class);
@@ -64,40 +69,50 @@ public class SearchComponentTest {
         assertSame(DefaultPagination.emptyCollection(), result);
     }
 
+    /**
+     * Guard 3: searchQuery == null or empty
+     * (root cause of FacetedNavigationEngineImpl NPE)
+     */
     @Test
-    public void shouldReturnEmptyPageableWhenRelativePathIsEmpty() {
-        HippoBean scope = mock(HippoBean.class);
-        ResolvedSiteMapItem siteMapItem = mock(ResolvedSiteMapItem.class);
+    public void shouldReturnEmptyPageableWhenSearchQueryIsNull() {
+        TestSearchComponent testComponent = new TestSearchComponent();
 
-        when(requestContext.getResolvedSiteMapItem()).thenReturn(siteMapItem);
+        when(request.getRequestContext()).thenReturn(requestContext);
+        when(requestContext.getResolvedSiteMapItem())
+            .thenReturn(mock(ResolvedSiteMapItem.class));
 
-        SearchComponent spy = org.mockito.Mockito.spy(component);
-
-        // Force relativePathFrom() to behave as empty
-        doReturn("").when(spy).cleanupSearchQuery(org.mockito.Mockito.anyString());
+        testComponent.setSearchQuery(null);
 
         Pageable<HippoBean> result =
-            spy.doFacetedSearch(request, paramInfo, scope);
+            testComponent.doFacetedSearch(
+                request,
+                paramInfo,
+                mock(HippoBean.class)
+            );
 
         assertNotNull(result);
         assertSame(DefaultPagination.emptyCollection(), result);
     }
 
     /* ---------------------------------------------------------
-     * getSearchScope – defensive behaviour
+     * Test-only subclass
      * --------------------------------------------------------- */
 
-    @Test
-    public void shouldFallbackToDefaultScopeWhenResolvedSiteMapItemIsNull() {
-        SearchComponent spy = org.mockito.Mockito.spy(component);
+    /**
+     * Test-specific subclass used to safely override protected framework methods.
+     * This avoids mocking Bloomreach internals while respecting Java access rules.
+     */
+    private static class TestSearchComponent extends SearchComponent {
 
-        when(requestContext.getResolvedSiteMapItem()).thenReturn(null);
+        private String searchQuery;
 
-        HippoBean defaultScope = mock(HippoBean.class);
-        doReturn(defaultScope).when(spy).getSearchScope(request, null);
+        void setSearchQuery(String searchQuery) {
+            this.searchQuery = searchQuery;
+        }
 
-        HippoBean result = spy.getSearchScope(request, null);
-
-        assertNotNull(result);
+        @Override
+        protected String getSearchQuery(HstRequest request) {
+            return searchQuery;
+        }
     }
 }

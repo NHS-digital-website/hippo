@@ -69,30 +69,28 @@ public class SearchComponent extends EssentialsListComponent {
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> doFacetedSearch(HstRequest request, T paramInfo, HippoBean scope) {
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
 
-        // ✅ Guard: invalid scope
+        // Guard 1: invalid scope
         if (scope == null) {
             LOGGER.warn("Search scope is null, skipping faceted search");
             return pageable;
         }
 
-        // ✅ Guard: no sitemap context (resource / invalid request)
+        // Guard 2: no sitemap context
         if (request.getRequestContext().getResolvedSiteMapItem() == null) {
             LOGGER.warn("ResolvedSiteMapItem is null, skipping faceted search");
             return pageable;
         }
 
-        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
-
-        // ✅ Guard: invalid relative path (root cause of bitIndex < 0)
-        if (Strings.isNullOrEmpty(relPath)) {
-            LOGGER.warn(
-                "Relative path is null or empty for scope {}, skipping faceted search",
-                scope.getPath()
-            );
+        // ✅ Guard 3: empty search query (ROOT CAUSE of this NPE)
+        String searchQuery = getSearchQuery(request);
+        if (Strings.isNullOrEmpty(searchQuery)) {
+            LOGGER.warn("Search query is null or empty, skipping faceted search");
             return pageable;
         }
 
-        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, this.getSearchQuery(request));
+        String relPath = SiteUtils.relativePathFrom(scope, request.getRequestContext());
+
+        HippoFacetNavigationBean facetBean = ContentBeanUtils.getFacetNavigationBean(relPath, searchQuery);
 
         if (facetBean != null) {
             request.setAttribute("totalResults", facetBean.getCount());
