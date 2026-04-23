@@ -39,7 +39,7 @@ public class CustomAutoDetectFormComponent extends AutoDetectFormComponent {
         return formBean;
     }
 
-    private FormBean getFormBeanFromPicker(final HstRequest request) {
+    protected FormBean getFormBeanFromPicker(final HstRequest request) {
 
         final AutoDetectFormComponentInfo paramsInfo = getComponentParametersInfo(request);
         final String formDocPath = paramsInfo.getForm();
@@ -54,11 +54,17 @@ public class CustomAutoDetectFormComponent extends AutoDetectFormComponent {
     }
 
     @Nullable
-    private FormBean getFormBeanFromSignupDocument(final HstRequest request) {
+    protected FormBean getFormBeanFromSignupDocument(final HstRequest request) {
         final HippoBean document = request.getRequestContext().getContentBean();
 
         if (document instanceof Signup) {
             final Signup signupDocument = (Signup) document;
+            if (signupDocument.getFormLink() == null
+                || signupDocument.getFormLink().getLink() == null) {
+                log.warn("Signup document has no form link configured: {}",
+                    signupDocument.getPath());
+                return null;
+            }
             return (FormBean) signupDocument.getFormLink().getLink();
         }
 
