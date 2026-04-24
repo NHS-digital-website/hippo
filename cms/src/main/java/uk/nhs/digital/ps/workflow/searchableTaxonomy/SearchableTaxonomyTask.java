@@ -38,6 +38,8 @@ public class SearchableTaxonomyTask extends AbstractDocumentTask {
     static final String TAXONOMY_KEY_PROPERTY = "hippotaxonomy:key";
     static final String TAXONOMY_KEYS_PROPERTY = "hippotaxonomy:keys";
     static final String TAXONOMY_SYNONYMS_PROPERTY = "hippotaxonomy:synonyms";
+    static final String LOCALE_EN_NAME_PROPERTY = "locale.en.name";
+    static final String LOCALE_EN_SYNONYMS_PROPERTY = "locale.en.synonyms";
 
     private DocumentVariant variant;
     private Session session;
@@ -86,20 +88,40 @@ public class SearchableTaxonomyTask extends AbstractDocumentTask {
     }
 
     private Stream<String> getTermsAndSynonyms(Node taxonomyNode) throws RepositoryException {
-        Node info = taxonomyNode.getNode(TAXONOMY_CATEGORY_INFOS_PROPERTY).getNode("en");
+        if (taxonomyNode.hasNode(TAXONOMY_CATEGORY_INFOS_PROPERTY)
+            && taxonomyNode.getNode(TAXONOMY_CATEGORY_INFOS_PROPERTY).hasNode("en")) {
+            Node info = taxonomyNode.getNode(TAXONOMY_CATEGORY_INFOS_PROPERTY).getNode("en");
 
-        String taxonomyName = info.getProperty(TAXONOMY_NAME_PROPERTY).getString();
-        Stream<String> stream = Stream.of(taxonomyName);
+            String taxonomyName = info.getProperty(TAXONOMY_NAME_PROPERTY).getString();
+            Stream<String> stream = Stream.of(taxonomyName);
 
-        if (info.hasProperty(TAXONOMY_SYNONYMS_PROPERTY)) {
-            stream = Stream.concat(
-                stream,
-                Arrays.stream(info.getProperty(TAXONOMY_SYNONYMS_PROPERTY).getValues())
-                    .map(value -> getWrapExceptions(value::getString))
-            );
+            if (info.hasProperty(TAXONOMY_SYNONYMS_PROPERTY)) {
+                stream = Stream.concat(
+                    stream,
+                    Arrays.stream(info.getProperty(TAXONOMY_SYNONYMS_PROPERTY).getValues())
+                        .map(value -> getWrapExceptions(value::getString))
+                );
+            }
+
+            return stream;
         }
 
-        return stream;
+        if (taxonomyNode.hasProperty(LOCALE_EN_NAME_PROPERTY)) {
+            Stream<String> stream = Stream.of(taxonomyNode.getProperty(LOCALE_EN_NAME_PROPERTY).getString());
+
+            if (taxonomyNode.hasProperty(LOCALE_EN_SYNONYMS_PROPERTY)) {
+                stream = Stream.concat(
+                    stream,
+                    Arrays.stream(taxonomyNode.getProperty(LOCALE_EN_SYNONYMS_PROPERTY).getValues())
+                        .map(value -> getWrapExceptions(value::getString))
+                );
+            }
+
+            return stream;
+        }
+
+        log.warn("No supported taxonomy metadata structure found for taxonomy node {}", taxonomyNode.getPath());
+        return Stream.empty();
     }
 
     @SuppressWarnings("WeakerAccess")
