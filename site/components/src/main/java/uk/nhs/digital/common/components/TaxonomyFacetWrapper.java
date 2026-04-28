@@ -35,23 +35,25 @@ public class TaxonomyFacetWrapper {
 
     private List<TaxonomyFacet> createTaxonomyFacets() {
 
-        // get the taxonomy facets
-        List<HippoFolderBean> taxonomyFacets = facetBean.getFolders()
+        Optional<HippoFolderBean> taxonomyFacetRoot = Optional.ofNullable(facetBean.getFolders())
+            .orElse(emptyList())
             .stream()
             .filter((facet) -> facet.getName().equals(TAXONOMY_FACET_NAME))
-            .findAny()
-            .map(HippoFolderBean::getFolders)
-            .orElseGet(() -> {
-                log.error("Unable to find taxonomy facet.");
-                return null;
-            });
+            .findFirst();
+
+        if (!taxonomyFacetRoot.isPresent()) {
+            log.warn("Unable to find taxonomy facet: {}", TAXONOMY_FACET_NAME);
+            return emptyList();
+        }
+
+        List<HippoFolderBean> taxonomyFacets = flattenFacetFolders(taxonomyFacetRoot.get());
 
         if (isEmpty(taxonomyFacets)) {
             return emptyList();
         }
 
         // link the taxonomy facets to the taxonomy category
-        HashMap<String, TaxonomyFacet> keyToTaxonomyFacet = new HashMap<>(taxonomyFacets.size());
+        Map<String, TaxonomyFacet> keyToTaxonomyFacet = new LinkedHashMap<>(taxonomyFacets.size());
         for (HippoFolderBean facet : taxonomyFacets) {
             String key = facet.getName();
             keyToTaxonomyFacet.put(key, new TaxonomyFacet(taxonomy, key, facet));
@@ -78,6 +80,28 @@ public class TaxonomyFacetWrapper {
         }
 
         return rootTaxonomyFacets;
+    }
+
+    private List<HippoFolderBean> flattenFacetFolders(HippoFolderBean taxonomyFacetRoot) {
+        List<HippoFolderBean> flattenedFolders = new ArrayList<>();
+        Deque<HippoFolderBean> queue = new ArrayDeque<>(getChildFolders(taxonomyFacetRoot));
+
+        while (!queue.isEmpty()) {
+            HippoFolderBean current = queue.removeFirst();
+            flattenedFolders.add(current);
+
+            List<HippoFolderBean> children = getChildFolders(current);
+            if (!children.isEmpty()) {
+                queue.addAll(children);
+            }
+        }
+
+        return flattenedFolders;
+    }
+
+    private List<HippoFolderBean> getChildFolders(HippoFolderBean folder) {
+        List<HippoFolderBean> childFolders = folder.getFolders();
+        return isEmpty(childFolders) ? emptyList() : childFolders;
     }
 
 }
