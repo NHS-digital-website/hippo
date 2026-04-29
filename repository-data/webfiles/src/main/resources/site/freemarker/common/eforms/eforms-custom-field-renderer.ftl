@@ -147,7 +147,7 @@
     <#elseif field.type == "datefield">
         <div class="${fieldClassName}" data-eforms-field="date" data-eforms-dateformat="${field.dateFormat!}" data-eforms-formname="${field.formRelativeUniqueName}">
             <#if field.value?? && field.value?has_content>
-            <@fmt.formatDate value=field.getInitialValue()?datetime type="Date" pattern="${field.dateFormat}" var="value" timeZone="${getTimeZone()}" />
+            <@fmt.formatDate value=field.value?datetime type="Date" pattern="${field.dateFormat}" var="value" timeZone="${getTimeZone()}" />
             </#if>
 
             <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
