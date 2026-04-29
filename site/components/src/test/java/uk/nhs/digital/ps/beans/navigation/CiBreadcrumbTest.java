@@ -29,6 +29,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.ps.test.util.ReflectionHelper;
+import uk.nhs.digital.website.beans.General;
 
 import java.util.Collections;
 import java.util.List;
@@ -56,6 +57,7 @@ public class CiBreadcrumbTest {
     private static final String TITLE_SERIES = "Clinical Commissioning Group Outcomes Indicator SERIES";
     private static final String TITLE_PUBLICATION = "CCG Outcomes Indicator Set - March 2018";
     private static final String TITLE_DATASET = "1.2 Under 75 mortality from cardiovascular disease";
+    private static final String TITLE_GENERAL = "General content page";
 
     @Before
     public void setUp() throws Exception {
@@ -122,10 +124,54 @@ public class CiBreadcrumbTest {
     }
 
     @Test
+    public void displaysBreadcrumb_General() throws Exception {
+
+        // given
+        mockCurrentGeneralDocumentBean();
+        List<String> expected = Collections.singletonList(TITLE_GENERAL);
+
+        // when
+        CiBreadcrumb ciBreadcrumb = getCiBreadcrumb();
+
+        // then
+        assertBreadcrumbsMatch(expected, ciBreadcrumb);
+    }
+
+    @Test
+    public void displaysBreadcrumb_General_FallsBackToDisplayNameWhenTitleIsBlank() throws Exception {
+
+        // given
+        General currentDocumentBean = mockCurrentGeneralDocumentBean();
+        given(currentDocumentBean.getTitle()).willReturn(" ");
+        given(currentDocumentBean.getDisplayName()).willReturn(TITLE_GENERAL);
+        List<String> expected = Collections.singletonList(TITLE_GENERAL);
+
+        // when
+        CiBreadcrumb ciBreadcrumb = getCiBreadcrumb();
+
+        // then
+        assertBreadcrumbsMatch(expected, ciBreadcrumb);
+    }
+
+    @Test
     public void displaysBreadcrumb_Publication() throws Exception {
 
         // given
         mockCurrentDocumentBean(Publication.class, TITLE_PUBLICATION);
+        List<String> expected = Collections.singletonList(TITLE_PUBLICATION);
+
+        // when
+        CiBreadcrumb ciBreadcrumb = getCiBreadcrumb();
+
+        // then
+        assertBreadcrumbsMatch(expected, ciBreadcrumb);
+    }
+
+    @Test
+    public void displaysBreadcrumb_PublicationPageWithoutParentPublication() throws Exception {
+
+        // given
+        mockCurrentDocumentBean(PublicationPage.class, TITLE_PUBLICATION);
         List<String> expected = Collections.singletonList(TITLE_PUBLICATION);
 
         // when
@@ -198,6 +244,18 @@ public class CiBreadcrumbTest {
         given(RequestContextProvider.get().getSiteContentBaseBean()).willReturn(siteBaseBean);
 
         given(currentDocumentBean.getTitle()).willReturn(docTitle);
+        given(currentDocumentBean.getPath()).willReturn(ARBITRARY_PATH);
+
+        return currentDocumentBean;
+    }
+
+    private General mockCurrentGeneralDocumentBean() {
+        General currentDocumentBean = mock(General.class);
+        given(hstRequest.getRequestContext()).willReturn(hstRequestContext);
+        given(hstRequest.getRequestContext().getContentBean()).willReturn(currentDocumentBean);
+        given(RequestContextProvider.get().getSiteContentBaseBean()).willReturn(siteBaseBean);
+
+        given(currentDocumentBean.getTitle()).willReturn(TITLE_GENERAL);
         given(currentDocumentBean.getPath()).willReturn(ARBITRARY_PATH);
 
         return currentDocumentBean;
