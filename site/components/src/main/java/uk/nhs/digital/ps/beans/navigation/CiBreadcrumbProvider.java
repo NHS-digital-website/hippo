@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans.navigation;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -15,12 +16,15 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.BaseDocument;
 import uk.nhs.digital.ps.beans.CiLanding;
 import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.PublicationPage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
@@ -32,6 +36,7 @@ import java.util.*;
  */
 public class CiBreadcrumbProvider  {
 
+    private static final Logger log = LoggerFactory.getLogger(CiBreadcrumbProvider.class);
     private static final String SEPARATOR = "/";
     private CiLanding ciLandingBean = null;
     private boolean isClinicalIndicator = false;
@@ -77,7 +82,32 @@ public class CiBreadcrumbProvider  {
     private BreadcrumbItem createBreadcrumbItem(final HstRequestContext ctx, final HippoBean bean) {
         return new BreadcrumbItem(
             ctx.getHstLinkCreator().create(bean, ctx),
-            ((BaseDocument) bean).getTitle());
+            getTitle(bean));
+    }
+
+    private String getTitle(final HippoBean bean) {
+        if (bean instanceof BaseDocument) {
+            String title = ((BaseDocument) bean).getTitle();
+            if (StringUtils.isNotBlank(title)) {
+                return title;
+            }
+        }
+
+        try {
+            Object title = bean.getClass().getMethod("getTitle").invoke(bean);
+            if (title instanceof String && StringUtils.isNotBlank((String) title)) {
+                return (String) title;
+            }
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException exception) {
+            log.debug(
+                "Falling back to display name for breadcrumb item because bean does not expose a usable getTitle method. Bean class: {}, path: {}",
+                bean.getClass().getName(),
+                bean.getPath(),
+                exception
+            );
+        }
+
+        return bean.getDisplayName();
     }
 
     /**
@@ -129,6 +159,10 @@ public class CiBreadcrumbProvider  {
             publication = ((PublicationPage) currentDocumentBean).getPublication();
         } else {
             publication = (Publication) currentDocumentBean;
+        }
+
+        if (publication == null) {
+            return;
         }
 
         // Is publication part of archive/series?
