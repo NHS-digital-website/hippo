@@ -8,6 +8,8 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 0
 
   # Maintain dependencies for the root POM
@@ -19,6 +21,8 @@ updates:
       prefix: "[DW-000] "
     ignore:
       - dependency-name: "spring-*"
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 0
 
   # Maintain dependencies for the JS/CSS build and packager
@@ -28,4 +32,6 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "[DW-000] "
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 0
