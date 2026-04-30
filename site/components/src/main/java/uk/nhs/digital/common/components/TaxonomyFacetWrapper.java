@@ -10,7 +10,9 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class TaxonomyFacetWrapper {
 
@@ -46,57 +48,50 @@ public class TaxonomyFacetWrapper {
             return emptyList();
         }
 
-        List<HippoFolderBean> taxonomyFacets = flattenFacetFolders(taxonomyFacetRoot.get());
+        List<HippoFolderBean> taxonomyFacets = getChildFolders(taxonomyFacetRoot.get());
 
-        if (isEmpty(taxonomyFacets)) {
+        if (taxonomyFacets.isEmpty()) {
             return emptyList();
         }
 
-        // link the taxonomy facets to the taxonomy category
-        Map<String, TaxonomyFacet> keyToTaxonomyFacet = new LinkedHashMap<>(taxonomyFacets.size());
-        for (HippoFolderBean facet : taxonomyFacets) {
-            String key = facet.getName();
-            keyToTaxonomyFacet.put(key, new TaxonomyFacet(taxonomy, key, facet));
-        }
-
-        // build the tree structure
         List<TaxonomyFacet> rootTaxonomyFacets = new ArrayList<>();
-        for (TaxonomyFacet taxonomyFacet : keyToTaxonomyFacet.values()) {
-            Category taxonomyCategory = taxonomyFacet.getTaxonomyCategory();
-            Category parentTaxonomy = taxonomyCategory == null ? null : taxonomyCategory.getParent();
-
-            if (parentTaxonomy == null) {
+        for (HippoFolderBean facet : taxonomyFacets) {
+            TaxonomyFacet taxonomyFacet = createTaxonomyFacet(facet, null);
+            if (taxonomyFacet != null) {
                 rootTaxonomyFacets.add(taxonomyFacet);
-            } else {
-                String parentKey = parentTaxonomy.getKey();
-                TaxonomyFacet parent = keyToTaxonomyFacet.get(parentKey);
-
-                if (parent == null) {
-                    log.debug("No parent facet found for taxonomy key: {}", taxonomyCategory.getName());
-                } else {
-                    parent.addChild(taxonomyFacet);
-                }
             }
         }
 
         return rootTaxonomyFacets;
     }
 
-    private List<HippoFolderBean> flattenFacetFolders(HippoFolderBean taxonomyFacetRoot) {
-        List<HippoFolderBean> flattenedFolders = new ArrayList<>();
-        Deque<HippoFolderBean> queue = new ArrayDeque<>(getChildFolders(taxonomyFacetRoot));
+    private TaxonomyFacet createTaxonomyFacet(HippoFolderBean facet, String expectedParentKey) {
+        TaxonomyFacet taxonomyFacet = new TaxonomyFacet(taxonomy, facet.getName(), facet);
+        Category taxonomyCategory = taxonomyFacet.getTaxonomyCategory();
 
-        while (!queue.isEmpty()) {
-            HippoFolderBean current = queue.removeFirst();
-            flattenedFolders.add(current);
+        if (taxonomyCategory != null && !isExpectedParent(taxonomyCategory, expectedParentKey)) {
+            log.debug("No parent facet found for taxonomy key: {}", taxonomyCategory.getName());
+            return null;
+        }
 
-            List<HippoFolderBean> children = getChildFolders(current);
-            if (!children.isEmpty()) {
-                queue.addAll(children);
+        for (HippoFolderBean childFacet : getChildFolders(facet)) {
+            TaxonomyFacet childTaxonomyFacet = createTaxonomyFacet(childFacet, facet.getName());
+            if (childTaxonomyFacet != null) {
+                taxonomyFacet.addChild(childTaxonomyFacet);
             }
         }
 
-        return flattenedFolders;
+        return taxonomyFacet;
+    }
+
+    private boolean isExpectedParent(Category taxonomyCategory, String expectedParentKey) {
+        Category parentTaxonomy = taxonomyCategory.getParent();
+
+        if (expectedParentKey == null) {
+            return parentTaxonomy == null;
+        }
+
+        return parentTaxonomy != null && expectedParentKey.equals(parentTaxonomy.getKey());
     }
 
     private List<HippoFolderBean> getChildFolders(HippoFolderBean folder) {
