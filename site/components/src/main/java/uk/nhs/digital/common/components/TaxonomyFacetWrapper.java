@@ -42,8 +42,8 @@ public class TaxonomyFacetWrapper {
             .findAny()
             .map(HippoFolderBean::getFolders)
             .orElseGet(() -> {
-                log.error("Unable to find taxonomy facet.");
-                return null;
+                log.debug("Unable to find taxonomy facet.");
+                return emptyList();
             });
 
         if (isEmpty(taxonomyFacets)) {
@@ -70,7 +70,7 @@ public class TaxonomyFacetWrapper {
                 TaxonomyFacet parent = keyToTaxonomyFacet.get(parentKey);
 
                 if (parent == null) {
-                    log.error("No parent facet found for taxonomy key: " + taxonomyCategory.getName());
+                    log.debug("No parent facet found for taxonomy key: {}", taxonomyCategory.getName());
                 } else {
                     parent.addChild(taxonomyFacet);
                 }
