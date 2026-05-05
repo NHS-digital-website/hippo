@@ -15,6 +15,11 @@ env:
   TARGET: "production"
   SLACK_CHANNEL: "C0353KHFXNJ"
 
+# Concurrent runs in this group will be queued to safeguard the Git tags.
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
 jobs:
 
   # For Hotfix Deployment Only

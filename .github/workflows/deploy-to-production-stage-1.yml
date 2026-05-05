@@ -3,6 +3,10 @@
 name: Deploy to Production - Stage 1
 
 on:
+  # External Trigger
+  repository_dispatch:
+    types:
+      - external-scheduler-stage-1
   schedule:
     # Runs at 4pm BST (3pm UTC) Mon-Wed,Fri
     - cron: "0 15 * * 1-3,5"
@@ -10,12 +14,17 @@ on:
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"
 
+# Concurrent runs in this group will be queued to safeguard the Git tags.
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
 jobs:
 
   prepare-prod-deployment:
     name: Prepare Tags
     runs-on: ubuntu-22.04
-    timeout-minutes: 85
+    timeout-minutes: 15
 
     steps:
 
