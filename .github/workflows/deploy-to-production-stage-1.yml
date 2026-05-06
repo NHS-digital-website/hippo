@@ -8,8 +8,9 @@ on:
     types:
       - external-scheduler-stage-1
   schedule:
-    # Runs at 4pm BST (3pm UTC) Mon-Wed,Fri
-    - cron: "0 15 * * 1-3,5"
+    # Runs at 4pm Mon-Wed,Fri
+    - cron: "0 16 * * 1-3,5"
+      timezone: "Europe/London"
 
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"
@@ -29,7 +30,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master

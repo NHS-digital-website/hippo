@@ -74,7 +74,7 @@ jobs:
     needs: integrity
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -96,7 +96,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -138,7 +138,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -256,7 +256,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
