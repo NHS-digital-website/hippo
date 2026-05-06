@@ -1,9 +1,11 @@
 package uk.nhs.digital.common.components;
 
+import static ch.qos.logback.classic.Level.ERROR;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.capitalize;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.empty;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
@@ -13,11 +15,13 @@ import static uk.nhs.digital.common.components.TaxonomyFacetWrapper.TAXONOMY_FAC
 import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
+import uk.nhs.digital.test.TestLoggerRule;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +33,9 @@ public class TaxonomyFacetWrapperTest {
     @Mock private Taxonomy taxonomy;
     @Mock private HippoFacetNavigationBean facetBean;
     @Mock private HippoFolderBean taxonomyFacet;
+
+    @Rule
+    public TestLoggerRule logger = TestLoggerRule.targeting(TaxonomyFacetWrapper.class, ERROR);
 
     @Before
     public void setUp() throws Exception {
@@ -61,6 +68,31 @@ public class TaxonomyFacetWrapperTest {
         assertTaxonomyChildFacets(taxonomy1Children, "Taxonomy 1 2", "Taxonomy 1 2 1", "Taxonomy 1 2 2");
 
         assertTaxonomyChildFacets(taxonomy2Children, "Taxonomy 2 2", "Taxonomy 2 2 1", "Taxonomy 2 2 2");
+    }
+
+    @Test
+    public void returnsEmptyTaxonomyFacetsWithoutErrorLogWhenFacetBeanHasNoCategoryFacet() {
+        HippoFolderBean documentTypeFacet = mockTaxonomyFacetBean("document-type");
+        given(facetBean.getFolders()).willReturn(Collections.singletonList(documentTypeFacet));
+
+        List<TaxonomyFacet> rootTaxonomyFacets = new TaxonomyFacetWrapper(taxonomy, facetBean).getRootTaxonomyFacets();
+
+        assertThat(rootTaxonomyFacets, empty());
+        logger.shouldReceive();
+    }
+
+    @Test
+    public void ignoresTaxonomyFacetWithoutErrorLogWhenParentFacetIsMissing() {
+        HippoFolderBean taxonomy1 = mockTaxonomyFacetBean("taxonomy_1");
+        HippoFolderBean taxonomy11 = mockTaxonomyFacetBean("taxonomy_1_1");
+        HippoFolderBean taxonomy121 = mockTaxonomyFacetBean("taxonomy_1_2_1");
+        given(taxonomyFacet.getFolders()).willReturn(Arrays.asList(taxonomy1, taxonomy11, taxonomy121));
+
+        List<TaxonomyFacet> rootTaxonomyFacets = new TaxonomyFacetWrapper(taxonomy, facetBean).getRootTaxonomyFacets();
+
+        assertTaxonomyFacets(rootTaxonomyFacets, "Taxonomy 1");
+        assertTaxonomyChildFacets(rootTaxonomyFacets, "Taxonomy 1", "Taxonomy 1 1");
+        logger.shouldReceive();
     }
 
     private Category mockCategory(String key) {
