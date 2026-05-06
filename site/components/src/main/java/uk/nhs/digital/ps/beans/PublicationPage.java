@@ -21,7 +21,7 @@ public class PublicationPage extends BaseDocument implements IndexPage, Paginate
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:bodySections", allowModifications = false)
     public List<HippoBean> getSections() {
-        return getChildBeansIfPermitted("publicationsystem:bodySections", null);
+        return getChildBeansIfPermitted("publicationsystem:bodySections", HippoBean.class);
     }
 
     public Publication getPublication() {
@@ -39,24 +39,21 @@ public class PublicationPage extends BaseDocument implements IndexPage, Paginate
 
     @Override
     public Pagination paginate() {
+        Publication publication = getPublication();
+        List<IndexPage> pageIndex = publication.getPageIndex();
         int index = IntStream
-            .range(0, getPublication().getPageIndex().size())
-            .filter(i -> getPublication().getPageIndex().get(i).getTitle().equalsIgnoreCase(getTitle()))
+            .range(0, pageIndex.size())
+            .filter(i -> pageIndex.get(i).getTitle().equalsIgnoreCase(getTitle()))
             .findFirst()
             .orElse(-1);
-        if (0 <= index && index < getPublication().getPageIndex().size()) {
-            if (index == 0) {
-                return new Pagination(null, getIndexPage(getPublication(), 1));
-            } else if (index < getPublication().getPageIndex().size() - 1) {
-                return new Pagination(getIndexPage(getPublication(), index - 1), getIndexPage(getPublication(), index + 1));
-            } else {
-                return new Pagination(getIndexPage(getPublication(), index - 1), null);
-            }
-        }
-        return null;
-    }
 
-    private static IndexPage getIndexPage(Publication publication, int index) {
-        return publication.getPageIndex().get(index);
+        if (index == -1) {
+            return null;
+        }
+
+        IndexPage previous = index > 0 ? pageIndex.get(index - 1) : null;
+        IndexPage next = index < pageIndex.size() - 1 ? pageIndex.get(index + 1) : null;
+
+        return previous == null && next == null ? null : new Pagination(previous, next);
     }
 }
