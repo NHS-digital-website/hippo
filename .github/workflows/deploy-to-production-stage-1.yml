@@ -7,10 +7,6 @@ on:
   repository_dispatch:
     types:
       - external-scheduler-stage-1
-  schedule:
-    # Runs at 4pm Mon-Wed,Fri
-    - cron: "0 16 * * 1-3,5"
-      timezone: "Europe/London"
 
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"

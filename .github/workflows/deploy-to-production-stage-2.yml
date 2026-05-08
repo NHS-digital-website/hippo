@@ -5,10 +5,7 @@ on:
   repository_dispatch:
     types:
       - slack-deploy-hotfix-command-odv2
-  # A Normal Deployment
-  schedule:
-    # Runs at 11:55am BST (10:55am UTC) Mon-Thur
-    - cron: "55 10 * * 1-4"
+      - external-scheduler-stage-2
 
 env:
   PROD_ENV_ID: "91d6f394-c2ed-40aa-bc8d-3b29e2aaa645"
@@ -29,7 +26,7 @@ jobs:
 
     runs-on: ubuntu-22.04
     timeout-minutes: 1
-    if: (github.event_name != 'schedule')
+    if: ${{ github.event.action == 'slack-deploy-hotfix-command-odv2' }}
     steps:
       # Validate that the command is called from deployment-od2-prod
       - name: Checking source
