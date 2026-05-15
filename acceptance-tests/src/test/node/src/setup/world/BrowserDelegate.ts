@@ -36,7 +36,11 @@ export default class BrowserDelegate {
     }
 
     async destroy() {
+        if (this.context) await this.context.close();
         if (this.browser) await this.browser.close();
+        this.page = undefined;
+        this.context = undefined;
+        this.browser = undefined;
     }
 
     async newContext() {
