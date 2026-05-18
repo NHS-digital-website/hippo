@@ -47,3 +47,13 @@
 #chat-widget-iframe {
     background: none;
 }
+
+.nhsd-m-table__mobile-list ul>li>ul>li {
+    flex-wrap: wrap;
+}
+
+@media(max-width:79em){
+    .nhsd-m-table td a.nhsd-a-link[href^="mailto"]  {
+        word-break: break-all
+    }
+}
