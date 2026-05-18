@@ -19,7 +19,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -52,7 +52,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -64,7 +64,7 @@ jobs:
         uses: ./.github/actions/br-supported-java-version
         id: java_version
       - name: Set up the JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'adopt'
           java-version: ${{ steps.java_version.outputs.version }}
@@ -90,7 +90,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: distribution-odv2
           path: target/*.tar.gz
@@ -103,7 +103,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       #
       # Get API access token and verify it.
@@ -120,7 +120,7 @@ jobs:
       # Download the distribution artifact
       #
       - name: Download version artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         id: download
 
       #
@@ -155,7 +155,7 @@ jobs:
       #
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -224,7 +224,7 @@ jobs:
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')
