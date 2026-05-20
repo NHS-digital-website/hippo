@@ -43,7 +43,7 @@ definitions:
               ckeditor.config.appended.json: '{mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
-                false}'
+                false,  "removeButtons": "Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Content
             field: html
