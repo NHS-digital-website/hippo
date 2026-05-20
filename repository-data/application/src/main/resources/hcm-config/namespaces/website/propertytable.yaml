@@ -38,6 +38,9 @@ definitions:
             wicket.id: ${cluster.id}.field
           /introduction:
             /cluster.options:
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, stylesSet:
+                ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, removeButtons:"Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Introduction
             field: introduction
