@@ -39,7 +39,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/gallery/website/developer
+          hipposys:value: /content/gallery
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       /editor:
