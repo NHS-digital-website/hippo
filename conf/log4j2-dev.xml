@@ -145,6 +145,9 @@
         <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
         <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
+        <!-- groovy scripts default log level in development -->
+        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport" level="info"/>
+
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
         <Logger name="io.swagger.v3.parser.OpenAPIV3Parser" level="warn"/>

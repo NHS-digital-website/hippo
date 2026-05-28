@@ -57,8 +57,7 @@
         <Logger name="org.hippoecm" level="error"/>
         <Logger name="com.onehippo" level="error"/>
         <Logger name="org.onehippo" level="error"/>
-        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport"
-                level="info"/>
+        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport" level="info"/>
         <Logger name="org.hippoecm.frontend.diagnosis" level="info"/>
 
         <!-- audit logging -->
@@ -129,8 +128,7 @@
         <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
         <!-- groovy scripts default log level in production -->
-        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport"
-                level="info"/>
+        <Logger name="org.onehippo.repository.update.UpdaterExecutionReport" level="info"/>
 
         <!-- project logging -->
         <Logger name="uk.nhs.digital.ps" level="info"/>
