@@ -6,6 +6,7 @@ import cookies from './utils/cookies';
  */
 import { initCookieConsent } from './relevance/relevance-cookie';
 import { printingEvents } from './events/printingEvents';
+import initGlobalHeader from './header/global-header-accessibility';
 import './print-publication';
 import './feed-page';
 import './show-hide-articles';
@@ -42,3 +43,5 @@ if (document.querySelector('[data-eforms="setup"]')) {
         eform(name, conditions, ajaxValidationUrl, ajaxSubmissionUrl);
     });
 }
+
+initGlobalHeader();
