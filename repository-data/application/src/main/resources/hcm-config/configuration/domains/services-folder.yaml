@@ -62,7 +62,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/gallery/website/services
+          hipposys:value: /content/gallery
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain
