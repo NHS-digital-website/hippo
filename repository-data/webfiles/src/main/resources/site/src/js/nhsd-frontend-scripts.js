@@ -1,5 +1,7 @@
 import './utils/public-path';
 import cookies from './utils/cookies';
+import initGlobalHeaderEscapeClose from './header/global-header-escape-close';
+import initGlobalHeaderFocusOrder from './header/global-header-focus-order';
 
 /**
  * Scripts to load just before `</body>`
@@ -12,6 +14,8 @@ import './show-hide-articles';
 
 initCookieConsent();
 printingEvents();
+initGlobalHeaderEscapeClose();
+initGlobalHeaderFocusOrder();
 
 if (document.querySelector('[data-chartsource=highchart]')) {
     import(/* webpackChunkName: "highchart-setup" */ './highcharts/highchart-setup').then((module) => {
