@@ -7636,8 +7636,8 @@ ol {
     }
 }
 
-.eforms input[type=color]:focus, .eforms input[type=date]:focus, .eforms input[type=datetime-local]:focus, .eforms input[type=datetime]:focus, .eforms input[type=email]:focus, .eforms input[type=month]:focus, .eforms input[type=password]:focus, .eforms input[type=search]:focus, .eforms input[type=tel]:focus, .eforms input[type=text]:focus, .eforms input[type=time]:focus, .eforms input[type=url]:focus, .eforms input[type=week]:focus, .eforms textarea:focus {
-    border: 2px solid #ffb81c
+.eforms input[type=color]:focus, .eforms input[type=date]:focus, .eforms input[type=datetime-local]:focus, .eforms input[type=datetime]:focus, .eforms input[type=email]:focus, .eforms input[type=month]:focus, .eforms input[type=password]:focus, .eforms input[type=search]:focus, .eforms input[type=tel]:focus, .eforms input[type=text]:focus, .eforms input[type=time]:focus, .eforms input[type=url]:focus, .eforms input[type=week]:focus, .eforms textarea:focus, .eforms select:focus, .eforms input[type="radio"]:focus {
+    outline: 2px solid #ffb81c !important;
 }
 
 .eforms input[type=checkbox], .eforms input[type=radio] {
