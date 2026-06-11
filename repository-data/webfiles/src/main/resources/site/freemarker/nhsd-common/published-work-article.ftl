@@ -268,7 +268,6 @@
                                 </#if>
                                 <a class="nhsd-a-link"
                                    href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
-                                   onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
                                     ${chapter.title}
@@ -286,7 +285,6 @@
                                     </#if>
                                     <a class="nhsd-a-link"
                                        href="${chapter.link + earlyAccessKey?has_content?then('?key=' + earlyAccessKey, '')}"
-                                       onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >
                                         ${chapter.title}

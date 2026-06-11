@@ -211,7 +211,6 @@
                                                 <@hst.link hippobean=author var="authorLink"/>
                                                 <a class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
                                                    href="${authorLink}"
-                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    aria-label="${author.title}"
                                                 >

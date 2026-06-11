@@ -24,8 +24,7 @@
 
                         <#if childPage.linkType == "external">
                             <article class="nhsd-!t-margin-bottom-6">
-                                <a class="nhsd-a-link" href="${childPage.link}"
-                                   onClick="${getOnClickMethodCall(document.class.name, childPage.link)}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
+                                <a class="nhsd-a-link" href="${childPage.link}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
                                     ${childPage.title}
                                     <span class="nhsd-t-sr-only">(external link, opens in a new tab)</span>
                                 </a>
@@ -40,7 +39,7 @@
                         <@hst.link hippobean=childPage var="relatedSubjectLink"/>
                         <article class="nhsd-!t-margin-bottom-6">
                             <@typeSpan "internal" />
-                            <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />" onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}">${childPage.title}</a>
+                            <a class="nhsd-a-link" href="<@hst.link hippobean=childPage />">${childPage.title}</a>
                             <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
                                 <p class="nhsd-t-body-s nhsd-!t-margin-top-1">${childPage.shortsummary}</p>
                             </#if>

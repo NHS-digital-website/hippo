@@ -210,7 +210,6 @@
                                                 <#if item.platformAffected.url??>
                                                 <a class="nhsd-a-box-link"
                                                    href="${item.platformAffected.url}"
-                                                   onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    aria-label="${item.platformAffected.title}"
                                                 >
@@ -467,7 +466,7 @@
                             <#list document.services as item>
                                 <@hst.link hippobean=item var="serviceLink"/>
                                 <li>
-                                    <a class="nhsd-a-link" href="${serviceLink}" onClick="${getOnClickMethodCall(document.class.name, serviceLink)}" onKeyUp="return vjsu.onKeyUp(event)">
+                                    <a class="nhsd-a-link" href="${serviceLink}" onKeyUp="return vjsu.onKeyUp(event)">
                                         ${item.title}
                                     </a>
                                 </li>
@@ -561,7 +560,6 @@
                                         <div class="nhsd-m-card nhsd-m-card--full-height">
                                             <a class="nhsd-a-box-link"
                                                href="${item.linkAddress}"
-                                               onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
                                                onKeyUp="return vjsu.onKeyUp(event)"
                                                aria-label="${item.linkAddress}"
                                             >

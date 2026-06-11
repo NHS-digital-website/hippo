@@ -77,16 +77,12 @@
                                                  - This is not the latest version of this API.
                                                 <#list releaseinfo.replacementlink as link>
                                                   <#if link.linkType == "internal">
-                                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link.link.title) />
                                                     <a href="<@hst.link hippobean=link.link />"
-                                                       onClick="${onClickMethodCall}"
                                                        onKeyUp="return vjsu.onKeyUp(event)">
                                                         See the latest version
                                                     </a>
                                                   <#elseif link.linkType == "external">
-                                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link.link) />
                                                     <a href="${link.link}"
-                                                       onClick="${onClickMethodCall}"
                                                        onKeyUp="return vjsu.onKeyUp(event)">
                                                         See the latest version
                                                      </a>

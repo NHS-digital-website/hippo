@@ -190,7 +190,6 @@
                                         <a itemprop="url"
                                            class="cta__title cta__button"
                                            href="${relatedSubjectLink}"
-                                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                                            onKeyUp="return vjsu.onKeyUp(event)"
                                         >
                                             ${item.title}

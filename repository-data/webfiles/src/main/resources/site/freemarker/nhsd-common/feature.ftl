@@ -231,7 +231,6 @@
                                 <a itemprop="url"
                                    class="nhsd-a-link"
                                    href="${relatedSubjectLink}"
-                                   onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                                    onKeyUp="return vjsu.onKeyUp(event)"
                                 >
                                     ${item.title}

@@ -141,7 +141,6 @@
                                     <#if item.platformAffected??>
                                         <#if item.platformAffected.url??>
                                             <a href="${item.platformAffected.url}"
-                                               onClick="${getOnClickMethodCall(document.class.name, item.platformAffected.url)}"
                                                onKeyUp="return vjsu.onKeyUp(event)"
                                             >
                                         </#if>
@@ -271,7 +270,7 @@
                             <#list document.services as item>
                                 <@hst.link hippobean=item var="serviceLink"/>
                                 <li>
-                                    <a class="cta__title cta__button" href="${serviceLink}" onClick="${getOnClickMethodCall(document.class.name, serviceLink)}" onKeyUp="return vjsu.onKeyUp(event)">
+                                    <a class="cta__title cta__button" href="${serviceLink}" onKeyUp="return vjsu.onKeyUp(event)">
                                         ${item.title}
                                     </a>
                                 </li>
@@ -305,7 +304,6 @@
 
                                 <div class="emphasis-box__content">
                                     <a href="${item.linkAddress}"
-                                       onClick="${getOnClickMethodCall(document.class.name, item.linkAddress)}"
                                        onKeyUp="return vjsu.onKeyUp(event)"
                                     >
                                         ${item.linkAddress}

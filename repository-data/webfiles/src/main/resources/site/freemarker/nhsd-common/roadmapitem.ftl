@@ -114,8 +114,7 @@
                                     <#if block.linkType == "internal">
                                         <a class="nhsd-a-link" href="<@hst.link hippobean=block.link />">${block.link.title}</a>
                                     <#else>
-                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                                        <a class="nhsd-a-link" href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a>
+                                        <a class="nhsd-a-link" href="${block.link}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a>
                                     </#if>
                                 </li>
                             </#if>

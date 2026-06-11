@@ -3,7 +3,7 @@ package uk.nhs.digital.common.contentrewriters;
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.openMocks;
-import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
+import static uk.nhs.digital.common.contentrewriters.RichTextContentRewriter.getHtmlCleaner;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;

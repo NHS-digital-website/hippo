@@ -2,13 +2,11 @@
 
 <#macro downloadBlock doc itemprop="">
 
-  <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, doc.title) />
 
   <div class="nhsd-m-download-card">
       <a 
         href="<@hst.link hippobean=doc />"
         class="nhsd-a-box-link"
-        onClick="${onClickMethodCall}"
         onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}
       >
       <div class="nhsd-a-box nhsd-a-box--bg-light-grey">

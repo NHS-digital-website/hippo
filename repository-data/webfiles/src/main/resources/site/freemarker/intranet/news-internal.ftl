@@ -99,8 +99,7 @@
                                         </div>
                                         <div class="intra-home-article-grid-article__contents">
                                             <h1 class="intra-home-article-grid-article__title">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, news.title) />
-                                                <a href="<@hst.link hippobean=news/>" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
+                                                <a href="<@hst.link hippobean=news/>" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
                                             </h1>
 
                                             <#if hasShortSummary>

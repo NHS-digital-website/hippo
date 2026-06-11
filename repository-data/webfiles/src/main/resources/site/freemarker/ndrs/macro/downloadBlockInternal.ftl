@@ -7,7 +7,6 @@
     <@hst.link hippobean=doc var="link"/>
     <div class="nhsd-m-download-card nhsd-!t-margin-bottom-6">
         <a href="${link}" class="nhsd-a-box-link"
-           onClick="${getOnClickMethodCall(classname, link)}"
            onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box">

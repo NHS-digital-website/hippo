@@ -89,10 +89,8 @@
                                             <@hst.link hippobean=action.link.link var="priorityActionInternalLink"/>
                                             <a <#if action.link.linkType == "internal">
                                                href="${priorityActionInternalLink}"
-                                               onClick="${getOnClickMethodCall(document.class.name, priorityActionInternalLink)}"
                                                <#else>
                                                href="${action.link.link}"
-                                               onClick="${getOnClickMethodCall(document.class.name, action.link.link)}"
                                                </#if>
                                                onKeyUp="return vjsu.onKeyUp(event)"
                                                class="nhsd-a-box-link"

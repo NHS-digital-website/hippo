@@ -48,8 +48,7 @@
                                 <h2 class="cta__title"><a href="<@hst.link hippobean=document.link.link />">${document.link.link.title}</a></h2>
                                 <p class="cta__text">${document.link.link.shortsummary}</p>
                             <#elseif document.link.linkType == "external">
-                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.link.link) />
-                                <h2 class="cta__title"><a href="${document.link.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${document.link.title}</a></h2>
+                                <h2 class="cta__title"><a href="${document.link.link}" onKeyUp="return vjsu.onKeyUp(event)">${document.link.title}</a></h2>
                                 <p class="cta__text">${document.link.shortsummary}</p>
                             </#if>
                         </div>

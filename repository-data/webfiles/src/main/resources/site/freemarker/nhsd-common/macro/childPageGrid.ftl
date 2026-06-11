@@ -16,7 +16,6 @@
                         <article>
                             <#if childPage.linkType??>
                                 <#-- Assign the link property of the externallink compound -->
-                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
 
                                 <@typeSpan childPage.linkType />
 

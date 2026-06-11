@@ -9,7 +9,6 @@
                 <div class="nhsd-o-chapter-navigation__previous-chapter">
                     <a class="nhsd-m-chapter"
                        href="${previousTask.link}"
-                       onClick="${getOnClickMethodCall(document.class.name,previousTask.link )}"
                        aria-label="Previous Chapter"
                     >
                         <div class="nhsd-m-chapter__content">
@@ -38,7 +37,6 @@
                 <div class="nhsd-o-chapter-navigation__next-chapter">
                     <a class="nhsd-m-chapter nhsd-m-chapter--right"
                        href="${nextTask.link}"
-                       onClick="${getOnClickMethodCall(document.class.name, nextTask.link)}"
                        aria-label="Next Chapter"
                     >
                         <div class="nhsd-m-chapter__content">

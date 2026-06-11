@@ -3,7 +3,7 @@ package uk.nhs.digital.common.components;
 import org.hippoecm.hst.core.component.*;
 import org.onehippo.cms7.essentials.components.*;
 import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
-import uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter;
+import uk.nhs.digital.common.contentrewriters.RichTextContentRewriter;
 import uk.nhs.digital.common.contentrewriters.ServiceBrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsWithLinksContentRewriter;
@@ -15,7 +15,7 @@ import uk.nhs.digital.common.contentrewriters.StripTagsWithLinksContentRewriter;
 public class ContentRewriterComponent extends EssentialsContentComponent {
 
     private static final BrandRefreshContentRewriter brContentRewriter = new BrandRefreshContentRewriter();
-    private static final GoogleAnalyticsContentRewriter gaContentRewriter = new GoogleAnalyticsContentRewriter();
+    private static final RichTextContentRewriter richTextContentRewriter = new RichTextContentRewriter();
     private static final StripTagsContentRewriter stripTagsContentRewriter = new StripTagsContentRewriter();
     private static final StripTagsWithLinksContentRewriter stripTagsWithLinksContentRewriter = new StripTagsWithLinksContentRewriter();
     private static final ServiceBrandRefreshContentRewriter serviceBrandRefreshContentRewriter = new ServiceBrandRefreshContentRewriter();
@@ -34,7 +34,7 @@ public class ContentRewriterComponent extends EssentialsContentComponent {
             request.setAttribute("stripTagsWithLinksContentRewriter", stripTagsWithLinksContentRewriter);
         }
         if (useGoogleAnalyticsContentRewriter()) {
-            request.setAttribute("gaContentRewriter", gaContentRewriter);
+            request.setAttribute("gaContentRewriter", richTextContentRewriter);
         }
         if (useServiceBrandRefreshContentRewriter()) {
             request.setAttribute("brContentRewriter", serviceBrandRefreshContentRewriter);

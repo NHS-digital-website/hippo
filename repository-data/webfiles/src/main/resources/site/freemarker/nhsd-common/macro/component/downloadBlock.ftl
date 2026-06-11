@@ -5,7 +5,7 @@
 
     <@hst.link hippobean=doc var="link"/>
     <div class="nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
-        <a href="${link}" class="nhsd-a-box-link" onClick="${getOnClickMethodCall(document.class.name, link)}" onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
+        <a href="${link}" class="nhsd-a-box-link" onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
                     <#-- macro to get the svg accepts type and size but size defaults to medium which is what we want -->

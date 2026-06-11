@@ -45,7 +45,6 @@
             <@hst.link hippobean=publication.parentDocument.selfLinkBean var="parentLink"/>
             <@fmt.message key="labels.publication"/>, Part of <a class="nhsd-a-link nhsd-a-link--col-white"
                                                                  href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
-                                                                 onClick="${getOnClickMethodCall(publication.parentDocument.class.name, parentLink)}"
                                                                  itemprop="url"><span itemprop="name">${publication.parentDocument.title}</span></a>
         <#else>
             <@fmt.message key="labels.publication"/>
@@ -434,7 +433,6 @@
                                     <span itemprop="name"><a itemprop="url" href="<@hst.link hippobean=page.linkedBean>
                                                 <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
                                                 </@hst.link>"
-                                                onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                                                 ${isActive?then('', 'data-print-article')}>${page.title}</a></span>
                                 </li>
                             </#list>

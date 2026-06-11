@@ -230,7 +230,7 @@
                                 <div class="latestBlog__content">
                                     <div class="latestBlog__title">
                                         <@hst.link hippobean=author var="authorLink"/>
-                                        <a class="cta__title cta__button" href="${authorLink}" onClick="${getOnClickMethodCall(document.class.name, authorLink)}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
+                                        <a class="cta__title cta__button" href="${authorLink}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
                                     </div>
                                     <div class="blog-authors__body">
                                         <#if author.shortsummary?? && author.shortsummary?has_content>
@@ -268,7 +268,7 @@
                     <div class="news-latest-news-item">
                       <div class="news-latest-news-item-headline">
                         <@hst.link hippobean=news var="newsLink"/>
-                        <a href="${newsLink}" onClick="${getOnClickMethodCall(document.class.name, newsLink)}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
+                        <a href="${newsLink}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
                       </div>
                       <div class="news-latest-news-item-date">
                         <@fmt.formatDate value=news.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />

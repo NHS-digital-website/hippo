@@ -14,16 +14,14 @@
             <article class="cta cta--hf">
                 <#if childPage.linkType??>
                     <#-- Assign the link property of the externallink compound -->
-                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
                     
                     <@typeSpan childPage.linkType />
 
                     <#if childPage.linkType == "external">
-                        <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
+                        <h2 class="cta__title"><a href="${childPage.link}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
                     <#elseif childPage.linkType == "asset">
                         <a href="<@hst.link hippobean=childPage.link />"
                            class="block-link"
-                           onClick="${onClickMethodCall}"
                            onKeyUp="return vjsu.onKeyUp(event)">
                             <div class="block-link__header">
                                 <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>

@@ -176,7 +176,6 @@
                                 </#if>
                                 <a class="nhsd-a-link"
                                    href="${chapter.link}"
-                                   onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                    title="${chapter.title}"
                                 >
                                     ${chapter.title}
@@ -194,7 +193,6 @@
                                     </#if>
                                     <a class="nhsd-a-link"
                                        href="${chapter.link}"
-                                       onClick="${getOnClickMethodCall(document.class.name, chapter.link)}"
                                        title="${chapter.title}"
                                     >
                                         ${chapter.title}

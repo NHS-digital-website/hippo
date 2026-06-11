@@ -39,7 +39,6 @@
         <div class="${(small == true)?then('nhsd-m-download-card', 'nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3')}">
             <a href="${(external == true)?then(resource, url)}"
                class="nhsd-a-box-link"
-               onClick="${getOnClickMethodCall(classname, (external == true)?then(resource, url), true)}"
                onKeyUp="return vjsu.onKeyUp(event)"
                ${orgPrompt?then('data-org-prompt', '')} ${archiveContent?then('rel=archived', '')}>
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">

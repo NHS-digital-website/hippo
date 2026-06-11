@@ -48,7 +48,6 @@
                                 <#elseif block.linkType == "external">
                                     <a href="${block.link}"
                                        class="block-link"
-                                       onClick="${getOnClickMethodCall(document.class.name, block.link)}"
                                        onKeyUp="return vjsu.onKeyUp(event)">
                                         <div class="block-link__header">
                                             <@fileIconByFileType block.link />
@@ -64,7 +63,6 @@
                                     <#assign archiveContent = block.link.archiveMaterial/>
                                     <a href="${link}"
                                        class="block-link"
-                                       onClick="${getOnClickMethodCall(document.class.name, link)}"
                                        onKeyUp="return vjsu.onKeyUp(event)" ${archiveContent?then('rel=archived', '')}>
                                     <div class="block-link__header">
                                         <@fileIconByMimeType block.link.asset.mimeType></@fileIconByMimeType>

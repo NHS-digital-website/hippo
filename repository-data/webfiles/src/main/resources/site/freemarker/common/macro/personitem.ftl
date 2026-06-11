@@ -19,8 +19,7 @@
 
             <div class="blog-authors__content">
                 <div class="blog-authors__title">
-                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
-                    <a class="cta__title cta__button" href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
+                    <a class="cta__title cta__button" href="<@hst.link hippobean=author/>" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
                 </div>
                 <div class="blog-authors__body">
                     <#if author.biographies?? && author.biographies?has_content && author.biographies.profbiography.content?has_content>

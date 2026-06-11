@@ -4,7 +4,6 @@
     <@hst.link hippobean=doc var="link"/>
     <a href="${link}"
        class="block-link"
-       onClick="${getOnClickMethodCall(document.class.name, link)}"
        onKeyUp="return vjsu.onKeyUp(event)" ${itemprop}>
         <div class="block-link__header">
             <span class="icon icon--html icon--download" aria-hidden="true"></span>

@@ -214,7 +214,6 @@
                                     itemtype="http://schema.org/Dataset">
                                     <a itemprop="url"
                                        href="${link}"
-                                       onClick="${getOnClickMethodCall(document.class.name, link)}"
                                        onKeyUp="return vjsu.onKeyUp(event)"
                                        title="${dataset.title}">
                                         <span

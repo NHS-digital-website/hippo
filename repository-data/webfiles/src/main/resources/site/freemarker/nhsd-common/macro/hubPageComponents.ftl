@@ -24,13 +24,12 @@
                             <#if childPage.linkType??>
                                 <@typeSpan childPage.linkType />
                                 
-                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
                                 
                                 <#if childPage.linkType == "external">
-                                    <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
+                                    <h2 class="cta__title"><a href="${childPage.link}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
                                 <#elseif childPage.linkType == "asset">
                                     <h2 class="cta__title">
-                                        <a href="<@hst.link hippobean=childPage.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a><@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix>
+                                        <a href="<@hst.link hippobean=childPage.link />" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a><@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix>
                                     </h2>
                                 </#if>
                             <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
