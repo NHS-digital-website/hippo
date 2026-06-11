@@ -15,7 +15,6 @@
                            href="<@hst.link hippobean=pagination.previous.linkedBean>
                                     <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
                                  </@hst.link>"
-                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Previous Chapter"
                         >
                             <div class="nhsd-m-chapter__content">
@@ -39,7 +38,6 @@
                            href="<@hst.link hippobean=pagination.next.linkedBean>
                                     <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
                                  </@hst.link>"
-                           onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLinkNext)}"
                            aria-label="Next Chapter"
                         >
                             <div class="nhsd-m-chapter__content">

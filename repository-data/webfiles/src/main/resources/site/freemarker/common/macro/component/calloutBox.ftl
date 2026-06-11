@@ -59,7 +59,7 @@
 
             <${headerElement} class="callout-box__content-heading${modLightHeader}${modNarrowHeader}" id="callout-box-heading-${calloutBoxId}">
                 <#if interactive && callout.link?has_content>
-                    <a href="${callout.link}" onClick="${getOnClickMethodCall(classname, callout.link)}" onKeyUp="return vjsu.onKeyUp(event)">${callout.title}</a>
+                    <a href="${callout.link}" onKeyUp="return vjsu.onKeyUp(event)">${callout.title}</a>
                 <#else>
                     ${callout.title}
                 </#if>
@@ -68,7 +68,7 @@
             <div class="callout-box__content-description">
                 <#if survey>
                     <p>${callout.content}</p>
-                    <p><a href="${callout.link}" onClick="${getOnClickMethodCall(classname, callout.link)}" onKeyUp="return vjsu.onKeyUp(event)">${callout.text}</a></p>
+                    <p><a href="${callout.link}" onKeyUp="return vjsu.onKeyUp(event)">${callout.text}</a></p>
                 <#else>
                     <@hst.html hippohtml=callout.content contentRewriter=gaContentRewriter />
                 </#if>
@@ -83,7 +83,7 @@
                                 </summary>
                                 <div class="details-body" aria-hidden="true" id="details-content-${callout.index}">
                                     <@hst.html hippohtml=callout.accessiblelocation.content contentRewriter=gaContentRewriter />
-                                    <p><a href="${callout.accessiblelocation.link}" onClick="${getOnClickMethodCall(classname, callout.accessiblelocation.link)}" onKeyUp="return vjsu.onKeyUp(event)">${callout.accessiblelocation.title}</a></p>
+                                    <p><a href="${callout.accessiblelocation.link}" onKeyUp="return vjsu.onKeyUp(event)">${callout.accessiblelocation.title}</a></p>
                                 </div>
                             </details>
                         </div>

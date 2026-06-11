@@ -63,10 +63,9 @@
                         <#list galleryItem.relatedFiles as attachment>
 
                             <@hst.link hippobean=attachment.link var="link" />
-                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link) />
 
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
-                                <a href="<@hst.link hippobean=attachment.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
+                                <a href="<@hst.link hippobean=attachment.link />" class="block-link" onKeyUp="return vjsu.onKeyUp(event)">
                                     <div class="block-link__header">
                                         <#if attachment.link.asset?has_content>
                                           <@fileIconByMimeType attachment.link.asset.mimeType></@fileIconByMimeType>

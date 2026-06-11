@@ -100,7 +100,6 @@
                         </div>
 
                         <#if viewAllNews?has_content>
-                            <#assign onClickMethodCallNews = getOnClickMethodCall(document.class.name, viewAllNewsLink) />
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <div class="ctabtn--div">
@@ -108,7 +107,6 @@
                                             <a href="${viewAllNewsLink}"
                                                class="ctabtn-left ctabtn--nhs-digital-button"
                                                id="ctabtn-${slugify(viewAllNews)}"
-                                               onClick="${onClickMethodCallNews}"
                                                onKeyUp="return vjsu.onKeyUp(event)">${viewAllNews}</a>
                                         </div>
                                     </div>
@@ -130,17 +128,14 @@
                                         <div class="ctabtn-${slugify(document.ctabutton.alignment)}" aria-labelledby="ctabtn-${slugify(document.ctabutton.title)}">
                                             <#assign ctaItem = document.ctabutton.items[0] />
                                             <#if ctaItem.linkType == "internal">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctaItem.link.title) />
                                                 <@hst.link hippobean=ctaItem.link var="ctaLink" />
                                             <#elseif ctaItem.linkType == "external">
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctaItem.link) />
                                                 <#assign ctaLink = ctaItem.link />
                                             </#if>
 
                                             <a href="${ctaLink}"
                                                class="ctabtn-${slugify(document.ctabutton.alignment)} ctabtn--${slugify(document.ctabutton.buttonType)}"
                                                id="ctabtn-${slugify(document.ctabutton.title)}"
-                                               onClick="${onClickMethodCall}"
                                                onKeyUp="return vjsu.onKeyUp(event)">
                                                 ${document.ctabutton.title}
                                             </a>
@@ -166,7 +161,6 @@
                         </div>
 
                         <#if viewAllBlogs?has_content>
-                            <#assign onClickMethodCallBlogs = getOnClickMethodCall(document.class.name, viewAllNewsLink) />
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <div class="ctabtn--div">
@@ -174,7 +168,6 @@
                                             <a href="${viewAllBlogsLink}"
                                                class="ctabtn-left ctabtn--nhs-digital-button"
                                                id="ctabtn-${slugify(viewAllBlogs)}"
-                                               onClick="${onClickMethodCallBlogs}"
                                                onKeyUp="return vjsu.onKeyUp(event)">${viewAllBlogs}</a>
                                         </div>
                                     </div>

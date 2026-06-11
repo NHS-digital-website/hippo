@@ -101,7 +101,6 @@
                     <div>
                         <a class="nhsd-a-link"
                            href="${authorLink}"
-                           onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
                         itemprop="url">
                             <span itemprop="name">${author.title}</span>
                         </a>
@@ -298,7 +297,6 @@
                                 <a itemprop="url"
                                    class="nhsd-a-link"
                                    href="${relatedSubjectLink}"
-                                   onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                                    onKeyUp="return vjsu.onKeyUp(event)"
                                 >
                                     ${item.title}
@@ -327,7 +325,6 @@
                                             <div class="nhsd-m-card">
                                                 <@hst.link hippobean=author var="authorLink"/>
                                                 <a href="${authorLink}"
-                                                   onClick="${getOnClickMethodCall(document.class.name, authorLink)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    class="nhsd-a-box-link nhsd-a-box-link--focus-orange"
                                                    aria-label="${author.title}"

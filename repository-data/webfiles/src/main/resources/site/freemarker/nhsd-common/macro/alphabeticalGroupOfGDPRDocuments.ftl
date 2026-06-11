@@ -79,8 +79,7 @@
                                             <#if block.linkType == "internal">
                                                 <h2 class="cta__meta cta__meta--reset-bottom"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
                                             <#else>
-                                                <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                                                <h2 class="cta__meta cta__meta--reset-bottom"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
+                                                <h2 class="cta__meta cta__meta--reset-bottom"><a href="${block.link}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                                             </#if>
                                         </article>
                                     </li>

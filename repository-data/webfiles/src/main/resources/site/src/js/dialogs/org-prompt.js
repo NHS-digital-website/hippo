@@ -1,7 +1,5 @@
+/* global nhsd */
 import cookies from '../utils/cookies';
-
-// Do we need to open modal on page load?
-if (window.openOrgTrackingModal && !isOrgSet()) nhsd('#track-download-modal').trigger('modal-open');
 
 function isOrgSet() {
     const organisation = cookies.get('organisation');
@@ -13,33 +11,33 @@ function trackOrgDownload(downloadUrl) {
 
     const organisation = cookies.get('organisation');
 
-    // Tracking code
-    window.logGoogleAnalyticsEvent('Download attachment', organisation, downloadUrl);
-
     window.dataLayer.push({
-        'event': 'download_attachment',
-        'file': downloadUrl,
-        'org': organisation
+        event: 'download_attachment',
+        file: downloadUrl,
+        org: organisation,
     });
 
     return true;
 }
 
+// Do we need to open modal on page load?
+if (window.openOrgTrackingModal && !isOrgSet()) nhsd('#track-download-modal').trigger('modal-open');
+
 // For "DECLINE" & "NOT FOUND" values. Hold these for 1 day.
 const trackOrgLinks = document.querySelectorAll('.js-track-org-button');
-trackOrgLinks.forEach(link => link.addEventListener('click', (e) => {
+trackOrgLinks.forEach((link) => link.addEventListener('click', (e) => {
     e.preventDefault();
     const orgCode = link.dataset.organisation;
     if (!orgCode) return;
     cookies.set('organisation', orgCode, 1);
     nhsd('#track-download-modal').trigger('modal-close');
-}))
+}));
 
 // If data-org-prompt is set on a link, launch the organisation prompt
 // unless an organisation is already set
 const orgPromptElements = document.querySelectorAll('[data-org-prompt]');
-orgPromptElements.forEach(orgPromptElement => {
-    orgPromptElement.addEventListener('click', function(e) {
+orgPromptElements.forEach((orgPromptElement) => {
+    orgPromptElement.addEventListener('click', (e) => {
         // Try to track if cookie exists
         if (trackOrgDownload(orgPromptElement.href)) return;
 
@@ -55,18 +53,18 @@ orgPromptElements.forEach(orgPromptElement => {
 const searchInput = document.querySelector('#org-search');
 const searchDropdown = document.querySelector('#autocomplete-default');
 if (searchInput && searchDropdown) {
-    const apiUrl = searchInput.dataset.apiUrl;
-    nhsd(searchInput).on(['keyup', 'click'], e => {
-        let searchText = searchInput.value;
+    const { apiUrl } = searchInput.dataset;
+    nhsd(searchInput).on(['keyup', 'click'], () => {
+        const searchText = searchInput.value;
 
         if (searchText.length > 2) {
-            fetch(apiUrl + '?orgName=' + searchText)
-                .then(response => response.json())
-                .then(orgs => {
+            fetch(`${apiUrl}?orgName=${searchText}`)
+                .then((response) => response.json())
+                .then((orgs) => {
                     if (orgs.length > 0) {
                         // Limit to 100 items
-                        let orgList = orgs.slice(0, 1000);
-                        nhsd(searchDropdown).trigger('dropdown-set-items', orgList.map(i => ({
+                        const orgList = orgs.slice(0, 1000);
+                        nhsd(searchDropdown).trigger('dropdown-set-items', orgList.map((i) => ({
                             text: `${i.orgName} (${i.code})`,
                             data: i,
                         })));
@@ -76,7 +74,7 @@ if (searchInput && searchDropdown) {
                     }
                 })
                 .catch(() => {
-                    console.error(`Couldn't retrieve organisation data`);
+                    console.error('Couldn\'t retrieve organisation data');
                 });
         } else {
             nhsd(searchDropdown).trigger('dropdown-close');
@@ -86,16 +84,18 @@ if (searchInput && searchDropdown) {
     // On org selection, create 'organisation' cookie
     nhsd(searchDropdown).on('dropdown-selection', (e, element) => {
         const orgCode = element.dataset.code;
-        const orgName = element.dataset.orgName
+        const { orgName } = element.dataset;
         if (!orgCode || !orgName) return;
         cookies.set('organisation', `${orgName} (${orgCode})`, 7);
     });
 
-    document.querySelector('#track-download-confirm-org').addEventListener('click', function() {
+    document.querySelector('#track-download-confirm-org').addEventListener('click', () => {
         // If tracking is successful, close modal
-        if (isOrgSet()) return nhsd('#track-download-modal').trigger('modal-close');
-
-        // Else, show an error
-        document.querySelector('#org-not-selected').removeAttribute('hidden');
-    })
+        if (isOrgSet()) {
+            nhsd('#track-download-modal').trigger('modal-close');
+        } else {
+            // Else, show an error
+            document.querySelector('#org-not-selected').removeAttribute('hidden');
+        }
+    });
 }

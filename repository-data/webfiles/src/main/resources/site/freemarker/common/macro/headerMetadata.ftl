@@ -27,8 +27,7 @@
                                     <#elseif data.type == "list" >
                                       <span ${itempropProp}><#list data.value as tag>${tag}<#sep>, </#list></span>
                                     <#elseif data.type == "link" >
-                                      <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, data.value.title) />
-                                      <a href="<@hst.link hippobean=data.value/>" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)"><span ${itempropProp}>${data.value.title}</span></a>
+                                      <a href="<@hst.link hippobean=data.value/>" onKeyUp="return vjsu.onKeyUp(event)"><span ${itempropProp}>${data.value.title}</span></a>
                                     <#elseif data.type == "twitterHashtag">
                                        <#list data.value as oldtag>
                                          <#if ! oldtag?starts_with("#")>

@@ -88,12 +88,10 @@
                                             <#else>
                                                 <#assign priorityActionLink=action.link.link/>
                                             </#if>
-                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, action.action) />
                                             <div class="ctabtn--inline" aria-labelledby="ctabtn-${slugify(action.action)}">
                                                 <a href="${priorityActionLink}"
                                                     class="ctabtn--white-button"
                                                     id="ctabtn-${slugify(action.action)}"
-                                                    onClick="${onClickMethodCall}"
                                                     onKeyUp="return vjsu.onKeyUp(event)">
                                                     ${action.action}
                                                 </a>

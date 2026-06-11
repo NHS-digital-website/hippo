@@ -9,7 +9,6 @@
 
     <div class="nhsd-m-download-card nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">
         <a href="${link}" class="nhsd-a-box-link"
-           onClick="${getOnClickMethodCall(classname, link)}"
            onKeyUp="return vjsu.onKeyUp(event)">
             <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                 <div class="nhsd-m-download-card__image-box nhsd-!t-margin-top-3 nhsd-!t-padding-bottom-3">

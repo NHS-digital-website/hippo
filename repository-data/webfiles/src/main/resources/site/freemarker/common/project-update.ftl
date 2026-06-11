@@ -132,12 +132,10 @@
                                                         <@downloadBlock link.link firstUrlItemProp/>
 
                                                     <#elseif link.linkType == "external">
-                                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link.title) />
 
                                                         <#--schema:about-->
                                                         <a href="${link.link}"
                                                            class="block-link"
-                                                           onClick="${onClickMethodCall}"
                                                            onKeyUp="return vjsu.onKeyUp(event)" ${firstUrlItemProp}>
                                                             <div class="block-link__header">
                                                                 <@fileIconByFileType link.link />

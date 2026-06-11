@@ -124,7 +124,6 @@
                                             <h3 itemprop="name">
                                                 <a href="${latestPublicationLink}"
                                                    class="cta__button"
-                                                   onClick="${getOnClickMethodCall(document.class.name, latestPublicationLink)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    itemprop="url"
                                                    title="${series.latestPublication.title}"
@@ -161,14 +160,14 @@
                                     <@hst.link hippobean=series.statistician var="responsibleStatistician"/>
                                     <dl class="detail-list">
                                         <dt class="detail-list__key"><@fmt.message key="labels.responsible-statistician"/></dt>
-                                        <dd class="detail-list__value"><a href="${responsibleStatistician}" onClick="${getOnClickMethodCall(document.class.name, responsibleStatistician)}" onKeyUp="return vjsu.onKeyUp(event)">${series.statistician.title}</a></dd>
+                                        <dd class="detail-list__value"><a href="${responsibleStatistician}" onKeyUp="return vjsu.onKeyUp(event)">${series.statistician.title}</a></dd>
                                     </dl>
                                 </#if>
                                 <#if hasResponsibleTeam>
                                     <@hst.link hippobean=series.team var="responsibleTeam"/>
                                     <dl class="detail-list">
                                         <dt class="detail-list__key"><@fmt.message key="labels.responsible-team"/></dt>
-                                        <dd class="detail-list__value"><a href="${responsibleTeam}" onClick="${getOnClickMethodCall(document.class.name, responsibleTeam)}" onKeyUp="return vjsu.onKeyUp(event)">${series.team.title}</a></dd>
+                                        <dd class="detail-list__value"><a href="${responsibleTeam}" onKeyUp="return vjsu.onKeyUp(event)">${series.team.title}</a></dd>
                                     </dl>
                                 </#if>
                             </div>
@@ -211,7 +210,6 @@
                                             <#assign objTitle>
                                                 <a href="replacedSeriesLink"
                                                    class="cta__button"
-                                                   onClick="${getOnClickMethodCall(document.class.name, replacedSeriesLink)}"
                                                    onKeyUp="return vjsu.onKeyUp(event)"
                                                    itemprop="url"
                                                 >${object.replacementSeries.title}</a>
@@ -243,7 +241,6 @@
                                                                 <h3 itemprop="name">
                                                                     <a href="${pastPublicationLink}"
                                                                        class="cta__button"
-                                                                       onClick="${getOnClickMethodCall(document.class.name, pastPublicationLink)}"
                                                                        onKeyUp="return vjsu.onKeyUp(event)"
                                                                        itemprop="url"
                                                                        title="${pubData.title}"
@@ -279,7 +276,7 @@
                                                                             <@hst.link hippobean=suppInfo var="suppInfoLink"/>
                                                                             <li class="inset-text__block">
                                                                                 <h4 class="inset-text__block-title">
-                                                                                    <a href="${suppInfoLink}" onClick="${getOnClickMethodCall(document.class.name, suppInfoLink)}" onKeyUp="return vjsu.onKeyUp(event)">${suppInfo.title}</a>
+                                                                                    <a href="${suppInfoLink}" onKeyUp="return vjsu.onKeyUp(event)">${suppInfo.title}</a>
                                                                                     <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if>
                                                                                 </h4>
                                                                                 <div class="inset-text__block-content rich-text-content" itemprop="description">
@@ -406,7 +403,6 @@
                     <h3 itemprop="name">
                         <a class="cta__button"
                            href="${upcomingPublicationLink}"
-                           onClick="${getOnClickMethodCall(document.class.name, upcomingPublicationLink)}"
                            onKeyUp="return vjsu.onKeyUp(event)"
                            title="${publication.title}"
                            itemprop="url"

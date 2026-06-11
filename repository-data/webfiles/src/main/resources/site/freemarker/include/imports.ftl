@@ -67,21 +67,6 @@
     <#return docType/>
 </#function>
 
-<#-- onClick attribute helper function -->
-<#function getOnClickMethodCall className, link, download=false>
-    <#if className?? && link??>
-        <#if className?contains("uk.nhs.digital.website.beans") ||
-             className?contains("uk.nhs.digital.ps.beans")>
-            <#assign classNameSplit = className?split("$")>
-            <#assign classNameWithoutHash = classNameSplit[0]>
-            <#local docType = getDocTypeName(classNameWithoutHash) />
-
-        <#else>
-            <#local docType = getDocTypeName(className) />
-        </#if>
-    </#if>
-</#function>
-
 <#function getPageTitle documentTitle = ''>
     <#local siteTitle = "NHS Digital"/>
     <#assign pageTitle = siteTitle/>

@@ -113,9 +113,8 @@
                     <div class="nhsd-o-hero__meta-data-item-description" data-uipath="">
                         <span>${document.location}</span>
                         <#if document.maplocation?has_content>
-                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
                             <span>
-                                <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-white" href="${document.maplocation}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
+                                <a class="nhsd-a-link nhsd-a-link nhsd-a-link--col-white" href="${document.maplocation}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
                             </span>
                         </#if>
                     </div>
@@ -129,8 +128,7 @@
             <div class="nhsd-t-col-xs-12 nhsd-t-col-s-8">
 
                 <#if hasSessions && hasFutureEvent && document.booking?has_content>
-                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                    <a class="nhsd-a-button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
+                    <a class="nhsd-a-button" href="${document.booking}" onKeyUp="return vjsu.onKeyUp(event)" rel="external">
                         <span class="nhsd-a-button__label">Book Now</span>
                     </a>
                 </#if>

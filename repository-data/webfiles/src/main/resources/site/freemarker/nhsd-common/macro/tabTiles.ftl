@@ -23,11 +23,9 @@
             <#if options.linkType == "internal">
             <a href="<@hst.link hippobean=options.link />" class="nhsd-a-box-link" aria-label="${title}">
             <#elseif options.linkType == "external">
-            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, options.title) />
-            <a href="${options.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link" aria-label="${title}">
+            <a href="${options.link}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link" aria-label="${title}">
             <#elseif options.linkType == "asset">
-            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, options.link) />
-            <a href="<@hst.link hippobean=options.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link" aria-label="${title}">
+            <a href="<@hst.link hippobean=options.link />" onKeyUp="return vjsu.onKeyUp(event)" class="nhsd-a-box-link" aria-label="${title}">
             </#if>
                 <div class="nhsd-a-box nhsd-a-box--bg-light-grey">
                     <div class="nhsd-m-card__content_container">

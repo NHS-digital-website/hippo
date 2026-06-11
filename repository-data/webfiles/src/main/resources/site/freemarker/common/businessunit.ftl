@@ -74,8 +74,7 @@
                         <#if document.responsiblerole.relatedPeople?size == 1>
                           <div>
                             <#list document.responsiblerole.relatedPeople as person>
-                              <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, person.title) />
-                              <a href="<@hst.link hippobean=person/>" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${person.title}</a>
+                              <a href="<@hst.link hippobean=person/>" onKeyUp="return vjsu.onKeyUp(event)">${person.title}</a>
                             </#list>
                           </div>
                         </#if>

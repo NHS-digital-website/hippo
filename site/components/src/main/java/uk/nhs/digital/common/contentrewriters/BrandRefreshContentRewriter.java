@@ -24,7 +24,7 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
 
-public class BrandRefreshContentRewriter extends GoogleAnalyticsContentRewriter {
+public class BrandRefreshContentRewriter extends RichTextContentRewriter {
 
     private static Logger LOGGER = LoggerFactory.getLogger(BrandRefreshContentRewriter.class);
 

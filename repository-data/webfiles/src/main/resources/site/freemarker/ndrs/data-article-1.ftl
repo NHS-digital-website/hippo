@@ -127,9 +127,8 @@
                                 <dd class="tabbed-detail__value" data-uipath="">
                                     <span>${document.location}</span>
                                     <#if document.maplocation?has_content>
-                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
                                         <span>
-                                            <a href="${document.maplocation}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
+                                            <a href="${document.maplocation}" onKeyUp="return vjsu.onKeyUp(event)">View Map</a>
                                         </span>
                                     </#if>
                                 </dd>
@@ -148,8 +147,7 @@
 
                 <#if hasSessions && hasFutureEvent && document.booking?has_content>
                     <div class="article-section">
-                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                        <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
+                        <a class="button" href="${document.booking}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
                     </div>
                 </#if>
 

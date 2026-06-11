@@ -50,13 +50,11 @@
                                             <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
                                             <p class="cta__text">${block.link.shortsummary}</p>
                                         <#elseif block.linkType == "external">
-                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                                            <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
+                                            <h2 class="cta__title"><a href="${block.link}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                                             <p class="cta__text">${block.shortsummary}</p>
                                         <#elseif block.linkType == "asset">
                                             <a href="<@hst.link hippobean=block.link />"
                                                class="block-link"
-                                               onClick="${onClickMethodCall}"
                                                onKeyUp="return vjsu.onKeyUp(event)">
                                                 <div class="block-link__header">
                                                     <@fileIconByMimeType block.link.asset.mimeType></@fileIconByMimeType>

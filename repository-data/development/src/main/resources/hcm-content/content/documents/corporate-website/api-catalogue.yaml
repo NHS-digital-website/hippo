@@ -136,7 +136,7 @@
               hippostd:content: |-
                 <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -165,9 +165,9 @@
           /website:sections[8]:
             /website:html:
               hippostd:content: |-
-                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+                <p>You need a&nbsp;<a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -544,7 +544,7 @@
               hippostd:content: |-
                 <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -573,9 +573,9 @@
           /website:sections[8]:
             /website:html:
               hippostd:content: |-
-                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+                <p>You need a&nbsp;<a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -951,7 +951,7 @@
               hippostd:content: |-
                 <p>This API is a platinum service, meaning it is operational and supported 24 hours a day, 365 days a year.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -980,9 +980,9 @@
           /website:sections[8]:
             /website:html:
               hippostd:content: |-
-                <p>You need a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/health-and-social-care-network');" href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
+                <p>You need a&nbsp;<a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>&nbsp;connection to use this API.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/network-access-for-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/network-access-for-apis">Network access for APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15216,7 +15216,7 @@
                  <li>delete a subscription</li>
                 </ul>
 
-                <p>This API uses a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events');" href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/national-events-management-service');" href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh');" href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
+                <p>This API uses a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
 
                 <p>NEMS authorises a specific list of&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/controller_catalogue.html">system suppliers and health and social care organisations</a> to publish information as events.</p>
 
@@ -15287,7 +15287,7 @@
               hippostd:content: |-
                 <p>This API is a bronze service, meaning it is operational and supported only during business hours (8am to 6pm), Monday to Friday excluding bank holidays.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15354,7 +15354,7 @@
 
                 <p>It also implements authorisation controls which restrict the event types the connecting application can <a href="https://developer.nhs.uk/apis/ems-beta/explore_subscriptions.html">subscribe to</a>&nbsp;or <a href="https://developer.nhs.uk/apis/ems-beta/publication_publish.html">publish</a>.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15466,7 +15466,7 @@
 
                 <p>As part of&nbsp;this process, you need to demonstrate that you can manage risks and that your software conforms technically with the requirements for this API. This might impact the design of your software. For details, see&nbsp;<a href="onboarding-support-information">NEMS FHIR API onboarding support information</a>.</p>
 
-                <p>To understand how our online digital onboarding process works, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/digital-onboarding');" href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
+                <p>To understand how our online digital onboarding process works, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15709,7 +15709,7 @@
                  <li>delete a subscription</li>
                 </ul>
 
-                <p>This API uses a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events');" href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/national-events-management-service');" href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh');" href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
+                <p>This API uses a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
 
                 <p>NEMS authorises a specific list of&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/controller_catalogue.html">system suppliers and health and social care organisations</a> to publish information as events.</p>
 
@@ -15780,7 +15780,7 @@
               hippostd:content: |-
                 <p>This API is a bronze service, meaning it is operational and supported only during business hours (8am to 6pm), Monday to Friday excluding bank holidays.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15847,7 +15847,7 @@
 
                 <p>It also implements authorisation controls which restrict the event types the connecting application can <a href="https://developer.nhs.uk/apis/ems-beta/explore_subscriptions.html">subscribe to</a>&nbsp;or <a href="https://developer.nhs.uk/apis/ems-beta/publication_publish.html">publish</a>.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -15959,7 +15959,7 @@
 
                 <p>As part of&nbsp;this process, you need to demonstrate that you can manage risks and that your software conforms technically with the requirements for this API. This might impact the design of your software. For details, see&nbsp;<a href="onboarding-support-information">NEMS FHIR API onboarding support information</a>.</p>
 
-                <p>To understand how our online digital onboarding process works, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/digital-onboarding');" href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
+                <p>To understand how our online digital onboarding process works, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16201,7 +16201,7 @@
                  <li>delete a subscription</li>
                 </ul>
 
-                <p>This API uses a&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events');" href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/services/national-events-management-service');" href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh');" href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
+                <p>This API uses a&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-healthcare-technology/integration-and-apis#publish-subscribe-events">publish-subscribe</a>&nbsp;model - the sending system publishes specific range of healthcare&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/overview_supported_events.html">event messages</a>&nbsp;to&nbsp;<a href="national-events-management-service-new-2_2">National Events Management Service (NEMS)</a>, and NEMS forwards the events to all subscribed systems via&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/api-technologies-at-nhs-digital#mesh">MESH</a>.</p>
 
                 <p>NEMS authorises a specific list of&nbsp;<a href="https://developer.nhs.uk/apis/ems-beta/controller_catalogue.html">system suppliers and health and social care organisations</a> to publish information as events.</p>
 
@@ -16272,7 +16272,7 @@
               hippostd:content: |-
                 <p>This API is a bronze service, meaning it is operational and supported only during business hours (8am to 6pm), Monday to Friday excluding bank holidays.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/reference-guide#service-levels');" href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#service-levels">service levels</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16339,7 +16339,7 @@
 
                 <p>It also implements authorisation controls which restrict the event types the connecting application can <a href="https://developer.nhs.uk/apis/ems-beta/explore_subscriptions.html">subscribe to</a>&nbsp;or <a href="https://developer.nhs.uk/apis/ems-beta/publication_publish.html">publish</a>.</p>
 
-                <p>For more details, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis');" href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
+                <p>For more details, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#application-restricted-apis">application-restricted APIs</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16451,7 +16451,7 @@
 
                 <p>As part of&nbsp;this process, you need to demonstrate that you can manage risks and that your software conforms technically with the requirements for this API. This might impact the design of your software. For details, see&nbsp;<a href="onboarding-support-information">NEMS FHIR API onboarding support information</a>.</p>
 
-                <p>To understand how our online digital onboarding process works, see&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/guides-and-documentation/digital-onboarding');" href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
+                <p>To understand how our online digital onboarding process works, see&nbsp;<a href="https://digital.nhs.uk/developer/guides-and-documentation/digital-onboarding">digital onboarding</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16668,7 +16668,7 @@
 
                 <p>The form asks for details about your use case so that our interoperability working group can assess it.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16693,7 +16693,7 @@
               hippostd:content: |-
                 <p>Complete this form if you are a software development organisation (supplier) who has already achieved technical conformance with NEMS, and you now want to extend your product roll out to additional health and social care end user organisations, such as an NHS trust.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16826,7 +16826,7 @@
 
                 <p>The form asks for details about your use case so that our interoperability working group can assess it.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16851,7 +16851,7 @@
               hippostd:content: |-
                 <p>Complete this form if you are a software development organisation (supplier) who has already achieved technical conformance with NEMS, and you now want to extend your product roll out to additional health and social care end user organisations, such as an NHS trust.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -16983,7 +16983,7 @@
 
                 <p>The form asks for details about your use case so that our interoperability working group can assess it.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
@@ -17008,7 +17008,7 @@
               hippostd:content: |-
                 <p>Complete this form if you are a software development organisation (supplier) who has already achieved technical conformance with NEMS, and you now want to extend your product roll out to additional health and social care end user organisations, such as an NHS trust.</p>
 
-                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a onclick="logGoogleAnalyticsEvent('Link click','General','/developer/help-and-support');" href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
+                <p>This is a Microsoft Excel file. To request a different format,&nbsp;<a href="https://digital.nhs.uk/developer/help-and-support">contact us</a>.</p>
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:section
             website:headinglevel: Main heading
