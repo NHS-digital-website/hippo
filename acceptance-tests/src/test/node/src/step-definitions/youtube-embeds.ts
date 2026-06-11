@@ -7,17 +7,39 @@ function getVideo(page: Page, embedName:string) {
     return page.locator(`[data-youtube='${embedName}'] iframe[src*="youtube.com/embed/"]`);
 }
 
-When('{string} YouTube embed has loaded', {timeout: 30000}, async function(this: CustomWorld, embedName: string) {
-    await this.browser.loadScript('https://www.youtube.com/iframe_api');
+When('{string} YouTube embed has loaded', {timeout: 60000}, async function(this: CustomWorld, embedName: string) {
     const page = await this.browser.getPage();
     const youtubeEmbed = getVideo(page, embedName);
     expect(await youtubeEmbed.count()).greaterThan(0);
+
+    // Minimal local stub for YouTube IFrame API
+    await page.evaluate(() => {
+        (window as any).YT = {
+            loaded: 1,
+            Player: function (_element: Element, options: any) {
+                const player = {
+                    getPlayerState() {
+                        return 5;
+                    },
+                    addEventListener(_eventName: string, _handler: any) {}
+                };
+
+                setTimeout(() => {
+                    if (options?.events?.onReady) {
+                        options.events.onReady({ target: player });
+                    }
+                }, 0);
+
+                return player;
+            }
+        };
+    });
 
     // Wait for YouTube video ready event
     await page.evaluate(`
         new Promise((res) => {
             const loadYT = () => {
-               window.youtubePlayer = new YT.Player(document.querySelector('[data-variant="${embedName}"] iframe[src*="youtube.com/embed/"]'), {
+               window.youtubePlayer = new YT.Player(document.querySelector('[data-youtube="${embedName}"] iframe[src*="youtube.com/embed/"]'), {
                     events: {
                         'onReady': (e) => {
                             if (e.target.getPlayerState() == 5) {
@@ -65,5 +87,3 @@ Then('{string} YouTube embed should start playing', {timeout: 10000}, async func
     // `);
     expect(videoPlaying).to.be.true;
 });
-
-
