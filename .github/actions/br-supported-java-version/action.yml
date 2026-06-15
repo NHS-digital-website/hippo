@@ -27,7 +27,7 @@ runs:
 
     - name: Select Java version
       id: java_version
-      uses: actions/github-script@v7
+      uses: actions/github-script@v9
       env:
         BR_VERSION: ${{ steps.bloomreach_version.outputs.version }}
       with:

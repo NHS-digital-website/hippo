@@ -249,6 +249,9 @@ jobs:
       - name: Download version artifact
         uses: actions/download-artifact@v8
         id: download
+        with:
+          name: build
+          path: build
 
       #
       # Get and store the details of the download
@@ -256,9 +259,18 @@ jobs:
       - name: Get artifact details
         id: details
         run: |
-          echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }')" >> $GITHUB_OUTPUT
-          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')" >> $GITHUB_OUTPUT
-        working-directory: ${{steps.download.outputs.download-path}}/build
+          set -euo pipefail
+          distributions=(*.tar.gz)
+          if [ ! -e "${distributions[0]}" ]; then
+            ls -la
+            echo "No distribution tarball found in downloaded artifact."
+            exit 1
+          fi
+          distribution="${distributions[0]}"
+          version="$(echo "${distribution}" | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')"
+          echo "distribution=${distribution}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_OUTPUT
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Upload Build to BR Cloud
@@ -275,7 +287,7 @@ jobs:
         env:
           DISTRIBUTION: ${{steps.details.outputs.distribution}}
           VERSION: ${{steps.details.outputs.version}}
-        working-directory: ${{steps.download.outputs.download-path}}/build
+        working-directory: ${{steps.download.outputs.download-path}}
 
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
