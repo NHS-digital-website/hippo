@@ -6,6 +6,7 @@ on:
 
 jobs:
   convert:
+    if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
