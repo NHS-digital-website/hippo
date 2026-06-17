@@ -5,6 +5,7 @@ import cookies from './utils/cookies';
  * Scripts to load just before `</body>`
  */
 import { initCookieConsent } from './relevance/relevance-cookie';
+import initHeroTitles from './hero/hero-title-expand';
 import { printingEvents } from './events/printingEvents';
 import './print-publication';
 import './feed-page';
@@ -42,3 +43,7 @@ if (document.querySelector('[data-eforms="setup"]')) {
         eform(name, conditions, ajaxValidationUrl, ajaxSubmissionUrl);
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    initHeroTitles();
+});
