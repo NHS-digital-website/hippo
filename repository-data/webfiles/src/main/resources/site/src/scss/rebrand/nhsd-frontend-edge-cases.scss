@@ -70,7 +70,48 @@
 
 /* Ensure the button/footer area reserves room for the focus ring and doesn't clip it */
 #CybotCookiebotDialog [id*="ButtonsWrapper"] {
-padding-bottom: 16px;
-overflow: visible;
+    padding-bottom: 16px;
+    overflow: visible;
+}
 
+/* Hero title expand button */
+.nhsd-t-heading-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.nhsd-t-heading-wrapper:has(.nhsd-t-heading-xxl.expanded) {
+    overflow: visible;
+}
+
+.nhsd-t-heading-xxl.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+}
+
+.nhsd-hero-title-btn-show-more {
+    display: none;
+    background: none;
+    border: none;
+    align-items: end;
+    font-size: inherit;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+}
+
+.nhsd-hero-title-btn-show-more.visible {
+    display: block;
+    margin-left:auto;
+    bottom: 0;
+    right: 0;
+    margin-top:10px;
+}
+
+.nhsd-hero-title-btn-show-more:focus,
+.nhsd-hero-title-btn-show-more:hover{
+    padding-bottom: 0;
+    border-bottom: 3px solid var(--black, #231f20);
+    outline: 0;
+    color: var(--black, #231f20);
+    background-color: var(--yellow, #fae100);
 }
