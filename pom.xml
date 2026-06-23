@@ -1188,7 +1188,7 @@
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
-                        <artifactId>cargo-maven3-archetypes</artifactId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
                         <configuration>
                             <container>
                                 <systemProperties>
