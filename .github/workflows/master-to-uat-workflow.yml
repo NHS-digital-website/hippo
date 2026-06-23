@@ -19,7 +19,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -52,7 +52,7 @@ jobs:
       # Step 1
       #
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -64,7 +64,7 @@ jobs:
         uses: ./.github/actions/br-supported-java-version
         id: java_version
       - name: Set up the JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'adopt'
           java-version: ${{ steps.java_version.outputs.version }}
@@ -90,7 +90,7 @@ jobs:
       # upload build for next job
       #
       - name: Store Artifact for Later in the Pipeline
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: distribution-odv2
           path: target/*.tar.gz
@@ -103,7 +103,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       #
       # Get API access token and verify it.
@@ -120,8 +120,11 @@ jobs:
       # Download the distribution artifact
       #
       - name: Download version artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         id: download
+        with:
+          name: distribution-odv2
+          path: distribution-odv2
 
       #
       # Get and store the details of the download
@@ -129,9 +132,18 @@ jobs:
       - name: Get artifact details
         id: details
         run: |
-          echo "distribution=$(echo ls *.tar.gz | awk '{ print $2 }')" >> $GITHUB_OUTPUT
-          echo "version=$(echo ls *.tar.gz | awk '{ print $2 }' | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')" >> $GITHUB_OUTPUT
-        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv2
+          set -euo pipefail
+          distributions=(*.tar.gz)
+          if [ ! -e "${distributions[0]}" ]; then
+            ls -la
+            echo "No distribution tarball found in downloaded artifact."
+            exit 1
+          fi
+          distribution="${distributions[0]}"
+          version="$(echo "${distribution}" | grep -oP '(?<=website-).*(?=-distribution.tar.gz)')"
+          echo "distribution=${distribution}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_OUTPUT
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Upload Build to BR Cloud
@@ -148,14 +160,14 @@ jobs:
         env:
           DISTROBUTION: ${{steps.details.outputs.distribution}}
           VERSION: ${{steps.details.outputs.version}}
-        working-directory: ${{steps.download.outputs.download-path}}/distribution-odv2
+        working-directory: ${{steps.download.outputs.download-path}}
 
       #
       # Check Response
       #
       - name: Check Response has ID from Upload Build to BR Cloud
         if: ${{ steps.distribution.outputs.id.length == 36 }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             core.setFailed('Upload Build to BR Cloud failed!')
@@ -203,6 +215,12 @@ jobs:
           id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "brc-mail-smtp-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
           echo "id=${id}" >> $GITHUB_OUTPUT
 
+      - name: Get latest Non Production Safegards File
+        id: non-production-safegards
+        run: |
+          id=$(echo '${{steps.files.outputs.details}}' | sed -e 's/+00:00/Z/g' | jq ' . | map( select( .name | startswith( "non-production-safegards-" ) ) ) | sort_by( .createdAt | fromdate ) | reverse | .[0].id')
+          echo "id=${id}" >> $GITHUB_OUTPUT
+
       - name: Request Deployment from BR Cloud
         id: deployment
         run: |
@@ -210,7 +228,7 @@ jobs:
           -H "Accept: application/json; charset=utf-8" \
           -H "Authorization: Bearer ${{ steps.jwt_token.outputs.token }}" \
           -X PUT https://api.${{ vars.BR_CLOUD }}/v3/environments/${{ env.ENVIRONMENT }}/deploy \
-          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" } ] }' \
+          -d '{ "distributionId": "${{ env.DISTRIBUTION }}", "strategy" : "rollingupdate", "appConfigFileRoles": [ { "appConfigFileId": ${{ steps.aws-keys.outputs.id }}, "role": "file", "newFilename": "aws-credentials.properties" }, { "appConfigFileId": ${{ steps.system-properties.outputs.id }}, "role": "systemproperty" }, { "appConfigFileId": ${{ steps.latest-ip-whitelist.outputs.id }}, "role": "file", "newFilename": "hippo-ipfilter.properties" }, { "appConfigFileId": ${{ steps.brc-mail-smtp.outputs.id }}, "role": "file", "newFilename": "brc-mail-smtp.properties" }, { "appConfigFileId": ${{ steps.non-production-safegards.outputs.id }}, "role": "systemproperty" } ] }' \
           -o /dev/null -w '%{http_code}\n' -s)
           echo "code=$code" >> $GITHUB_OUTPUT
         env:
@@ -218,7 +236,7 @@ jobs:
           ENVIRONMENT: "083ff91e-6ac5-4638-945c-3ee18acc40bf"
 
       - name: Check Response Code from Request Deployment
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         if: ${{ steps.deployment.outputs.code != 202 }}
         with:
           script: core.setFailed('Response code mismatch while requesting deployment from BR Cloud! Response ${{ env.CODE }}')

@@ -141,7 +141,7 @@ default|backgroundImage|image|accentedImage|accentedImageMirrored
             <#list digiblocks as digiblock>
                 <#if digiblock == 'tr' || digiblock == 'br' || digiblock == 'bl' || digiblock == 'tl' >
                     <div class="nhsd-a-digiblocks nhsd-a-digiblocks--pos-${digiblock} ${digiblockColorClass} ${alignClass} hero-banner-img">
-                        <svg width="486" height="486" viewBox="0 0 486 486" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="486" height="486" viewBox="0 0 486 486" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <mask id="mask0_4820_4927" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="11" y="27" width="462" height="433">
                         <rect x="11" y="27" width="462" height="433" fill="#C4C4C4"/>
                         </mask>

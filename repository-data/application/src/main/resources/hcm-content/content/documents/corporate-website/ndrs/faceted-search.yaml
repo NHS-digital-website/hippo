@@ -1,0 +1,19 @@
+---
+/content/documents/corporate-website/ndrs/faceted-search:
+  hippo:docbase: abb6eac0-97f5-47d7-a9a6-a6f7e9aad0d3
+  hippofacnav:facetnodenames:
+  - category
+  - year${sortby:'facetvalue', sortorder:'descending'}
+  hippofacnav:facets:
+  - common:FullTaxonomy
+  - hippostdpubwf:publicationDate$year
+  hippofacnav:filters:
+  - common:searchableNdrsType=true
+  hippofacnav:limit: 100
+  hippofacnav:sortby:
+  - jcr:score
+  - hippofacnav:sortby
+  hippofacnav:sortorder:
+  - descending
+  - descending
+  jcr:primaryType: hippofacnav:facetnavigation

@@ -65,7 +65,7 @@ definitions:
                 contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
-                false}'
+                false, removeButtons:"Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Body
             field: body

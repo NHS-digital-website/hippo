@@ -104,6 +104,9 @@ definitions:
             wicket.id: ${cluster.id}.field
           /highlightsContent:
             /cluster.options:
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, stylesSet:
+                ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, removeButtons:"Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Highlights content
             field: highlightsContent
@@ -644,6 +647,7 @@ definitions:
             - ''
           common:searchRank: 6
           common:searchable: true
+          common:searchableNdrsType: true
           common:searchableType: true
           hippostd:holder: holder
           hippostd:state: draft

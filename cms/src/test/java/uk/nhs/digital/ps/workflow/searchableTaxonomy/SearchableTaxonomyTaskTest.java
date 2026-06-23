@@ -147,6 +147,36 @@ public class SearchableTaxonomyTaskTest {
         assertTrue("Full taxonomy is set for draft", draft.hasProperty(FULL_TAXONOMY_PROPERTY));
     }
 
+    @Test
+    public void supportsLocaleBasedTaxonomyMetadata() throws RepositoryException, WorkflowException {
+        Node taxonomyTreeNode = rootNode.getNode("/content/taxonomies/" + TAXONOMY_NAME + "/" + TAXONOMY_NAME);
+        Node localeCategory = taxonomyTreeNode.addNode("locale-taxonomy", TAXONOMY_CATEGORY_NODE_TYPE);
+        localeCategory.setProperty(TAXONOMY_KEY_PROPERTY, "locale-taxonomy");
+        localeCategory.setProperty(LOCALE_EN_NAME_PROPERTY, "Locale Taxonomy");
+        localeCategory.setProperty(
+            LOCALE_EN_SYNONYMS_PROPERTY,
+            new Value[]{new StringValue("Locale Synonym")}
+        );
+
+        String docName = "localeTaxonomyDocument";
+        Node docNode = rootNode.addNode(docName);
+        Node document = docNode.addNode(docName);
+        document.setProperty("hippostd:state", DRAFT);
+        document.setProperty(TAXONOMY_KEYS_PROPERTY, new Value[]{new StringValue("locale-taxonomy")});
+
+        performTask(docNode);
+
+        List<String> fullTaxonomy = getStringValuesFromProperty(document, FULL_TAXONOMY_PROPERTY);
+        assertThat("Full taxonomy is as expected.", fullTaxonomy, containsInAnyOrder("locale-taxonomy"));
+
+        List<String> searchableTags = getStringValuesFromProperty(document, SEARCHABLE_TAGS_PROPERTY);
+        assertThat(
+            "Searchable tags are as expected",
+            searchableTags,
+            containsInAnyOrder("Locale Taxonomy", "Locale Synonym")
+        );
+    }
+
     @PrepareForTest(SearchableTaxonomyTask.class)
     @Test(expected = WorkflowException.class)
     public void repositoryExceptionIsPropogated() throws Exception {

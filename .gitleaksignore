@@ -1,0 +1,187 @@
+# Baseline produced from gitleaks v8.30.0 on the Digital project. Each entry references a known non-sensitive record so history can remain intact.
+# cms/src/main/webapp/WEB-INF/hst-config.properties
+# Reason: File removed in favour of site/webapp equivalent; only ever held repository path reference.
+98f9df59786b14649b8cb0cb88c03c97a6ce33d7:cms/src/main/webapp/WEB-INF/hst-config.properties:generic-api-key:11
+1240cb806307b2343fd57a8b45c8359c3db04296:cms/src/main/webapp/WEB-INF/hst-config.properties:generic-api-key:12
+
+# cms/src/test/java/uk/nhs/digital/apispecs/jobs/ApiSpecSyncFromProxygenJobIntegrationTest.java
+# Reason: Integration test uses synthetic Proxygen client/user credentials against WireMock stubs.
+f150f2a2c91f208f54376b97afff75f838c4c80a:cms/src/test/java/uk/nhs/digital/apispecs/jobs/ApiSpecSyncFromProxygenJobIntegrationTest.java:private-key:70
+
+# cms/src/test/java/uk/nhs/digital/externalstorage/workflow/externalFilePublish/ExternalFilePublishTaskTest.java
+# Reason: Test-environment S3 access key strings ensure tagging logic is exercised; not real access keys.
+16279c61ee1275a14b35607e7d3e1908ee10f4b9:cms/src/test/java/uk/nhs/digital/externalstorage/workflow/externalFilePublish/ExternalFilePublishTaskTest.java:generic-api-key:65
+
+# cms/src/test/java/uk/nhs/digital/jobs/ApiSpecSyncFromApigeeJobIntegrationTest.java
+# Reason: Removed integration test stored canned credentials/tokens purely for WireMock fixtures.
+0aa6b3b6a16359be273a4898e61f4f437adcd425:cms/src/test/java/uk/nhs/digital/jobs/ApiSpecSyncFromApigeeJobIntegrationTest.java:generic-api-key:67
+933c17eeaf93b147a9cab2aef909215e23c63c87:cms/src/test/java/uk/nhs/digital/jobs/ApiSpecSyncFromApigeeJobIntegrationTest.java:generic-api-key:67
+0aa6b3b6a16359be273a4898e61f4f437adcd425:cms/src/test/java/uk/nhs/digital/jobs/ApiSpecSyncFromApigeeJobIntegrationTest.java:generic-api-key:70
+933c17eeaf93b147a9cab2aef909215e23c63c87:cms/src/test/java/uk/nhs/digital/jobs/ApiSpecSyncFromApigeeJobIntegrationTest.java:generic-api-key:70
+
+# cms/src/test/resources/test-data/api-specifications/ApiSpecConversionJobIntegrationTest/auth-access-token-response.json
+# Reason: Historical fixture JSON representing anonymised OAuth response payload for unit tests.
+0aa6b3b6a16359be273a4898e61f4f437adcd425:cms/src/test/resources/test-data/api-specifications/ApiSpecConversionJobIntegrationTest/auth-access-token-response.json:generic-api-key:4
+933c17eeaf93b147a9cab2aef909215e23c63c87:cms/src/test/resources/test-data/api-specifications/ApiSpecConversionJobIntegrationTest/auth-access-token-response.json:generic-api-key:4
+
+# cms/src/test/resources/test-data/api-specifications/ApiSpecSyncFromProxygenJobIntegrationTest/auth-access-token-response.json
+# Reason: WireMock fixture for OAuth token request; contains fabricated token strings.
+f150f2a2c91f208f54376b97afff75f838c4c80a:cms/src/test/resources/test-data/api-specifications/ApiSpecSyncFromProxygenJobIntegrationTest/auth-access-token-response.json:generic-api-key:5
+
+# conf/log4j2-dist.xml
+# Reason: Logging configuration enumerates logger names and contains no secrets—matches Bloomreach sample.
+39a7d867a1abd7cd99661eed304864d7de374e90:conf/log4j2-dist.xml:generic-api-key:46
+39a7d867a1abd7cd99661eed304864d7de374e90:conf/log4j2-dist.xml:generic-api-key:57
+39a7d867a1abd7cd99661eed304864d7de374e90:conf/log4j2-dist.xml:generic-api-key:68
+
+# repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml
+# Reason: Taxonomy filter mapping contains public slug identifiers that drive navigation, not credentials.
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:27
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:27
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:27
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:48
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:48
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:48
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:106
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:106
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:106
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:127
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:127
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:127
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:186
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:186
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:186
+7b5a5818d3822a9d082f5d1534be459e7ee63836:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:207
+96b7864e7ec8614351bcfcc83241a712271385e7:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:207
+e7f17f061fd43cc9454ff6db02ffae86a07992b4:repository-data/application/src/main/resources/hcm-content/content/documents/administration/website/service-catalogue/taxonomy-filters-mapping.yaml:generic-api-key:207
+
+# repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml
+# Reason: Defines taxonomy hierarchy metadata with slugs/UUIDs exported from Bloomreach; contains no operational secrets.
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:5450
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:5450
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:5568
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:5568
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:6823
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:6823
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:6913
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:6913
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:7535
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:7535
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:13075
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:13075
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:13193
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:13193
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:14448
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:14448
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:14538
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:14538
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:15160
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:15160
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:20699
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:20699
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:20817
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:20817
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22072
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22072
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22162
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22162
+48c36d28d43295861c8acb3f9d85155e4e8bcdb2:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22784
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/application/src/main/resources/hcm-content/content/taxonomies.yaml:generic-api-key:22784
+
+# repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml
+# Reason: Developer-hub taxonomy fixtures mirror the production schema using slug strings only.
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:26
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:47
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:108
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:129
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:190
+3b629e188ef4a969383050c5381a53b3ff621fe2:repository-data/development/src/main/resources/hcm-content/content/documents/administration/website/developer-hub/taxonomy-filters-mapping.yaml:generic-api-key:211
+
+# repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml
+# Reason: Content export describing onboarding and API guidance; includes text references to shared secrets but no actual credentials.
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3680
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3680
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:3789
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:3789
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3798
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3824
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3824
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3907
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:3907
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:4016
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:4016
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4025
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4051
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4051
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4134
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4134
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:4243
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:jwt:4243
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4252
+8e9cf715d1a9ad1b3369e07ef4d6990acff2cc55:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4278
+aa33a063abecf28871d477f73e9d0b73e128d324:repository-data/development/src/main/resources/hcm-content/content/documents/corporate-website/api-catalogue.yaml:generic-api-key:4278
+
+# repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml
+# Reason: Non-prod taxonomy fixtures; only contains identifiers used for grouping documents.
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:6
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:8
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:2261
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:2263
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:4514
+96e754592af54359cb79b85aef69eea54a3c1729:repository-data/development/src/main/resources/hcm-content/content/taxonomies/uat_taxonomy.yaml:generic-api-key:4516
+
+# repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl
+# Reason: Legacy version embedded a CAPTCHA site key that has since been rotated and replaced by SecretsAccessor managed lookup.
+2bec3ef16631938e9e6f5e0bae326a22595a1302:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:101
+4970094c535832a74c95586bf72bc0eb89fcd7e9:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:101
+8cb5c1a6c0d1f5f1901db26acbc2246e6e82d644:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:101
+d330793ad5b010c47d95bbd1725f3e99cd04a519:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:101
+233aa1f024d02c40a9f3be3f2ece9979f2029484:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:105
+0ad2a922235893fd2593577c93658241afecd978:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:110
+0f921dde485b921895f409f8c62e2e669f892e51:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:112
+f535bc1f4ac8cbb00d4688f63e48536d28210ca0:repository-data/webfiles/src/main/resources/site/freemarker/common/eforms/eforms-default.ftl:generic-api-key:116
+
+# repository-data/webfiles/src/main/resources/site/freemarker/common/macro/eforms.ftl
+# Reason: Historic Freemarker macro referenced the same deprecated CAPTCHA key that is no longer deployed.
+6650d2211c0e9e8f416e87b8453aeb1f2b42bcad:repository-data/webfiles/src/main/resources/site/freemarker/common/macro/eforms.ftl:generic-api-key:117
+
+# repository-data/webfiles/src/main/resources/site/freemarker/common/sign-up.ftl
+# Reason: Legacy signup template previously duplicated the deprecated CAPTCHA key; file now references SecretsAccessor managed value.
+6650d2211c0e9e8f416e87b8453aeb1f2b42bcad:repository-data/webfiles/src/main/resources/site/freemarker/common/sign-up.ftl:generic-api-key:114
+
+# site/components/src/test/java/uk/nhs/digital/common/components/apicatalogue/UrlGeneratorDirectiveTest.java
+# Reason: Unit tests verify query-string encoding using literal "key=value" strings; no secrets.
+74482083e63876734987ba079008539e798fa799:site/components/src/test/java/uk/nhs/digital/common/components/apicatalogue/UrlGeneratorDirectiveTest.java:generic-api-key:125
+74482083e63876734987ba079008539e798fa799:site/components/src/test/java/uk/nhs/digital/common/components/apicatalogue/UrlGeneratorDirectiveTest.java:generic-api-key:138
+
+# site/components/src/test/java/uk/nhs/digital/ps/beans/PublicationTest.java
+# Reason: Unit tests use dummy attribute names such as publicationsystem:earlyaccesskey for bean lookups.
+16279c61ee1275a14b35607e7d3e1908ee10f4b9:site/components/src/test/java/uk/nhs/digital/ps/beans/PublicationTest.java:generic-api-key:306
+16279c61ee1275a14b35607e7d3e1908ee10f4b9:site/components/src/test/java/uk/nhs/digital/ps/beans/PublicationTest.java:generic-api-key:314

@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.ContentRewriterComponent;
 import uk.nhs.digital.ps.beans.Archive;
+import uk.nhs.digital.ps.beans.ImageSection;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
@@ -37,11 +38,29 @@ public class PublicationComponent extends ContentRewriterComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
-        Publication publication = (Publication) ctx.getContentBean();
+        final HippoBean contentBean = ctx.getContentBean();
+
+        if (!(contentBean instanceof Publication)) {
+            LOG.debug("PublicationComponent skipping non-publication bean: {}",
+                contentBean == null ? "null" : contentBean.getClass().getName());
+            return;
+        }
+
+        Publication publication = (Publication) contentBean;
 
         request.setAttribute("publication", publication);
         request.setAttribute("index", getIndex(publication));
-        request.setAttribute("keyFactImageSections", pageSectionGrouper.groupSections(publication.getKeyFactImages()));
+        if (publication.isPubliclyAccessible()) {
+            List<ImageSection> images = publication.getKeyFactImages();   // safe now
+            if (images != null && !images.isEmpty()) {
+                request.setAttribute("keyFactImageSections", pageSectionGrouper.groupSections(images));
+            } else {
+                request.setAttribute("keyFactImageSections", List.of());
+            }
+        } else {
+            request.setAttribute("keyFactImageSections", List.of());       // keep FTL happy
+        }
+
     }
 
     private List<String> getIndex(Publication publication) {

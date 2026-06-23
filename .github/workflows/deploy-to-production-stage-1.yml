@@ -3,24 +3,30 @@
 name: Deploy to Production - Stage 1
 
 on:
-  schedule:
-    # Runs at 4pm BMT weekdays
-    - cron: "0 16 * * 1-5"
+  # External Trigger
+  repository_dispatch:
+    types:
+      - external-scheduler-stage-1
 
 env:
   SLACK_CHANNEL: "C0353KHFXNJ"
+
+# Concurrent runs in this group will be queued to safeguard the Git tags.
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
 
 jobs:
 
   prepare-prod-deployment:
     name: Prepare Tags
     runs-on: ubuntu-22.04
-    timeout-minutes: 85
+    timeout-minutes: 15
 
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Need all the tags for versioning
           ref: master
@@ -50,7 +56,7 @@ jobs:
           SLACK_CHANNEL: ${{ env.SLACK_CHANNEL }}
           TITLE: ":clock1: Scheduled Deploying to Production"
           MESSAGE: |
-            Release to production has been scheduled at 12:05 on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}
+            Release to production has been scheduled at 11:55am BST on the next working day. The following new changes (if any) will be released: ${{steps.getJiraListId.outputs.jiraListIds}}
 
       - name: Slack message (Job failed message)
         if: ${{ failure() }}

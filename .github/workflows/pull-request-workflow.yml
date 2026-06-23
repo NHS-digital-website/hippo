@@ -20,15 +20,30 @@ jobs:
 
       # Step 1
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
 
       # Step 2
-      - name: Check commit message
-        if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
-        run: make check.commit-msg
+      - name: Scan for leaked secrets
+        id: gitleaks
+        continue-on-error: true
+        run: make check.gitleaks
+
+      - name: Upload GitLeaks report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: gitleaks-report
+          path: ci-cd/target/gitleaks-report.sarif
+          if-no-files-found: ignore
+
+      - name: Fail when GitLeaks finds new secrets
+        if: steps.gitleaks.outcome == 'failure'
+        run: |
+          echo 'GitLeaks detected potential secrets. Review the uploaded report and resolve the leak.'
+          exit 1
 
       # Step 3
       - name: Print Google Chrome version
@@ -39,7 +54,7 @@ jobs:
         uses: ./.github/actions/br-supported-java-version
         id: java_version
       - name: Set up the JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: ${{ steps.java_version.outputs.version }}
@@ -62,7 +77,7 @@ jobs:
         run: make ci-pipeline-lint-frontend
       - name: Lint fail message
         if: ${{ always() && steps.jsLint.outcome == 'failure' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -81,7 +96,7 @@ jobs:
       # Step 8
       # Store test results as an artifact
       - name: "Upload cucumber report"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cucumber-report
@@ -91,7 +106,7 @@ jobs:
       # Step 9
       # Store coverage results as an artifact
       - name: "Upload jacoco report"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: jacoco-report
@@ -114,7 +129,7 @@ jobs:
       # Add comment to PR with test results
       - name: "Added PR comment"
         if: ${{ always() && steps.testsummary.outcome == 'success' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |

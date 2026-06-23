@@ -1,0 +1,13 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/nhsd-homepage/banner-selected/targetedBanner:
+  hst:componentclassname: uk.nhs.digital.common.components.TargetedBannerComponent
+  hst:label: Targeted Banner
+  hst:parameternames:
+  - document
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - website-acceptance-tests/targetbannertest
+  - webfile:/freemarker/common/targetedBanner.ftl
+  hst:template: targetedBanner
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

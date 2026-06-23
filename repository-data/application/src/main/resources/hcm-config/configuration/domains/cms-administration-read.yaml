@@ -1,0 +1,35 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/cms-administration-read:
+      /administration-node:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readonly:
+        hipposys:groups:
+          .meta:add-new-system-values: true
+          .meta:category: system
+          type: string
+          value:
+          - services-author
+          - services-editor
+          - developer-author
+          - developer-editor
+        hipposys:role: readonly
+        jcr:primaryType: hipposys:authrole
+      /taxonomy-node:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/taxonomies
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain

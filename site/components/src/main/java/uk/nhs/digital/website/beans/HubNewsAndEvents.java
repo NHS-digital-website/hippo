@@ -15,6 +15,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:hubnewsandevents")
@@ -61,10 +62,15 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     public List<HippoBean> getLatestBlog() throws QueryException {
 
+        final int sizeLimit = 10;
         HstRequestContext requestContext = RequestContextProvider.get();
         HippoBean scope = requestContext.getSiteContentBaseBean();
+        if (scope == null) { return Collections.emptyList(); }
 
-        HstQuery hstBlogQuery = HstQueryBuilder.create(scope).ofTypes(Blog.class).orderByDescending("website:dateofpublication")
+        HstQuery hstBlogQuery = HstQueryBuilder.create(scope)
+            .ofTypes(Blog.class)
+            .orderByDescending("website:dateofpublication")
+            .limit(sizeLimit)
             .build();
 
         HstQueryResult blogResult = hstBlogQuery.execute();
@@ -74,10 +80,15 @@ public class HubNewsAndEvents extends CommonFieldsBean {
 
     public List<HippoBean> getLatestNewsArticles() throws QueryException {
 
+        final int sizeLimit = 10;
         HstRequestContext requestContext = RequestContextProvider.get();
         HippoBean scope = requestContext.getSiteContentBaseBean().getBean("news/latest-news");
+        if (scope == null) { return Collections.emptyList(); }
 
-        HstQuery hstNewsQuery = HstQueryBuilder.create(scope).ofTypes(News.class).orderByDescending("website:publisheddatetime")
+        HstQuery hstNewsQuery = HstQueryBuilder.create(scope)
+            .ofTypes(News.class)
+            .orderByDescending("website:publisheddatetime")
+            .limit(sizeLimit)
             .build();
 
         HstQueryResult newsResult = hstNewsQuery.execute();

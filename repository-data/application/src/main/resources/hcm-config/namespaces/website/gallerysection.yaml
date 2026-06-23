@@ -40,6 +40,9 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
                 true, autoGrow_maxHeight: 50 }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, stylesSet:
+                ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, removeButtons:"Youtube"}'
               jcr:primaryType: frontend:pluginconfig
             caption: Description
             field: description

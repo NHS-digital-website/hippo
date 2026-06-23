@@ -8,8 +8,12 @@ import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceCollection;
+import org.onehippo.cms7.crisp.api.resource.ResourceException;
+import org.onehippo.cms7.crisp.api.resource.ValueMap;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.onehippo.cms7.essentials.components.CommonComponent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.info.JobsFeedComponentInfo;
 import uk.nhs.digital.model.JobDetails;
 
@@ -18,6 +22,8 @@ import java.util.List;
 
 @ParametersInfo(type = JobsFeedComponentInfo.class)
 public class JobsFeedComponent extends CommonComponent {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JobsFeedComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -63,26 +69,59 @@ public class JobsFeedComponent extends CommonComponent {
             queryString.append("&ExtApp=true&IntApp=true");
         }
 
-        ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource data = broker.findResources("eployApi", queryString.toString());
-        ResourceCollection vacancies = data.getChildren();
-
         List<JobDetails> jobDetails = new ArrayList<>();
+        request.setAttribute("jobList", jobDetails);
+
+        ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+        if (broker == null) {
+            LOGGER.debug("No ResourceServiceBroker configured; skipping jobs feed call.");
+            return;
+        }
+
+        String requestUri = queryString.toString();
+        final Resource data;
+        try {
+            data = broker.findResources("eployApi", requestUri);
+        } catch (ResourceException ex) {
+            LOGGER.debug("Failed to retrieve jobs feed from {}.", requestUri, ex);
+            return;
+        }
+
+        if (data == null) {
+            return;
+        }
+
+        ResourceCollection vacancies = data.getChildren();
+        if (vacancies == null || vacancies.getCollection() == null) {
+            return;
+        }
+
         for (Resource vacancy : vacancies.getCollection()) {
+            if (vacancy == null) {
+                continue;
+            }
             JobDetails jobDetail = new JobDetails();
-
-            String title = (String) ((Resource) vacancy.getValueMap().get("Title")).getDefaultValue();
-            String location = (String) ((Resource) vacancy.getValueMap().get("Location")).getDefaultValue();
-            String displaySalary = (String) ((Resource) vacancy.getValueMap().get("DisplaySalary")).getDefaultValue();
-            String link = (String) ((Resource) vacancy.getValueMap().get("Link")).getDefaultValue();
-
-            jobDetail.setTitle(title);
-            jobDetail.setLocation(location);
-            jobDetail.setSalary(displaySalary);
-            jobDetail.setLink(link);
+            jobDetail.setTitle(getFieldValue(vacancy, "Title"));
+            jobDetail.setLocation(getFieldValue(vacancy, "Location"));
+            jobDetail.setSalary(getFieldValue(vacancy, "DisplaySalary"));
+            jobDetail.setLink(getFieldValue(vacancy, "Link"));
             jobDetails.add(jobDetail);
         }
-        request.setAttribute("jobList", jobDetails);
     }
 
+    private String getFieldValue(Resource vacancy, String fieldName) {
+        if (vacancy == null) {
+            return null;
+        }
+        ValueMap valueMap = vacancy.getValueMap();
+        if (valueMap == null) {
+            return null;
+        }
+        Object fieldValue = valueMap.get(fieldName);
+        if (fieldValue instanceof Resource) {
+            Object defaultValue = ((Resource) fieldValue).getDefaultValue();
+            return defaultValue != null ? defaultValue.toString() : null;
+        }
+        return fieldValue != null ? fieldValue.toString() : null;
+    }
 }

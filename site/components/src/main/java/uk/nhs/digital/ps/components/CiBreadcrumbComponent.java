@@ -13,16 +13,17 @@ import uk.nhs.digital.ps.beans.navigation.CiBreadcrumb;
 import uk.nhs.digital.ps.beans.navigation.CiBreadcrumbProvider;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CiBreadcrumbComponent extends BaseHstComponent {
-    private final List<Class<?>> publicationTypes = Arrays.asList(
+    private static final List<Class<?>> PUBLICATION_TYPES = Collections.unmodifiableList(Arrays.asList(
         Publication.class,
         PublicationPage.class,
         LegacyPublication.class,
         Series.class,
         Dataset.class
-    );
+    ));
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -37,13 +38,21 @@ public class CiBreadcrumbComponent extends BaseHstComponent {
     }
 
     private boolean isStatisticalPublication(HstRequest request) {
-        if (!request.getRequestContext().getContentBean().getPath().startsWith("/content/documents/corporate-website/publication-system/statistical/")) {
+        if (request == null || request.getRequestContext() == null) {
             return false;
         }
 
-        HippoBean currentDocumentBean = request.getRequestContext().getContentBean();
+        final HippoBean currentDocumentBean = request.getRequestContext().getContentBean();
+        if (currentDocumentBean == null) {
+            return false;
+        }
 
-        for (Class<?> publicationType : publicationTypes) {
+        final String path = currentDocumentBean.getPath();
+        if (path == null || !path.startsWith("/content/documents/corporate-website/publication-system/statistical/")) {
+            return false;
+        }
+
+        for (Class<?> publicationType : PUBLICATION_TYPES) {
             if (publicationType.isInstance(currentDocumentBean)) {
                 return true;
             }

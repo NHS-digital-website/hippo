@@ -227,7 +227,7 @@
                                     <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
-                                    <nodeVersion>v18.20.5</nodeVersion>
+                                    <nodeVersion>v22.18.0</nodeVersion>
                                 </configuration>
                             </execution>
                             <execution>
@@ -281,7 +281,7 @@
                                     <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
-                                    <nodeVersion>v18.20.5</nodeVersion>
+                                    <nodeVersion>v22.18.0</nodeVersion>
                                 </configuration>
                             </execution>
                             <execution>
@@ -499,7 +499,7 @@
                                 </deployable>
                             </deployables>
                             <container>
-                                <timeout>240000</timeout>
+                                <timeout>600000</timeout>
                                 <zipUrlInstaller>
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>

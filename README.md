@@ -7,6 +7,10 @@ This project runs on **Java 11** and **Bloomreach Experience Manager 15**.
 * To start local server `make serve`.
 * To run all tests `make test`.
 * To get more help, simply run `make help`.
+* To understand our GitLeaks secret-scanning workflow, see [GitLeaks rollout notes](docs/gitleaks.md).
+
+* For first-time project setup on macOS/Linux, see [What If I want to run the project for the first time](docs/what-if/first-time-set-up.md).
+* For first-time project setup on Windows, see [What If I want to run the project for the first time on Windows](docs/what-if/first-time-set-up-windows.md).
 
 ## Repository Persistence
 
@@ -36,6 +40,12 @@ To run:
 ``` shell
 mvn test
 ```
+
+**Single module or test class**:
+``` shell
+mvn -pl site/components -am test -Dtest=PublicationComponentTest -Dsurefire.failIfNoSpecifiedTests=false
+```
+Use `-pl <module>` to run only the module that contains the code under test, `-am` to build required dependencies, and `-Dtest=<ClassName>` to limit execution to a specific test class. Keeping `-Dsurefire.failIfNoSpecifiedTests=false` avoids failures when the matcher doesn’t find any tests (common when rearranging packages), so you can drop it once you are confident about the class name.
 
 **Full suite of tests**:
 ``` shell

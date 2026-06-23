@@ -14,7 +14,12 @@ public class PublicationPageComponent extends ContentRewriterComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
-        PublicationPage page = (PublicationPage) request.getRequestContext().getContentBean();
+        Object contentBean = request.getRequestContext().getContentBean();
+        if (!(contentBean instanceof PublicationPage)) {
+            return;
+        }
+
+        PublicationPage page = (PublicationPage) contentBean;
 
         request.setAttribute("page", page);
         request.setAttribute("pageSections", pageSectionGrouper.groupSections(page.getSections()));

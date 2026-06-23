@@ -11,7 +11,7 @@ import uk.nhs.digital.website.beans.General;
 
 public class GeneralArticleComponent extends DocumentChildComponent {
 
-    EarlyAccessKeyProcessor earlyAccessKeyProcessor = new EarlyAccessKeyProcessor();
+    private static final EarlyAccessKeyProcessor EARLY_ACCESS_KEY_PROCESSOR = new EarlyAccessKeyProcessor();
 
     @Override
     public void doBeforeRender(final HstRequest hstRequest, final HstResponse hstResponse) {
@@ -21,7 +21,7 @@ public class GeneralArticleComponent extends DocumentChildComponent {
         Object bean = hstRequest.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (bean != null && bean instanceof HippoBean) {
             General generalDocument = (General) bean;
-            earlyAccessKeyProcessor.checkInvalidEarlyAccessKey(generalDocument, hstRequest, hstResponse, request);
+            EARLY_ACCESS_KEY_PROCESSOR.checkInvalidEarlyAccessKey(generalDocument, hstRequest, hstResponse, request);
         }
     }
 

@@ -124,22 +124,34 @@ definitions:
         jcr:primaryType: hst:containercomponentfolder
       /nhsd-homepage:
         /banner:
+          hippo:identifier: e82810bf-b54a-4490-a78e-8a3f24cc05fa
           hst:label: Banner
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
+        /banner-selected:
+          .meta:residual-child-node-category: content
+          hippo:identifier: 66372d13-a5d6-42d7-a71c-47139e2449c5
+          hst:lastmodified: 2025-09-24T11:41:00.710Z
+          hst:xtype: hst.container
+          jcr:primaryType: hst:containercomponent
         /footer-col-1:
+          hippo:identifier: 66372d13-a5d6-42d7-a71c-47139e2449c5
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-2:
+          hippo:identifier: 13685a83-18e2-4d2e-8041-a45dfdcb41fa
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-3:
+          hippo:identifier: 280fdb43-5ef2-4f7c-8f17-870fefb35ab8
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /footer-col-4:
+          hippo:identifier: b026cb89-f757-471a-8a1f-3de4947f9214
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         /main:
+          hippo:identifier: ec348440-ddd7-4dc8-87c5-9e1555162938
           hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder

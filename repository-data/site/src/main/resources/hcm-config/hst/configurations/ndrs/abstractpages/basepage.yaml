@@ -43,9 +43,12 @@ definitions:
         - main
         hst:template: nhsd-main-nav
         jcr:primaryType: hst:component
+      /menu-button:
+        hst:template: ndrs-global-header-menu-button
+        jcr:primaryType: hst:component
       /top:
         hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
-        hst:template: searchbar
+        hst:template: ndrs-searchbar
         jcr:primaryType: hst:component
       /top-menu:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent

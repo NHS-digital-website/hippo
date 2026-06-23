@@ -870,6 +870,11 @@ definitions:
           jcr:name: Neighbourhood Dashboard
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:targetedbanner:
+        /en:
+          jcr:name: Targeted banner
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:taxonomymapping:
         /en:
           jcr:name: Taxonomy Mapping

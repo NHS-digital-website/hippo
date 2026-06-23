@@ -83,8 +83,10 @@ public class SeriesComponent extends ContentRewriterComponent {
             List<PublicationBase> allPublications = toList(hstQueryResult.getHippoBeans());
 
             Map<Boolean, List<PublicationBase>> publicationByStatus = allPublications.stream().collect(Collectors.groupingBy(PublicationBase::isPubliclyAccessible));
-            List<PublicationBase> livePublications = publicationByStatus.get(true);
-            List<PublicationBase> upcomingPublications = publicationByStatus.get(false);
+            List<PublicationBase> livePublications =
+                new ArrayList<>(publicationByStatus.getOrDefault(true, Collections.<PublicationBase>emptyList()));
+            List<PublicationBase> upcomingPublications =
+                new ArrayList<>(publicationByStatus.getOrDefault(false, Collections.<PublicationBase>emptyList()));
 
             // Want upcoming in reverse date order to the closest to now is first
             if (!isEmpty(upcomingPublications)) {
