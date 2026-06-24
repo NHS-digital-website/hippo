@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -33,7 +34,6 @@ import uk.nhs.digital.website.beans.Publishedwork;
 import uk.nhs.digital.website.beans.Publishedworkchapter;
 
 import java.util.NoSuchElementException;
-import javax.servlet.http.HttpServletRequest;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ContentBeanUtils.class, PublishedWorkLinkedBeansComponent.class,

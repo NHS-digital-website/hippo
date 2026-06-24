@@ -56,6 +56,7 @@ PROXYGEN_SPECS_ALL_URL ?= https://proxygen.prod.api.platform.nhs.uk/specs
 PROXYGEN_SPECS_ONE_URL ?= https://proxygen.prod.api.platform.nhs.uk/specs/{specificationId}
 PROXYGEN_CLIENT_ID ?= REPLACE_WITH_ACTUAL_PROXYGEN_CLIENT_ID
 PROXYGEN_PRIVATE_KEY ?= REPLACE_WITH_ACTUAL_PROXYGEN_PRIVATE_KEY
+PROXYGEN_KID ?= REPLACE_WITH_ACTUAL_PROXYGEN_KID
 
 #-Dsplunk.token=$(SPLUNK_TOKEN) \
 #	-Dsplunk.url=$(SPLUNK_URL) \
@@ -78,6 +79,7 @@ MVN_VARS = -Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Ddevzone.proxygen.oauth.token.url=$(PROXYGEN_TOKEN_URL) \
 	-Ddevzone.proxygen.oauth.aud.url=$(PROXYGEN_AUDIENCE_URL) \
 	-Ddevzone.proxygen.oauth.privateKey=$(PROXYGEN_PRIVATE_KEY) \
+	-Ddevzone.proxygen.oauth.kid=$(PROXYGEN_KID) \
 	-Dhippo.environment=$(HIPPO_ENVIRONMENT)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
@@ -92,5 +94,6 @@ export DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN=$(APIGEE_BASIC)
 export DEVZONE_APIGEE_OAUTH_OTPKEY=$(APIGEE_OTPKEY)
 export DEVZONE_PROXYGEN_OAUTH_CLIENT_ID=$(PROXYGEN_CLIENT_ID)
 export DEVZONE_PROXYGEN_OAUTH_PRIVATE_KEY=$(PROXYGEN_PRIVATE_KEY)
+export DEVZONE_PROXYGEN_OAUTH_KID=$(PROXYGEN_KID)
 export DATAVIZ_HIGHCHARTS_EXPORTER_URL
 export DATAVIZ_EXPORTER_KEY

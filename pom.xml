@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>16.5.1</version>
+        <version>16.6.2</version>
         <!-- Please have a look at the property section while upgrading. -->
     </parent>
 
@@ -118,6 +118,7 @@
         <devzone.proxygen.oauth.token.url></devzone.proxygen.oauth.token.url>
         <devzone.proxygen.oauth.aud.url></devzone.proxygen.oauth.aud.url>
         <devzone.proxygen.oauth.privateKey></devzone.proxygen.oauth.privateKey>
+        <devzone.proxygen.oauth.kid></devzone.proxygen.oauth.kid>
         <devzone.proxygen.resources.specs.all.url></devzone.proxygen.resources.specs.all.url>
         <devzone.proxygen.resources.specs.individual.url ></devzone.proxygen.resources.specs.individual.url>
         <!-- API specifications sync schedule properties -->
@@ -1118,6 +1119,7 @@
                                     <devzone.proxygen.oauth.token.url>${devzone.proxygen.oauth.token.url}</devzone.proxygen.oauth.token.url>
                                     <devzone.proxygen.oauth.aud.url>${devzone.proxygen.oauth.aud.url}</devzone.proxygen.oauth.aud.url>
                                     <devzone.proxygen.oauth.privateKey>${devzone.proxygen.oauth.privateKey}</devzone.proxygen.oauth.privateKey>
+                                    <devzone.proxygen.oauth.kid>${devzone.proxygen.oauth.kid}</devzone.proxygen.oauth.kid>
                                     <devzone.proxygen.resources.specs.all.url>${devzone.proxygen.resources.specs.all.url}</devzone.proxygen.resources.specs.all.url>
                                     <devzone.proxygen.resources.specs.individual.url>${devzone.proxygen.resources.specs.individual.url}</devzone.proxygen.resources.specs.individual.url>
                                     <!-- API specifications sync schedule properties -->
