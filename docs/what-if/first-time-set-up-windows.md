@@ -91,10 +91,11 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 To add SDKMAN to your PATH.
 
 ```bash
-sdk install java 11
+sdk list java
+sdk install java <latest-17-temurin-identifier>
 ```
 
-To set Java 11 as the default version (Bloomreach 15 needs Java 11).
+To set Java 17 as the default version (Bloomreach 16 needs Java 17).
 
 ### 3. Install Maven
 
@@ -125,7 +126,7 @@ Then create a file named `~/.m2/settings.xml` with your Bloomreach credentials.
                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>hippo-maven2-enterprise</id>
+      <id>bloomreach-maven2-enterprise</id>
       <username>*********</username>
       <password>*********</password>
     </server>
@@ -138,7 +139,7 @@ Then create a file named `~/.m2/settings.xml` with your Bloomreach credentials.
       </activation>
       <repositories>
         <repository>
-          <id>hippo-maven2-enterprise</id>
+          <id>bloomreach-maven2-enterprise</id>
           <name>Bloomreach Maven 2 Enterprise</name>
           <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
           <releases>
@@ -149,7 +150,7 @@ Then create a file named `~/.m2/settings.xml` with your Bloomreach credentials.
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>hippo-maven2-enterprise</id>
+          <id>bloomreach-maven2-enterprise</id>
           <name>Bloomreach Maven 2 Enterprise</name>
           <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
           <snapshots>

@@ -1,6 +1,6 @@
 # NHS Digital Website - Bloomreach Experience Manager
 
-This project runs on **Java 11** and **Bloomreach Experience Manager 15**.
+This project runs on **Java 17** and **Bloomreach Experience Manager 16**.
 
 * To setup this project run `make init` (Optional, as can hinder development).
 * To run an initial build of all modules run `mvn clean verify` (only need to do this once).
@@ -333,7 +333,7 @@ answer in [What If section][what if]
 [original top-level readme]:        HIPPO.md
 [original repository-data readme]:  repository-data/README.md
 [what if]:                          docs/what-if.md
-[Bloomreach Maven project archetype]:    https://www.onehippo.org/12/trails/getting-started/creating-a-project.html
+[Bloomreach Maven project archetype]:    https://documentation.bloomreach.com/
 [BDD]:                              https://en.wikipedia.org/wiki/Behavior-driven_development
 [IDE]:                              https://en.wikipedia.org/wiki/Integrated_development_environment
 [IntelliJ]:                         https://www.jetbrains.com/idea/
