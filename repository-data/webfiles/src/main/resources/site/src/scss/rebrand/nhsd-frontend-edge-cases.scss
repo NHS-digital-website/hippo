@@ -57,3 +57,20 @@
         word-break: break-all
     }
 }
+
+/* Reserve space so a focused button scrolls into view clear of the edge */
+#CybotCookiebotDialog {
+    scroll-padding-bottom: 32px;
+}
+
+#CybotCookiebotDialog button:focus,
+#CybotCookiebotDialog a:focus {
+    scroll-margin-bottom: 32px;
+}
+
+/* Ensure the button/footer area reserves room for the focus ring and doesn't clip it */
+#CybotCookiebotDialog [id*="ButtonsWrapper"] {
+padding-bottom: 16px;
+overflow: visible;
+
+}
