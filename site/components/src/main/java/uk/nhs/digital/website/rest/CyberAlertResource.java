@@ -9,6 +9,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.PathUtils;
+import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.json.simple.JSONObject;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.essentials.components.rest.BaseRestResource;
@@ -126,7 +127,7 @@ public class CyberAlertResource extends BaseRestResource {
                 HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, CyberAlert.class);
 
                 Filter filter = hstQuery.createFilter();
-                filter.addEqualTo("website:threatid", threatid);
+                filter.addEqualTo("website:threatid", SearchInputParsingUtils.parse(threatid, false));
                 hstQuery.setFilter(filter);
                 hstQuery.setLimit(1);
 
