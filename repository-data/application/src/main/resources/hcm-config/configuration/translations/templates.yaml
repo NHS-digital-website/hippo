@@ -8,6 +8,8 @@ definitions:
       new-cihub-document: new CI hub document
       new-cyber-alerts-document: new cyber alert document
       new-cyber-alerts-folder: new folder
+      new-developer-document: new document
+      new-developer-folder: new folder
       new-digital-website-document: new document
       new-digital-website-folder: new folder
       new-enterprise-forms-document: new enterprise form document

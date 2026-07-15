@@ -1517,8 +1517,8 @@
         jcr:uuid: 7f8bb67f-04a9-4f85-99ad-feb0fec4a883
       hippo:name: Access Control Service HL7 V3
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: ad4de97a-6c54-46e4-9433-58a4163bc170
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -2157,8 +2157,8 @@
         jcr:uuid: 8cba0665-d8fe-498b-8338-75108ac046f1
       hippo:name: CDA standards
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 2094539b-c746-4103-bb9c-c862c6d43bfd
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -2854,8 +2854,8 @@
         jcr:uuid: e2445540-0d01-4806-a426-87150fa79a15
       hippo:name: Child Screening
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 3c8c32ba-ab2f-468b-90d9-e974d0b1aa28
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -3780,8 +3780,8 @@
         jcr:uuid: f6ae05d8-5e8a-449b-9d37-f14586995ab8
       hippo:name: Crisis Care Extract
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: f29ff55a-3ce5-41b4-a70e-b3e39523bbcb
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -3929,8 +3929,8 @@
         jcr:uuid: ce8d4195-c3a0-41bb-b393-06659f75e1f6
       hippo:name: Deprecated API
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: e4b8b964-567e-4278-9987-2f5e08ee6010
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -4633,8 +4633,8 @@
         jcr:uuid: c6db13a0-82e2-4780-9c5f-00e6d3524bea
       hippo:name: Digital Signature Service API
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 3e290cd6-8fb6-4bd9-ac36-84efcdb76d7f
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -5799,8 +5799,8 @@
         jcr:uuid: 21e99d48-7b98-4bb5-ae25-cf4e4981d724
       hippo:name: Digital Staff Passport API standard
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 1db66117-d5e1-43a9-9197-7b2d78d7ebe3
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -6129,8 +6129,8 @@
         jcr:uuid: b6cadc10-ea1e-4059-8cf2-0a2184509273
       hippo:name: General document, not API Specification
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 63381695-849c-4ae6-88fc-cd8d4d7065b5
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -6877,8 +6877,8 @@
         jcr:uuid: 5545dfdd-9134-4940-b1b5-331a1dcc3760
       hippo:name: Health Protection Electronic Notification
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 0fbe1926-46f6-4235-886e-3f806c24068b
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -7322,8 +7322,8 @@
         jcr:uuid: 6681acac-59a6-4f6e-918f-119c989cbd8d
       hippo:name: Hello World API
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: e39c176c-25aa-4b9f-894e-62ff97f6f14e
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -7884,8 +7884,8 @@
         jcr:uuid: 03a1bfea-d2d4-4637-9afc-9b65163bf964
       hippo:name: Interoperability Toolkit Messaging 2 standard
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 4296101c-6f64-42f2-a86d-ac325bf0a966
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -8476,8 +8476,8 @@
         jcr:uuid: bc0a51bf-eb4b-42ed-b626-8a43776533db
       hippo:name: Logical Record Architecture API standards
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 6e4bc601-5594-4dc6-8fc0-50d50f8b1d9d
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -13815,8 +13815,8 @@
           jcr:uuid: 9acccf72-99fa-433e-97fd-4a3b6c9d88d3
         hippo:name: MESH Client
         hippostd:foldertype:
-        - new-translated-folder
-        - new-document
+        - new-developer-document
+        - new-developer-folder
         hippotranslation:id: 428729b8-27c1-486d-a8d8-a9bf418b43d4
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -14407,8 +14407,8 @@
           jcr:uuid: 8950eb7a-0417-405c-8a01-0191aab9b047
         hippo:name: MESH UI
         hippostd:foldertype:
-        - new-translated-folder
-        - new-document
+        - new-developer-document
+        - new-developer-folder
         hippotranslation:id: e06ec2fa-940c-4c77-a6e2-bcfac11bb6c3
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -14419,8 +14419,8 @@
         jcr:uuid: 99d54a3f-4da7-4352-9b4c-42f94b7a403a
       hippo:name: Message Exchange for Social Care and Health (MESH) API
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 192f1490-fc62-4f24-9001-67d28c389fe0
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -15117,8 +15117,8 @@
         jcr:uuid: 951cef58-58f2-436b-b766-9d871580c6a9
       hippo:name: National Care Records Service integration
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: c8217045-a612-4ae1-b1b0-affcd298613f
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -17101,8 +17101,8 @@
         jcr:uuid: c841942f-48c4-4088-bc1e-53b952369cd5
       hippo:name: National Events Management Service FHIR
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: ec67df07-c4ae-42b1-9673-0a544d39f174
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -17945,8 +17945,8 @@
         jcr:uuid: b48639fa-4ad6-4d97-a1a0-6497a16f791c
       hippo:name: NHSmail
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: e87adef6-cf22-4398-bf95-991d1dc97dc7
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -18501,8 +18501,8 @@
         jcr:uuid: 218e4b29-3223-41a0-9c02-beb76df6f1dd
       hippo:name: Personal Demographics Service - FHIR API
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 3036a3a5-d08b-4f30-a338-6b563ec0fd76
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -18770,8 +18770,8 @@
         jcr:uuid: 9ad0de04-d46b-4bbb-86f1-a3f3470f07a8
       hippo:name: Retired API
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-developer-document
+      - new-developer-folder
       hippotranslation:id: 5f6af2a7-d8dd-4b89-85df-d933f4a0f0a8
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -18870,8 +18870,8 @@
       jcr:uuid: e3ce6e1f-acd3-4b22-9c0b-6ccc886f4953
     hippo:name: API Catalogue
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-developer-document
+    - new-developer-folder
     hippotranslation:id: 4bd2b94c-3563-4c18-b12f-a7d42c0e0fc0
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -18882,8 +18882,8 @@
     jcr:uuid: b02dac8a-9bff-4a24-b5ed-ee17764ae1b5
   hippo:name: Developer
   hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
+  - new-developer-document
+  - new-developer-folder
   hippotranslation:id: 4b3f5331-e4c1-4b9c-a300-b680c6ae1188
   hippotranslation:locale: en
   jcr:mixinTypes:
