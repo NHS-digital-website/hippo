@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.beans;
 
+import static ch.qos.logback.classic.Level.WARN;
 import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
@@ -14,6 +15,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.ps.beans.PublicationBase.EARLY_ACCESS_KEY_QUERY_PARAM;
 import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
+import static uk.nhs.digital.test.TestLogger.LogAssertor.warn;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
@@ -30,6 +32,7 @@ import org.hippoecm.hst.provider.jcr.JCRValueProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -41,6 +44,7 @@ import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import uk.nhs.digital.ps.directives.DateFormatterDirective;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.ps.test.util.ReflectionHelper;
+import uk.nhs.digital.test.TestLoggerRule;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -61,6 +65,7 @@ import javax.servlet.http.HttpServletRequest;
 @PrepareForTest({HstQueryBuilder.class, Publication.class, RequestContextProvider.class})
 public class PublicationTest {
 
+    private static final String GENERATED_EARLY_ACCESS_KEY = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01";
     private static final String NOMINAL_DATE_PROPERTY_KEY = "publicationsystem:NominalDate";
     private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:Attachments-v3";
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
@@ -87,6 +92,9 @@ public class PublicationTest {
 
     @Mock private HstRequestContext hstRequestContext;
     @Mock private HttpServletRequest httpServletRequest;
+
+    @Rule
+    public TestLoggerRule logger = TestLoggerRule.targeting(PublicationBase.class, WARN);
 
     private final Map<String, Object> beanProperties = new HashMap<>();
     private Publication publication;
@@ -313,11 +321,46 @@ public class PublicationTest {
 
     @Test
     public void returnsTrueWhenCorrectAccessKey() {
-        final String accessKey = "923hrjfshd8998fjHUHUFD283747JSZKFJSsdfsdDJ";
-        setBeanProperty(EARLY_ACCESS_KEY, accessKey);
-        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(accessKey);
+        setBeanProperty(EARLY_ACCESS_KEY, GENERATED_EARLY_ACCESS_KEY);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(GENERATED_EARLY_ACCESS_KEY);
 
         Assert.assertTrue(publication.isCorrectAccessKey());
+    }
+
+    @Test
+    public void returnsFalseWhenAccessKeyParameterContainsDisallowedCharacters() {
+        setBeanProperty(EARLY_ACCESS_KEY, GENERATED_EARLY_ACCESS_KEY);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(GENERATED_EARLY_ACCESS_KEY + "'");
+
+        Assert.assertFalse(publication.isCorrectAccessKey());
+    }
+
+    @Test
+    public void returnsFalseWhenStoredAccessKeyContainsDisallowedCharacters() {
+        final String invalidAccessKey = GENERATED_EARLY_ACCESS_KEY.substring(0, 63) + "'";
+        setBeanProperty(EARLY_ACCESS_KEY, invalidAccessKey);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(invalidAccessKey);
+
+        Assert.assertFalse(publication.isCorrectAccessKey());
+    }
+
+    @Test
+    public void returnsFalseWhenStoredAccessKeyHasWrongLength() {
+        final String shortAccessKey = GENERATED_EARLY_ACCESS_KEY.substring(0, 63);
+        setBeanProperty(EARLY_ACCESS_KEY, shortAccessKey);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(shortAccessKey);
+
+        Assert.assertFalse(publication.isCorrectAccessKey());
+    }
+
+    @Test
+    public void logsWarningWhenAccessKeyAttemptFails() {
+        setBeanProperty(EARLY_ACCESS_KEY, GENERATED_EARLY_ACCESS_KEY);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(GENERATED_EARLY_ACCESS_KEY + "'");
+
+        Assert.assertFalse(publication.isCorrectAccessKey());
+
+        logger.shouldReceive(warn("Invalid early access key attempt for publication"));
     }
 
     /**
