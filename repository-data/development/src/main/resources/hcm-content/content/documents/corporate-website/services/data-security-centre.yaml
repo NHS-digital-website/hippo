@@ -251,8 +251,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Data Security Centre
   hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
+  - new-service-document
+  - new-service-folder
   hippotranslation:id: a115db48-e376-43c0-a1ad-f35dfc3fab41
   hippotranslation:locale: en
   jcr:mixinTypes:
