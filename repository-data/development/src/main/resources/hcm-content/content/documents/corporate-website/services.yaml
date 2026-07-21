@@ -134,6 +134,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: a17bae00-8584-4cda-a05c-387b40cc7650
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
@@ -275,6 +276,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:service
+      jcr:uuid: c5025d89-c728-4524-b0ca-452d4f2d9807
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
@@ -416,6 +418,7 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
+      jcr:uuid: 93a0e884-ff1f-4869-a5fa-eaaaad09af13
       website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
@@ -429,6 +432,7 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: e839c1fa-3b53-418b-a5da-b849f3589577
   /service-child-document-1:
     /content:
       /content[1]:
@@ -496,6 +500,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 722f1bab-3d77-4244-9754-084559fdfcb8
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:showApiResult: true
@@ -568,6 +573,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: 9aa617e3-5703-4102-b531-7bc98425b75f
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:showApiResult: true
@@ -640,6 +646,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 2a807075-29a3-4474-b4e2-4ce6597d2c62
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:showApiResult: true
@@ -650,6 +657,7 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 4367a8af-2070-4537-8ded-656c723d22c3
     /service-grandchild-document-1:
       /content:
         /content[1]:
@@ -720,6 +728,7 @@
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:service
+          jcr:uuid: b5dec589-1fc6-4946-b799-a74de16334e1
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:showApiResult: true
@@ -795,6 +804,7 @@
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: website:service
+          jcr:uuid: 3ebae244-edf5-47b4-b4f7-c5d4c70ed971
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:showApiResult: true
@@ -870,6 +880,7 @@
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:service
+          jcr:uuid: c263e9d5-212f-4e1d-abd3-b1a8f4e92ad6
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:showApiResult: true
@@ -880,10 +891,11 @@
         - hippo:named
         - mix:referenceable
         jcr:primaryType: hippo:handle
+        jcr:uuid: 19d41fcc-2cc8-424e-a9d7-85fb5cf268f9
       hippo:name: 'Service Grandchild Document #1'
       hippostd:foldertype:
-      - new-digital-website-folder
-      - new-digital-website-document
+      - new-service-document
+      - new-service-folder
       hippotranslation:id: 408990e8-b2a7-4547-ab9c-9f8a6002d58e
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -891,10 +903,11 @@
       - hippotranslation:translated
       - mix:versionable
       jcr:primaryType: hippostd:folder
+      jcr:uuid: 4f8e66d7-7068-4d31-86ad-3092e1534cc8
     hippo:name: 'Service Child Document #1'
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: 3513a3fd-81df-4462-9440-a6da0380ae29
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -902,6 +915,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: fc46cd2d-e6ca-4b74-a44d-1ab7a3b07b5c
   /service-child-document-2:
     /content:
       /content[1]:
@@ -966,6 +980,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 05acd376-6c9b-4107-bbf5-61e98604a158
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:showApiResult: true
@@ -1035,6 +1050,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: a03dd8c3-91df-4df7-8bf9-fb3fba45c773
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:showApiResult: true
@@ -1104,6 +1120,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: a95afba6-89f6-4003-8051-578544a890cd
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:showApiResult: true
@@ -1114,10 +1131,11 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 625314cb-936f-493c-872f-c2b26f6b9cba
     hippo:name: 'Service Child Document #2'
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: ecfc54ee-197e-4039-8984-5951477fdb7b
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1125,6 +1143,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: 47ede7ba-ee89-452f-89dd-d431ff5c71fe
   /service-child-document-3:
     /content:
       /content[1]:
@@ -1200,6 +1219,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: d4095992-65f3-43c6-9f0f-67e5635f72af
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:showApiResult: true
@@ -1280,6 +1300,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: cc45f1d1-ba46-44e2-b332-3c296633e384
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:showApiResult: true
@@ -1360,6 +1381,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 1ec82965-8680-4c22-86fa-f830efaae7d0
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:showApiResult: true
@@ -1370,10 +1392,11 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: b55bad14-c5b1-481f-8846-24a9a118cc3d
     hippo:name: 'Service Child Document #3'
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: a4d82e95-8c2c-4a83-8691-404adc8778eb
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1381,6 +1404,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: c40245fd-73bb-4bb0-9d9b-a474678c30de
   /service-child-document-4:
     /content:
       /content[1]:
@@ -1461,6 +1485,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: e86a3b32-5d4d-4d2b-90f1-5d634b8e0823
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1547,6 +1572,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: d99b07e5-8e6d-46d7-9d99-06edc8bf524e
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1633,6 +1659,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: aea326cb-5cb7-4beb-b928-dbad1bf15b58
         website:gossid: 0
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1646,10 +1673,11 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 54defe23-1be4-4f7a-b5b6-5b8e8bbd49d6
     hippo:name: 'Service Child Document #4'
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: 12a4c8ec-5ccc-4f86-b16b-512fdc129e4f
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1657,6 +1685,7 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: c0043109-e913-41fa-a727-fdc39d01942d
   /service-child-document-5:
     /content:
       /content[1]:
@@ -1732,6 +1761,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 3b312bc1-c304-46a8-b21b-cc5715dc679c
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
@@ -1813,6 +1843,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: 06bdf38e-7dc7-49a4-b014-6ec66f18c509
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
@@ -1894,6 +1925,7 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 93c396d3-094e-467d-8a79-1dd18c01a596
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
@@ -1905,10 +1937,11 @@
       - hippo:named
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 7a73cdda-f0ef-42bc-90a0-5fc7dee754d0
     hippo:name: 'Service Child Document #5'
     hippostd:foldertype:
-    - new-digital-website-folder
-    - new-digital-website-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: b74a8732-e4e7-4e69-8906-92d4eb3c4ee4
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1916,10 +1949,11 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: afe832cb-664d-4be3-aa0d-cab150c1576d
   hippo:name: 'Service Document #1'
   hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
+  - new-service-document
+  - new-service-folder
   hippotranslation:id: 3b3d7b71-d032-4dd9-a1d9-0942f8c207aa
   hippotranslation:locale: en
   jcr:mixinTypes:
@@ -1927,3 +1961,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: 73d07664-643e-485e-8c86-3a812639512b
