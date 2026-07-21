@@ -110,6 +110,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 85c3bdb5-3fec-437c-9ca8-4fede3eca9f6
         website:earlyaccesskey: ''
         website:gossid: 0
         website:htmlCode: ''
@@ -235,6 +236,7 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
+        jcr:uuid: b7faefbf-af1b-4366-ba8c-f74cbb23aaa1
         website:earlyaccesskey: ''
         website:gossid: 0
         website:htmlCode: ''
@@ -360,6 +362,7 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: website:service
+        jcr:uuid: 48322a0b-86ad-44e0-85d8-5994a44be571
         website:earlyaccesskey: ''
         website:gossid: 0
         website:htmlCode: ''
@@ -383,10 +386,11 @@
       - hippo:versionInfo
       - mix:referenceable
       jcr:primaryType: hippo:handle
+      jcr:uuid: 62f120c8-3462-429f-b8ce-8dc4396b92a0
     hippo:name: Booking and Referral Standard
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-service-document
+    - new-service-folder
     hippotranslation:id: 3e3310f2-913a-44e1-a5e1-b74aa1c6a02e
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -394,10 +398,11 @@
     - hippotranslation:translated
     - mix:versionable
     jcr:primaryType: hippostd:folder
+    jcr:uuid: c4bf6af8-b0ed-45a6-a1e4-4e24320cf6fc
   hippo:name: Services
   hippostd:foldertype:
-  - new-digital-website-folder
-  - new-digital-website-document
+  - new-service-document
+  - new-service-folder
   hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
   hippotranslation:locale: en
   jcr:mixinTypes:

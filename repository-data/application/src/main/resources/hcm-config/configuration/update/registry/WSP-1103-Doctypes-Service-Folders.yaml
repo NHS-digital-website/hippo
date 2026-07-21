@@ -1,0 +1,36 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1103 Doctypes Service Folders:
+      hipposys:batchsize: 10
+      hipposys:description: Restrict the doc-types that can be added to the /services
+        folder and all sub-folders within it
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:path: /content/documents/corporate-website/services
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport javax.jcr.Session\r\
+        \n\r\nclass RestrictServiceFolderDocTypes  extends BaseNodeUpdateVisitor {\r\
+        \n\r\n  boolean logSkippedNodePaths() {\r\n    return false // don't log skipped\
+        \ node paths\r\n  }\r\n\r\n  boolean skipCheckoutNodes() {\r\n    return false\
+        \ // return true for readonly visitors and/or updates unrelated to versioned\
+        \ content\r\n  }\r\n\r\n  Node firstNode(final Session session) throws RepositoryException\
+        \ {\r\n    return null // implement when using custom node selection/navigation\r\
+        \n  }\r\n\r\n  Node nextNode() throws RepositoryException {\r\n    return\
+        \ null // implement when using custom node selection/navigation\r\n  }\r\n\
+        \r\n  boolean doUpdate(Node node) {\r\n     try {\r\n            if (node.isNodeType('hippostd:folder')\r\
+        \n                && node.getPath().startsWith('/content/documents/corporate-website/services'))\
+        \ {\r\n\r\n                node.setProperty(\r\n                    'hippostd:foldertype',\r\
+        \n                    ['new-service-document', 'new-service-folder'] as String[]\r\
+        \n                )\r\n                log.info \"Restricted: ${node.path}\"\
+        \r\n                return true\r\n            }\r\n            log.debug\
+        \ \"Skipping node ${node.path}\"\r\n            return false\r\n        }\
+        \ catch (Exception e) {\r\n            log.error \"Failed on ${node.path}:\
+        \ ${e.message}\"\r\n            return false\r\n        }\r\n  }\r\n\r\n \
+        \ boolean undoUpdate(Node node) {\r\n    throw new UnsupportedOperationException('Updater\
+        \ does not implement undoUpdate method')\r\n  }\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

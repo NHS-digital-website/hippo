@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-service-folder:
+      /hippostd:templates:
+        /hippostd:folder:
+          hippostd:foldertype:
+          - new-service-folder
+          - new-service-document
+          hippotranslation:id: 338132c0-ca1f-451f-975c-b5e5f9e3ebe3
+          hippotranslation:locale: inherited locale
+          jcr:mixinTypes:
+          - hippotranslation:translated
+          - mix:versionable
+          jcr:primaryType: hippostd:folder
+        jcr:primaryType: hippostd:templates
+      hippostd:icon: addfolder_ico
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./hippotranslation:id
+      - $uuid
+      - ./hippotranslation:locale
+      - $inherited
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:mixinTypes:
+      - hipposys:implementation
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-service-folder/hippostd:templates/node()
