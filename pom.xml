@@ -150,7 +150,7 @@
         <commons-codec.version>1.18.0</commons-codec.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-io.version>2.16.1</commons-io.version>
+        <commons-io.version>2.20.0</commons-io.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons.version>3.18.0</commons.version>
         <cucumber.version>7.21.1</cucumber.version>
