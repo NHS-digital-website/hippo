@@ -363,6 +363,21 @@ public class PublicationTest {
         logger.shouldReceive(warn("Invalid early access key attempt for publication"));
     }
 
+    @Test
+    public void logsWarningOnlyOncePerRequestWhenAccessKeyAttemptFailsRepeatedly() {
+        final String malformedAccessKey = GENERATED_EARLY_ACCESS_KEY + "'";
+
+        setBeanProperty(EARLY_ACCESS_KEY, GENERATED_EARLY_ACCESS_KEY);
+        when(httpServletRequest.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM)).thenReturn(malformedAccessKey);
+        when(hstRequestContext.getAttribute(PublicationBase.INVALID_EARLY_ACCESS_KEY_LOGGED_REQUEST_ATTRIBUTE))
+            .thenReturn(null, Boolean.TRUE);
+
+        Assert.assertFalse(publication.isCorrectAccessKey());
+        Assert.assertFalse(publication.isCorrectAccessKey());
+
+        logger.shouldReceive(warn("Invalid early access key attempt for publication"));
+    }
+
     /**
      * Create an instance of a class that we can pass as a parameter in our calls to the getters
      * Currently only implemented for HstRequestContext

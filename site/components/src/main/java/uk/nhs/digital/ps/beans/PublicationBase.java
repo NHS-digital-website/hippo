@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.servlet.http.HttpServletRequest;
 
 public abstract class PublicationBase extends BaseDocument {
 
@@ -53,6 +54,8 @@ public abstract class PublicationBase extends BaseDocument {
     public static final String EARLY_ACCESS_KEY_QUERY_PARAM = "key";
 
     private static final Pattern EARLY_ACCESS_KEY_PATTERN = Pattern.compile("[0-9A-Za-z]{64}");
+    static final String INVALID_EARLY_ACCESS_KEY_LOGGED_REQUEST_ATTRIBUTE =
+        PublicationBase.class.getName() + ".invalidEarlyAccessKeyLogged";
 
     private RestrictableDate nominalPublicationDate;
 
@@ -414,8 +417,9 @@ public abstract class PublicationBase extends BaseDocument {
 
     public boolean isCorrectAccessKey() {
 
-        String parameter = RequestContextProvider.get().getServletRequest()
-            .getParameter(EARLY_ACCESS_KEY_QUERY_PARAM);
+        HstRequestContext requestContext = RequestContextProvider.get();
+        HttpServletRequest request = requestContext.getServletRequest();
+        String parameter = request.getParameter(EARLY_ACCESS_KEY_QUERY_PARAM);
 
         if (isAccessKeyWellFormed(parameter)) {
             return StringUtils
@@ -424,11 +428,20 @@ public abstract class PublicationBase extends BaseDocument {
         }
 
         if (StringUtils.isNotBlank(parameter)) {
-            log.warn("Invalid early access key attempt for publication");
+            logInvalidEarlyAccessKeyAttemptOncePerRequest(requestContext);
         }
 
         return false;
 
+    }
+
+    private void logInvalidEarlyAccessKeyAttemptOncePerRequest(HstRequestContext requestContext) {
+        if (Boolean.TRUE.equals(requestContext.getAttribute(INVALID_EARLY_ACCESS_KEY_LOGGED_REQUEST_ATTRIBUTE))) {
+            return;
+        }
+
+        log.warn("Invalid early access key attempt for publication");
+        requestContext.setAttribute(INVALID_EARLY_ACCESS_KEY_LOGGED_REQUEST_ATTRIBUTE, Boolean.TRUE);
     }
 
     private boolean isAccessKeyWellFormed(String accessKey) {
