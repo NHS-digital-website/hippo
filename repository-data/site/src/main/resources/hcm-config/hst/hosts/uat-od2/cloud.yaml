@@ -18,6 +18,7 @@ definitions:
                 .meta:residual-child-node-category: content
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/ndrs
+                hst:nochannelinfo: true
                 jcr:primaryType: hst:mount
               /restapi:
                 .meta:residual-child-node-category: content
