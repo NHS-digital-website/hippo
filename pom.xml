@@ -188,6 +188,7 @@
         <maven-surefire.version>3.5.2</maven-surefire.version>
         <microsoft-playwright.version>1.50.0</microsoft-playwright.version>
         <mokito.version>3.12.4</mokito.version>
+        <nashorn.version>15.4</nashorn.version>
         <objenesis.version>3.2</objenesis.version>
         <okio.version>3.6.0</okio.version>
         <okhttp.version>4.12.0</okhttp.version>
@@ -395,6 +396,11 @@
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mokito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.nashorn</groupId>
+                <artifactId>nashorn-core</artifactId>
+                <version>${nashorn.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.splunk.logging</groupId>
