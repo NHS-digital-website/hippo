@@ -17,9 +17,14 @@ public class HighlighterTest {
     }
 
     @Test
-    public void returnsSourceWhenLanguageIsNotSupported() {
-        final String source = "some code";
+    public void escapesSourceWhenLanguageIsNotSupported() {
+        final String source = "<script>alert('x')</script>";
 
-        assertEquals(source, Highlighter.INSTANCE.paint(source, null));
+        assertEquals("&lt;script&gt;alert('x')&lt;/script&gt;", Highlighter.INSTANCE.paint(source, null));
+    }
+
+    @Test
+    public void returnsEmptyStringWhenSourceIsNull() {
+        assertEquals("", Highlighter.INSTANCE.paint(null, Language.JAVA));
     }
 }

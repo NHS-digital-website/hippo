@@ -65,6 +65,9 @@ public class Code extends HippoCompound {
     public Language getLanguage() {
         if (language == null) {
             language = Language.getByKey(getCodeLanguage());
+            if (language == null) {
+                language = Language.PLAINTEXT;
+            }
         }
         return language;
     }

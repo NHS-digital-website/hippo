@@ -1,6 +1,7 @@
 package uk.nhs.digital.highlighter;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -51,7 +52,7 @@ public enum Highlighter {
             scriptEngine.eval("function highlight(source, lang) { return hljs.highlight(lang, source).value }");
             LOGGER.info("Syntax highlighter initialised.");
             return scriptEngine;
-        } catch (ScriptException | IOException | RuntimeException e) {
+        } catch (ScriptException | IOException | RuntimeException | LinkageError e) {
             LOGGER.warn(
                 "Failed to initialise the syntax highlighter with JavaScript engine {}. Code blocks will be rendered without syntax highlighting.",
                 engineDescription(scriptEngine),
@@ -89,21 +90,29 @@ public enum Highlighter {
     }
 
     public String paint(final String source, final Language lang) {
+        if (source == null) {
+            return "";
+        }
+
         if (engine == null) {
             LOGGER.debug("Syntax highlighter unavailable; rendering unhighlighted code block.");
-            return source;
+            return unhighlighted(source);
         }
 
         if (lang == null) {
             LOGGER.warn("Unable to syntax highlight code block because no supported language was supplied. Rendering without syntax highlighting.");
-            return source;
+            return unhighlighted(source);
         }
 
         try {
             return (String) ((Invocable) engine).invokeFunction("highlight", source, lang.getKey());
-        } catch (ScriptException | NoSuchMethodException | RuntimeException e) {
+        } catch (ScriptException | NoSuchMethodException | RuntimeException | LinkageError e) {
             LOGGER.warn("Failed to syntax highlight code block as {}. Rendering without syntax highlighting.", lang.getKey(), e);
-            return source;
+            return unhighlighted(source);
         }
+    }
+
+    private String unhighlighted(final String source) {
+        return escapeHtml4(source);
     }
 }
