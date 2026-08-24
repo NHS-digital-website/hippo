@@ -195,6 +195,10 @@ public enum Language {
     }
 
     public static Language getByKey(String name) {
+        if (name == null) {
+            return null;
+        }
+
         for (Language l : Language.values()) {
             if (l.getKey().replace("-", "").equalsIgnoreCase(name.replace("-", ""))) {
                 return l;
