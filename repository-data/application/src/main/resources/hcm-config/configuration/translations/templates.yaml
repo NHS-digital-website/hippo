@@ -10,6 +10,8 @@ definitions:
       new-cihub-document: new CI hub document
       new-cyber-alerts-document: new cyber alert document
       new-cyber-alerts-folder: new folder
+      new-developer-document: new document
+      new-developer-folder: new folder
       new-digital-website-document: new document
       new-digital-website-folder: new folder
       new-enterprise-forms-document: new enterprise form document
@@ -25,6 +27,8 @@ definitions:
       new-project-update-folder: new folder
       new-recentupdates-document: new recentupdates document
       new-recentupdates-folder: new recentupdates folder
+      new-service-document: new document
+      new-service-folder: new folder
       new-socialmedialink-document: new socialmedialink document
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
