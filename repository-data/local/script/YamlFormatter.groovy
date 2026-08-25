@@ -142,8 +142,8 @@ class YamlFormatter extends Script {
                         if (diff != 0) {
                             return diff;
                         }
-                        s1Part.setLength(0);
-                        s2Part.setLength(0);
+                        s1Part.delete(0, s1Part.length());
+                        s2Part.delete(0, s2Part.length());
                     }
                 }
 

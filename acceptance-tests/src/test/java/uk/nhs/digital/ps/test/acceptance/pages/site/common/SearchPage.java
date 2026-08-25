@@ -31,7 +31,10 @@ public class SearchPage extends AbstractSitePage {
     }
 
     public String getResultCount() {
-        return helper.findElement(By.xpath("//*[@data-uipath='ps.search-results.count']")).getText();
+        By resultCountSelector = By.xpath("//*[@data-uipath='ps.search-results.count']");
+        return helper.waitForElementUntil(
+            ExpectedConditions.visibilityOfElementLocated(resultCountSelector)
+        ).getText();
     }
 
     public String getResultDescription() {
