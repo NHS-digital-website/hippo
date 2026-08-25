@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-382-remove-service-general-html-code:
+      hipposys:batchsize: 1
+      hipposys:description: |
+        Reports and removes `website:htmlCode` from existing Service and General documents.
+        Run once in dry-run/report mode for assessment before enabling cleanup.
+      hipposys:dryrun: true
+      hipposys:loglevel: INFO
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='website:service')
+        or (@jcr:primaryType='website:general')]
+      hipposys:script:
+        resource: /configuration/update/WSP-382-remove-service-general-html-code.groovy
+        type: string
+      hipposys:throttle: 2000
+      jcr:primaryType: hipposys:updaterinfo

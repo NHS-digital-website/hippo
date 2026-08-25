@@ -174,6 +174,3 @@
         </div>
     </div>
 </article>
-<#if document.htmlCode?has_content>
-    ${document.htmlCode?no_esc}
-</#if>
