@@ -32,10 +32,9 @@ public class SearchPage extends AbstractSitePage {
 
     public String getResultCount() {
         By resultCountSelector = By.xpath("//*[@data-uipath='ps.search-results.count']");
-        return helper.waitForElementUntil(webDriver -> {
-            WebElement resultCount = ExpectedConditions.visibilityOfElementLocated(resultCountSelector).apply(webDriver);
-            return resultCount == null ? null : resultCount.getText();
-        });
+        return helper.waitForElementUntil(
+            ExpectedConditions.visibilityOfElementLocated(resultCountSelector)
+        ).getText();
     }
 
     public String getResultDescription() {

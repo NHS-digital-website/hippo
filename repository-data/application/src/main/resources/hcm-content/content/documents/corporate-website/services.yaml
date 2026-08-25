@@ -113,7 +113,6 @@
         jcr:uuid: 85c3bdb5-3fec-437c-9ca8-4fede3eca9f6
         website:earlyaccesskey: ''
         website:gossid: 0
-        website:htmlCode: ''
         website:metadata: []
         website:navigationcontroller: withNav
         website:noIndexControl: ''
@@ -239,7 +238,6 @@
         jcr:uuid: b7faefbf-af1b-4366-ba8c-f74cbb23aaa1
         website:earlyaccesskey: ''
         website:gossid: 0
-        website:htmlCode: ''
         website:metadata: []
         website:navigationcontroller: withNav
         website:noIndexControl: ''
@@ -365,7 +363,6 @@
         jcr:uuid: 48322a0b-86ad-44e0-85d8-5994a44be571
         website:earlyaccesskey: ''
         website:gossid: 0
-        website:htmlCode: ''
         website:metadata: []
         website:navigationcontroller: withNav
         website:noIndexControl: ''

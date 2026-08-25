@@ -36,7 +36,6 @@
     - mix:referenceable
     jcr:primaryType: website:service
     website:gossid: 0
-    website:htmlCode: ''
     website:metadata: []
     website:rawMetadata:
     - ''
@@ -81,7 +80,6 @@
     - mix:versionable
     jcr:primaryType: website:service
     website:gossid: 0
-    website:htmlCode: ''
     website:metadata: []
     website:rawMetadata:
     - ''
@@ -126,7 +124,6 @@
     - mix:referenceable
     jcr:primaryType: website:service
     website:gossid: 0
-    website:htmlCode: ''
     website:metadata: []
     website:rawMetadata:
     - ''

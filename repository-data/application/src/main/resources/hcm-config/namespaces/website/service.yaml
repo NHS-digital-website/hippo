@@ -201,16 +201,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /htmlCode:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Raw HTML - web team only
-            field: htmlCode
-            hint: This should only be used or edited by the web team.  Misuse of this
-              field could break the website, and could lead to disciplinary action.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /rawMetadata:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -371,16 +361,6 @@ definitions:
             hipposysedit:path: website:gossid
             hipposysedit:primary: false
             hipposysedit:type: Long
-            jcr:primaryType: hipposysedit:field
-          /htmlCode:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: true
-            hipposysedit:path: website:htmlCode
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - optional
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -662,7 +642,6 @@ definitions:
           jcr:primaryType: website:service
           website:earlyaccesskey: ''
           website:gossid: 0
-          website:htmlCode: ''
           website:metadata: []
           website:navigationcontroller: withNav
           website:noIndexControl: ''
