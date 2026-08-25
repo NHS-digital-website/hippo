@@ -5,6 +5,8 @@ definitions:
       new-about-document: new about document
       new-announcement-document: new announcement
       new-announcement-folder: new folder
+      new-banner-document: New document
+      new-banner-folder: New folder
       new-cihub-document: new CI hub document
       new-cyber-alerts-document: new cyber alert document
       new-cyber-alerts-folder: new folder

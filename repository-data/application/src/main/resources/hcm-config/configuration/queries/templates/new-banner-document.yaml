@@ -22,4 +22,5 @@ definitions:
       - $holder
       jcr:language: xpath
       jcr:primaryType: hippostd:templatequery
-      jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,website:bannerdocument)
+      jcr:statement: /jcr:root/hippo:namespaces/website/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[
+        @jcr:primaryType='website:targetedbanner']
