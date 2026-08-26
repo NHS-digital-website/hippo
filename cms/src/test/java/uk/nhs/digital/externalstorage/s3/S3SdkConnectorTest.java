@@ -10,12 +10,14 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.AbortMultipartUploadRequest;
 import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CompleteMultipartUploadRequest;
 import com.amazonaws.services.s3.model.GroupGrantee;
 import com.amazonaws.services.s3.model.InitiateMultipartUploadRequest;
@@ -92,6 +94,23 @@ public class S3SdkConnectorTest {
         // then
         then(s3).should().getObjectAcl(bucketName, objectKey);
         then(accessControlList).should().revokeAllPermissions(GroupGrantee.AllUsers);
+    }
+
+    @Test
+    public void skipsLockingDownS3Resource_whenResourceDoesNotExist() throws Exception {
+
+        // given
+        final AmazonS3Exception noSuchKey = new AmazonS3Exception("The specified key does not exist.");
+        noSuchKey.setStatusCode(404);
+        noSuchKey.setErrorCode("NoSuchKey");
+        given(s3.getObjectAcl(bucketName, objectKey)).willThrow(noSuchKey);
+
+        // when
+        s3Connector.unpublishResource(objectKey);
+
+        // then
+        then(s3).should().getObjectAcl(bucketName, objectKey);
+        then(s3).should(never()).setObjectAcl(any(), any(), any(AccessControlList.class));
     }
 
     @Test

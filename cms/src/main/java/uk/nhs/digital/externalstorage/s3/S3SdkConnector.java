@@ -3,6 +3,7 @@ package uk.nhs.digital.externalstorage.s3;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.AbortMultipartUploadRequest;
 import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CompleteMultipartUploadRequest;
 import com.amazonaws.services.s3.model.GroupGrantee;
 import com.amazonaws.services.s3.model.InitiateMultipartUploadRequest;
@@ -74,11 +75,25 @@ public class S3SdkConnector implements S3Connector {
     public void unpublishResource(String objectPath) {
         reportAction("Making S3 resource not-public: {}", objectPath);
 
-        AccessControlList acl = s3.getObjectAcl(bucketName, objectPath);
+        AccessControlList acl;
+        try {
+            acl = s3.getObjectAcl(bucketName, objectPath);
+        } catch (AmazonS3Exception ex) {
+            if (isMissingKey(ex)) {
+                reportAction("S3 resource is already absent, skipping unpublish: {}", objectPath);
+                return;
+            }
+            throw ex;
+        }
+
         acl.revokeAllPermissions(GroupGrantee.AllUsers);
         s3.setObjectAcl(bucketName, objectPath, acl);
 
         reportAction("S3 Resource is no longer public: {}", objectPath);
+    }
+
+    private boolean isMissingKey(final AmazonS3Exception ex) {
+        return ex.getStatusCode() == 404 || "NoSuchKey".equals(ex.getErrorCode());
     }
 
     @Override
