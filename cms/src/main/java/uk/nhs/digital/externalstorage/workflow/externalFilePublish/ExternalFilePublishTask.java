@@ -148,6 +148,10 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
 
     private String getEarlyAccessKey(Node publicationNode)
         throws RepositoryException {
+        if (!publicationNode.hasProperty(PublicationSystemConstants.PROPERTY_EARLY_ACCESS_KEY)) {
+            return "";
+        }
+
         return publicationNode
             .getProperty(PublicationSystemConstants.PROPERTY_EARLY_ACCESS_KEY)
             .getString();
