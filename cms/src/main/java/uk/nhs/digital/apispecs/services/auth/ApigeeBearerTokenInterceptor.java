@@ -7,7 +7,7 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 
 public class ApigeeBearerTokenInterceptor implements ClientHttpRequestInterceptor {
 
@@ -29,8 +29,7 @@ public class ApigeeBearerTokenInterceptor implements ClientHttpRequestIntercepto
         throws IOException {
         String accessToken = tokenProvider.getAccessToken(tokenUri, username, password);
         request.getHeaders().setBearerAuth(accessToken);
-        request.getHeaders().setContentType(new MediaType(MediaType.APPLICATION_FORM_URLENCODED, StandardCharsets.UTF_8));
+        request.getHeaders().setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         return execution.execute(request, body);
     }
 }
-
