@@ -4,9 +4,11 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hippoecm.repository.HippoStdNodeType.NT_FOLDER;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static uk.nhs.digital.externalstorage.ExternalStorageConstants.*;
 
@@ -127,6 +129,59 @@ public class ExternalFileCopyTaskTest {
 
         assertS3Interactions(oldS3ObjectReferenceB, newS3ObjectReferenceB, newS3ObjectUrlB, fileNameB,
             copiedDocExtResourceNodeB);
+    }
+
+    @Test
+    public void skipsS3File_whenCopyFails() throws Exception {
+
+        // given
+        final String copiedDocumentName = newRandomString();
+
+        final Node targetFolderNode = workflowSession.getRootNode()
+            .addNode("target-folder", NT_FOLDER);
+        final Node copiedDocumentHandleNode = targetFolderNode
+            .addNode(copiedDocumentName, "hippo:handle");
+        final Node copiedDocUnpublishedVariant = copiedDocumentHandleNode
+            .addNode("copied-doc-unpublished-variant", "irrelevant:doctype");
+
+        externalFileCopyTask.setCopiedDocumentName(copiedDocumentName);
+        externalFileCopyTask.setTargetFolder(new Document(targetFolderNode));
+        externalFileCopyTask.setWorkflowContext(workflowContext);
+
+        final String oldS3ObjectReference = newRandomString();
+        final String fileName = newRandomString();
+
+        final Node copiedDocExtResourceNode = copiedDocUnpublishedVariant
+            .addNode("copied-doc-ext-attachment", "publicationsystem:extattachment")
+            .addNode("copied-doc-ext-resource", "externalstorage:resource");
+
+        copiedDocExtResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_FILE_NAME, fileName);
+        copiedDocExtResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE, oldS3ObjectReference);
+
+        given(s3Connector.copyFile(oldS3ObjectReference, fileName))
+            .willThrow(new RuntimeException("S3 source does not exist"));
+
+        final String copiedDocumentHandleNodePath = copiedDocumentHandleNode.getPath();
+        MockJcr.addQueryResultHandler(
+            workflowSession,
+            mockQuery -> mockQuery.getStatement().matches(
+                "SELECT \\* FROM \\[externalstorage:resource].*ISDESCENDANTNODE \\(\\['"
+                    + copiedDocumentHandleNodePath + "']\\).*"
+            )
+                ? new MockQueryResult(asList(copiedDocExtResourceNode))
+                : null
+        );
+
+        // when
+        externalFileCopyTask.processResourceNodes(s3Connector, null);
+
+        // then
+        then(s3Connector).should().copyFile(oldS3ObjectReference, fileName);
+        then(s3Connector).should(never()).unpublishResource(anyString());
+        assertThat("Target resource node keeps original reference when S3 copy fails.",
+            copiedDocExtResourceNode.getProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE).getString(),
+            is(oldS3ObjectReference)
+        );
     }
 
     private Node newResourceNode(final Node copiedDocUnpublishedVariant,

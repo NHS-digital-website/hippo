@@ -53,17 +53,21 @@ public class ExternalFileCopyTask extends AbstractExternalFileTask {
 
             final String oldReference = copiedResourceNode.getProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE).getString();
 
-            final S3ObjectMetadata s3ObjectMetadata = s3.copyFile(
-                oldReference,
-                copiedResourceNode.getProperty(PROPERTY_EXTERNAL_STORAGE_FILE_NAME).getString()
-            );
+            try {
+                final S3ObjectMetadata s3ObjectMetadata = s3.copyFile(
+                    oldReference,
+                    copiedResourceNode.getProperty(PROPERTY_EXTERNAL_STORAGE_FILE_NAME).getString()
+                );
 
-            s3.unpublishResource(s3ObjectMetadata.getReference());
+                s3.unpublishResource(s3ObjectMetadata.getReference());
 
-            copiedResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE, s3ObjectMetadata.getReference());
-            copiedResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_PUBLIC_URL, s3ObjectMetadata.getUrl());
+                copiedResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE, s3ObjectMetadata.getReference());
+                copiedResourceNode.setProperty(PROPERTY_EXTERNAL_STORAGE_PUBLIC_URL, s3ObjectMetadata.getUrl());
 
-            log.debug("Copied external resource {} as private {}", oldReference, s3ObjectMetadata);
+                log.debug("Copied external resource {} as private {}", oldReference, s3ObjectMetadata);
+            } catch (Exception ex) {
+                log.error("Error while copying external resource: {}", oldReference, ex);
+            }
         }
     }
 }
