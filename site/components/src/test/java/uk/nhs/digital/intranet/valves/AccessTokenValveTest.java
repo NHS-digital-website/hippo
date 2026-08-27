@@ -2,6 +2,9 @@ package uk.nhs.digital.intranet.valves;
 
 import static org.mockito.Mockito.*;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Before;
@@ -18,10 +21,6 @@ import uk.nhs.digital.intranet.provider.CookieProvider;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
 import uk.nhs.digital.test.mockito.MockitoSessionTestBase;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RunWith(MockitoJUnitRunner.class)
 @Ignore

@@ -172,7 +172,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
             .withCredentials(provider)
             .withRegion(Regions.fromName(params.getS3Region()));
 
-        if (!params.getS3Endpoint().isEmpty()) {
+        if (!params.getS3Endpoint().isEmpty() && !("null".equals(params.getS3Endpoint()))) {
             s3Builder.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(params.getS3Endpoint(), params.getS3Region()));
         }
 

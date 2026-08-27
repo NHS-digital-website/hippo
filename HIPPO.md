@@ -19,7 +19,7 @@ it won't be seen and picked up during the repository bootstrap process.
 
 Access the Hippo Essentials at http://localhost:8080/essentials.
 After your project is set up, access the CMS at http://localhost:8080/cms and the site at http://localhost:8080/site.
-Logs are located in target/tomcat8x/logs
+Logs are located in target/tomcat10x/logs
 
 Building distributions
 ======================

@@ -1,14 +1,13 @@
 package uk.nhs.digital.website.beans;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.highlighter.Highlighter;
 import uk.nhs.digital.highlighter.Language;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 
 @HippoEssentialsGenerated(internalName = "website:code")
 @Node(jcrType = "website:code")
@@ -66,6 +65,9 @@ public class Code extends HippoCompound {
     public Language getLanguage() {
         if (language == null) {
             language = Language.getByKey(getCodeLanguage());
+            if (language == null) {
+                language = Language.PLAINTEXT;
+            }
         }
         return language;
     }

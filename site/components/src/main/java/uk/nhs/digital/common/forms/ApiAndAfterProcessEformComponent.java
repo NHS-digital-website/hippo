@@ -4,6 +4,7 @@ import com.onehippo.cms7.eforms.hst.behaviors.AfterProcessBehavior;
 import com.onehippo.cms7.eforms.hst.components.EformComponent;
 import com.onehippo.cms7.eforms.hst.model.ErrorMessage;
 import com.onehippo.cms7.eforms.hst.model.Form;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -12,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.forms.behavior.SubscriptionBehavior;
 
 import java.util.Map;
-import javax.servlet.http.HttpServletResponse;
 
 public class ApiAndAfterProcessEformComponent extends EformComponent {
 

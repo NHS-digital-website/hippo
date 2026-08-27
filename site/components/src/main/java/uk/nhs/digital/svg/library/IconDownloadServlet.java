@@ -1,5 +1,7 @@
 package uk.nhs.digital.svg.library;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
@@ -12,8 +14,6 @@ import uk.nhs.digital.svg.ProxyDispatcher;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class IconDownloadServlet extends ProxyDispatcher {
 

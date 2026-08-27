@@ -2,14 +2,14 @@
 
 **You'll need to follow the following steps to be able to run the project**
 
-1. Install Java SDK 11
+1. Install Java SDK 17
 2. Install Maven
-3. Set up authentication with Bloomreach Experience Manager 15
+3. Set up authentication with Bloomreach Experience Manager 16
 4. Clone the project repo from Github
 
 ## 1. Install Java SDK
 
-1. Download and install the Java SDK 11 [from here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use OpenJDK 11 via your package manager.
+1. Download and install the Java SDK 17 [from here](https://adoptium.net/temurin/releases/?version=17) or use OpenJDK 17 via your package manager.
 2. Set up the `JAVA_HOME` environment variable in Terminal (or add it to your bash profile)
 
 		export JAVA_HOME=/Library/Java/JavaVirtualMachines/[YOUR_JDK_VERSION]/Contents/Home
@@ -21,9 +21,9 @@
 
 		export PATH=$PATH:~/.mvn/bin
 
-## 3. Authenticate with Bloomreach Experience Manager 15
+## 3. Authenticate with Bloomreach Experience Manager 16
 
-1. Create settings.xml file for your Bloomreach 15 credentials:
+1. Create settings.xml file for your Bloomreach 16 credentials:
 
 		$ touch ~/.m2/settings.xml
 
@@ -33,7 +33,7 @@
 <settings>
  <servers>
    <server>
-     <id>hippo-maven2-enterprise</id>
+     <id>bloomreach-maven2-enterprise</id>
      <username>USERNAME</username>
      <password>PASSWORD</password>
    </server>

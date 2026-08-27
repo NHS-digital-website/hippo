@@ -1,10 +1,9 @@
 package uk.nhs.digital.intranet.provider;
 
+import jakarta.servlet.http.Cookie;
 import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
 import uk.nhs.digital.intranet.utils.Constants;
-
-import javax.servlet.http.Cookie;
 
 public class CookieProvider {
 

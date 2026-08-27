@@ -26,9 +26,17 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const allowedMultiCommitBranches = new Set([
+              'WSP-61-bloomreach-upgrade-v16'
+            ]);
+            const headBranch = context.payload.pull_request.head.ref;
             const commitCount = context.payload.pull_request.commits;
             if (commitCount <= 1) {
               core.info(`PR has ${commitCount} commit(s). Nothing to do.`);
+              return;
+            }
+            if (allowedMultiCommitBranches.has(headBranch)) {
+              core.info(`PR branch '${headBranch}' is allowed to keep ${commitCount} commits.`);
               return;
             }
 

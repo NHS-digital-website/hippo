@@ -2,6 +2,12 @@ package uk.nhs.digital.website.rest;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.UriInfo;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -12,13 +18,6 @@ import org.onehippo.cms7.essentials.components.rest.BaseRestResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.website.beans.ApiSpecification;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
 
 @Produces({MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})

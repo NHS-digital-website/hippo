@@ -12,7 +12,7 @@ Make sure you do run `make init` after you clone the repo. It will setup some ha
 git commands like `git create-branch` and `git delete-gone` (and possible more in
 the future).
 
-To build this project you need access to `hippo-maven2-enterprise` maven repository.
+To build this project you need access to `bloomreach-maven2-enterprise` maven repository.
 If you already have username and password, simply open `env.mk` and add these two
 lines.
 

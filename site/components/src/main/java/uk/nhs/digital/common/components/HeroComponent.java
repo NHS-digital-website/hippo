@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -8,8 +9,6 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 import uk.nhs.digital.common.components.info.HeroComponentInfo;
 import uk.nhs.digital.common.contentrewriters.BrandRefreshContentRewriter;
 import uk.nhs.digital.common.contentrewriters.StripTagsContentRewriter;
-
-import javax.servlet.http.HttpServletRequest;
 
 @ParametersInfo(type = HeroComponentInfo.class)
 public class HeroComponent extends CommonComponent {

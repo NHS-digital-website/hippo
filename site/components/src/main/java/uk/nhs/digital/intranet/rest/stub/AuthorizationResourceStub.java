@@ -1,12 +1,12 @@
 package uk.nhs.digital.intranet.rest.stub;
 
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED})

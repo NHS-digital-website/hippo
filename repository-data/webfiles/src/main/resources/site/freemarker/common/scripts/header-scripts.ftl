@@ -9,4 +9,3 @@
     window.resourceBaseUrl = "${webfilepath}";
 </script>
 <script src="<@hst.webfile path="/dist/nhsd-priority-scripts.bundle.js"/>"></script>
-<script src="<@hst.webfile path="/dist/nhse-menu-widget.bundle.js"/>"></script>

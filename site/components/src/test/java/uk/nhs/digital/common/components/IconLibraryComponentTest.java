@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
@@ -29,7 +30,6 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.jcr.query.Row;
 import javax.jcr.query.RowIterator;
-import javax.servlet.http.HttpServletRequest;
 
 @RunWith(MockitoJUnitRunner.class)
 public class IconLibraryComponentTest {

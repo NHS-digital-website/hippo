@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
          id="cms">
 
     <!-- General configuration -->
@@ -316,7 +317,7 @@
 
     <resource-ref>
         <description>
-            Resource reference to a factory for javax.mail.Session
+            Resource reference to a factory for jakarta.mail.Session
             instances that may be used for sending electronic mail
             messages, preconfigured to connect to NHSMail SMTP server.
         </description>
@@ -324,7 +325,7 @@
             mail/Session
         </res-ref-name>
         <res-type>
-            javax.mail.Session
+            jakarta.mail.Session
         </res-type>
         <res-auth>
             Container
