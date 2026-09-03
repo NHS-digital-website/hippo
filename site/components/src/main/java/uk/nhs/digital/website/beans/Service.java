@@ -55,11 +55,6 @@ public class Service extends CommonFieldsBean {
         return getBean("website:friendlyurls", Friendlyurls.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:htmlCode")
-    public String getHtmlCode() {
-        return getSingleProperty("website:htmlCode");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:rawMetadata")
     public String[] getRawMetadata() {
         return getMultipleProperty("website:rawMetadata");

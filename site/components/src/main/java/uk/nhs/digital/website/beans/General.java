@@ -36,11 +36,6 @@ public class General extends CommonFieldsBean {
         return getSingleProperty("website:gossid");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:htmlCode")
-    public String getHtmlCode() {
-        return getSingleProperty("website:htmlCode");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:metadata")
     public String[] getMetadata() {
         return getMultipleProperty("website:metadata");
