@@ -1,0 +1,32 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/WSP-1045 Remove sitemaps:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:logtarget: REPOSITORY
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/hst:hst/hst:configurations/common/hst:sitemap//element(*,
+        hst:sitemapitem)
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\nimport\
+        \ javax.jcr.Node\r\nimport javax.jcr.RepositoryException\r\nimport javax.jcr.Session\r\
+        \n\r\nclass UpdaterTemplate extends BaseNodeUpdateVisitor {\r\n\r\n  def pathsToDelete\
+        \ = [  \r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/coronavirus\"\
+        ,\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/cyber-and-data-security\"\
+        ,\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/events\",\r\n  \
+        \  \"/hst:hst/hst:configurations/common/hst:sitemap/news/feed\",\r\n    \"\
+        /hst:hst/hst:configurations/common/hst:sitemap/news/events\",\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/news-and-events\"\
+        ,\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/nhsd-about-us-hub\"\
+        ,\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/nhsd-cyber-hub\"\
+        ,\r\n    \"/hst:hst/hst:configurations/common/hst:sitemap/nhsd-developer-hub\"\
+        ]\r\n  \r\n\r\n  \r\n  \r\n  boolean doUpdate(Node node) {\r\n  \r\n     \
+        \ if (pathsToDelete.contains(node.path)) {\r\n          log.info(\"Deleting\
+        \ {}\", node.getPath())\r\n          node.remove()\r\n          return true\r\
+        \n      }\r\n  \r\n      return false\r\n  }\r\n\r\n  boolean undoUpdate(Node\
+        \ node) {\r\n    throw new UnsupportedOperationException('Updater does not\
+        \ implement undoUpdate method')\r\n  }\r\n\r\n}"
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
