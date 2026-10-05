@@ -91,9 +91,13 @@
       selection:label: Twitter
     /selection:listitem[23]:
       jcr:primaryType: selection:listitem
+      selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/x_social.svg
+      selection:label: X Social
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
       selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/x_circled.svg
       selection:label: X circled
-    /selection:listitem[24]:
+    /selection:listitem[25]:
       jcr:primaryType: selection:listitem
       selection:key: https://design-system.digital.nhs.uk/cdn/latest/icons/hex/youtube.svg
       selection:label: Youtube
