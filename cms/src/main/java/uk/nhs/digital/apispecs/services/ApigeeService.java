@@ -32,6 +32,8 @@ public class ApigeeService extends RemoteSpecService {
     }
 
     protected List<OpenApiSpecification> apiSpecificationsStatusesFrom(final Resource resource) {
+        log.debug("Mapping Apigee specification status response from CRISP resource.");
+
         final List<OpenApiSpecification> remoteApiSpecifications = unmodifiableList(
             resourceServiceBroker
                 .getResourceBeanMapper(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API)
@@ -43,6 +45,13 @@ public class ApigeeService extends RemoteSpecService {
         );
 
         log.debug("Found {} specifications.", remoteApiSpecifications.size());
+        log.debug(
+            "Apigee specification status response mapped; first specification ids: {}.",
+            remoteApiSpecifications.stream()
+                .map(OpenApiSpecification::getId)
+                .limit(10)
+                .collect(toList())
+        );
 
         return remoteApiSpecifications;
     }

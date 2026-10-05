@@ -40,7 +40,10 @@ public class ApiSpecificationImportImportMetadataJcrRepository implements ApiSpe
 
     @Override
     public ApiSpecificationImportMetadata findApiSpecificationImportMetadata() {
-        return metadataFrom(findMetadataNode());
+        log.debug("Finding API Specification import metadata.");
+        final ApiSpecificationImportMetadata metadata = metadataFrom(findMetadataNode());
+        log.debug("Found API Specification import metadata with {} items.", metadata.items().size());
+        return metadata;
     }
 
     @Override
@@ -52,6 +55,10 @@ public class ApiSpecificationImportImportMetadataJcrRepository implements ApiSpe
 
             final List<Item> metadataOfSpecsActuallyProcessedInImport =
                 apiSpecificationImportMetadata.items().stream().filter(Item::specExists).collect(toList());
+            log.debug(
+                "Saving API Specifications metadata for {} processed specifications.",
+                metadataOfSpecsActuallyProcessedInImport.size()
+            );
 
             final List<String> jcrIds = metadataOfSpecsActuallyProcessedInImport.stream().map(Item::apiSpecJcrId).collect(toList());
             setMultipleStringPropertyQuietly(metadataNode, JcrNames.JCR_NODE_IDS.jcrName, jcrIds);
@@ -62,6 +69,7 @@ public class ApiSpecificationImportImportMetadataJcrRepository implements ApiSpe
             wrapCheckedException(session::save);
 
         } catch (final Exception e) {
+            log.error("Failed to save API Specification Metadata.", e);
             throw new RuntimeException("Failed to save API Specification Metadata at " + API_SPEC_METADATA_ROOT_NODE_PATH, e);
         }
 
@@ -92,17 +100,20 @@ public class ApiSpecificationImportImportMetadataJcrRepository implements ApiSpe
     private Node findMetadataNode() {
 
         try {
+            log.debug("Executing API Specification metadata query: {}", API_SPEC_METADATA_ROOT_NODE_PATH);
             final QueryResult queryResult = JcrQueryHelper.executeJcrXpathQuery(session, API_SPEC_METADATA_ROOT_NODE_PATH);
 
             final NodeIterator nodes = queryResult.getNodes();
 
             if (nodes.hasNext()) {
+                log.debug("Found API Specification Metadata Root node.");
                 return nodes.nextNode();
             }
 
             throw new RuntimeException("API Specification Metadata Root node does not exist.");
 
         } catch (final Exception e) {
+            log.error("Failed to retrieve API Specification Metadata node.", e);
             throw new RuntimeException(
                 "Failed to retrieve API Specification Metadata node at " + API_SPEC_METADATA_ROOT_NODE_PATH,
                 e

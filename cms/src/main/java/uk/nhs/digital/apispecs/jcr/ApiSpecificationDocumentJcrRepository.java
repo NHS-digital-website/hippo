@@ -47,6 +47,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
             final QueryResult result = executeInitialSyncDataQuery();
 
             final String defaultNodeSelectorName = getDefaultNodeSelectorName(result);
+            log.debug("Initial API Specification sync data query returned selector name: {}.", defaultNodeSelectorName);
 
             final List<SpecificationSyncData> initialSyncDataForAllApiSpecs =
                 streamOf(result.getRows())
@@ -58,6 +59,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
             return unmodifiableList(initialSyncDataForAllApiSpecs);
 
         } catch (final Exception e) {
+            log.error("Failed to find initial sync data for all API specifications.", e);
             throw new RuntimeException("Failed to find initial sync data for all API specifications at "
                 + INITIAL_SYNC_DATA_FOR_ALL_API_SPECS_QUERY,
                 e);
@@ -78,6 +80,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
             return createApiSpecificationFrom(apiSpecHandleNode);
 
         } catch (final Exception e) {
+            log.error("Failed to find API Specification document with handle node id {}.", specHandleNodeId, e);
             throw new RuntimeException("Failed to find API Specification document "
                 + specHandleNodeId, e);
         }
@@ -91,6 +94,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
      * node whereas XPath only loaded the required initial sync data.
      */
     private QueryResult executeInitialSyncDataQuery() {
+        log.debug("Executing initial API Specification sync data query: {}", INITIAL_SYNC_DATA_FOR_ALL_API_SPECS_QUERY);
         return JcrQueryHelper.executeJcrXpathQuery(session, INITIAL_SYNC_DATA_FOR_ALL_API_SPECS_QUERY);
     }
 
@@ -123,6 +127,12 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
 
             if (specificationId != null && jcrPathIds != null && draftSpecJcrPath != null) {
                 String apiSpecHandleNodeId = jcrPathIds.get(API_SPEC_HANDLE_PARENT_NODE_INDEX);
+                log.debug(
+                    "Found initial sync data row; specification id: {}; handle node id: {}; draft path: {}.",
+                    specificationId,
+                    apiSpecHandleNodeId,
+                    draftSpecJcrPath
+                );
                 return SpecificationSyncData.with(
                     specificationId,
                     apiSpecHandleNodeId,
@@ -154,6 +164,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
             final NodeIterator nodes = result.getNodes();
 
             if (nodes.hasNext()) {
+                log.debug("Found API specification handle node with id {}.", specHandleNodeId);
                 return nodes.nextNode();
             }
 

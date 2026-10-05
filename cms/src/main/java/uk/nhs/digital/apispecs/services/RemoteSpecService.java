@@ -10,6 +10,7 @@ import uk.nhs.digital.apispecs.OpenApiSpecificationRepository;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepositoryException;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
+import java.net.URI;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.function.Supplier;
@@ -40,13 +41,26 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
     @Override
     public List<OpenApiSpecification> apiSpecificationStatuses() throws OpenApiSpecificationRepositoryException {
 
-        log.debug("Retrieving list of available specifications from {}.", serviceName);
+        log.debug(
+            "Retrieving list of available specifications from {}; namespace: {}; endpoint: {}.",
+            serviceName,
+            resourceNamespace,
+            safeUri(allSpecUrl)
+        );
 
         return throwServiceExceptionOnFailure(() -> {
 
                 final Resource resource = resourceAt(allSpecUrl);
 
-                return apiSpecificationsStatusesFrom(resource);
+                final List<OpenApiSpecification> apiSpecificationStatuses = apiSpecificationsStatusesFrom(resource);
+
+                log.info(
+                    "Retrieved {} API specification status entries from {}.",
+                    apiSpecificationStatuses.size(),
+                    serviceName
+                );
+
+                return apiSpecificationStatuses;
             },
             "Failed to retrieve list of available specifications from {0}.", serviceName
         );
@@ -61,9 +75,26 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
 
             final String singleSpecUrl = urlForSingleSpecification(specificationId);
 
+            log.debug(
+                "Resolving specification content from {}; namespace: {}; endpoint: {}; specification id: {}.",
+                serviceName,
+                resourceNamespace,
+                safeUri(singleSpecUrl),
+                specificationId
+            );
+
             final Resource resource = resourceAt(singleSpecUrl);
 
-            return apiSpecificationJsonFrom(resource);
+            final String apiSpecificationJson = apiSpecificationJsonFrom(resource);
+
+            log.debug(
+                "Retrieved specification content from {}; specification id: {}; content length: {}.",
+                serviceName,
+                specificationId,
+                apiSpecificationJson.length()
+            );
+
+            return apiSpecificationJson;
 
         }, "Failed to retrieve specification from {0} with id {1}.", serviceName, specificationId);
     }
@@ -73,6 +104,7 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
     }
 
     private Resource resourceAt(final String url) {
+        log.debug("Resolving CRISP resource; namespace: {}; endpoint: {}.", resourceNamespace, safeUri(url));
         return resourceServiceBroker.resolve(resourceNamespace, url);
     }
 
@@ -80,6 +112,19 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
 
     private String apiSpecificationJsonFrom(final Resource resource) {
         return resource.getNodeData().toString();
+    }
+
+    private String safeUri(final String url) {
+        try {
+            final URI uri = URI.create(url);
+            return uri.getScheme() + "://" + uri.getHost() + safePort(uri) + uri.getPath();
+        } catch (final Exception e) {
+            return "<invalid-url>";
+        }
+    }
+
+    private String safePort(final URI uri) {
+        return uri.getPort() == -1 ? "" : ":" + uri.getPort();
     }
 
     private <T> T throwServiceExceptionOnFailure(
@@ -96,6 +141,7 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
                 errorMessageArgs
             );
 
+            log.error(formattedErrorMessage, cause);
             throw new OpenApiSpecificationRepositoryException(formattedErrorMessage, cause);
         }
     }

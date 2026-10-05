@@ -15,9 +15,11 @@ import uk.nhs.digital.common.util.TimeProvider;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 public class ApiSpecificationPublicationService {
@@ -37,15 +39,25 @@ public class ApiSpecificationPublicationService {
     }
 
     public void syncEligibleSpecifications() {
+        log.info("API Specification sync: start; remote repository: {}.", remoteSpecRepository.getClass().getSimpleName());
+
         List<SpecificationSyncData> initialLocalSyncDataForAllSpecs = localSpecRepository.findInitialSyncDataForAllApiSpecifications();
+
+        log.info("API Specification sync: found {} local CMS API specifications.", initialLocalSyncDataForAllSpecs.size());
 
         final List<OpenApiSpecification> remoteSpecs = initialLocalSyncDataForAllSpecs.isEmpty()
             ? emptyList()
             : getRemoteSpecifications();
 
+        if (initialLocalSyncDataForAllSpecs.isEmpty()) {
+            log.info("API Specification sync: no local API specifications found; remote repository call skipped.");
+        }
+
         final Map<String, OpenApiSpecification> remoteSpecsById = Maps.uniqueIndex(
             remoteSpecs, OpenApiSpecification::getId
         );
+
+        reportMatchingStatus(initialLocalSyncDataForAllSpecs, remoteSpecsById);
 
         final ApiSpecificationImportMetadata apiSpecificationImportMetadata = apiSpecificationImportMetadata();
 
@@ -99,6 +111,10 @@ public class ApiSpecificationPublicationService {
 
                 boolean eligible = false;
                 if (specSyncData.remoteSpecReportedAsUpdated()) {
+                    log.debug(
+                        "{} Remote spec has changed since last check; retrieving local API Specification document.",
+                        specSyncData.specJcrHandleNodeId()
+                    );
 
                     specSyncData.setLocalSpec(localSpecRepository.findApiSpecification(specSyncData.specJcrHandleNodeId()));
 
@@ -113,6 +129,12 @@ public class ApiSpecificationPublicationService {
 
                 specSyncData.setEligible(eligible);
             } catch (final Exception e) {
+                log.error(
+                    "{} Failed while determining API Specification eligibility; specification id: {}.",
+                    specSyncData.specJcrHandleNodeId(),
+                    specSyncData.specificationId(),
+                    e
+                );
                 specSyncData.setError("Failed to determine whether the specification is eligible for update.", e);
             }
         });
@@ -127,6 +149,12 @@ public class ApiSpecificationPublicationService {
 
                 specSyncData.localMetadata().setLastChangeCheckInstant(nowInstant);
             } catch (final Exception cause) {
+                log.error(
+                    "{} Failed to update last change check instant; specification id: {}.",
+                    specSyncData.specJcrHandleNodeId(),
+                    specSyncData.specificationId(),
+                    cause
+                );
                 specSyncData.setError(
                     format("Failed to record time of last check on specification with id %s at %s.",
                         specSyncData.specificationId(),
@@ -151,6 +179,11 @@ public class ApiSpecificationPublicationService {
     private Consumer<SpecificationSyncData> ifSuccessfulSoFar(final Consumer<SpecificationSyncData> specificationSyncDataConsumer) {
         return specSyncData -> {
             if (specSyncData.failedEarlier()) {
+                log.debug(
+                    "{} Skipping remaining sync stages because an earlier stage failed; specification id: {}.",
+                    specSyncData.specJcrHandleNodeId(),
+                    specSyncData.specificationId()
+                );
                 return;
             }
 
@@ -197,14 +230,27 @@ public class ApiSpecificationPublicationService {
 
         log.debug("Retrieving API Specification statuses from remote repository: start.");
         final List<OpenApiSpecification> openApiSpecifications = remoteSpecRepository.apiSpecificationStatuses();
-        log.debug("Retrieving API Specification statuses from remote repository: found {} entries", openApiSpecifications.size());
+        log.info("Retrieving API Specification statuses from remote repository: found {} entries", openApiSpecifications.size());
 
         return openApiSpecifications;
     }
 
     private Predicate<SpecificationSyncData> specificationsPresentInBothSystems(
         final Map<String, OpenApiSpecification> remoteSpecsById) {
-        return specSyncData -> remoteSpecsById.containsKey(specSyncData.specificationId());
+        return specSyncData -> {
+            final boolean specificationPresentInBothSystems = remoteSpecsById.containsKey(specSyncData.specificationId());
+
+            if (!specificationPresentInBothSystems) {
+                log.debug(
+                    "Local API Specification does not exist in remote repository; specification id: {}; handle node id: {}; path: {}.",
+                    specSyncData.specificationId(),
+                    specSyncData.specJcrHandleNodeId(),
+                    specSyncData.specJcrPath()
+                );
+            }
+
+            return specificationPresentInBothSystems;
+        };
     }
 
     private void updateAndPublish(final SpecificationSyncData specSyncData) {
@@ -212,16 +258,72 @@ public class ApiSpecificationPublicationService {
         try {
             final ApiSpecificationDocument localSpec = specSyncData.localSpec();
 
+            log.debug(
+                "{} Retrieving remote specification JSON for publishing; specification id: {}.",
+                specSyncData.specJcrHandleNodeId(),
+                specSyncData.specificationId()
+            );
+
             specSyncData.remoteSpec().getSpecJson()
                 .ifPresent(localSpec::setJsonForPublishing);
+
+            log.debug(
+                "{} Saving and publishing local API Specification document; path: {}.",
+                specSyncData.specJcrHandleNodeId(),
+                localSpec.path()
+            );
 
             localSpec.saveAndPublish();
 
             specSyncData.markPublished();
 
         } catch (final Exception e) {
+            log.error(
+                "{} Failed to publish API Specification; specification id: {}; path: {}.",
+                specSyncData.specJcrHandleNodeId(),
+                specSyncData.specificationId(),
+                specSyncData.specJcrPath(),
+                e
+            );
             specSyncData.setError("Failed to publish.", e);
         }
     }
-}
 
+    private void reportMatchingStatus(
+        final List<SpecificationSyncData> localSpecs,
+        final Map<String, OpenApiSpecification> remoteSpecsById
+    ) {
+        final Set<String> localSpecIds = localSpecs.stream()
+            .map(SpecificationSyncData::specificationId)
+            .collect(Collectors.toSet());
+
+        final long localSpecsPresentInRemote = localSpecIds.stream()
+            .filter(remoteSpecsById::containsKey)
+            .count();
+
+        log.info(
+            "API Specification sync: matched {} of {} local specs with {} remote specs.",
+            localSpecsPresentInRemote,
+            localSpecs.size(),
+            remoteSpecsById.size()
+        );
+
+        final List<String> localSpecsMissingFromRemote = localSpecIds.stream()
+            .filter(specId -> !remoteSpecsById.containsKey(specId))
+            .sorted()
+            .collect(Collectors.toList());
+
+        if (!localSpecsMissingFromRemote.isEmpty()) {
+            log.debug("API Specification sync: local spec ids missing from remote repository: {}.", localSpecsMissingFromRemote);
+        }
+
+        final List<String> remoteSpecsMissingFromLocal = remoteSpecsById.keySet().stream()
+            .filter(specId -> !localSpecIds.contains(specId))
+            .sorted()
+            .collect(Collectors.toList());
+
+        if (!remoteSpecsMissingFromLocal.isEmpty()) {
+            log.debug("API Specification sync: remote spec ids not configured in CMS: {}.", remoteSpecsMissingFromLocal);
+        }
+    }
+}
