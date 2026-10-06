@@ -29,7 +29,6 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -45,7 +44,6 @@
     - publishedwork
     - blog
     - glossarylist
-    - roadmap
     - homepage
     - publication
     - supplementaryinformation
@@ -65,7 +63,6 @@
     - Published work
     - Blog posts
     - Glossaries
-    - Roadmaps
     - Homepages
     - Data publications
     - Information requests
@@ -102,7 +99,6 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -118,7 +114,6 @@
     - publishedwork
     - blog
     - glossarylist
-    - roadmap
     - homepage
     - publication
     - supplementaryinformation
@@ -138,7 +133,6 @@
     - Published work
     - Blog posts
     - Glossaries
-    - Roadmaps
     - Homepages
     - Data publications
     - Information requests
@@ -175,7 +169,6 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: doctype-labels
     resourcebundle:keys:
     - cyber-alerts
@@ -191,7 +184,6 @@
     - publishedwork
     - blog
     - glossarylist
-    - roadmap
     - homepage
     - publication
     - supplementaryinformation
@@ -211,7 +203,6 @@
     - Published work
     - Blog posts
     - Glossaries
-    - Roadmaps
     - Homepages
     - Data publications
     - Information requests

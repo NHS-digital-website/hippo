@@ -760,21 +760,6 @@ definitions:
           jcr:name: Responsibility
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
-      /website:roadmap:
-        /en:
-          jcr:name: Roadmap
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
-      /website:roadmapitem:
-        /en:
-          jcr:name: Roadmap item
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
-      /website:roadmapitemstatus:
-        /en:
-          jcr:name: Roadmap item Status
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
       /website:role:
         /en:
           jcr:name: Role

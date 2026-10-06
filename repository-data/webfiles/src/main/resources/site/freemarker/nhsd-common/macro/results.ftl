@@ -32,8 +32,6 @@
                 <@genericSearchElement item=document isShowTitle=false elemDate="" />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency"
                   || document.class.name == "uk.nhs.digital.website.beans.Service"
-                  || document.class.name == "uk.nhs.digital.website.beans.Roadmap"
-                  || document.class.name == "uk.nhs.digital.website.beans.RoadmapItem"
                   || document.class.name == "uk.nhs.digital.website.beans.GlossaryList"
                   || document.class.name == "uk.nhs.digital.website.beans.CyberAlert"
                   || document.class.name == "uk.nhs.digital.website.beans.Blog"

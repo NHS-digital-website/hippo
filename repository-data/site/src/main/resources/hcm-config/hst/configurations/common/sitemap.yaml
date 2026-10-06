@@ -20,8 +20,6 @@ definitions:
           - website:feedhub
           - website:financial
           - website:generalnonsearch
-          - website:roadmap
-          - website:roadmapitem
           - website:glossarylist
           - website:visualhub
           - website:apimaster
@@ -63,8 +61,6 @@ definitions:
           - hst:pages/feedhub
           - hst:pages/financial
           - hst:pages/general
-          - hst:pages/roadmap
-          - hst:pages/roadmapitem
           - hst:pages/glossarylist
           - hst:pages/visualhub
           - hst:pages/apimaster
@@ -113,8 +109,6 @@ definitions:
         - website:feedhub
         - website:financial
         - website:generalnonsearch
-        - website:roadmap
-        - website:roadmapitem
         - website:glossarylist
         - website:visualhub
         - website:apimaster
@@ -156,8 +150,6 @@ definitions:
         - hst:pages/feedhub
         - hst:pages/financial
         - hst:pages/general
-        - hst:pages/roadmap
-        - hst:pages/roadmapitem
         - hst:pages/glossarylist
         - hst:pages/visualhub
         - hst:pages/apimaster
