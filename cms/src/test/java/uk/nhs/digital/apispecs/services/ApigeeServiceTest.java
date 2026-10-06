@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import org.junit.Before;
@@ -15,11 +14,14 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
+import org.onehippo.cms7.crisp.api.resource.Binary;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepositoryException;
 import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ApigeeServiceTest {
@@ -32,6 +34,7 @@ public class ApigeeServiceTest {
 
     @Mock private ResourceServiceBroker broker;
     @Mock private Resource resource;
+    @Mock private Binary binary;
     @Mock private ResourceBeanMapper resourceBeanMapper;
     @Mock private RuntimeException collaboratorException;
 
@@ -94,23 +97,24 @@ public class ApigeeServiceTest {
 
 
     @Test
-    public void apiSpecificationJsonForSpecId_retrievesSpecificationsStatusesFromResourceServiceBroker() {
+    public void apiSpecificationJsonForSpecId_retrievesSpecificationContentAsBinaryFromResourceServiceBroker() throws Exception {
 
         // given
         final String anySpecificationId = "123456";
         final String singleSpecUrlWithGivenId = URL_SINGLE_SPEC_TEMPLATE.replace("{specificationId}", anySpecificationId);
-        final String expectedSpecificationJson = "{\"expected\":{\"specification\":\"json\"}}";
+        final String expectedSpecificationJson = "openapi: 3.0.0\ninfo:\n  title: Expected specification\n";
 
-        given(broker.resolve(any(), any())).willReturn(resource);
-        given(resource.getNodeData()).willReturn(expectedSpecificationJson);
+        given(broker.resolveBinary(any(), any())).willReturn(binary);
+        given(binary.getInputStream()).willReturn(new ByteArrayInputStream(expectedSpecificationJson.getBytes(StandardCharsets.UTF_8)));
 
         // when
         final String actualSpecificationJson = apigeeService.apiSpecificationJsonForSpecId(anySpecificationId);
 
         // then
-        then(broker).should().resolve(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API, singleSpecUrlWithGivenId);
+        then(broker).should().resolveBinary(RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API, singleSpecUrlWithGivenId);
+        then(binary).should().dispose();
         assertThat(
-            "Returns specification JSON as produced by CRISP API.",
+            "Returns specification content as produced by CRISP API.",
             actualSpecificationJson,
             is(expectedSpecificationJson)
         );
@@ -120,7 +124,7 @@ public class ApigeeServiceTest {
     public void apiSpecificationJsonForSpecId_throwsException_onFailure() {
 
         // given
-        given(broker.resolve(any(), any())).willThrow(collaboratorException);
+        given(broker.resolveBinary(any(), any())).willThrow(collaboratorException);
 
         final String anySpecificationId = "123456";
 

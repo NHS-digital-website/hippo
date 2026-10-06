@@ -12,7 +12,7 @@ import uk.nhs.digital.apispecs.model.OpenApiSpecification;
 
 import java.text.MessageFormat;
 import java.util.List;
-import java.util.function.Supplier;
+import java.util.concurrent.Callable;
 
 
 public abstract class RemoteSpecService implements OpenApiSpecificationRepository {
@@ -68,8 +68,16 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
         }, "Failed to retrieve specification from {0} with id {1}.", serviceName, specificationId);
     }
 
-    private String urlForSingleSpecification(final String specificationId) {
+    protected String urlForSingleSpecification(final String specificationId) {
         return UriComponentsBuilder.fromHttpUrl(singleSpecUrl).build(specificationId).toString();
+    }
+
+    protected ResourceServiceBroker resourceServiceBroker() {
+        return resourceServiceBroker;
+    }
+
+    protected String resourceNamespace() {
+        return resourceNamespace;
     }
 
     private Resource resourceAt(final String url) {
@@ -82,13 +90,13 @@ public abstract class RemoteSpecService implements OpenApiSpecificationRepositor
         return resource.getNodeData().toString();
     }
 
-    private <T> T throwServiceExceptionOnFailure(
-        final Supplier<T> supplier,
+    protected <T> T throwServiceExceptionOnFailure(
+        final Callable<T> supplier,
         final String errorMessage,
         final Object... errorMessageArgs
     ) {
         try {
-            return supplier.get();
+            return supplier.call();
         } catch (final Exception cause) {
 
             final String formattedErrorMessage = MessageFormat.format(

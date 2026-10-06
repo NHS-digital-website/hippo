@@ -66,7 +66,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     // Test data
     private static final String TEST_SPEC_ID = "269326";
     private static final String TEST_DATA_FILES_DIR = "/test-data/api-specifications/ApiSpecSyncFromApigeeJobIntegrationTest/";
-    private static final String SPEC_JSON_FROM_APIGEE = "{\"spec\":\"json from Apigee\"}";
+    private static final String SPEC_FROM_APIGEE = "openapi: 3.0.0\ninfo:\n  title: Spec from Apigee\n";
 
     // Apigee access
     private static final String PARAM_APIGEE_RESOURCES_SPECS_ALL_URL = "devzone.apigee.resources.specs.all.url";
@@ -140,7 +140,7 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         verifyOauth2AccessTokenRetrievedFromApigee();
         verifyApigeeRequestForSpecificationsStatuses();
         verifyApigeeRequestForSpecification();
-        verifyJsonReceivedFromApigeeSpecWasSetOnApiSpecificationDocument();
+        verifySpecReceivedFromApigeeWasSetOnApiSpecificationDocument();
         verifyApiSpecificationDocumentWasPublished();
         verifySessionLogOut();
     }
@@ -215,18 +215,18 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         MockCrispHstServices.setDefaultResourceServiceBroker(mockResourceServiceBroker);
     }
 
-    private void verifyJsonReceivedFromApigeeSpecWasSetOnApiSpecificationDocument() {
+    private void verifySpecReceivedFromApigeeWasSetOnApiSpecificationDocument() {
 
         final Node specificationHandleNode = existingSpecHandleNode();
 
         final Node documentVariantNodeDraft = getDocumentVariantNode(specificationHandleNode, DRAFT);
 
-        final String actualSpecJsonSavedInCms = JcrTestUtils.findStringProperty(documentVariantNodeDraft, PROPERTY_NAME_WEBSITE_JSON).orElse(null);
+        final String actualSpecSavedInCms = JcrTestUtils.findStringProperty(documentVariantNodeDraft, PROPERTY_NAME_WEBSITE_JSON).orElse(null);
 
         assertThat(
-            "API Specification JSON received from Apigee is saved on document.",
-            actualSpecJsonSavedInCms,
-            is(SPEC_JSON_FROM_APIGEE)
+            "API Specification content received from Apigee is saved on document.",
+            actualSpecSavedInCms,
+            is(SPEC_FROM_APIGEE)
         );
     }
 
@@ -317,8 +317,8 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
             get(urlMatching(APIGEE_SINGLE_SPEC_URL_PATH))
                 .willReturn(
                     ok()
-                        .withHeader("Content-Type", "application/json;charset=UTF-8")
-                        .withBody(SPEC_JSON_FROM_APIGEE)
+                        .withHeader("Content-Type", "application/yaml;charset=UTF-8")
+                        .withBody(SPEC_FROM_APIGEE)
                 )
         );
     }
