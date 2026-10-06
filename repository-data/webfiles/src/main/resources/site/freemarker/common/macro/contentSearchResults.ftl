@@ -107,8 +107,6 @@
             </#if>
             <#if docType == "website:gdprtransparency"
             ||  docType == "website:service"
-            ||  docType == "website:roadmap"
-            ||  docType == "website:roadmapitem"
             ||  docType == "website:glossarylist"
             ||  docType == "website:cyberalert"
             ||  docType == "website:blog"

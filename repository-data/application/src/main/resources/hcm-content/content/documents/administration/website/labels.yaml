@@ -16,8 +16,6 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
-    - labels.roadmap
-    - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
     - labels.bloghub
@@ -32,8 +30,6 @@
     - labels.feature
     resourcebundle:messages:
     - Service
-    - Roadmap
-    - Roadmap Item
     - Glossary list
     - Blog
     - Blog Hub
@@ -61,8 +57,6 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
-    - labels.roadmap
-    - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
     - labels.bloghub
@@ -77,8 +71,6 @@
     - labels.feature
     resourcebundle:messages:
     - Service
-    - Roadmap
-    - Roadmap Item
     - Glossary list
     - Blog
     - Blog Hub
@@ -108,8 +100,6 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
-    - labels.roadmap
-    - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
     - labels.bloghub
@@ -124,8 +114,6 @@
     - labels.feature
     resourcebundle:messages:
     - Service
-    - Roadmap
-    - Roadmap Item
     - Glossary list
     - Blog
     - Blog Hub
