@@ -18,6 +18,8 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.info.FeedHubComponentInfo;
 import uk.nhs.digital.common.enums.Region;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
@@ -39,6 +41,12 @@ import java.util.stream.Collectors;
 @ParametersInfo(type = FeedHubComponentInfo.class)
 public class FeedHubComponent extends ContentRewriterComponent {
 
+    private static final Logger log = LoggerFactory.getLogger(FeedHubComponent.class);
+
+    private static final Set<String> ALLOWED_SORT_VALUES = new HashSet<>(
+        Arrays.asList("date-desc", "date-asc", "title-desc", "title-asc")
+    );
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
@@ -47,20 +55,20 @@ public class FeedHubComponent extends ContentRewriterComponent {
         Map<String, String[]> filterValues = new HashMap<>();
         Map<String, String> topicMap = new HashMap<>();
 
-        String[] yearParams = getPublicRequestParameters(request, "year");
+        String[] yearParams = getValidYearParameters(request);
         filterValues.put("year", yearParams);
         if (yearParams.length > 0) {
-            filterValues.put("month", getPublicRequestParameters(request, "month"));
+            filterValues.put("month", getValidMonthParameters(request));
         }
-        filterValues.put("type[]", getPublicRequestParameters(request, "type[]"));
-        filterValues.put("severity", getPublicRequestParameters(request, "severity"));
+        filterValues.put("type[]", getSanitisedPublicRequestParameters(request, "type[]"));
+        filterValues.put("severity", getSanitisedPublicRequestParameters(request, "severity"));
 
-        filterValues.put("status", getPublicRequestParameters(request, "status"));
-        filterValues.put("granularity[]", getPublicRequestParameters(request, "granularity[]"));
-        filterValues.put("area[]", getPublicRequestParameters(request, "area[]"));
-        filterValues.put("information[]", getPublicRequestParameters(request, "information[]"));
-        filterValues.put("topic[]", getPublicRequestParameters(request, "topic[]"));
-        filterValues.put("upcoming", getPublicRequestParameters(request, "upcoming"));
+        filterValues.put("status", getSanitisedPublicRequestParameters(request, "status"));
+        filterValues.put("granularity[]", getSanitisedPublicRequestParameters(request, "granularity[]"));
+        filterValues.put("area[]", getSanitisedPublicRequestParameters(request, "area[]"));
+        filterValues.put("information[]", getSanitisedPublicRequestParameters(request, "information[]"));
+        filterValues.put("topic[]", getSanitisedPublicRequestParameters(request, "topic[]"));
+        filterValues.put("upcoming", getSanitisedPublicRequestParameters(request, "upcoming"));
 
         request.setAttribute("filterValues", filterValues);
         long filterCount = filterValues.values()
@@ -72,17 +80,21 @@ public class FeedHubComponent extends ContentRewriterComponent {
         if (queryText == null) {
             queryText = "";
         }
+        queryText = cleanupSearchQuery(queryText);
         request.setAttribute("query", queryText);
 
         String sort = getPublicRequestParameter(request, "sort");
-        if (sort == null) {
+        if (!ALLOWED_SORT_VALUES.contains(sort)) {
             sort = "date-desc";
         }
         request.setAttribute("sort", sort);
 
         String activeFiltersString = getPublicRequestParameter(request, "active-filters");
         if (activeFiltersString != null) {
-            String[] activeFilters = activeFiltersString.split(",");
+            String[] activeFilters = Arrays.stream(activeFiltersString.split(","))
+                .map(this::cleanupSearchQuery)
+                .filter(value -> value != null && !value.isEmpty())
+                .toArray(String[]::new);
             request.setAttribute("activeFilters", activeFilters);
         }
 
@@ -119,7 +131,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
             }
             request.setAttribute("filters", filters);
         } catch (QueryException e) {
-            e.printStackTrace();
+            log.error("Failed to build Feed Hub feed", e);
         }
     }
 
@@ -305,7 +317,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         return HippoBeanHelper.getTaxonomyKeysAndNames(seriesTaxFilters.keySet().toArray(new String[seriesTaxFilters.size()]));
     }
 
-    private <T extends HippoBean> List<T> getFeed(HstRequest request, String queryText, String sort, int limit, Map<String, String[]> filterValues) throws QueryException {
+    protected <T extends HippoBean> List<T> getFeed(HstRequest request, String queryText, String sort, int limit, Map<String, String[]> filterValues) throws QueryException {
         final HstRequestContext context = request.getRequestContext();
         FeedHub feedHub = (FeedHub) context.getContentBean();
         HippoBean folder = feedHub.getParentBean();
@@ -587,6 +599,25 @@ public class FeedHubComponent extends ContentRewriterComponent {
         return toList(beanIterator);
     }
 
+    private String[] getSanitisedPublicRequestParameters(HstRequest request, String parameterName) {
+        return Arrays.stream(getPublicRequestParameters(request, parameterName))
+            .map(this::cleanupSearchQuery)
+            .filter(value -> value != null && !value.isEmpty())
+            .toArray(String[]::new);
+    }
+
+    private String[] getValidYearParameters(HstRequest request) {
+        return Arrays.stream(getSanitisedPublicRequestParameters(request, "year"))
+            .filter(value -> value.matches("\\d{4}"))
+            .toArray(String[]::new);
+    }
+
+    private String[] getValidMonthParameters(HstRequest request) {
+        return Arrays.stream(getSanitisedPublicRequestParameters(request, "month"))
+            .filter(value -> getMonth(value) != null)
+            .toArray(String[]::new);
+    }
+
     private Integer getMonth(String monthName) {
         try {
             if (monthName != null) {
@@ -596,7 +627,8 @@ public class FeedHubComponent extends ContentRewriterComponent {
                 return cal.get(Calendar.MONTH);
             }
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.debug("Ignoring invalid Feed Hub month filter '{}'", monthName, e);
+            return null;
         }
 
         return null;
@@ -619,7 +651,7 @@ public class FeedHubComponent extends ContentRewriterComponent {
         filters.add(filterData);
     }
 
-    private Pageable<HippoBean> pageResults(List<HippoBean> feed, HstRequest request) {
+    protected Pageable<HippoBean> pageResults(List<HippoBean> feed, HstRequest request) {
         FeedHubComponentInfo info = getComponentParametersInfo(request);
         int pageSize = info.getLimit() > 0 ? info.getLimit() : 20;
         int page = getAnyIntParameter(request, "page", 1);
