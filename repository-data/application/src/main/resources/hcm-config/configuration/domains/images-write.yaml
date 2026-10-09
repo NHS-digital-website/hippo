@@ -5,6 +5,7 @@ definitions:
       /author:
         hipposys:groups:
         - intranet-author
+        - statistical-publications-and-clinical-indicators-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
       /editor:
@@ -37,6 +38,7 @@ definitions:
         - intranet-author
         - intranet-editor
         - statistical-publications-and-clinical-indicators-editor
+        - statistical-publications-and-clinical-indicators-author
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
       /website-folder-node:
