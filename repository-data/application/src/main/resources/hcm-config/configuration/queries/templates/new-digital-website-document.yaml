@@ -29,8 +29,7 @@ definitions:
         or @jcr:primaryType='website:hub' or @jcr:primaryType='website:location' or
         @jcr:primaryType='website:news' or @jcr:primaryType='website:service' or @jcr:primaryType='website:person'
         or @jcr:primaryType='website:publishedwork' or @jcr:primaryType='website:publishedworkchapter'
-        or @jcr:primaryType='website:generalnonsearch' or @jcr:primaryType='website:roadmap'
-        or @jcr:primaryType='website:roadmapitem' or @jcr:primaryType='website:glossarylist'
+        or @jcr:primaryType='website:generalnonsearch' or @jcr:primaryType='website:glossarylist'
         or @jcr:primaryType='website:visualhub' or @jcr:primaryType='website:apimaster'
         or @jcr:primaryType='website:apispecification' or @jcr:primaryType='website:apiendpoint'
         or @jcr:primaryType='website:categorylist' or @jcr:primaryType='website:blog'

@@ -390,7 +390,6 @@
     "website:publishedwork":                            "publishedwork",
     "website:blog":                                     "blog",
     "website:glossarylist":                             "glossarylist",
-    "website:roadmap":                                  "roadmap",
     "homepage":                                         "homepage",
     "publication":                                      "publication",
     "website:supplementaryinformation":                 "supplementaryinformation",
