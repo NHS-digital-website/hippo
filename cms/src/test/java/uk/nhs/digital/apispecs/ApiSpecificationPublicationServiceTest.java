@@ -272,7 +272,11 @@ public class ApiSpecificationPublicationServiceTest {
         );
         given(apiSpecDocumentRepo.findInitialSyncDataForAllApiSpecifications()).willReturn(singletonList(initialLocalSpecSyncData));
 
-        final ApiSpecificationDocument localSpec = localSpec().mock();
+        final ApiSpecificationDocument localSpec = localSpec()
+            .withPath(SPEC_HANDLE_NODE_PATH_A)
+            .withJson(LOCAL_SPEC_OLD_JSON)
+            .mock();
+        given(apiSpecDocumentRepo.findApiSpecification(SPEC_HANDLE_NODE_ID_A)).willReturn(localSpec);
 
         final OpenApiSpecification remoteSpecUnchangedSincePublishedLocally = remoteSpecWith(SPEC_ID_A, remoteSpecModificationTime);
         given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpecUnchangedSincePublishedLocally));
@@ -281,7 +285,7 @@ public class ApiSpecificationPublicationServiceTest {
         apiSpecificationPublicationService.syncEligibleSpecifications();
 
         // then
-        then(apiSpecDocumentRepo).should(never()).findApiSpecification(SPEC_HANDLE_NODE_ID_A);
+        then(apiSpecDocumentRepo).should().findApiSpecification(SPEC_HANDLE_NODE_ID_A);
         then(localSpec).should(never()).save();
 
         then(localSpec).should(never()).setJsonForPublishing(any());
@@ -290,8 +294,62 @@ public class ApiSpecificationPublicationServiceTest {
         metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
 
         logger.shouldReceive(
+            info(format("%s Remote spec is not newer than last check and local website:json is present; skipping content fetch.",
+                SPEC_HANDLE_NODE_ID_A)),
             info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 0, synced: 0, failed to sync: 0",
                 apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName()))
+        );
+    }
+
+    @Test
+    public void sync_publishesSpecification_ifLocalJsonIsMissingEvenWhenApigeeReportsNoChangeAfterLastCheckInCms() {
+
+        // given
+        // @formatter:off
+        final String remoteSpecModificationTime = "2020-05-10T10:30:00.000Z";
+        final String oldLocalCheckTime          = "2020-05-10T10:30:00.000Z";  // not older than remoteSpecModificationTime
+        final Instant newCheckTime              = nextNowIs("2020-05-10T10:30:00.002Z"); // younger than either of the above
+        // @formatter:on
+
+        metadataExistsForSpecWith(oldLocalCheckTime);
+
+        final ApiSpecificationImportMetadata newApiSpecificationImportMetadata = metadataWith(
+            newMetadataItem(SPEC_HANDLE_NODE_ID_A, newCheckTime) // last change check time expected to be updated
+        );
+
+        final SpecificationSyncData initialLocalSpecSyncData = SpecificationSyncData.with(
+            SPEC_ID_A,
+            SPEC_HANDLE_NODE_ID_A,
+            DRAFT_SPEC_PATH_A
+        );
+        given(apiSpecDocumentRepo.findInitialSyncDataForAllApiSpecifications()).willReturn(singletonList(initialLocalSpecSyncData));
+
+        final ApiSpecificationDocument localSpecWithoutJson = localSpec()
+            .withPath(SPEC_HANDLE_NODE_PATH_A)
+            .mock();
+        given(apiSpecDocumentRepo.findApiSpecification(SPEC_HANDLE_NODE_ID_A)).willReturn(localSpecWithoutJson);
+
+        final OpenApiSpecification remoteSpecUnchangedSinceLastCheck = remoteSpecWith(SPEC_ID_A, remoteSpecModificationTime);
+        given(apigeeService.apiSpecificationStatuses()).willReturn(singletonList(remoteSpecUnchangedSinceLastCheck));
+
+        given(apigeeService.apiSpecificationJsonForSpecId(SPEC_ID_A)).willReturn(REMOTE_SPEC_NEW_JSON);
+
+        // when
+        apiSpecificationPublicationService.syncEligibleSpecifications();
+
+        // then
+        then(apiSpecDocumentRepo).should().findApiSpecification(SPEC_HANDLE_NODE_ID_A);
+        then(localSpecWithoutJson).should().setJsonForPublishing(REMOTE_SPEC_NEW_JSON);
+        then(localSpecWithoutJson).should().saveAndPublish();
+
+        metadataForAllProcessedApiSpecsAreUpdatedAndSaved(newApiSpecificationImportMetadata);
+
+        logger.shouldReceive(
+            info(format("%s Remote spec is not newer than last check, but local website:json is missing; checking remote content.",
+                SPEC_HANDLE_NODE_ID_A)),
+            info(format("API Specifications found: in CMS: 1, in %s: 1, updated in %s and eligible to publish in CMS: 1, synced: 1, failed to sync: 0",
+                apigeeService.getClass().getSimpleName(), apigeeService.getClass().getSimpleName())),
+            info(format("Synchronised API Specification with id %s at %s", SPEC_ID_A, SPEC_HANDLE_NODE_PATH_A))
         );
     }
 

@@ -65,11 +65,23 @@ public class SpecificationSyncData {
         return jsonDiffers;
     }
 
+    public boolean localSpecContentMissing() {
+
+        final boolean localSpecContentMissing = localSpec.json()
+            .map(String::trim)
+            .map(String::isEmpty)
+            .orElse(true);
+
+        log.debug("{} Local spec content missing: {}.", apiSpecJcrHandleNodeId, localSpecContentMissing);
+
+        return localSpecContentMissing;
+    }
+
     public boolean remoteSpecReportedAsUpdated() {
 
         final boolean specReportedAsUpdated = remoteSpec.getModified().isAfter(localSpecLastCheckTime());
 
-        log.debug(
+        log.info(
             "{} Remote spec reported as modified after last check: {}; local: {}, remote: {} ",
             apiSpecJcrHandleNodeId,
             specReportedAsUpdated,

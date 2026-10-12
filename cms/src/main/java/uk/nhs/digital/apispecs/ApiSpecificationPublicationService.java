@@ -98,7 +98,9 @@ public class ApiSpecificationPublicationService {
                 log.debug("{} Determining eligibility for update: start.", specSyncData.specJcrHandleNodeId());
 
                 boolean eligible = false;
-                if (specSyncData.remoteSpecReportedAsUpdated()) {
+                final boolean remoteSpecReportedAsUpdated = specSyncData.remoteSpecReportedAsUpdated();
+
+                if (remoteSpecReportedAsUpdated) {
 
                     specSyncData.setLocalSpec(localSpecRepository.findApiSpecification(specSyncData.specJcrHandleNodeId()));
 
@@ -106,6 +108,18 @@ public class ApiSpecificationPublicationService {
 
                     if (!eligible) {
                         specSyncData.markSkipped();
+                    }
+                } else {
+                    specSyncData.setLocalSpec(localSpecRepository.findApiSpecification(specSyncData.specJcrHandleNodeId()));
+
+                    if (specSyncData.localSpecContentMissing()) {
+                        log.info("{} Remote spec is not newer than last check, but local website:json is missing; checking remote content.",
+                            specSyncData.specJcrHandleNodeId());
+
+                        eligible = specSyncData.specContentDiffersIgnoringVersion();
+                    } else {
+                        log.info("{} Remote spec is not newer than last check and local website:json is present; skipping content fetch.",
+                            specSyncData.specJcrHandleNodeId());
                     }
                 }
 
@@ -224,4 +238,3 @@ public class ApiSpecificationPublicationService {
         }
     }
 }
-
