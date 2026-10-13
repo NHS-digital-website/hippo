@@ -104,5 +104,8 @@
 
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
+
+    <#include "scripts/qualtrics.ftl">
+
   </body>
 </html>
