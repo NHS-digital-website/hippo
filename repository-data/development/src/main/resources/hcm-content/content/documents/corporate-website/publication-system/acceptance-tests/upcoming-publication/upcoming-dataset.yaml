@@ -2,15 +2,17 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/upcoming-dataset:
   /upcoming-dataset[1]:
     common:FacetType: dataset
-    common:orderedSearchDate: -1773878400000
+    common:orderedSearchDate: 1773878400000
     common:searchRank: 3
     common:searchable: false
     common:searchableType: true
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2020-03-20T13:08:02.343Z
+    hippostdpubwf:lastModificationDate: 2026-10-20T12:18:45.552Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -33,7 +35,7 @@
     publicationsystem:Title: Upcoming Dataset
   /upcoming-dataset[2]:
     common:FacetType: dataset
-    common:orderedSearchDate: -1773878400000
+    common:orderedSearchDate: 1773878400000
     common:searchRank: 3
     common:searchable: false
     common:searchableType: true
@@ -66,7 +68,7 @@
     publicationsystem:Title: Upcoming Dataset
   /upcoming-dataset[3]:
     common:FacetType: dataset
-    common:orderedSearchDate: -1773878400000
+    common:orderedSearchDate: 1773878400000
     common:searchRank: 3
     common:searchable: false
     common:searchableType: true
